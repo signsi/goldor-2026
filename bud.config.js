@@ -32,10 +32,13 @@ module.exports = async (app) => {
      *
      * This is your local dev server.
      */
-    .proxy('http://example.test')
+    // .proxy('http://example.test')
+    .proxy('http://localhost:8007')
+
 
     /**
      * Development URL
      */
-    .serve('http://example.test:3000');
+    // .serve('http://example.test:3000');
+    .serve('http://localhost:8007');
 };
