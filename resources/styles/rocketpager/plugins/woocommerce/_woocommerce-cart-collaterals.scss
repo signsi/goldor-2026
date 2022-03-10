@@ -1,0 +1,49 @@
+.cart_totals {
+    table.shop_table {
+        tbody {
+            tr {
+                th, td {
+                    padding: 25px 0;
+                    border-top: none!important;
+                }
+                th {
+                    @include cartHeading;
+                    @include breakpoint(medium) {
+                        max-width: 110px;
+                    }
+                }
+                &:first-child {
+                    td, th {
+                        padding-top: 0;
+                        padding-bottom: 15px;;
+                    }
+                }
+                &.woocommerce-shipping-totals {
+                    border-bottom: none!important;
+                    td, th {
+                        padding-bottom: 0!important;
+                    }
+                    td {
+                        text-align: left!important;
+                    }
+                }
+                &.calculator-wrapper {
+                    td {
+                        padding-top: 0;
+                        width: 100%;
+                        #calc_shipping_state_field {
+                            > span {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                &.order-total {
+                    td {
+                        padding: 25px 25px 25px 0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,118 @@
+.rocketpager-accordion {
+  .accordion {
+    background-color: transparent;
+    margin-bottom: 0;
+    .accordion-item {
+      padding-left: 0;
+      display: block;
+      &:before {
+        display: none;
+      }
+    }
+    .accordion-title {
+      @extend %font-size-paragraph !optional;
+      font-weight: bold;
+      color: $color-font;
+      border-left: none;
+      border-right: none;  
+      border: none;
+      text-decoration: none;
+      margin-bottom: 0;
+      border-bottom: 1px solid $color-font;
+      padding: 10px 25px 10px 0;
+      @include breakpoint(medium) {
+        padding: 20px 25px 20px 0;
+      }
+      &:before {
+        left: inherit;
+        right: 0;
+        @extend %fontawesome-icons-style-pro !optional;
+        font-size: 21px;
+        font-weight: 300;
+        content: "\f0ab";
+        margin-top: -10px;
+      }
+    }
+    .is-active>.accordion-title {
+      color: $color-primary;
+      border-bottom: 1px solid $color-primary;
+      &:before {
+        content: "\f0aa";
+        color: $color-primary;
+      }
+    }
+    .accordion-content {
+      background-color: transparent;
+      border: none;
+      padding: 10px 10px 20px 0;
+      @include breakpoint(medium) {
+        padding: 20px 20px 40px 0;
+      }
+      p {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+.bg-primary {
+  .accordion {
+    .accordion-title, .accordion-content {
+      color: $color-white;
+    }
+    .accordion-title {
+      border-bottom: 1px solid $color-white;
+    }
+    .accordion-content {
+      color: $color-white;
+    }
+    .is-active>.accordion-title {
+      color: $color-font;
+      border-bottom: 1px solid $color-font;
+      &:before {
+        color: $color-font;
+      }
+    }
+  }
+}
+.bg-white {
+  .accordion {
+    .accordion-title, .accordion-content {
+      color: $color-primary;
+    }
+    .accordion-title {
+      border-bottom: 1px solid $color-primary;
+    }
+    .accordion-content {
+      color: $color-primary;
+    }
+    .is-active>.accordion-title {
+      color: $color-font;
+      border-bottom: 1px solid $color-font;
+      &:before {
+        color: $color-font;
+      }
+    }
+  }
+}
+.bg-black {
+  .accordion {
+    .accordion-title, .accordion-content {
+      color: $color-white;
+    }
+    .accordion-title {
+      border-bottom: 1px solid $color-white;
+    }
+    .accordion-content {
+      color: $color-white;
+    }
+    .is-active>.accordion-title {
+      color: $color-primary;
+      border-bottom: 1px solid $color-primary;
+      &:before {
+        color: $color-primary;
+      }
+    }
+  }
+}

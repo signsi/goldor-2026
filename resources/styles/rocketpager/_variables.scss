@@ -1,0 +1,98 @@
+// FONT
+$font-family-1: 'Archivo', sans-serif;
+$font-family-2: 'Roboto', sans-serif;
+
+// COLORS
+$color-primary: #ff0096;
+$color-secondary: #F1D9E7;
+$color-white: #fff;
+$color-black: #000;
+$color-grey: #676767;
+$color-grey-light: #a8a8a8;
+$color-grey-lighter: #ebe9eb;
+$color-font: $color-black;
+$color-border: #707070;
+$color-section-grey: #F2F2EF;
+$color-green: #46b450;
+$color-yellow: #ffb900;
+$color-red: #8f1010;
+$color-orange: #f56e28;
+$color-gold: #f9bc7d;
+
+// Transition
+$trans-a: all .3s ease-in-out;
+$trans-b: background-color .3s ease-in-out;
+$trans-c: color .3s ease-in-out;
+$trans-o: opacity .3s ease-in-out;
+$trans-t: transform .3s ease-in-out;
+$trans-bc: border-color .3s ease-in-out;
+$trans-bo: border .3s ease-in-out;
+$trans-bs: box-shadow .3s ease-in-out;
+
+// SPALTENGRÖSSEN
+$global-width-slim: rem-calc(752);
+$global-width-slimmer: rem-calc(600);
+$global-width-large: rem-calc(1140);
+$global-width-xlarge: rem-calc(1440);
+$global-width-default: $global-width-slim;
+$global-width-header: $global-width-xlarge;
+$global-width-footer: $global-width-xlarge;
+
+// HEADER
+$nav-padding-horizontal: rem-calc(10px);
+$nav-padding-vertical: rem-calc(7px);
+$nav-min-height: rem-calc(90px);
+$nav-min-height-small: rem-calc(60px);
+$logo-height: rem-calc(40px);
+$icon-nav-min-height: rem-calc(40px);
+$language-nav-icon-size: 25px;
+$hamburger-layer-color: $color-black !default;
+$hamburger-layer-border-radius: 1px !default;
+$hamburger-layer-width1: 30px;
+
+// GUTTER-SIZE ABSTÄNDE FÜR XY GRID FOUNDATION
+$gutter-size-mobile: 20px;
+$gutter-size-display: 30px;
+$gap-element-desktop: 60px;
+
+
+// ABSTÄNDE OBEN UND UNTEN FÜR INHALTSELEMENTER
+$gap-element-mobile: 30px;
+$gap-element-tablet: 40px;
+$gap-element-desktop: 60px;
+
+// ABSTÄNDE OBEN UND UNTEN FÜR SECTIONS
+$gap-section-xs: 30px;
+$gap-section-small: 40px;
+$gap-section-medium: 40px;
+$gap-section-large: 40px;
+$gap-section-xlarge: 60px;
+$gap-section-xxlarge: 90px;
+$gap-section-xxxlarge: 110px;
+
+// GLOBAL
+$color-bg-body: $color-section-grey;
+
+// WRAPPER
+$color-bg-bright: $color-grey-lighter;
+$color-bg-dark: $color-black;
+$color-bg-primary: $color-primary;
+$color-bg-secondary: $color-secondary;
+
+// FONTAWESOME ICONS
+$icon-check: '\f00c';
+$icon-check-circle: '\f058';
+$icon-arrow-right: '\f061';
+$icon-caret-left: '\f0d9';
+$icon-caret-right: '\f0da';
+$icon-long-arrow-right: '\f178';
+$icon-dot-circle: '\f192';
+$icon-external-link: '\f08e';
+$icon-angle-right: '\f105';
+$icon-file-pdf: '\f1c1';
+$icon-download: '\f019';
+$icon-star: '\f005';
+$icon-chevron-up: '\f077';
+$icon-chevron-down: '\f078';
+$icon-circle-empty: '\f111';
+$icon-circle-filled: '\f2f8';

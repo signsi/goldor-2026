@@ -1,0 +1,65 @@
+.rocketpager-text-image-list, %rocketpager-text-image-list {
+    .cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background: $color-white;
+        margin-bottom: 15px;
+        @include breakpoint(medium) {
+            margin-bottom: 25px;
+        }
+        img {
+            margin-bottom: 0;
+        }
+        .title-wrapper {
+            padding: 15px 15px 0 15px;
+            @include breakpoint(medium) {
+                padding: 20px 20px 0 20px;
+            }
+            @include breakpoint(large) {
+                padding: 30px 30px 0 30px;
+            }
+        }
+        .text-wrapper {
+            padding: 0 15px 15px 15px;
+            @include breakpoint(medium) {
+                padding: 0 20px 20px 20px;
+            }
+            @include breakpoint(large) {
+                padding: 0 30px 30px 30px;
+            }
+        }
+        .linklist-wrapper {
+            margin-top: auto;
+            margin-bottom: 0;
+            padding: 0 15px;
+            @include breakpoint(medium) {
+                padding: 0 20px;
+            }
+            @include breakpoint(large) {
+                padding: 0 30px;
+            }
+            color: $color-primary;
+            a {
+                color: $color-primary;
+                &:hover {
+                    color: $color-font;
+                }
+            }
+            ul {
+                @extend %list-style-arrow-right !optional;
+                    li {
+                    &:before {
+                        top: 1px;
+                        color: $color-primary;
+                    }
+                    &:hover {
+                        &:before {
+                            color: $color-font;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

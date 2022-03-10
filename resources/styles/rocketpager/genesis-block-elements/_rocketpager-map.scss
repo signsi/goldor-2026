@@ -1,0 +1,13 @@
+.rocketpager-map {
+  .mapsize {
+    &--small {
+        @extend %headerimage-size-small !optional;
+    }
+    &--medium {
+        @extend %headerimage-size-medium !optional;
+    }
+    &--vh {
+        @extend %headerimage-size-vh !optional;
+    }
+  }
+}

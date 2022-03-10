@@ -1,0 +1,277 @@
+
+.woocommerce-checkout {
+    p,
+    .woocommerce form .form-row,
+    [type],
+    textarea,
+    textarea::placeholder,
+    .woocommerce-shipping-fields label,
+    table.shop_table tbody tr td.product-name,
+    table.shop_table tbody tr td.product-total {
+        @extend %woocommerceFontSizeSmall !optional;
+    }
+    .woocommerce {
+        @extend %padding-large-tb !optional;
+    }
+    .col-wrapper {
+        margin-top: 30px;
+        @include breakpoint(medium) {
+            margin-top: 40px;
+        }
+    }
+
+    // Login Form
+    .woocommerce-form-login {
+        margin-top: 4px;
+        input.woocommerce-form__input {
+            margin-bottom: 0;
+        }
+        .woocommerce-form-login__rememberme {
+            display: flex;
+            align-items: center;
+        }
+        .woocommerce-form-login__submit {
+            margin-left: 10px;
+        }
+    }
+    // Login Form End
+
+    // Form
+    .woocommerce form .checkout-form-column {
+        @include gapSizeRight;
+        .form-row {
+            padding: 0;
+            margin: 0 0 10px 0;
+            @include breakpoint(large) {
+                margin: 0 0 15px 0;
+            }
+            width: 100%;
+            display: block;
+            float: left;
+
+            // Create Account
+            &.create-account {
+                margin-bottom: 0;
+            }
+            // Create Account END
+
+            [type],
+            textarea {
+                color: $color-grey-light;
+                background-color: $color-white;
+                font-weight: 300;
+                &::placeholder {
+                    color: $color-grey-light;
+                }
+            }
+            [type] {
+                height: $formHeight;
+            }
+            textarea {
+                height: 100px;
+            }
+        }
+    }
+    // Form END
+
+    // Shipping & Billing Field
+    .form-row .input-text{
+        margin-bottom: 30px;
+        @include breakpoint(medium) {
+            margin-bottom: 0;
+        }
+    }
+    // Shipping & Billing Field END
+
+    // 2 Cols
+    #billing_first_name_field,
+    #shipping_first_name_field {
+        @include breakpoint(medium) {
+            float: left!important;
+            width: 48%;
+        }
+    }
+    #billing_last_name_field ,
+    #shipping_last_name_field {
+        @include breakpoint(medium) {
+            float: right!important;
+            width: 48%;
+        }
+    }
+    // 2 Cols END
+
+    // Payment Method - Info
+    #payment ul.payment_methods {
+        border-bottom: none;
+        li.woocommerce-info {
+            padding: 0;
+            background: inherit;
+            border-top: 0;
+            &:before {
+                display: none;
+            }
+        }
+        li {
+            // Stripe
+            &.payment_method_stripe {
+                p.woocommerce-SavedPaymentMethods-saveNew {
+                    padding: 0;
+                    label {
+                        @extend %font-size-paragraph-has-small-font-size !optional;
+                        max-width: calc(100% - 18px);
+                        padding-left: 5px;
+                    }
+                }
+                fieldset#wc-stripe-cc-form {
+                    display: flex;
+                    flex-direction: column;
+                    .form-row {
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 0!important;
+                        padding: 0 0 10px 0!important;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    // Payment Method - Info END
+
+    // Order
+    table.shop_table {
+        margin: 0 0 30px 0;
+        border: 0;
+        border-radius: 0;
+        thead {
+            tr {
+                &:first-child {
+                    th {
+                        padding-top: 0;
+                        padding-bottom: 15px;
+                        padding-right: 0;
+                    }
+                }
+                th {
+                    @include cartHeading;
+                    @include breakpoint(small only) {
+                        display: table-cell;
+                    }
+                    &.product-name {
+                        @include breakpoint(small only) {
+                            padding-left: 0;
+                        }
+                    }
+                    &.product-total {
+                        text-align: right;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    &.product-name {
+                        padding-right: 0;
+                        @include variation;
+                        @include breakpoint(small only) {
+                            padding-left: 0;
+                        }
+                        .variation {
+                            display: none;
+                        }
+                        &, strong.product-quantity {
+                            font-weight: 300;
+                        }
+                    }
+                    &.product-total {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+        tfoot {
+            tr {
+                &.calculator-wrapper {
+                    display: none;
+                }
+                &.order-total,
+                &.cart-subtotal,
+                &.shipping {
+                    th {
+                        @include breakpoint(small only) {
+                            padding-left: 0!important;
+                            max-width: 90px;
+                        }
+                    }
+                    td {
+                        text-align: right;
+                    }
+                }
+                &.tax-rate, &.tax-total {
+                    td {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+    // Order END
+}
+.woocommerce {
+    .select2-container .select2-selection--single {
+        @extend %woocommerceFontSizeSmall !optional;
+        color: $color-grey-light;
+        &::placeholder {
+            color: $color-grey-light;
+        }
+        height: $formHeight;
+        background-color: $color-white;
+    }
+    .select2-container--default .select2-selection--single {
+        border-radius: 0;
+        box-shadow: inset 0 1px 2px rgb(0 0 0 / 10%);
+        color: $color-grey-light;
+        .select2-selection__arrow {
+            top: 8px;
+        }
+        .select2-selection__rendered {
+            @extend %woocommerceFontSizeSmall !optional;
+            line-height: $formHeight;
+            color: $color-grey-light;
+            text-align: left;
+        }
+        span.select2-selection__rendered {
+            height: $formHeight;
+            display: flex;
+            align-items: center;
+        }
+    }
+    form .form-row.woocommerce-invalid .select2-container,
+    form .form-row.woocommerce-invalid input.input-text,
+    form .form-row.woocommerce-invalid select {
+        border-color: $color-red;
+    }
+    // AGB's
+    .woocommerce-terms-and-conditions {
+        h1, h2, h3, h4, h5, h6{
+            font-size: $fontSizeParagraph;
+            margin-bottom: 10px;
+        }
+        .wp-block-group {
+            padding: 0;
+        }
+    }
+    .woocommerce-terms-and-conditions-wrapper .validate-required {
+        label.checkbox {
+            @extend %font-size-paragraph-has-small-font-size !optional;
+            @include globalMarginBottom-1;
+        }
+    }
+    .woocommerce-invalid #terms {
+        outline: none;
+        outline-offset: 2px;
+    }
+    // AGB's END
+}

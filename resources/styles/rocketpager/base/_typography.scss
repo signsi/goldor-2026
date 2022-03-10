@@ -1,0 +1,183 @@
+h1,
+.title_style {
+  @include font-size-heading-1;
+}
+
+h2,
+h2 strong, 
+.title_style-2,
+h1.is-style-title_style-2,
+h1.is-style-title_style-2 strong {
+  @extend %font-size-heading-2 !optional;
+}
+ 
+h3,
+.title_style-3 {
+  @extend %font-size-heading-3 !optional;
+}
+
+h4,
+.title_style-4 {
+  @extend %font-size-heading-4 !optional;
+}
+
+h5,
+.title_style-5 {
+  @extend %font-size-heading-5 !optional;
+}
+
+h6,
+.title_style-6 {
+  @extend %font-size-heading-6 !optional;
+}
+
+h1, h2, h3, h4, h5, h6, [class^="title_style"] {
+  &:first-child {
+    margin-top: 0;
+  }
+  a {
+    &:hover {
+      text-decoration: none;
+      color: $color-font;
+    }
+  }
+  &.checklist {
+    position: relative;
+    padding-left: 30px;
+    @include breakpoint(medium) {
+      padding-left: 35px;
+    }
+    @include breakpoint(large) {
+      padding-left: 40px;
+    }
+    @include breakpoint(xlarge) {
+      padding-left: 50px;
+    }
+    &:before {
+      @extend %fontawesome-icons-style-pro !optional;
+      position: absolute;
+      top: 4px;
+      left: 0;
+      margin-right: inherit;
+      content: $icon-check-circle;
+      @include breakpoint(xlarge) {
+
+      }
+    }
+  }
+}
+
+p,
+.wp-block-column ul,
+.wp-block-group ul,
+.wp-block-group ol,
+.wp-block-column ol {
+  &, li {
+    @extend %font-size-paragraph !optional;
+    &.has-small-font-size {
+      @extend %font-size-paragraph-has-small-font-size !optional;
+    }
+    &.has-medium-font-size {
+      @extend %font-size-paragraph-has-medium-font-size !optional;
+    }
+    li {
+      margin-bottom: 5px;
+      @include breakpoint(medium) {
+        margin-bottom: 10px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      &:hover {
+        color: $color-font;
+        text-decoration: none;
+      }
+    }
+  }
+}
+p + h2, 
+p  + h3, 
+p + h4,
+p  + h5, 
+p + h6,
+ul + h2, 
+ul + h3, 
+ul + h4,
+ul + h5, 
+ul + h6,
+ol + h2, 
+ol  + h3, 
+ol + h4,
+ol  + h5, 
+ol + h6 {
+  margin-top: 30px;
+  @include breakpoint(medium) {
+    margin-top: 40px;
+  }
+  @include breakpoint(large) {
+    margin-top: 50px;
+  }
+}
+// .wp-block-column ul, .wp-block-group ul {
+//   @extend %list-style-arrow-right !optional;
+// }
+.wp-block-column ol, .wp-block-group ol {
+  list-style: decimal;
+}
+
+.wp-block-button__link {
+  @extend %font-size-button !optional;
+}
+
+/* Table */
+.wp-block-table {
+  background-color: $color-font;
+  color: $color-white;
+  margin-bottom: 20px;
+  padding: 20px;
+  @include breakpoint(medium) {
+    margin-bottom: 30px;
+    padding: 30px;
+  }
+  @include breakpoint(large) {
+    margin-bottom: 40px;
+    padding: 40px;
+  }
+  @include breakpoint(xlarge) {
+    margin-bottom: 60px;
+    padding: 60px;
+  }
+  table {
+    tr {
+      td {
+        padding: 0 15px 15px 0;
+        &:first-child {
+            font-weight: bold;
+            word-break: normal;
+        }
+        @include fluid-type($font-min-vw, $font-max-vw, 16px, 19px);
+      }
+      &:last-child {
+        td {
+          padding: 0 15px 0 0;
+        }
+      }
+    }
+  } 
+}
+
+/* Link Reset */
+a {
+  transition: $trans-c;
+  &:hover {
+    text-decoration: none;
+  }
+}
+a:not([href]):not([class]):hover {
+  color: initial;
+  text-decoration: none;
+}

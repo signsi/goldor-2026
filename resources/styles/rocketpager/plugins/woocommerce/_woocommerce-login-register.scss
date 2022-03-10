@@ -1,0 +1,101 @@
+.woocommerce-account {
+    .form-outer-wrapper {
+        .woocommerce-notices-wrapper .woocommerce-error {
+            margin-bottom: 40px;
+        }
+    }
+    .myaccount-login {
+        .overflow-container {
+            overflow: hidden;
+            .login-page-form {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 25px;
+                display: flex;
+                justify-content: center;
+                li {
+                    display: inline-flex;
+                    align-items: center;
+                    padding: 0 15px;
+                    margin-bottom: 0;
+                    a {
+                        @extend %woocommerceLoginRegister !optional;
+                        position: relative;
+                        color: $color-grey;
+                        letter-spacing: 0.07em;
+                        &:hover {
+                            color: $color-font;
+                        }
+                        &.active:before {
+                            transform: scale(1, 1);
+                        }
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            bottom: -5px;
+                            left: 0;
+                            right: 0;
+                            border-bottom: 1px solid $color-font;
+                            transform-origin: 0 0;
+                            transform: scale(0, 1);
+                        }
+                    }
+                }
+            }
+            .form-container {
+                display: flex;
+                transform: translateX(0%);
+                transition: all 0.25s cubic-bezier(0.104, 0.204, 0.492, 1);
+                &.register-active {
+                    transform: translateX(-50%);
+                    width: 200%;
+                    .register-form {
+                        opacity: 1;
+                        display: block;
+                    }
+                }
+                .login-form, .register-form {
+                    padding: 0;
+                    width: 100%;
+                    will-change: opacity;
+                    transition: all 0.25s cubic-bezier(0.104, 0.204, 0.492, 1);
+                    form {
+                        padding: 0;
+                    }
+                    .form-row {
+                        width: 100%;
+                        display: block;
+                        float: left;
+                        padding: 0;
+                        margin: 0 0 10px;
+                    }
+                    .woocommerce-privacy-policy-text p,
+                    label, a {
+                        font-size: $smallFontsize;
+                    }
+                }
+                .login-form {
+                    .woocommerce-LostPassword {
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        display: flex;
+                        clear: both;
+                        .woocommerce-form-login__rememberme {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            [type=checkbox]{
+                                margin: 3px 7px 5px 0;
+                            }
+                        }
+                    }
+                }
+                .register-form {
+                    opacity: 0;
+                    display: none;
+                }
+            }
+        }
+    }
+}

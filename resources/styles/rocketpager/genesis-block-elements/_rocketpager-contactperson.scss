@@ -1,0 +1,58 @@
+.rocketpager-contactperson{
+    .contact-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        flex-direction: column-reverse;
+        @include breakpoint(large){
+            flex-direction: row;
+        }
+        &>div:not(.info-container){
+            width: 100%;
+            max-width: 175px;
+            @include breakpoint(medium){
+                max-width: 200px;
+            }
+            @include breakpoint(xlarge){
+                max-width: 250px;
+            }
+        }
+        .info-container{
+            @extend %font-size-contact !optional;
+            text-align: center;
+            padding: 0;
+            @include breakpoint(large){
+                padding: 0 80px;
+            }
+            .info-slogan{
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-bottom: 0;
+            }
+            .info-title{
+                text-transform: uppercase;
+                margin-top: 15px;
+            }
+        }
+        .image-container{
+            margin-bottom: 25px;
+            @include breakpoint(large){
+                margin-bottom: 0;
+            }
+            width: 175px;
+            height: 175px;
+            @include breakpoint(medium){
+                width: 200px;
+                height: 200px;
+            }
+            @include breakpoint(xlarge){
+                width: 250px;
+                height: 250px;
+            }
+            img {
+                border-radius: 50%;
+            }
+        }
+    }
+}

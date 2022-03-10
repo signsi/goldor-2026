@@ -1,0 +1,89 @@
+.rocketpager-carousel-slider{
+    .text-wrapper {
+        padding: 20px;
+        @include breakpoint(medium) {
+            padding: 40px;
+        }
+        @include breakpoint(large) {
+            padding: 60px;
+        }
+        text-align: center;
+        p{
+            &.title {
+                margin-bottom: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .wp-block-buttons {
+            margin-bottom: 0;
+            margin-top: 30px;
+            .wp-block-button {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Slider-Settings
+    .slick-prev {
+        left: -8px;
+        @include breakpoint(medium) {
+            left: 0;
+        }
+        @include breakpoint(fullhd) {
+            left: -5%;
+        }
+    }
+    .slick-next {
+        right: -8px;
+        @include breakpoint(medium) {
+            right: 0;
+        }
+        @include breakpoint(fullhd) {
+            right: -5%;
+        }
+    }
+    .slick-prev, .slick-next {
+        top: 50%;
+        bottom: 0;
+        &:active {
+            &:before{
+                color: $color-primary;
+            }
+        }
+        &:before {
+            font-size: 20px;
+            @include breakpoint(medium) {
+                font-size: 30px;
+            }
+            @include breakpoint(large) {
+                font-size: 40px;
+            }
+            font-weight: 300;
+          }
+    }
+
+    // Stil - Ausrichtung links, Abstand zwischen Elementen
+    &.box-slider{
+        padding-right: 0;
+        padding-left: 0;
+        .carousel-element {
+            @include breakpoint(small only) {
+                padding: 0 0 15px 0;
+            }
+            padding: 0 15px 15px 15px;
+        }
+        .text-wrapper {
+            padding: 30px 0 15px 0;
+            text-align: left;
+            p.title {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+// .rocketpager-carousel-slider, 
+// .carousel-title {
+//     @extend %boxed-layout !optional;
+//  }

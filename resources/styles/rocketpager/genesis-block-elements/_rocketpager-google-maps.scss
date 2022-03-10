@@ -1,0 +1,50 @@
+$color-bg-infowindow: $color-primary;
+$color-font-infowindow: $color-white;
+
+.rocketpager-google-maps{
+    #map{
+        width: 100%;
+        &.mapsize {
+            &--16x9 {
+                padding-top: 56.25%;
+            }
+            &--4x3 {
+                padding-top: 75%;
+            }
+            &--small {
+                @extend %headerimage-size-small !optional;
+            }
+            &--medium {
+                @extend %headerimage-size-medium !optional;
+            }
+            &--vh {
+                @extend %headerimage-size-vh !optional;
+            }
+        }
+
+        // Um das InfoWindow zu Stylen kann der kommentierte Code verwendet werden. Zu beachten gilt jedoch, dass davon alle aktiven InfoWindows betroffen sind.
+        // Damit dies vernünftig funktioniert, müsste man die Map so Stylen, dass es nur den definierten Marker gibt.
+
+        /*.gm-style-iw.gm-style-iw-c{
+            background-color: $color-bg-infowindow;
+            padding: 12px !important;
+            .gm-style-iw-d{
+                overflow: hidden !important;*/
+                #data-content{
+                    margin-top: 0.3em;                    
+                    p, a{
+                        margin: 0;
+                        font-size: 14px;
+                        line-height: 1.5;
+                    }
+                }
+        /*    }
+            *{
+                color: $color-font-infowindow;
+            }
+        }*/
+    }
+    >#data-content{
+        opacity: 0;
+    }
+}

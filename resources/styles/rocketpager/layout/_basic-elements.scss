@@ -1,0 +1,277 @@
+/* Gradient */
+.bg-gradient {
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    z-index: -1;
+    background: transparent
+      linear-gradient(180deg, $color-grey-lighter 0%, $color-white 100%) 0% 0%
+      no-repeat padding-box;
+  }
+}
+
+/* Background-Image-Styles */
+div[class*='bg-image-wrapper'] {
+  position: relative;
+  // Default
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: '';
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  // Images
+  &.bg1::before {
+    background-image: url('/wp-content/uploads/2021/08/bg-1.png');
+  }
+
+  &.bg2::before {
+    background-image: url('/wp-content/uploads/2021/08/bg-2.png');
+  }
+  // Styles
+  &.contain::before {
+    background-size: contain;
+  }
+
+  &.repeat::before {
+    background-repeat: repeat;
+  }
+
+  &.position-lt::before {
+    background-position: left top;
+  }
+
+  &.position-lc::before {
+    background-position: left center;
+  }
+
+  &.position-lb::before {
+    background-position: left bottom;
+  }
+
+  &.position-ct::before {
+    background-position: center top;
+  }
+
+  &.position-cb::before {
+    background-position: center bottom;
+  }
+
+  &.position-rt::before {
+    background-position: right top;
+  }
+
+  &.position-rc::before {
+    background-position: right center;
+  }
+
+  &.position-rb::before {
+    background-position: right bottom;
+  }
+}
+/* Background-Image-Styles END */
+
+/* Page-Jump-Navigation */
+.page-jump-navigation {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 20px;
+    @include breakpoint(medium) {
+      margin-bottom: 25px;
+    }
+    @include breakpoint(large) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .wp-block-buttons {
+    margin-bottom: 0;
+
+    .wp-block-button {
+      margin: 0 5px;
+      // @media screen and (max-width: 375px) {
+      //   width: 100%;
+      //   a {
+      //     width: 100%;
+      //     margin: 10px;
+      //   }
+      //   &:last-child a {
+      //     margin-bottom: 0;
+      //   }
+      // }
+      @include breakpoint(medium) {
+        margin: 0 10px;
+      }
+      @include breakpoint(large) {
+        margin: 0 15px;
+      }
+
+      .wp-block-button__link {
+        @include breakpoint(large) {
+          transform: scale(1);
+          animation: pulse 1s infinite;
+          padding: 20px 50px;
+        }
+      }
+
+      .prev,
+      .next {
+        font-weight: 300;
+      }
+
+      .prev {
+        margin-right: 10px;
+      }
+
+      .next {
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .wp-block-group.alignwide {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+// NEXT-PREV-NAVIGATION
+.page_nav,
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
+  // for Magazin-List
+  .page-numbers {
+    margin-right: 10px;
+    background-color: $color-primary;
+    padding: 5px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-secondary;
+      color: $color-white;
+    }
+
+    &.current {
+      background-color: $color-white;
+      color: $color-font;
+    }
+  }
+
+  a.prev.page-numbers,
+  a.next.page-numbers {
+    background-color: inherit;
+    display: inherit;
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    color: inherit;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
+// for Search Result List
+.posts-navigation {
+  h2 {
+    display: none;
+  }
+
+  .nav-links {
+    @extend %padding-large-tb !optional;
+  }
+
+  .nav-previous,
+  .nav-next {
+    margin-right: 10px;
+
+    a {
+      @extend %wp-block-button__link !optional;
+    }
+  }
+}
+
+// Back to TOP-Button
+.topbutton {
+  position: fixed;
+  z-index: 1;
+  background-color: $color-primary;
+  color: $color-white;
+  background-repeat: no-repeat;
+  display: none;
+  line-height: 1;
+  text-align: center;
+  transform: scale(1);
+  animation: pulse 1s infinite;
+  transition: border-radius 0.3s ease-in-out;
+  font-size: 30px;
+  height: 30px;
+  width: 30px;
+  right: 15px;
+  bottom: 15px;
+  @include breakpoint(medium) {
+    height: 40px;
+    width: 40px;
+    right: 20px;
+    bottom: 20px;
+    font-size: 40px;
+  }
+
+  &:hover,
+  &:focus {
+    color: $color-white;
+    border-radius: 50%;
+    text-decoration: none;
+  }
+}
+
+//Maintenance Mode Styles
+
+.maintenance_mode {
+  h1 {
+    @include font-size-heading-1;
+  }
+}
+
+// Viocemail
+.speakpipe-dialog-container {
+  font-family: $font-family-1 !important;
+  padding: 15px!important;
+  border-radius: 0px !important;
+  box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 30%) !important;
+}
+.speakpipe-button {
+  font: 19px/120% $font-family-1 !important;
+}
+.widget-page-title {
+  color: $color-primary!important;
+}
+.wgt-main-btn {
+  background-color: $color-primary!important;
+}
+.wgt-main-btn, .wgt-secondary-btn {
+  border-radius: 0!important;
+}

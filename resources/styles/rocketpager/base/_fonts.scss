@@ -1,0 +1,18 @@
+$font-base: "/wp-content/themes/RocketPager/dist/fonts";
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+// Helvetica Rounded LT Std
+@font-face {
+  font-family: 'Helvetica Rounded LT Std';
+  src: local('Helvetica Rounded LT Std'), local('Helvetica Rounded LT Std'),
+      url('#{$font-base}/HelveticaRoundedLTStd-Bd.woff2') format('woff2'),
+      url('#{$font-base}/HelveticaRoundedLTStd-Bd.woff') format('woff'),
+      url('#{$font-base}/HelveticaRoundedLTStd-Bd.ttf') format('truetype'),
+      url('#{$font-base}/HelveticaRoundedLTStd-Bd.svg#HelveticaRoundedLTStd-Bd') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

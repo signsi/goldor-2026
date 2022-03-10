@@ -1,0 +1,22 @@
+.gallery {
+	margin-bottom: rem-calc(20px);
+	figure {
+		margin-bottom: rem-calc(20px);
+	}
+	&__image {
+		margin-bottom: rem-calc(10px);
+		transition: opacity .2s ease-in-out;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	&__link {
+	
+	}
+	&--no-gap-bottom {
+		margin-bottom: 0;
+		figure, .gallery__image {
+			margin-bottom: 0;
+		}
+	}
+}

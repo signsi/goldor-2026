@@ -1,0 +1,192 @@
+%global-width-default {
+  max-width: calc(#{$global-width-default} + #{$gutter-size-mobile} * 2);
+  @include breakpoint(medium) {
+    max-width: calc(#{$global-width-default} + #{$gutter-size-display} * 2);
+  }
+}
+%global-width-slim {
+  max-width: calc(#{$global-width-slim} + #{$gutter-size-mobile} * 2);
+  @include breakpoint(medium) {
+    max-width: calc(#{$global-width-slim} + #{$gutter-size-display} * 2);
+  }
+}
+%global-width-slimmer {
+  max-width: calc(#{$global-width-slimmer} + #{$gutter-size-mobile} * 2);
+  @include breakpoint(medium) {
+    max-width: calc(#{$global-width-slimmer} + #{$gutter-size-display} * 2);
+  }
+}
+%global-width-large {
+  max-width: calc(#{$global-width-large} + #{$gutter-size-mobile} * 2);
+  @include breakpoint(medium) {
+    max-width: calc(#{$global-width-large} + #{$gutter-size-display} * 2);
+  }
+}
+%global-width-xlarge {
+  max-width: calc(#{$global-width-xlarge} + #{$gutter-size-mobile} * 2);
+  @include breakpoint(medium) {
+    max-width: calc(#{$global-width-xlarge} + #{$gutter-size-display} * 2);
+  }
+}
+
+.wp-block-group {
+  &.alignwide {
+    @extend .grid-container;
+    @extend %the-gap !optional;
+  }
+  &.alignfull {
+    .wp-block-group__inner-container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  .wp-block-group__inner-container {
+    .wp-block-columns {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.wp-block-group.alignwide {
+  @extend %global-width-default !optional;
+  .grid-container {
+    max-width: 100%
+  }
+}
+.row--slim,
+.wp-block-group.alignwide.row--slim {
+  @extend %global-width-slim !optional;
+}
+.row--slimmer,
+.wp-block-group.alignwide.row--slimmer {
+  @extend %global-width-slimmer !optional;
+}
+.row--large,
+.wp-block-group.alignwide.row--large {
+  @extend %global-width-large !optional;
+}
+.row--xlarge,
+.wp-block-group.alignwide.row--xlarge {
+  @extend %global-width-xlarge !optional;
+}
+
+.row {
+  &--xlarge,
+  &--large,
+  &--slim,
+  &--slimmer {
+    &,
+    .grid-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+.wp-block-group.alignwide + .wp-block-group.alignfull {
+  padding-top: 0;
+}
+.wp-block-group.row--slim + .wp-block-group.alignwide {
+  padding-bottom: 0 !important;
+}
+.wp-block-column {
+  @include breakpoint(small only) {
+    flex-basis: 100% !important;
+  }
+}
+.wp-block-group.alignwide.no-padding-b {
+  padding-bottom: 0 !important;
+}
+
+// Schräge Flächen bei Section anfügen
+.sloping-surface {
+  position: relative;
+  &:before {
+    position: absolute;
+    content: "";
+    background-color: inherit;
+    width: 100%;
+    clip-path: polygon(0% 100%, 100% 100%, 0% 0%);
+    top: calc(0px - #{$gap-section-small});
+    height: $gap-section-small;
+    @include breakpoint(medium) {
+      top: calc(0px - #{$gap-section-medium});
+      height: $gap-section-medium;
+    }
+    @include breakpoint(large) {
+      top: calc(0px - #{$gap-section-large});
+      height: $gap-section-large;
+    }
+    @include breakpoint(xlarge) {
+      top: calc(0px - #{$gap-section-xlarge});
+      height: $gap-section-xlarge;
+    }
+    @include breakpoint(xxlarge) {
+      top: calc(0px - #{$gap-section-xxlarge});
+      height: $gap-section-xxlarge;
+    }
+    @include breakpoint(xxxlarge) {
+      top: calc(0px - #{$gap-section-xxxlarge});
+      height: $gap-section-xxxlarge;
+    }
+  }
+  > .wp-block-group__inner-container {
+    margin-top: $gap-section-small;
+    @include breakpoint(medium) {
+      margin-top: $gap-section-medium;
+    }
+    @include breakpoint(large) {
+      margin-top: $gap-section-large;
+    }
+    @include breakpoint(xlarge) {
+      margin-top: $gap-section-xlarge;
+    }
+    @include breakpoint(xxlarge) {
+      margin-top: $gap-section-xxlarge;
+    }
+    @include breakpoint(xxxlarge) {
+      margin-top: $gap-section-xxxlarge;
+    }
+    .wp-block-group.alignwide {
+      padding-top: calc(#{$gap-section-small} / 2);
+      @include breakpoint(medium) {
+        padding-top: calc(#{$gap-section-medium} / 2);
+      }
+      @include breakpoint(large) {
+        padding-top: calc(#{$gap-section-large} / 2);
+      }
+      @include breakpoint(xlarge) {
+        padding-top: calc(#{$gap-section-xlarge} / 2);
+      }
+      @include breakpoint(xxlarge) {
+        padding-top: calc(#{$gap-section-xxlarge} / 2);
+      }
+      @include breakpoint(xxxlarge) {
+        padding-top: calc(#{$gap-section-xxxlarge} / 2);
+      }
+    }
+  }
+  &.bottom-to-top {
+    &:before {
+      clip-path: polygon(0% 100%, 100% 100%, 100% 0%);
+    }
+  }
+}
+.wp-block-group.alignfull + .sloping-surface {
+  margin-top: calc(0px - (#{$gap-section-small} / 2));
+  @include breakpoint(medium) {
+    margin-top: calc(0px - (#{$gap-section-medium} / 2));
+  }
+  @include breakpoint(large) {
+    margin-top: calc(0px - (#{$gap-section-large} / 2));
+  }
+  @include breakpoint(xlarge) {
+    margin-top: calc(0px - (#{$gap-section-xlarge} / 2));
+  }
+  @include breakpoint(xxlarge) {
+    margin-top: calc(0px - (#{$gap-section-xxlarge} / 2));
+  }
+  @include breakpoint(xxxlarge) {
+    margin-top: calc(0px - (#{$gap-section-xxxlarge} / 2));
+  }
+}

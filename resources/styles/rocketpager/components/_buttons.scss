@@ -1,0 +1,134 @@
+
+.wp-block-button__link, %wp-block-button__link {
+  background-color: $color-primary;
+  @extend %font-size-paragraph !optional;
+  color: $color-white;
+  margin-bottom: 0;
+  border-color: $color-primary;
+  border-radius: 25px;
+  padding: 10px 15px;
+  &:visited {
+    color: $color-white;
+  }
+  &:hover,
+  &:active,
+  &:focus{
+    background-color: $color-font;
+    color: $color-white;
+    border-color: $color-font;
+    text-decoration: none;
+  } 
+}
+.is-style-outline {
+  .wp-block-button__link{
+    border-color: $color-primary;
+    color: $color-primary;
+    border-width: 1px;
+    &:visited {
+      color: $color-font;
+    }
+    &:hover,
+    &:active,
+    &:focus{
+      background-color: $color-primary;
+      color: $color-white;
+      border-color: $color-primary;
+    }
+  }
+}
+
+.bg-dark,
+.bg-primary {
+  .wp-block-button, 
+  .wp-block-button.is-style-outline {
+    .wp-block-button__link {
+      color: $color-white;
+      border-color: $color-white;
+      &:visited {
+        color: $color-white;
+      }
+    }
+  }
+}
+.bg-dark {
+  .wp-block-button, 
+  .wp-block-button.is-style-outline {
+    .wp-block-button__link {
+      &:hover,
+      &:active,
+      &:focus{
+        background-color: transparent;
+        color: $color-font;
+      }
+      &:visited {
+        color: $color-font;
+      }
+    }
+  }
+}
+.bg-primary {
+  .wp-block-button, 
+  .wp-block-button.is-style-outline {
+    .wp-block-button__link {
+      &:hover,
+      &:active,
+      &:focus{
+        background-color: $color-white;
+        color: $color-primary;
+        border-color: $color-white;
+      }
+      &:visited {
+        color: $color-white;
+      }
+    }
+  }
+}
+
+// BUTTON GROUP
+.wp-block-buttons {
+  margin-bottom: 10px;
+  @include breakpoint(medium) {
+    margin-bottom: 20px;
+  }
+  @include breakpoint(large) {
+    margin-bottom: 30px;
+  }
+  .wp-block-button {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    @include breakpoint(medium) {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// GDPR Cookie Consent
+// .cookie-law-info-bar a {
+//   border-radius: 40px;
+// }
+// a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection, a#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll{
+//   padding: 5px 10px!important;
+//   border-radius: 40px!important;
+// }
+
+// #CybotCookiebotDialog a, #CybotCookiebotDialog div, #CybotCookiebotDialogBodyContentControls, #CybotCookiebotDialogBodyContentTitle {
+//   font-family: $font-family-1!important;
+//   font-style: normal;
+// }
+// a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection,
+// a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll, a#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowallSelection, a#CybotCookiebotDialogBodyLevelButtonLevelOptinDeclineAll {
+//   background-color: transparent!important;
+//   border: 1px solid $color-primary!important;
+//   color: $color-primary!important;
+// }
+// #CybotCookiebotDialogPoweredbyLink {
+//   display: none;
+// }
+// #CybotCookiebotDialogBodyContent {
+//   padding: 20px 0!important;
+// }
+// div#CybotCookiebotDialogBody {
+//   padding-left: 20px;
+//   padding-right: 20px;
+// }

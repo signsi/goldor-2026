@@ -1,0 +1,44 @@
+.rocketpager-socialshare-button {
+    padding: 20px 0;
+    border-top: 1px solid $color-primary;
+    border-bottom: 1px solid $color-primary;
+    .wp-block-button, .wp-block-button__link {
+        width: 100%;
+    }
+    .wp-block-button, .wp-block-buttons {
+        margin-bottom: 0;
+    }
+    .wp-block-button__link, ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .wp-block-button__link {
+        border: 1px solid $color-primary;
+        transition: border 0.2s ease-out, background-color 0.2s ease-out;
+        &:hover{
+            border: 1px solid $color-primary;
+            ul li a {
+                color: $color-primary;
+            }
+        }
+        ul {
+            display: flex;
+            margin-bottom: 0;
+            li {
+                margin-bottom: 0;
+                margin-left: 10px;
+                &:before {
+                    display: none;
+                }
+                a {
+                    color: $color-white;
+                    &:hover {
+                        color: $color-font;
+                    }
+                }
+            }
+        }
+        @extend %social-media-navigation-reset !optional;
+    }
+}

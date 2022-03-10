@@ -1,0 +1,384 @@
+
+
+// 2. Kategorien-Level ein-/ ausrücken
+.woocommerce-sidebar {
+    // Common styles
+    .product-search-filter-terms ul.product-categories>li>a,
+    .product-search-filter-terms-heading,
+    .product-search-filter-price-heading {
+        @include filterTitle;
+    }
+    .product-search-product_cat-filter-item.current-cat>a:after, .product-search-attribute-filter-item.current-attribute>a:after {
+        content: "\f057";
+        margin-left: 3px;
+    }
+
+    .product-search-filter-terms ul.product-categories>li,
+    section > div[id^="product-search-filter-attribute"],
+    .product-search-filter-price {
+        background-color: $color-grey-lighter;
+        padding: 20px;
+        margin-bottom: $gapBottom;
+        text-transform: uppercase;
+        a {
+            text-transform: uppercase;
+        }
+        > a + .count {
+            display: none;
+        }
+    }
+
+    .product-search-filter-terms {
+        ul {
+            // Categories
+            &.product-categories {
+                li {
+                    &.cat-item-parent.nav-back {
+                        display: none;
+                    }
+                    ul.children {
+                        margin: 0!important;
+                        padding-left: 20px;
+                        li {
+                            padding-left: 0;
+                            margin-bottom: 5px;
+                            @include breakpoint(small only) {
+                                @include filterLabels;
+                            }
+                            a {
+                                text-transform: none;
+                            }
+                        }
+                    }
+                }
+                >li {
+                    >a {
+                        &:hover {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+
+            // Attribute
+            &.product-attribute {
+                li {
+                    @include filterLabels;
+                    &.product-search-pa_groesse-filter-item {
+                        // Runde Knöpfe für Zahlen und Attribut "Grösse"
+                        margin: 0 5px 5px 0;
+                        padding: 5px 7px;
+                    }
+                }
+                &:after {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+
+            }
+
+            // Common styles
+            &.product-categories ul.children,
+            &.product-attribute {
+                @include breakpoint(small only) {
+                    &:after {
+                        content: "";
+                        display: table;
+                        clear: both;
+                    }
+                }
+                .term-name {
+                    padding: 0;
+                    margin-bottom: 0;
+                }
+                .term-name, 
+                .count {
+                    font-size: $smallFontsize;
+                    font-weight: 300;
+                }
+            }
+            &.product-categories ul.children li, 
+            &.product-attribute li {
+                transition: background-color .3s ease-in-out;
+            }
+            // Clear Button
+            > li.cat-item-all, >li.attribute-item-all {
+                @include clearButton;
+                display: none;
+            }
+        }
+    }
+    >.widget {
+        >.product-search-filter-terms {
+            > ul {
+                >li {
+                   >ul.children {
+                        padding-left: 0;
+                        > li {
+                            > a {
+                                color: $color-font;
+                            }
+                        }
+                   }
+                }
+            }
+        }
+    }
+}
+
+
+// Search
+.wc-block-product-search,
+div.product-search, 
+div.product-search-form {
+    @include breakpoint(medium) {
+        margin-bottom: 20px;
+    }
+    .wc-block-product-search__field, 
+    .product-search-form .product-filter-field, 
+    input[type="text"].product-search-field {
+        position: relative;
+        background-color: $color-white;
+        padding: 15px;
+        margin-bottom: 0;
+        line-height: inherit;
+        height: $formHeightLarge;
+        @extend %woocommerceFontSizeSmall !optional;
+    }
+    .wc-block-product-search__button,
+    button,
+    form.product-search-form.show-submit-button button {
+        margin-bottom: 0;
+        width: $formHeightLarge;
+        background-color: $color-font;
+        color: transparent;
+        border: none;
+        transition: $trans-b;
+        margin: 0 0 0 5px;
+        padding: 0 10px;
+        position: relative;
+        &:after {
+            @extend %fontawesome-icons-style-pro !optional;
+            position: absolute;
+            content: "\f002";
+            font-size: 16px;
+            top: 18px;
+            left: 15px;
+            color: $color-white;
+            transition: $trans-c;
+        }
+        &:hover,
+        &:active,
+        &:focus{
+          background-color: $color-primary;
+          outline: none;
+          color: transparent;
+        }
+        &:active,
+        &:focus {
+            &:after {
+                color: $color-font;
+            }
+        }
+    }
+}
+.woocommerce-sidebar {
+    @include breakpoint(small only) {
+        margin-left: -0.9375rem!important;
+        margin-right: -0.9375rem!important;
+        margin-top: -$gap-section-small!important;
+        width: calc(100% + (2 * 0.9375rem))!important;
+    }
+    .wc-block-product-search,
+    div.product-search,
+    div.product-search-form {
+        @include breakpoint(medium down) {
+            display: none;
+        }
+    }
+}
+
+// Price Range
+.product-search-filter-price {
+    padding-bottom: 50px;
+    .slider-min-max {
+        bottom: -40px;
+        font-weight: 300;
+    }
+    &.hide-fields {
+        margin-bottom: 20px;
+        @include breakpoint(medium) {
+            margin-bottom: 30px;
+            padding-bottom: 50px;
+        }
+    }
+    span {
+        &.slider-min, &.slider-max {
+            background-color: $color-primary;
+            color: $color-white;
+            padding: 2px 15px;
+            border-radius: 8px;
+            font-weight: 300;
+        }
+        &.slider-limit-min, 
+        &.slider-limit-max {
+            font-weight: 300;
+        }
+    }
+    .ui-widget-content {
+        background: $color-primary;
+    }
+    .ui-state-default {
+        border: 2px solid $color-white;
+    }
+}
+// Price Range END
+
+// WooCommerce Listview Attibutes Filter
+.woocommerce-listview {
+    .widget-wrapper {
+        display: block;
+        margin: 0 0 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $color-grey-light;
+        &.popular-filter {
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border: none;
+                .title-filter {
+                    margin-top: 0;
+                }
+            }
+        }
+        &.price-filter {
+            @include breakpoint(small only) {
+                border-bottom: 0;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        }
+        .widget {
+            float: left;
+            .product-search-filter-reset-clear {
+                height: 51px;
+                border-radius: 0;
+                background-color: $color-white;
+                color: $color-font;
+                border: 1px solid $color-grey-light;
+                &:hover, &:active, &:focus {
+                    background-color: $color-font;
+                    color: $color-white;
+                    border: 1px solid $color-font;
+                }
+            }
+        }
+    }
+    .product-search-filter-terms {
+        margin-right: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        .nav-back {
+            display: none;
+            // wenn display: none, dann auskommentiert
+            // order: 3;
+            // padding: 5px 30px 5px 25px;
+            // background-color: $color-font;
+            // font-weight: 300;
+            // text-transform: uppercase;
+            // &:before {
+            //     display: none;
+            // }
+            // &, a {
+            //     color: $color-white;
+            // }
+        }
+    }
+    .widget:last-child .product-search-filter-terms {
+        margin-right: 0;
+    }
+    .selectize-dropdown, .selectize-input, .selectize-input input {
+        @extend %woocommerceFontSizeSmall !optional;
+        color: $color-font;
+    }
+    .selectize-dropdown-content {
+        max-height: inherit;
+    }
+    .selectize-dropdown {
+        position: absolute;
+        top: calc(100% + 5px)!important;
+        border: 1px solid $color-grey-light;
+        border-radius: 0;
+        min-width: max-content;
+        .selectize-dropdown-content {
+            padding: 15px 0;
+            .option {
+                border-bottom: 1px solid $color-grey-lighter;
+                margin: 0 10px 10px 10px;
+                padding: 0 10px 10px 10px;
+                &:last-child {
+                    margin: 0 10px 0 10px;
+                    padding: 0 10px 0 10px;
+                    border-bottom: 0;
+                }
+                &.active {
+                    background-color: $color-white;
+                }
+            }
+        }
+    }
+    .selectize-input {
+        padding: 5px 30px 5px 15px!important;
+        display: flex!important;
+        border: 1px solid $color-grey-light;
+        border-radius: 0;
+        box-shadow: none;
+        align-items: center;
+        height: $formHeightLarge;
+        transition: none;
+        > div {
+            margin: 0 5px 0 0!important;
+            padding: 10px!important;
+            background: $color-grey-lighter!important;
+            color: $color-font!important;
+            border: 0 solid $color-grey-light!important;
+            display: flex;
+            align-items: center;
+        }
+        a.remove, 
+        a.remove-single {
+            color: $color-white !important;
+            width: 16px;
+            height: 16px;
+            background-color: $color-font;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 16px;
+            padding: 0;
+            margin-left: 5px;
+            text-align: center;
+            &:hover {
+                background-color: $color-primary;
+                color: $color-white;
+            }
+        }
+        &.attribute-item-all {
+            display: none;
+        }
+    }
+    .selectize-control.ixnorm .selectize-input:after,
+    .selectize-control.single.ixnorm .selectize-input:after {
+        @extend %fontawesome-icons-style-pro !optional;
+        content: $icon-chevron-down;
+        top: 7px;
+        right: 7px;
+        width: 17px;
+        height: 17px;
+    }
+}
+
+// WooCommerce Listview Attibutes Filter
+

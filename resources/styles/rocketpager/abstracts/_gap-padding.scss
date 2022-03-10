@@ -1,0 +1,578 @@
+// PADDING
+.padding-xs-tb,
+%padding-xs-tb{
+  padding-top: $gap-section-xs!important;
+  padding-bottom: $gap-section-xs!important;
+}
+.no-padding-lr-medium-only {
+  @include breakpoint(medium only) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.padding-small,
+%padding-small{
+  padding: $gap-section-small!important;
+}
+.padding-medium,
+%padding-medium{
+  padding: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding: $gap-section-medium!important;
+  }
+}
+.padding-large,
+%padding-large{
+  padding: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding: $gap-section-large!important;
+  }
+}
+.padding-xlarge,
+%padding-xlarge{
+  padding: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge,
+%padding-xxlarge{
+  padding: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge,
+%padding-xxxlarge{
+  padding: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding: $gap-section-xxxlarge!important;
+  }
+}
+
+// PADDING TOP
+.padding-small-t,
+%padding-small-t{
+  padding-top: $gap-section-small!important;
+}
+.padding-medium-t,
+%padding-medium-t{
+  padding-top: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+  }
+}
+.padding-large-t,
+%padding-large-t{
+  padding-top: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+  }
+}
+.padding-xlarge-t,
+%padding-xlarge-t{
+  padding-top: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-t,
+%padding-xxlarge-t{
+  padding-top: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-top: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-t,
+%padding-xxxlarge-t{
+  padding-top: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-top: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-top: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-t,
+%no-padding-t{
+  padding-top: 0!important;
+}
+
+
+// PADDING RIGHT
+.padding-small-r,
+%padding-small-r{
+  padding-right: $gap-section-small!important;
+}
+.padding-medium-r,
+%padding-medium-r{
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-right: $gap-section-medium!important;
+  }
+}
+.padding-large-r,
+%padding-large-r{
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-right: $gap-section-large!important;
+  }
+}
+.padding-xlarge-r,
+%padding-xlarge-r{
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-right: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-r,
+%padding-xxlarge-r{
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-right: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-right: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-r,
+%padding-xxxlarge-r{
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-right: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-right: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-right: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-r,
+%no-padding-r{
+  padding-right: 0!important;
+}
+
+
+// PADDING BOTTOM
+.padding-small-b,
+%padding-small-b{
+  padding-bottom: $gap-section-small!important;
+}
+.padding-medium-b,
+%padding-medium-b{
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-bottom: $gap-section-medium!important;
+  }
+}
+.padding-large-b,
+%padding-large-b{
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-bottom: $gap-section-large!important;
+  }
+}
+.padding-xlarge-b,
+%padding-xlarge-b{
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-bottom: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-b,
+%padding-xxlarge-b{
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-bottom: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-bottom: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-b,
+%padding-xxxlarge-b{
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-bottom: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-bottom: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-bottom: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-b,
+%no-padding-b{
+  padding-bottom: 0!important;
+}
+
+
+// PADDING LEFT
+.padding-small-l,
+%padding-small-l{
+  padding-left: $gap-section-small!important;
+}
+.padding-medium-l,
+%padding-medium-l{
+  padding-left: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+  }
+}
+.padding-large-l,
+%padding-large-l{
+  padding-left: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+  }
+}
+.padding-xlarge-l,
+%padding-xlarge-l{
+  padding-left: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-l,
+%padding-xxlarge-l{
+  padding-left: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-left: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-l,
+%padding-xxxlarge-l{
+  padding-left: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-left: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-left: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-l,
+%no-padding-l{
+  padding-left: 0!important;
+}
+
+// PADDING LEFT-RIGHT
+.padding-small-lr,
+%padding-small-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+}
+.padding-medium-lr,
+%padding-medium-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+    padding-right: $gap-section-medium!important;
+  }
+}
+.padding-large-lr,
+%padding-large-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+    padding-right: $gap-section-large!important;
+  }
+}
+.padding-xlarge-lr,
+%padding-xlarge-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+    padding-right: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-lr,
+%padding-xxlarge-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+    padding-right: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-left: $gap-section-xxlarge!important;
+    padding-right: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-lr,
+%padding-xxxlarge-lr{
+  padding-left: $gap-section-small!important;
+  padding-right: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-left: $gap-section-medium!important;
+    padding-right: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-left: $gap-section-large!important;
+    padding-right: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-left: $gap-section-xlarge!important;
+    padding-right: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-left: $gap-section-xxlarge!important;
+    padding-right: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-left: $gap-section-xxxlarge!important;
+    padding-right: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-lr,
+%no-padding-lr{
+  padding-left: 0!important;
+  padding-right: 0!important;
+}
+
+// PADDING TOP-BOTTOM
+.padding-small-tb,
+%padding-small-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+}
+.padding-medium-tb,
+%padding-medium-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+    padding-bottom: $gap-section-medium!important;
+  }
+}
+.padding-large-tb,
+%padding-large-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+    padding-bottom: $gap-section-large!important;
+  }
+}
+.padding-xlarge-tb,
+%padding-xlarge-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+    padding-bottom: $gap-section-xlarge!important;
+  }
+}
+.padding-xxlarge-tb,
+%padding-xxlarge-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+    padding-bottom: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-top: $gap-section-xxlarge!important;
+    padding-bottom: $gap-section-xxlarge!important;
+  }
+}
+.padding-xxxlarge-tb,
+%padding-xxxlarge-tb{
+  padding-top: $gap-section-small!important;
+  padding-bottom: $gap-section-small!important;
+  @include breakpoint(medium) {
+    padding-top: $gap-section-medium!important;
+    padding-bottom: $gap-section-medium!important;
+  }
+  @include breakpoint(large) {
+    padding-top: $gap-section-large!important;
+    padding-bottom: $gap-section-large!important;
+  }
+  @include breakpoint(xlarge) {
+    padding-top: $gap-section-xlarge!important;
+    padding-bottom: $gap-section-xlarge!important;
+  }
+  @include breakpoint(xxlarge) {
+    padding-top: $gap-section-xxlarge!important;
+    padding-bottom: $gap-section-xxlarge!important;
+  }
+  @include breakpoint(xxxlarge) {
+    padding-top: $gap-section-xxxlarge!important;
+    padding-bottom: $gap-section-xxxlarge!important;
+  }
+}
+.no-padding-tb,
+%no-padding-tb{
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+}

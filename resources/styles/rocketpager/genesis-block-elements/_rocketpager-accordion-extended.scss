@@ -1,0 +1,40 @@
+.rocketpager-accordion {
+    &.rocketpager-accordion-extended {
+        .accordion {
+            margin-bottom: 3px;
+            .accordion-title {
+                background-color: $color-primary;
+                font-weight: normal;
+                color: $color-white;
+                border-bottom: none;
+                padding: 10px 20px;
+                @include breakpoint(medium) {
+                    padding: 20px 30px;
+                }
+                &:before {
+                    right: 20px;
+                    @include breakpoint(medium) {
+                        right: 30px;
+                    }
+                    @extend %fontawesome-icons-style !optional;
+                    content: '\f063';
+                    font-family: 'Font Awesome 5 Pro';
+                    color: $color-white;
+                }
+            }
+            .is-active>.accordion-title {
+              border-bottom: none;
+              &:before {
+                content: '\f062';
+              }
+            }
+            .accordion-content {
+                padding: 20px;
+                @include breakpoint(medium) {
+                    padding: 30px;
+                }
+                background-color: $color-grey-lighter;
+            }
+        }
+    }
+}
