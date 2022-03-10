@@ -132,3 +132,5 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer'
     ] + $config);
 });
+
+require_once 'helpers.php';
