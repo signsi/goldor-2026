@@ -2,4 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './autoload/index.scss';
+@import 'variables';
+@import 'autoload';
+@import 'global';
