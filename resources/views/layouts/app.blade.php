@@ -13,5 +13,5 @@
       @yield('sidebar')
     </aside>
   @endif
-
-@include('sections.footer')
+{{-- PARAM FOOTER --}}
+@include('sections.footer.footer1')

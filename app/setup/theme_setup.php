@@ -64,7 +64,7 @@ add_action('login_enqueue_scripts', function () {?>
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url(/wp-content/themes/RocketPager/resources/assets/images/rocket/logo-rocket-pink.svg);
+            background-image: url('../images/rocket/logo-rocket-pink.svg');
             height: 100px;
             width: 320px;
             background-size: 320px 100px;

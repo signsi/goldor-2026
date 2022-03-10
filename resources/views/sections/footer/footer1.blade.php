@@ -3,15 +3,15 @@
         <div class="grid-container">
             <div class="grid-x grid-margin-x">
                 <div class="cell small-12 large-4">
-                    @include('partials.footer.elements.footer-logo')
-                    @include('partials.footer.elements.address')
+                    @include('sections.footer.elements.footer-logo')
+                    @include('sections.footer.elements.address')
                 </div>
                 <div class="cell small-12 large-5">
                     @php dynamic_sidebar('sidebar-footer1') @endphp
                 </div>
                 <div class="cell small-12 large-3">
                     @php dynamic_sidebar('sidebar-footer2') @endphp
-                    @include('partials.footer.elements.social')
+                    @include('sections.footer.elements.social')
 
                 </div>
             </div>
@@ -22,7 +22,7 @@
             <div class="grid-container">
                 <div class="grid-x grid-margin-x">
                     <div class="cell small-12">
-                        @include('partials.footer.elements.disclaimer')
+                        @include('sections.footer.elements.disclaimer')
                     </div>
                 </div>
             </div>
