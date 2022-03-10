@@ -33,11 +33,11 @@ div[class*='bg-image-wrapper'] {
   }
   // Images
   &.bg1::before {
-    background-image: url('../images/bg-1.png');
+    background-image: url('../../../images/bg-1.png');
   }
 
   &.bg2::before {
-    background-image: url('../images/bg-2.png');
+    background-image: url('../../../images/bg-2.png');
   }
   // Styles
   &.contain::before {
