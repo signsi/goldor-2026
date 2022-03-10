@@ -20,6 +20,7 @@ module.exports = async (app) => {
      * even if they are not explicitly imported in application assets.
      */
     .assets('images')
+    .assets('fonts')
 
     /**
      * These files will trigger a full page reload
