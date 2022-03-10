@@ -4,8 +4,7 @@
   "license": "MIT",
   "description": "WordPress starter theme with a modern development workflow",
   "homepage": "https://roots.io/sage/",
-  "authors": [
-    {
+  "authors": [{
       "name": "Ben Word",
       "email": "ben@benword.com",
       "homepage": "https://github.com/retlehs"
@@ -39,7 +38,8 @@
     }
   },
   "require": {
-    "php": "^7.4|^8.0"
+    "php": "^7.4|^8.0",
+    "roots/acorn": "^2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.6"
@@ -66,5 +66,8 @@
         "App\\Providers\\ThemeServiceProvider"
       ]
     }
-  }
+  },
+  "post-autoload-dump": [
+    "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+  ]
 }
