@@ -1,8 +1,8 @@
 <a class="sr-only focus:not-sr-only" href="#main">
   {{ __('Skip to content') }}
 </a>
-
-@include('sections.header')
+{{-- PARAM HEADER --}}
+@include('sections.header.header1')
 
   <main id="main" class="main">
     @yield('content')

@@ -133,4 +133,6 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
+require_once 'theme_setup.php';
+require_once 'woocommerce_setup.php';
 require_once 'helpers.php';
