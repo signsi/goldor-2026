@@ -4,6 +4,9 @@ module.exports = {
     extend: {
       colors: {},
     },
+    fontFamily: {
+      'sans': ['Helvetica', 'Arial', 'sans-serif'],
+    }
   },
   plugins: [],
 };

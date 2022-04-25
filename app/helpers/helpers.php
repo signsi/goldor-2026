@@ -1,6 +1,8 @@
 <?php
 
 namespace App;
+use function Roots\assets;
+
 
 
 function getCustomizerOption($key)
@@ -155,5 +157,12 @@ if (!function_exists('sanitize_out')) {
         return wp_kses($output, $allowed_tags);
     }
 }
+
+function asset_path($asset)
+{
+    
+    //return sage('assets')->getUri($asset);
+}
+
 
 require_once 'block_helpers.php';
