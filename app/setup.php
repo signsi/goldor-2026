@@ -136,3 +136,7 @@ add_action('widgets_init', function () {
 require_once 'setup/theme_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
+
+
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
