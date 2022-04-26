@@ -15,3 +15,9 @@
   @endif
 {{-- PARAM FOOTER --}}
 @include('sections.footer.footer1')
+
+@include('partials.browser-update')
+@include('partials.googletagmanager')
+@include('partials.nootiz')
+
+@include('partials.top.sticky-cta')

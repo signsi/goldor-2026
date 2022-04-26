@@ -8,6 +8,9 @@ Aufruf:
     ])
 --}}
 
+@php
+    $noListitem = $noListitem ?? false;
+@endphp
 
 @if ($media_link)
     @if (!$noListitem)

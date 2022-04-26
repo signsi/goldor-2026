@@ -1,13 +1,14 @@
 @php
     //Variables
     $category = block_value( 'category' );
+    $category_name = $category->name ?? '';
     $flex_type = App\setColumns(true);
 
     // The Query
     $the_query = new WP_Query(
         array(
             'post_type' => 'post',
-            'category_name' => $category->name
+            'category_name' => $category_name
         )
     );
 @endphp

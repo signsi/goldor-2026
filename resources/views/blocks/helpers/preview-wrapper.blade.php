@@ -1,4 +1,6 @@
 @php
+    $element_classes = $element_classes ?? false;
+
     $block_config = block_config();
     $div_class = $block_config['name'];
     $div_class .= $element_classes ? ' ' . $element_classes : '';

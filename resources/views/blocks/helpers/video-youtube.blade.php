@@ -1,16 +1,18 @@
 {{--
 Aufruf:
-@include('blocks.helpers.video-youtube', 
+@include('blocks.helpers.video-youtube',
     [
         'name_UrlField' => 'preview-videourl',                        -> Name des Feldes mit der Video-Url,
         'video_size' => '16x9',                                       -> (optional) Grösse des Videos -> Opionen: small, medium, vh, 16x9(Default)
         'isRepeaterElement' => false                                  -> (optional) Ist Bild in einem Repeater: true => sub_value, false => value (default)
-    ]) 
+    ])
 --}}
 
 @php
+    $video_dimension = $video_size ?? '16x9';
+    $isRepeaterElement = $isRepeaterElement ?? false;
+
     $videourl = $isRepeaterElement ? block_sub_value($name_UrlField) : block_value($name_UrlField);
-    $video_dimension = $video_size ? $video_size : '16x9';
 @endphp
 
 

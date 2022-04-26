@@ -9,8 +9,10 @@ Aufruf:
 --}}
 
 @php
+    $video_dimension = $video_size ?? '16x9';
+    $isRepeaterElement = $isRepeaterElement ?? false;
+
     $iframe_link = $isRepeaterElement ? block_sub_value($name_iFrame_Field) : block_value($name_iFrame_Field);
-    $video_dimension = $video_size ? $video_size : '16x9';
 @endphp
 
 

@@ -23,12 +23,6 @@ function getDefaultPreviewView()
 }
 
 
-function containerWrapper($orientation)
-{
-    echo \Roots\view('blocks/helpers/containerwrapper', ['orientation' => $orientation]);
-}
-
-
 if (!function_exists('is_true')) {
     function is_true($key)
     {

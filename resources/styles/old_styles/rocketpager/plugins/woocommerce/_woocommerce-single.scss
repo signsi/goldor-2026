@@ -215,7 +215,8 @@
                     color: $color-grey;
                     font-size: 12px;
                     font-weight: 400;
-                    background: $color-white url('../../../../images/select_arrow.png') calc(100% - 15px) 20px no-repeat;
+                    // TODO: replace png
+                    // background: $color-white url('../../../../images/select_arrow.png') calc(100% - 15px) 20px no-repeat;
                     background-size: 7px 4px;
                     position: relative;
                 }
