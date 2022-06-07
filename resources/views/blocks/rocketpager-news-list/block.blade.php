@@ -2,6 +2,7 @@
     //Variables
     $number_of_posts = block_value( 'number-of-posts' );
     $category = block_value( 'category' );
+    $category_name = $category->name ?? '';
     $row_per_col = App\setColumns();
 
     // The Query
@@ -9,7 +10,7 @@
         array(
             'post_type' => 'post',
             'posts_per_page' => $number_of_posts,
-            'category_name' => $category->name
+            'category_name' => $category_name
         )
     );
 @endphp
