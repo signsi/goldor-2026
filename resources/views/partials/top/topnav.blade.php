@@ -24,8 +24,8 @@ class submenu_wrap extends Walker_Nav_Menu
     'items_wrap' => '<ul class="dropdown menu main-navigation float-right">%3$s</ul>',
     // uncomment "walker" zum Aktivieren des Mega-Menus
     'walker' => new submenu_wrap(),
-]) !!} @endif
-
+]) !!}
+    @endif
 @else
     {!! wp_nav_menu([
     'theme_location' => 'primary_navigation',

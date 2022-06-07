@@ -1,11 +1,11 @@
 @php
-$logo_src1 = App\asset_path('images/logo-rocket-pink.svg');//App\getThemeOption('logo_main');
-$logo_src2 = App\getThemeOption('logo_negative');
+$logo_fb1 = \Roots\asset('images/logo-rocket-pink.svg');
+$logo_fb2 = \Roots\asset('images/logo-rocket-black.svg');
+
+$logo_src1 = App\getThemeOption('logo_main', $logo_fb1);
+$logo_src2 = App\getThemeOption('logo_negative', $logo_fb2);
 $company_name = App\getThemeOption('company_name');
-
 @endphp
-
-{{-- @asset('images/logo-rocket-pink.svg') --}}
 
 <a href="{{home_url("/")}}" rel="home">
     <div class="logo-wrapper animate__animated animate__fadeIn">

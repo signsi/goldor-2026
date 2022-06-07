@@ -5,6 +5,10 @@
     $isWhatsapp = isset($showWhatsapp) ? $showWhatsapp : true;
     $isFacebook = isset($showFacebook)  ? $showFacebook : true;
     $isMail = isset($showMail) ? $showMail : true;
+    $useSquare = $useSquare ?? false;
+
+    $list_classes = $list_classes ?? '';
+    $iconSize = $iconSize ?? 'fa-4x';
 
     if($useSquare){
         $linkedinIcon = 'fab fa-linkedin';
