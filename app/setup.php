@@ -140,3 +140,7 @@ require_once 'helpers/helpers.php';
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
+
+if (class_exists('Kirki')) {
+
+}
