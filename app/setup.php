@@ -41,7 +41,8 @@ add_action('after_setup_theme', function () {
         'clean-up',
         'nav-walker',
         'nice-search',
-        'relative-urls'
+        'relative-urls',
+        'wp_block_styles'
     ]);
 
     /**
@@ -81,7 +82,7 @@ add_action('after_setup_theme', function () {
      * Enable wide alignment support.
      * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#wide-alignment
      */
-    add_theme_support('align-wide');
+    // add_theme_support('align-wide');
 
     /**
      * Enable responsive embed support.
@@ -137,11 +138,6 @@ add_action('widgets_init', function () {
 require_once 'setup/theme_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
+require_once 'setup/customization.php';
 
-
-use Carbon_Fields\Container;
-use Carbon_Fields\Field;
-
-if (class_exists('Kirki')) {
-
-}
+require get_template_directory() . '/inc/block-patterns.php';
