@@ -1,5 +1,10 @@
-import {domReady} from '@roots/sage/client';
+import { domReady } from '@roots/sage/client';
 // import './rocketpager/index.js';
+
+const isVisible = element => {
+  // NOTE: muss abhängig von der gwählten Animation angepasst werden!
+  return !(window.getComputedStyle(element).opacity === "1");
+}
 
 /**
  * app.main
@@ -11,6 +16,36 @@ const main = async (err) => {
   }
 
   // application code
+
+  const topNav = document.querySelectorAll("#topNav")[0];
+  const submMenuParents = topNav.querySelectorAll("ul>li.menu-item-has-children");
+  const subMenuParentClass = 'menu-item-has-children';
+  const classesShown = ['opacity-1', 'translate-y-0'];
+  const classesHidden = ['opacity-0', 'translate-y-1'];
+  submMenuParents.forEach(item => {
+    item.addEventListener('click', (e) => {
+      // wir versichern uns, dass wir direkt auf das Elternelement
+      // und nicht auf Kinderelemente geklickt haben.
+      const isDirectClick = e.target.parentElement.tagName === "DIV"
+      if (isDirectClick) {
+        const childContainer = item.querySelectorAll(":scope > div")[1];
+        const subMenuOpen = isVisible(childContainer);
+
+        if (!subMenuOpen) {
+          childContainer.classList.remove(...classesShown);
+          childContainer.classList.add(...classesHidden);
+        } else {
+          childContainer.classList.add(...classesShown);
+          childContainer.classList.remove(...classesHidden);
+        }
+
+        e.preventDefault();
+        return false;
+      }
+    })
+  });
+
+
 };
 
 /**

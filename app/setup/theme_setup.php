@@ -105,7 +105,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-3xl'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'><ul class='relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2'>\n";
+            $output .= "\n$indent<div class='absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-3xl transition-all opacity-0 translate-y-1'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'><ul class='relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
@@ -114,6 +114,24 @@ if (!class_exists('SubmenuWrap')) {
         }
     }
 }
+
+add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) {
+
+    //Only add class to 'top level' items on the 'primary' menu.
+    if ('primary_navigation' == $args->theme_location && $depth === 0) {
+        if (in_array("menu-item-has-children", $item->classes)) {
+            $subMenuParentClasses = "text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
+            $classes = explode(" ", $subMenuParentClasses);
+            $item->classes = $classes;
+            // print_r($item->classes);
+            $output = "<div class='relative inline-flex items-center'>" . $output;
+            $output .= '<svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg></div>';
+        }
+    }
+    return $output;
+}, 10, 4);
 
 
 add_filter('nav_menu_css_class', function ($classes, $item, $args) {
