@@ -60,7 +60,7 @@ add_action('init', function () {
 });
 
 // ADD LOGO TO LOGIN PAGE
-add_action('login_enqueue_scripts', function () {?>
+add_action('login_enqueue_scripts', function () { ?>
     <style type="text/css">
         #login h1 a,
         .login h1 a {
@@ -73,6 +73,7 @@ add_action('login_enqueue_scripts', function () {?>
             padding-bottom: 10px;
             box-shadow: none;
         }
+
         .wp-core-ui #login .button-primary,
         .wp-core-ui #login .button-primary.active,
         .wp-core-ui #login .button-primary.active:focus,
@@ -82,11 +83,10 @@ add_action('login_enqueue_scripts', function () {?>
             border-color: #FF0096;
         }
     </style>
-    <?php });
+<?php });
 
 // THEME-COLOR FÜR HEADER EINFÄRBEN
-add_action('wp_head', function ()
-{ ?>
+add_action('wp_head', function () { ?>
     <meta name="theme-color" content="#ff0096" />
 <?php });
 
@@ -94,3 +94,31 @@ add_action('wp_head', function ()
 add_filter('login_headerurl', function () {
     return home_url();
 });
+
+
+
+// Menu Setup
+
+if (!class_exists('SubmenuWrap')) {
+    class SubmenuWrap extends Walker_Nav_Menu
+    {
+        function start_lvl(&$output, $depth = 0, $args = [])
+        {
+            $indent = str_repeat("\t", $depth);
+            $output .= "\n$indent<div class='absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-3xl'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden'><ul class='relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2'>\n";
+        }
+        function end_lvl(&$output, $depth = 0, $args = [])
+        {
+            $indent = str_repeat("\t", $depth);
+            $output .= "$indent</ul></div></div>\n";
+        }
+    }
+}
+
+
+add_filter('nav_menu_css_class', function ($classes, $item, $args) {
+    if (isset($args->add_li_class)) {
+        $classes[] = $args->add_li_class;
+    }
+    return $classes;
+}, 1, 3);
