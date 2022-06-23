@@ -9,7 +9,6 @@ $lang_switch_position = App\getThemeOption('lang_selector_position');
         <div class="grid-container">
             <div class="grid-x grid-margin-x align-middle">
                 <div class="cell auto nav-wrapper-verticalcentered--streched">
-                    @include('partials.top.logo')
                     <nav @if(!App\is_woocommerce_activated())class="show-for-large"@endif>
                         @include('partials.top.topnav')
 

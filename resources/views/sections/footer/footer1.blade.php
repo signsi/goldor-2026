@@ -1,16 +1,18 @@
-<footer class="footer--style1">
-    <div class="footer-top-wrapper padding-xlarge-tb bg-primary">
-        <div class="grid-container">
-            <div class="grid-x grid-margin-x">
-                <div class="cell small-12 large-4">
+<footer class="footer">
+    <div class="footer-top-wrapper max-w-content mx-auto">
+        <div class="px-4 py-6 sm:px-6">
+            <div class="grid grid-cols-4">
+                <div class="bg-theme">
                     @include('sections.footer.elements.footer-logo')
+                </div>
+                <div class="">
                     @include('sections.footer.elements.address')
                 </div>
-                <div class="cell small-12 large-5">
-                    @php dynamic_sidebar('sidebar-footer1') @endphp
+                <div class="">
+                    @php dynamic_sidebar('sidebar-footer-1') @endphp
                 </div>
-                <div class="cell small-12 large-3">
-                    @php dynamic_sidebar('sidebar-footer2') @endphp
+                <div class="">
+                    @php dynamic_sidebar('sidebar-footer-2') @endphp
                     @include('sections.footer.elements.social')
 
                 </div>
