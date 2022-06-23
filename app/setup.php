@@ -15,7 +15,6 @@ use function Roots\bundle;
  */
 add_action('wp_enqueue_scripts', function () {
     bundle('app')->enqueue();
-    
 }, 100);
 
 /**
@@ -50,7 +49,9 @@ add_action('after_setup_theme', function () {
      *
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
      */
-    remove_theme_support('block-templates');
+
+    // template editing
+    // remove_theme_support('block-templates');
 
     /**
      * Register the navigation menus.
@@ -109,6 +110,14 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#theme-support-in-sidebars
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    // Add support for block styles.
+    add_theme_support('wp-block-styles');
+
+    add_theme_support('block-templates');
+
+    // Enqueue editor styles.
+    add_editor_style('editor-style.css');
 }, 20);
 
 /**
@@ -134,6 +143,10 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer'
     ] + $config);
 });
+
+// <link rel="preconnect" href="https://fonts.googleapis.com">
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+// <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic:wght@400;700&display=swap" rel="stylesheet">
 
 require_once 'setup/theme_setup.php';
 require_once 'setup/woocommerce_setup.php';

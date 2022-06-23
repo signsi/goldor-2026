@@ -13,6 +13,7 @@ class Post extends Composer
      */
     protected static $views = [
         'partials.page-header',
+        'partials.page-header-*',
         'partials.content',
         'partials.content-*',
     ];
@@ -36,16 +37,20 @@ class Post extends Composer
      */
     public function title()
     {
-        if ($this->view->name() !== 'partials.page-header') {
+        if (
+            in_array($this->view->name(), ['partials.page-header'])
+        ) {
             return get_the_title();
+        }
+
+        if ($this->view->name() == 'partials.page-header-big') {
+            return __('Gute Nachrichten', 'sage');
         }
 
         if (is_home()) {
             if ($home = get_option('page_for_posts', true)) {
                 return get_the_title($home);
             }
-
-            return __('Latest Posts', 'sage');
         }
 
         if (is_archive()) {

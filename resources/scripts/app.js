@@ -1,5 +1,5 @@
 import {domReady} from '@roots/sage/client';
-import './rocketpager/index.js';
+// import './rocketpager/index.js';
 
 /**
  * app.main

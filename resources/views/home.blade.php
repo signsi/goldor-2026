@@ -11,9 +11,11 @@
 
         {!! get_search_form(false) !!}
     @endif
+
     <div class="flex !flex-row gap-16 my-16 max-w-6xl">
         <div>
             <h2 class="font-bold">
+            HOME
                 Heisse Trends &amp; frische News
             </h2>
             <div>

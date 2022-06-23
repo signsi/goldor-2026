@@ -19,7 +19,10 @@
     "@roots/bud-sass": "^5.5.0",
     "@roots/bud-tailwindcss": "5.5.0",
     "@roots/sage": "5.5.0",
-    "motion-ui": "^2.0.3"
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.2",
+    "motion-ui": "^2.0.3",
+    "tailwindcss-hyphens": "^0.1.0"
   },
   "dependencies": {
     "foundation-sites": "^6.7.4",

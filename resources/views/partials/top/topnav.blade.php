@@ -1,15 +1,18 @@
 <?php
-class submenu_wrap extends Walker_Nav_Menu
-{
-    function start_lvl(&$output, $depth = 0, $args = [])
+
+if (!class_exists('SubmenuWrap')) {
+    class SubmenuWrap extends Walker_Nav_Menu
     {
-        $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<div class='mega-menu-wrapper'><ul class='sub-menu'>\n";
-    }
-    function end_lvl(&$output, $depth = 0, $args = [])
-    {
-        $indent = str_repeat("\t", $depth);
-        $output .= "$indent</ul></div>\n";
+        function start_lvl(&$output, $depth = 0, $args = [])
+        {
+            $indent = str_repeat("\t", $depth);
+            $output .= "\n$indent<div class='mega-menu-wrapper'><ul class='sub-menu'>\n";
+        }
+        function end_lvl(&$output, $depth = 0, $args = [])
+        {
+            $indent = str_repeat("\t", $depth);
+            $output .= "$indent</ul></div>\n";
+        }
     }
 }
 ?>
@@ -20,19 +23,19 @@ class submenu_wrap extends Walker_Nav_Menu
         {!! wp_nav_menu([
     'theme_location' => 'primary_navigation',
     'menu_class' => 'dropdown menu main-navigation float-right',
-    'container' => false,
-    'items_wrap' => '<ul class="dropdown menu main-navigation float-right">%3$s</ul>',
+    'container' => 'ul',
+    'container_class' => 'dropdown menu main-navigation float-right',
     // uncomment "walker" zum Aktivieren des Mega-Menus
-    'walker' => new submenu_wrap(),
+    'walker' => new SubmenuWrap(),
 ]) !!}
     @endif
 @else
     {!! wp_nav_menu([
     'theme_location' => 'primary_navigation',
     'menu_class' => 'dropdown menu main-navigation float-right',
-    'container' => false,
-    'items_wrap' => '<ul class="dropdown menu main-navigation float-right">%3$s</ul>',
+    'container' => 'ul',
+    'container_class' => 'dropdown menu main-navigation float-right',
     // uncomment "walker" zum Aktivieren des Mega-Menus
-    //'walker' => new submenu_wrap(),
+    //'walker' => new SubmenuWrap(),
 ]) !!}
 @endif

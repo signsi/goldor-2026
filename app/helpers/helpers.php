@@ -32,15 +32,8 @@ function getThemeOption($field_id, $default_value = '')
      * wo ebenfalls ein Standardwert gesetzt werden kann.
      * --> Siehe rocketpager-options -> class-rocketpager-options-admin.php
      */
-    $default_param_empty = $default_value == '';
-    if ($field_id) {
-        if ($default_param_empty) {
-            if (class_exists('Kirki') && isset(\Kirki::$fields[$field_id]) && isset(\Kirki::$fields[$field_id]['default'])) {
-                $default_value = \Kirki::$fields[$field_id]['default'];
-            }
-        }
-        $value = get_theme_mod($field_id, $default_value);
-        return $value;
+    if ($field_id && function_exists('carbon_get_theme_option')) {
+        return carbon_get_theme_option('rocket_' . $field_id) ?? $default_value;
     }
     return false;
 }
@@ -170,16 +163,16 @@ function breadcrumbs()
 {
     $delimiter = '&raquo;';
     $home = 'Home';
-    $before = '<span class="current-page">';
+    $before = '<span class="current-page !font-sans">';
     $after = '</span>';
 
     if (!is_home() && !is_front_page() || is_paged()) {
 
-        echo '<nav class="breadcrumb">Sie sind hier: ';
+        echo '<nav class="breadcrumb !font-sans">';
 
         global $post;
         $homeLink = get_bloginfo('url');
-        echo '<a href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        echo '<a class="!font-sans" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
 
         if (is_category()) {
             global $wp_query;
@@ -190,11 +183,11 @@ function breadcrumbs()
             if ($thisCat->parent != 0) echo (get_category_parents($parentCat, TRUE, ' ' . $delimiter . ' '));
             echo $before . single_cat_title('', false) . $after;
         } elseif (is_day()) {
-            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-            echo '<a href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
+            echo '<a class="!font-sans" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo '<a class="!font-sans" href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
             echo $before . get_the_time('d') . $after;
         } elseif (is_month()) {
-            echo '<a href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo '<a class="!font-sans" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
             echo $before . get_the_time('F') . $after;
         } elseif (is_year()) {
             echo $before . get_the_time('Y') . $after;
@@ -202,7 +195,7 @@ function breadcrumbs()
             if (get_post_type() != 'post') {
                 $post_type = get_post_type_object(get_post_type());
                 $slug = $post_type->rewrite;
-                echo '<a href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $delimiter . ' ';
+                echo '<a class="!font-sans" href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $delimiter . ' ';
                 echo $before . get_the_title() . $after;
             } else {
                 $cat = get_the_category();
@@ -218,7 +211,7 @@ function breadcrumbs()
             $cat = get_the_category($parent->ID);
             $cat = $cat[0];
             echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-            echo '<a href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
+            echo '<a class="!font-sans" href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
             echo $before . get_the_title() . $after;
         } elseif (is_page() && !$post->post_parent) {
             echo $before . get_the_title() . $after;
@@ -227,7 +220,7 @@ function breadcrumbs()
             $breadcrumbs = array();
             while ($parent_id) {
                 $page = get_page($parent_id);
-                $breadcrumbs[] = '<a href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+                $breadcrumbs[] = '<a class="!font-sans" href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
                 $parent_id = $page->post_parent;
             }
             $breadcrumbs = array_reverse($breadcrumbs);
@@ -249,6 +242,17 @@ function breadcrumbs()
 
         echo '</nav>';
     }
+}
+
+
+function get_main_category()
+{
+    return get_the_category()[0];
+}
+
+function get_main_category_name()
+{
+    return get_main_category()->name;
 }
 
 

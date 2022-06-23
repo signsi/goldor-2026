@@ -12,3 +12,10 @@
 
 // rocketpager styles
 // @import './old_styles/rocketpager/index.scss';
+
+@import './new_styles/style.scss';
+
+
+h2.entry-title {
+  transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
+}
