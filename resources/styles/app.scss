@@ -19,3 +19,20 @@
 h2.entry-title {
   transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
 }
+
+
+@layer components {
+
+  .footer .widget {
+    @apply pb-4;
+  }
+
+  .footer .widget h3 {
+    @apply pb-4;
+  }
+
+  .footer ul li {
+    @apply font-bold;
+  }
+
+}
