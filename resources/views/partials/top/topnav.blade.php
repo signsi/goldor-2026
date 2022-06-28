@@ -3,7 +3,7 @@
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 md:hidden">
             <button type="button" id="mobileToggle"
-                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-theme"
                 aria-expanded="false">
                 <span class="sr-only">Open menu</span>
                 <!-- Heroicon name: outline/menu -->
@@ -47,16 +47,16 @@
       From: "opacity-100 scale-100"
       To: "opacity-0 scale-95"
   -->
-    <div id="mobileNav" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden opacity-0 scale-95 -z-10">
+    <div id="mobileNav"
+        class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden opacity-0 scale-95 -z-10">
         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
             <div class="pt-5 pb-6 px-5">
                 <div class="flex items-center justify-between">
                     @include('partials.top.logo')
                     <div class="-mr-2">
                         <button type="button"
-                            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                            id="mobileClose"
-                            >
+                            class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-theme"
+                            id="mobileClose">
                             <span class="sr-only">Close menu</span>
                             <!-- Heroicon name: outline/x -->
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -70,7 +70,7 @@
                     <nav class="grid gap-6">
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/chart-bar -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -83,7 +83,7 @@
 
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/cursor-click -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -96,7 +96,7 @@
 
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/shield-check -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -109,7 +109,7 @@
 
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/view-grid -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -122,7 +122,7 @@
 
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/refresh -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -135,7 +135,7 @@
 
                         <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
                             <div
-                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
+                                class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
                                 <!-- Heroicon name: outline/document-report -->
                                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
                                     viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -171,7 +171,7 @@
                         Sign up </a>
                     <p class="mt-6 text-center text-base font-medium text-gray-500">
                         Existing customer?
-                        <a href="#" class="text-indigo-600 hover:text-indigo-500"> Sign in </a>
+                        <a href="#" class="text-theme hover:text-theme"> Sign in </a>
                     </p>
                 </div>
             </div>
