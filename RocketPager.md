@@ -1,10 +1,37 @@
+Wie zuvor baut auf der RocketPager v3.0.0 auf dem Theme [sage](https://github.com/roots/sage) auf.
+
 # Libraries
-- Kirki: Customizer Intergration
-- Tailwindcss
+- Carbonfields &rarr; Ersatz Kirki für Custom Fields und Customizer Optionen.
+- tailwindcss &rarr; Ersatz foundation (und bootstrap)
+- gsap und ScrollTrigger &rarr; Ersatz für animate.css, wow.js und Headroom.
+
+
+
+# Bitte lesen, wichtig!
+Wir haben den RocketPager komplett auf der neuen Version vom sage theme von roots aufgebaut. Es ist wichtig, dass wir diese Basis nutzen und davon profitieren. Bei der Arbeit mit dem alten RocketPager sind uns allen Punkte aufgefallen, die immer wieder zu Problemem führten. Eine Auswahl davon führe ich hier kurz auf:
+
+- **Plugin-Funktionalität nutzen ohne Überprüfung**: 
+- **Getrenntes Styling, Funktionalität und Struktur**:
+- **Kein redundanter Code**: 
+- **Keine zusätzlichen Plugins ohne Rücksprache mit Team**: 
+- **Wiederverwendbarkeit fördern und nutzen**:
+
+
+# Code Richtilinien
+
+- Funktionen und Variabeln verwenden.
+- Code in einzelne Dateien aufsplitten.
+- Lösungen für komplexere Aufgaben finden, besprechen und dann umsetzen.
+
+
+# Integration zusätzlicher Scripts
+
+
+
 
 
 # Styles
-- RocketPager
+- nur noch tailwind
 
 
 # Todos

@@ -1,10 +1,6 @@
 import { domReady } from '@roots/sage/client';
+import isVisible from './helpers';
 // import './rocketpager/index.js';
-
-const isVisible = element => {
-  // NOTE: muss abhängig von der gwählten Animation angepasst werden!
-  return !(window.getComputedStyle(element).opacity === "1");
-}
 
 /**
  * app.main
@@ -22,26 +18,32 @@ const main = async (err) => {
   const subMenuParentClass = 'menu-item-has-children';
   const classesShown = ['opacity-1', 'translate-y-0'];
   const classesHidden = ['opacity-0', 'translate-y-1'];
+
+
+  const parentNavItemClickHandler = (e) => {
+    // wir versichern uns, dass wir direkt auf das Elternelement
+    // und nicht auf Kinderelemente geklickt haben.
+    const isDirectClick = e.target.parentElement.tagName === "DIV"
+    if (isDirectClick) {
+      const childContainer = item.querySelectorAll(":scope > div")[1];
+      const subMenuOpen = isVisible(childContainer);
+
+      if (!subMenuOpen) {
+        childContainer.classList.remove(...classesShown);
+        childContainer.classList.add(...classesHidden);
+      } else {
+        childContainer.classList.add(...classesShown);
+        childContainer.classList.remove(...classesHidden);
+      }
+
+      e.preventDefault();
+      return false;
+    }
+  }
+
   submMenuParents.forEach(item => {
     item.addEventListener('click', (e) => {
-      // wir versichern uns, dass wir direkt auf das Elternelement
-      // und nicht auf Kinderelemente geklickt haben.
-      const isDirectClick = e.target.parentElement.tagName === "DIV"
-      if (isDirectClick) {
-        const childContainer = item.querySelectorAll(":scope > div")[1];
-        const subMenuOpen = isVisible(childContainer);
-
-        if (!subMenuOpen) {
-          childContainer.classList.remove(...classesShown);
-          childContainer.classList.add(...classesHidden);
-        } else {
-          childContainer.classList.add(...classesShown);
-          childContainer.classList.remove(...classesHidden);
-        }
-
-        e.preventDefault();
-        return false;
-      }
+      parentNavItemClickHandler(e);
     })
   });
 
