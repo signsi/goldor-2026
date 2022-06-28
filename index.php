@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class('pageContent'); ?>>
   <?php wp_body_open(); ?>
   <?php do_action('get_header'); ?>
 

@@ -35,4 +35,21 @@ h2.entry-title {
     @apply font-bold;
   }
 
+  .siteHeader--notTop {
+    background: #664147;
+
+    a {
+      color: #E5F9E0;
+    }
+  }
+
+}
+
+
+.siteHeader--unpinned {
+  transform: translateY(-100%);
+}
+
+.siteHeader--bottom {
+  transform: translateY(0);
 }

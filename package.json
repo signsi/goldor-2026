@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "foundation-sites": "^6.7.4",
+    "gsap": "^3.10.4",
     "headroom.js": "^0.12.0"
   }
 }
