@@ -50,3 +50,10 @@ Wir haben den RocketPager komplett auf der neuen Version vom sage theme von root
  - layouts.app.blade.php -> general header and footer choice
 
 
+
+# Navigation
+- wichtige IDs
+
+
+# theme.json
+

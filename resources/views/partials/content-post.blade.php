@@ -1,4 +1,4 @@
-<article @php(post_class())>
+<article @php(post_class(''))>
     <header>
         @include('partials.entry-meta')
         <h2 class="entry-title text-6xl !font-sans font-bold">

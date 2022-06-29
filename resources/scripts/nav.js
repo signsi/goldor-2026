@@ -25,7 +25,6 @@ export function setupSubMenus() {
     const classesShown = ['opacity-1', 'translate-y-0'];
     const classesHidden = ['opacity-0', 'translate-y-1'];
     const outsideArea = document.querySelector('body');
-    console.log("submenuParents", submMenuParents)
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
             console.log("click submenuParent", e.target)
@@ -61,7 +60,6 @@ export function setupSubMenus() {
     }
 
     outsideArea.addEventListener('click', (e) => {
-        console.log("outside click")
         closeAllSubMenus();
 
     })

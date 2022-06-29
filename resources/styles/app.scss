@@ -20,29 +20,8 @@ h2.entry-title {
   transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
 }
 
-
-@layer components {
-
-  .footer .widget {
-    @apply pb-4;
-  }
-
-  .footer .widget h3 {
-    @apply pb-4;
-  }
-
-  .footer ul li {
-    @apply font-bold;
-  }
-
-  .siteHeader--notTop {
-    background: #664147;
-
-    a {
-      color: #E5F9E0;
-    }
-  }
-
+.siteHeader--notTop {
+  background: #664147;
 }
 
 
@@ -53,3 +32,52 @@ h2.entry-title {
 .siteHeader--bottom {
   transform: translateY(0);
 }
+
+
+
+@layer components {
+
+  footer .widget {
+    @apply pb-4;
+  }
+
+  footer .widget h3,
+  footer .widget h2 {
+    @apply pt-4 text-sm font-semibold text-gray-400 tracking-wider uppercase;
+  }
+
+  footer .widget ul {
+    @apply mt-4 space-y-4;
+
+  }
+
+  footer ul li a {
+    @apply text-base text-gray-500 hover:text-gray-900;
+  }
+
+  footer p {
+    @apply mt-4 text-base text-gray-500;
+  }
+
+  // ul.wp-block-social-links {
+  //   @apply bg-red-400;
+  // }
+
+
+  // footer {
+  //   @apply text-blue-400 bg-green-500;
+  // }
+
+  // p {
+  //   @apply bg-blue-300;
+  // }
+
+  section.widget ul.wp-block-social-links li.wp-social-link.wp-block-social-link {
+    @apply mt-0 bg-gray-500;
+  }
+
+}
+
+// ul.wp-block-social-links {
+//   background-color: red;
+// }
