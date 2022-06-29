@@ -25,9 +25,10 @@ export function setupSubMenus() {
     const classesShown = ['opacity-1', 'translate-y-0'];
     const classesHidden = ['opacity-0', 'translate-y-1'];
     const outsideArea = document.querySelector('body');
-
+    console.log("submenuParents", submMenuParents)
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
+            console.log("click submenuParent", e.target)
             // wir versichern uns, dass wir direkt auf das Elternelement
             // und nicht auf Kinderelemente geklickt haben.
             const isDirectClick = e.target.parentElement.tagName === "DIV"
@@ -42,6 +43,8 @@ export function setupSubMenus() {
                 }
 
                 e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
                 return false;
             }
         })
@@ -52,16 +55,12 @@ export function setupSubMenus() {
             const childContainer = item.querySelectorAll(":scope > div")[1];
             const subMenuOpen = isVisible(childContainer);
 
-            if (!subMenuOpen) {
-                closeSubMenu(childContainer);
-            } else {
-                openSubMenu(childContainer);
-            }
+            closeSubMenu(childContainer);
+
         })
     }
 
     outsideArea.addEventListener('click', (e) => {
-        const el = e.target;
         console.log("outside click")
         closeAllSubMenus();
 
@@ -96,6 +95,8 @@ export function setupMobileNav() {
 const headerClasses = ' siteHeader fixed inset-x-0 top-0 transition-all z-10 bg-white'
 const headerElementClass = 'siteHeader'
 const siteHeader = document.querySelector(`.${headerElementClass}`);
+
+// https://codepen.io/GreenSock/pen/LYZmaeW
 
 
 if (siteHeader !== null) {
