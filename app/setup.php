@@ -139,6 +139,11 @@ add_action('widgets_init', function () {
     ] + $config);
 
     register_sidebar([
+        'name' => __('Primary CTA', 'sage'),
+        'id' => 'sidebar-primary-cta'
+    ] + $config);
+
+    register_sidebar([
         'name' => __('Footer 1', 'sage'),
         'id' => 'sidebar-footer-1'
     ] + $config);
@@ -147,8 +152,22 @@ add_action('widgets_init', function () {
         'name' => __('Footer 2', 'sage'),
         'id' => 'sidebar-footer-2'
     ] + $config);
-
-    
+    register_sidebar([
+        'name' => __('Footer 3', 'sage'),
+        'id' => 'sidebar-footer-3'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer 4', 'sage'),
+        'id' => 'sidebar-footer-4'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer CTA', 'sage'),
+        'id' => 'sidebar-footer-cta'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer Social', 'sage'),
+        'id' => 'sidebar-footer-social'
+    ] + $config);
 });
 
 // <link rel="preconnect" href="https://fonts.googleapis.com">
