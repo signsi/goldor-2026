@@ -163,16 +163,16 @@ function breadcrumbs()
 {
     $delimiter = '&raquo;';
     $home = 'Home';
-    $before = '<span class="current-page !font-sans">';
+    $before = '<span class="current-page ">';
     $after = '</span>';
 
     if (!is_home() && !is_front_page() || is_paged()) {
 
-        echo '<nav class="breadcrumb !font-sans">';
+        echo '<nav class="breadcrumb max-w-content mx-auto px-4 sm:px-6">';
 
         global $post;
         $homeLink = get_bloginfo('url');
-        echo '<a class="!font-sans" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        echo '<a class="" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
 
         if (is_category()) {
             global $wp_query;
@@ -183,11 +183,11 @@ function breadcrumbs()
             if ($thisCat->parent != 0) echo (get_category_parents($parentCat, TRUE, ' ' . $delimiter . ' '));
             echo $before . single_cat_title('', false) . $after;
         } elseif (is_day()) {
-            echo '<a class="!font-sans" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
-            echo '<a class="!font-sans" href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
+            echo '<a class="" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo '<a class="" href="' . get_month_link(get_the_time('Y'), get_the_time('m')) . '">' . get_the_time('F') . '</a> ' . $delimiter . ' ';
             echo $before . get_the_time('d') . $after;
         } elseif (is_month()) {
-            echo '<a class="!font-sans" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
+            echo '<a class="" href="' . get_year_link(get_the_time('Y')) . '">' . get_the_time('Y') . '</a> ' . $delimiter . ' ';
             echo $before . get_the_time('F') . $after;
         } elseif (is_year()) {
             echo $before . get_the_time('Y') . $after;
@@ -195,7 +195,7 @@ function breadcrumbs()
             if (get_post_type() != 'post') {
                 $post_type = get_post_type_object(get_post_type());
                 $slug = $post_type->rewrite;
-                echo '<a class="!font-sans" href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $delimiter . ' ';
+                echo '<a class="" href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a> ' . $delimiter . ' ';
                 echo $before . get_the_title() . $after;
             } else {
                 $cat = get_the_category();
@@ -211,7 +211,7 @@ function breadcrumbs()
             $cat = get_the_category($parent->ID);
             $cat = $cat[0];
             echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
-            echo '<a class="!font-sans" href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
+            echo '<a class="" href="' . get_permalink($parent) . '">' . $parent->post_title . '</a> ' . $delimiter . ' ';
             echo $before . get_the_title() . $after;
         } elseif (is_page() && !$post->post_parent) {
             echo $before . get_the_title() . $after;
@@ -220,7 +220,7 @@ function breadcrumbs()
             $breadcrumbs = array();
             while ($parent_id) {
                 $page = get_page($parent_id);
-                $breadcrumbs[] = '<a class="!font-sans" href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
+                $breadcrumbs[] = '<a class="" href="' . get_permalink($page->ID) . '">' . get_the_title($page->ID) . '</a>';
                 $parent_id = $page->post_parent;
             }
             $breadcrumbs = array_reverse($breadcrumbs);

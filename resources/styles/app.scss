@@ -59,21 +59,20 @@ h2.entry-title {
     @apply mt-4 text-base text-gray-500;
   }
 
-  // ul.wp-block-social-links {
-  //   @apply bg-red-400;
-  // }
-
-
-  // footer {
-  //   @apply text-blue-400 bg-green-500;
-  // }
-
-  // p {
-  //   @apply bg-blue-300;
-  // }
-
   section.widget ul.wp-block-social-links li.wp-social-link.wp-block-social-link {
     @apply mt-0 bg-gray-500;
+  }
+
+  .wp-block-group.alignwide, .alignwide {
+    @apply max-w-content mx-auto;
+  }
+
+  .wp-block-group.alignfull {
+    @apply max-w-none w-full;
+  }
+
+  .wp-block-group {
+    @apply max-w-[840px] mx-auto;
   }
 
 }
