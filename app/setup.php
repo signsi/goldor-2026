@@ -40,7 +40,8 @@ add_action('after_setup_theme', function () {
         'clean-up',
         'nav-walker',
         'nice-search',
-        'relative-urls'
+        'relative-urls',
+        'wp_block_styles'
     ]);
 
     /**
@@ -48,7 +49,9 @@ add_action('after_setup_theme', function () {
      *
      * @link https://wptavern.com/gutenberg-10-5-embeds-pdfs-adds-verse-block-color-options-and-introduces-new-patterns
      */
-    remove_theme_support('block-templates');
+
+    // template editing
+    // remove_theme_support('block-templates');
 
     /**
      * Register the navigation menus.
@@ -80,7 +83,7 @@ add_action('after_setup_theme', function () {
      * Enable wide alignment support.
      * @link https://wordpress.org/gutenberg/handbook/designers-developers/developers/themes/theme-support/#wide-alignment
      */
-    add_theme_support('align-wide');
+    // add_theme_support('align-wide');
 
     /**
      * Enable responsive embed support.
@@ -107,6 +110,14 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/themes/advanced-topics/customizer-api/#theme-support-in-sidebars
      */
     add_theme_support('customize-selective-refresh-widgets');
+
+    // Add support for block styles.
+    add_theme_support('wp-block-styles');
+
+    add_theme_support('block-templates');
+
+    // Enqueue editor styles.
+    add_editor_style('editor-style.css');
 }, 20);
 
 /**
@@ -128,15 +139,23 @@ add_action('widgets_init', function () {
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer'
+        'name' => __('Footer 1', 'sage'),
+        'id' => 'sidebar-footer-1'
     ] + $config);
+
+    register_sidebar([
+        'name' => __('Footer 2', 'sage'),
+        'id' => 'sidebar-footer-2'
+    ] + $config);
+
+    
 });
+
+// <link rel="preconnect" href="https://fonts.googleapis.com">
+// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+// <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic:wght@400;700&display=swap" rel="stylesheet">
 
 require_once 'setup/theme_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
-
-
-use Carbon_Fields\Container;
-use Carbon_Fields\Field;
+require_once 'setup/customization.php';

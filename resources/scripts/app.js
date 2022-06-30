@@ -1,4 +1,5 @@
-import {domReady} from '@roots/sage/client';
+import { domReady } from '@roots/sage/client';
+import { setupMobileNav, setupSubMenus } from './nav';
 
 /**
  * app.main
@@ -10,6 +11,14 @@ const main = async (err) => {
   }
 
   // application code
+
+
+  // desktop sub menus
+  setupSubMenus();
+  // mobile toggle
+  setupMobileNav();
+
+
 };
 
 /**

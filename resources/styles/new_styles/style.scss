@@ -1,0 +1,14 @@
+@layer components {
+
+  body {
+  }
+
+  .page-header {
+      // @apply bg-blue-500;
+  }
+
+  p {
+    @apply max-w-prose;
+  }
+  
+}

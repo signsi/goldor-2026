@@ -2,13 +2,54 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './old_styles/variables';
+// @import './old_styles/variables';
 
 // motion-ui + foundation
-@import './old_styles/autoload';
+// @import './old_styles/autoload';
 
 // global helpers
-@import './old_styles/global';
+// @import './old_styles/global';
 
 // rocketpager styles
-@import './old_styles/rocketpager/index.scss';
+// @import './old_styles/rocketpager/index.scss';
+
+@import './new_styles/style.scss';
+
+
+h2.entry-title {
+  transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
+}
+
+
+@layer components {
+
+  .footer .widget {
+    @apply pb-4;
+  }
+
+  .footer .widget h3 {
+    @apply pb-4;
+  }
+
+  .footer ul li {
+    @apply font-bold;
+  }
+
+  .siteHeader--notTop {
+    background: #664147;
+
+    a {
+      color: #E5F9E0;
+    }
+  }
+
+}
+
+
+.siteHeader--unpinned {
+  transform: translateY(-100%);
+}
+
+.siteHeader--bottom {
+  transform: translateY(0);
+}
