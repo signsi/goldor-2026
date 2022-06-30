@@ -53,6 +53,7 @@ Wir haben den RocketPager komplett auf der neuen Version vom sage theme von root
 
 # Navigation
 - wichtige IDs `#topNav`
+- Base for MenuWalker ([here](https://github.com/WordPress/WordPress/blob/ecc08a41f61940345489b8566a43cea5b5ab78ca/wp-includes/class-walker-nav-menu.php))
 
 
 # theme.json
