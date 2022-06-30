@@ -22,9 +22,10 @@
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'flex space-x-10',
                             'container_class' => '',
-                            'add_li_class' => 'relative text-base font-medium 1234 text-gray-500 hover:text-gray-900',
+                            'add_li_class' => 'relative text-base font-medium text-gray-500 hover:text-gray-900',
                             'add_sub_li_class' => 'bg-red-400',
-                            'walker' => new SubmenuWrap(),
+                            //'walker' => new SubmenuWrap(),
+                            'walker' => new SubMenuWalker(),
                         ]);
                     }
                 @endphp
