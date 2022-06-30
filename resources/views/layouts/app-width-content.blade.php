@@ -5,7 +5,6 @@
 @include('sections.header.header1')
 
   <main id="main" class="main mx-auto mt-[90px]">
-   {{-- max-w-content mx-auto px-[1.875rem] --}}
     @yield('content')
   </main>
 

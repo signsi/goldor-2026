@@ -178,3 +178,5 @@ require_once 'setup/theme_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
 require_once 'setup/customization.php';
+require_once 'setup/default_block_templates.php';
+
