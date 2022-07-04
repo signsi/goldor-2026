@@ -1,7 +1,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid testimonial text-center grid-cols-4 gap-x-12 gap-y-12">
+    <div class="grid testimonial text-center grid-cols-4 gap-x-24 gap-y-24">
         @while (block_rows('testimonial'))
             @php block_row('testimonial') @endphp
             <div class="cell flex flex-col relative max-w-md w-full">
