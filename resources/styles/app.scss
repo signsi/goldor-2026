@@ -20,19 +20,6 @@ h2.entry-title {
   transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
 }
 
-.siteHeader--notTop {
-  background: #664147;
-}
-
-
-.siteHeader--unpinned {
-  transform: translateY(-100%);
-}
-
-.siteHeader--bottom {
-  transform: translateY(0);
-}
-
 
 
 @layer components {
@@ -59,25 +46,74 @@ h2.entry-title {
     @apply mt-4 text-base text-gray-500;
   }
 
-  // ul.wp-block-social-links {
-  //   @apply bg-red-400;
-  // }
-
-
-  // footer {
-  //   @apply text-blue-400 bg-green-500;
-  // }
-
-  // p {
-  //   @apply bg-blue-300;
-  // }
-
   section.widget ul.wp-block-social-links li.wp-social-link.wp-block-social-link {
     @apply mt-0 bg-gray-500;
   }
 
+  .wp-block-group.alignwide, .alignwide {
+    @apply max-w-content mx-auto px-4 md:px-6;
+  }
+
+  .wp-block-group.alignfull {
+    @apply max-w-none w-full;
+  }
+
+  .wp-block-group {
+    @apply max-w-[840px] mx-auto;
+  }
+
+  .siteHeader--notTop {
+    @apply bg-white;
+  }
+
+  .content h1 {
+    @apply text-7xl font-bold pb-12;
+  }
+
+}
+
+/*
+currently not seem to working with tailwindcss? 
+*/
+
+.siteHeader--unpinned {
+  transform: translateY(-100%);
+}
+
+.siteHeader--bottom {
+  transform: translateY(0);
 }
 
 // ul.wp-block-social-links {
 //   background-color: red;
 // }
+
+
+// @import './old_styles/rocketpager/variables';
+// @import './old_styles/rocketpager/settings';
+
+
+// // Genesis Block Elements
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion-extended';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-slider';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-colorbox';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-map';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-hero-slider';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-logolist';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-team';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-testimonial-slider';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-videoelement';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-iconbox';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-socialmedia-profil';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-socialshare-button';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-text-image-box';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-text-image-list';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-news-list';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-contactperson';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-header';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-content-slider';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-single-animation';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-audio-image-box';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-projects';
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-google-maps';

@@ -1,10 +1,10 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid-x grid-margin-x small-up-1 testimonial text-center">
+    <div class="grid testimonial text-center grid-cols-4 gap-x-24 gap-y-24">
         @while (block_rows('testimonial'))
             @php block_row('testimonial') @endphp
-            <div class="cell testimonial-itemwrapper">
+            <div class="cell flex flex-col relative max-w-md w-full">
                 @if ( block_sub_value('testimonial-link') )
                     <a href="{{ block_sub_value('testimonial-link') }}" target="_blank">
                 @endif
@@ -13,7 +13,7 @@
                     [
                         'name_ImageField' => 'testimonial-logo',
                         'class_object_fill_breakpoint' => 'bg-object-wrapper--smallUp img-wrapper',
-                        'class_object_fit' => array('class' => 'bg-object--contain'),
+                        'class_object_fit' => ['class' => 'object-contain w-full max-w-[80%] h-auto'],
                         'thumbnail' => 'small-width',
                         'isRepeaterElement' => true
                     ])
