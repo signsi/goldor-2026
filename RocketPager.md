@@ -56,5 +56,15 @@ Wir haben den RocketPager komplett auf der neuen Version vom sage theme von root
 - Base for MenuWalker ([here](https://github.com/WordPress/WordPress/blob/ecc08a41f61940345489b8566a43cea5b5ab78ca/wp-includes/class-walker-nav-menu.php))
 
 
+# Primary CTA
+~~~
+<a href="#"
+    class="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-theme hover:bg-theme/80 hover:translate-y-[1px] transition-all"
+>
+Anmelden
+</a>
+~~~
+
+
 # theme.json
 

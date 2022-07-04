@@ -96,16 +96,29 @@ add_filter('login_headerurl', function () {
 });
 
 
+// ADD NEW IMAGE-SIZES
+add_image_size('16-9-thumb-small', 354, 199, $crop = true);
+add_image_size('16-9-thumb', 768, 432, $crop = true);
+add_image_size('4-3-thumb', 768, 576, $crop = true);
+add_image_size('small-crop', 300, 300, $crop = true);
+add_image_size('medium-crop', 600, 600, $crop = true);
+add_image_size('square-thumb', 768, 768, $crop = true);
+add_image_size('slider-width', 1920, 450, $crop = true);
+add_image_size('small-width', 200, 200);
+add_image_size('medium-width', 768, 768);
+add_image_size('medium-large-width', 800, 800);
+add_image_size('large-width', 920, 920);
+add_image_size('full-width', 1140, 1140);
+
 
 // Menu Setup
-
 if (!class_exists('SubmenuWrap')) {
     class SubmenuWrap extends Walker_Nav_Menu
     {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='absolute w-full z-10 -ml-4 mt-3 transform transition-all opacity-0 translate-y-1'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden z-20'><ul class='flex flex-col space-y-1'>\n";
+            $output .= "\n$indent<div class='absolute w-full z-10 -ml-4 mt-3 transform transition-all opacity-0 translate-y-1'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden z-20'><ul class='flex flex-col space-y-1 bg-white'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
