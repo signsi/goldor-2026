@@ -258,6 +258,16 @@ function crb_attach_theme_options()
             'key' => 'nootiz_id',
             'label' => 'Nootiz ID',
         ],
+        [
+            'type' => 'html',
+            'key' => 'code_head',
+            'label' => 'Code vor dem schliessenden </head>-Tag'
+        ],
+        [
+            'type' => 'html',
+            'key' => 'code_body',
+            'label' => 'Code unmittelbar nach dem öffnenden <body>-Tag'
+        ]
     ];
 
     Container::make('theme_options', __('RocketPager'))
