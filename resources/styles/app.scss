@@ -2,6 +2,9 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@charset 'UTF-8';
+
+
 // @import './old_styles/variables';
 
 // motion-ui + foundation
@@ -14,13 +17,12 @@
 // @import './old_styles/rocketpager/index.scss';
 
 @import './new_styles/style.scss';
+@import './slider.scss';
 
 
 h2.entry-title {
   transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
 }
-
-
 
 @layer components {
 
@@ -50,7 +52,8 @@ h2.entry-title {
     @apply mt-0 bg-gray-500;
   }
 
-  .wp-block-group.alignwide, .alignwide {
+  .wp-block-group.alignwide,
+  .alignwide {
     @apply max-w-content mx-auto px-4 md:px-6;
   }
 
