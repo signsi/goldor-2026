@@ -174,6 +174,7 @@ add_action('widgets_init', function () {
 // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 // <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic:wght@400;700&display=swap" rel="stylesheet">
 
+require_once 'admin.php';
 require_once 'setup/theme_setup.php';
 require_once 'setup/block_setup.php';
 require_once 'setup/woocommerce_setup.php';

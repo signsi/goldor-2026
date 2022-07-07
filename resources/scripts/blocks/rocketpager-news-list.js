@@ -1,4 +1,4 @@
-import PQueue from 'p-queue/dist';
+import PQueue from 'p-queue';
 
 window.useAjax = true;
 

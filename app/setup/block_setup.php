@@ -9,18 +9,16 @@ add_action('genesis_custom_blocks_render_template_rocketpager-hero-slider', func
 
 add_action('genesis_custom_blocks_render_template_rocketpager-content-slider', function () {
     bundle('block.content-slider')->enqueue();
-
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-carousel-slider', function () {
+    wp_enqueue_script('youtube-iframe-api', 'https://www.youtube.com/iframe_api', ['block.videoelement/1'], null, true);
     bundle('block.carousel-slider')->enqueue();
     bundle('block.videoelement')->enqueue();
-
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-carousel-header', function () {
     bundle('block.carousel-header')->enqueue();
-
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-testimonial-slider', function () {
@@ -28,6 +26,7 @@ add_action('genesis_custom_blocks_render_template_rocketpager-testimonial-slider
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-videoelement', function () {
+    wp_enqueue_script('youtube-iframe-api', 'https://www.youtube.com/iframe_api', ['block.videoelement/1'], null, true);
     bundle('block.videoelement')->enqueue();
 }, 10, 3);
 

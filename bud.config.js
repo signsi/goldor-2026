@@ -47,7 +47,7 @@ module.exports = async (app) => {
       ],
       "block.videoelement": [
         '@scripts/blocks/rocketpager-videoelement',
-        'https://www.youtube.com/iframe_api',
+        // 'https://www.youtube.com/iframe_api',
       ],
     })
 
