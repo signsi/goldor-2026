@@ -10,9 +10,38 @@ module.exports = async (app) => {
      *
      * Paths are relative to your resources directory
      */
+
+    .provide({
+      jquery: ["jQuery", "$"],
+    })
+
     .entry({
-      app: ['@scripts/app', '@styles/app'],
-      editor: ['@scripts/editor', '@styles/editor'],
+      app: [
+        '@scripts/app',
+        '@styles/app',
+      ],
+      editor: [
+        '@scripts/editor',
+        '@styles/editor'
+      ],
+      "block.hero-slider": [
+        '@scripts/blocks/rocketpager-hero-slider'
+      ],
+      "block.content-slider": [
+        '@scripts/blocks/rocketpager-content-slider'
+      ],
+      "block.carousel-slider": [
+        '@scripts/blocks/rocketpager-carousel-slider'
+      ],
+      "block.carousel-header": [
+        '@scripts/blocks/rocketpager-carousel-header'
+      ],
+      "block.testimonial-slider": [
+        '@scripts/blocks/rocketpager-testimonial-slider'
+      ],
+      "block.google-maps": [
+        '@scripts/blocks/rocketpager-google-maps'
+      ],
     })
 
     /**

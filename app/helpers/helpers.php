@@ -244,10 +244,16 @@ function breadcrumbs()
     }
 }
 
-
 function get_main_category()
 {
-    return get_the_category()[0];
+    if (get_the_category()) {
+        return get_the_category()[0];
+    } else {
+        // fallback
+        return (object)[
+            'name' => 'Keine'
+        ];
+    }
 }
 
 function get_main_category_name()

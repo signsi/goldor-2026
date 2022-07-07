@@ -3,6 +3,8 @@
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
+use function Roots\asset;
+
 function get_mapped_fields($fields)
 {
     // TODO: not nice with the $field reference
@@ -48,7 +50,9 @@ function get_mapped_fields($fields)
                 __($label)
             )
                 ->set_value_type('url')
-                ->set_default_value($default);;
+                ->set_default_value($default);
+        } else if ($type == 'html') {
+            $field = Field::make('header_scripts', "rocket_$key", __('Header Scripts'));
         } else {
             return "Feldtyp ist nicht implementiert.";
         }
@@ -223,26 +227,49 @@ function crb_attach_theme_options()
             'type' => 'image',
             'key' => 'logo_main',
             'label' => 'Logo (Main)',
-            'default' => \Roots\asset('images/logo-rocket-pink.svg')
+            'default' => asset('images/logo-rocket-pink.svg')
         ],
         [
             'type' => 'image',
             'key' => 'logo_footer',
             'label' => 'Logo (Footer)',
-            'default' => \Roots\asset('images/logo-rocket-black.svg')
+            'default' => asset('images/logo-rocket-black.svg')
         ],
         [
             'type' => 'image',
             'key' => 'logo_negative',
             'label' => 'Logo (Negativ)',
-            'default' => \Roots\asset('images/logo-rocket-black.svg')
+            'default' => asset('images/logo-rocket-black.svg')
         ],
         [
             'type' => 'image',
             'key' => 'logo_sticky',
             'label' => 'Logo (Sticky)',
-            'default' => \Roots\asset('images/logo-rocket.svg')
+            'default' => asset('images/logo-rocket.svg')
         ],
+    ];
+
+    $other_options = [
+        [
+            'type' => 'text',
+            'key' => 'google_api_key',
+            'label' => 'Google API Key',
+        ],
+        [
+            'type' => 'text',
+            'key' => 'nootiz_id',
+            'label' => 'Nootiz ID',
+        ],
+        [
+            'type' => 'html',
+            'key' => 'code_head',
+            'label' => 'Code vor dem schliessenden </head>-Tag'
+        ],
+        [
+            'type' => 'html',
+            'key' => 'code_body',
+            'label' => 'Code unmittelbar nach dem öffnenden <body>-Tag'
+        ]
     ];
 
     Container::make('theme_options', __('RocketPager'))
@@ -265,6 +292,10 @@ function crb_attach_theme_options()
         ->add_tab(
             __('CTA'),
             get_mapped_fields($cta_options)
+        )
+        ->add_tab(
+            __('Sonstiges'),
+            get_mapped_fields($other_options)
         );
 }
 
