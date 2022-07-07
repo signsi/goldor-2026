@@ -1,11 +1,10 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="testimonial bg-blue-300">
-     {{-- grid text-center grid-cols-4 gap-x-24 gap-y-24 --}}
+    <div class="testimonial">
         @while (block_rows('testimonial'))
             @php block_row('testimonial') @endphp
-            <div class="cell flex flex-col relative max-w-md w-full">
+            <div class="cell testimonial-itemwrapper">
                 @if ( block_sub_value('testimonial-link') )
                     <a href="{{ block_sub_value('testimonial-link') }}" target="_blank">
                 @endif
@@ -14,7 +13,7 @@
                     [
                         'name_ImageField' => 'testimonial-logo',
                         'class_object_fill_breakpoint' => 'bg-object-wrapper--smallUp img-wrapper',
-                        'class_object_fit' => ['class' => 'object-contain w-full max-w-[80%] h-auto'],
+                        'class_object_fit' => array('class' => 'bg-object--contain'),
                         'thumbnail' => 'small-width',
                         'isRepeaterElement' => true
                     ])
@@ -24,7 +23,7 @@
                 @endif
 
                 @if ( block_sub_value('testimonial-companyname') )
-                    <p class="testimonial-title p-luca m-luca"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
+                    <p class="testimonial-title"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
                 @endif
                 @if ( block_sub_value('testimonial-content') )
                     <p>«{{ block_sub_value('testimonial-content') }}»

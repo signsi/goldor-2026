@@ -1,5 +1,6 @@
 @php
     $direction = App\existsReturnKey('order', 'flex-direction: row-reverse;');
+    $idLightbox = App\getLightboxIdentifier();
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
@@ -13,7 +14,8 @@
                 'class_object_fill_breakpoint' => 'bg-object-wrapper--mediumUp',
                 'class_object_fit' => array('class' => 'bg-object--contain'),
                 'thumbnail' => 'medium-width',
-                'isRepeaterElement' => false
+                'isRepeaterElement' => false,
+                'identifierLightbox' => $idLightbox
             ])
         </div>
         @if ( block_value( 'quote'))

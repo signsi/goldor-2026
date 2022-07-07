@@ -15,7 +15,7 @@
                                 <div class="logo-wrapper--inner">
                                     <a href="{{home_url("/")}}" rel="home">
                                         <div class="logo">
-                                            @include('blocks.helpers.image', 
+                                            @include('blocks.helpers.image',
                                             [
                                                 'name_ImageField' => 'logo',
                                                 'thumbnail' => 'full',
@@ -39,13 +39,13 @@
                     </div>
                 @endif
                 <picture>
-                    @include('blocks.helpers.image', 
+                    @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'header-image',
                         'additionalClasses' => array('class' => 'bg-object--cover'),
                         'thumbnail' => 'full',
                         'isRepeaterElement' => true
-                    ]) 
+                    ])
                 </picture>
             </div>
         @endwhile

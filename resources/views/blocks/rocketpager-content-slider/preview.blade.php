@@ -4,8 +4,8 @@
     @while ( block_rows('slide') )
         @php block_row('slide') @endphp
         <div class="col">
-            <div class="image-wrapper">            
-                @include('blocks.helpers.image', 
+            <div class="image-wrapper">
+                @include('blocks.helpers.image',
                 [
                     'name_ImageField' => 'image',
                     'thumbnail' => '16-9-thumb',

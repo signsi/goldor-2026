@@ -1,80 +1,75 @@
 @php
     //Variables
+    $animation = App\getAnimation();
+    $preview_size = block_value('preview-size');
+    $disable_meta = block_value('disable-meta');
+    $disable_meta_date = block_value('disable-meta-date');
+    $disable_meta_author = block_value('disable-meta-author');
+    $disable_meta_category = block_value('disable-meta-category');
     $number_of_posts = block_value( 'number-of-posts' );
-    $category = block_value( 'category' );
-    $category_name = $category->name ?? '';
+    $post_category = block_value( 'category' );
+    $category_name = $post_category->name;
     $row_per_col = App\setColumns();
 
-    // The Query
-    $the_query = new WP_Query(
-        array(
-            'post_type' => 'post',
-            'posts_per_page' => $number_of_posts,
-            'category_name' => $category_name
-        )
-    );
+    $args = [
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'posts_per_page' => $number_of_posts,
+        'category_name' => $category_name,
+    ];
+    $the_query = new WP_Query($args);
+    $args['max_num_pages'] = $the_query->max_num_pages;
+
+    $block_args = [
+        'animation' => $animation,
+        'preview_size' => $preview_size,
+        'disable_meta' => $disable_meta,
+        'disable_meta_date' => $disable_meta_date,
+        'disable_meta_author' => $disable_meta_author,
+        'disable_meta_category' => $disable_meta_category,
+    ];
+
+    $json_query_args = wp_json_encode($args);
+    $json_block_args = wp_json_encode($block_args);
+
+
+    $cats = get_categories( array(
+        'orderby' => 'id',
+        'order'   => 'ASC',
+    ));
+    $categories = array();
+    foreach( $cats as $cat ) {
+        array_push($categories, $cat);
+    }
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
 
 @section('content-section')
-    <div class="grid-x grid-margin-x{{ $row_per_col }}">
-
-
-        {{-- The Loop --}}
-        @if ($the_query->have_posts())
-            @while ($the_query->have_posts())
-                @php
-                    $the_query->the_post();
-
-                    // Variables
-                    $categories = get_the_category();
-                @endphp
-
-
-                <div class="cell{{ App\getAnimation() }}">
-                    <a href="{{ the_permalink() }}">
-                        <div class="image-wrapper">
-                            {{ the_post_thumbnail( block_value('preview-size') ) }}
-                        </div>
+    {{-- Filter --}}
+    @if ( !empty($categories) & empty($category_name))
+        <div class="filter-button-group">
+            <ul>
+                @foreach($categories as $category)
+                    <a class="more-link" data-filter={{ $category->slug }} alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>
+                        <li>{{ $category->name }}</li>
                     </a>
-                    @if ( !block_value('disable-meta') )
-                        <div class="meta-wrapper">
-                            @if ( !block_value( 'disable-meta-date'))
-                                <span class="entry-date"><i class="fal fa-calendar-alt"></i> {{ get_the_date() }}</span>
-                            @endif
-                            @if ( !block_value('disable-meta-author') )
-                                    <span class="entry-author"><i class="fal fa-user"></i> {{ get_the_author() }}</span>
-                            @endif
-                        </div>
-                    @endif
-                    <div class="title-wrapper">
-                        @if ( !block_value('disable-meta') )
-                            @if ( !block_value('disable-meta-category') )
-                                <span class="entry-category">
-                                    @foreach($categories as $cat)
-                                        {{ $cat->name }}
-                                    @endforeach
-                                </span>
-                            @endif
-                        @endif
-                        <h3>{{ the_title() }}</h3>
-                    </div>
-                    <div class="text-wrapper">{{ the_excerpt() }}</div>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-                    <div class="linklist-wrapper">
-                        <ul>
-                            <li><a href="{{ the_permalink() }}">Weiterlesen</a></li>
-                        </ul>
-                    </div>
-                </div>
-            @endwhile
-        @else
-            {{-- no posts found --}}
-        @endif
+    <div class="ajax-container grid-x grid-margin-x{{ $row_per_col }}" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+        <!-- Elemente werden über AJAX geladen -->
+    </div>
 
-        {{-- Restore original Post Data --}}
-        @php wp_reset_postdata(); @endphp
+    {{-- Loading Image --}}
+    <div class="loading-image flex element-alignment--mm">
+        <img class="padding-large-b" data-src="{{ get_template_directory_uri() }}/dist/images/puff.svg">
+    </div>
 
+    {{-- Load More Button --}}
+    <div class="wp-block-button flex element-alignment--mm">
+        <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
     </div>
 @overwrite

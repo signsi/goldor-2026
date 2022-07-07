@@ -42,6 +42,13 @@ module.exports = async (app) => {
       "block.google-maps": [
         '@scripts/blocks/rocketpager-google-maps'
       ],
+      "block.news-list": [
+        '@scripts/blocks/rocketpager-news-list'
+      ],
+      "block.videoelement": [
+        '@scripts/blocks/rocketpager-videoelement',
+        'https://www.youtube.com/iframe_api',
+      ],
     })
 
     /**

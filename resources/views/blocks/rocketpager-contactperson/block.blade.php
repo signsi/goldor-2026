@@ -1,3 +1,7 @@
+@php
+    $idLightbox = App\getLightboxIdentifier();
+@endphp
+
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
@@ -14,11 +18,12 @@
             <a href="mailto:{{ block_value('mail') }}" target="_blank">{{ block_value('mail') }}</a></p>
         </div>
         <div class="image-container">
-            @include('blocks.helpers.image', 
+            @include('blocks.helpers.image',
             [
                 'name_ImageField' => 'image',
-                'thumbnail' => 'small-crop'
-            ]) 
+                'thumbnail' => 'small-crop',
+                'identifierLightbox' => $idLightbox
+            ])
         </div>
     </div>
 @overwrite

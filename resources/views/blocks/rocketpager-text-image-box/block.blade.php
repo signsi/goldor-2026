@@ -1,6 +1,7 @@
 @php
     $direction = App\existsReturnKey('order', ' reverse');
     $offset = App\existsReturnKey('offset-image', ' offset');
+    $idLightbox = App\getLightboxIdentifier();
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
@@ -16,12 +17,14 @@
                         'class_object_fill_breakpoint' => 'bg-object-wrapper--mediumUp',
                         'class_object_fit' => array('class' => 'bg-object--cover'),
                         'thumbnail' => 'medium-width',
+                        'identifierLightbox' => $idLightbox
                     ])
                 @else
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'image',
                         'thumbnail' => 'medium-width',
+                        'identifierLightbox' => $idLightbox
                     ])
                 @endif
             </div>

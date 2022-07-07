@@ -4,7 +4,7 @@
     @while ( block_rows('testimonial') )
         @php block_row('testimonial') @endphp
         <div class="col">
-            @include('blocks.helpers.image', 
+            @include('blocks.helpers.image',
             [
                 'name_ImageField' => 'testimonial-logo',
                 'isRepeaterElement' => true

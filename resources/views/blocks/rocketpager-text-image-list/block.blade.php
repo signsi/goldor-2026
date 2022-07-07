@@ -1,6 +1,7 @@
 @php
     $col = block_value( 'row-per-col');
     $row_per_col = App\setColumns();
+    $idLightbox = App\getLightboxIdentifier();
 @endphp
 
 
@@ -9,7 +10,7 @@
 @section('content-section')
     <div class="grid-x grid-margin-x {{ $row_per_col }}">
         @while (block_rows('post'))
-            @php block_row('post') @endphp
+            @php block_row('post'); @endphp
             <div class="cell{{ App\getAnimation() }}">
                     @switch( $col )
                         @case(1)
@@ -17,7 +18,8 @@
                             [
                                 'name_ImageField' => 'image',
                                 'thumbnail' => 'full-width',
-                                'isRepeaterElement' => true
+                                'isRepeaterElement' => true,
+                                'identifierLightbox' => $idLightbox
                             ])
                             @break
                         @case(2)
@@ -25,7 +27,8 @@
                             [
                                 'name_ImageField' => 'image',
                                 'thumbnail' => '16-9-thumb',
-                                'isRepeaterElement' => true
+                                'isRepeaterElement' => true,
+                                'identifierLightbox' => $idLightbox
                             ])
                             @break
                         @case(3)
@@ -34,14 +37,16 @@
                                 'name_ImageField' => 'image',
                                 'additionalClasses' => array('class' => 'show-for-medium'),
                                 'thumbnail' => 'square-thumb',
-                                'isRepeaterElement' => true
+                                'isRepeaterElement' => true,
+                                'identifierLightbox' => $idLightbox
                             ])
                             @include('blocks.helpers.image',
                             [
                                 'name_ImageField' => 'image',
                                 'additionalClasses' => array('class' => 'hide-for-medium'),
                                 'thumbnail' => '16-9-thumb',
-                                'isRepeaterElement' => true
+                                'isRepeaterElement' => true,
+                                'identifierLightbox' => $idLightbox
                             ])
                             @break
                         @default
@@ -49,7 +54,8 @@
                             [
                                 'name_ImageField' => 'image',
                                 'thumbnail' => '4-3-thumb',
-                                'isRepeaterElement' => true
+                                'isRepeaterElement' => true,
+                                'identifierLightbox' => $idLightbox
                             ])
                     @endswitch
                 @if ( block_sub_value('title') )

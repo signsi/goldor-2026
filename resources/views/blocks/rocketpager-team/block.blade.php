@@ -36,8 +36,8 @@
                             @endif
                         </div>
                         <div class="social-nav-wrapper">
-                            @include('blocks.helpers.social-link',['media_link' => $linkedin, 'icon_classes' => 'fab fa-linkedin', 'noListitem' => true])
-                            @include('blocks.helpers.social-link',['media_link' => $instagram, 'icon_classes' => 'fab fa-instagram-square', 'noListitem' => true])
+                            @include('blocks.helpers.social-link',['media_name'=> '', 'media_link' => $linkedin, 'icon_classes' => 'fab fa-linkedin', 'noListitem' => true])
+                            @include('blocks.helpers.social-link',['media_name'=> '', 'media_link' => $instagram, 'icon_classes' => 'fab fa-instagram-square', 'noListitem' => true])
                         </div>
                     </div>
                 </div>

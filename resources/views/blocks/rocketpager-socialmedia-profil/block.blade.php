@@ -12,12 +12,12 @@
 
 @section('content-section')
     <ul>
-        @include('blocks.helpers.social-link',['media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_instagram, 'icon_classes' => 'fab fa-instagram'])
-        @include('blocks.helpers.social-link',['media_link' => $social_media_googleplus, 'icon_classes' => 'fab fa-google-plus'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_instagram, 'icon_classes' => 'fab fa-instagram'])
+        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_googleplus, 'icon_classes' => 'fab fa-google-plus'])
     </ul>
 @overwrite

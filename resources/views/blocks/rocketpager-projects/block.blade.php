@@ -18,14 +18,14 @@
                         @endif
                     </div>
                     <div class="project-color" style="background-color:{{ block_sub_value('project-color') }}"></div>
-                    @include('blocks.helpers.background-image', 
+                    @include('blocks.helpers.background-image',
                     [
                         'name_ImageField' => 'project-image',
                         'class_object_fill_breakpoint' => 'project-visuel bg-object-wrapper--smallUp',
                         'class_object_fit' => array('class' => 'bg-object--cover'),
                         'thumbnail' => '4-3-thumb',
                         'isRepeaterElement' => true
-                    ]) 
+                    ])
                     <div class="overlay" style="background: linear-gradient(135deg, {{ block_sub_value('project-color') }}b0 0%, rgba(2,0,36,0.4) 100%)"></div>
                 </a>
             </li>

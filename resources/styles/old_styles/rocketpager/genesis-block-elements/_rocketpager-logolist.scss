@@ -1,43 +1,56 @@
 .rocketpager-logolist{
-    h2 {
-        text-align: center;
+    h2, h3, h4, h5, h6 {
         @extend %margin-xlarge-b !optional;
     }
     .customer--wrapper {
-        display: flex;
-        flex-wrap:wrap;
         .container--outer {
-            display: inline-block;
-            flex-grow: 1;
-            width: calc(100% * (1/2));
-            max-width: calc(100% * (1/2));
-            @include breakpoint(medium) {
-                width: calc(100% * (1/3));
-                max-width: calc(100% * (1/3));
-            }
-            @include breakpoint(large) {
-                width: calc(100% * (1/4));
-                max-width: calc(100% * (1/4));
-            }
             .container--inner {
                 position: relative;
-                padding-top: 50%;
-                @include breakpoint(medium) {
-                    padding-top: 56.25%;
-                }
+                padding-top: 56.25%;
                 .logo {
                     position: absolute;
-                    top: 20%;
-                    left: 20%;
-                    bottom: 20%;
-                    right: 20%;
+                    top: 10%;
+                    left: 10%;
+                    bottom: 10%;
+                    right: 10%;
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: center;
-                    transition: all .3s ease;
-                    &:hover {
-                        filter: grayscale(1);
-                    }
+                }
+            }
+            .logo-description {
+                text-align: center;
+                padding: 0 10px;
+                margin-top: 10px;
+                margin-bottom: 30px;
+                @include breakpoint(medium) {
+                    margin-bottom: 40px;
+                }
+                @include breakpoint(large) {
+                    margin-bottom: 60px;
+                }
+                @extend %font-size-figcaption !optional;
+            }
+            // CONFIGURATIONS
+            &.aspect-ratio-16-9 {
+                .container--inner {
+                    padding-top: 56.25%;
+                }
+            }
+            &.aspect-ratio-4-3 {
+                .container--inner {
+                    padding-top: 75%;
+                }
+            }
+            &.aspect-ratio-square {
+                .container--inner {
+                    padding-top: 100%;
+                }
+            }
+            &.boxed {
+                .container--inner {
+                    background-color: $color-white;
+                    border: 1px solid $color-grey;
                 }
             }
         }
