@@ -1,0 +1,15 @@
+.gap-gutter{
+    @apply gap-gutter-mobile tablet:gap-gutter-display;
+}
+.gap-x-gutter{
+    @apply gap-x-gutter-mobile tablet:gap-x-gutter-display;
+}
+.gap-y-gutter{
+    @apply gap-y-gutter-mobile tablet:gap-y-gutter-display;
+}
+.spacing-x-gutter{
+    @apply spacing-x-gutter-mobile tablet:spacing-x-gutter-display;
+}
+.spacing-y-gutter{
+    @apply spacing-y-gutter-mobile tablet:spacing-y-gutter-display;
+}

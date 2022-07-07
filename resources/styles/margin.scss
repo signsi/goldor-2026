@@ -1,0 +1,140 @@
+.m-section{
+    @apply m-section-mobile tablet:m-section-tablet desktop:m-section-desktop full-hd:m-section-full-hd;
+}
+.m-section-desktop-down {
+    @apply m-section-mobile tablet:m-section-tablet desktop:m-section-desktop;
+}
+.m-section-tablet-down {
+    @apply m-section-mobile tablet:m-section-tablet;
+}
+
+.mx-section{
+    @apply mx-section-mobile tablet:mx-section-tablet desktop:mx-section-desktop full-hd:mx-section-full-hd;
+}
+.mx-section-desktop-down {
+    @apply mx-section-mobile tablet:mx-section-tablet desktop:mx-section-desktop;
+}
+.mx-section-tablet-down {
+    @apply mx-section-mobile tablet:mx-section-tablet;
+}
+
+.my-section{
+    @apply my-section-mobile tablet:my-section-tablet desktop:my-section-desktop full-hd:my-section-full-hd;
+}
+.my-section-desktop-down {
+    @apply my-section-mobile tablet:my-section-tablet desktop:my-section-desktop;
+}
+.my-section-tablet-down {
+    @apply my-section-mobile tablet:my-section-tablet;
+}
+
+.ml-section{
+    @apply ml-section-mobile tablet:ml-section-tablet desktop:ml-section-desktop full-hd:ml-section-full-hd;
+}
+.ml-section-desktop-down {
+    @apply ml-section-mobile tablet:ml-section-tablet desktop:ml-section-desktop;
+}
+.ml-section-tablet-down {
+    @apply ml-section-mobile tablet:ml-section-tablet;
+}
+
+.mr-section{
+    @apply mr-section-mobile tablet:mr-section-tablet desktop:mr-section-desktop full-hd:mr-section-full-hd;
+}
+.mr-section-desktop-down {
+    @apply mr-section-mobile tablet:mr-section-tablet desktop:mr-section-desktop;
+}
+.mr-section-tablet-down {
+    @apply mr-section-mobile tablet:mr-section-tablet;
+}
+
+.mt-section{
+    @apply mt-section-mobile tablet:mt-section-tablet desktop:mt-section-desktop full-hd:mt-section-full-hd;
+}
+.mt-section-desktop-down {
+    @apply mt-section-mobile tablet:mt-section-tablet desktop:mt-section-desktop;
+}
+.mt-section-tablet-down {
+    @apply mt-section-mobile tablet:mt-section-tablet;
+}
+
+.mb-section{
+    @apply mb-section-mobile tablet:mb-section-tablet desktop:mb-section-desktop full-hd:mb-section-full-hd;
+}
+.mb-section-desktop-down {
+    @apply mb-section-mobile tablet:mb-section-tablet desktop:mb-section-desktop;
+}
+.mb-section-tablet-down {
+    @apply mb-section-mobile tablet:mb-section-tablet;
+}
+
+.m-element {
+    @apply m-element-mobile tablet:m-element-tablet desktop:m-element-desktop;
+}
+.m-element-tablet-down {
+    @apply m-element-mobile tablet:m-element-tablet;
+}
+
+.mx-element {
+    @apply mx-element-mobile tablet:mx-element-tablet desktop:mx-element-desktop;
+}
+.mx-element-tablet-down {
+    @apply mx-element-mobile tablet:mx-element-tablet;
+}
+
+.my-element {
+    @apply my-element-mobile tablet:my-element-tablet desktop:my-element-desktop;
+}
+.my-element-tablet-down {
+    @apply my-element-mobile tablet:my-element-tablet;
+}
+
+.ml-element {
+    @apply ml-element-mobile tablet:ml-element-tablet desktop:ml-element-desktop;
+}
+.ml-element-tablet-down {
+    @apply ml-element-mobile tablet:ml-element-tablet;
+}
+
+.mr-element {
+    @apply mr-element-mobile tablet:mr-element-tablet desktop:mr-element-desktop;
+}
+.mr-element-tablet-down {
+    @apply mr-element-mobile tablet:mr-element-tablet;
+}
+
+.mt-element {
+    @apply mt-element-mobile tablet:mt-element-tablet desktop:mt-element-desktop;
+}
+.mt-element-tablet-down {
+    @apply mt-element-mobile tablet:mt-element-tablet;
+}
+
+.mb-element {
+    @apply mb-element-mobile tablet:mb-element-tablet desktop:mb-element-desktop;
+}
+.mb-element-tablet-down {
+    @apply mb-element-mobile tablet:mb-element-tablet;
+}
+
+.m-gutter{
+    @apply m-gutter-mobile tablet:m-gutter-display;
+}
+.mx-gutter{
+    @apply mx-gutter-mobile tablet:mx-gutter-display;
+}
+.my-gutter{
+    @apply my-gutter-mobile tablet:my-gutter-display;
+}
+.ml-gutter{
+    @apply ml-gutter-mobile tablet:ml-gutter-display;
+}
+.mr-gutter{
+    @apply mr-gutter-mobile tablet:mr-gutter-display;
+}
+.mt-gutter{
+    @apply mt-gutter-mobile tablet:mt-gutter-display;
+}
+.mb-gutter{
+    @apply mb-gutter-mobile tablet:mb-gutter-display;
+}

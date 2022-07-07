@@ -1,0 +1,140 @@
+.p-section{
+    @apply p-section-mobile tablet:p-section-tablet desktop:p-section-desktop full-hd:p-section-full-hd;
+}
+.p-section-desktop-down {
+    @apply p-section-mobile tablet:p-section-tablet desktop:p-section-desktop;
+}
+.p-section-tablet-down {
+    @apply p-section-mobile tablet:p-section-tablet;
+}
+
+.px-section{
+    @apply px-section-mobile tablet:px-section-tablet desktop:px-section-desktop full-hd:px-section-full-hd;
+}
+.px-section-desktop-down {
+    @apply px-section-mobile tablet:px-section-tablet desktop:px-section-desktop;
+}
+.px-section-tablet-down {
+    @apply px-section-mobile tablet:px-section-tablet;
+}
+
+.py-section{
+    @apply py-section-mobile tablet:py-section-tablet desktop:py-section-desktop full-hd:py-section-full-hd;
+}
+.py-section-desktop-down {
+    @apply py-section-mobile tablet:py-section-tablet desktop:py-section-desktop;
+}
+.py-section-tablet-down {
+    @apply py-section-mobile tablet:py-section-tablet;
+}
+
+.pl-section{
+    @apply pl-section-mobile tablet:pl-section-tablet desktop:pl-section-desktop full-hd:pl-section-full-hd;
+}
+.pl-section-desktop-down {
+    @apply pl-section-mobile tablet:pl-section-tablet desktop:pl-section-desktop;
+}
+.pl-section-tablet-down {
+    @apply pl-section-mobile tablet:pl-section-tablet;
+}
+
+.pr-section{
+    @apply pr-section-mobile tablet:pr-section-tablet desktop:pr-section-desktop full-hd:pr-section-full-hd;
+}
+.pr-section-desktop-down {
+    @apply pr-section-mobile tablet:pr-section-tablet desktop:pr-section-desktop;
+}
+.pr-section-tablet-down {
+    @apply pr-section-mobile tablet:pr-section-tablet;
+}
+
+.pt-section{
+    @apply pt-section-mobile tablet:pt-section-tablet desktop:pt-section-desktop full-hd:pt-section-full-hd;
+}
+.pt-section-desktop-down {
+    @apply pt-section-mobile tablet:pt-section-tablet desktop:pt-section-desktop;
+}
+.pt-section-tablet-down {
+    @apply pt-section-mobile tablet:pt-section-tablet;
+}
+
+.pb-section{
+    @apply pb-section-mobile tablet:pb-section-tablet desktop:pb-section-desktop full-hd:pb-section-full-hd;
+}
+.pb-section-desktop-down {
+    @apply pb-section-mobile tablet:pb-section-tablet desktop:pb-section-desktop;
+}
+.pb-section-tablet-down {
+    @apply pb-section-mobile tablet:pb-section-tablet;
+}
+
+.p-element {
+    @apply p-element-mobile tablet:p-element-tablet desktop:p-element-desktop;
+}
+.p-element-tablet-down {
+    @apply p-element-mobile tablet:p-element-tablet;
+}
+
+.px-element {
+    @apply px-element-mobile tablet:px-element-tablet desktop:px-element-desktop;
+}
+.px-element-tablet-down {
+    @apply px-element-mobile tablet:px-element-tablet;
+}
+
+.py-element {
+    @apply py-element-mobile tablet:py-element-tablet desktop:py-element-desktop;
+}
+.py-element-tablet-down {
+    @apply py-element-mobile tablet:py-element-tablet;
+}
+
+.pl-element {
+    @apply pl-element-mobile tablet:pl-element-tablet desktop:pl-element-desktop;
+}
+.pl-element-tablet-down {
+    @apply pl-element-mobile tablet:pl-element-tablet;
+}
+
+.pr-element {
+    @apply pr-element-mobile tablet:pr-element-tablet desktop:pr-element-desktop;
+}
+.pr-element-tablet-down {
+    @apply pr-element-mobile tablet:pr-element-tablet;
+}
+
+.pt-element {
+    @apply pt-element-mobile tablet:pt-element-tablet desktop:pt-element-desktop;
+}
+.pt-element-tablet-down {
+    @apply pt-element-mobile tablet:pt-element-tablet;
+}
+
+.pb-element {
+    @apply pb-element-mobile tablet:pb-element-tablet desktop:pb-element-desktop;
+}
+.pb-element-tablet-down {
+    @apply pb-element-mobile tablet:pb-element-tablet;
+}
+
+.p-gutter{
+    @apply p-gutter-mobile tablet:p-gutter-display;
+}
+.px-gutter{
+    @apply px-gutter-mobile tablet:px-gutter-display;
+}
+.py-gutter{
+    @apply py-gutter-mobile tablet:py-gutter-display;
+}
+.pl-gutter{
+    @apply pl-gutter-mobile tablet:pl-gutter-display;
+}
+.pr-gutter{
+    @apply pr-gutter-mobile tablet:pr-gutter-display;
+}
+.pt-gutter{
+    @apply pt-gutter-mobile tablet:pt-gutter-display;
+}
+.pb-gutter{
+    @apply pb-gutter-mobile tablet:pb-gutter-display;
+}
