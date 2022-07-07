@@ -1,82 +1,100 @@
-.rocketpager-testimonial-slider {
+@layer components {
+
+  .rocketpager-testimonial-slider {
+    @apply bg-blue-300;
+
     .testimonial {
-        margin: 40px 0!important;
-        @include breakpoint(medium) {
-            margin: 60px 0!important;
+      margin: 40px 0 !important;
+
+      // @include breakpoint(medium) {
+      //     margin: 60px 0!important;
+      // }
+      p {
+        &.testimonial-title {
+          margin-bottom: 10px;
         }
+      }
+
+      .testimonial-itemwrapper {
+        position: relative;
+        max-width: 100%;
+        margin: 0 auto;
+
+        // @include breakpoint(medium) {
+        //     max-width: 80%;
+        //     margin: 0 auto;
+        // }
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        // @include breakpoint(medium only) {
+        //     &:nth-last-of-type(-n+2) {
+        //         margin-bottom: 0;
+        //     }
+        // }
         p {
-            &.testimonial-title {
-                margin-bottom: 10px;
-            }
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
-        .testimonial-itemwrapper {
-            position: relative;
-            max-width: 100%;
-            margin: 0 auto;
-            @include breakpoint(medium) {
-                max-width: 80%;
-                margin: 0 auto;
-            }
-            &:last-child {
-                margin-bottom: 0;
-            }
-            @include breakpoint(medium only) {
-                &:nth-last-of-type(-n+2) {
-                    margin-bottom: 0;
-                }
-            }
-            p {
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-            .border-b {
-                padding-bottom: 20px;
-                @include breakpoint(medium) {
-                    padding-bottom: 30px;
-                }
-            }
-            .img-wrapper {
-                max-width: 170px;
-                height: 170px;
-                margin: 0 auto 20px;
-                overflow: hidden;
-                border-radius: 50%;
-                padding: 15px;
-                background-color: $color-white;
-                img {
-                    padding: 15px;
-                }
-            }
+
+        .border-b {
+          padding-bottom: 20px;
+          // @include breakpoint(medium) {
+          //     padding-bottom: 30px;
+          // }
         }
-        
-        // Slider-Settings
-        ul.slick-dots {
-            position: inherit;
-            bottom: inherit;
-            list-style: inherit;
-            display: block;
-            text-align: inherit;
-            padding: inherit;
-            margin: 10px 0 0 0;
-            width: 100%;
-            li:before {
-                display: none;
-            }
+
+        .img-wrapper {
+          max-width: 170px;
+          height: 170px;
+          margin: 0 auto 20px;
+          overflow: hidden;
+          border-radius: 50%;
+          padding: 15px;
+          background-color: $color-white;
+
+          // background-color: white;
+          img {
+            padding: 15px;
+          }
         }
-        .slick-next {
-            right: 0;
+      }
+
+      // Slider-Settings
+      ul.slick-dots {
+        position: inherit;
+        bottom: inherit;
+        list-style: inherit;
+        display: block;
+        text-align: inherit;
+        padding: inherit;
+        margin: 10px 0 0 0;
+        width: 100%;
+
+        li:before {
+          display: none;
         }
-        .slick-prev {
-            left: 0;
+      }
+
+      .slick-next {
+        right: 0;
+      }
+
+      .slick-prev {
+        left: 0;
+      }
+
+      .slick-prev,
+      .slick-next {
+        height: 25px;
+        width: 25px;
+
+        &:before {
+          font-size: 25px;
         }
-        .slick-prev,
-        .slick-next {
-            height: 25px;
-            width: 25px;
-            &:before {
-                font-size: 25px;
-            }
-        }
+      }
     }
+  }
 }

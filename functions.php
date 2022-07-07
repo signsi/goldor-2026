@@ -53,8 +53,8 @@ try {
 | is registered alongside Sage.
 |
 */
-
-collect(['setup', 'filters', 'lib/require_plugins/require_plugins'])
+// , 'lib/require_plugins/require_plugins'
+collect(['setup', 'filters'])
     ->each(function ($file) {
         if (! locate_template($file = "app/{$file}.php", true, true)) {
             wp_die(
