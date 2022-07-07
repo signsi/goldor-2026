@@ -1,7 +1,5 @@
 <?php
 
-
-use function Roots\asset;
 use function Roots\bundle;
 
 
