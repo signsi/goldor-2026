@@ -50,7 +50,9 @@ function get_mapped_fields($fields)
                 __($label)
             )
                 ->set_value_type('url')
-                ->set_default_value($default);;
+                ->set_default_value($default);
+        } else if ($type == 'html') {
+            $field = Field::make('header_scripts', "rocket_$key", __('Header Scripts'));
         } else {
             return "Feldtyp ist nicht implementiert.";
         }
