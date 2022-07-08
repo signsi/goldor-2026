@@ -43,7 +43,7 @@ h2.entry-title {
 
   .wp-block-group.alignwide,
   .alignwide {
-    @apply max-w-content mx-auto px-4 md:px-6;
+    @apply max-w-default mx-auto px-gutter;
   }
 
   .wp-block-group.alignfull {
@@ -51,7 +51,7 @@ h2.entry-title {
   }
 
   .wp-block-group {
-    @apply max-w-[840px] mx-auto;
+    @apply max-w-content mx-auto;
   }
 
   .siteHeader--notTop {

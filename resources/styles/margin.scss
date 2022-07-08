@@ -1,140 +1,140 @@
 .m-section{
-    @apply m-section-mobile tablet:m-section-tablet desktop:m-section-desktop full-hd:m-section-full-hd;
+    @apply m-section-mobile md:m-section-tablet xl:m-section-desktop 2xl:m-section-full-hd;
 }
 .m-section-desktop-down {
-    @apply m-section-mobile tablet:m-section-tablet desktop:m-section-desktop;
+    @apply m-section-mobile md:m-section-tablet xl:m-section-desktop;
 }
 .m-section-tablet-down {
-    @apply m-section-mobile tablet:m-section-tablet;
+    @apply m-section-mobile md:m-section-tablet;
 }
 
 .mx-section{
-    @apply mx-section-mobile tablet:mx-section-tablet desktop:mx-section-desktop full-hd:mx-section-full-hd;
+    @apply mx-section-mobile md:mx-section-tablet xl:mx-section-desktop 2xl:mx-section-full-hd;
 }
 .mx-section-desktop-down {
-    @apply mx-section-mobile tablet:mx-section-tablet desktop:mx-section-desktop;
+    @apply mx-section-mobile md:mx-section-tablet xl:mx-section-desktop;
 }
 .mx-section-tablet-down {
-    @apply mx-section-mobile tablet:mx-section-tablet;
+    @apply mx-section-mobile md:mx-section-tablet;
 }
 
 .my-section{
-    @apply my-section-mobile tablet:my-section-tablet desktop:my-section-desktop full-hd:my-section-full-hd;
+    @apply my-section-mobile md:my-section-tablet xl:my-section-desktop 2xl:my-section-full-hd;
 }
 .my-section-desktop-down {
-    @apply my-section-mobile tablet:my-section-tablet desktop:my-section-desktop;
+    @apply my-section-mobile md:my-section-tablet xl:my-section-desktop;
 }
 .my-section-tablet-down {
-    @apply my-section-mobile tablet:my-section-tablet;
+    @apply my-section-mobile md:my-section-tablet;
 }
 
 .ml-section{
-    @apply ml-section-mobile tablet:ml-section-tablet desktop:ml-section-desktop full-hd:ml-section-full-hd;
+    @apply ml-section-mobile md:ml-section-tablet xl:ml-section-desktop 2xl:ml-section-full-hd;
 }
 .ml-section-desktop-down {
-    @apply ml-section-mobile tablet:ml-section-tablet desktop:ml-section-desktop;
+    @apply ml-section-mobile md:ml-section-tablet xl:ml-section-desktop;
 }
 .ml-section-tablet-down {
-    @apply ml-section-mobile tablet:ml-section-tablet;
+    @apply ml-section-mobile md:ml-section-tablet;
 }
 
 .mr-section{
-    @apply mr-section-mobile tablet:mr-section-tablet desktop:mr-section-desktop full-hd:mr-section-full-hd;
+    @apply mr-section-mobile md:mr-section-tablet xl:mr-section-desktop 2xl:mr-section-full-hd;
 }
 .mr-section-desktop-down {
-    @apply mr-section-mobile tablet:mr-section-tablet desktop:mr-section-desktop;
+    @apply mr-section-mobile md:mr-section-tablet xl:mr-section-desktop;
 }
 .mr-section-tablet-down {
-    @apply mr-section-mobile tablet:mr-section-tablet;
+    @apply mr-section-mobile md:mr-section-tablet;
 }
 
 .mt-section{
-    @apply mt-section-mobile tablet:mt-section-tablet desktop:mt-section-desktop full-hd:mt-section-full-hd;
+    @apply mt-section-mobile md:mt-section-tablet xl:mt-section-desktop 2xl:mt-section-full-hd;
 }
 .mt-section-desktop-down {
-    @apply mt-section-mobile tablet:mt-section-tablet desktop:mt-section-desktop;
+    @apply mt-section-mobile md:mt-section-tablet xl:mt-section-desktop;
 }
 .mt-section-tablet-down {
-    @apply mt-section-mobile tablet:mt-section-tablet;
+    @apply mt-section-mobile md:mt-section-tablet;
 }
 
 .mb-section{
-    @apply mb-section-mobile tablet:mb-section-tablet desktop:mb-section-desktop full-hd:mb-section-full-hd;
+    @apply mb-section-mobile md:mb-section-tablet xl:mb-section-desktop 2xl:mb-section-full-hd;
 }
 .mb-section-desktop-down {
-    @apply mb-section-mobile tablet:mb-section-tablet desktop:mb-section-desktop;
+    @apply mb-section-mobile md:mb-section-tablet xl:mb-section-desktop;
 }
 .mb-section-tablet-down {
-    @apply mb-section-mobile tablet:mb-section-tablet;
+    @apply mb-section-mobile md:mb-section-tablet;
 }
 
 .m-element {
-    @apply m-element-mobile tablet:m-element-tablet desktop:m-element-desktop;
+    @apply m-element-mobile md:m-element-tablet xl:m-element-desktop;
 }
 .m-element-tablet-down {
-    @apply m-element-mobile tablet:m-element-tablet;
+    @apply m-element-mobile md:m-element-tablet;
 }
 
 .mx-element {
-    @apply mx-element-mobile tablet:mx-element-tablet desktop:mx-element-desktop;
+    @apply mx-element-mobile md:mx-element-tablet xl:mx-element-desktop;
 }
 .mx-element-tablet-down {
-    @apply mx-element-mobile tablet:mx-element-tablet;
+    @apply mx-element-mobile md:mx-element-tablet;
 }
 
 .my-element {
-    @apply my-element-mobile tablet:my-element-tablet desktop:my-element-desktop;
+    @apply my-element-mobile md:my-element-tablet xl:my-element-desktop;
 }
 .my-element-tablet-down {
-    @apply my-element-mobile tablet:my-element-tablet;
+    @apply my-element-mobile md:my-element-tablet;
 }
 
 .ml-element {
-    @apply ml-element-mobile tablet:ml-element-tablet desktop:ml-element-desktop;
+    @apply ml-element-mobile md:ml-element-tablet xl:ml-element-desktop;
 }
 .ml-element-tablet-down {
-    @apply ml-element-mobile tablet:ml-element-tablet;
+    @apply ml-element-mobile md:ml-element-tablet;
 }
 
 .mr-element {
-    @apply mr-element-mobile tablet:mr-element-tablet desktop:mr-element-desktop;
+    @apply mr-element-mobile md:mr-element-tablet xl:mr-element-desktop;
 }
 .mr-element-tablet-down {
-    @apply mr-element-mobile tablet:mr-element-tablet;
+    @apply mr-element-mobile md:mr-element-tablet;
 }
 
 .mt-element {
-    @apply mt-element-mobile tablet:mt-element-tablet desktop:mt-element-desktop;
+    @apply mt-element-mobile md:mt-element-tablet xl:mt-element-desktop;
 }
 .mt-element-tablet-down {
-    @apply mt-element-mobile tablet:mt-element-tablet;
+    @apply mt-element-mobile md:mt-element-tablet;
 }
 
 .mb-element {
-    @apply mb-element-mobile tablet:mb-element-tablet desktop:mb-element-desktop;
+    @apply mb-element-mobile md:mb-element-tablet xl:mb-element-desktop;
 }
 .mb-element-tablet-down {
-    @apply mb-element-mobile tablet:mb-element-tablet;
+    @apply mb-element-mobile md:mb-element-tablet;
 }
 
 .m-gutter{
-    @apply m-gutter-mobile tablet:m-gutter-display;
+    @apply m-gutter-mobile md:m-gutter-display;
 }
 .mx-gutter{
-    @apply mx-gutter-mobile tablet:mx-gutter-display;
+    @apply mx-gutter-mobile md:mx-gutter-display;
 }
 .my-gutter{
-    @apply my-gutter-mobile tablet:my-gutter-display;
+    @apply my-gutter-mobile md:my-gutter-display;
 }
 .ml-gutter{
-    @apply ml-gutter-mobile tablet:ml-gutter-display;
+    @apply ml-gutter-mobile md:ml-gutter-display;
 }
 .mr-gutter{
-    @apply mr-gutter-mobile tablet:mr-gutter-display;
+    @apply mr-gutter-mobile md:mr-gutter-display;
 }
 .mt-gutter{
-    @apply mt-gutter-mobile tablet:mt-gutter-display;
+    @apply mt-gutter-mobile md:mt-gutter-display;
 }
 .mb-gutter{
-    @apply mb-gutter-mobile tablet:mb-gutter-display;
+    @apply mb-gutter-mobile md:mb-gutter-display;
 }

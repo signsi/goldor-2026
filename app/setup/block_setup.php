@@ -35,9 +35,9 @@ add_action('genesis_custom_blocks_render_template_rocketpager-google-maps', func
     bundle('block.google-maps')->enqueue()->localize('google_api_key', ['google_api_key' => $API_KEY]);
 }, 10, 3);
 
-add_action('genesis_custom_blocks_render_template_rocketpager-google-maps', function () {
+add_action('genesis_custom_blocks_render_template_rocketpager-news-list', function () {
     $ajax_url = admin_url('admin-ajax.php');
-    bundle('block.google-maps')->enqueue()->localize('load_more_posts', [
+    bundle('block.news-list')->enqueue()->localize('load_more_posts', [
         'ajaxurl' => esc_url($ajax_url),
         'theme_directory_uri' => get_template_directory_uri()
     ]);

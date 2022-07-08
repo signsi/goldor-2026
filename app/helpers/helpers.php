@@ -168,7 +168,7 @@ function breadcrumbs()
 
     if (!is_home() && !is_front_page() || is_paged()) {
 
-        echo '<nav class="breadcrumb max-w-content mx-auto px-4 sm:px-6">';
+        echo '<nav class="breadcrumb max-w-default mx-auto px-gutter">';
 
         global $post;
         $homeLink = get_bloginfo('url');

@@ -1,22 +1,18 @@
 module.exports = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   theme: {
-    screens: {
-      'tablet': '768px',
-      'dekstop': '1280px',
-      'full-hd': '1700px',
-    },
     extend: {
       colors: {
         'primary': '#ff0096',
         'secondary': '#F1D9E7'
       },
       maxWidth: {
+        'default': '90rem',   //1440px
         'slimmer': '37.5rem', //600px
         'slim': '47rem',      //752px
-        'large': '71.25',     //1140px
+        'large': '71.25rem',  //1140px
         'xlarge': '90rem',    //1440px
-        'content': '90rem',   //1440px
+        'content': '52.5rem',  //840px
       },
       fontFamily: {
         'serif': ['Bodoni Moda', 'serif'],

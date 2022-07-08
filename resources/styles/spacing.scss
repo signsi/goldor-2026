@@ -1,15 +1,15 @@
 .gap-gutter{
-    @apply gap-gutter-mobile tablet:gap-gutter-display;
+    @apply gap-gutter-mobile md:gap-gutter-display;
 }
 .gap-x-gutter{
-    @apply gap-x-gutter-mobile tablet:gap-x-gutter-display;
+    @apply gap-x-gutter-mobile md:gap-x-gutter-display;
 }
 .gap-y-gutter{
-    @apply gap-y-gutter-mobile tablet:gap-y-gutter-display;
+    @apply gap-y-gutter-mobile md:gap-y-gutter-display;
 }
-.spacing-x-gutter{
-    @apply spacing-x-gutter-mobile tablet:spacing-x-gutter-display;
+.space-x-gutter{
+    @apply space-x-gutter-mobile md:space-x-gutter-display;
 }
-.spacing-y-gutter{
-    @apply spacing-y-gutter-mobile tablet:spacing-y-gutter-display;
+.space-y-gutter{
+    @apply space-y-gutter-mobile md:space-y-gutter-display;
 }
