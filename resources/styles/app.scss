@@ -26,6 +26,10 @@ h2.entry-title {
 
   }
 
+  .single .entry-content p, .page .content p {
+    @apply max-w-prose;
+  }
+
   footer ul li a {
     @apply text-base text-gray-500 hover:text-gray-900;
   }
@@ -55,8 +59,18 @@ h2.entry-title {
     @apply bg-white;
   }
 
+  // content
+
   .content h1 {
     @apply text-7xl font-bold pb-12;
+  }
+
+  .content h2 {
+    @apply text-6xl font-bold pb-12;
+  }
+
+  .content p {
+    @apply pb-8;
   }
 
 }

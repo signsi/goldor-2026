@@ -1,5 +1,5 @@
 <article @php(post_class(''))>
-    <header>
+    <header class="">
         @include('partials.entry-meta')
         <h2 class="entry-title text-6xl !font-sans font-bold">
             <a class="font-sans" href="{{ get_permalink() }}">

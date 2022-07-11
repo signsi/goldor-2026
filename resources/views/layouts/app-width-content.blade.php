@@ -4,7 +4,7 @@
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
 
-  <main id="main" class="main mx-auto mt-[90px]">
+  <main id="main" class="main mx-auto mt-[34px]">
     @yield('content')
   </main>
 
