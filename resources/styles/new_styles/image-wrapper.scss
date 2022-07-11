@@ -1,0 +1,11 @@
+@layer components {
+    .bg-object-container{
+        @apply relative w-full h-full;
+        picture{
+            @apply absolute top-0 left-0 w-full h-full;
+            .bg-object-container {
+                @apply absolute top-0 bottom-0 left-0 right-0 w-full h-full transition-opacity duration-200 ease-out;
+            }
+        }
+    }
+}
