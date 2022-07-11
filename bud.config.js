@@ -25,18 +25,23 @@ module.exports = async (app) => {
         '@styles/editor'
       ],
       "block.hero-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-hero-slider'
       ],
       "block.content-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-content-slider'
       ],
       "block.carousel-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-carousel-slider'
       ],
       "block.carousel-header": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-carousel-header'
       ],
       "block.testimonial-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-testimonial-slider'
       ],
       "block.google-maps": [
