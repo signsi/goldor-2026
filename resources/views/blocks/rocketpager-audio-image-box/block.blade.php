@@ -7,12 +7,12 @@
 
 @section('content-section')
     <div class="flex flex-wrap md:flex-nowrap gap-gutter {{ $direction }}">
-        <div class="flex flex-col justify-start basis-full md:basis-1/2 lg:basis-5/12">
+        <div class="flex flex-col justify-start basis-full md:basis-1/2 lg:basis-5/12 bg-white">
             @include('blocks.helpers.background-image',
             [
                 'name_ImageField' => 'image',
-                'class_object_fill_breakpoint' => 'bg-object-wrapper--mediumUp',
-                'class_object_fit' => array('class' => 'bg-object--contain'),
+                'class_object_fill_breakpoint' => 'md:bg-object-wrapper',
+                'class_object_fit' => array('class' => 'object-contain object-center'),
                 'thumbnail' => 'medium-width',
                 'isRepeaterElement' => false,
                 'identifierLightbox' => $idLightbox
