@@ -1,13 +1,13 @@
 @php
-    $direction = App\existsReturnKey('order', 'flex-direction: row-reverse;');
+    $direction = App\existsReturnKey('order', 'flex-row-reverse');
     $idLightbox = App\getLightboxIdentifier();
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid-x grid-margin-x" style="{{ $direction }}">
-        <div class="cell small-12 medium-6 large-5">
+    <div class="flex flex-wrap md:flex-nowrap gap-gutter {{ $direction }}">
+        <div class="flex flex-col justify-start basis-full md:basis-1/2 lg:basis-5/12">
             @include('blocks.helpers.background-image',
             [
                 'name_ImageField' => 'image',
@@ -19,8 +19,8 @@
             ])
         </div>
         @if ( block_value( 'quote'))
-            <div class="cell small-12 medium-6 large-7 bg-primary">
-                <div class="text-wrapper">
+            <div class="flex flex-col justify-start basis-full md:basis-1/2 lg:basis-7/12 bg-primary">
+                <div class="text-wrapper pt-4 px-4 lg:pt-6 lg:px-6 text-white">
                     {!! App\sanitize_out(block_value( 'quote' ), 'inner_block') !!}
                 </div>
                 @include('blocks.helpers.audio',

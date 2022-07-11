@@ -49,6 +49,9 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-videoelement',
         // 'https://www.youtube.com/iframe_api',
       ],
+      "block.audio-image-box":[
+        '@styles/new_styles/rocketpager-audio-image-box'
+      ]
     })
 
     /**
