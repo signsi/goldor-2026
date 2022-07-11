@@ -26,7 +26,8 @@ h2.entry-title {
 
   }
 
-  .single .entry-content p, .page .content p {
+  .single .entry-content p,
+  .page .content p {
     @apply max-w-prose;
   }
 
@@ -72,6 +73,25 @@ h2.entry-title {
   .content p {
     @apply pb-8;
   }
+
+
+  // blocks
+
+  // core/query
+  div.alignfull.wp-block-query.is-style-post-image-grid ul li {
+    @apply relative;
+  }
+  div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:first-child {
+    @apply flex aspect-square;
+  }
+  div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:first-child img {
+    @apply block h-full w-full object-cover;
+  }
+
+  div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:nth-child(2) {
+    @apply absolute inset-0 bg-red-700 opacity-0;
+  }
+
 
 }
 
