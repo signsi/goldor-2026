@@ -38,7 +38,8 @@ module.exports = async (app) => {
       ],
       "block.carousel-header": [
         'slick-carousel',
-        '@scripts/blocks/rocketpager-carousel-header'
+        '@scripts/blocks/rocketpager-carousel-header',
+        '@styles/new_styles/rocketpager-carousel-header'
       ],
       "block.testimonial-slider": [
         'slick-carousel',

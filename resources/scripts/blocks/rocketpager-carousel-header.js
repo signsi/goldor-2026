@@ -12,30 +12,30 @@ $(".carousel-header-slider").slick({
     cssEase: 'linear',
     responsive: [
     {
-        breakpoint: 1024,
+        breakpoint: 1535,
         settings: {
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        centerMode: true
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            speed: 300,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            centerMode: true
         }
     },
     {
         breakpoint: 767,
         settings: {
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 300,
-        arrows: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        centerMode: false
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            speed: 300,
+            arrows: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            centerMode: false
         }
     }
     ]
