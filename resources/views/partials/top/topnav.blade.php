@@ -1,5 +1,5 @@
-<div id="topNav" class="relative bg-white max-w-default w-full mx-auto px-gutter">
-    <div class="flex justify-between items-center  py-gutter-display md:justify-start md:space-x-10">
+<div id="topNav" class="relative bg-white max-w-content w-full mx-auto">
+    <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 md:hidden">
             <button type="button" id="mobileToggle"
