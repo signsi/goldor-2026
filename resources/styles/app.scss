@@ -82,14 +82,14 @@ h2.entry-title {
     @apply relative;
   }
   div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:first-child {
-    @apply flex aspect-square;
+    @apply flex aspect-square overflow-hidden; 
   }
   div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:first-child img {
-    @apply block h-full w-full object-cover;
+    @apply block h-full w-full object-cover group-hover:scale-105;
   }
 
   div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group:nth-child(2) {
-    @apply absolute inset-0 bg-red-700 opacity-0;
+    @apply absolute inset-0 bg-red-700 opacity-0 group-hover:opacity-100;
   }
 
 
