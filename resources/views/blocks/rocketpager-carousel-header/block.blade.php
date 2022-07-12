@@ -14,7 +14,7 @@
                             'thumbnail' => 'square-thumb',
                             'isRepeaterElement' => true
                         ])
-                        @if ( block_sub_value( 'text') )
+                        @if ( false )
                             <div class="md:absolute md:inset-x-0 md:bottom-0 p-gutter md:translate-y-11/10 transition-all transition-300 ease-in text-white bg-black/[.8] md:group-hover:translate-y-0">
                                 <h3 class="mb-0">{{ block_sub_value('title') }}</h3>
                                 @if ( block_sub_value( 'text') )

@@ -30,7 +30,7 @@ $(".carousel-header-slider").slick({
         pauseOnFocus: false,
         pauseOnHover: false,
         speed: 300,
-        arrows: true,
+        arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: false,

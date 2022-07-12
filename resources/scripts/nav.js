@@ -71,8 +71,8 @@ export function setupMobileNav() {
     const mobileNavButton = document.querySelector("#mobileToggle");
     const mobileNavClose = document.querySelector("#mobileClose");
     const mobileNav = document.querySelector("#mobileNav");
-    const mobileClassesHidden = ['opacity-0', 'scale-95', '-z-10'];
-    const mobileClassesShown = ['opacity-1', 'scale-100', 'z-20'];
+    const mobileClassesHidden = ['opacity-0', 'scale-95', '-translate-y-full', '-z-10'];
+    const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-y-0', 'z-20'];
 
     if (mobileNavButton) {
         mobileNavButton.addEventListener('click', (e) => {
