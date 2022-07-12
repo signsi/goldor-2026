@@ -1,5 +1,5 @@
-<div id="topNav" class="relative bg-white max-w-content w-full mx-auto">
-    <div class="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+<div id="topNav" class="relative bg-white max-w-default w-full mx-auto px-gutter">
+    <div class="flex justify-between items-center  py-gutter-display md:justify-start md:space-x-10">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 md:hidden">
             <button type="button" id="mobileToggle"
@@ -34,7 +34,7 @@
         </div>
 
         <div id="mobileNav"
-            class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden opacity-0 scale-95 -z-10">
+            class="absolute top-0 inset-x-0 p-2 transition-all duration-500 transform origin-top-right md:hidden opacity-0 scale-95 -translate-y-full ease-in-out">
             <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                 <div class="pt-5 pb-6 px-5">
                     <div class="flex items-center justify-between">

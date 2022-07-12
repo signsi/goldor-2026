@@ -63,11 +63,11 @@ h2.entry-title {
   // content
 
   .content h1 {
-    @apply text-7xl font-bold pb-12;
+    @apply text-xl md:text-7xl font-bold pb-12;
   }
 
   .content h2 {
-    @apply text-6xl font-bold pb-12;
+    @apply text-lg md:text-6xl font-bold pb-12;
   }
 
   .content p {
