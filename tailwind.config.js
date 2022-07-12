@@ -32,6 +32,9 @@ module.exports = {
         'gutter-mobile': '20px',
         'gutter-display': '30px',
       },
+      translate: {
+        '11/10': '110%',
+      }
     },
   },
   plugins: [

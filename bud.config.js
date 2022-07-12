@@ -56,7 +56,7 @@ module.exports = async (app) => {
       ],
       "block.audio-image-box":[
         '@styles/new_styles/rocketpager-audio-image-box'
-      ]
+      ],
     })
 
     /**

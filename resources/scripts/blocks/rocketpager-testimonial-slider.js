@@ -1,5 +1,3 @@
-import 'slick-carousel';
-
 $(".testimonial").slick({
   infinite: true,
   dots: true,
