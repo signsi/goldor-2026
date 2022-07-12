@@ -28,7 +28,9 @@ add_filter('excerpt_more', function () {
 // }, 10, 2);
 
 
-
+/**
+ * Adding group to each <li> for the query block.
+ */
 add_filter('render_block_core/query', function ($block_content, $block) {
     $rx = "/<li class=\"(wp-block-post) [^\"]*/i";
     preg_match_all($rx, $block_content, $matches, PREG_OFFSET_CAPTURE);
