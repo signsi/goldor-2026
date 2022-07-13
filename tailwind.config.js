@@ -17,6 +17,7 @@ module.exports = {
       fontFamily: {
         'serif': ['Bodoni Moda', 'serif'],
         'sans': ['Montserrat', 'Arial', 'sans-serif'],
+        'icon': ['Font Awesome 6 Pro', 'Font Awesome 5 Pro']
       },
       spacing: {
         // Abstände zwischen den verschiedenen Sections
@@ -34,7 +35,12 @@ module.exports = {
       },
       translate: {
         '11/10': '110%',
-      }
+      },
+      content: {
+        'slider-prev': '\f177',
+        'slider-next': '\f178',
+        'slider-dot': '\2022',
+      },
     },
   },
   plugins: [

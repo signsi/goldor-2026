@@ -2,7 +2,7 @@ $(".carousel-header-slider").slick({
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 8500,
+    speed: 7000,
     autoplay: true,
     autoplaySpeed: false,
     slidesToShow: 3,
@@ -16,11 +16,11 @@ $(".carousel-header-slider").slick({
         settings: {
             pauseOnFocus: false,
             pauseOnHover: false,
-            speed: 300,
+            speed: 7000,
             slidesToShow: 2,
             slidesToScroll: 1,
-            autoplay: false,
-            autoplaySpeed: 3000,
+            autoplay: true,
+            autoplaySpeed: false,
             centerMode: true
         }
     },
