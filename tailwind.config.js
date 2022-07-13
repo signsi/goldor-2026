@@ -4,7 +4,13 @@ module.exports = {
     extend: {
       colors: {
         'primary': '#ff0096',
-        'secondary': '#F1D9E7'
+        'secondary': '#F1D9E7',
+        'font': '#000',
+      },
+      opacity:{
+        'default': '1',
+        'on-hover': '0.8',
+        'not-active': '0.25'
       },
       maxWidth: {
         'default': '90rem',   //1440px
@@ -17,7 +23,7 @@ module.exports = {
       fontFamily: {
         'serif': ['Bodoni Moda', 'serif'],
         'sans': ['Montserrat', 'Arial', 'sans-serif'],
-        'icon': ['Font Awesome 6 Pro', 'Font Awesome 5 Pro']
+        'icon': '"Font Awesome 6 Pro"'
       },
       spacing: {
         // Abstände zwischen den verschiedenen Sections
@@ -37,10 +43,14 @@ module.exports = {
         '11/10': '110%',
       },
       content: {
-        'slider-prev': '\f177',
-        'slider-next': '\f178',
-        'slider-dot': '\2022',
+        'slider-prev': '"\\f177"',
+        'slider-next': '"\\f178"',
+        'slider-dot': '"\\2022"',
       },
+      fontSize: {
+        '0': ['0', '0'],
+        'icon': ['20px', '1'],
+      }
     },
   },
   plugins: [
