@@ -59,17 +59,15 @@
 }
 
 // SLIDER HEIGHTS
-/*
 .slides,
 .slick-track {
   &.height-small {
-    @extend %headerimage-size-small !optional;
+    @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
   }
   &.height-medium {
-    @extend %headerimage-size-medium !optional;
+    @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
   }
   &.height-vh {
-    @extend %headerimage-size-vh !optional;
+    @apply h-[95vh];
   }
 }
-*/

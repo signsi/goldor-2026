@@ -2,6 +2,8 @@
     $useCustomPlayBtn = block_value('use-custom-play-button');
     $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']);
     $idLightbox = App\getLightboxIdentifier();
+
+    print_r($idLightbox);
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => $additional_classes])

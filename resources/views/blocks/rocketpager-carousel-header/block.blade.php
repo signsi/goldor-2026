@@ -37,8 +37,8 @@
     </section>
     @if ( block_value( 'title') )
         <div class="absolute top-0 left-0 right-0 hidden md:block max-w-default mx-auto px-gutter pt-section">
-            <div class="flex text-box">
-                <div class="cell basis-5/12 lg:bassis-4/14 relative hidden md:block">
+            <div class="flex gap-gutter">
+                <div class="basis-5/12 lg:bassis-4/14 relative hidden md:block">
                     <div class="relative h-full after:content[''] after:absolute after:inset-0 after:mix-blend-multiply after:bg-primary">
                     </div>
                     <div class="absolute inset-gutter-mobile md:inset-gutter-desktop">
