@@ -62,12 +62,12 @@
 .slides,
 .slick-track {
   &.height-small {
-    @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+    @apply image-size-small;
   }
   &.height-medium {
-    @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
+    @apply image-size-medium;
   }
   &.height-vh {
-    @apply h-[95vh];
+    @apply image-size-vh;
   }
 }

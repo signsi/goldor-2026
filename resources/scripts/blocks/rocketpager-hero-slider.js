@@ -8,5 +8,6 @@ $('.hero-slider').slick({
     autoplaySpeed: 3500, //Time to show ()
     fade: true,
     cssEase: 'ease-in-out',
-    speed: 1000 //Time of Transition
+    speed: 1000, //Time of Transition
+    pauseOnHover: false,
 });

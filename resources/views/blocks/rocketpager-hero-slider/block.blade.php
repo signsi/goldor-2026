@@ -52,7 +52,7 @@
         {{ reset_block_rows( 'slide' ) }}
     </div>
     @if ( block_value('arrow-down') )
-        <a href="#start" class="flex flex-col absolute left-1/2 right-0 bottom-8 lg:bottom-[5%] w-10 md:w-16 text-xl text-center text-primary -ml-5 md:-ml-8 hover:no-underline hover:text-font">
+        <a href="#start" class="flex flex-col absolute left-1/2 right-0 bottom-8 lg:bottom-[5%] w-10 md:w-16 text-xl text-center text-primary no-underline -ml-5 md:-ml-8 hover:text-font">
             <span class="text-sm mb-3 -rotate-90">Scroll</span><i class="fal fa-long-arrow-down animate-bounce mt-3"></i>
         </a>
     @endif

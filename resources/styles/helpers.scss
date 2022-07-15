@@ -10,22 +10,24 @@
     @apply font-style-icons font-light;
 }
 
-.font-style-icons-regular{
-    @apply font-style-icons font-normal;
-}
+@layer components{
+    .font-style-icons-regular{
+        @apply font-style-icons font-normal;
+    }
 
-.font-style-icons-solid{
-    @apply font-style-icons font-black;
-}
+    .font-style-icons-solid{
+        @apply font-style-icons font-black;
+    }
 
-.image-size-small{
-    @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
-}
+    .image-size-small{
+        @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+    }
 
-.image-size-medium{
-    @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
-}
+    .image-size-medium{
+        @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
+    }
 
-.image-size-vh{
-    @apply h-[100vh];
+    .image-size-vh{
+        @apply h-[100vh];
+    }
 }

@@ -1,15 +1,17 @@
-.gap-gutter{
-    @apply gap-gutter-mobile md:gap-gutter-display;
-}
-.gap-x-gutter{
-    @apply gap-x-gutter-mobile md:gap-x-gutter-display;
-}
-.gap-y-gutter{
-    @apply gap-y-gutter-mobile md:gap-y-gutter-display;
-}
-.space-x-gutter{
-    @apply space-x-gutter-mobile md:space-x-gutter-display;
-}
-.space-y-gutter{
-    @apply space-y-gutter-mobile md:space-y-gutter-display;
+@layer components{
+    .gap-gutter{
+        @apply gap-gutter-mobile md:gap-gutter-display;
+    }
+    .gap-x-gutter{
+        @apply gap-x-gutter-mobile md:gap-x-gutter-display;
+    }
+    .gap-y-gutter{
+        @apply gap-y-gutter-mobile md:gap-y-gutter-display;
+    }
+    .space-x-gutter{
+        @apply space-x-gutter-mobile md:space-x-gutter-display;
+    }
+    .space-y-gutter{
+        @apply space-y-gutter-mobile md:space-y-gutter-display;
+    }
 }
