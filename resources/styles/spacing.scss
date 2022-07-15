@@ -8,10 +8,144 @@
     .gap-y-gutter{
         @apply gap-y-gutter-mobile md:gap-y-gutter-display;
     }
+
     .space-x-gutter{
         @apply space-x-gutter-mobile md:space-x-gutter-display;
     }
     .space-y-gutter{
         @apply space-y-gutter-mobile md:space-y-gutter-display;
+    }
+
+    .inset-section{
+        @apply inset-section-mobile md:inset-section-tablet xl:inset-section-desktop 2xl:inset-section-full-hd;
+    }
+    .inset-section-desktop-down {
+        @apply inset-section-mobile md:inset-section-tablet xl:inset-section-desktop;
+    }
+    .inset-section-tablet-down {
+        @apply inset-section-mobile md:inset-section-tablet;
+    }
+    .inset-element {
+        @apply inset-element-mobile md:inset-element-tablet xl:inset-element-desktop;
+    }
+    .inset-element-tablet-down {
+        @apply inset-element-mobile md:inset-element-tablet;
+    }
+    .inset-gutter{
+        @apply inset-gutter-mobile md:inset-gutter-display;
+    }
+
+    .inset-x-section{
+        @apply inset-x-section-mobile md:inset-x-section-tablet xl:inset-x-section-desktop 2xl:inset-x-section-full-hd;
+    }
+    .inset-x-section-desktop-down {
+        @apply inset-x-section-mobile md:inset-x-section-tablet xl:inset-x-section-desktop;
+    }
+    .inset-x-section-tablet-down {
+        @apply inset-x-section-mobile md:inset-x-section-tablet;
+    }
+    .inset-x-element {
+        @apply inset-x-element-mobile md:inset-x-element-tablet xl:inset-x-element-desktop;
+    }
+    .inset-x-element-tablet-down {
+        @apply inset-x-element-mobile md:inset-x-element-tablet;
+    }
+    .inset-x-gutter{
+        @apply inset-x-gutter-mobile md:inset-x-gutter-display;
+    }
+
+    .inset-y-section{
+        @apply inset-y-section-mobile md:inset-y-section-tablet xl:inset-y-section-desktop 2xl:inset-y-section-full-hd;
+    }
+    .inset-y-section-desktop-down {
+        @apply inset-y-section-mobile md:inset-y-section-tablet xl:inset-y-section-desktop;
+    }
+    .inset-y-section-tablet-down {
+        @apply inset-y-section-mobile md:inset-y-section-tablet;
+    }
+    .inset-y-element {
+        @apply inset-y-element-mobile md:inset-y-element-tablet xl:inset-y-element-desktop;
+    }
+    .inset-y-element-tablet-down {
+        @apply inset-y-element-mobile md:inset-y-element-tablet;
+    }
+    .inset-y-gutter{
+        @apply inset-y-gutter-mobile md:inset-y-gutter-display;
+    }
+
+    .top-section{
+        @apply top-section-mobile md:top-section-tablet xl:top-section-desktop 2xl:top-section-full-hd;
+    }
+    .top-section-desktop-down {
+        @apply top-section-mobile md:top-section-tablet xl:top-section-desktop;
+    }
+    .top-section-tablet-down {
+        @apply top-section-mobile md:top-section-tablet;
+    }
+    .top-element {
+        @apply top-element-mobile md:top-element-tablet xl:top-element-desktop;
+    }
+    .top-element-tablet-down {
+        @apply top-element-mobile md:top-element-tablet;
+    }
+    .top-gutter{
+        @apply top-gutter-mobile md:top-gutter-display;
+    }
+
+    .left-section{
+        @apply left-section-mobile md:left-section-tablet xl:left-section-desktop 2xl:left-section-full-hd;
+    }
+    .left-section-desktop-down {
+        @apply left-section-mobile md:left-section-tablet xl:left-section-desktop;
+    }
+    .left-section-tablet-down {
+        @apply left-section-mobile md:left-section-tablet;
+    }
+    .left-element {
+        @apply left-element-mobile md:left-element-tablet xl:left-element-desktop;
+    }
+    .left-element-tablet-down {
+        @apply left-element-mobile md:left-element-tablet;
+    }
+    .left-gutter{
+        @apply left-gutter-mobile md:left-gutter-display;
+    }
+
+    .bottom-section{
+        @apply bottom-section-mobile md:bottom-section-tablet xl:bottom-section-desktop 2xl:bottom-section-full-hd;
+    }
+    .bottom-section-desktop-down {
+        @apply bottom-section-mobile md:bottom-section-tablet xl:bottom-section-desktop;
+    }
+    .bottom-section-tablet-down {
+        @apply bottom-section-mobile md:bottom-section-tablet;
+    }
+    .bottom-element {
+        @apply bottom-element-mobile md:bottom-element-tablet xl:bottom-element-desktop;
+    }
+    .bottom-element-tablet-down {
+        @apply bottom-element-mobile md:bottom-element-tablet;
+    }
+    .bottom-gutter{
+        @apply bottom-gutter-mobile md:bottom-gutter-display;
+    }
+
+    .right-section{
+        @apply right-section-mobile md:right-section-tablet xl:right-section-desktop 2xl:right-section-full-hd;
+    }
+    .right-section-desktop-down {
+        @apply right-section-mobile md:right-section-tablet xl:right-section-desktop;
+    }
+    .right-section-tablet-down {
+        @apply right-section-mobile md:right-section-tablet;
+    }
+    .right-element {
+        @apply right-element-mobile md:right-element-tablet xl:right-element-desktop;
+    }
+    .right-element-tablet-down {
+        @apply right-element-mobile md:right-element-tablet;
+    }
+    .right-gutter{
+        @apply right-gutter-mobile md:right-gutter-display;
     }
 }
