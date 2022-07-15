@@ -29,7 +29,7 @@ Aufruf:
 
 @if ( $url )
     <a data-fancybox="{{ $lightbox }}" href="{{ $url }}">
-        <figure class="{{ $hasButtonClass }} video-wrapper video-lightbox-wrapper videosize--{{ $video_dimension }}">
+        <figure class="{{ $hasButtonClass }} video-wrapper video-lightbox-wrapper videosize--{{ $video_dimension }} relative overflow-hidden">
             @include('blocks.helpers.background-image',
             [
                 'name_ImageField' => $name_PosterField,

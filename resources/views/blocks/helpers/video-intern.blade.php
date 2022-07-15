@@ -25,8 +25,8 @@
 @endphp
 
 @if ($videoUrl)
-    <div class="video-wrapper videosize--{{ $video_dimension }}">
-        <figure class="wp-block-video">
+    <div class="video-wrapper videosize--{{ $video_dimension }} relative overflow-hidden">
+        <figure class="wp-block-video m-0">
             <video src="{{ $videoUrl }}"
                 @if ( $posterId )
                     poster="{{ $posterUrl }}"

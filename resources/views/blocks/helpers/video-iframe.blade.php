@@ -18,8 +18,8 @@ Aufruf:
 
 
 @if ( $iframe_link )
-    <div class="video-wrapper videosize--{{ $video_dimension }}">
-        <figure class="wp-block-embed is-type-video wp-has-aspect-ratio{{ $embed_aspect_ratio }}">
+    <div class="video-wrapper videosize--{{ $video_dimension }} relative overflow-hidden">
+        <figure class="wp-block-embed is-type-video wp-has-aspect-ratio{{ $embed_aspect_ratio }}  m-0">
             <div class="wp-block-embed__wrapper">
                 {!! App\sanitize_out($iframe_link, 'only_iframe') !!}
             </div>

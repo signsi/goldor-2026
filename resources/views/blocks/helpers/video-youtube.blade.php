@@ -23,7 +23,7 @@ Aufruf:
 
 @if ( $youtube_id )
     <div class="video-wrapper videosize--{{ $video_dimension }}">
-        <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-has-aspect-ratio{{ $embed_aspect_ratio }}{{ $hasButtonClass }}">
+        <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-has-aspect-ratio{{ $embed_aspect_ratio }}{{ $hasButtonClass }} relative overflow-hidden">
             <div class="wp-block-embed__wrapper">
                 <div class="yt-player" id="{{ $player_id }}" data-youtube-id="{{ $youtube_id }}"></div>
             </div>
