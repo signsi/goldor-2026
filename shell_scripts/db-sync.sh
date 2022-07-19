@@ -11,10 +11,18 @@ ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT; unzip -o dump.zip; rm dump.z
 # import dump
 # rsync data
 echo "dropping db..."
-# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db drop --yes
+wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs package install iandunn/wp-cli-rename-db-prefix
+wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db drop --yes
 echo "dropped db, importing new dump..."
-# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db create
+wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs config set table_prefix wp_
+wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db create
 wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db import vm-db-export.sql
+wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs rename-db-prefix --no-confirm $REMOTE_DB_PREFIX
 echo "dump imported."
+# install package to rename db prefix
+# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs rename-db-prefix $REMOTE_DB_PREFIX --no-config-update
 # ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT && ls"
 # wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs plugin list
+
+
+# VOWr7e_
