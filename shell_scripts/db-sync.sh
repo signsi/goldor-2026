@@ -10,10 +10,11 @@ rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete  dump.zip $SSH_USER@$SSH_H
 ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT; unzip -o dump.zip; rm dump.zip;"
 # import dump
 # rsync data
-wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs plugin list
 echo "dropping db..."
-wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db drop --yes
+# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db drop --yes
 echo "dropped db, importing new dump..."
+# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db create
 wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db import vm-db-export.sql
 echo "dump imported."
 # ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT && ls"
+# wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs plugin list
