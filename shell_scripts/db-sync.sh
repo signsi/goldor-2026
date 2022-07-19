@@ -18,6 +18,7 @@ wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs config set table_prefix
 wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db create
 wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs db import vm-db-export.sql
 wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs rename-db-prefix --no-confirm $REMOTE_DB_PREFIX
+ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT; rm vm-db-export.sql"
 echo "dump imported."
 # install package to rename db prefix
 # wp --allow-root --ssh=devrock@80.74.154.66:2121/httpdocs rename-db-prefix $REMOTE_DB_PREFIX --no-config-update
