@@ -3,7 +3,7 @@ wp search-replace --allow-root ${LOCAL_URL} ${REMOTE_URL} --export=vm-db-export.
 # zip dump
 zip dump.zip /var/www/html/export/vm-db-export.sql
 # upload dump
-cat $WEB_ROOT
+echo $WEB_ROOT
 rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete  dump.zip $SSH_USER@$SSH_HOST:$WEB_ROOT
 # unzip dump
 ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "cd $WEB_ROOT; unzip dump.zip"
