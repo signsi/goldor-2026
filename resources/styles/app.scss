@@ -122,14 +122,19 @@ currently not seem to working with tailwindcss?
 // }
 
 
-// @import './old_styles/rocketpager/variables';
+@import './old_styles/rocketpager/variables';
 // @import './old_styles/rocketpager/settings';
 
 
 // // Genesis Block Elements
+
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-testimonial-slider';
+
+
+// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-slider';
+
 // @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion';
 // @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion-extended';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-slider';
 // @import './old_styles/rocketpager/genesis-block-elements/rocketpager-colorbox';
 // @import './old_styles/rocketpager/genesis-block-elements/rocketpager-map';
 // @import './old_styles/rocketpager/genesis-block-elements/rocketpager-hero-slider';

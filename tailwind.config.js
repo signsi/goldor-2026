@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'theme': '#ff0096'
+        'primary': '#ff0096',
+        'secondary': '#F1D9E7'
       },
       maxWidth: {
         'content': '90rem',
@@ -11,7 +12,10 @@ module.exports = {
       fontFamily: {
         'serif': ['Bodoni Moda', 'serif'],
         'sans': ['Montserrat', 'Arial', 'sans-serif'],
-      }
+      },
+      spacing: {
+        'luca': '3rem'
+      },
     },
   },
   plugins: [

@@ -1,7 +1,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="testimonial">
+    <div class="testimonial bg-blue-300">
      {{-- grid text-center grid-cols-4 gap-x-24 gap-y-24 --}}
         @while (block_rows('testimonial'))
             @php block_row('testimonial') @endphp
@@ -24,7 +24,7 @@
                 @endif
 
                 @if ( block_sub_value('testimonial-companyname') )
-                    <p class="testimonial-title"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
+                    <p class="testimonial-title p-luca m-luca"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
                 @endif
                 @if ( block_sub_value('testimonial-content') )
                     <p>«{{ block_sub_value('testimonial-content') }}»
