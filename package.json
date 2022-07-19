@@ -9,6 +9,9 @@
   },
   "scripts": {
     "dev": "bud dev",
+    "startup": "bash ./shell_scripts/startup.sh",
+    "deploy": "bash ./shell_scripts/deploy.sh",
+    "sync": "bash ./shell_scripts/db-sync.sh",
     "build": "bud build",
     "translate": "npm run translate:pot && npm run translate:js",
     "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --ignore-domain --include=\"app,resources\"",
