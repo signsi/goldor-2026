@@ -27,3 +27,14 @@ echo "dump imported."
 
 
 # VOWr7e_
+cd /var/www/html/wp-content
+ls
+
+echo "mirror plugin folder"
+rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete plugins/* $SSH_USER@$SSH_HOST:$WEB_ROOT/wp-content/plugins
+
+echo "mirror uploads folder"
+rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete uploads/* $SSH_USER@$SSH_HOST:$WEB_ROOT/wp-content/uploads
+
+
+echo "sync theme"
