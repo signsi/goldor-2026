@@ -37,5 +37,5 @@ rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete uploads/* $SSH_USER@$SSH_H
 echo "sync theme"
 cd /var/www/html/wp-content/themes/${THEME_FOLDER}
 git config --global --add safe.directory '*'
+git checkout main
 git status
-git checkout master
