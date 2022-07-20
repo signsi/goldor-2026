@@ -68,3 +68,6 @@ Anmelden
 
 # theme.json
 
+
+
+wp search-replace ${LOCAL_URL} ${REMOTE_URL} --export=vm-db-export.sql
