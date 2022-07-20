@@ -38,3 +38,4 @@ echo "sync theme"
 cd /var/www/html/wp-content/themes/${THEME_FOLDER}
 git config --global --add safe.directory '*'
 git status
+git checkout master
