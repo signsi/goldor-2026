@@ -1,11 +1,33 @@
 {
-    "version": 2,
-    "settings": {
-        "color": {},
-        "typography": {},
-        "layout": {
-            "contentSize": "840px",
-            "wideSize": "1140px"
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [{
+          "slug": "primary",
+          "color": "#111",
+          "name": "Primary"
+        },
+        {
+          "slug": "secondary",
+          "color": "#fefefe",
+          "name": "Secondary"
         }
+      ]
+    },
+    "typography": {},
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "90rem"
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "margin": false,
+          "padding": false
+        },
+        "color": {}
+      }
     }
+  }
 }
