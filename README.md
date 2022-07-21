@@ -148,3 +148,9 @@ Run script:
 ~~~
 docker-compose run wpcli $(cat ./db-sync.sh)
 ~~~
+
+
+### pw
+~~~
+8^krutkNWxvir78WXmBvtmYL
+~~~
