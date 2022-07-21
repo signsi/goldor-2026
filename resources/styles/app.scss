@@ -48,6 +48,10 @@ h2.entry-title {
     @apply max-w-content mx-auto px-4 md:px-6;
   }
 
+  .wp-block-group h2 {
+    @apply max-w-prose;
+  }
+
   .wp-block-group.alignfull {
     @apply max-w-none w-full;
   }
