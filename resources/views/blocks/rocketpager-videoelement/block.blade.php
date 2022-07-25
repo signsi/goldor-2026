@@ -5,7 +5,7 @@
     $useCustomPlayBtn = block_value('use-custom-play-button');
 @endphp
 
-@extends('blocks.helpers.block-wrapper')
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'not-prose'])
 
 @section('content-section')
     @switch($video_type)

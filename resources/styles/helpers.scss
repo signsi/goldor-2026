@@ -19,15 +19,97 @@
         @apply font-style-icons font-black;
     }
 
-    .image-size-small{
-        @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+    .video-absolute-container-ar{
+        @apply absolute inset-0 w-full h-full object-cover;
+    }
+
+    .video-absolute-container-no-ar{
+        @apply md:absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
+    }
+
+    .video-canvas-ar{
+        @apply block content-[''] bg-black;
+    }
+
+    .video-canvas-no-ar{
+        @apply md:absolute md:h-full md:w-full
+    }
+
+
+
+    .image-size-vh{
+        @apply h-[100vh];
     }
 
     .image-size-medium{
         @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
     }
 
-    .image-size-vh{
-        @apply h-[100vh];
+    .image-size-small{
+        @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+    }
+}
+
+.videosize--16x9,
+.videosize--16-9{
+    video{
+        @apply video-absolute-container-ar;
+    }
+    .wp-block-video::before,
+    .video-lightbox-preview::before{
+        @apply video-canvas-ar pt-[56.25%];
+    }
+}
+
+.videosize--4x3,
+.videosize--4-3{
+    video{
+        @apply video-absolute-container-ar;
+    }
+    .wp-block-video::before,
+    .video-lightbox-preview::before{
+        @apply video-canvas-ar pt-[75%];
+    }
+}
+
+.videosize--1x1,
+.videosize--1-1,
+.videosize--square{
+    video{
+        @apply video-absolute-container-ar;
+    }
+    .wp-block-video::before,
+    .video-lightbox-preview::before{
+        @apply video-canvas-ar pt-[100%];
+    }
+}
+
+.videosize--small{
+    @apply h-[inherit] md:h-[25vh] lg:h-[33.33vh];
+    .wp-block-video{
+        @apply video-absolute-container-no-ar;
+    }
+    video, .wp-block-embed__wrapper{
+        @apply video-canvas-no-ar;
+    }
+}
+
+.videosize--medium{
+    @apply h-[inherit] md:h-[33.33vh] lg:h-[50vh];
+    .wp-block-video{
+        @apply video-absolute-container-no-ar;
+    }
+    video, .wp-block-embed__wrapper{
+        @apply video-canvas-no-ar;
+    }
+}
+
+.videosize--vh{
+    @apply h-[100vh];
+    .wp-block-video{
+        @apply video-absolute-container-no-ar;
+    }
+    video, .wp-block-embed__wrapper{
+        @apply video-canvas-no-ar;
     }
 }
