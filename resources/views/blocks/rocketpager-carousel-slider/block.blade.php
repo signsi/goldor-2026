@@ -68,16 +68,16 @@
                     @endswitch
                 </div>
             @endif
-            <div class="text-wrapper">
+            <div class="text-wrapper p-gutter text-center">
                 @if ( block_sub_value( 'title') )
-                    <p class="title"><strong>{{ block_sub_value('title') }}</strong></p>
+                    <p class="title mb-0"><strong>{{ block_sub_value('title') }}</strong></p>
                 @endif
                 @if ( block_sub_value('text') )
                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                 @endif
                 @if ( block_sub_value('link') )
-                    <div class="wp-block-buttons flex {{ ( block_value( 'carousel-stil') == 'carousel-slider' ) ? 'element-alignment--mm' : 'element-alignment--lm' }}">
-                        <div class="wp-block-button">
+                    <div class="wp-block-buttons flex mb-0 mt-8{{ ( block_value( 'carousel-stil') == 'carousel-slider' ) ? 'justify-center items-center' : 'justify-start items-center' }}">
+                        <div class="wp-block-button mb-0">
                             <a class="wp-block-button__link" href="{{ block_sub_value('link') }}">
                                 Mehr erfahren
                             </a>
