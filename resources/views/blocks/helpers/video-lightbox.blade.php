@@ -33,8 +33,8 @@ Aufruf:
             @include('blocks.helpers.background-image',
             [
                 'name_ImageField' => $name_PosterField,
-                'class_object_fill_breakpoint' => 'bg-object-wrapper--smallUp video-lightbox-preview',
-                'class_object_fit' => array('class' => 'bg-object--cover'),
+                'class_object_fill_breakpoint' => 'bg-object-wrapper video-lightbox-preview',
+                'class_object_fit' => array('class' => 'object-cover'),
                 'isRepeaterElement' => $isRepeaterElement,
                 'identifierLightbox' => false,
             ])
