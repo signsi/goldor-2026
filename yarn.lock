@@ -1023,6 +1023,11 @@
   resolved "https://registry.npmjs.org/@discoveryjs/json-ext/-/json-ext-0.5.6.tgz"
   integrity sha512-ws57AidsDvREKrZKYffXddNkyaF14iHNHm8VQnZH6t99E8gczjNN0GpvcGny0imC80yQ0tHz1xVUKk/KFQSUyA==
 
+"@fancyapps/ui@^4.0.29":
+  version "4.0.29"
+  resolved "https://registry.yarnpkg.com/@fancyapps/ui/-/ui-4.0.29.tgz#dd3aa0e60779e5ee7a7f8d69ee5f0f2ea33d3384"
+  integrity sha512-29SnYP3QB5eW3hnnKqi5uFsGUkXIkw9MX/Vuz+bDGz/2C16C/br3YX6C0Y1S2i27R1H3HPT/suOx9HGOj65Fjw==
+
 "@googlemaps/js-api-loader@^1.14.3":
   version "1.14.3"
   resolved "https://registry.yarnpkg.com/@googlemaps/js-api-loader/-/js-api-loader-1.14.3.tgz#d7a161cd547be04ad46a1cb176e6c2647f6d74a7"
