@@ -28,7 +28,7 @@ Aufruf:
 @endphp
 
 @if ( $url )
-    <a data-fancybox="{{ $lightbox }}" href="{{ $url }}">
+    <a class="group" data-fancybox="{{ $lightbox }}" href="{{ $url }}">
         <figure class="{{ $hasButtonClass }} video-wrapper video-lightbox-wrapper videosize--{{ $video_dimension }} relative overflow-hidden">
             @include('blocks.helpers.background-image',
             [

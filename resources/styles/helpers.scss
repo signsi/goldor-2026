@@ -1,16 +1,16 @@
-.font-style-icons{
-    @apply inline-block font-icon not-italic normal-nums text-icon antialiased;
-}
-
-.font-style-icons-thin{
-    @apply font-style-icons font-thin;
-}
-
-.font-style-icons-light{
-    @apply font-style-icons font-light;
-}
-
 @layer components{
+    .font-style-icons{
+        @apply inline-block font-icon not-italic normal-nums text-icon antialiased;
+    }
+
+    .font-style-icons-thin{
+        @apply font-style-icons font-thin;
+    }
+
+    .font-style-icons-light{
+        @apply font-style-icons font-light;
+    }
+
     .font-style-icons-regular{
         @apply font-style-icons font-normal;
     }
