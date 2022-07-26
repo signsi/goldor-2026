@@ -48,7 +48,8 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-testimonial-slider'
       ],
       "block.google-maps": [
-        '@scripts/blocks/rocketpager-google-maps'
+        '@scripts/blocks/rocketpager-google-maps',
+        '@styles/new_styles/rocketpager-google-maps'
       ],
       "block.news-list": [
         '@scripts/blocks/rocketpager-news-list'

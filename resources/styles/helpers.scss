@@ -35,17 +35,18 @@
         @apply md:absolute md:h-full md:w-full
     }
 
-
-
-    .image-size-vh{
+    .image-size-vh,
+    .mapsize--vh{
         @apply h-[100vh];
     }
 
-    .image-size-medium{
+    .image-size-medium,
+    .mapsize--medium{
         @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
     }
 
-    .image-size-small{
+    .image-size-small,
+    .mapsize--small{
         @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
     }
 }
