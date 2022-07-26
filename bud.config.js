@@ -30,7 +30,8 @@ module.exports = async (app) => {
       ],
       "block.content-slider": [
         'slick-carousel',
-        '@scripts/blocks/rocketpager-content-slider'
+        '@scripts/blocks/rocketpager-content-slider',
+        '@styles/new_styles/rocketpager-content-slider'
       ],
       "block.carousel-slider": [
         'slick-carousel',

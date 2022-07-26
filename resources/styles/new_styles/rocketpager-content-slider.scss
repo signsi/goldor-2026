@@ -1,0 +1,9 @@
+.rocketpager-content-slider {
+    figcaption {
+        @apply text-center text-font mt-3 mb-20;
+    }
+    .slick-prev,
+    .slick-next {
+        @apply bg-white transition-opacity duration-300 ease-in-out opacity-40 hover:opacity-100;
+    }
+}

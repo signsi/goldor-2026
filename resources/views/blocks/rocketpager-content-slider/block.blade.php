@@ -7,7 +7,7 @@
 @section('content-section')
     @while ( block_rows('slide') )
         @php block_row('slide') @endphp
-        <div>
+        <div class="not-prose">
             @include('blocks.helpers.image',
             [
                 'name_ImageField' => 'image',
