@@ -15,17 +15,11 @@ wp --allow-root db import remote-db-export.sql
 wp --allow-root rename-db-prefix --no-confirm wp_
 wp --allow-root rewrite flush
 
-# zip db
-
-# download dump
-
-# import dump
-
-# search replace
-
-# clear permalinks
-
 # rsync uploads
 
 # rsync plugins
-
+cd /var/www/html/wp-content
+echo "mirror plugin folder"
+rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete $SSH_USER@$SSH_HOST:$WEB_ROOT/wp-content/plugins/* plugins
+echo "mirror uploads folder"
+rsync -arvz -e "ssh -p $SSH_PORT" --progress --delete $SSH_USER@$SSH_HOST:$WEB_ROOT/wp-content/uploads/* uploads
