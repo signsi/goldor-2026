@@ -121,22 +121,22 @@ if (!function_exists('setColumns')) {
     {
         switch( block_value( 'row-per-col') ){
             case 1:
-                return $isFlexType ? 'one-column' : ' small-up-1';
+                return $isFlexType ? 'grid-rows-1' : ' grid-rows-1';
                 break;
             case 2:
-                return $isFlexType ? 'two-columns' : ' small-up-1 medium-up-2';
+                return $isFlexType ? 'grid-rows-2' : ' grid-rows-1 md:grid-cols-2';
                 break;
             case 3:
-                return $isFlexType ? 'three-columns' : ' small-up-1 medium-up-2 large-up-3';
+                return $isFlexType ? 'grid-cols-3' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
                 break;
             case 4:
-                return $isFlexType ? 'four-columns' : ' small-up-1 medium-up-2 large-up-3 xlarge-up-4';
+                return $isFlexType ? 'grid-cols-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
                 break;
             case 5:
-                return $isFlexType ? 'five-columns' : ' small-up-1 medium-up-2 large-up-4 xlarge-up-5';
+                return $isFlexType ? 'grid-cols-5' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5';
                 break;
             default:
-                return $isFlexType ? 'four-columns' : '';
+                return $isFlexType ? 'grid-rows-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
         }
     }
 }
