@@ -1,6 +1,6 @@
 @php
     $useCustomPlayBtn = block_value('use-custom-play-button');
-    $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']) . 'not-prose';
+    $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']);
     $isBoxSlider = block_value( 'carousel-stil') == 'box-slider';
     $additional_classes .= $isBoxSlider ? ' pr-0 pl-0' : '';
     $idLightbox = App\getLightboxIdentifier();
@@ -16,7 +16,7 @@
         @endphp
         <div class="carousel-element @if($isBoxSlider) p-0 pb-4 md:p-4 md:pt-0 @endif" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
             @if ( $preview_type == 'post-image' )
-                <div class="image-wrapper">
+                <div class="image-wrapper not-prose">
                     @if(block_sub_value('link'))
                         <a href="{{ block_sub_value('link') }}">
                     @endif
@@ -24,7 +24,7 @@
                         @include('blocks.helpers.image',
                         [
                             'name_ImageField' => 'preview-image',
-                            'additionalClasses' => array('class' => 'nolazyload'),
+                            'additionalClasses' => array('class' => 'nolazyload !m-0'),
                             'thumbnail' => '16-9-thumb',
                             'isRepeaterElement' => true,
                             'identifierLightbox' => $idLightbox
@@ -35,7 +35,7 @@
                     @endif
                 </div>
             @else
-                <div class="video-wrapper">
+                <div class="video-wrapper not-prose">
                     @switch($preview_type)
                         @case('post-video')
                             @include('blocks.helpers.video-youtube',
