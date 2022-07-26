@@ -12,7 +12,7 @@ $(".rocketpager-carousel-slider").slick({
         }
         },
         {
-        breakpoint: 480,
+        breakpoint: 767,
         settings: {
             slidesToShow: 1
         }

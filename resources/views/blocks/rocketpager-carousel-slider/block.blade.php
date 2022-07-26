@@ -1,9 +1,9 @@
 @php
     $useCustomPlayBtn = block_value('use-custom-play-button');
-    $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']);
+    $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']) . 'not-prose';
+    $isBoxSlider = block_value( 'carousel-stil') == 'box-slider';
+    $additional_classes .= $isBoxSlider ? ' pr-0 pl-0' : '';
     $idLightbox = App\getLightboxIdentifier();
-
-    print_r($idLightbox);
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => $additional_classes])
@@ -14,7 +14,7 @@
             block_row('carousel-item');
             $preview_type = block_sub_value('preview-element');
         @endphp
-        <div class="carousel-element" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
+        <div class="carousel-element @if($isBoxSlider) p-0 pb-4 md:p-4 md:pt-0 @endif" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
             @if ( $preview_type == 'post-image' )
                 <div class="image-wrapper">
                     @if(block_sub_value('link'))
@@ -60,7 +60,6 @@
                             [
                                 'name_UrlField' => 'preview-videourl',
                                 'name_PosterField' => 'preview-image',
-                                'video_size' => $video_size,
                                 'useCustomPlayBtn' =>  $useCustomPlayBtn,
                                 'isRepeaterElement' => true,
                                 'identifierLightbox' => $idLightbox
@@ -68,7 +67,7 @@
                     @endswitch
                 </div>
             @endif
-            <div class="text-wrapper p-gutter text-center">
+            <div class="text-wrapper {{ $isBoxSlider ? 'px-0 text-left' : 'px-gutter text-center'}}">
                 @if ( block_sub_value( 'title') )
                     <p class="title mb-0"><strong>{{ block_sub_value('title') }}</strong></p>
                 @endif
@@ -76,7 +75,7 @@
                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                 @endif
                 @if ( block_sub_value('link') )
-                    <div class="wp-block-buttons flex mb-0 mt-8{{ ( block_value( 'carousel-stil') == 'carousel-slider' ) ? 'justify-center items-center' : 'justify-start items-center' }}">
+                    <div class="wp-block-buttons flex mb-0 mt-8{{ $isBoxSlider ? 'justify-start items-center' : 'justify-center items-center' }}">
                         <div class="wp-block-button mb-0">
                             <a class="wp-block-button__link" href="{{ block_sub_value('link') }}">
                                 Mehr erfahren
