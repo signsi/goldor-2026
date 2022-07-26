@@ -25,11 +25,11 @@
   }
 }
 .slick-prev {
-  @apply left-8 rtl:left-auto rtl:right-8 before:-ml-1 before:content-slider-prev before:rtl:content-slider-next;
+  @apply left-8 rtl:left-auto rtl:right-8 before:content-slider-prev before:rtl:content-slider-next;
 }
 
 .slick-next {
-  @apply right-8 rtl:right-auto rtl:left-8 before:-mr-1 before:content-slider-next before:rtl:content-slider-prev;
+  @apply right-8 rtl:right-auto rtl:left-8 before:content-slider-next before:rtl:content-slider-prev;
 }
 
 /* Dots */
