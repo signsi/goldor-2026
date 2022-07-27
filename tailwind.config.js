@@ -51,6 +51,7 @@ module.exports = {
         '12/10': '120%',
       },
       content: {
+        'default': '""',
         'slider-prev': '"\\f177"',
         'slider-next': '"\\f178"',
         'slider-dot': '"\\2022"',

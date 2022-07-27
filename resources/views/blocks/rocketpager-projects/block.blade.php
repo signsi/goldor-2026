@@ -9,8 +9,8 @@
         @while (block_rows('projekt'))
             @php block_row('projekt') @endphp
             <li class="project-item pl-0 mb-0 before:hidden" style="transform: matrix(1, 0, 0, 1, 0, 0);">
-                <a class="block relative overflow-hidden text-white no-underline before:content-[''] before:block before:pb-[75%] group" href="{{ block_sub_value('project-link') }}" data-color="{{ block_sub_value('project-color') }}" style="background-color:{{ block_sub_value('project-color') }}">
-                    <div class="inner absolute bottom-[40%] 2xl:bottom-1/4 inset-x-10 md:inset-x-[3vw] z-30 transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+                <a class="block relative overflow-hidden text-white no-underline before:content-default before:block before:pb-[75%] group" href="{{ block_sub_value('project-link') }}" data-color="{{ block_sub_value('project-color') }}" style="background-color:{{ block_sub_value('project-color') }}">
+                    <div class="inner absolute bottom-4/10 2xl:bottom-1/4 inset-x-10 md:inset-x-[3vw] z-30 transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]" style="transform: matrix(1, 0, 0, 1, 0, 0);">
                         @if (block_sub_value('project-type') )
                             <span class="project-type block mb-3 text-white opacity-80 transition-colors duration-500 ease-[cubic-bezier(0.7,0,0.3,1)]" style="color:{{ block_sub_value('projecttype-color') }}">{{ block_sub_value('project-type') }}</span>
                         @endif
@@ -30,7 +30,7 @@
                         'thumbnail' => '4-3-thumb',
                         'isRepeaterElement' => true
                     ])
-                    <div class="overlay absolute content-[''] inset-0 bottom-0 z-10" style="background: linear-gradient(135deg, {{ block_sub_value('project-color') }}b0 0%, rgba(2,0,36,0.4) 100%)"></div>
+                    <div class="overlay absolute content-default inset-0 bottom-0 z-10" style="background: linear-gradient(135deg, {{ block_sub_value('project-color') }}b0 0%, rgba(2,0,36,0.4) 100%)"></div>
                 </a>
             </li>
         @endwhile

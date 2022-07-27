@@ -36,7 +36,7 @@
                     @if ( block_sub_value( 'link') )
                         <a href="{{ block_sub_value('link') }}" target="_blank">
                     @endif
-                        <div class="logo absolute inset-[10%] bg-contain bg-no-repeat bg-center" style="background-image: url('{{ ( block_sub_value( 'image') ) ? $image_url : 'https://via.placeholder.com/400x300.png?text=Platzhalter%20Logo' }}');"></div>
+                        <div class="logo absolute inset-1/10 bg-contain bg-no-repeat bg-center" style="background-image: url('{{ ( block_sub_value( 'image') ) ? $image_url : 'https://via.placeholder.com/400x300.png?text=Platzhalter%20Logo' }}');"></div>
                     @if ( block_sub_value( 'link') )
                         </a>
                     @endif
