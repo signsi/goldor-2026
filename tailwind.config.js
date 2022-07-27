@@ -59,6 +59,10 @@ module.exports = {
       fontSize: {
         '0': ['0', '0'],
         'icon': ['20px', '1'],
+      },
+      backgroundPosition:{
+        '100': '100%',
+        '0_100': '0% 100%',
       }
     },
   },
