@@ -38,9 +38,17 @@ module.exports = {
         // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
         'gutter-mobile': '20px',
         'gutter-display': '30px',
-      },
-      translate: {
+        // oft gebrauchte Werte
+        '1/10': '10%',
+        '2/10': '20%',
+        '3/10': '30%',
+        '4/10': '40%',
+        '6/10': '60%',
+        '7/10': '70%',
+        '8/10': '80%',
+        '9/10': '90%',
         '11/10': '110%',
+        '12/10': '120%',
       },
       content: {
         'slider-prev': '"\\f177"',
