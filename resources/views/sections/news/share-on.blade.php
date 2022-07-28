@@ -10,7 +10,7 @@
                 @include('partials.social-share', [
                     'list_classes' => 'menu nav-icons icon-left',
                     'useSquare' => true,
-                    'iconSize' => 'fa-4x'
+                    'icon_classes' => 'fa-4x'
                 ])
             </div>
         </div>
