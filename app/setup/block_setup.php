@@ -8,6 +8,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-audio-image-box', 
     bundle('block.audio-image-box')->enqueue();
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-team', function () {
+    bundle('block.team')->enqueue();
+}, 10, 3);
+
 add_action('genesis_custom_blocks_render_template_rocketpager-hero-slider', function () {
     bundle('block.hero-slider')->enqueue();
 }, 10, 3);

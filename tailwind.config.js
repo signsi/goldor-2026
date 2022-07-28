@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#ff0096',
-        'secondary': '#F1D9E7',
-        'font': '#000',
+        'primary': 'var(--color-primary)',
+        'secondary': 'var(--color-secondary)',
+        'font': 'var(--color-font)',
       },
       opacity:{
         'default': '1',
@@ -63,7 +63,16 @@ module.exports = {
       backgroundPosition:{
         '100': '100%',
         '0_100': '0% 100%',
-      }
+      },
+      animation: {
+        'pulse-scale': 'pulse_scale 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        pulse_scale: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '70%': { transform: 'scale(0.9)' },
+        }
+      },
     },
   },
   plugins: [
