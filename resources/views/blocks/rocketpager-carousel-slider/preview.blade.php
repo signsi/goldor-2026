@@ -1,9 +1,9 @@
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'three-columns'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 @section('flex-item-content')
     @while ( block_rows('carousel-item') )
         @php block_row('carousel-item') @endphp
-        <div class="col">
+        <div class="p-3">
             <div class="image-wrapper">
                 @if ( block_sub_value( 'preview-image') )
                     @include('blocks.helpers.image',
