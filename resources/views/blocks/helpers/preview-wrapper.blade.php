@@ -8,7 +8,7 @@
     $hidden = block_value('hide-element');
 @endphp
 
-<div class="{{ $div_class }}">
+<div class="p-gutter-mobile bg-blue-50 border-2 border-blue-400{{ $div_class }}">
     @if($hidden)
         <div class="hidden_Element">
             <h2>RocketPager-Element wird Live nicht angezeigt.</h2>
