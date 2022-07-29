@@ -121,10 +121,10 @@ if (!function_exists('setColumns')) {
     {
         switch( block_value( 'row-per-col') ){
             case 1:
-                return $isFlexType ? 'grid-rows-1' : ' grid-rows-1';
+                return $isFlexType ? 'grid-cols-1' : ' grid-cols-1';
                 break;
             case 2:
-                return $isFlexType ? 'grid-rows-2' : ' grid-rows-1 md:grid-cols-2';
+                return $isFlexType ? 'grid-cols-2' : ' grid-cols-1 md:grid-cols-2';
                 break;
             case 3:
                 return $isFlexType ? 'grid-cols-3' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
@@ -136,7 +136,7 @@ if (!function_exists('setColumns')) {
                 return $isFlexType ? 'grid-cols-5' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5';
                 break;
             default:
-                return $isFlexType ? 'grid-rows-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+                return $isFlexType ? 'grid-cols-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
         }
     }
 }
