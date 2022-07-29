@@ -1,7 +1,5 @@
 import { Fancybox } from "@fancyapps/ui";
 
-console.log("test");
-
 const toolbarGallery = {
   display: [
     "slideshow",
