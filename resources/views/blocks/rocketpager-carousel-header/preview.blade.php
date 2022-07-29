@@ -1,9 +1,9 @@
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'three-columns'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 @section('flex-item-content')
     @while ( block_rows('slide') )
         @php block_row('slide') @endphp
-        <div class="col">
+        <div>
             <div class="image-wrapper">
                 @include('blocks.helpers.image',
                 [
