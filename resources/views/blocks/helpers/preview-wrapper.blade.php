@@ -1,5 +1,6 @@
 @php
     $element_classes = $element_classes ?? false;
+    $flex_type = $flex_type ?? 'grid-flow-col auto-cols-auto';
 
     $block_config = block_config();
     $div_class = $block_config['name'];
