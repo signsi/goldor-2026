@@ -1,16 +1,14 @@
-RocketPager Newslist
-
-{{---
 @php
     //Variables
     $category = block_value( 'category' );
+    $category_name = $category ? $category->name : '';
     $flex_type = App\setColumns(true);
 
     // The Query
     $the_query = new WP_Query(
         array(
             'post_type' => 'post',
-            'category_name' => $category->name
+            'category_name' => $category_name
         )
     );
 @endphp
@@ -19,7 +17,7 @@ RocketPager Newslist
 
 @section('flex-item-content')
 
-        {{-- The Loop --}
+        {{-- The Loop --}}
         @if ($the_query->have_posts())
             @while ($the_query->have_posts())
                 @php $the_query->the_post(); @endphp
@@ -30,16 +28,16 @@ RocketPager Newslist
                                 {{ the_post_thumbnail( block_value('preview-size') ) }}
                             </div>
                         @endif
-                    <div class="text-wrapper">
+                    <div class="text-wrapper mt-6">
                         <strong>{{ the_title() }}</strong><br><br>
                         {{ the_excerpt() }}
                     </div>
                 </div>
             @endwhile
         @else
-            {{-- no posts found --}
+            {{-- no posts found --}}
         @endif
 
-        {{-- Restore original Post Data --}
+        {{-- Restore original Post Data --}}
         @php wp_reset_postdata(); @endphp
 @overwrite
