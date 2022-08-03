@@ -55,6 +55,7 @@ module.exports = {
         'slider-prev': '"\\f177"',
         'slider-next': '"\\f178"',
         'slider-dot': '"\\2022"',
+        'check-circle': '"\\f111"',
       },
       fontSize: {
         '0': ['0', '0'],

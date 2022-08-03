@@ -50,11 +50,11 @@
 @section('content-section')
     {{-- Filter --}}
     @if ( !empty($categories) & empty($category_name))
-        <div class="filter-button-group">
-            <ul>
+        <div class="filter-button-group max-w-slim w-full mb-element mx-auto px-gutter">
+            <ul class="list-none flex flex-wrap gap-x-12 justify-evenly m-0 pl-7 border-b-2 border-primary">
                 @foreach($categories as $category)
-                    <a class="more-link" data-filter={{ $category->slug }} alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>
-                        <li>{{ $category->name }}</li>
+                    <a class="more-link group no-underline hover:cursor-pointer" data-filter={{ $category->slug }} alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>
+                        <li class="relative pl-2 min-w-[12ch] md:min-w-fit before:absolute before:text-primary before:font-icon before:content-check-circle before:font-normal before:-left-6 group-hover:text-secondary">{{ $category->name }}</li>
                     </a>
                 @endforeach
             </ul>
