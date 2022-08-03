@@ -1,9 +1,9 @@
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'three-columns'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 @section('flex-item-content')
     @while ( block_rows('testimonial') )
         @php block_row('testimonial') @endphp
-        <div class="col">
+        <div>
             @include('blocks.helpers.image',
             [
                 'name_ImageField' => 'testimonial-logo',
