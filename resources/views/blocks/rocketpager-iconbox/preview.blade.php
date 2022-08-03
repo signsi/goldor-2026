@@ -7,7 +7,7 @@
 @section('flex-item-content')
     @while (block_rows('icon'))
         @php block_row('icon') @endphp
-        <div class="animation-shortcode col">
+        <div class="animation-shortcode">
             @if ( block_sub_value('title') )
                 <h3 class="text-center">{{ block_sub_value('title') }}</h3>
             @endif
@@ -15,6 +15,7 @@
                 @include('blocks.helpers.image',
                 [
                     'name_ImageField' => 'image',
+                    'additionalClasses' => array('class' => 'mx-auto'),
                     'thumbnail' => 'small-width',
                     'isRepeaterElement' => true
                 ])
