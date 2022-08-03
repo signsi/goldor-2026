@@ -1,4 +1,4 @@
-{{-- 
+{{--
     Innerhalb von "@section('content-section')" und "@endsection" kann die HTML Struktur des Block definiert werden.
     Die HTML-Struktur wird in den div-Container (rocketpager-{element-name}) eingefügt. Falls nebst den Standard-Klassen
     zusätzliche Klassen benötigt werden, können diese über die Variable "element_classes" mitgegeben werden. Wenn die Animation
@@ -32,7 +32,7 @@
         @if ( block_value( 'checkbox'))
             DO SOMETING: Checkbox is True
         @else
-            DO SOMETHING ELSE: No Checkbox or value False 
+            DO SOMETHING ELSE: No Checkbox or value False
         @endif
     </p>
 
@@ -46,24 +46,24 @@
     </p>
 
     <h3>I'm a Repeating Item</h3>
-        @if(block_rows('repeater')) 
+        @if(block_rows('repeater'))
             <p>Repeater does {{ block_row_count('repeater') }} loops</p>
             <ul>
-                @while (block_rows('repeater'))     
-                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element --}}                   
+                @while (block_rows('repeater'))
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element --}}
                     @if ( block_sub_value( 'repeater-item'))
                         <li>{{ block_row_index() + 1 }}. Loop: DO SOMETHING with item (has value) -> {{ block_sub_value( 'repeater-item') }}</li>
-                    @else 
+                    @else
                         <li>{{ block_row_index() + 1 }}. Loop: DO SOMETHING ELSE with item: (no value)</li>
-                    @endif            
+                    @endif
                 @endwhile
-                {{ reset_block_rows( 'repeater' ) }} {{-- Setzt den Counter des Repeaters zurück --}} 
+                {{ reset_block_rows( 'repeater' ) }} {{-- Setzt den Counter des Repeaters zurück --}}
             </ul>
         @endif
 
     <!-- IMAGE -->
     <h3>I'm an Image (Thumbnail Medium)</h3>
-        @include('blocks.helpers.image', 
+        @include('blocks.helpers.image',
         [
             'name_ImageField' => 'image',
             'thumbnail' => 'medium'
@@ -71,34 +71,36 @@
 
     <!-- WITH CLASS-->
     <h3>I'm a Image with additional classes (Margin Left)</h3>
-        @include('blocks.helpers.image', 
+        @include('blocks.helpers.image',
         [
             'name_ImageField' => 'image',
-            'additionalClasses' => array('class' => 'margin-medium-l')
+            'additionalClasses' => array('class' => 'ml-element')
         ])
 
     <h3>Images in a Repeater</h3>
         @if(block_rows('repeater'))
-            @while (block_rows('repeater'))  
-                @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element--}}                     
-                @include('blocks.helpers.image', 
-                [
-                    'name_ImageField' => 'repeater-image',
-                    'thumbnail' => 'medium',
-                    'additionalClasses' => array('class' => 'margin-medium-r'),
-                    'isRepeaterElement' => true
-                ])        
-            @endwhile
-            {{ reset_block_rows( 'repeater' ) }} {{-- Setzt den Counter des Repeaters zurück --}} 
+            <div class="flex flex-wrap">
+                @while (block_rows('repeater'))
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element--}}
+                    @include('blocks.helpers.image',
+                    [
+                        'name_ImageField' => 'repeater-image',
+                        'thumbnail' => 'medium',
+                        'additionalClasses' => array('class' => 'mr-element mb-element'),
+                        'isRepeaterElement' => true
+                    ])
+                @endwhile
+            </div>
+            {{ reset_block_rows( 'repeater' ) }} {{-- Setzt den Counter des Repeaters zurück --}}
         @endif
 
     <h3>Images with Object-Fill instead of Background-Images</h3>
-        @include('blocks.helpers.background-image', 
+        @include('blocks.helpers.background-image',
         [
-            'name_ImageField' => 'image',                                   
-            'class_object_fill_breakpoint' => 'bg-object-wrapper--mediumUp slides height-small',
-            'class_object_fit' => array('class' => 'bg-object--cover'), 
-            'thumbnail' => 'full',                                        
+            'name_ImageField' => 'image',
+            'class_object_fill_breakpoint' => 'bg-object-wrapper slides height-small',
+            'class_object_fit' => array('class' => 'object-cover'),
+            'thumbnail' => 'full',
             'isRepeaterElement' => false
-        ]) 
-@overwrite 
+        ])
+@overwrite
