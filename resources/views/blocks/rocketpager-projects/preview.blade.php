@@ -1,5 +1,5 @@
 @php
-    $flex_type = block_value('row-per-col');
+    $flex_type = App\setColumns(true);
 @endphp
 
 @extends('blocks.helpers.preview-wrapper', ['flex_type' => $flex_type])
@@ -7,7 +7,7 @@
 @section('flex-item-content')
         @while (block_rows('projekt'))
             @php block_row('projekt') @endphp
-            <div class="col">
+            <div>
                 <div class="image-wrapper">
                     @include('blocks.helpers.image',
                     [
@@ -16,7 +16,7 @@
                         'isRepeaterElement' => true
                     ])
                 </div>
-                <div class="text-wrapper">
+                <div class="text-wrapper mt-4">
                     @if ( block_sub_value('project-type') )
                         {{ block_sub_value('project-type') }}
                     @endif
