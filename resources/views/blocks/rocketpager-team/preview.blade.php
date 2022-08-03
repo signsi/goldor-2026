@@ -2,7 +2,7 @@
     $hidden = block_value('hide-element');
 @endphp
 
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'three-columns'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 @section('flex-item-content')
         @while (block_rows('team-member'))
