@@ -54,7 +54,7 @@
             <ul class="list-none flex flex-wrap gap-x-12 justify-evenly m-0 pl-7 border-b-2 border-primary">
                 @foreach($categories as $category)
                     <a class="more-link group no-underline hover:cursor-pointer" data-filter={{ $category->slug }} alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>
-                        <li class="relative pl-2 min-w-[12ch] md:min-w-fit before:absolute before:text-primary before:font-icon before:content-check-circle before:font-normal before:-left-6 group-hover:text-secondary">{{ $category->name }}</li>
+                        <li class="relative pl-2 min-w-[12ch] md:min-w-fit transition-colors duration-300 before:absolute before:text-primary before:font-icon before:content-check-circle before:font-normal before:-left-6 group-hover:text-secondary">{{ $category->name }}</li>
                     </a>
                 @endforeach
             </ul>
