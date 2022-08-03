@@ -1,4 +1,6 @@
 @php
+    use function Roots\asset;
+
     //Variables
     $animation = App\getAnimation();
     $preview_size = block_value('preview-size');
@@ -8,7 +10,7 @@
     $disable_meta_category = block_value('disable-meta-category');
     $number_of_posts = block_value( 'number-of-posts' );
     $post_category = block_value( 'category' );
-    $category_name = $post_category->name;
+    $category_name = $post_category ? $post_category->name : '';
     $row_per_col = App\setColumns();
 
     $args = [
@@ -59,17 +61,17 @@
         </div>
     @endif
 
-    <div class="ajax-container grid-x grid-margin-x{{ $row_per_col }}" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container grid gap-gutter{{ $row_per_col }}" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         <!-- Elemente werden über AJAX geladen -->
     </div>
 
     {{-- Loading Image --}}
-    <div class="loading-image flex element-alignment--mm">
-        <img class="padding-large-b" data-src="{{ get_template_directory_uri() }}/dist/images/puff.svg">
+    <div class="loading-image flex items-center justify-center my-gutter">
+        <img data-src="{{ asset('images/puff.svg') }}">
     </div>
 
     {{-- Load More Button --}}
-    <div class="wp-block-button flex element-alignment--mm">
+    <div class="wp-block-button flex items-center justify-center mt-element">
         <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
     </div>
 @overwrite

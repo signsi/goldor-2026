@@ -18,6 +18,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
         // Die init-Methode startet die Scroll-Detektion und triggert den Event `did-interval-scroll`.
         init() {
             this._query_args.paged = this._page;
+            console.log(load_more_posts.ajaxurl);
 
             this.reset();
             this.handleCategorySelection(this);

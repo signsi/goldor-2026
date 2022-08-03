@@ -1,3 +1,6 @@
+RocketPager Newslist
+
+{{---
 @php
     //Variables
     $category = block_value( 'category' );
@@ -16,7 +19,7 @@
 
 @section('flex-item-content')
 
-        {{-- The Loop --}}
+        {{-- The Loop --}
         @if ($the_query->have_posts())
             @while ($the_query->have_posts())
                 @php $the_query->the_post(); @endphp
@@ -34,9 +37,9 @@
                 </div>
             @endwhile
         @else
-            {{-- no posts found --}}
+            {{-- no posts found --}
         @endif
 
-        {{-- Restore original Post Data --}}
+        {{-- Restore original Post Data --}
         @php wp_reset_postdata(); @endphp
 @overwrite
