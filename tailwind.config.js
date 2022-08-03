@@ -3,9 +3,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': 'var(--color-primary)',
-        'secondary': 'var(--color-secondary)',
-        'font': 'var(--color-font)',
+        'primary': 'rgb(var(--color-primary))',
+        'secondary': 'rgb(var(--color-secondary))',
+        'font': 'rgb(var(--color-font))',
       },
       opacity:{
         'default': '1',
