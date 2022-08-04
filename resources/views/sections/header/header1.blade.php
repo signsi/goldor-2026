@@ -2,13 +2,13 @@
 $lang_switch_position = App\getThemeOption('lang_selector_position');
 @endphp
 
-<header class="header header--style1">
+<header class="header siteHeader sticky top-0 transition-all z-20">
     <!-- Header Navigation -->
     <div class="header-navigation-wrapper @if (App\is_woocommerce_activated()) show-for-large shop-header @endif"
         id="fixed">
         <!-- WooCommerce Cart -->
         <nav
-            @if (!App\is_woocommerce_activated()) class="show-for-large siteHeader fixed inset-x-0 top-0 transition-all z-20 bg-white" @endif>
+            @if (!App\is_woocommerce_activated()) class="show-for-large siteHeader bg-white" @endif>
             @include('partials.top.topnav')
 
             <!-- Language Switcher -->
@@ -38,11 +38,11 @@ $lang_switch_position = App\getThemeOption('lang_selector_position');
             @if (App\is_woocommerce_activated())
                 @if (has_nav_menu('shop_navigation'))
                     {!! wp_nav_menu([
-    'theme_location' => 'shop_navigation',
-    'menu_class' => 'dropdown menu main-navigation shop-navigation float-right',
-    'container' => false,
-    'items_wrap' => '<ul class="dropdown menu main-navigation shop-navigation float-right">%3$s</ul>',
-]) !!}
+                        'theme_location' => 'shop_navigation',
+                        'menu_class' => 'dropdown menu main-navigation shop-navigation float-right',
+                        'container' => false,
+                        'items_wrap' => '<ul class="dropdown menu main-navigation shop-navigation float-right">%3$s</ul>',
+                    ]) !!}
                 @endif
                 <!-- Quickcart -->
                 <div id="quick-cart">

@@ -56,6 +56,10 @@ h2.entry-title {
     @apply max-w-default mx-auto px-gutter;
   }
 
+  .wp-block-group > .wp-block-group.alignwide {
+    @apply max-w-default mx-auto px-0;
+  }
+
   .wp-block-group h2 {
     @apply max-w-prose;
   }

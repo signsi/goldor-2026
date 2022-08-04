@@ -4,7 +4,7 @@
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
 
-  <main id="main" class="main mx-auto max-w-none prose md:prose-lg lg:prose-xl lg:prose-p:leading-6 text-primary prose-a:text-primary  prose-strong:text-primary prose-headings:text-primary">
+  <main id="main" class="main mx-auto max-w-none prose md:prose-lg lg:prose-xl lg:prose-p:leading-6 text-primary prose-a:text-primary prose-strong:text-primary prose-headings:text-primary">
     @yield('content')
   </main>
 

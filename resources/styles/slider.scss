@@ -2,76 +2,84 @@
 
 @charset "UTF-8";
 
-.slick-slider:not(.hero-slider, .carousel-header-slider){
-  @apply pb-16 md:pb-20;
-}
+@layer components {
 
-/* Arrows */
-.slick-prev,
-.slick-next {
-  @apply block absolute top-1/2 translate-y-1/2 w-12 h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent;
 
-  &:hover,
-  &:focus {
-    @apply outline-none text-transparent;
-
-    &:before {
-      @apply opacity-on-hover;
-    }
+  .slick-slider:not(.hero-slider, .carousel-header-slider) {
+    @apply pb-16 md:pb-20;
   }
 
-  &.slick-disabled:before {
-    @apply opacity-not-active;
-  }
+  /* Arrows */
+  .slick-prev,
+  .slick-next {
+    @apply block absolute top-1/2 translate-y-1/2 w-12 h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent;
 
-  &:before {
-    @apply font-style-icons-light text-font opacity-default;
-  }
-}
-.slick-prev {
-  @apply left-8 rtl:left-auto rtl:right-8 before:content-slider-prev before:rtl:content-slider-next;
-}
-
-.slick-next {
-  @apply right-8 rtl:right-auto rtl:left-8 before:content-slider-next before:rtl:content-slider-prev;
-}
-
-/* Dots */
-.slick-dots {
-  @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
-
-  li {
-    @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;
-
-    button {
-      @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
-
-      &:hover,
-      &:focus {
-        @apply outline-none before:opacity-on-hover;
-      }
+    &:hover,
+    &:focus {
+      @apply outline-none text-transparent;
 
       &:before {
-        @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
+        @apply opacity-on-hover;
       }
     }
 
-    &.slick-active button:before {
-      @apply text-font opacity-default;
+    &.slick-disabled:before {
+      @apply opacity-not-active;
+    }
+
+    &:before {
+      @apply font-style-icons-light text-font opacity-default;
     }
   }
-}
 
-// SLIDER HEIGHTS
-.slides,
-.slick-track {
-  &.height-small {
-    @apply image-size-small;
+  .slick-prev {
+    @apply left-8 rtl: left-auto rtl:right-8 before:content-slider-prev before:rtl:content-slider-next;
   }
-  &.height-medium {
-    @apply image-size-medium;
+
+  .slick-next {
+    @apply right-8 rtl: right-auto rtl:left-8 before:content-slider-next before:rtl:content-slider-prev;
   }
-  &.height-vh {
-    @apply image-size-vh;
+
+  /* Dots */
+  .slick-dots {
+    @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
+
+    li {
+      @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before: hidden;
+
+      button {
+        @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
+
+        &:hover,
+        &:focus {
+          @apply outline-none before: opacity-on-hover;
+        }
+
+        &:before {
+          @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
+        }
+      }
+
+      &.slick-active button:before {
+        @apply text-font opacity-default;
+      }
+    }
   }
+
+  // SLIDER HEIGHTS
+  .slides,
+  .slick-track {
+    &.height-small {
+      @apply image-size-small;
+    }
+
+    &.height-medium {
+      @apply image-size-medium;
+    }
+
+    &.height-vh {
+      @apply image-size-vh;
+    }
+  }
+
 }

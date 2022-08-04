@@ -88,42 +88,45 @@ export function setupMobileNav() {
     }
 }
 
+export function setupFixedNav() {
 
 
-const headerClasses = ' siteHeader fixed inset-x-0 top-0 transition-all z-10 bg-white'
-const headerElementClass = 'siteHeader'
-const siteHeader = document.querySelector(`.${headerElementClass}`);
 
-// https://codepen.io/GreenSock/pen/LYZmaeW
+    const headerClasses = ' siteHeader sticky top-0 transition-all z-10 bg-white'
+    const headerElementClass = 'siteHeader'
+    const siteHeader = document.querySelector(`.${headerElementClass}`);
+
+    // https://codepen.io/GreenSock/pen/LYZmaeW
 
 
-if (siteHeader !== null) {
+    if (siteHeader !== null) {
 
-    var header_progress = 0;
-    var header_direction = 1;
+        var header_progress = 0;
+        var header_direction = 1;
 
-    ScrollTrigger.create({
-        trigger: ".pageContent", // defined in layout
-        start: "top top",
-        end: 'bottom bottom',
-        scrub: true,
-        markers: false,
-        onUpdate: function (self) {
-            header_progress = self.progress.toFixed(2);
-            header_direction = self.direction;
-            var newClassName = "";
-            if (header_progress === '0.00') {
-                newClassName = `${headerElementClass} ${headerElementClass}--top`;
-            } else if (header_progress === '1.00') {
-                newClassName = `${headerElementClass} ${headerElementClass}--notTop ${headerElementClass}--bottom`;
-            } else {
-                newClassName = `${headerElementClass} ${headerElementClass}--notTop`;
+        ScrollTrigger.create({
+            trigger: ".pageContent", // defined in layout
+            start: "top top",
+            end: 'bottom bottom',
+            scrub: true,
+            markers: false,
+            onUpdate: function (self) {
+                header_progress = self.progress.toFixed(2);
+                header_direction = self.direction;
+                var newClassName = "";
+                if (header_progress === '0.00') {
+                    newClassName = `${headerElementClass} ${headerElementClass}--top`;
+                } else if (header_progress === '1.00') {
+                    newClassName = `${headerElementClass} ${headerElementClass}--notTop ${headerElementClass}--bottom`;
+                } else {
+                    newClassName = `${headerElementClass} ${headerElementClass}--notTop`;
 
-                if (header_direction === 1) {
-                    newClassName += ` ${headerElementClass}--unpinned`;
+                    if (header_direction === 1) {
+                        newClassName += ` ${headerElementClass}--unpinned`;
+                    }
                 }
+                siteHeader.className = newClassName + headerClasses;
             }
-            siteHeader.className = newClassName + headerClasses;
-        }
-    });
+        });
+    }
 }
