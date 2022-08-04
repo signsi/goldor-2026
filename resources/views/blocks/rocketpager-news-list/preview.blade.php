@@ -1,7 +1,7 @@
 @php
     //Variables
     $category = block_value( 'category' );
-    $category_name = $category->name ?? '';
+    $category_name = $category ? $category->name : '';
     $flex_type = App\setColumns(true);
 
     // The Query
@@ -28,7 +28,7 @@
                                 {{ the_post_thumbnail( block_value('preview-size') ) }}
                             </div>
                         @endif
-                    <div class="text-wrapper">
+                    <div class="text-wrapper mt-6">
                         <strong>{{ the_title() }}</strong><br><br>
                         {{ the_excerpt() }}
                     </div>

@@ -2,7 +2,7 @@ $color-bg-infowindow: $color-primary;
 $color-font-infowindow: $color-white;
 
 .rocketpager-google-maps{
-    #map{
+    .map{
         width: 100%;
         &.mapsize {
             &--16x9 {
@@ -30,8 +30,17 @@ $color-font-infowindow: $color-white;
             padding: 12px !important;
             .gm-style-iw-d{
                 overflow: hidden !important;*/
-                #data-content{
-                    margin-top: 0.3em;                    
+                .data-content{
+                    margin-top: 0.3em;
+                    img{
+                        max-height: 150px;
+                        width: auto;
+                        display: flex;
+                        margin-left: auto;
+                        margin-right: auto;
+                        padding: 5px;
+                        margin-bottom: 15px;
+                    }
                     p, a{
                         margin: 0;
                         font-size: 14px;
@@ -44,7 +53,7 @@ $color-font-infowindow: $color-white;
             }
         }*/
     }
-    >#data-content{
+    >.data-content{
         opacity: 0;
     }
 }

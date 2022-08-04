@@ -1,20 +1,25 @@
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'two-columns'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-2'])
 
 @section('flex-item-content')
         @if ( block_value( 'image'))
-            <div class="col">
-                <div class="bg-image" style="background-image: url('{{ block_field('image') }}');">
-                </div>
+            <div class="">
+                @include('blocks.helpers.background-image',
+                [
+                    'name_ImageField' => 'image',
+                    'class_object_fill_breakpoint' => 'bg-object-wrapper',
+                    'class_object_fit' => array('class' => 'object-cover object-center'),
+                    'thumbnail' => 'medium-width',
+                ])
             </div>
         @endif
-        
-        <div class="col bg-primary">
+
+        <div class="bg-primary ltr">
             <div class="text-wrapper">
-                Siehe Zitat im Textfeld...
+                {!! App\sanitize_out(block_value( 'quote' ), 'inner_block') !!}
             </div>
-            @include('blocks.helpers.audio', 
+            @include('blocks.helpers.audio',
             [
                 'name_AudioField' => 'audio'
-            ]) 
+            ])
         </div>
 @overwrite

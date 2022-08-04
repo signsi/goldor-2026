@@ -1,9 +1,7 @@
-import 'slick-carousel';
-
 $(".testimonial").slick({
   infinite: true,
   dots: true,
-  arrows: true,
+  arrows: false,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: false,

@@ -2,7 +2,7 @@ $(".carousel-header-slider").slick({
     dots: false,
     arrows: false,
     infinite: true,
-    speed: 8500,
+    speed: 7000,
     autoplay: true,
     autoplaySpeed: false,
     slidesToShow: 3,
@@ -12,30 +12,30 @@ $(".carousel-header-slider").slick({
     cssEase: 'linear',
     responsive: [
     {
-        breakpoint: 1024,
+        breakpoint: 1535,
         settings: {
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 300,
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        centerMode: true
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            speed: 7000,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: false,
+            centerMode: true
         }
     },
     {
         breakpoint: 767,
         settings: {
-        pauseOnFocus: false,
-        pauseOnHover: false,
-        speed: 300,
-        arrows: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 3000,
-        centerMode: false
+            pauseOnFocus: false,
+            pauseOnHover: false,
+            speed: 300,
+            arrows: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 3000,
+            centerMode: false
         }
     }
     ]

@@ -1,22 +1,21 @@
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'four-columns'])
+@php
+    $flex_type = App\setColumns(true);
+@endphp
 
-@section('flex-item-content') 
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => $flex_type])
+
+@section('content-section-before-flex')
+    <{{ block_field('heading') }} class="mb-8">{{ block_field('title') }}</{{ block_field('heading') }}>
+@overwrite
+
+@section('flex-item-content')
     @while (block_rows('logo'))
         @php block_row('logo') @endphp
-        <div class="col">
-            <div class="image-wrapper">
-                @include('blocks.helpers.image', 
-                [
-                    'name_ImageField' => 'image',
-                    'isRepeaterElement' => true
-                ])         
-            </div>
-            <div class="text-wrapper">
-                @if ( block_sub_value('link') )
-                    Link: {{ block_sub_value('link') }}
-                @endif
-            </div>
-        </div>
+            @include('blocks.helpers.image',
+            [
+                'name_ImageField' => 'image',
+                'isRepeaterElement' => true
+            ])
     @endwhile
     {{ reset_block_rows('logo') }}
 @overwrite

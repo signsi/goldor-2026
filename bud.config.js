@@ -25,23 +25,49 @@ module.exports = async (app) => {
         '@styles/editor'
       ],
       "block.hero-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-hero-slider'
       ],
       "block.content-slider": [
-        '@scripts/blocks/rocketpager-content-slider'
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-content-slider',
+        '@styles/new_styles/rocketpager-content-slider'
       ],
       "block.carousel-slider": [
-        '@scripts/blocks/rocketpager-carousel-slider'
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-carousel-slider',
+        '@styles/new_styles/rocketpager-carousel-slider'
       ],
       "block.carousel-header": [
-        '@scripts/blocks/rocketpager-carousel-header'
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-carousel-header',
+        '@styles/new_styles/rocketpager-carousel-header'
       ],
       "block.testimonial-slider": [
+        'slick-carousel',
         '@scripts/blocks/rocketpager-testimonial-slider'
       ],
       "block.google-maps": [
-        '@scripts/blocks/rocketpager-google-maps'
+        '@scripts/blocks/rocketpager-google-maps',
+        '@styles/new_styles/rocketpager-google-maps'
       ],
+      "block.news-list": [
+        '@scripts/blocks/rocketpager-news-list',
+        '@styles/new_styles/rocketpager-news-list'
+      ],
+      "block.videoelement": [
+        '@scripts/blocks/rocketpager-videoelement',
+        // 'https://www.youtube.com/iframe_api',
+      ],
+      "block.audio-image-box":[
+        '@styles/new_styles/rocketpager-audio-image-box'
+      ],
+      "block.team":[
+        '@styles/new_styles/rocketpager-team'
+      ],
+      "block.text-image-list":[
+        '@styles/new_styles/rocketpager-text-image-list'
+      ]
     })
 
     /**

@@ -8,7 +8,9 @@ $isMail = isset($showMail) ? $showMail : true;
 $useSquare = $useSquare ?? false;
 
 $list_classes = $list_classes ?? '';
-$iconSize = $iconSize ?? 'fa-4x';
+$listitem_classes = $listitem_classes ?? '';
+$achnor_classes = $achnor_classes ?? '';
+$icon_classes = $icon_classes ?? '';
 
 if ($useSquare) {
     $linkedinIcon = 'fab fa-linkedin';
@@ -27,42 +29,42 @@ if ($useSquare) {
 
 <ul class="{{ $list_classes }}">
     @if ($isLinkedin)
-        <li>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ $postUrl }}&title={{ the_title() }}"
+        <li class="{{ $listitem_classes }}">
+            <a  class="{{ $achnor_classes }}" href="https://www.linkedin.com/shareArticle?mini=true&url={{ $postUrl }}&title={{ the_title() }}"
                 rel="noreferrer" target="_blank">
-                <i class="{{ $linkedinIcon }} {{ $iconSize }}"></i>
+                <i class="{{ $linkedinIcon }} {{ $icon_classes }}"></i>
             </a>
         </li>
     @endif
     @if ($isTwitter)
-        <li>
-            <a href="https://twitter.com/intent/tweet?url={{ $postUrl }}&text={{ the_title() }}"
+        <li class="{{ $listitem_classes }}">
+            <a  class="{{ $achnor_classes }}" href="https://twitter.com/intent/tweet?url={{ $postUrl }}&text={{ the_title() }}"
                 title="{!! App\pl_e('Tweet this') !!}" rel="noreferrer" target="_blank">
-                <i class="{{ $twitterIcon }} {{ $iconSize }}"></i>
+                <i class="{{ $twitterIcon }} {{ $icon_classes }}"></i>
             </a>
         </li>
     @endif
     @if ($isWhatsapp)
-        <li>
-            <a href="https://api.whatsapp.com/send/?phone&text={!! App\pl_e('Hier ist ein Beitrag, der dich interessieren könnte:') !!} *{{ the_title() }}* - {{ $postUrl }}."
+        <li class="{{ $listitem_classes }}">
+            <a  class="{{ $achnor_classes }}" href="https://api.whatsapp.com/send/?phone&text={!! App\pl_e('Hier ist ein Beitrag, der dich interessieren könnte:') !!} *{{ the_title() }}* - {{ $postUrl }}."
                 rel="noreferrer" target="_blank">
-                <i class="{{ $whatsappIcon }} {{ $iconSize }}"></i>
+                <i class="{{ $whatsappIcon }} {{ $icon_classes }}"></i>
             </a>
         </li>
     @endif
     @if ($isFacebook)
-        <li>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" title="{!! App\pl_e('Teile auf Facebook') !!}"
+        <li class="{{ $listitem_classes }}">
+            <a  class="{{ $achnor_classes }}" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $postUrl; ?>" title="{!! App\pl_e('Teile auf Facebook') !!}"
                 rel="noreferrer" target="_blank">
-                <i class="{{ $facebookIcon }} {{ $iconSize }}"></i>
+                <i class="{{ $facebookIcon }} {{ $icon_classes }}"></i>
             </a>
         </li>
     @endif
     @if ($isMail)
-        <li>
-            <a href="mailto:?subject=<?php echo the_title(); ?>&body={!! App\pl_e('Hier ist ein Beitrag, der dich interessieren könnte:') !!} &#32;&#32;{{ $postUrl }}"
+        <li class="{{ $listitem_classes }}">
+            <a  class="{{ $achnor_classes }}" href="mailto:?subject=<?php echo the_title(); ?>&body={!! App\pl_e('Hier ist ein Beitrag, der dich interessieren könnte:') !!} &#32;&#32;{{ $postUrl }}"
                 title="{!! App\pl_e('Beitrag weiterleiten') !!}" rel="noreferrer" target="_blank">
-                <i class="{{ $emailIcon }} {{ $iconSize }}"></i>
+                <i class="{{ $emailIcon }} {{ $icon_classes }}"></i>
             </a>
         </li>
     @endif

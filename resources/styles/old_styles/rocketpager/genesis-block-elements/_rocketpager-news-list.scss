@@ -1,5 +1,60 @@
 .rocketpager-news-list {
     @extend %rocketpager-text-image-list !optional;
+
+    .filter-button-group{
+        @extend %global-width-slim !optional;
+        @extend %margin-xxxlarge-b !optional;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: $gutter-size-mobile;
+        padding-right: $gutter-size-mobile;
+        @include breakpoint(medium){
+            padding-left: $gutter-size-display;
+            padding-right: $gutter-size-display;
+        }
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 0px;
+            padding-left: 1.75rem;
+            border-bottom: 3px solid $color-primary;
+            a{
+                li{
+                    @extend %font-size-heading-3 !optional;
+                    position: relative;
+                    margin-bottom: 0.5rem;
+                    margin-left: 1.5rem;
+                    margin-right: 1.5rem;
+                    padding-left: 0.5rem;
+                    list-style: none;
+                    @include breakpoint(small only){
+                        min-width: 12ch;
+                    }
+                    &::before{
+                        position: absolute;
+                        color: $color-primary;
+                        content: '\f111';
+                        @extend %fontawesome-icons-style-pro !optional;
+                        font-weight: 400;
+                        left: -1.5rem;
+                        top: 3px;
+                    }
+                }
+                &.is-checked li::before{
+                    font-weight: 900;
+                }
+                &:hover{
+                    text-decoration: none;
+                    li{
+                        color: $color-secondary;
+                    }
+                }
+            }
+        }
+    }
+
     .cell{
         &:hover {
             a, .linklist-wrapper ul li:before {

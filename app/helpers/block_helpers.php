@@ -121,19 +121,22 @@ if (!function_exists('setColumns')) {
     {
         switch( block_value( 'row-per-col') ){
             case 1:
-                return $isFlexType ? 'one-column' : ' small-up-1';
+                return $isFlexType ? 'grid-cols-1' : ' grid-cols-1';
                 break;
             case 2:
-                return $isFlexType ? 'two-columns' : ' small-up-1 medium-up-2';
+                return $isFlexType ? 'grid-cols-2' : ' grid-cols-1 md:grid-cols-2';
                 break;
             case 3:
-                return $isFlexType ? 'three-columns' : ' small-up-1 medium-up-2 large-up-3';
+                return $isFlexType ? 'grid-cols-3' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3';
                 break;
             case 4:
-                return $isFlexType ? 'four-columns' : ' small-up-1 medium-up-2 large-up-3 xlarge-up-4';
+                return $isFlexType ? 'grid-cols-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
+                break;
+            case 5:
+                return $isFlexType ? 'grid-cols-5' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5';
                 break;
             default:
-                return $isFlexType ? 'four-columns' : '';
+                return $isFlexType ? 'grid-cols-4' : ' grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4';
         }
     }
 }
@@ -160,5 +163,57 @@ if (!function_exists('echoDeepLinktitle')) {
         $deeplinkingtitle = existsReturnVal('title');
         $deeplink = sanitize_title($deeplinkingtitle);
         return $deeplink;
+    }
+}
+
+/*
+    Liefert den Identifier für die Lightbox anhand der Auswahl des Parameters 'use-lightbox' im RocketPager-Element.
+    Der Identifier wird gebraucht, um zu definieren welche Art von Lightbox für die Bilder verwendet werden soll.
+*/
+if (!function_exists('getLightboxIdentifier')) {
+    function getLightboxIdentifier()
+    {
+        $lightbox_style = block_value('use-lightbox');
+        $custom_lightbox = sanitize_title(block_value('name-lightbox'), 'gallery');
+        switch( $lightbox_style ){
+            case 'single':
+                return 'single';
+                break;
+            case 'gallery':
+                return 'gallery-' . wp_rand(0, PHP_INT_MAX);
+                break;
+            case 'custom':
+                return 'custom-' . $custom_lightbox;
+                break;
+            default:
+                return false;
+        }
+    }
+}
+
+/*
+    Liefert die korrekte wp-embed-aspect Klasse zurück je nach Video-Dimension.
+    Mit dem Wert $default kann definiert werden, welche Klasse verwendet werden soll, wenn die Dimension nicht bekannt ist.
+*/
+if (!function_exists('getEmbedAspectRatio')) {
+    function getEmbedAspectRatio($video_dimension, $default = '')
+    {
+        switch($video_dimension){
+            case '16x9':
+            case '16-9':
+                return ' wp-embed-aspect-16-9';
+                break;
+            case '4x3':
+            case '4-3':
+                return ' wp-embed-aspect-4-3';
+                break;
+            case '1x1':
+            case '1-1':
+            case 'square':
+                return ' wp-embed-aspect-1-1';
+                break;
+            default:
+                return $default;
+        }
     }
 }

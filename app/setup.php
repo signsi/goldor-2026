@@ -170,6 +170,18 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
+
+/**
+ * Register capabilities manage_languages to show Language-Menu and manage_translations to show Translation-Menu of Polylang.
+ *
+ * @return void
+ */
+add_action( 'admin_menu', function() {
+    if ( ! current_user_can( 'manage_options' ) && function_exists( 'PLL' ) ) {
+        add_menu_page( __( 'Strings translations', 'polylang' ), __( 'Languages', 'polylang' ), 'manage_translations', 'mlang_strings', array( PLL(), 'languages_page' ), 'dashicons-translation' );
+    }
+} );
+
 // <link rel="preconnect" href="https://fonts.googleapis.com">
 // <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 // <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic:wght@400;700&display=swap" rel="stylesheet">

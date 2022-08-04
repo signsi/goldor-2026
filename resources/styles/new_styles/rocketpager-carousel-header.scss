@@ -1,0 +1,15 @@
+.rocketpager-carousel-header{
+    .slick-slide{
+        @apply max-w-[100vw] md:max-w-[50vw] 2xl:max-w-[33.33vw];
+    }
+
+    .slick-prev {
+        @apply left-3;
+    }
+    .slick-next {
+        @apply right-3;
+    }
+    .slick-arrow {
+        @apply bg-gray-200;
+    }
+}

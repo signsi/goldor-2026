@@ -1,0 +1,142 @@
+@layer components{
+    .p-section{
+        @apply p-section-mobile md:p-section-tablet xl:p-section-desktop 2xl:p-section-full-hd;
+    }
+    .p-section-desktop-down {
+        @apply p-section-mobile md:p-section-tablet xl:p-section-desktop;
+    }
+    .p-section-tablet-down {
+        @apply p-section-mobile md:p-section-tablet;
+    }
+
+    .px-section{
+        @apply px-section-mobile md:px-section-tablet xl:px-section-desktop 2xl:px-section-full-hd;
+    }
+    .px-section-desktop-down {
+        @apply px-section-mobile md:px-section-tablet xl:px-section-desktop;
+    }
+    .px-section-tablet-down {
+        @apply px-section-mobile md:px-section-tablet;
+    }
+
+    .py-section{
+        @apply py-section-mobile md:py-section-tablet xl:py-section-desktop 2xl:py-section-full-hd;
+    }
+    .py-section-desktop-down {
+        @apply py-section-mobile md:py-section-tablet xl:py-section-desktop;
+    }
+    .py-section-tablet-down {
+        @apply py-section-mobile md:py-section-tablet;
+    }
+
+    .pl-section{
+        @apply pl-section-mobile md:pl-section-tablet xl:pl-section-desktop 2xl:pl-section-full-hd;
+    }
+    .pl-section-desktop-down {
+        @apply pl-section-mobile md:pl-section-tablet xl:pl-section-desktop;
+    }
+    .pl-section-tablet-down {
+        @apply pl-section-mobile md:pl-section-tablet;
+    }
+
+    .pr-section{
+        @apply pr-section-mobile md:pr-section-tablet xl:pr-section-desktop 2xl:pr-section-full-hd;
+    }
+    .pr-section-desktop-down {
+        @apply pr-section-mobile md:pr-section-tablet xl:pr-section-desktop;
+    }
+    .pr-section-tablet-down {
+        @apply pr-section-mobile md:pr-section-tablet;
+    }
+
+    .pt-section{
+        @apply pt-section-mobile md:pt-section-tablet xl:pt-section-desktop 2xl:pt-section-full-hd;
+    }
+    .pt-section-desktop-down {
+        @apply pt-section-mobile md:pt-section-tablet xl:pt-section-desktop;
+    }
+    .pt-section-tablet-down {
+        @apply pt-section-mobile md:pt-section-tablet;
+    }
+
+    .pb-section{
+        @apply pb-section-mobile md:pb-section-tablet xl:pb-section-desktop 2xl:pb-section-full-hd;
+    }
+    .pb-section-desktop-down {
+        @apply pb-section-mobile md:pb-section-tablet xl:pb-section-desktop;
+    }
+    .pb-section-tablet-down {
+        @apply pb-section-mobile md:pb-section-tablet;
+    }
+
+    .p-element {
+        @apply p-element-mobile md:p-element-tablet xl:p-element-desktop;
+    }
+    .p-element-tablet-down {
+        @apply p-element-mobile md:p-element-tablet;
+    }
+
+    .px-element {
+        @apply px-element-mobile md:px-element-tablet xl:px-element-desktop;
+    }
+    .px-element-tablet-down {
+        @apply px-element-mobile md:px-element-tablet;
+    }
+
+    .py-element {
+        @apply py-element-mobile md:py-element-tablet xl:py-element-desktop;
+    }
+    .py-element-tablet-down {
+        @apply py-element-mobile md:py-element-tablet;
+    }
+
+    .pl-element {
+        @apply pl-element-mobile md:pl-element-tablet xl:pl-element-desktop;
+    }
+    .pl-element-tablet-down {
+        @apply pl-element-mobile md:pl-element-tablet;
+    }
+
+    .pr-element {
+        @apply pr-element-mobile md:pr-element-tablet xl:pr-element-desktop;
+    }
+    .pr-element-tablet-down {
+        @apply pr-element-mobile md:pr-element-tablet;
+    }
+
+    .pt-element {
+        @apply pt-element-mobile md:pt-element-tablet xl:pt-element-desktop;
+    }
+    .pt-element-tablet-down {
+        @apply pt-element-mobile md:pt-element-tablet;
+    }
+
+    .pb-element {
+        @apply pb-element-mobile md:pb-element-tablet xl:pb-element-desktop;
+    }
+    .pb-element-tablet-down {
+        @apply pb-element-mobile md:pb-element-tablet;
+    }
+
+    .p-gutter{
+        @apply p-gutter-mobile md:p-gutter-display;
+    }
+    .px-gutter{
+        @apply px-gutter-mobile md:px-gutter-display;
+    }
+    .py-gutter{
+        @apply py-gutter-mobile md:py-gutter-display;
+    }
+    .pl-gutter{
+        @apply pl-gutter-mobile md:pl-gutter-display;
+    }
+    .pr-gutter{
+        @apply pr-gutter-mobile md:pr-gutter-display;
+    }
+    .pt-gutter{
+        @apply pt-gutter-mobile md:pt-gutter-display;
+    }
+    .pb-gutter{
+        @apply pb-gutter-mobile md:pb-gutter-display;
+    }
+}

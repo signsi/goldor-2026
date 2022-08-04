@@ -13,12 +13,13 @@ Aufruf:
     $isRepeaterElement = $isRepeaterElement ?? false;
 
     $iframe_link = $isRepeaterElement ? block_sub_value($name_iFrame_Field) : block_value($name_iFrame_Field);
+    $embed_aspect_ratio = App\getEmbedAspectRatio($video_dimension, ' wp-embed-aspect-16-9');
 @endphp
 
 
 @if ( $iframe_link )
-    <div class="video-wrapper videosize--{{ $video_dimension }}">
-        <figure class="wp-block-embed is-type-video wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
+    <div class="video-wrapper videosize--{{ $video_dimension }} relative overflow-hidden">
+        <figure class="wp-block-embed is-type-video wp-has-aspect-ratio{{ $embed_aspect_ratio }}  m-0">
             <div class="wp-block-embed__wrapper">
                 {!! App\sanitize_out($iframe_link, 'only_iframe') !!}
             </div>
