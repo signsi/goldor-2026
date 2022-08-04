@@ -1,49 +1,41 @@
 {
-    "version": 2,
-    "settings": {
-        "color": {
-            "custom": false,
-            "defaultPalette": false,
-            "customGradient": false,
-            "defaultGradients": false,
-            "palette": [{
-                "slug": "primary",
-                "color": "rgb(var(--color-primary))",
-                "name": "Primary"
-              },
-              {
-                "slug": "secondary",
-                "color": "rgb(var(--color-secondary))",
-                "name": "Secondary"
-              },
-              {
-                "slug": "font",
-                "color": "rgb(var(--color-font))",
-                "name": "Font"
-              }
-            ],
-            "gradients": [
-                {
-                    "slug": "primary-gradient",
-                    "gradient": "linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-primary) / 0))",
-                    "name": "Primary Gradient"
-                },
-                {
-                    "slug": "secondary-gradient",
-                    "gradient": "linear-gradient(135deg, rgb(var(--color-secondary)), rgb(var(--color-secondary) / 0))",
-                    "name": "Secondary Gradient"
-                },
-                {
-                    "slug": "primary-to-secondary",
-                    "gradient": "linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)))",
-                    "name": "Primary to Secondary"
-                }
-            ]
+  "version": 2,
+  "settings": {
+    "color": {
+      "custom": false,
+      "defaultPalette": false,
+      "customGradient": false,
+      "defaultGradients": false,
+      "palette": [{
+          "slug": "primary",
+          "color": "rgb(var(--color-primary))",
+          "name": "Primary"
         },
-        "typography": {},
-        "layout": {
-            "contentSize": "840px",
-            "wideSize": "1140px"
+        {
+          "slug": "secondary",
+          "color": "rgb(var(--color-secondary))",
+          "name": "Secondary"
+        },
+        {
+          "slug": "font",
+          "color": "rgb(var(--color-font))",
+          "name": "Font"
+        }
+      ],
+      "gradients": [{
+          "slug": "primary-gradient",
+          "gradient": "linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-primary) / 0))",
+          "name": "Primary Gradient"
+        },
+        {
+          "slug": "secondary-gradient",
+          "gradient": "linear-gradient(135deg, rgb(var(--color-secondary)), rgb(var(--color-secondary) / 0))",
+          "name": "Secondary Gradient"
+        },
+        {
+          "slug": "primary-to-secondary",
+          "gradient": "linear-gradient(135deg, rgb(var(--color-primary)), rgb(var(--color-secondary)))",
+          "name": "Primary to Secondary"
         }
       ]
     },
