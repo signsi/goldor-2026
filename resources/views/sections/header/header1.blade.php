@@ -38,11 +38,11 @@ $lang_switch_position = App\getThemeOption('lang_selector_position');
             @if (App\is_woocommerce_activated())
                 @if (has_nav_menu('shop_navigation'))
                     {!! wp_nav_menu([
-    'theme_location' => 'shop_navigation',
-    'menu_class' => 'dropdown menu main-navigation shop-navigation float-right',
-    'container' => false,
-    'items_wrap' => '<ul class="dropdown menu main-navigation shop-navigation float-right">%3$s</ul>',
-]) !!}
+                        'theme_location' => 'shop_navigation',
+                        'menu_class' => 'dropdown menu main-navigation shop-navigation float-right',
+                        'container' => false,
+                        'items_wrap' => '<ul class="dropdown menu main-navigation shop-navigation float-right">%3$s</ul>',
+                    ]) !!}
                 @endif
                 <!-- Quickcart -->
                 <div id="quick-cart">
