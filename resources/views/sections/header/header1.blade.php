@@ -2,13 +2,13 @@
 $lang_switch_position = App\getThemeOption('lang_selector_position');
 @endphp
 
-<header class="header header--style1">
+<header class="header siteHeader sticky top-0 transition-all z-20">
     <!-- Header Navigation -->
     <div class="header-navigation-wrapper @if (App\is_woocommerce_activated()) show-for-large shop-header @endif"
         id="fixed">
         <!-- WooCommerce Cart -->
         <nav
-            @if (!App\is_woocommerce_activated()) class="show-for-large siteHeader fixed inset-x-0 top-0 transition-all z-20 bg-white" @endif>
+            @if (!App\is_woocommerce_activated()) class="show-for-large siteHeader bg-white" @endif>
             @include('partials.top.topnav')
 
             <!-- Language Switcher -->

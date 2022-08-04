@@ -1,4 +1,4 @@
-<button class="hide-for-large mburger mburger--spin" id="openMenu" aria-label="Open Mobile Navigation">
+<button class="md:hidden mburger mburger--spin" id="openMenu" aria-label="Open Mobile Navigation">
     <b></b>
     <b></b>
     <b></b>
