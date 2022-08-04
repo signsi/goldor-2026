@@ -64,6 +64,9 @@ module.exports = async (app) => {
       ],
       "block.team":[
         '@styles/new_styles/rocketpager-team'
+      ],
+      "block.text-image-list":[
+        '@styles/new_styles/rocketpager-text-image-list'
       ]
     })
 
