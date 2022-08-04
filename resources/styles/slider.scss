@@ -6,7 +6,7 @@
 
 
   .slick-slider:not(.hero-slider, .carousel-header-slider) {
-    @apply pb-16 md: pb-20;
+    @apply pb-16 md:pb-20;
   }
 
   /* Arrows */
@@ -42,7 +42,7 @@
 
   /* Dots */
   .slick-dots {
-    @apply block absolute bottom-8 md: bottom-10 list-none text-center w-full m-0 p-0;
+    @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
 
     li {
       @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before: hidden;
@@ -56,7 +56,7 @@
         }
 
         &:before {
-          @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md: text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
+          @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
         }
       }
 

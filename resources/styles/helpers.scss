@@ -24,7 +24,7 @@
   }
 
   .video-absolute-container-no-ar {
-    @apply md: absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
+    @apply md:absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
   }
 
   .video-canvas-ar {
@@ -32,7 +32,7 @@
   }
 
   .video-canvas-no-ar {
-    @apply md: absolute md:h-full md:w-full
+    @apply md:absolute md:h-full md:w-full
   }
 
   .image-size-vh,
@@ -42,12 +42,12 @@
 
   .image-size-medium,
   .mapsize--medium {
-    @apply h-[25vh] md: h-[33.33vh] lg:h-[50vh];
+    @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
   }
 
   .image-size-small,
   .mapsize--small {
-    @apply h-[20vh] md: h-[25vh] lg:h-[33.33vh];
+    @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
   }
 
 
@@ -89,7 +89,7 @@
   }
 
   .videosize--small {
-    @apply h-[inherit] md: h-[25vh] lg:h-[33.33vh];
+    @apply h-[inherit] md:h-[25vh] lg:h-[33.33vh];
 
     .wp-block-video {
       @apply video-absolute-container-no-ar;
@@ -102,7 +102,7 @@
   }
 
   .videosize--medium {
-    @apply h-[inherit] md: h-[33.33vh] lg:h-[50vh];
+    @apply h-[inherit] md:h-[33.33vh] lg:h-[50vh];
 
     .wp-block-video {
       @apply video-absolute-container-no-ar;
