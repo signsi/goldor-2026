@@ -45,5 +45,21 @@
             "contentSize": "840px",
             "wideSize": "1140px"
         }
+      ]
+    },
+    "typography": {},
+    "layout": {
+      "contentSize": "840px",
+      "wideSize": "90rem"
+    },
+    "blocks": {
+      "core/group": {
+        "spacing": {
+          "margin": false,
+          "padding": false
+        },
+        "color": {}
+      }
     }
+  }
 }
