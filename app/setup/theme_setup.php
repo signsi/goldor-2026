@@ -79,15 +79,15 @@ add_action('login_enqueue_scripts', function () { ?>
         .wp-core-ui #login .button-primary.active:focus,
         .wp-core-ui #login .button-primary.active:hover,
         .wp-core-ui #login .button-primary:active {
-            background: #FF0096;
-            border-color: #FF0096;
+            background: #7BA048;
+            border-color: #7BA048;
         }
     </style>
 <?php });
 
 // THEME-COLOR FÜR HEADER EINFÄRBEN
 add_action('wp_head', function () { ?>
-    <meta name="theme-color" content="#ff0096" />
+    <meta name="theme-color" content="#7BA048" />
 <?php });
 
 // USE HOME URL FOR LOGIN PAGE

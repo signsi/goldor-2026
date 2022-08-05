@@ -9,17 +9,27 @@
       "palette": [{
           "slug": "primary",
           "color": "rgb(var(--color-primary))",
-          "name": "Primary"
+          "name": "Grün"
         },
         {
           "slug": "secondary",
           "color": "rgb(var(--color-secondary))",
-          "name": "Secondary"
+          "name": "Hellgrün"
         },
         {
           "slug": "font",
           "color": "rgb(var(--color-font))",
           "name": "Font"
+        },
+        {
+          "slug": "orange",
+          "color": "rgb(var(--color-orange))",
+          "name": "Orange"
+        },
+        {
+          "slug": "lightgray",
+          "color": "rgb(var(--color-lightgray))",
+          "name": "Hellgrau"
         }
       ],
       "gradients": [{

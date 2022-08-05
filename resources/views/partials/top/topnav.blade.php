@@ -1,47 +1,57 @@
-<div id="topNav" class="relative bg-white max-w-default w-full mx-auto px-gutter">
-    <div class="flex justify-between items-center  py-gutter-display md:justify-start md:space-x-10">
+@php
+
+$linkedin = App\getThemeOption('linkedin');
+$twitter = App\getThemeOption('twitter');
+$xing = App\getThemeOption('xing');
+$facebook = App\getThemeOption('facebook');
+$instagram = App\getThemeOption('instagram');
+$youtube = App\getThemeOption('youtube');
+$google_plus = App\getThemeOption('google_plus');
+
+@endphp
+
+<div id="topNav" class="relative bg-white max-w-default w-full mx-auto">
+    <div class="flex justify-between md:space-x-25 items-end px-4 py-4 md:py-6 lg:py-10 sm:px-6">
         @include('partials.top.logo')
-        <div class="-mr-2 -my-2 md:hidden">
-            <button type="button" id="mobileToggle"
-                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-theme"
-                aria-expanded="false">
+        <div class="-mr-2 -my-2 lg:hidden">
+            <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-primary hover:bg-secondary" aria-expanded="false">
                 <span class="sr-only">Open menu</span>
-                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                    stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
         </div>
-        <div class="hidden md:flex-1 md:flex md:items-center md:justify-between">
-            <nav class="flex space-x-10">
+        <div class="hidden lg:flex md:items-center">
+            <nav>
                 @php
                     $locations = get_nav_menu_locations();
                     if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
                         wp_nav_menu([
                             'theme_location' => 'primary_navigation',
-                            'menu_class' => 'flex space-x-10',
+                            'menu_class' => 'flex space-x-6 lg:space-x-13 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative text-base font-medium text-gray-500 hover:text-gray-900',
-                            'add_sub_li_class' => 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 flex items-center px-3 py-2 text-sm font-medium rounded-md',
+                            'add_li_class' => 'relative text-sm lg:text-lg font-semibold text-neutral-500 hover:text-primary transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_sub_li_class' => 'text-gray-600 hover:bg-gray-50 hover:text-primary flex items-center px-3 py-2 text-sm font-medium rounded-md',
                             'walker' => new SubmenuWrap(),
                         ]);
                     }
                 @endphp
             </nav>
-            <div class="flex items-center md:ml-12">
-                @php dynamic_sidebar('sidebar-primary-cta') @endphp
-            </div>
+            @if (is_active_sidebar('sidebar-primary-cta'))
+                <div class="flex items-center md:ml-12">
+                    @php dynamic_sidebar('sidebar-primary-cta') @endphp
+                </div>
+            @endif
         </div>
 
-        <div id="mobileNav"
-            class="absolute top-0 inset-x-0 p-2 transition-all duration-500 transform origin-top-right md:hidden opacity-0 scale-95 -translate-y-full ease-in-out">
-            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                <div class="pt-5 pb-6 px-5">
-                    <div class="flex items-center justify-between">
+        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-secondary">
+            <div class="h-screen bg-theme text-font divide-y divide-primary">
+                <div class="">
+                    <div class="flex items-center justify-between px-4 py-4 bg-white">
                         @include('partials.top.logo')
                         <div class="-mr-2">
                             <button type="button"
-                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-theme"
+                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-primary hover:bg-secondary"
                                 id="mobileClose">
                                 <span class="sr-only">Close menu</span>
                                 <!-- Heroicon name: outline/x -->
@@ -52,118 +62,40 @@
                             </button>
                         </div>
                     </div>
-                    <div class="mt-6">
-                        <nav class="grid gap-6">
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/chart-bar -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Analytics</div>
-                            </a>
-
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/cursor-click -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Engagement</div>
-                            </a>
-
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/shield-check -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Security</div>
-                            </a>
-
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/view-grid -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Integrations</div>
-                            </a>
-
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/refresh -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Automations</div>
-                            </a>
-
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50">
-                                <div
-                                    class="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-theme text-white">
-                                    <!-- Heroicon name: outline/document-report -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-                                        aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                                    </svg>
-                                </div>
-                                <div class="ml-4 text-base font-medium text-gray-900">Reports</div>
-                            </a>
+                    <div class="my-6 px-4 py-4">
+                        <nav>
+                            @php
+                                $locations = get_nav_menu_locations();
+                                if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
+                                    wp_nav_menu([
+                                        'theme_location' => 'primary_navigation',
+                                        'menu_class' => 'flex flex-col space-y-3 items-baseline',
+                                        'container_class' => '',
+                                        'add_li_class' => 'flex items-center relative text-lg font-normal transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-orange before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-orange',
+                                        'walker' => new SubmenuWrap(),
+                                    ]);
+                                }
+                            @endphp
                         </nav>
                     </div>
                 </div>
-                <div class="py-6 px-5">
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Pricing
+                <div class="mx-4 py-6">
+                    <div class="flex space-x-3 justify-start">
+                        <a href="{{ $linkedin }}" target="_blank" class="flex justify-center">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg class="h-8 w-8 fill-primary hover:fill-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
                         </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Docs </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Enterprise
+                        <a href="{{ $facebook }}" target="_blank" class="flex justify-center">
+                            <span class="sr-only">Facebook</span>
+                            <svg class="h-8 w-8 fill-primary hover:fill-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"/></svg>
                         </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Help Center
+                        <a href="{{ $instagram }}" target="_blank" class="flex justify-center">
+                            <span class="sr-only">Instagram</span>
+                            <svg class="h-8 w-8 fill-primary hover:fill-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>                        </a>
+                        <a href="{{ $xing }}" target="_blank" class="flex justify-center">
+                            <span class="sr-only">XING</span>
+                            <svg class="h-8 w-8 fill-primary hover:fill-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM140.4 320.2H93.8c-5.5 0-8.7-5.3-6-10.3l49.3-86.7c.1 0 .1-.1 0-.2l-31.4-54c-3-5.6.2-10.1 6-10.1h46.6c5.2 0 9.5 2.9 12.9 8.7l31.9 55.3c-1.3 2.3-18 31.7-50.1 88.2-3.5 6.2-7.7 9.1-12.6 9.1zm219.7-214.1L257.3 286.8v.2l65.5 119c2.8 5.1.1 10.1-6 10.1h-46.6c-5.5 0-9.7-2.9-12.9-8.7l-66-120.3c2.3-4.1 36.8-64.9 103.4-182.3 3.3-5.8 7.4-8.7 12.5-8.7h46.9c5.7-.1 8.8 4.7 6 10z"/></svg>
                         </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Guides </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Events </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700"> Security
-                        </a>
-                    </div>
-                    <div class="mt-6">
-                        <a href="#"
-                            class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-theme hover:bg-theme/80">
-                            Sign up </a>
-                        <p class="mt-6 text-center text-base font-medium text-gray-500">
-                            Existing customer?
-                            <a href="#" class="text-theme hover:text-theme"> Sign in </a>
-                        </p>
                     </div>
                 </div>
             </div>

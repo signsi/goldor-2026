@@ -6,6 +6,8 @@ module.exports = {
         'primary': 'rgb(var(--color-primary))',
         'secondary': 'rgb(var(--color-secondary))',
         'font': 'rgb(var(--color-font))',
+        'orange': 'rgb(var(--color-orange))',
+        'lightgray': 'rgb(var(--color-lightgray))',
       },
       opacity:{
         'default': '1',
@@ -21,8 +23,8 @@ module.exports = {
         'content': '52.5rem',  //840px
       },
       fontFamily: {
-        'serif': ['Bodoni Moda', 'serif'],
-        'sans': ['Montserrat', 'Arial', 'sans-serif'],
+        'serif': ['Crete Round', 'serif'],
+        'sans': ['Open Sans', 'Arial', 'sans-serif'],
         'icon': '"Font Awesome 6 Pro"'
       },
       spacing: {
