@@ -27,6 +27,11 @@
           "name": "Orange"
         },
         {
+          "slug": "gray",
+          "color": "rgb(var(--color-gray))",
+          "name": "Grau"
+        },
+        {
           "slug": "lightgray",
           "color": "rgb(var(--color-lightgray))",
           "name": "Hellgrau"

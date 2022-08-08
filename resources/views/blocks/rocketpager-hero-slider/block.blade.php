@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 @endif
-                <picture class="-z-10">
+                <picture class="-z-10 relative after:absolute after:inset-y-0 after:w-1/2 after:content-[''] after:z-10 after:mix-blend-multiply after:opacity-80 after:bg-gradient-to-r after:from-black-transparent after:to-transparent">
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'header-image',

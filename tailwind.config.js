@@ -6,7 +6,10 @@ module.exports = {
         'primary': 'rgb(var(--color-primary))',
         'secondary': 'rgb(var(--color-secondary))',
         'font': 'rgb(var(--color-font))',
+        'black-transparent': 'rgb(var(--color-font) / 50%)',
         'orange': 'rgb(var(--color-orange))',
+        'grey': 'rgb(var(--color-grey))',
+        'darkgrey': 'rgb(var(--color-darkgrey))',
         'lightgray': 'rgb(var(--color-lightgray))',
       },
       opacity:{
@@ -37,6 +40,7 @@ module.exports = {
         'element-mobile': '30px',
         'element-tablet': '40px',
         'element-desktop': '60px',
+        'element-full-hd': '90px',
         // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
         'gutter-mobile': '20px',
         'gutter-display': '30px',

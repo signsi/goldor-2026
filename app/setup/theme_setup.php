@@ -153,16 +153,14 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
 
 
 add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
-    if ('primary_navigation' === $args->theme_location) {
-        if (isset($args->add_li_class)) {
-            if ($args->depth === 0) {
-                $classes[] = $args->add_li_class;
-            }
+    if (isset($args->add_li_class)) {
+        if ($args->depth === 0) {
+            $classes[] = $args->add_li_class;
         }
-        if (isset($args->add_li_class)) {
-            if ($depth === 1) {
-                $classes[] = $args->add_sub_li_class;
-            }
+    }
+    if (isset($args->add_li_class)) {
+        if ($depth === 1) {
+            $classes[] = $args->add_sub_li_class;
         }
     }
     return $classes;
