@@ -1,0 +1,41 @@
+@layer components {
+    .page.content>.wp-block-group {
+        @apply py-section px-gutter;
+
+        &,
+        * {
+            &:first-child {
+                @apply mt-0;
+            }
+
+            &:last-child {
+                @apply mb-0;
+            }
+        }
+    }
+
+    .wp-block-group.alignwide,
+    .alignwide {
+        @apply max-w-default mx-auto;
+    }
+
+    .wp-block-group:not(.alignfull) {
+        @apply px-gutter;
+    }
+
+    .wp-block-group>.wp-block-group.alignwide {
+        @apply max-w-default mx-auto px-0;
+    }
+
+    .wp-block-group h2 {
+        @apply max-w-prose;
+    }
+
+    .wp-block-group.alignfull {
+        @apply max-w-none w-full;
+    }
+
+    .wp-block-group {
+        @apply max-w-content mx-auto;
+    }
+}

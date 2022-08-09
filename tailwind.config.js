@@ -68,6 +68,9 @@ module.exports = {
         '0': ['0', '0'],
         'icon': ['20px', '1'],
       },
+      lineHeight: {
+        'extra-loose': '1.1',
+      },
       backgroundPosition:{
         '100': '100%',
         '0_100': '0% 100%',

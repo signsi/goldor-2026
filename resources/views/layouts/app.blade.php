@@ -1,18 +1,25 @@
 <a class="sr-only focus:not-sr-only" href="#main">
-  {{ __('Skip to content') }}
+    {{ __('Skip to content') }}
 </a>
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
 
-  <main id="main" class="main mx-auto max-w-none prose md:prose-lg lg:prose-xl lg:prose-p:leading-6 text-primary prose-a:text-primary prose-strong:text-primary prose-headings:text-primary">
+<main id="main"
+    class="
+    main mx-auto max-w-none
+    prose
+    prose-font
+    lg:prose-xl
+    lg:prose-p:leading-7
+  ">
     @yield('content')
-  </main>
+</main>
 
-  @hasSection('sidebar')
+@hasSection('sidebar')
     <aside class="sidebar">
-      @yield('sidebar')
+        @yield('sidebar')
     </aside>
-  @endif
+@endif
 {{-- PARAM FOOTER --}}
 @include('sections.footer.footer1')
 

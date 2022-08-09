@@ -1,4 +1,4 @@
-<div class="flex items-center">
+<div class="flex items-center mb-6 lg:mb-0">
     <div class="w-full max-w-lg lg:max-w-xs">
         <form class="searchform" role="search" method="get" action="{{ esc_url( home_url( '/' ) ) }}">
             <label for="search" class="sr-only">Suche</label>

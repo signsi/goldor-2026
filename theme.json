@@ -27,8 +27,8 @@
           "name": "Orange"
         },
         {
-          "slug": "gray",
-          "color": "rgb(var(--color-gray))",
+          "slug": "grey",
+          "color": "rgb(var(--color-grey))",
           "name": "Grau"
         },
         {

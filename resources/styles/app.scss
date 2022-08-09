@@ -6,171 +6,23 @@
 
 @charset 'UTF-8';
 @import './variables.scss';
+@import './typography.scss';
 @import './helpers.scss';
 @import './slider.scss';
 @import './margin.scss';
 @import './padding.scss';
 @import './spacing.scss';
+@import './layout.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './core-blocks.scss';
 @import './new_styles/image-wrapper.scss';
 
-
-h2.entry-title {
-  transition: color .25s ease-in-out, font-variation-settings .25s linear, letter-spacing .25s linear;
+.has-primary-background-color.has-background{
+  h1, h2, h3, h4, h5, h6, ul li, p {
+    @apply text-white;
+  }
+  .wp-block-button__link{
+    @apply bg-white text-primary hover:bg-orange hover:text-white;
+  }
 }
-
-@layer components {
-
-  footer .widget h3,
-  footer .widget h2 {
-    @apply pt-4 text-sm font-semibold text-gray-400 tracking-wider uppercase;
-  }
-
-  .single .entry-content p,
-  .page .content p {
-    @apply max-w-prose;
-  }
-
-  footer p {
-    @apply mb-6;
-  }
-
-  footer p, footer ul li {
-    @apply text-lg text-font leading-7 font-normal;
-  }
-
-  footer .footer--address .widget p:last-child {
-    @apply mb-0;
-  }
-
-  footer a {
-    @apply hover:text-primary transition-colors;
-  }
-
-
-  section.widget ul.wp-block-social-links li.wp-social-link.wp-block-social-link {
-    @apply mt-0 bg-gray-500;
-  }
-
-  .wp-block-group.alignwide,
-  .alignwide {
-    @apply max-w-default mx-auto;
-  }
-
-  .wp-block-group:not(.alignfull) {
-    @apply px-gutter;
-  }
-
-  .wp-block-group > .wp-block-group.alignwide {
-    @apply max-w-default mx-auto px-0;
-  }
-
-  .wp-block-group h2 {
-    @apply max-w-prose;
-  }
-
-  .wp-block-group.alignfull {
-    @apply max-w-none w-full;
-  }
-
-  .wp-block-group {
-    @apply max-w-content mx-auto;
-  }
-
-  .siteHeader--notTop {
-    @apply bg-white;
-  }
-
-  // content
-
-  .content h1 {
-    @apply text-xl md:text-7xl font-bold pb-12;
-  }
-
-  .content h2 {
-    @apply text-lg md:text-6xl font-bold pb-12;
-  }
-
-  .content p {
-    @apply pb-8;
-  }
-
-
-  // blocks
-
-  // core/query
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li {
-    @apply relative overflow-hidden;
-  }
-
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-    @apply relative transition-opacity duration-300 hover:opacity-50 hover:blur-sm;
-  }
-
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featured-image {
-    @apply block aspect-square overflow-hidden;
-  }
-
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li a,
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li a img,
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-    @apply block h-full w-full object-cover;
-  }
-
-  div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group {
-    @apply absolute inset-0 bg-white/80 px-4 py-8 opacity-0 hover:opacity-100 hover:z-50 transition-all duration-700 flex justify-center flex-col;
-    // opacity-0 group-hover:opacity-100
-  }
-
-
-}
-
-/*
-currently not seem to working with tailwindcss?
-*/
-
-.siteHeader--unpinned {
-  transform: translateY(-100%);
-}
-
-.siteHeader--bottom {
-  transform: translateY(0);
-}
-
-// ul.wp-block-social-links {
-//   background-color: red;
-// }
-
-
-// @import './old_styles/rocketpager/settings';
-
-
-// // Genesis Block Elements
-
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-testimonial-slider';
-
-
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-slider';
-
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-accordion-extended';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-colorbox';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-map';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-hero-slider';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-logolist';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-team';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-testimonial-slider';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-videoelement';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-iconbox';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-socialmedia-profil';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-socialshare-button';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-text-image-box';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-text-image-list';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-news-list';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-contactperson';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-carousel-header';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-content-slider';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-single-animation';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-audio-image-box';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-projects';
-// @import './old_styles/rocketpager/genesis-block-elements/rocketpager-google-maps';

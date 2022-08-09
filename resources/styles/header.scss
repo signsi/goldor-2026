@@ -1,0 +1,14 @@
+@layer components{
+    .siteHeader--notTop {
+        @apply bg-white;
+    }
+    /*
+    currently not seem to working with tailwindcss?
+    */
+    .siteHeader--unpinned {
+      transform: translateY(-100%);
+    }
+    .siteHeader--bottom {
+      transform: translateY(0);
+    }
+}

@@ -24,8 +24,8 @@ $buttons = [
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="max-w-default px-gutter pt-element mx-auto">
 
-        <div class="grid grid-cols-4 gap-x-12">
-            <div class="flex lg:flex-col lg:justify-between">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-12">
+            <div class="flex flex-col lg:justify-between">
                 @include('sections.footer.elements.footer-logo')
                 @include('partials.top.socialmedia-nav')
                 @include('sections.footer.elements.search')
@@ -34,8 +34,8 @@ $buttons = [
                 @include('sections.footer.elements.address')
                 @php dynamic_sidebar('sidebar-footer-1') @endphp
             </div>
-            <div>@php dynamic_sidebar('sidebar-footer-2') @endphp</div>
-            <div>@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
+            <div class="hidden lg:flex">@php dynamic_sidebar('sidebar-footer-2') @endphp</div>
+            <div class="hidden lg:flex">@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
         </div>
         <div class="mt-14 border-t border-grey py-6">
             <nav>
