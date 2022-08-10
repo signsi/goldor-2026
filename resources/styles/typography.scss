@@ -1,8 +1,6 @@
-@layer base {
-    h1, h2 {
-        @apply font-serif italic;
-    }
-    h3, h4, h5, h6 {
-        @apply font-sans font-bold;
-    }
+h1, h2 {
+    @apply font-serif italic;
+}
+p.has-large-font-size {
+    @apply text-3xl leading-10;
 }

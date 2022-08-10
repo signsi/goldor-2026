@@ -27,17 +27,18 @@ $buttons = [
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-12">
             <div class="flex flex-col lg:justify-between">
                 @include('sections.footer.elements.footer-logo')
-                @include('partials.top.socialmedia-nav')
-                @include('sections.footer.elements.search')
+                <div class="hidden lg:block">@include('partials.top.socialmedia-nav')</div>
+                <div class="hidden lg:block">@include('sections.footer.elements.search')</div>
             </div>
             <div class="flex flex-col justify-between footer--address">
                 @include('sections.footer.elements.address')
                 @php dynamic_sidebar('sidebar-footer-1') @endphp
             </div>
+            <div class="block lg:hidden mt-6 lg:mt-0">@include('partials.top.socialmedia-nav')</div>
             <div class="hidden lg:flex">@php dynamic_sidebar('sidebar-footer-2') @endphp</div>
             <div class="hidden lg:flex">@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
         </div>
-        <div class="mt-14 border-t border-grey py-6">
+        <div class="mt-10 py-5 lg:mt-14 lg:py-6 border-t border-grey">
             <nav>
                 @php
                     $locations = get_nav_menu_locations();

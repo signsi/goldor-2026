@@ -92,7 +92,7 @@ export function setupFixedNav() {
 
 
 
-    const headerClasses = ' siteHeader sticky top-0 transition-all z-10 bg-white'
+    const headerClasses = ' siteHeader sticky top-0 transition-all z-30 bg-white'
     const headerElementClass = 'siteHeader'
     const siteHeader = document.querySelector(`.${headerElementClass}`);
 

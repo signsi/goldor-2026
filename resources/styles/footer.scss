@@ -1,18 +1,12 @@
-@layer components{
-    footer .widget h3,
-    footer .widget h2 {
-      @apply pt-4 text-sm font-semibold text-gray-400 tracking-wider uppercase;
-    }  
-    footer p {
-      @apply mb-6;
-    }
-    footer p, footer ul li {
-      @apply text-lg text-font leading-7 font-normal;
-    }
-    footer .footer--address .widget p:last-child {
-      @apply mb-0;
-    }
-    footer a {
-      @apply hover:text-primary transition-colors;
-    }
+footer p {
+  @apply mb-6;
+}
+footer p, footer ul li {
+  @apply text-lg text-font leading-7 font-normal;
+}
+footer .footer--address .widget p:last-child {
+  @apply mb-0;
+}
+footer a {
+  @apply hover:text-primary transition-colors;
 }

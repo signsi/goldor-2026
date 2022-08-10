@@ -1,0 +1,16 @@
+.has-primary-background-color.has-background {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p {
+    @apply text-white;
+  }
+  .wp-block-button__link {
+    @apply bg-white
+         text-primary hover:bg-orange hover:text-white;
+  }
+}

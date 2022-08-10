@@ -9,7 +9,7 @@
         @php block_row('icon') @endphp
         <div class="animation-shortcode">
             @if ( block_sub_value('title') )
-                <h3 class="text-center">{{ block_sub_value('title') }}</h3>
+                <h3>{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</h3>
             @endif
             @if ( block_sub_value('content-type') == 'image' )
                 @include('blocks.helpers.image',

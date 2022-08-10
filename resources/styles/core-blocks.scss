@@ -1,36 +1,55 @@
-@layer components {
 
-    // core/query
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li {
-        @apply relative overflow-hidden;
-    }
 
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-        @apply relative transition-opacity duration-300 hover:opacity-50 hover:blur-sm;
-    }
+div.alignfull.wp-block-query.is-style-post-image-grid ul {
+    @apply pl-0;
+}
 
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featured-image {
-        @apply block aspect-square overflow-hidden;
-    }
+div.alignfull.wp-block-query.is-style-post-image-grid ul li {
+    @apply relative overflow-hidden pl-0;
+}
 
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li a,
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li a img,
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-        @apply block h-full w-full object-cover;
-    }
+div.alignfull.wp-block-query.is-style-post-image-grid ul li a{
+    @apply no-underline;
+}
 
-    div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-group {
-        @apply absolute inset-0 bg-white/80 px-4 py-8 opacity-0 hover:opacity-100 hover:z-50 transition-all duration-700 flex justify-center flex-col;
-    }
+div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
+    @apply relative;
+}
 
-    // buttons
-    .wp-block-button__link{
-        @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-orange transition-colors;
-    }
-    .is-style-outline>.wp-block-button__link,
-    .is-style-outline>.wp-block-button__link:not(.has-background),
-    .wp-block-button__link.is-style-outline:not(.has-background){
-        @apply border-primary text-primary py-1 px-3 hover:border-orange hover:bg-orange hover:text-white;
-    }
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title {
+    @apply mt-0;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featured-image {
+    @apply block aspect-square overflow-hidden;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group > .is-nowrap.wp-block-group {
+    @apply p-0;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
+div.alignfull.wp-block-query.is-style-post-image-grid ul li a,
+div.alignfull.wp-block-query.is-style-post-image-grid ul li a img,
+div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
+    @apply block h-full w-full object-cover;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group {
+    @apply absolute inset-0 bg-white/80 px-4 py-8 z-50 flex flex-col-reverse;
+}
+div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group {
+    @apply bg-white p-5 m-0;
+}
+div.alignfull.wp-block-query.is-style-post-image-grid ul li a.wp-block-read-more {
+    @apply h-auto;
+}
+
+.wp-block-button__link{
+    @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-orange transition-colors;
+}
+.is-style-outline>.wp-block-button__link,
+.is-style-outline>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline:not(.has-background){
+    @apply border-primary text-primary py-1 px-3 hover:border-orange hover:bg-orange hover:text-white;
 }

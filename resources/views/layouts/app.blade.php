@@ -3,7 +3,6 @@
 </a>
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
-
 <main id="main"
     class="
     main mx-auto max-w-none
@@ -11,6 +10,9 @@
     prose-font
     lg:prose-xl
     lg:prose-p:leading-7
+    prose-headings:font-bold
+    prose-h1:font-normal
+    prose-h2:font-normal
   ">
     @yield('content')
 </main>

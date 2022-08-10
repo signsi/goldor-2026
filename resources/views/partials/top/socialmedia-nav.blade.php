@@ -10,8 +10,8 @@ $google_plus = App\getThemeOption('google_plus');
 
 @endphp
 
-<div class="hidden flex-col lg:flex">
-    <p class="mb-4">Folgen Sie uns</p>
+<div class="flex flex-col">
+    <p class="mb-2 lg:mb-4">Folgen Sie uns</p>
     <div class="flex space-x-3 justify-start">
         <a href="{{ $linkedin }}" target="_blank" class="flex justify-center">
             <span class="sr-only">LinkedIn</span>
