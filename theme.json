@@ -12,6 +12,11 @@
           "name": "Grün"
         },
         {
+          "slug": "darkgreen",
+          "color": "rgb(var(--color-darkgreen))",
+          "name": "Dunkelgrün"
+        },
+        {
           "slug": "secondary",
           "color": "rgb(var(--color-secondary))",
           "name": "Hellgrün"

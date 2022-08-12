@@ -1,6 +1,30 @@
-h1, h2 {
-    @apply font-serif italic;
+.prose {
+    h1, h2 {
+        @apply font-serif italic;
+    }
+    p.has-large-font-size {
+        @apply text-2xl leading-8;
+    }
+    p a, ul li a {
+        @apply text-primary hover:text-orange;
+    }
+    a {
+        @apply transition-colors;
+    }
+    ul.is-style-liststyle-icon--check-circle {
+        @apply list-outside pl-5;
+        > li {
+            @apply marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-bold marker:content-['\F058'];
+        }
+    }
+    ul.is-style-liststyle-icon--download {
+        @apply list-none pl-0;
+        > li {
+            @apply relative pl-0 pb-2 mb-4 pr-6 border-b border-font after:absolute after:right-0 after:top-1 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:font-bold after:content-['\f019'];
+            a {
+                @apply no-underline text-font hover:text-primary;
+            }
+        }
+    }
 }
-p.has-large-font-size {
-    @apply text-3xl leading-10;
-}
+

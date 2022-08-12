@@ -1,11 +1,18 @@
-
-
+/* News Post Grid */
 div.alignfull.wp-block-query.is-style-post-image-grid ul {
     @apply pl-0;
 }
 
+div.alignfull.wp-block-query.is-style-post-image-grid .wp-block-post-template.is-flex-container.is-flex-container.columns-3>li {
+    @apply w-full md:w-[calc(100%/12*6-.83333em)] lg:w-[calc(100%/12*4-.83333em)];
+}
+
 div.alignfull.wp-block-query.is-style-post-image-grid ul li {
     @apply relative overflow-hidden pl-0;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover figure {
+    @apply scale-105;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li a{
@@ -13,11 +20,28 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li a{
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-    @apply relative;
+    @apply relative transition ease-in-out delay-150 duration-300;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title {
-    @apply mt-0;
+    @apply mt-1;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title a{
+    @apply font-bold;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category{
+    @apply flex space-x-3 after:content-['–'] after:pl-2;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category a,
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-date a{
+    @apply whitespace-nowrap;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category > :not([hidden]) ~ :not([hidden]) {
+    @apply ml-1;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featured-image {
@@ -25,7 +49,7 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featu
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group > .is-nowrap.wp-block-group {
-    @apply p-0;
+    @apply p-0 space-x-0;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
@@ -36,20 +60,57 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group {
-    @apply absolute inset-0 bg-white/80 px-4 py-8 z-50 flex flex-col-reverse;
-}
-div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group {
-    @apply bg-white p-5 m-0;
-}
-div.alignfull.wp-block-query.is-style-post-image-grid ul li a.wp-block-read-more {
-    @apply h-auto;
+    @apply absolute inset-x-0 bottom-0  px-4 py-8 z-10 flex flex-col-reverse;
 }
 
-.wp-block-button__link{
-    @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-orange transition-colors;
+div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group {
+    @apply bg-white/90 p-5 m-0;
 }
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li i {
+    @apply transition-colors;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover a.wp-block-read-more,
+div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover i  {
+    @apply text-orange;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li a.wp-block-read-more {
+    @apply h-auto contents;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li .read-more-wrapper {
+    @apply transition ease-in-out delay-150 duration-300;
+}
+
+div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wrapper {
+    @apply origin-center translate-x-2;
+}
+
+
+/* Button */
+.wp-block-button__link{
+    @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
+}
+
 .is-style-outline>.wp-block-button__link,
 .is-style-outline>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline:not(.has-background){
     @apply border-primary text-primary py-1 px-3 hover:border-orange hover:bg-orange hover:text-white;
+}
+
+/* Text Media */
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
+    @apply pl-0;
+}
+
+/* Spalte randabfallend recht */
+.wp-block-columns.is-style-overlapping--right .wp-block-column:first-child {
+    @apply xl:ml-[calc((100vw_-_90rem)/2)];
+    @apply xl:max-w-[calc_(_90rem/2)];
+}
+.wp-block-columns.is-style-overlapping--left .wp-block-column:last-child {
+    @apply xl:mr-[calc((100vw_-_90rem)/2)];
+    @apply xl:max-w-[calc_(_90rem/2)];
 }

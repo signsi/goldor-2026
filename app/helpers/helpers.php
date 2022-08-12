@@ -163,16 +163,16 @@ function breadcrumbs()
 {
     $delimiter = '&raquo;';
     $home = 'Home';
-    $before = '<span class="current-page ">';
+    $before = '<span class="current-page">';
     $after = '</span>';
 
     if (!is_home() && !is_front_page() || is_paged()) {
 
-        echo '<nav class="breadcrumb max-w-default mx-auto px-gutter">';
+        echo '<nav class="breadcrumb max-w-default mx-auto p-gutter text-base">';
 
         global $post;
         $homeLink = get_bloginfo('url');
-        echo '<a class="" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        echo '<a class="no-underline text-primary hover:text-orange" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
 
         if (is_category()) {
             global $wp_query;

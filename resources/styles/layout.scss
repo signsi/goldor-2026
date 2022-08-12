@@ -24,7 +24,7 @@
     }
 
     .wp-block-group>.wp-block-group.alignwide {
-        @apply max-w-default mx-auto px-0;
+        @apply max-w-default mx-auto px-0 lg:px-gutter;
     }
 
     .wp-block-group h2 {

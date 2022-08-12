@@ -32,7 +32,7 @@
 
     <div class="linklist-wrapper px-gutter pb-gutter mt-auto mb-0 prose-sm">
         <ul class="list-none">
-            <li class="relative m-0 pl-0"><a class="no-underline transition-colors duration-300 before:absolute before:font-icon before:content-arrow-right-long before:font-light before:-left-4 hover:text-font" href="{{ the_permalink() }}">Weiterlesen</a></li>
+            <li class="relative m-0 pl-0"><a class="no-underline duration-300 before:absolute before:font-icon before:content-arrow-right-long before:font-light before:-left-4 hover:text-font" href="{{ the_permalink() }}">Weiterlesen</a></li>
         </ul>
     </div>
 </div>

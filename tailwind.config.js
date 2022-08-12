@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       colors: {
         'primary': 'rgb(var(--color-primary))',
+        'darkgreen': 'rgb(var(--color-darkgreen))',
         'secondary': 'rgb(var(--color-secondary))',
         'font': 'rgb(var(--color-font))',
         'black-transparent': 'rgb(var(--color-font) / 50%)',

@@ -10,6 +10,8 @@
     prose-font
     lg:prose-xl
     lg:prose-p:leading-7
+    lg:prose-li:leading-7
+    prose-li:text-font
     prose-headings:font-bold
     prose-h1:font-normal
     prose-h2:font-normal

@@ -1,14 +1,17 @@
 .rocketpager-carousel-slider{
+    @apply pb-12 md:pb-14 xl:pb-16;
+    .slick-prev, .slick-next {
+        @apply before:text-white bottom-8 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12;
+    }
     .slick-prev {
-        @apply bottom-0 top-1/2 -left-2 md:left-0 2xl:-left-[5%] active:before:text-primary before:font-light before:text-[20px] before:md:text-[30px] before:lg:text-[40px];
+        @apply right-12 md:right-14 xl:right-16;
     }
     .slick-next {
-        @apply bottom-0 top-1/2 -right-2 md:right-0 2xl:-right-[5%] active:before:text-primary before:font-light before:text-[20px] before:md:text-[30px] before:lg:text-[40px];
+        @apply right-0;
     }
     .slick-arrow {
-        @apply bg-gray-200;
+        @apply transition-colors bg-primary hover:bg-darkgreen;
     }
-
     .text-wrapper p:last-child{
         @apply mb-0;
     }

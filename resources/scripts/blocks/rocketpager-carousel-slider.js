@@ -1,8 +1,8 @@
 $(".rocketpager-carousel-slider").slick({
     slidesToShow: 3,
     slidesToScroll: 1,
-    dots: true,
-    arrows: false,
+    dots: false,
+    arrows: true,
     adaptiveHeight: true,
     responsive: [
         {

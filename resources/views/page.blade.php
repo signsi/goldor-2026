@@ -4,7 +4,7 @@
     <div class="page content">
         @while (have_posts())
             @php(the_post())
-            {{ App\breadcrumbs() }}
+            {{-- {{ App\breadcrumbs() }} --}}
             {{-- @include('partials.page-header') --}}
             @includeFirst(['partials.content-page', 'partials.content'])
         @endwhile

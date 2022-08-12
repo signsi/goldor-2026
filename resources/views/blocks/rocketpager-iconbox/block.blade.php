@@ -41,7 +41,7 @@
                 </div>
 
                 @if (block_sub_value('link'))
-                    <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-orange group-hover:translate-x-6" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
+                    <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-orange group-hover:translate-x-2" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
                 @endif
             @if (block_sub_value('link')) </a> @else </div> @endif
         @endwhile
