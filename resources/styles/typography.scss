@@ -2,7 +2,7 @@
     h1, h2 {
         @apply font-serif italic;
     }
-    p.has-large-font-size {
+    p.has-large-font-size, p.is-style-lead {
         @apply text-2xl leading-8;
     }
     p a, ul li a {
@@ -20,7 +20,7 @@
     ul.is-style-liststyle-icon--download {
         @apply list-none pl-0;
         > li {
-            @apply relative pl-0 pb-2 mb-4 pr-6 border-b border-font after:absolute after:right-0 after:top-1 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:font-bold after:content-['\f019'];
+            @apply relative pl-0 pb-2 mb-4 pr-8 border-b border-font after:absolute after:right-0 after:top-1 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:font-bold after:content-['\f019'];
             a {
                 @apply no-underline text-font hover:text-primary;
             }

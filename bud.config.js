@@ -26,7 +26,8 @@ module.exports = async (app) => {
       ],
       "block.hero-slider": [
         'slick-carousel',
-        '@scripts/blocks/rocketpager-hero-slider'
+        '@scripts/blocks/rocketpager-hero-slider',
+        '@styles/new_styles/rocketpager-hero-slider'
       ],
       "block.content-slider": [
         'slick-carousel',

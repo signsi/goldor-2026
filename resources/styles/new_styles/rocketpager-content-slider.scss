@@ -1,9 +1,15 @@
 .rocketpager-content-slider {
-    figcaption {
-        @apply text-center text-font mt-3;
+    @apply relative;
+    .content-slider {
+        @apply pb-12 md:pb-14 xl:pb-16;
     }
-    .slick-prev,
-    .slick-next {
-        @apply bg-white transition-opacity duration-300 ease-in-out opacity-40 hover:opacity-100;
+    &.cropped-stil figure{
+        @apply pr-4;
+    }
+    .slick-track > .slick-slide {
+        @apply leading-0;
+    }
+    figcaption {
+        @apply text-center;
     }
 }

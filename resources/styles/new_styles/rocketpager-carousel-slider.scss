@@ -1,16 +1,10 @@
 .rocketpager-carousel-slider{
     @apply pb-12 md:pb-14 xl:pb-16;
-    .slick-prev, .slick-next {
-        @apply before:text-white bottom-8 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12;
-    }
     .slick-prev {
-        @apply right-12 md:right-14 xl:right-16;
+        @apply left-auto right-12 md:right-14 xl:right-16;
     }
     .slick-next {
-        @apply right-0;
-    }
-    .slick-arrow {
-        @apply transition-colors bg-primary hover:bg-darkgreen;
+        @apply right-0 left-auto ;
     }
     .text-wrapper p:last-child{
         @apply mb-0;

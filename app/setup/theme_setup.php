@@ -12,6 +12,10 @@ add_action('init', function () {
         'label' => __('Download-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
+    register_block_style('core/paragraph', [
+        'name' => 'lead',
+        'label' => __('Medium', 'rocketpager'),
+    ]);
 });
 
 // ADD LOGO TO LOGIN PAGE

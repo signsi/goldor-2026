@@ -114,3 +114,10 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wra
     @apply xl:mr-[calc((100vw_-_90rem)/2)];
     @apply xl:max-w-[calc_(_90rem/2)];
 }
+
+/* Images */
+figure, figure.wp-block-image {
+    figcaption {
+        @apply text-sm text-darkgrey mt-3;
+    }
+}

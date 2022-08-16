@@ -2,10 +2,7 @@
 
 /* Cropped Stil */
 .cropped-stil .slick-list.draggable {
-  @apply pr-20;
-}
-.cropped-stil .slick-list.draggable .image-wrapper{
-  @apply hover:cursor-grabbing;
+  @apply pr-5 md:pr-10 lg:pr-14 xl:pr-20;
 }
 .cropped-stil .slick-list .slick-slide {
   @apply opacity-50 transition-opacity;
@@ -18,11 +15,18 @@
   @apply opacity-100;
 }
 
+/* nor for class .home */
+body:not(.home) .slides picture  {
+  @apply after:content-none;
+}
+.slick-list.draggable {
+  @apply hover:cursor-grabbing;
+}
+
 /* Arrows */
 .slick-prev,
 .slick-next {
-  @apply block absolute top-1/2 translate-y-1/2 w-12 h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent;
-
+  @apply block absolute bottom-0 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-white before:font-style-icons-light before:opacity-default;
   &:hover,
   &:focus {
     @apply outline-none text-transparent;
@@ -36,17 +40,18 @@
     @apply opacity-not-active;
   }
 
-  &:before {
-    @apply font-style-icons-light text-font opacity-default;
-  }
 }
 
 .slick-prev {
-  @apply left-8 rtl:left-auto rtl:right-8 before:content-slider-prev before:rtl:content-slider-next;
+  @apply left-0 right-auto before:content-slider-prev before:rtl:content-slider-next;
 }
 
 .slick-next {
-  @apply right-8 rtl:right-auto rtl:left-8 before:content-slider-next before:rtl:content-slider-prev;
+  @apply left-12 md:left-14 xl:left-16 right-auto before:content-slider-next before:rtl:content-slider-prev;
+}
+
+.slick-arrow {
+  @apply transition-colors bg-primary hover:bg-darkgreen;
 }
 
 /* Dots */
@@ -94,5 +99,3 @@
     @apply image-size-vh;
   }
 }
-
-

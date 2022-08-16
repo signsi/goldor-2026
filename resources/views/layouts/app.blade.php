@@ -7,7 +7,6 @@
     class="
     main mx-auto max-w-none
     prose
-    prose-font
     lg:prose-xl
     lg:prose-p:leading-7
     lg:prose-li:leading-7

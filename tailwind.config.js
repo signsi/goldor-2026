@@ -9,6 +9,7 @@ module.exports = {
         'font': 'rgb(var(--color-font))',
         'black-transparent': 'rgb(var(--color-font) / 50%)',
         'orange': 'rgb(var(--color-orange))',
+        'raspberry': 'rgb(var(--color-raspberry))',
         'grey': 'rgb(var(--color-grey))',
         'darkgrey': 'rgb(var(--color-darkgrey))',
         'lightgray': 'rgb(var(--color-lightgray))',
@@ -70,6 +71,7 @@ module.exports = {
         'icon': ['20px', '1'],
       },
       lineHeight: {
+        '0': '0',
         'extra-loose': '1.1',
       },
       backgroundPosition:{

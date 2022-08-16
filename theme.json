@@ -32,6 +32,11 @@
           "name": "Orange"
         },
         {
+          "slug": "raspberry",
+          "color": "rgb(var(--color-raspberry))",
+          "name": "Himbeer"
+        },
+        {
           "slug": "grey",
           "color": "rgb(var(--color-grey))",
           "name": "Grau"
@@ -59,7 +64,9 @@
         }
       ]
     },
-    "typography": {},
+    "typography": {
+      "fontSizes": []
+    },
     "layout": {
       "contentSize": "840px",
       "wideSize": "90rem"
