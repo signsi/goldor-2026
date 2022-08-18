@@ -13,14 +13,14 @@ $logo_src = App\getThemeOption('logo_footer');
 $phone_link = str_replace(' ', '', $company_phone);
 @endphp
 
-<div class="footer--address">
-    <p class="font-sans">{{ $company_name }}<br>
+<div>
+    <p>{{ $company_name }}<br>
         {{ $company_slogan }}<br>{{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
     </p>
-    <p class="font-sans">
-        <a class="font-sans" href="mailto:{{ $company_email }}"><i class="fal fa-paper-plane"></i>
-            {{ $company_email }}</a><br>
-        <a class="font-sans" href="https://{{ $company_page }}"><i class="fal fa-globe"></i>
-            {{ $company_page }}</a>
+    <p>
+        <a href="tel:{{ $company_phone }}">
+            {{ $company_phone }}</a><br>
+        <a href="mailto:{{ $company_email }}">
+            {{ $company_email }}</a>
     </p>
 </div>

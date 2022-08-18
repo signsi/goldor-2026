@@ -1,0 +1,9 @@
+.siteHeader--notTop {
+    @apply bg-white;
+}
+.siteHeader--unpinned {
+    transform: translateY(-100%);
+}
+.siteHeader--bottom {
+    transform: translateY(0);
+}

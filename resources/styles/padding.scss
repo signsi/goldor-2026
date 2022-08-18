@@ -84,35 +84,35 @@
     }
 
     .py-element {
-        @apply py-element-mobile md:py-element-tablet xl:py-element-desktop;
+        @apply py-element-mobile md:py-element-tablet xl:py-element-desktop 2xl:py-element-full-hd;
     }
     .py-element-tablet-down {
         @apply py-element-mobile md:py-element-tablet;
     }
 
     .pl-element {
-        @apply pl-element-mobile md:pl-element-tablet xl:pl-element-desktop;
+        @apply pl-element-mobile md:pl-element-tablet xl:pl-element-desktop 2xl:pl-element-full-hd;
     }
     .pl-element-tablet-down {
         @apply pl-element-mobile md:pl-element-tablet;
     }
 
     .pr-element {
-        @apply pr-element-mobile md:pr-element-tablet xl:pr-element-desktop;
+        @apply pr-element-mobile md:pr-element-tablet xl:pr-element-desktop 2xl:pr-element-full-hd;
     }
     .pr-element-tablet-down {
         @apply pr-element-mobile md:pr-element-tablet;
     }
 
     .pt-element {
-        @apply pt-element-mobile md:pt-element-tablet xl:pt-element-desktop;
+        @apply pt-element-mobile md:pt-element-tablet xl:pt-element-desktop 2xl:pt-element-full-hd;
     }
     .pt-element-tablet-down {
         @apply pt-element-mobile md:pt-element-tablet;
     }
 
     .pb-element {
-        @apply pb-element-mobile md:pb-element-tablet xl:pb-element-desktop;
+        @apply pb-element-mobile md:pb-element-tablet xl:pb-element-desktop 2xl:pb-element-full-hd;
     }
     .pb-element-tablet-down {
         @apply pb-element-mobile md:pb-element-tablet;

@@ -4,8 +4,15 @@ module.exports = {
     extend: {
       colors: {
         'primary': 'rgb(var(--color-primary))',
+        'darkgreen': 'rgb(var(--color-darkgreen))',
         'secondary': 'rgb(var(--color-secondary))',
         'font': 'rgb(var(--color-font))',
+        'black-transparent': 'rgb(var(--color-font) / 50%)',
+        'orange': 'rgb(var(--color-orange))',
+        'raspberry': 'rgb(var(--color-raspberry))',
+        'grey': 'rgb(var(--color-grey))',
+        'darkgrey': 'rgb(var(--color-darkgrey))',
+        'lightgray': 'rgb(var(--color-lightgray))',
       },
       opacity:{
         'default': '1',
@@ -21,8 +28,8 @@ module.exports = {
         'content': '52.5rem',  //840px
       },
       fontFamily: {
-        'serif': ['Bodoni Moda', 'serif'],
-        'sans': ['Montserrat', 'Arial', 'sans-serif'],
+        'serif': ['Crete Round', 'serif'],
+        'sans': ['Open Sans', 'Arial', 'sans-serif'],
         'icon': '"Font Awesome 6 Pro"'
       },
       spacing: {
@@ -35,6 +42,7 @@ module.exports = {
         'element-mobile': '30px',
         'element-tablet': '40px',
         'element-desktop': '60px',
+        'element-full-hd': '90px',
         // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
         'gutter-mobile': '20px',
         'gutter-display': '30px',
@@ -61,6 +69,10 @@ module.exports = {
       fontSize: {
         '0': ['0', '0'],
         'icon': ['20px', '1'],
+      },
+      lineHeight: {
+        '0': '0',
+        'extra-loose': '1.1',
       },
       backgroundPosition:{
         '100': '100%',

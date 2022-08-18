@@ -9,17 +9,42 @@
       "palette": [{
           "slug": "primary",
           "color": "rgb(var(--color-primary))",
-          "name": "Primary"
+          "name": "Grün"
+        },
+        {
+          "slug": "darkgreen",
+          "color": "rgb(var(--color-darkgreen))",
+          "name": "Dunkelgrün"
         },
         {
           "slug": "secondary",
           "color": "rgb(var(--color-secondary))",
-          "name": "Secondary"
+          "name": "Hellgrün"
         },
         {
           "slug": "font",
           "color": "rgb(var(--color-font))",
           "name": "Font"
+        },
+        {
+          "slug": "orange",
+          "color": "rgb(var(--color-orange))",
+          "name": "Orange"
+        },
+        {
+          "slug": "raspberry",
+          "color": "rgb(var(--color-raspberry))",
+          "name": "Himbeer"
+        },
+        {
+          "slug": "grey",
+          "color": "rgb(var(--color-grey))",
+          "name": "Grau"
+        },
+        {
+          "slug": "lightgray",
+          "color": "rgb(var(--color-lightgray))",
+          "name": "Hellgrau"
         }
       ],
       "gradients": [{
@@ -39,7 +64,9 @@
         }
       ]
     },
-    "typography": {},
+    "typography": {
+      "fontSizes": []
+    },
     "layout": {
       "contentSize": "840px",
       "wideSize": "90rem"

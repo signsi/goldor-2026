@@ -18,7 +18,7 @@
 
     $videoUrl = $isRepeaterElement ? block_sub_value($name_UrlField) : block_value($name_UrlField);
     $posterId = $isRepeaterElement ? block_sub_value($name_PosterField) : block_value($name_PosterField);
-    $posterUrl = wp_get_attachment_image_src($posterId, '16-9-thumb')[0];
+    $posterUrl = $posterId ? wp_get_attachment_image_src($posterId, '16-9-thumb')[0] : '';
     $Features = $useCustomPlayBtn ? ['loop', 'muted'] : ['autoplay', 'controls', 'loop', 'muted'];
     $activ_Features = $default_Features ? $default_Features . ' ' : 'playsinline ';
     $activ_Features .= $default_Features ? '' : App\mapToKeyString($Features, true);

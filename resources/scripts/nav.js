@@ -22,8 +22,8 @@ export function setupSubMenus() {
 
     const topNav = document.querySelector("#topNav");
     const submMenuParents = topNav.querySelectorAll("ul>li.menu-item-has-children");
-    const classesShown = ['opacity-1', 'translate-y-0'];
-    const classesHidden = ['opacity-0', 'translate-y-1'];
+    const classesShown = ['opacity-1', 'translate-y-0', 'block'];
+    const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
     const outsideArea = document.querySelector('body');
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -92,7 +92,7 @@ export function setupFixedNav() {
 
 
 
-    const headerClasses = ' siteHeader sticky top-0 transition-all z-10 bg-white'
+    const headerClasses = ' siteHeader sticky top-0 transition-all z-50 bg-white'
     const headerElementClass = 'siteHeader'
     const siteHeader = document.querySelector(`.${headerElementClass}`);
 

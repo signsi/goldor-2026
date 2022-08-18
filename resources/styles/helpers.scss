@@ -45,6 +45,11 @@
     @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
   }
 
+  .image-size-large,
+  .mapsize--large {
+    @apply h-[25vh] md:h-[33.33vh] lg:h-[75vh];
+  }
+
   .image-size-small,
   .mapsize--small {
     @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];

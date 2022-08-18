@@ -2,60 +2,19 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
-    register_block_style('core/heading', [
-        'name' => 'title_style-2',
-        'label' => __('Titel Stil 2', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--check',
-        'label' => __('Liste mit Icon Check', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
     register_block_style('core/list', [
         'name' => 'liststyle-icon--check-circle',
-        'label' => __('Liste mit Icon Check-Circle', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--arrow-right',
-        'label' => __('Liste mit Icon Pfeil rechts 1', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--long-arrow-right',
-        'label' => __('Liste mit Icon Pfeil rechts 2', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--angle-right',
-        'label' => __('Liste mit Icon Pfeil rechts 3', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--dot-circle',
-        'label' => __('Liste mit Icon Punkt', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--external-link',
-        'label' => __('Liste mit Icon External Link', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--file-pdf',
-        'label' => __('Liste mit Icon PDF', 'rocketpager'),
+        'label' => __('Icon-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/list', [
         'name' => 'liststyle-icon--download',
-        'label' => __('Liste mit Icon Download', 'rocketpager'),
+        'label' => __('Download-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--star',
-        'label' => __('Liste mit Icon Stern', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+    register_block_style('core/paragraph', [
+        'name' => 'lead',
+        'label' => __('Medium', 'rocketpager'),
     ]);
 });
 
@@ -79,15 +38,15 @@ add_action('login_enqueue_scripts', function () { ?>
         .wp-core-ui #login .button-primary.active:focus,
         .wp-core-ui #login .button-primary.active:hover,
         .wp-core-ui #login .button-primary:active {
-            background: #FF0096;
-            border-color: #FF0096;
+            background: #7BA048;
+            border-color: #7BA048;
         }
     </style>
 <?php });
 
 // THEME-COLOR FÜR HEADER EINFÄRBEN
 add_action('wp_head', function () { ?>
-    <meta name="theme-color" content="#ff0096" />
+    <meta name="theme-color" content="#7BA048" />
 <?php });
 
 // USE HOME URL FOR LOGIN PAGE
@@ -118,12 +77,12 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='absolute w-full z-10 -ml-4 mt-3 transform transition-all opacity-0 translate-y-1'><div class='rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden z-20'><ul class='flex flex-col space-y-1 bg-white'>\n";
+            $output .= "\n$indent<div class='absolute w-full z-10 mt-[34px] transform transition-all opacity-0 translate-y-1'><ul class='z-20 flex flex-col min-w-max space-y-0.5'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "$indent</ul></div></div>\n";
+            $output .= "$indent</ul></div>\n";
         }
     }
 }
@@ -153,16 +112,14 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
 
 
 add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
-    if ('primary_navigation' === $args->theme_location) {
-        if (isset($args->add_li_class)) {
-            if ($args->depth === 0) {
-                $classes[] = $args->add_li_class;
-            }
+    if (isset($args->add_li_class)) {
+        if ($args->depth === 0) {
+            $classes[] = $args->add_li_class;
         }
-        if (isset($args->add_li_class)) {
-            if ($depth === 1) {
-                $classes[] = $args->add_sub_li_class;
-            }
+    }
+    if (isset($args->add_sub_li_class)) {
+        if ($depth === 1) {
+            $classes[] = $args->add_sub_li_class;
         }
     }
     return $classes;

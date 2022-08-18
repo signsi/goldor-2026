@@ -1,85 +1,101 @@
 @import "slick-carousel/slick/slick.css";
 
-@charset "UTF-8";
+/* Cropped Stil */
+.cropped-stil .slick-list.draggable {
+  @apply pr-5 md:pr-10 lg:pr-14 xl:pr-20;
+}
+.cropped-stil .slick-list .slick-slide {
+  @apply opacity-50 transition-opacity;
+}
+.cropped-stil .slick-list .slick-slide .text-wrapper {
+  @apply opacity-0 transition-opacity;
+}
+.cropped-stil .slick-list .slick-slide.slick-active,
+.cropped-stil .slick-list .slick-slide.slick-active .text-wrapper {
+  @apply opacity-100;
+}
 
-@layer components {
+/* nor for class .home */
+body:not(.home) .slides picture  {
+  @apply after:content-none;
+}
+.slick-list.draggable {
+  @apply hover:cursor-grabbing;
+}
 
-
-  .slick-slider:not(.hero-slider, .carousel-header-slider) {
-    @apply pb-16 md:pb-20;
-  }
-
-  /* Arrows */
-  .slick-prev,
-  .slick-next {
-    @apply block absolute top-1/2 translate-y-1/2 w-12 h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent;
-
-    &:hover,
-    &:focus {
-      @apply outline-none text-transparent;
-
-      &:before {
-        @apply opacity-on-hover;
-      }
-    }
-
-    &.slick-disabled:before {
-      @apply opacity-not-active;
-    }
+/* Arrows */
+.slick-prev,
+.slick-next {
+  @apply block absolute bottom-0 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-white before:font-style-icons-light before:opacity-default;
+  &:hover,
+  &:focus {
+    @apply outline-none text-transparent;
 
     &:before {
-      @apply font-style-icons-light text-font opacity-default;
+      @apply opacity-on-hover;
     }
   }
 
-  .slick-prev {
-    @apply left-8 rtl: left-auto rtl:right-8 before:content-slider-prev before:rtl:content-slider-next;
+  &.slick-disabled:before {
+    @apply opacity-not-active;
   }
 
-  .slick-next {
-    @apply right-8 rtl: right-auto rtl:left-8 before:content-slider-next before:rtl:content-slider-prev;
-  }
+}
 
-  /* Dots */
-  .slick-dots {
-    @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
+.slick-prev {
+  @apply left-0 right-auto before:content-slider-prev before:rtl:content-slider-next;
+}
 
-    li {
-      @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before: hidden;
+.slick-next {
+  @apply left-12 md:left-14 xl:left-16 right-auto before:content-slider-next before:rtl:content-slider-prev;
+}
 
-      button {
-        @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
+.slick-arrow {
+  @apply transition-colors bg-primary hover:bg-darkgreen;
+}
 
-        &:hover,
-        &:focus {
-          @apply outline-none before: opacity-on-hover;
-        }
+/* Dots */
+.slick-dots {
+  @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
 
-        &:before {
-          @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
-        }
+  li {
+    @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;
+
+    button {
+      @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
+
+      &:hover,
+      &:focus {
+        @apply outline-none before:opacity-on-hover;
       }
 
-      &.slick-active button:before {
-        @apply text-font opacity-default;
+      &:before {
+        @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
       }
     }
-  }
 
-  // SLIDER HEIGHTS
-  .slides,
-  .slick-track {
-    &.height-small {
-      @apply image-size-small;
-    }
-
-    &.height-medium {
-      @apply image-size-medium;
-    }
-
-    &.height-vh {
-      @apply image-size-vh;
+    &.slick-active button:before {
+      @apply text-font opacity-default;
     }
   }
+}
 
+// SLIDER HEIGHTS
+.slides,
+.slick-track {
+  &.height-small {
+    @apply image-size-small;
+  }
+
+  &.height-medium {
+    @apply image-size-medium;
+  }
+
+  &.height-large {
+    @apply image-size-large;
+  }
+
+  &.height-vh {
+    @apply image-size-vh;
+  }
 }

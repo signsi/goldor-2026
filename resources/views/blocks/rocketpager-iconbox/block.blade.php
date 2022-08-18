@@ -5,23 +5,20 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid gap-gutter text-center{{ $row_per_col }}">
+    <div class="grid gap-gutter {{ $row_per_col }}">
         @while (block_rows('icon'))
             @php
                 block_row('icon');
                 $isImage = block_sub_value('content-type') == 'image';
             @endphp
-            <div class="not-prose">
-                @if (block_sub_value('link'))
-                    <a class="no-underline hover:no-underline group" href="{{ block_sub_value('link') }}" target="_blank">
-                @endif
-
-                    <div class="icon-wrapper block w-[190px] mx-auto mb-gutter {{ App\ifTrueReturnVal($isImage, 'p-10') }} {{ App\existsReturnKey('rounded-bg', 'rounded-full bg-white') }}">
+            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" @else <div @endif class="bg-secondary flex flex-col justify-between group p-5 text-center md:text-left no-underline">
+                <div class="flex flex-col justify-start h-full mb-4 md:mb-6 lg:mb-8">
+                    <div class="{{ App\existsReturnKey('rounded-bg', 'rounded-full bg-white') }}">
                         @if ( $isImage )
                             @include('blocks.helpers.image',
                             [
                                 'name_ImageField' => 'image',
-                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out max-h-[110px] mb-0 w-full h-auto group-hover:scale-110'),
+                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out w-auto h-[75px] md:h-[85px] lg:h-[95px] mx-auto md:mx-0'),
                                 'thumbnail' => 'small-width',
                                 'isRepeaterElement' => true
                             ])
@@ -31,16 +28,24 @@
                             @endif
                         @endif
                     </div>
-
                     @if ( block_sub_value('title') )
-                        <h3 class="mb-0">{{ block_sub_value('title') }}</h3>
+                        <div class="mt-4 md:mt-6 lg:mt-8">
+                            <{{ block_sub_value('heading') }}>{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</{{ block_sub_value('heading') }}>
+                        </div>
                     @endif
+                    @if ( block_sub_value('text') )
+                        <div class="mt-4 @if (block_sub_value('heading')) @else md:mt-6 lg:mt-8 @endif">
+                            <p>{!! App\sanitize_out(block_sub_value('text'), 'text') !!}</p>
+                        </div>
+                    @endif
+                </div>
 
                 @if (block_sub_value('link'))
-                    </a>
+                    <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-orange group-hover:translate-x-2 !mb-3 block" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
                 @endif
-            </div>
+            @if (block_sub_value('link')) </a> @else </div> @endif
         @endwhile
         {{ reset_block_rows( 'icon' ) }}
     </div>
 @overwrite
+

@@ -109,17 +109,17 @@ function rocketpacker_register_required_plugins()
 			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-		array(
-			'name'      => 'Smush Pro',
-			'slug'      => 'wp-shmush-pro',
-			'source'             => get_template_directory() . '/lib/944810_smush-pro-3.9.6.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
+		// array(
+		// 	'name'      => 'Smush Pro',
+		// 	'slug'      => 'wp-shmush-pro',
+		// 	'source'             => get_template_directory() . '/lib/944810_smush-pro-3.9.6.zip', // The plugin source.
+		// 	'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+		// 	'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+		// 	'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		// ),
 		array(
 			'name'      => 'Defender Pro',
 			'slug'      => 'wp-defender',
@@ -164,23 +164,16 @@ function rocketpacker_register_required_plugins()
 			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-		array(
-			'name'      => 'Yoast SEO',
-			'slug'      => 'wordpress-seo',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
+		// array(
+		// 	'name'      => 'Yoast SEO',
+		// 	'slug'      => 'wordpress-seo',
+		// 	'required'  => false,
+		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		// ),
 		array(
 			'name'      => 'Enable Media Replace',
 			'slug'      => 'enable-media-replace',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
-			'name'      => 'WP Mail SMTP von WPForms',
-			'slug'      => 'wp-mail-smtp',
 			'required'  => false,
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
@@ -193,54 +186,19 @@ function rocketpacker_register_required_plugins()
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 		),
 		array(
-			'name'      => 'Polylang',
-			'slug'      => 'polylang',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
-			'name'      => 'Contact Form 7',
-			'slug'      => 'contact-form-7',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
-			'name'      => 'Password Protected',
-			'slug'      => 'password-protected',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
-			'name'      => 'Action Scheduler',
-			'slug'      => 'action-scheduler',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
 			'name'      => 'Regenerate Thumbnails',
 			'slug'      => 'regenerate-thumbnails',
 			'required'  => false,
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 		),
-		array(
-			'name'      => 'Responsive Lightbox & Gallery',
-			'slug'      => 'responsive-lightbox',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
-		array(
-			'name'      => 'WebP Converter for Media',
-			'slug'      => 'webp-converter-for-media',
-			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		),
+		// array(
+		// 	'name'      => 'WebP Converter for Media',
+		// 	'slug'      => 'webp-converter-for-media',
+		// 	'required'  => false,
+		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		// ),
 		array(
 			'name'      => 'SVG Support',
 			'slug'      => 'svg-support',

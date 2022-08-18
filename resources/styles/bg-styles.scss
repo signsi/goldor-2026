@@ -1,0 +1,31 @@
+.has-primary-background-color.has-background {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p,
+  p a {
+    @apply text-white;
+  }
+  p a, ul li a {
+    @apply text-white hover:text-font;
+  }
+  .wp-block-button__link {
+    @apply bg-white
+         text-primary hover:bg-orange hover:text-white;
+  }
+  ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply marker:text-white;
+    }
+  }
+  ul.is-style-liststyle-icon--download {
+    @apply list-none pl-0;
+    > li {
+        @apply border-white;
+    }
+  }
+}

@@ -1,12 +1,22 @@
 <a class="sr-only focus:not-sr-only" href="#main">
-  {{ __('Skip to content') }}
+    {{ __('Skip to content') }}
 </a>
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
-
-  <main id="main" class="main mx-auto max-w-none prose md:prose-lg lg:prose-xl lg:prose-p:leading-6 text-primary prose-a:text-primary prose-strong:text-primary prose-headings:text-primary">
+<main id="main"
+    class="
+    main mx-auto max-w-none
+    prose
+    lg:prose-xl
+    lg:prose-p:leading-7
+    lg:prose-li:leading-7
+    prose-li:text-font
+    prose-headings:font-bold
+    prose-h1:font-normal
+    prose-h2:font-normal
+  ">
     @yield('content')
-  </main>
+</main>
 
 @include('sections.footer.footer1')
 
