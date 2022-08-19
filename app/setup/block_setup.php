@@ -3,11 +3,6 @@
 use function Roots\bundle;
 
 
-
-add_action('genesis_custom_blocks_render_template_rocketpager-audio-image-box', function () {
-    bundle('block.audio-image-box')->enqueue();
-}, 10, 3);
-
 add_action('genesis_custom_blocks_render_template_rocketpager-team', function () {
     bundle('block.team')->enqueue();
 }, 10, 3);
@@ -30,12 +25,8 @@ add_action('genesis_custom_blocks_render_template_rocketpager-carousel-slider', 
     bundle('block.videoelement')->enqueue();
 }, 10, 3);
 
-add_action('genesis_custom_blocks_render_template_rocketpager-carousel-header', function () {
-    bundle('block.carousel-header')->enqueue();
-}, 10, 3);
-
-add_action('genesis_custom_blocks_render_template_rocketpager-testimonial-slider', function () {
-    bundle('block.testimonial-slider')->enqueue();
+add_action('genesis_custom_blocks_render_template_rocketpager-animatednumbers', function () {
+    bundle('block.animatednumbers')->enqueue();
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-videoelement', function () {

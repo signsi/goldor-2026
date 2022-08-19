@@ -35,15 +35,14 @@ export function setupSubMenus() {
                 const childContainer = item.querySelectorAll(":scope > div")[1];
                 const subMenuOpen = isVisible(childContainer);
 
-                if (!subMenuOpen) {
-                    closeSubMenu(childContainer);
-                } else {
+                if (subMenuOpen) {
+                    // closeSubMenu(childContainer);
+                    closeAllSubMenus();
                     openSubMenu(childContainer);
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    e.stopPropagation();
                 }
-
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                e.stopPropagation();
                 return false;
             }
         })

@@ -2,7 +2,7 @@ footer p {
   @apply mb-6;
 }
 footer p, footer ul li {
-  @apply text-lg text-font leading-7 font-normal;
+  @apply text-base lg:text-lg text-font lg:leading-7 font-normal;
 }
 footer .footer--address .widget p:last-child {
   @apply mb-0;

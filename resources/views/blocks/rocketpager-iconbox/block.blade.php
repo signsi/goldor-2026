@@ -18,7 +18,7 @@
                             @include('blocks.helpers.image',
                             [
                                 'name_ImageField' => 'image',
-                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out w-auto h-[75px] md:h-[85px] lg:h-[95px] mx-auto md:mx-0'),
+                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out w-auto h-[75px] lg:h-[80px] mx-auto md:mx-0'),
                                 'thumbnail' => 'small-width',
                                 'isRepeaterElement' => true
                             ])
@@ -35,7 +35,7 @@
                     @endif
                     @if ( block_sub_value('text') )
                         <div class="mt-4 @if (block_sub_value('heading')) @else md:mt-6 lg:mt-8 @endif">
-                            <p>{!! App\sanitize_out(block_sub_value('text'), 'text') !!}</p>
+                            {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                         </div>
                     @endif
                 </div>
@@ -48,4 +48,3 @@
         {{ reset_block_rows( 'icon' ) }}
     </div>
 @overwrite
-

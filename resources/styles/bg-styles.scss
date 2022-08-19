@@ -15,7 +15,7 @@
   }
   .wp-block-button__link {
     @apply bg-white
-         text-primary hover:bg-orange hover:text-white;
+         text-primary hover:bg-font hover:text-white;
   }
   ul.is-style-liststyle-icon--check-circle {
     > li {
@@ -26,6 +26,15 @@
     @apply list-none pl-0;
     > li {
         @apply border-white;
+    }
+  }
+  ul.is-style-liststyle-icon--linklist,
+  ul.is-style-liststyle-icon--download{
+    > li {
+      @apply hover:text-font hover:after:text-font ;
+      a {
+        @apply hover:text-font;
+      }
     }
   }
 }

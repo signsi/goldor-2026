@@ -1,4 +1,4 @@
-/* News Post Grid */
+/* News Post Grid - HOME*/
 div.alignfull.wp-block-query.is-style-post-image-grid ul {
     @apply pl-0;
 }
@@ -88,6 +88,59 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wra
     @apply origin-center translate-x-2;
 }
 
+/* News Post Carousel - Veranstaltungen*/
+div.alignfull.wp-block-query.is-style-post-image-carousel {
+    ul {
+        @apply pl-0 list-none;
+        li {
+            @apply flex flex-col pl-0 bg-primary overflow-hidden;
+            figure {
+                @apply aspect-video mb-0 block overflow-hidden;
+            }
+            .wp-block-post-title {
+                @apply mt-1;
+                a {
+                    @apply font-bold;
+                }
+            }
+            > .wp-block-group {
+                @apply p-5 mx-0;
+                > .wp-block-group {
+                    @apply p-0;
+                }
+            }
+            img {
+                @apply object-cover min-h-[340px] transition ease-in-out delay-150 duration-300;
+            }
+            p, a {
+                @apply text-white;
+            }
+            a {
+                @apply no-underline hover:text-white;
+            }
+            .read-more-wrapper {
+                @apply transition p-0 ease-in-out delay-150 duration-300 pb-5 px-5;
+            }
+            i {
+                @apply text-white transition-colors
+            }
+            .wp-block-read-more, .wp-block-post-date a, p.wp-block-post-excerpt__excerpt {
+                @apply text-base;
+            }
+            &:hover {
+                img {
+                    @apply scale-105;
+                }
+                .read-more-wrapper{
+                    @apply origin-center translate-x-2;
+                }
+                i, .wp-block-read-more {
+                    @apply text-orange;
+                }
+            }
+        }
+    }
+}
 
 /* Button */
 .wp-block-button__link{
@@ -106,18 +159,99 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wra
 }
 
 /* Spalte randabfallend recht */
-.wp-block-columns.is-style-overlapping--right .wp-block-column:first-child {
-    @apply xl:ml-[calc((100vw_-_90rem)/2)];
-    @apply xl:max-w-[calc_(_90rem/2)];
+.wp-block-columns.is-style-overlapping--right {
+    .wp-block-column {
+        &:first-child {
+            @apply xl:ml-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pl-gutter pr-gutter md:pr-0;
+        }
+        &:last-child {
+            @apply pl-gutter md:pl-0;
+        }
+    }
 }
-.wp-block-columns.is-style-overlapping--left .wp-block-column:last-child {
-    @apply xl:mr-[calc((100vw_-_90rem)/2)];
-    @apply xl:max-w-[calc_(_90rem/2)];
+/* Spalte randabfallend links */
+.wp-block-columns.is-style-overlapping--left {
+    .wp-block-column {
+        &:first-child {
+            @apply pr-gutter md:pr-0;
+        }
+        &:last-child {
+            @apply xl:mr-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pr-gutter pl-gutter md:pl-0;
+        }
+    }
 }
 
 /* Images */
 figure, figure.wp-block-image {
     figcaption {
         @apply text-sm text-darkgrey mt-3;
+    }
+}
+
+/* List-Styles */
+ul.is-style-liststyle-icon--check-circle,
+ul.is-style-liststyle-icon--markerorange,
+ul.is-style-liststyle-icon--markergreen,
+ul.is-style-liststyle-icon--markeryellow {
+    @apply list-outside pl-5;
+    > li {
+        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-bold;
+    }
+}
+ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply marker:content-['\F058'];
+    }
+}
+ul.is-style-liststyle-icon--markerorange,
+ul.is-style-liststyle-icon--markergreen,
+ul.is-style-liststyle-icon--markeryellow {
+    > li {
+        @apply mb-8 md:mb-12 lg:mb-14 xl:mb-16 marker:content-['\f3c5'];
+    }
+}
+ul.is-style-liststyle-icon--markeryellow {
+    > li {
+        @apply marker:text-yellow;
+    }
+}
+ul.is-style-liststyle-icon--markerorange {
+    > li {
+        @apply marker:text-orange;
+    }
+}
+ul.is-style-liststyle-icon--linklist,
+ul.is-style-liststyle-icon--download,
+ul.is-style-liststyle-icon--singlelink {
+    @apply list-none pl-0;
+}
+ul.is-style-liststyle-icon--linklist,
+ul.is-style-liststyle-icon--download{
+    > li {
+        @apply flex items-center justify-between border-b transition-colors pl-0 after:pl-8  after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors hover:text-primary hover:after:text-primary ;
+        a {
+            @apply grow no-underline text-font hover:text-primary;
+        }
+    }
+}
+ul.is-style-liststyle-icon--download {
+    > li {
+        @apply pb-2 mb-4 border-font after:font-light after:content-['\e094'];
+    }
+}
+ul.is-style-liststyle-icon--singlelink {
+    > li {
+        @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
+        a {
+            @apply flex items-center no-underline text-font hover:text-primary after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors;
+        }
+    }
+}
+ul.is-style-liststyle-icon--linklist {
+    > li {
+        @apply first:border-t my-0 py-4 md:py-5 lg:py-6 border-darkgrey after:font-light after:content-['\f178'];
+        &, a {
+            @apply font-bold;
+        }
     }
 }

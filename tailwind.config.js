@@ -9,6 +9,7 @@ module.exports = {
         'font': 'rgb(var(--color-font))',
         'black-transparent': 'rgb(var(--color-font) / 50%)',
         'orange': 'rgb(var(--color-orange))',
+        'yellow': 'rgb(var(--color-yellow))',
         'raspberry': 'rgb(var(--color-raspberry))',
         'grey': 'rgb(var(--color-grey))',
         'darkgrey': 'rgb(var(--color-darkgrey))',
@@ -26,6 +27,7 @@ module.exports = {
         'large': '71.25rem',  //1140px
         'xlarge': '90rem',    //1440px
         'content': '52.5rem',  //840px
+        // 'content': '80%',
       },
       fontFamily: {
         'serif': ['Crete Round', 'serif'],
@@ -69,6 +71,7 @@ module.exports = {
       fontSize: {
         '0': ['0', '0'],
         'icon': ['20px', '1'],
+        '5.5xl': ['56px', '1.1'],
       },
       lineHeight: {
         '0': '0',

@@ -10,12 +10,11 @@
 
 @section('flex-item-content')
     @while (block_rows('logo'))
-        @php block_row('logo') @endphp
-            @include('blocks.helpers.image',
-            [
-                'name_ImageField' => 'image',
-                'isRepeaterElement' => true
-            ])
+            @php
+                block_row('logo');
+                $attachment_id = block_sub_value('image');
+                $image_url = wp_get_attachment_url($attachment_id);
+            @endphp
     @endwhile
     {{ reset_block_rows('logo') }}
 @overwrite

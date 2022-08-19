@@ -69,6 +69,11 @@ wp.blocks.registerBlockStyle('core/query', {
     label: 'Post-Image Grid',
 });
 
+wp.blocks.registerBlockStyle('core/query', {
+    name: 'post-image-carousel',
+    label: 'Post-Image Carousel',
+});
+
 // const { createHigherOrderComponent } = wp.compose
 
 // const withCustomClassName = createHigherOrderComponent((BlockListBlock) => {

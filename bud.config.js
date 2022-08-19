@@ -24,6 +24,9 @@ module.exports = async (app) => {
         '@scripts/editor',
         '@styles/editor'
       ],
+     "block.animatednumbers": [
+        '@scripts/blocks/rocketpager-animatednumbers'
+      ],
       "block.hero-slider": [
         'slick-carousel',
         '@scripts/blocks/rocketpager-hero-slider',
@@ -39,15 +42,6 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-carousel-slider',
         '@styles/new_styles/rocketpager-carousel-slider'
       ],
-      "block.carousel-header": [
-        'slick-carousel',
-        '@scripts/blocks/rocketpager-carousel-header',
-        '@styles/new_styles/rocketpager-carousel-header'
-      ],
-      "block.testimonial-slider": [
-        'slick-carousel',
-        '@scripts/blocks/rocketpager-testimonial-slider'
-      ],
       "block.google-maps": [
         '@scripts/blocks/rocketpager-google-maps',
         '@styles/new_styles/rocketpager-google-maps'
@@ -60,11 +54,11 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-videoelement',
         // 'https://www.youtube.com/iframe_api',
       ],
-      "block.audio-image-box":[
-        '@styles/new_styles/rocketpager-audio-image-box'
-      ],
       "block.team":[
         '@styles/new_styles/rocketpager-team'
+      ],
+      "block.iconbox":[
+        '@styles/new_styles/rocketpager-iconbox'
       ],
       "block.text-image-list":[
         '@styles/new_styles/rocketpager-text-image-list'

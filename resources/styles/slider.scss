@@ -19,9 +19,6 @@
 body:not(.home) .slides picture  {
   @apply after:content-none;
 }
-.slick-list.draggable {
-  @apply hover:cursor-grabbing;
-}
 
 /* Arrows */
 .slick-prev,

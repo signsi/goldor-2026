@@ -1,0 +1,5 @@
+.rocketpager-iconbox{
+    & + .rocketpager-iconbox {
+        @apply mt-5 md:mt-8;
+    }
+}

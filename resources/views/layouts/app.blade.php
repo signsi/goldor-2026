@@ -7,13 +7,17 @@
     class="
     main mx-auto max-w-none
     prose
-    lg:prose-xl
+    lg:prose-lg
+    xl:prose-xl
     lg:prose-p:leading-7
     lg:prose-li:leading-7
     prose-li:text-font
+    prose-p:text-font
     prose-headings:font-bold
     prose-h1:font-normal
     prose-h2:font-normal
+    prose-li:marker:text-font
+    prose-li:marker:text-base
   ">
     @yield('content')
 </main>

@@ -2,6 +2,10 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
+    register_block_style('core/paragraph', [
+        'name' => 'lead',
+        'label' => __('Medium', 'rocketpager'),
+    ]);
     register_block_style('core/list', [
         'name' => 'liststyle-icon--check-circle',
         'label' => __('Icon-Liste', 'rocketpager'),
@@ -12,9 +16,30 @@ add_action('init', function () {
         'label' => __('Download-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
-    register_block_style('core/paragraph', [
-        'name' => 'lead',
-        'label' => __('Medium', 'rocketpager'),
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--linklist',
+        'label' => __('Link-Liste', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--singlelink',
+        'label' => __('Link mit Pfeil', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--markergreen',
+        'label' => __('Adress-Block (Marker grün)', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--markerorange',
+        'label' => __('Adress-Block (Marker orange)', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--markeryellow',
+        'label' => __('Adress-Block (Marker gelb)', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
     ]);
 });
 
@@ -77,7 +102,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='absolute w-full z-10 mt-[34px] transform transition-all opacity-0 translate-y-1'><ul class='z-20 flex flex-col min-w-max space-y-0.5'>\n";
+            $output .= "\n$indent<div class='absolute w-full z-10 mt-[34px] transform transition-all opacity-0 translate-y-1 hidden'><ul class='z-20 flex flex-col min-w-max space-y-0.5'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
