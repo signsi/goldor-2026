@@ -21,9 +21,11 @@ export function setupSubMenus() {
 
 
     const topNav = document.querySelector("#topNav");
-    const submMenuParents = topNav.querySelectorAll("ul>li.menu-item-has-children");
+    const submMenuParents = topNav.querySelectorAll("ul#menu-primary_navigation>li.menu-item-has-children");
+    const submMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
     const classesShown = ['opacity-1', 'translate-y-0', 'block'];
     const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
+    submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('ulContainer').children('li').removeClass().addClass('font-normal mt-1');
     const outsideArea = document.querySelector('body');
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
@@ -64,6 +66,7 @@ export function setupSubMenus() {
     })
 
 }
+
 
 export function setupMobileNav() {
 

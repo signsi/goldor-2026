@@ -9,7 +9,7 @@
                     <div class="relative flex h-full flex-row-reverse align-items items-end max-w-default mx-auto px-gutter pt-section pb-8 lg:pb-12">
                         <div>
                             @if ( block_sub_value( 'title') )
-                                <h3 class="text-white !my-0">{{ block_sub_value('title') }}</h3>
+                                <h3 class="text-white !my-0 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">{{ block_sub_value('title') }}</h3>
                             @endif
                         </div>
                     </div>

@@ -102,7 +102,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='absolute w-full z-10 mt-[34px] transform transition-all opacity-0 translate-y-1 hidden'><ul class='z-20 flex flex-col min-w-max space-y-0.5'>\n";
+            $output .= "\n$indent<div class='absolute w-full z-10 mt-[34px] transform transition-all opacity-0 translate-y-1 hidden before:absolute before:border-y-2 before:border-solid before:border-gray-300 before:inset-y-0 before:-left-[100vw] before:-right-[100vw] before:bg-secondary'><ul class='menu-primary_subnavigation z-20 flex flex-col min-w-max space-y-0.5 my-12'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
@@ -113,20 +113,17 @@ if (!class_exists('SubmenuWrap')) {
 }
 
 
-
-
 // Nur Haupt-Navigation (ohne Sub-Menüs)
-
 add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) {
     if (has_nav_menu('primary_navigation')) {
         //Only add class to 'top level' items on the 'primary' menu.
         if ('primary_navigation' == $args->theme_location && $depth === 0) {
             if (in_array("menu-item-has-children", $item->classes)) {
-                $subMenuParentClasses = "text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
+                $subMenuParentClasses = "text-primary group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
                 $classes = explode(" ", $subMenuParentClasses);
                 $item->classes = $classes;
                 $output = "<div class='relative inline-flex items-center'>" . $output;
-                $output .= '<svg class="text-gray-400 ml-2 h-5 w-5 group-hover:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                $output .= '<svg class="text-darkgrey ml-2 h-5 w-5 group-hover:text-primary transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
           </svg></div>';
             }

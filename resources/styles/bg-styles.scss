@@ -38,3 +38,77 @@
     }
   }
 }
+
+.bg-primary-top-1-4 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-1/4 before:bg-primary before:content-[''] before:absolute before:z-10;
+  &>* {
+    @apply relative z-20;
+  }
+}
+.bg-primary-top-1-2 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-1/2 before:bg-primary before:content-[''] before:absolute before:z-10;
+  &>* {
+    @apply relative z-20;
+  }
+}
+.bg-primary-top-2-3 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-2/3 before:bg-primary before:content-[''] before:absolute before:z-10;
+  &>* {
+    @apply relative z-20;
+  }
+}
+.bg-primary-setOnCol {
+  @apply overflow-hidden;
+  .bg-target {
+    @apply relative before:-inset-y-[40px] xl:before:-inset-y-[60px] 2xl:before:-inset-y-[90px] before:-inset-x-[100vw] before:bg-primary before:content-none md:before:content-[''] before:absolute before:-z-10;
+  }
+  &>* {
+    @apply relative z-20;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p,
+  p a {
+    @apply md:text-white;
+  }
+  p a, ul li a {
+    @apply md:text-white md:hover:text-font;
+  }
+  .wp-block-button__link {
+    @apply md:bg-white md:text-primary md:hover:bg-font md:hover:text-white;
+  }
+  ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply md:marker:text-white;
+    }
+  }
+  ul.is-style-liststyle-icon--download {
+    @apply list-none pl-0;
+    > li {
+        @apply md:border-white;
+    }
+  }
+  ul.is-style-liststyle-icon--linklist,
+  ul.is-style-liststyle-icon--download{
+    > li {
+      @apply md:hover:text-font md:hover:after:text-font ;
+      a {
+        @apply md:hover:text-font;
+      }
+    }
+  }
+}
+.page.content > .wp-block-group.bg-primary-bottom-3-4 {
+  @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-lightgray before:content-[''] before:absolute before:z-10;
+  &>* {
+    @apply relative z-20;
+  }
+  + .wp-block-group.has-lightgray-background-color {
+    @apply pt-0;
+  }
+} 

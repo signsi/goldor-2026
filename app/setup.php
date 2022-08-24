@@ -196,3 +196,4 @@ require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
 require_once 'setup/customization.php';
 require_once 'setup/default_block_templates.php';
+require_once 'setup/custom_post_types.php';
