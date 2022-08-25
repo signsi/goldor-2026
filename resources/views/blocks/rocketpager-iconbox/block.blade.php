@@ -5,7 +5,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid gap-gutter {{ $row_per_col }}">
+    <div class="grid gap-gutter {{ $row_per_col }} @apply mb-12">
         @while (block_rows('icon'))
             @php
                 block_row('icon');
@@ -30,7 +30,7 @@
                     </div>
                     @if ( block_sub_value('title') )
                         <div class="mt-4 md:mt-6 lg:mt-8">
-                            <{{ block_sub_value('heading') }}>{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</{{ block_sub_value('heading') }}>
+                            <{{ block_sub_value('heading') }} class="!mb-0">{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</{{ block_sub_value('heading') }}>
                         </div>
                     @endif
                     @if ( block_sub_value('text') )

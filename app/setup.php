@@ -61,6 +61,7 @@ add_action('after_setup_theme', function () {
         'primary_navigation' => __('Main Navigation', 'sage'),
         'top_navigation' => __('Top Navigation', 'sage'),
         'location_navigation' => __('Standort Navigation', 'sage'),
+        'career_navigation' => __('Karriere Navigation', 'sage'),
         'service_navigation' => __('Service Navigation', 'sage'),
         'footer_navigation' => __('Disclaimer Navigation', 'sage')
     ]);

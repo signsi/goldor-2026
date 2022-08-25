@@ -1,4 +1,8 @@
 /* News Post Grid - HOME*/
+
+div.alignfull.wp-block-query.is-style-post-image-grid {
+    @apply mb-12;
+}
 div.alignfull.wp-block-query.is-style-post-image-grid ul {
     @apply pl-0;
 }

@@ -71,15 +71,32 @@ function crb_attach_jobs()
     Container::make('post_meta', 'Zusatzinformationen')
         ->where('post_type', '=', 'jobs')
         ->add_fields(array(
-            Field::make('rich_text', $key . 'beschreibung', __('Beschreibung')),
             Field::make('text', $key . 'link_bewerbung', __('Link zum Bewerbungsformular'))->set_attribute('placeholder', 'https://....'),
+            Field::make('select', $key . 'bereich', __('Bereich'))
+            ->add_options(array(
+                'Pflege/Medizin/Therapie' => __('Pflege/Medizin/Therapie'),
+                'Hotellerie/Gastronomie/Hauswirtschaft' => __('Hotellerie/Gastronomie/Hauswirtschaft'),
+                'Technik/Handwerk/Logistik' => __('Technik/Handwerk/Logistik'),
+                'Personal/Kommunikation/Projekte' => __('Personal/Kommunikation/Projekte'),
+                'Administration/Finanzen/Informatik' => __('Administration/Finanzen/Informatik'),
+                'Ausbildungsplatz' => __('Ausbildungsplatz'),
+            )),
+            Field::make('text', $key . 'pensum', __('Pensum in Prozent')),
             Field::make('radio', $key . 'anstellungstyp', __('Art der Anstellung'))
                 ->add_options(array(
                     'Vollzeit' => __('Vollzeit'),
                     'Teilzeit' => __('Teilzeit'),
-                    'Praktikum' => __('Praktikum'),
+                    'Vollzeit oder Teilzeit' => __('Vollzeit oder Teilzeit'),
+                )),
+                Field::make('radio', $key . 'standort', __('Standort'))
+                ->add_options(array(
+                    'Viva Luzern Eichhof' => __('Viva Luzern Eichhof'),
+                    'Viva Luzern Staffelnhof' => __('Viva Luzern Staffelnhof'),
+                    'Viva Luzern Dreilinden' => __('Viva Luzern Dreilinden'),
+                    'Viva Luzern Wesemlin und Tribschen' => __('Viva Luzern Wesemlin und Tribschen'),
+                    'Viva Luzern Rosenberg' => __('Viva Luzern Rosenberg'),
+                    'Viva Luzern Geschäftsstelle' => __('Viva Luzern Geschäftsstelle'),
                 )),
             Field::make('date', $key . 'guelitg_bis', __('Datum des Stellenatritts')),
-            Field::make('text', $key . 'pensum', __('Pensum in Prozent')),
         ));
 }

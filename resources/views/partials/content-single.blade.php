@@ -1,14 +1,19 @@
 <article @php(post_class(''))>
-    <header class='max-w-content w-full mx-auto prose px-4 md:px-6'>
-        <h1 class="entry-title">
-            {!! $title !!}
-        </h1>
-
-        @include('partials.entry-meta')
-    </header>
 
     <div class="entry-content">
-        @php(the_content())
+        <div class="max-w-default px-gutter pb-element mx-auto">
+            <div class="grid grid-cols-2 gap-12">
+                <div class="flex flex-col not-prose">
+                    @php(the_post_thumbnail())
+                </div>
+                <div class="flex flex-col py-12">
+                    <h1 class="entry-title">
+                        {!! $title !!}
+                    </h1>
+                    @php(the_content())
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>

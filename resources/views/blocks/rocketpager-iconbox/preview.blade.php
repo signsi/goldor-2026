@@ -12,7 +12,7 @@
                 @include('blocks.helpers.image',
                 [
                     'name_ImageField' => 'image',
-                    'additionalClasses' => array('class' => 'w-auto h-[75px] mx-0'),
+                    'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out w-auto !h-[75px] !lg:h-[80px] mx-auto md:mx-0'),
                     'thumbnail' => 'small-width',
                     'isRepeaterElement' => true
                 ])
@@ -30,6 +30,9 @@
                 <div class="mt-4 @if (block_sub_value('heading')) @else md:mt-6 lg:mt-8 @endif">
                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                 </div>
+            @endif
+            @if (block_sub_value('link'))
+                <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-orange group-hover:translate-x-2 !mb-3 block" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
             @endif
         </div>
     @endwhile

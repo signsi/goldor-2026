@@ -28,8 +28,8 @@ Aufruf:
         <a href='{{ wp_get_attachment_image_url($attachment_id, 'full') }}' data-fancybox="{{ $identifierLightbox }}" data-caption="{{ $figcaption ? $figcaption : get_the_title($attachment_id) }}">
     @endif
 
-        <figure>{!! wp_get_attachment_image( $attachment_id , $thumbnail, false, $additionalClasses) !!}
-        
+        <figure class="!mb-0">{!! wp_get_attachment_image( $attachment_id , $thumbnail, false, $additionalClasses) !!}
+
             @if($figcaption)
                 <figcaption>{{ $figcaption }}</figcaption>
             @endif
