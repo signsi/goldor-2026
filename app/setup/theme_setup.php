@@ -2,6 +2,26 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
+    register_block_style('core/columns', [
+        'name' => 'gap--small',
+        'label' => __('Schmaler Abstand zwischen Spalten', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/columns', [
+        'name' => 'gap--small-location',
+        'label' => __('Spalten für Standorte', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/columns', [
+        'name' => 'overlapping--right-1',
+        'label' => __('randabfallend rechts', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/columns', [
+        'name' => 'overlapping--right-2',
+        'label' => __('randabfallend links', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
     register_block_style('core/paragraph', [
         'name' => 'lead',
         'label' => __('Medium', 'rocketpager'),

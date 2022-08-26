@@ -14,15 +14,44 @@ body {
             @apply mt-0;
         }
 
-        // &:last-child {
-        //     @apply mb-0;
-        // }
+        &:last-child {
+            @apply mb-0;
+        }
     }
     &.alignfull {
         @apply px-0;
     }
     .wp-block-columns {
-        @apply mb-12 last:mb-0;
+        @apply mb-section last:mb-0 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28;
+        figure {
+            @apply overflow-hidden;
+            > a {
+                &:hover{
+                    img {
+                        @apply scale-105;
+                    } 
+                }
+                img {
+                    @apply transition ease-in-out delay-150 duration-300;
+                }
+            }
+        }
+        &.is-style-gap--small {
+            &, &-location {
+                @apply gap-8;
+            }
+            &-location {
+                figure, img {
+                    @apply mb-0;
+                }
+                h3 {
+                    @apply mt-6;
+                }
+                .wp-block-buttons {
+                    @apply mt-0;
+                }
+            }
+        }
     }
 }
 

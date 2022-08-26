@@ -77,7 +77,7 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li i {
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover a.wp-block-read-more,
 div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover i  {
-    @apply text-orange;
+    @apply text-primary;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li a.wp-block-read-more {
@@ -139,7 +139,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
                     @apply origin-center translate-x-2;
                 }
                 i, .wp-block-read-more {
-                    @apply text-orange;
+                    @apply text-primary;
                 }
             }
         }
@@ -147,6 +147,9 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
 }
 
 /* Button */
+.wp-block-buttons {
+    @apply mt-element-mobile md:mt-element-tablet xl:mt-element-desktop;
+}
 .wp-block-button__link{
     @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
 }
@@ -154,7 +157,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
 .is-style-outline>.wp-block-button__link,
 .is-style-outline>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline:not(.has-background){
-    @apply border-primary text-primary py-1 px-3 hover:border-orange hover:bg-orange hover:text-white;
+    @apply border-primary text-primary text-xs sm:text-sm md:text-base py-1 px-3 hover:border-primary hover:bg-primary hover:text-white;
 }
 
 /* Text Media */
@@ -173,6 +176,19 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
         }
     }
 }
+
+
+.wp-block-columns.is-style-overlapping--right-1 {
+    @apply px-gutter 2xl:px-0;
+    .wp-block-column {
+        @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
+        &[style*="flex-basis:33.33%"] {
+            @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};           
+        }
+    }
+}
+
+
 /* Spalte randabfallend links */
 .wp-block-columns.is-style-overlapping--left {
     .wp-block-column {

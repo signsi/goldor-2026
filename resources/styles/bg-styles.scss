@@ -1,4 +1,5 @@
 .has-primary-background-color.has-background {
+
   h1,
   h2,
   h3,
@@ -10,30 +11,37 @@
   p a {
     @apply text-white;
   }
-  p a, ul li a {
-    @apply text-white hover:text-font;
+
+  p a,
+  ul li a {
+    @apply text-white hover:text-secondary;
   }
+
   .wp-block-button__link {
-    @apply bg-white
-         text-primary hover:bg-font hover:text-white;
+    @apply bg-white text-primary hover:bg-secondary;
   }
+
   ul.is-style-liststyle-icon--check-circle {
-    > li {
-        @apply marker:text-white;
+    >li {
+      @apply marker:text-white;
     }
   }
+
   ul.is-style-liststyle-icon--download {
     @apply list-none pl-0;
-    > li {
-        @apply border-white;
+
+    >li {
+      @apply border-white;
     }
   }
+
   ul.is-style-liststyle-icon--linklist,
-  ul.is-style-liststyle-icon--download{
-    > li {
-      @apply hover:text-font hover:after:text-font ;
+  ul.is-style-liststyle-icon--download {
+    >li {
+      @apply hover:text-secondary hover:after:text-secondary;
+
       a {
-        @apply hover:text-font;
+        @apply hover:text-secondary;
       }
     }
   }
@@ -41,30 +49,39 @@
 
 .bg-primary-top-1-4 {
   @apply relative before:top-0 before:inset-x-0 before:bottom-1/4 before:bg-primary before:content-[''] before:absolute before:z-10;
+
   &>* {
     @apply relative z-20;
   }
 }
+
 .bg-primary-top-1-2 {
   @apply relative before:top-0 before:inset-x-0 before:bottom-1/2 before:bg-primary before:content-[''] before:absolute before:z-10;
+
   &>* {
     @apply relative z-20;
   }
 }
+
 .bg-primary-top-2-3 {
   @apply relative before:top-0 before:inset-x-0 before:bottom-2/3 before:bg-primary before:content-[''] before:absolute before:z-10;
+
   &>* {
     @apply relative z-20;
   }
 }
+
 .bg-primary-setOnCol {
   @apply overflow-hidden;
+
   .bg-target {
     @apply relative before:-inset-y-[40px] xl:before:-inset-y-[60px] 2xl:before:-inset-y-[90px] before:-inset-x-[100vw] before:bg-primary before:content-none md:before:content-[''] before:absolute before:-z-10;
   }
+
   &>* {
     @apply relative z-20;
   }
+
   h1,
   h2,
   h3,
@@ -76,39 +93,50 @@
   p a {
     @apply md:text-white;
   }
-  p a, ul li a {
-    @apply md:text-white md:hover:text-font;
+
+  p a,
+  ul li a {
+    @apply md:text-white md:hover:text-secondary;
   }
+
   .wp-block-button__link {
-    @apply md:bg-white md:text-primary md:hover:bg-font md:hover:text-white;
+    @apply md:bg-white md:text-primary md:hover:bg-secondary md:hover:text-white;
   }
+
   ul.is-style-liststyle-icon--check-circle {
-    > li {
-        @apply md:marker:text-white;
+    >li {
+      @apply md:marker:text-white;
     }
   }
+
   ul.is-style-liststyle-icon--download {
     @apply list-none pl-0;
-    > li {
-        @apply md:border-white;
+
+    >li {
+      @apply md:border-white;
     }
   }
+
   ul.is-style-liststyle-icon--linklist,
-  ul.is-style-liststyle-icon--download{
-    > li {
-      @apply md:hover:text-font md:hover:after:text-font ;
+  ul.is-style-liststyle-icon--download {
+    >li {
+      @apply md:hover:text-secondary md:hover:after:text-secondary;
+
       a {
-        @apply md:hover:text-font;
+        @apply md:hover:text-secondary;
       }
     }
   }
 }
-.page.content > .wp-block-group.bg-primary-bottom-3-4 {
+
+.page.content>.wp-block-group.bg-primary-bottom-3-4 {
   @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-lightgray before:content-[''] before:absolute before:z-10;
+
   &>* {
     @apply relative z-20;
   }
-  + .wp-block-group.has-lightgray-background-color {
+
+  +.wp-block-group.has-lightgray-background-color {
     @apply pt-0;
   }
-} 
+}

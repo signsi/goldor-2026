@@ -1,4 +1,5 @@
 module.exports = {
+  important: true,
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
   theme: {
     extend: {
@@ -76,6 +77,9 @@ module.exports = {
       lineHeight: {
         '0': '0',
         'extra-loose': '1.1',
+      },
+      borderWidth: {
+        '3': '3px',
       },
       backgroundPosition:{
         '100': '100%',
