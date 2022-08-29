@@ -1,34 +1,31 @@
 .prose {
   h1 {
-    @apply text-3xl lg:text-4xl	xl:text-5.5xl;
+      @apply text-3xl lg:text-4xl	xl:text-5.5xl;
   }
   h2 {
-    @apply text-2xl lg:text-3xl	xl:text-5xl;
+      @apply text-2xl lg:text-3xl	xl:text-5xl;
   }
   h1,
   h2 {
-    @apply font-serif italic;
-  }
-  h4 + ul {
-    @apply mt-0;
+      @apply font-serif italic;
   }
   p{
-    &.has-large-font-size,
-    &.is-style-lead {
-      @apply text-lg lg:text-xl xl:text-2xl;
-      &.is-style-lead + .wp-block-buttons {
-        @apply mt-element-mobile;
+      &.has-large-font-size,
+      &.is-style-lead {
+              @apply text-lg lg:text-xl xl:text-2xl;
+          &.is-style-lead + .wp-block-buttons {
+              @apply mt-element-mobile;
+          }
       }
-    }
   }
   strong {
-    @apply font-bold;
+      @apply font-bold;
   }
   p a,
   ul li a {
-    @apply text-font hover:text-primary;
+      @apply text-font hover:text-primary;
   }
   a {
-    @apply transition-colors;
+      @apply transition-colors;
   }
 }

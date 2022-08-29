@@ -1,4 +1,4 @@
-@extends('blocks.helpers.block-wrapper', ['element_classes' => 'my-12 not-prose'])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'not-prose'])
 
 @section('content-section')
     @if (block_value('link')) <a href="{{ block_value('link') }}" class="no-underline" title="mehr Informationen @if ( block_value('text') )- {!! App\sanitize_out(block_value('text'), 'text') !!}@endif"> @endif

@@ -6,7 +6,7 @@
             @php block_row('slide') @endphp
             <div class="slides bg-object-wrapper {{ block_value('slider-height') }}">
                 @if ( block_sub_value( 'title') )
-                    <div class="relative flex h-full flex-row-reverse align-items items-end max-w-default mx-auto px-gutter pt-section pb-8 lg:pb-12">
+                    <div class="relative z-30 flex h-full flex-row-reverse align-items items-end max-w-default mx-auto px-gutter pt-section pb-8 lg:pb-12">
                         <div>
                             @if ( block_sub_value( 'title') )
                                 <h3 class="text-white !my-0 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">{{ block_sub_value('title') }}</h3>
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 @endif
-                <picture class="-z-10 relative after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:content-[''] after:z-10 after:mix-blend-multiply after:opacity-80 after:bg-gradient-to-t after:from-black-transparent after:to-transparent">
+                <picture class="-z-10 after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:content-[''] after:z-10 after:mix-blend-multiply after:opacity-80 after:bg-gradient-to-t after:from-black-transparent after:to-transparent">
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'header-image',
