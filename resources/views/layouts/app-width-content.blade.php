@@ -12,6 +12,8 @@
     xl:prose-xl
     lg:prose-p:leading-7
     lg:prose-li:leading-7
+    prose-h1:font-normal
+    prose-h2:font-normal
     prose-headings:font-bold
     prose-li:marker:text-xl
     prose-hr:my-element-mobile

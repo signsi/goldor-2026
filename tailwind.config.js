@@ -103,7 +103,13 @@ module.exports = {
             },
             p: {
               color: theme('rgb(var(--color-primary))'),
-            }
+            },
+            h1: {
+              fontWeight: '400',
+            },
+            h2: {
+              fontWeight: '400',
+            },
           },
           sm: {
             css: {

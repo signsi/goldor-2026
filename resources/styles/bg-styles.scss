@@ -47,37 +47,11 @@
   }
 }
 
-.bg-primary-top-1-4 {
-  @apply relative before:top-0 before:inset-x-0 before:bottom-1/4 before:bg-primary before:content-[''] before:absolute before:z-10;
-
-  &>* {
-    @apply relative z-20;
-  }
-}
-
-.bg-primary-top-1-2 {
-  @apply relative before:top-0 before:inset-x-0 before:bottom-1/2 before:bg-primary before:content-[''] before:absolute before:z-10;
-
-  &>* {
-    @apply relative z-20;
-  }
-}
-
-.bg-primary-top-2-3 {
-  @apply relative before:top-0 before:inset-x-0 before:bottom-2/3 before:bg-primary before:content-[''] before:absolute before:z-10;
-
-  &>* {
-    @apply relative z-20;
-  }
-}
-
-.bg-primary-setOnCol {
-  @apply overflow-hidden;
-
-  .bg-target {
-    @apply relative before:-inset-y-[40px] xl:before:-inset-y-[60px] 2xl:before:-inset-y-[90px] before:-inset-x-[100vw] before:bg-primary before:content-none md:before:content-[''] before:absolute before:-z-10;
-  }
-
+.bg-primary-setOnCol,
+.bg-primary-top-1-4,
+.bg-primary-top-1-2,
+.bg-primary-top-2-3,
+.bg-primary-bottom-3-4 {
   &>* {
     @apply relative z-20;
   }
@@ -129,12 +103,39 @@
   }
 }
 
-.page.content>.wp-block-group.bg-primary-bottom-3-4 {
-  @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-lightgray before:content-[''] before:absolute before:z-10;
+.bg-primary-top-1-4 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-1/4 before:bg-primary before:content-[''] before:absolute before:z-10;
+}
 
+.bg-primary-top-1-2 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-1/2 before:bg-primary before:content-[''] before:absolute before:z-10;
+}
+
+.bg-primary-top-2-3 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-2/3 before:bg-primary before:content-[''] before:absolute before:z-10;
+}
+
+.bg-primary-top-540 {
+  @apply relative before:top-0 before:inset-x-0 before:bottom-auto before:h-[200px] md:before:h-[350px] lg:before:h-[540px] before:bg-primary before:content-[''] before:absolute before:z-10;
+  > .wp-block-group:first-child > {
+    h1, h2, h3, h4, h5, h6 {
+      @apply text-white;
+    }
+  }
   &>* {
     @apply relative z-20;
   }
+}
+.bg-primary-setOnCol {
+  @apply overflow-hidden;
+
+  .bg-target {
+    @apply relative before:-inset-y-[40px] xl:before:-inset-y-[60px] 2xl:before:-inset-y-[90px] before:-inset-x-[100vw] before:bg-primary before:content-none md:before:content-[''] before:absolute before:-z-10;
+  }
+}
+
+.page.content>.wp-block-group.bg-primary-bottom-3-4 {
+  @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-lightgray before:content-[''] before:absolute before:z-10;
 
   +.wp-block-group.has-lightgray-background-color {
     @apply pt-0;

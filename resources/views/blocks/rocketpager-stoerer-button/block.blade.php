@@ -8,7 +8,7 @@
                 @include('blocks.helpers.image',
                 [
                     'name_ImageField' => 'image',
-                    'additionalClasses' => array('class' => 'w-auto h-[50px] mx-auto mb-2.5'),
+                    'additionalClasses' => array('class' => 'w-auto h-[47px] mx-auto mb-2.5'),
                     'thumbnail' => 'small-width',
                     'isRepeaterElement' => false
                 ])

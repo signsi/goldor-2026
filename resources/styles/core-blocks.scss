@@ -209,6 +209,9 @@ figure, figure.wp-block-image {
 }
 
 /* List-Styles */
+ul[class*="is-style-liststyle"] {
+    @apply my-element-mobile md:my-element-tablet xl:my-element-desktop;
+}
 ul.is-style-liststyle-icon--check-circle,
 ul.is-style-liststyle-icon--markerorange,
 ul.is-style-liststyle-icon--markergreen,
