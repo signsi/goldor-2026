@@ -37,6 +37,11 @@
           "name": "Himbeer"
         },
         {
+          "slug": "yellow",
+          "color": "rgb(var(--color-yellow))",
+          "name": "Gelb"
+        },
+        {
           "slug": "grey",
           "color": "rgb(var(--color-grey))",
           "name": "Grau"

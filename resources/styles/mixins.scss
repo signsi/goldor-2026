@@ -1,0 +1,101 @@
+@mixin colorWhiteSmallUp {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p,
+  p a {
+    @apply text-white;
+  }
+
+  p a,
+  ul li a {
+    @apply text-white hover:text-secondary;
+  }
+
+  .wp-block-button__link {
+    @apply bg-white text-primary hover:bg-secondary;
+  }
+
+  ul.is-style-liststyle-icon--check-circle {
+    >li {
+      @apply marker:text-white;
+    }
+  }
+
+  ul.is-style-liststyle-icon--download {
+    @apply list-none pl-0;
+
+    >li {
+      @apply border-white;
+    }
+  }
+
+  ul.is-style-liststyle-icon--linklist,
+  ul.is-style-liststyle-icon--download {
+    >li {
+      @apply hover:text-secondary hover:after:text-secondary;
+
+      a {
+        @apply hover:text-secondary;
+      }
+    }
+  }
+  .slick-arrow {
+    @apply bg-white hover:bg-secondary;
+    &.slick-prev::before, &.slick-next::before {
+      @apply text-primary;
+    }
+  }
+}
+
+@mixin colorWhiteMediumUp {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p,
+  p a {
+      @apply md:text-white;
+  }
+
+  p a,
+  ul li a {
+      @apply md:text-white md:hover:text-secondary;
+  }
+
+  .wp-block-button__link {
+      @apply md:bg-white md:text-primary md:hover:bg-secondary md:hover:text-white;
+  }
+
+  ul.is-style-liststyle-icon--check-circle {
+      >li {
+      @apply md:marker:text-white;
+      }
+  }
+
+  ul.is-style-liststyle-icon--download {
+      @apply list-none pl-0;
+
+      >li {
+      @apply md:border-white;
+      }
+  }
+
+  ul.is-style-liststyle-icon--linklist,
+  ul.is-style-liststyle-icon--download {
+      >li {
+      @apply md:hover:text-secondary md:hover:after:text-secondary;
+
+      a {
+          @apply md:hover:text-secondary;
+      }
+      }
+  }
+}

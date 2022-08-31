@@ -3,18 +3,7 @@
 </a>
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
-<main id="main"
-    class="
-    main mx-auto max-w-none
-    prose
-    lg:prose-xl
-    lg:prose-p:leading-7
-    lg:prose-li:leading-7
-    prose-li:text-font
-    prose-headings:font-bold
-    prose-h1:font-normal
-    prose-h2:font-normal
-  ">
+<main id="main">
     @yield('content')
 </main>
 

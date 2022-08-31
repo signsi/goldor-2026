@@ -29,7 +29,7 @@ Aufruf:
     @endif
 
         <figure>{!! wp_get_attachment_image( $attachment_id , $thumbnail, false, $additionalClasses) !!}
-        
+
             @if($figcaption)
                 <figcaption>{{ $figcaption }}</figcaption>
             @endif

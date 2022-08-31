@@ -38,6 +38,18 @@ function getThemeOption($field_id, $default_value = '')
     return false;
 }
 
+function get_jobs_option($key)
+{
+    if (function_exists('carbon_get_theme_option')) {
+        $full_key = 'vivaluzern_jobs_' . $key;
+        $value = carbon_get_the_post_meta($full_key);
+        return $value;
+    } else {
+        return 'CarbonFields ist nicht verfübar!';
+    }
+}
+
+
 // TODO: function does not seem to work everywhere
 //if (is_plugin_active('genesis-custom-blocks-pro/genesis-custom-blocks-pro.php')) {
 function blockValueExists($key)

@@ -15,12 +15,9 @@
   @apply opacity-100;
 }
 
-/* nor for class .home */
+/* not for class .home */
 body:not(.home) .slides picture  {
   @apply after:content-none;
-}
-.slick-list.draggable {
-  @apply hover:cursor-grabbing;
 }
 
 /* Arrows */

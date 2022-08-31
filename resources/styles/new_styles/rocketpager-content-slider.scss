@@ -6,10 +6,19 @@
     &.cropped-stil figure{
         @apply pr-4;
     }
+    .slick-list.draggable {
+        @apply hover:cursor-grabbing;
+    }
     .slick-track > .slick-slide {
         @apply leading-0;
     }
     figcaption {
         @apply text-center;
+    }
+    .slick-prev {
+        @apply left-auto md:left-0 right-12 md:right-0 mr-gutter-mobile md:mr-0;
+    }
+    .slick-next {
+        @apply right-0 md:right-auto left-auto md:left-14 xl:left-16 mr-gutter-mobile md:mr-0;
     }
 }

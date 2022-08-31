@@ -12,7 +12,11 @@ namespace App;
  * @return string
  */
 add_filter('excerpt_more', function () {
-    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
+    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), '');
+});
+
+add_filter('excerpt_length', function ($length){
+    return 35;
 });
 
 // add_filter('render_block_core/query', function ($block_content, $block) {

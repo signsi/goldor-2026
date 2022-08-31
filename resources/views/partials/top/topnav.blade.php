@@ -10,7 +10,7 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:flex-col lg:items-end">
-              <nav class="hide-sticky">
+              {{-- <nav class="hide-sticky">
                 @php
                     $locations = get_nav_menu_locations();
                     if (array_key_exists('top_navigation', $locations) && 0 !== $locations['top_navigation']) {
@@ -22,7 +22,7 @@
                         ]);
                     }
                 @endphp
-            </nav>
+            </nav> --}}
             <nav>
                 @php
                     $locations = get_nav_menu_locations();
@@ -31,8 +31,8 @@
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'flex space-x-6 lg:space-x-8 xl:space-x-12 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative text-sm lg:text-lg xl:text-xl font-semibold text-darkgrey hover:text-primary transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
-                            'add_sub_li_class' => 'text-primary bg-secondary hover:bg-white hover:text-orange flex items-center px-4 py-2 text-sm font-medium before:hidden',
+                            'add_li_class' => 'relative group text-sm lg:text-lg xl:text-xl font-semibold text-darkgrey transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_sub_li_class' => 'before:content-none text-sm lg:text-lg !mb-5',
                             'walker' => new SubmenuWrap(),
                         ]);
                     }

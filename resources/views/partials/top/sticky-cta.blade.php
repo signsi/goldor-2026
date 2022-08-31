@@ -1,11 +1,12 @@
 @php
-$fixed_cta_active = App\getThemeOption('fixed_cta');
-$language_switcher_active = App\getThemeOption('language_switcher');
-$social_share_active = App\getThemeOption('social_share');
-$link_active = App\getThemeOption('link');
-$link_url = App\getThemeOption('link_url');
-$link_text = App\getThemeOption('link_text');
-$search_active = App\getThemeOption('search');
+$fixed_cta_active = App\getThemeOption('cta');
+$language_switcher_active = App\getThemeOption('cta_lang_switcher');
+$social_share_active = App\getThemeOption('cta_social_share');
+$link_active = App\getThemeOption('cta_link');
+$link_url = App\getThemeOption('cta_link_url');
+$link_text = App\getThemeOption('cta_link_text');
+$search_active = App\getThemeOption('cta_search');
+
 @endphp
 
 
@@ -53,12 +54,6 @@ $search_active = App\getThemeOption('search');
                     </div>
                 </div>
             @endif
-            <a class="element-wrapper" href="#" onclick="_speakpipe_open_widget(); return false;">
-                <i class="fal fa-microphone"></i>
-                <div class="content-wrapper">
-                    <p>Voice Message</p>
-                </div>
-            </a>
         </div>
     </div>
 @endif

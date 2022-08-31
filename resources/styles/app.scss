@@ -6,6 +6,7 @@
 
 @charset 'UTF-8';
 @import './variables.scss';
+@import './mixins.scss';
 @import './typography.scss';
 @import './helpers.scss';
 @import './slider.scss';
@@ -18,5 +19,7 @@
 @import './bg-styles.scss';
 @import './core-blocks.scss';
 @import './core-elements.scss';
+@import './forminator.scss';
 @import './new_styles/image-wrapper.scss';
-@import './new_styles/rocketpager-carousel-slider.scss';
+@import './new_styles/rocketpager-iconbox.scss';
+@import './new_styles/rocketpager-stoerer-button.scss';
