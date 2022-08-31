@@ -35,7 +35,7 @@
                         <div><strong class="group-hover:text-primary transition-colors">
                             {{ the_title() }}</strong>
                             @if($pensum)
-                            | <span class=="md:hidden">Pensum: </span>{{ $pensum }}
+                            | <span class=="lg:hidden">Pensum: </span>{{ $pensum }}
                             @endif
                         </div>
                         @if ($category_name != 'Initiativbewerbung')
