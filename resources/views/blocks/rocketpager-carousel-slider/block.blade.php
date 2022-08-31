@@ -5,8 +5,21 @@
     $isCroppedSlider = block_value( 'cropped-stil');
     $additional_classes .= $isBoxSlider ? ' pr-0 pl-0' : '';
     $additional_classes .= block_value( 'cropped-stil') ? ' cropped-stil' : '';
-
     $idLightbox = App\getLightboxIdentifier();
+    $ratio = block_value('aspect-ratio');
+    switch($ratio){
+        case 'aspect-ratio-16-9':
+            $ar_class = '16-9-thumb';
+        break;
+        case 'aspect-ratio-4-3':
+            $ar_class = '4-3-thumb';
+        break;
+        case 'aspect-ratio-square':
+            $ar_class = 'medium-crop';
+        break;
+        default:
+            $ar_class = 'medium-crop';
+    }
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => $additional_classes])
@@ -28,7 +41,7 @@
                         [
                             'name_ImageField' => 'preview-image',
                             'additionalClasses' => array('class' => 'nolazyload !m-0 pr-4'),
-                            'thumbnail' => 'square-thumb',
+                            'thumbnail' => $ar_class,
                             'isRepeaterElement' => true,
                             'identifierLightbox' => $idLightbox
                         ])
