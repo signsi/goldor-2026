@@ -12,3 +12,7 @@
         }
     }
 }
+// Filter
+a.is-checked > li {
+    @apply text-primary before:content-square-checked #{!important};
+}

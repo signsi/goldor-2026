@@ -67,6 +67,8 @@ module.exports = {
         'slider-next': '"\\f178"',
         'slider-dot': '"\\2022"',
         'check-circle': '"\\f111"',
+        'square': '"\\f0c8"',
+        'square-checked': '"\\f14a"',
         'arrow-right-long': '"\\f178"',
       },
       fontSize: {

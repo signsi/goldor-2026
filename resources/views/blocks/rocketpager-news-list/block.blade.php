@@ -50,18 +50,18 @@
 @section('content-section')
     {{-- Filter --}}
     @if ( !empty($categories) & empty($category_name))
-        <div class="filter-button-group max-w-slim w-full mb-element mx-auto px-gutter">
-            <ul class="list-none flex flex-wrap gap-x-12 justify-evenly m-0 pl-7 border-b-2 border-primary">
+        <div class="filter-button-group w-full my-6 md:my-8 lg:my-12 ml-0 mr-auto lg:max-w-[75%]">
+            <ul class="list-none grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 m-0">
                 @foreach($categories as $category)
                     <a class="more-link group no-underline hover:cursor-pointer" data-filter={{ $category->slug }} alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>
-                        <li class="relative pl-2 min-w-[12ch] md:min-w-fit transition-colors duration-300 before:absolute before:text-primary before:font-icon before:content-check-circle before:font-normal before:-left-6 group-hover:text-secondary">{{ $category->name }}</li>
+                        <li class="relative pl-2 min-w-[12ch] md:min-w-fit transition-colors duration-300 before:absolute before:text-darkgray before:font-icon before:content-square before:font-light before:-left-6 group-hover:text-primary">{{ $category->name }}</li>
                     </a>
                 @endforeach
             </ul>
         </div>
     @endif
 
-    <div class="ajax-container grid gap-gutter{{ $row_per_col }}" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         <!-- Elemente werden über AJAX geladen -->
     </div>
 
