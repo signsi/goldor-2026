@@ -183,7 +183,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     .wp-block-column {
         @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
         &[style*="flex-basis:33.33%"] {
-            @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};           
+            @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
         }
     }
 }
@@ -245,7 +245,8 @@ ul.is-style-liststyle-icon--markerorange {
 }
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download,
-ul.is-style-liststyle-icon--singlelink {
+ul.is-style-liststyle-icon--singlelink,
+ul.is-style-liststyle-icon--return {
     @apply list-none pl-0;
 }
 ul.is-style-liststyle-icon--linklist,
@@ -262,11 +263,23 @@ ul.is-style-liststyle-icon--download {
         @apply pb-2 mb-4 border-font after:font-light after:content-['\e094'];
     }
 }
-ul.is-style-liststyle-icon--singlelink {
+ul.is-style-liststyle-icon--singlelink,
+ul.is-style-liststyle-icon--return {
     > li {
         @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
+    }
+}
+ul.is-style-liststyle-icon--singlelink {
+    > li {
         a {
             @apply flex items-center no-underline text-font hover:text-primary after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors;
+        }
+    }
+}
+ul.is-style-liststyle-icon--return {
+    > li {
+        a {
+            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none before:transition-colors;
         }
     }
 }
