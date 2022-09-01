@@ -273,5 +273,26 @@ function get_main_category_name()
     return get_main_category()->name;
 }
 
+function get_categories_by_post_type($post_type, $args = '')
+{
+    $exclude = array();
+    //check all categories and exclude
+    foreach (get_categories($args) as $category) {
+        $posts = get_posts(array('post_type' => $post_type, 'category' => $category->cat_ID));
+        if (empty($posts)) {
+            $exclude[] = $category->cat_ID;
+        }
+    }
+    //re-evaluate args
+    if (!empty($exclude)) {
+        if (is_string($args)) {
+            $args .= ('' === $args) ? '' : '&';
+            $args .= 'exclude=' . implode(',', $exclude);
+        } else {
+            $args['exclude'] = $exclude;
+        }
+    }
+    return get_categories($args);
+}
 
 require_once 'block_helpers.php';
