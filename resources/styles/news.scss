@@ -1,0 +1,14 @@
+.single-post {
+    .stickyColumns {
+        @apply pt-0 #{!important};
+        > .wp-block-group {
+            .wp-block-columns {
+                .wp-block-column {
+                    .sticky-wrapper {
+                        @apply mt-0 sticky top-24;
+                    }
+                }
+            }
+        }
+    }
+}

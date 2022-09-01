@@ -1,6 +1,6 @@
-<article @php(post_class(''))>
+<article @php(post_class('page content'))>
 
-    <div class="entry-content">
+    {{-- <div class="entry-content">
         <div class="max-w-default px-gutter pb-element mx-auto">
             <div class="grid grid-cols-2 gap-12">
                 <div class="flex flex-col not-prose">
@@ -14,15 +14,16 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+    @php(the_content())
 
-    <footer>
+    {{-- <footer>
         {!! wp_link_pages([
             'echo' => 0,
             'before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'),
             'after' => '</p></nav>',
         ]) !!}
-    </footer>
+    </footer> --}}
 
     {{-- @php(comments_template()) --}}
 </article>

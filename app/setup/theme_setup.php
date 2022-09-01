@@ -47,6 +47,11 @@ add_action('init', function () {
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/list', [
+        'name' => 'liststyle-icon--return',
+        'label' => __('Link zurück', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
         'name' => 'liststyle-icon--markergreen',
         'label' => __('Adress-Block (Marker grün)', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
