@@ -36,7 +36,7 @@ $buttons = [
             </div>
             <div class="block lg:hidden mt-6 lg:mt-0">@include('partials.top.socialmedia-nav')</div>
             <div class="hidden lg:flex lg:flex-col lg:space-y-6">@php dynamic_sidebar('sidebar-footer-2') @endphp</div>
-            <div class="hidden lg:flex">@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
+            <div class="hidden lg:flex lg:flex-col lg:space-y-6">@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
         </div>
         <div class="mt-10 py-5 lg:mt-14 lg:py-6 border-t border-grey">
             <nav>
