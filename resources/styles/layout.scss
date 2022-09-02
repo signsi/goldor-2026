@@ -89,3 +89,9 @@ body {
 .wp-block-group {
     @apply max-w-large mx-auto;
 }
+
+.wp-block-group.has-background {
+    > .wp-block-group + .is-style-overlapping--right-1 {
+        @apply pt-section;
+    }
+}
