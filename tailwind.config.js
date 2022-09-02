@@ -103,9 +103,6 @@ module.exports = {
             'h4 + ul': {
               marginTop: 0,
             },
-            p: {
-              color: theme('rgb(var(--color-primary))'),
-            },
             h1: {
               fontWeight: '400',
             },

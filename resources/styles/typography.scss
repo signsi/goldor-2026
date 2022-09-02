@@ -23,7 +23,7 @@
   }
   p a,
   ul li a {
-      @apply text-font hover:text-primary;
+      @apply text-primary hover:text-font;
   }
   a {
       @apply transition-colors;

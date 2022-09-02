@@ -29,9 +29,9 @@
                     if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
                         wp_nav_menu([
                             'theme_location' => 'primary_navigation',
-                            'menu_class' => 'flex space-x-6 lg:space-x-8 xl:space-x-12 -mb-1.5',
+                            'menu_class' => 'flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative group text-sm lg:text-lg xl:text-xl font-semibold text-darkgrey transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_li_class' => 'relative group text-sm lg:text-lg 2xl:text-xl font-semibold text-darkgrey transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
                             'add_sub_li_class' => 'before:content-none text-sm lg:text-lg !mb-5',
                             'walker' => new SubmenuWrap(),
                         ]);

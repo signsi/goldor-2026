@@ -50,6 +50,9 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-news-list',
         '@styles/new_styles/rocketpager-news-list'
       ],
+      "block.events": [
+        '@scripts/blocks/rocketpager-events'
+      ],
       "block.videoelement": [
         '@scripts/blocks/rocketpager-videoelement',
         // 'https://www.youtube.com/iframe_api',
