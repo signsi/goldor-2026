@@ -5,7 +5,7 @@
     "extends @wordpress/browserslist-config"
   ],
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=15.0.0"
   },
   "scripts": {
     "dev": "bud dev",
