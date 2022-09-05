@@ -173,7 +173,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
     };
 }
 
-$('.rocketpager-news-list').each(function() {
+$('.rocketpager-events').each(function() {
     const rocketpagerNewsList = RocketPagerAjaxLoad($(this).first());
     rocketpagerNewsList.init();
 });

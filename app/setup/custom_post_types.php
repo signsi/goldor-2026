@@ -159,23 +159,22 @@ function events()
 }
 add_action('init', 'events', 0);
 
-// add_action('carbon_fields_register_fields', 'crb_attach_events');
-// function crb_attach_events()
-// {
+add_action('carbon_fields_register_fields', 'crb_attach_events');
+function crb_attach_events()
+{
 
-//     $key = "vivaluzern_events_";
-//     Container::make('post_meta', 'Zusatzinformationen')
-//         ->where('post_type', '=', 'events')
-//         ->add_fields(array(
-//             Field::make('radio', $key . 'standort', __('Standort'))
-//             ->add_options(array(
-//                 'Viva Luzern Eichhof' => __('Viva Luzern Eichhof'),
-//                 'Viva Luzern Staffelnhof' => __('Viva Luzern Staffelnhof'),
-//                 'Viva Luzern Dreilinden' => __('Viva Luzern Dreilinden'),
-//                 'Viva Luzern Wesemlin und Tribschen' => __('Viva Luzern Wesemlin und Tribschen'),
-//                 'Viva Luzern Rosenberg' => __('Viva Luzern Rosenberg'),
-//                 'Viva Luzern Geschäftsstelle' => __('Viva Luzern Geschäftsstelle'),
-//             )),
-//         ));
-// }
-
+    $key = "vivaluzern_events_";
+    Container::make('post_meta', 'Zusatzinformationen')
+        ->where('post_type', '=', 'events')
+        ->add_fields(array(
+            Field::make('radio', $key . 'standort', __('Standort'))
+            ->add_options(array(
+                'Viva Luzern Eichhof' => __('Viva Luzern Eichhof'),
+                'Viva Luzern Staffelnhof' => __('Viva Luzern Staffelnhof'),
+                'Viva Luzern Dreilinden' => __('Viva Luzern Dreilinden'),
+                'Viva Luzern Wesemlin und Tribschen' => __('Viva Luzern Wesemlin und Tribschen'),
+                'Viva Luzern Rosenberg' => __('Viva Luzern Rosenberg'),
+                'Viva Luzern Geschäftsstelle' => __('Viva Luzern Geschäftsstelle'),
+            )),
+        ));
+}

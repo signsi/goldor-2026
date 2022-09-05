@@ -47,8 +47,7 @@ module.exports = async (app) => {
         '@styles/new_styles/rocketpager-google-maps'
       ],
       "block.news-list": [
-        '@scripts/blocks/rocketpager-news-list',
-        '@styles/new_styles/rocketpager-news-list'
+        '@scripts/blocks/rocketpager-news-list'
       ],
       "block.events": [
         '@scripts/blocks/rocketpager-events'

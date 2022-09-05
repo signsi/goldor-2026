@@ -47,6 +47,14 @@ add_action('genesis_custom_blocks_render_template_rocketpager-news-list', functi
     ]);
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-events', function () {
+    $ajax_url = admin_url('admin-ajax.php');
+    bundle('block.events')->enqueue()->localize('load_more_posts', [
+        'ajaxurl' => esc_url($ajax_url),
+        'theme_directory_uri' => get_template_directory_uri()
+    ]);
+}, 10, 3);
+
 if (!function_exists('rocket_ajax_load_more')):
     function rocket_ajax_load_more() {
         $args = json_decode(wp_unslash($_POST['json_data']));

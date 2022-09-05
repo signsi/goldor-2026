@@ -21,6 +21,8 @@ const main = async (err) => {
   // headroom-like top nav
   setupFixedNav();
 
+  new WOW().init();
+
 
 };
 
