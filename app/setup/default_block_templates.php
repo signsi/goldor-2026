@@ -18,13 +18,6 @@ function slug_post_type_template()
         ]],
     ];
 
-    if ( ! empty( $unsere_leistungen_block->posts ) ) {
-        $page_type_object->template = [
-            [ 'core/block', [ 'ref' => $unsere_leistungen_block->posts[81]->ID] ],
-        ];
-    }
-
-
     // $page_type_object = get_post_type_object('post');
     // $page_type_object->template = [
     //     ['core/group', ['align' => 'full', 'className' => 'stickyColumns'], [
@@ -54,6 +47,12 @@ function slug_post_type_template()
     $page_type_object = get_post_type_object('post');
     $page_type_object->template = [
         ['core/block', ['ref' => 1296 ], []],
+    ];
+
+    // post
+    $page_type_object = get_post_type_object('events');
+    $page_type_object->template = [
+        ['core/block', ['ref' => 1643 ], []],
     ];
 
 }
