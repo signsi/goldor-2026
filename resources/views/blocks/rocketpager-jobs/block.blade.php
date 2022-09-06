@@ -52,7 +52,7 @@
                         </div>
                         @if ($category_name != 'Initiativbewerbung')
                             <div>
-                                <div class="hidden md:block wp-block-button is-style-outline"><span class="wp-block-button__link whitespace-pre group-hover:border-orange group-hover:bg-orange group-hover:text-white">{{ App\get_jobs_option('standort') }}</span></div>
+                                <div class="hidden md:block wp-block-button is-style-outline"><span class="wp-block-button__link whitespace-pre group-hover:border-primary group-hover:bg-primary group-hover:text-white">{{ App\get_jobs_option('standort') }}</span></div>
                                 <div class="md:hidden">Standort: {{ App\get_jobs_option('standort') }}</div>
                             </div>
                         @endif
@@ -60,7 +60,7 @@
                     <div class="md:basis-64 md:text-right">
                         <div>
                             @if ($category_name == 'Initiativbewerbung')
-                                <div class="hidden md:block wp-block-button is-style-outline"><span class="wp-block-button__link whitespace-pre group-hover:border-orange group-hover:bg-orange group-hover:text-white" title="Jobdetailseite" alt="Link zur Jobdetailseite - {{ the_title() }}">Jetzt bewerben</span></div>
+                                <div class="hidden md:block wp-block-button is-style-outline"><span class="wp-block-button__link whitespace-pre group-hover:border-primary group-hover:bg-primary group-hover:text-white" title="Jobdetailseite" alt="Link zur Jobdetailseite - {{ the_title() }}">Jetzt bewerben</span></div>
                                 <span class="md:hidden wp-block-button__link group-hover:bg-darkgreen w-full md:w-auto" title="Jobdetailseite" alt="Link zur Jobdetailseite - {{ the_title() }}">Jetzt bewerben</span>
                             @else
                                 <span class="wp-block-button__link group-hover:bg-darkgreen w-full md:w-auto" title="Jobdetailseite" alt="Link zur Jobdetailseite - {{ the_title() }}">Jetzt bewerben</span>

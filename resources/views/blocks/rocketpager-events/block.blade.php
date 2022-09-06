@@ -1,45 +1,46 @@
 @php
+use function Roots\asset;
 
-    //Variables
-    $animation = App\getAnimation();
-    $preview_size = block_value('preview-size');
-    $post_category = block_value('category');
-    $category_name = $post_category ? $post_category->name : '';
-    $post_type = 'events';
+//Variables
+$animation = App\getAnimation();
+$preview_size = block_value('preview-size');
+$number_of_posts = block_value('number-of-posts');
+$post_category = block_value('category');
+$category_name = $post_category ? $post_category->name : '';
+$row_per_col = App\setColumns();
+$post_type = 'events';
 
-    $block_args = [
-        'preview_size' => $preview_size,
-    ];
+$args = [
+    'post_type' => $post_type,
+    'post_status' => 'publish',
+    'posts_per_page' => $number_of_posts,
+    'category_name' => $category_name,
+    'order' => 'ASC',
+    // 'nopaging' => true,
+];
 
-    $args = array(
-        'post_type' => 'events',
-        'post_status' => 'publish',
-        'category_name' => $category_name,
-        'orderby' => 'menu_order ID',
-        'order' => 'ASC',
-        'nopaging' => true,
-    );
-    $the_query = new WP_Query($args);
+$the_query = new WP_Query($args);
 
-    $block_args = [
-        'animation' => $animation,
-        'preview_size' => $preview_size,
-    ];
+$block_args = [
+    'animation' => $animation,
+    'preview_size' => $preview_size,
+];
 
-    //  🐈 🐈‍⬛
-    $cats = App\get_categories_by_post_type($post_type, [
-        'orderby' => 'id',
-        'order' => 'ASC',
-    ]);
+$json_query_args = wp_json_encode($args);
+$json_block_args = wp_json_encode($block_args);
 
-    $categories = [];
-    foreach ($cats as $cat) {
-        array_push($categories, $cat);
-    }
+//  🐈 🐈‍⬛
+$cats = App\get_categories_by_post_type($post_type, [
+    'orderby' => 'id',
+    'order' => 'ASC',
+]);
 
+$categories = [];
+foreach ($cats as $cat) {
+    array_push($categories, $cat);
+}
 
 @endphp
-
 
 @extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
 
@@ -61,47 +62,21 @@
         </div>
     @endif
 
+    <div class="ajax-container" data-query-args="{{ $json_query_args }}"
+        data-block-args="{{ $json_block_args }}">
+        <!-- Elemente werden über AJAX geladen -->
+    </div>
 
-    @if ($the_query->have_posts())
-        @while ($the_query->have_posts())
-            @php
-                $the_query->the_post();
-                global $post;
-            @endphp
+    {{-- Loading Image --}}
+    <div class="loading-image flex items-center justify-center my-gutter">
+        <img data-src="{{ asset('images/puff.svg') }}">
+    </div>
 
-            <div class="event-wrapper flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-8 border-t-2 border-darkgrey-400 py-6 md:py-4 group">
-                <div class="basis-full md:basis-1/3 lg:basis-2/5 xl:basis-1/3">
-                    <div class="flex flex-col-reverse xl:flex-row">
-                        <div class="basis-full md:basis-1/2">
-                            <div class="text-base">{{ get_the_date() }}</div>
-                        </div>
-                        <div class="basis-full lg:basis-1/2">
-                            <div class="image-wrapper not-prose overflow-hidden">
-                                <a href="{{ the_permalink() }}">{{ the_post_thumbnail( $preview_size, ['class' => 'transition-transform duration-300 ease-in-out md:group-hover:scale-110 mb-4']) }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="basis-full md:basis-8/12 lg:basis-auto xl:basis-1/2">
-                    <h4>{{ the_title() }}</h4>
-                    {{ the_excerpt() }}
-                    <a class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block text-base" href="{{ the_permalink() }}">Weiterlesen <i class="fa-light fa-arrow-right-long"></i></a>
-                </div>
-                <div class="basis-auto md: md:basis-1/4 lg:basis-auto">
-                    <div class="wp-block-buttons flex gap-2 flex-wrap items-center">
-                        @if (!empty($categories) & empty($category_name))
-                            @foreach ($categories as $category)
-                                <div class="wp-block-button is-style-outline inline-block">
-                                    <span class="wp-block-button__link whitespace-pre group-hover:border-orange group-hover:bg-orange group-hover:text-white">{{ $category->name }}</span>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>
-            </div>
+    {{-- Load More Button --}}
+    <div class="wp-block-button flex items-center justify-center mt-element">
+        <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
+    </div>
 
-        @endwhile
-    @endif
 
     {{-- Restore original Post Data --}}
     @php wp_reset_postdata(); @endphp

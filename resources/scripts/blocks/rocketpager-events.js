@@ -131,11 +131,12 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
             curr_object.loadPosts();
         },
         getPosts(json_args) {
+            debugger
             const requestOptions = {
                 url: load_more_posts.ajaxurl,
                 type: 'post',
                 data: {
-                    action: 'rocket_ajax_load_more',
+                    action: 'rocket_ajax_load_more_events',
                     json_data: json_args,
                 }
             }

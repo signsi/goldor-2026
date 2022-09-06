@@ -51,7 +51,7 @@ foreach ($cats as $cat) {
 
 @section('content-section')
     {{-- Filter --}}
-    @if (!empty($categories) & empty($category_name))
+    {{-- @if (!empty($categories) & empty($category_name))
         <div class="filter-button-group w-full my-6 md:my-8 lg:my-12 ml-0 mr-auto lg:max-w-[75%]">
             <ul class="list-none grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 m-0">
                 @foreach ($categories as $category)
@@ -64,7 +64,7 @@ foreach ($cats as $cat) {
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
 
     <div class="ajax-container columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6" data-query-args="{{ $json_query_args }}"
         data-block-args="{{ $json_block_args }}">
