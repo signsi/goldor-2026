@@ -18,7 +18,7 @@
                             @include('blocks.helpers.image',
                             [
                                 'name_ImageField' => 'image',
-                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out mb-0 w-auto h-[75px] lg:h-[80px] mx-auto md:mx-0 transition  group-hover:scale-105'),
+                                'additionalClasses' => array('class' => 'transition-transform duration-300 ease-in-out mb-0 w-auto h-[75px] lg:h-[80px] mx-auto md:mx-0 transition'),
                                 'thumbnail' => 'small-width',
                                 'isRepeaterElement' => true
                             ])
