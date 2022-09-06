@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="basis-full md:basis-8/12 xl:basis-1/2">
-        <h4>{{ the_title() }}</h4>
+        <a href="{{ the_permalink() }}" class="no-underline"><h4 class="group-hover:text-primary">{{ the_title() }}</h4></a>
         {{ the_excerpt() }}
         <a class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block text-base" href="{{ the_permalink() }}">Weiterlesen <i class="fa-light fa-arrow-right-long"></i></a>
     </div>
@@ -25,7 +25,7 @@
             @if (!empty($categories))
                 @foreach ($categories as $category)
                     <div class="wp-block-button is-style-outline inline-block">
-                        <span class="wp-block-button__link whitespace-pre group-hover:border-orange group-hover:bg-orange group-hover:text-white">{{ $category->name }}</span>
+                        <a href="{{ the_permalink() }}" class="wp-block-button__link whitespace-pre group-hover:border-primary group-hover:bg-primary group-hover:text-white">{{ $category->name }}</a>
                     </div>
                 @endforeach
             @endif
