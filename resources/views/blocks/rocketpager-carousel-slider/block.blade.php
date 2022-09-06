@@ -85,22 +85,13 @@
             @endif
             <div class="text-wrapper pr-4 not-prose {{ $isBoxSlider ? 'px-0 text-left' : 'py-4 text-left'}}">
                 @if ( block_sub_value( 'title') )
-                    <p class="title !mb-2"><strong>{{ block_sub_value('title') }}</strong></p>
+                    <p class="title !mb-2 @if ( block_sub_value('link') ) font-normal @else font-bold @endif">{{ block_sub_value('title') }}</p>
                 @endif
                 @if ( block_sub_value('text') )
                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                 @endif
                 @if ( block_sub_value('email') )
                     <p><a href="mailto:{{ block_sub_value('email') }}" class="underline text-primary hover:text-darkgreen">E-Mail</a>@if ( block_sub_value('phone') ) | <a href="tel:{{ block_sub_value('phone') }}" class="underline text-primary hover:text-darkgreen">{{ block_sub_value('phone') }}</a> @endif </p>
-                @endif
-                @if ( block_sub_value('link') )
-                    <div class="wp-block-buttons flex mb-0 mt-8{{ $isBoxSlider ? 'justify-start items-center' : 'justify-center items-center' }}">
-                        <div class="wp-block-button mb-0">
-                            <a class="wp-block-button__link" href="{{ block_sub_value('link') }}">
-                                Mehr erfahren
-                            </a>
-                        </div>
-                    </div>
                 @endif
             </div>
         </div>
