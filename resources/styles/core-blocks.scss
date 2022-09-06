@@ -99,7 +99,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
         li {
             @apply flex flex-col pl-0 bg-primary overflow-hidden;
             figure {
-                @apply aspect-video mb-0 block overflow-hidden;
+                @apply mb-0 block overflow-hidden;
             }
             .wp-block-post-title {
                 @apply mt-1;
@@ -139,7 +139,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
                     @apply origin-center translate-x-2;
                 }
                 i, .wp-block-read-more {
-                    @apply text-primary;
+                    @apply text-secondary;
                 }
             }
         }
