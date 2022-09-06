@@ -2,6 +2,7 @@ import { domReady } from '@roots/sage/client';
 import { setupMobileNav, setupSubMenus, setupFixedNav } from './nav';
 import 'jquery';
 import "./lightbox-config.js";
+import 'wowjs';
 
 
 /**
@@ -20,9 +21,6 @@ const main = async (err) => {
 
   // headroom-like top nav
   setupFixedNav();
-
-  new WOW().init();
-
 
 };
 
