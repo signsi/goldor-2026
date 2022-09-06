@@ -48,7 +48,7 @@ function jobs()
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 5,
-        'menu_icon'             => 'dashicons-groups',
+        'menu_icon'             => 'dashicons-businessman',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -137,14 +137,14 @@ function events()
         'label'                 => __('Veranstaltungen', 'vivaluzern_events'),
         'description'           => __('Veranstaltungen bei der vivaluzern', 'vivaluzern_events'),
         'labels'                => $labels,
-        'supports'              => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
+        'supports'              => array('title', 'excerpt', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
         'taxonomies'            => array('category', 'post_tag'),
         'hierarchical'          => false,
         'public'                => true,
         'show_ui'               => true,
         'show_in_menu'          => true,
         'menu_position'         => 5,
-        'menu_icon'             => 'dashicons-groups',
+        'menu_icon'             => 'dashicons-calendar',
         'show_in_admin_bar'     => true,
         'show_in_nav_menus'     => true,
         'can_export'            => true,
@@ -158,23 +158,3 @@ function events()
     register_post_type('events', $args);
 }
 add_action('init', 'events', 0);
-
-add_action('carbon_fields_register_fields', 'crb_attach_events');
-function crb_attach_events()
-{
-
-    $key = "vivaluzern_events_";
-    Container::make('post_meta', 'Zusatzinformationen')
-        ->where('post_type', '=', 'events')
-        ->add_fields(array(
-            Field::make('radio', $key . 'standort', __('Standort'))
-            ->add_options(array(
-                'Viva Luzern Eichhof' => __('Viva Luzern Eichhof'),
-                'Viva Luzern Staffelnhof' => __('Viva Luzern Staffelnhof'),
-                'Viva Luzern Dreilinden' => __('Viva Luzern Dreilinden'),
-                'Viva Luzern Wesemlin und Tribschen' => __('Viva Luzern Wesemlin und Tribschen'),
-                'Viva Luzern Rosenberg' => __('Viva Luzern Rosenberg'),
-                'Viva Luzern Geschäftsstelle' => __('Viva Luzern Geschäftsstelle'),
-            )),
-        ));
-}

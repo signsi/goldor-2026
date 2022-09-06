@@ -1,6 +1,6 @@
-.single-post {
+body.single {
     .stickyColumns {
-        @apply pt-0 #{!important};
+        // @apply pt-0 #{!important};
         > .wp-block-group {
             .wp-block-columns {
                 .wp-block-column {
