@@ -73,8 +73,8 @@ foreach ($cats as $cat) {
     </div>
 
     {{-- Load More Button --}}
-    <div class="wp-block-button flex items-center justify-center mt-element">
-        <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
+    <div class="wp-block-button is-style-outline flex items-center justify-center mt-element">
+        <a class="wp-block-button__link">{!! App\pl_e('Weitere Veranstaltungen') !!}</a>
     </div>
 
 
