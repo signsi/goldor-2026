@@ -4,3 +4,8 @@
 form.forminator-custom-form {
     @apply shadow-lg;
 }
+.single {
+    form.forminator-custom-form {
+        @apply shadow-none;
+    }
+}

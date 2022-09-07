@@ -66,14 +66,13 @@ foreach ($cats as $cat) {
         </div>
     @endif --}}
 
-    <div class="ajax-container columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6" data-query-args="{{ $json_query_args }}"
-        data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         <!-- Elemente werden über AJAX geladen -->
     </div>
 
     {{-- Loading Image --}}
     <div class="loading-image flex items-center justify-center my-gutter">
-        <img data-src="{{ asset('images/puff.svg') }}">
+        <img data-src="{{ asset('images/puff.svg') }}" />
     </div>
 
     {{-- Load More Button --}}
