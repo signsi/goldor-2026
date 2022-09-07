@@ -5,6 +5,12 @@ html {
 body {
     @apply overflow-x-hidden;
 }
+
+/* FÜGT PER DEFAULT EINEN ABSTAND UNTEN UND OBEN EINES ROCKETPAGER ODER FIGURE-ELEMENTS EIN */
+div[class^="rocketpager"] {
+    @apply mb-element;
+}
+
 .page.content>.wp-block-group {
     @apply py-section px-gutter;
     &:not(.has-background) + .wp-block-group:not(.has-background),
