@@ -17,12 +17,9 @@
     prose-headings:font-bold
     prose-li:marker:text-xl
     prose-hr:my-element-mobile
-    md:prose-hr:my-element-tablet
-    lg:prose-hr:my-element-desktop
-    xl:prose-hr:my-element-full-hd
-    {{-- prose-ul:my-element-mobile
-    md:prose-ul:my-element-tablet
-    xl:prose-ul:my-element-desktop --}}
+    md:prose-hr:my-section-tablet
+    lg:prose-hr:my-section-desktop
+    xl:prose-hr:my-section-full-hd
   ">
     @yield('content')
 </main>

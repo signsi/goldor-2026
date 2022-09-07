@@ -28,7 +28,7 @@ body {
         @apply px-0;
     }
     .wp-block-columns {
-        @apply mb-section last:mb-0 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28;
+        @apply mb-section last:mb-0 gap-section;
         figure {
             @apply overflow-hidden;
             > a {
@@ -91,7 +91,7 @@ body {
 }
 
 .wp-block-group.has-background {
-    > .wp-block-group + .is-style-overlapping--right-1 {
-        @apply pt-section;
-    }
+    // > .wp-block-group + .is-style-overlapping--right-1 {
+    //     @apply pt-section;
+    // }
 }

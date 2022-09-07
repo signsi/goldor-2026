@@ -1,7 +1,7 @@
 /* News Post Grid - HOME*/
 
 div.alignfull.wp-block-query.is-style-post-image-grid {
-    @apply mb-12;
+    @apply mb-element;
 }
 div.alignfull.wp-block-query.is-style-post-image-grid ul {
     @apply pl-0;
@@ -230,7 +230,7 @@ ul.is-style-liststyle-icon--markerorange,
 ul.is-style-liststyle-icon--markergreen,
 ul.is-style-liststyle-icon--markeryellow {
     > li {
-        @apply mb-8 md:mb-12 lg:mb-14 xl:mb-16 marker:content-['\f3c5'];
+        @apply mb-element marker:content-['\f3c5'];
     }
 }
 ul.is-style-liststyle-icon--markeryellow {
