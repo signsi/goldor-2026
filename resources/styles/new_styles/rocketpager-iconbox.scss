@@ -1,5 +1,7 @@
-.rocketpager-iconbox{
-    & + .rocketpager-iconbox {
-        @apply mt-5 md:mt-8;
-    }
+.rocketpager-iconbox + .rocketpager-iconbox {
+    @apply mt-[calc(0px-_(theme(gap.element-mobile)/2))] md:mt-[calc(0px-_(theme(gap.element-tablet)/2))] lg:mt-[calc(0px-_(theme(gap.element-desktop)/2))];
+}
+
+.wp-block-columns .wp-block-column .rocketpager-iconbox .md\:grid-cols-2 {
+    @apply md:grid-cols-1 lg:grid-cols-2 #{!important};
 }

@@ -1,6 +1,6 @@
 .rocketpager-stoerer-button--position-minus-50 {
-    @apply absolute -top-[calc(theme('spacing.36')/2)] xl:-top-[calc(theme('spacing.44')/2)] right-8 md:right-auto;  
+    @apply hidden md:block absolute -top-[calc(theme('spacing.36')/2)] xl:-top-[calc(theme('spacing.44')/2)] right-8 md:right-auto;  
 }
-.rocketpager-stoerer-button {
-
+.rocketpager-stoerer-button--position-minus-50 + h2 {
+    @apply mt-0 md:mt-[2em];
 }
