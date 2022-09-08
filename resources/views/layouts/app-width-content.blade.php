@@ -16,7 +16,7 @@
     prose-h2:font-normal
     prose-headings:font-bold
     prose-li:marker:text-xl
-    prose-hr:my-element-mobile
+    prose-hr:my-section-mobile
     md:prose-hr:my-section-tablet
     lg:prose-hr:my-section-desktop
     xl:prose-hr:my-section-full-hd
