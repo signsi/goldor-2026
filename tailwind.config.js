@@ -62,6 +62,7 @@ module.exports = {
       },
       gap: {
         // Gap-Abstände
+        'tiny': '15px',
         'mobile': '30px',
         'tablet': '40px',
         'desktop': '60px',

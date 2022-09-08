@@ -5,7 +5,7 @@
 @extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
 
 @section('content-section')
-    <div class="grid gap-4{{ $row_per_col }}">
+    <div class="grid gap-tiny lg:gap-mobile{{ $row_per_col }}">
         @while (block_rows('team-member'))
             @php
                 block_row('team-member');

@@ -1,4 +1,4 @@
-@extends('blocks.helpers.block-wrapper', ['element_classes' => 'relative mt-0'])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'relative mb-0'])
 
 @section('content-section')
     <div class="hero-slider">
