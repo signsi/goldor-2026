@@ -29,7 +29,7 @@ div[class^="rocketpager"] {
 }
 
 // Spalten-Element
-.wp-block-columns {
+.wp-block-group .wp-block-columns {
     @apply gap-section mb-section last:mb-0;
 
     // Kleiner Abstand zwischen den Cols
