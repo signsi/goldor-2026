@@ -26,15 +26,15 @@ div[class^="rocketpager"] {
             }
         }
     }
+}
 
-    // Spalten-Element
-    .wp-block-columns {
-        @apply mb-section last:mb-0 gap-section;
+// Spalten-Element
+.wp-block-columns {
+    @apply gap-section mb-section last:mb-0;
 
-        // Kleiner Abstand zwischen den Cols
-        &.is-style-gap--small {
-            @apply gap-mobile;
-        }
+    // Kleiner Abstand zwischen den Cols
+    &.is-style-gap--small {
+        @apply gap-mobile;
     }
 }
 
