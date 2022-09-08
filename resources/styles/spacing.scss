@@ -18,6 +18,15 @@
     .gap-y-section{
         @apply gap-y-mobile md:gap-y-tablet lg:gap-y-desktop 2xl:gap-y-full-hd;
     }
+    .gap-element{
+        @apply gap-mobile md:gap-tablet lg:gap-desktop;
+    }
+    .gap-x-element{
+        @apply gap-x-mobile md:gap-x-tablet lg:gap-x-desktop;
+    }
+    .gap-y-element{
+        @apply gap-y-mobile md:gap-y-tablet lg:gap-y-desktop;
+    }
 
     /* Space Spacing */
     .space-x-gutter{
