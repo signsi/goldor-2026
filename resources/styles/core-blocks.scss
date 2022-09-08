@@ -1,7 +1,7 @@
-/* News Post Grid - HOME*/
+//  News Post Grid - HOME*/
 
 div.alignfull.wp-block-query.is-style-post-image-grid {
-    @apply mb-12;
+    @apply mb-element;
 }
 div.alignfull.wp-block-query.is-style-post-image-grid ul {
     @apply pl-0;
@@ -92,7 +92,7 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wra
     @apply origin-center translate-x-2;
 }
 
-/* News Post Carousel - Veranstaltungen*/
+//  News Post Carousel - Veranstaltungen*/
 div.alignfull.wp-block-query.is-style-post-image-carousel {
     ul {
         @apply pl-0 list-none;
@@ -146,9 +146,9 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     }
 }
 
-/* Button */
+//  Button
 .wp-block-buttons {
-    @apply mt-element-mobile md:mt-element-tablet xl:mt-element-desktop;
+    @apply mt-element;
 }
 .wp-block-button__link{
     @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
@@ -160,55 +160,83 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     @apply border-primary text-primary text-xs sm:text-sm md:text-base py-1 px-3 hover:border-primary hover:bg-primary hover:text-white;
 }
 
-/* Text Media */
+//  Text Media
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
     @apply pl-0;
 }
 
-/* Spalte randabfallend recht */
-.wp-block-columns.is-style-overlapping--right {
-    .wp-block-column {
-        &:first-child {
-            @apply xl:ml-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pl-gutter pr-gutter md:pr-0;
+// Spalten-Element
+.wp-block-columns{
+    &.is-style-overlapping--left {
+        .wp-block-column {
+            &:first-child {
+                @apply pr-gutter md:pr-0;
+            }
+            &:last-child {
+                @apply xl:mr-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pr-gutter pl-gutter md:pl-0;
+            }
         }
-        &:last-child {
-            @apply pl-gutter md:pl-0;
+    }
+    //  Spalten-Element - randabfallend recht
+    &.is-style-overlapping--right {
+        .wp-block-column {
+            &:first-child {
+                @apply xl:ml-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pl-gutter pr-gutter md:pr-0;
+            }
+            &:last-child {
+                @apply pl-gutter md:pl-0;
+            }
+        }
+    }
+    //  Spalten-Element - randabfallend recht 1
+    &.is-style-overlapping--right-1 {
+        @apply px-gutter 2xl:px-0 pt-section;
+        .wp-block-column {
+            @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
+            &[style*="flex-basis:33.33%"] {
+                @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
+            }
+        }
+    }
+    //  Spalten-Element - Standorte
+    &.is-style-gap--small-location {
+        @apply gap-mobile;
+        figure, img {
+            @apply mb-0;
+        }
+        h3 {
+            @apply mt-6;
+        }
+        .wp-block-buttons {
+            @apply mt-0;
+        }
+    }
+
+}
+
+//  Images
+.wp-block-group {
+    figure {
+        @apply overflow-hidden;
+        > a {
+            &:hover{
+                img {
+                    @apply scale-105;
+                } 
+            }
+            img {
+                @apply transition ease-in-out delay-150 duration-300;
+            }
         }
     }
 }
-
-
-.wp-block-columns.is-style-overlapping--right-1 {
-    @apply px-gutter 2xl:px-0;
-    .wp-block-column {
-        @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
-        &[style*="flex-basis:33.33%"] {
-            @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
-        }
-    }
-}
-
-
-/* Spalte randabfallend links */
-.wp-block-columns.is-style-overlapping--left {
-    .wp-block-column {
-        &:first-child {
-            @apply pr-gutter md:pr-0;
-        }
-        &:last-child {
-            @apply xl:mr-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pr-gutter pl-gutter md:pl-0;
-        }
-    }
-}
-
-/* Images */
 figure, figure.wp-block-image {
     figcaption {
         @apply text-sm text-darkgrey mt-3;
     }
 }
 
-/* List-Styles */
+//  List-Styles
 ul[class*="is-style-liststyle"] {
     @apply my-element-mobile md:my-element-tablet xl:my-element-desktop;
 }
@@ -230,7 +258,7 @@ ul.is-style-liststyle-icon--markerorange,
 ul.is-style-liststyle-icon--markergreen,
 ul.is-style-liststyle-icon--markeryellow {
     > li {
-        @apply mb-8 md:mb-12 lg:mb-14 xl:mb-16 marker:content-['\f3c5'];
+        @apply mb-element marker:content-['\f3c5'];
     }
 }
 ul.is-style-liststyle-icon--markeryellow {

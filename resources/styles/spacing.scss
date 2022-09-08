@@ -1,4 +1,5 @@
 @layer components{
+    /* Gap Spacing */
     .gap-gutter{
         @apply gap-gutter-mobile md:gap-gutter-display;
     }
@@ -8,142 +9,97 @@
     .gap-y-gutter{
         @apply gap-y-gutter-mobile md:gap-y-gutter-display;
     }
+    .gap-section{
+        @apply gap-mobile md:gap-tablet lg:gap-desktop 2xl:gap-full-hd;
+    }
+    .gap-x-section{
+        @apply gap-x-mobile md:gap-x-tablet lg:gap-x-desktop 2xl:gap-x-full-hd;
+    }
+    .gap-y-section{
+        @apply gap-y-mobile md:gap-y-tablet lg:gap-y-desktop 2xl:gap-y-full-hd;
+    }
 
+    /* Space Spacing */
     .space-x-gutter{
         @apply space-x-gutter-mobile md:space-x-gutter-display;
     }
     .space-y-gutter{
         @apply space-y-gutter-mobile md:space-y-gutter-display;
     }
+    .space-y-gutter{
+        @apply space-y-gutter-mobile md:space-y-gutter-display;
+    }
 
+    /* Inset Spacing */
     .inset-section{
-        @apply inset-section-mobile md:inset-section-tablet xl:inset-section-desktop 2xl:inset-section-full-hd;
-    }
-    .inset-section-desktop-down {
-        @apply inset-section-mobile md:inset-section-tablet xl:inset-section-desktop;
-    }
-    .inset-section-tablet-down {
-        @apply inset-section-mobile md:inset-section-tablet;
+        @apply inset-section-mobile md:inset-section-tablet lg:inset-section-desktop 2xl:inset-section-full-hd;
     }
     .inset-element {
-        @apply inset-element-mobile md:inset-element-tablet xl:inset-element-desktop;
-    }
-    .inset-element-tablet-down {
-        @apply inset-element-mobile md:inset-element-tablet;
+        @apply inset-element-mobile md:inset-element-tablet lg:inset-element-desktop;
     }
     .inset-gutter{
         @apply inset-gutter-mobile md:inset-gutter-display;
     }
 
     .inset-x-section{
-        @apply inset-x-section-mobile md:inset-x-section-tablet xl:inset-x-section-desktop 2xl:inset-x-section-full-hd;
-    }
-    .inset-x-section-desktop-down {
-        @apply inset-x-section-mobile md:inset-x-section-tablet xl:inset-x-section-desktop;
-    }
-    .inset-x-section-tablet-down {
-        @apply inset-x-section-mobile md:inset-x-section-tablet;
+        @apply inset-x-section-mobile md:inset-x-section-tablet lg:inset-x-section-desktop 2xl:inset-x-section-full-hd;
     }
     .inset-x-element {
-        @apply inset-x-element-mobile md:inset-x-element-tablet xl:inset-x-element-desktop;
-    }
-    .inset-x-element-tablet-down {
-        @apply inset-x-element-mobile md:inset-x-element-tablet;
+        @apply inset-x-element-mobile md:inset-x-element-tablet lg:inset-x-element-desktop;
     }
     .inset-x-gutter{
         @apply inset-x-gutter-mobile md:inset-x-gutter-display;
     }
 
     .inset-y-section{
-        @apply inset-y-section-mobile md:inset-y-section-tablet xl:inset-y-section-desktop 2xl:inset-y-section-full-hd;
-    }
-    .inset-y-section-desktop-down {
-        @apply inset-y-section-mobile md:inset-y-section-tablet xl:inset-y-section-desktop;
-    }
-    .inset-y-section-tablet-down {
-        @apply inset-y-section-mobile md:inset-y-section-tablet;
+        @apply inset-y-section-mobile md:inset-y-section-tablet lg:inset-y-section-desktop 2xl:inset-y-section-full-hd;
     }
     .inset-y-element {
-        @apply inset-y-element-mobile md:inset-y-element-tablet xl:inset-y-element-desktop;
-    }
-    .inset-y-element-tablet-down {
-        @apply inset-y-element-mobile md:inset-y-element-tablet;
+        @apply inset-y-element-mobile md:inset-y-element-tablet lg:inset-y-element-desktop;
     }
     .inset-y-gutter{
         @apply inset-y-gutter-mobile md:inset-y-gutter-display;
     }
 
+    /* Top Spacing */
     .top-section{
-        @apply top-section-mobile md:top-section-tablet xl:top-section-desktop 2xl:top-section-full-hd;
-    }
-    .top-section-desktop-down {
-        @apply top-section-mobile md:top-section-tablet xl:top-section-desktop;
-    }
-    .top-section-tablet-down {
-        @apply top-section-mobile md:top-section-tablet;
+        @apply top-section-mobile md:top-section-tablet lg:top-section-desktop 2xl:top-section-full-hd;
     }
     .top-element {
-        @apply top-element-mobile md:top-element-tablet xl:top-element-desktop;
-    }
-    .top-element-tablet-down {
-        @apply top-element-mobile md:top-element-tablet;
+        @apply top-element-mobile md:top-element-tablet lg:top-element-desktop;
     }
     .top-gutter{
         @apply top-gutter-mobile md:top-gutter-display;
     }
 
+    /* Left Spacing */
     .left-section{
-        @apply left-section-mobile md:left-section-tablet xl:left-section-desktop 2xl:left-section-full-hd;
-    }
-    .left-section-desktop-down {
-        @apply left-section-mobile md:left-section-tablet xl:left-section-desktop;
-    }
-    .left-section-tablet-down {
-        @apply left-section-mobile md:left-section-tablet;
+        @apply left-section-mobile md:left-section-tablet lg:left-section-desktop 2xl:left-section-full-hd;
     }
     .left-element {
-        @apply left-element-mobile md:left-element-tablet xl:left-element-desktop;
-    }
-    .left-element-tablet-down {
-        @apply left-element-mobile md:left-element-tablet;
+        @apply left-element-mobile md:left-element-tablet lg:left-element-desktop;
     }
     .left-gutter{
         @apply left-gutter-mobile md:left-gutter-display;
     }
 
+    /* Bottom Spacing */
     .bottom-section{
-        @apply bottom-section-mobile md:bottom-section-tablet xl:bottom-section-desktop 2xl:bottom-section-full-hd;
-    }
-    .bottom-section-desktop-down {
-        @apply bottom-section-mobile md:bottom-section-tablet xl:bottom-section-desktop;
-    }
-    .bottom-section-tablet-down {
-        @apply bottom-section-mobile md:bottom-section-tablet;
+        @apply bottom-section-mobile md:bottom-section-tablet lg:bottom-section-desktop 2xl:bottom-section-full-hd;
     }
     .bottom-element {
-        @apply bottom-element-mobile md:bottom-element-tablet xl:bottom-element-desktop;
-    }
-    .bottom-element-tablet-down {
-        @apply bottom-element-mobile md:bottom-element-tablet;
+        @apply bottom-element-mobile md:bottom-element-tablet lg:bottom-element-desktop;
     }
     .bottom-gutter{
         @apply bottom-gutter-mobile md:bottom-gutter-display;
     }
 
+    /* Right Spacing */
     .right-section{
-        @apply right-section-mobile md:right-section-tablet xl:right-section-desktop 2xl:right-section-full-hd;
-    }
-    .right-section-desktop-down {
-        @apply right-section-mobile md:right-section-tablet xl:right-section-desktop;
-    }
-    .right-section-tablet-down {
-        @apply right-section-mobile md:right-section-tablet;
+        @apply right-section-mobile md:right-section-tablet lg:right-section-desktop 2xl:right-section-full-hd;
     }
     .right-element {
-        @apply right-element-mobile md:right-element-tablet xl:right-element-desktop;
-    }
-    .right-element-tablet-down {
-        @apply right-element-mobile md:right-element-tablet;
+        @apply right-element-mobile md:right-element-tablet lg:right-element-desktop;
     }
     .right-gutter{
         @apply right-gutter-mobile md:right-gutter-display;

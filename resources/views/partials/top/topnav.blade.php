@@ -1,5 +1,5 @@
 <div id="topNav" class="relative bg-white max-w-default w-full mx-auto">
-    <div class="flex justify-between md:space-x-25 items-end sm:px-6 px-4 pb-4 md:pb-6 lg:pb-10 pt-4">
+    <div class="flex justify-between md:space-x-25 items-end sm:px-6 px-4 py-6 xl:py-9">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 lg:hidden">
             <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-primary hover:bg-secondary" aria-expanded="false">

@@ -24,7 +24,7 @@ $buttons = [
             <div class="grid grid-cols-4 h-[350px]">
                 <div class="flex flex-col col-span-2">
                     @include('sections.footer.elements.footer-logo')
-                    <div class="flex mt-auto flex-row gap-4">
+                    <div class="flex mt-auto flex-row gap-tiny">
                         @each('components/list/button', $buttons, 'item')
                     </div>
                 </div>

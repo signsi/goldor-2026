@@ -49,7 +49,7 @@ foreach ($cats as $cat) {
     {{-- Filter --}}
     @if (!empty($categories) & empty($category_name))
         <div class="filter-button-group w-full my-6 md:my-8 lg:my-12 xl:my-16 ml-0 mr-auto lg:max-w-[75%]">
-            <ul class="list-none grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-4 m-0">
+            <ul class="list-none grid grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-tiny m-0">
                 @foreach ($categories as $category)
                     <a class="more-link group no-underline hover:cursor-pointer" data-filter={{ $category->slug }}
                         alt='{!! App\pl_e('Kategorie') !!} "{{ $category->name }}"'>

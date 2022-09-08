@@ -5,93 +5,60 @@ html {
 body {
     @apply overflow-x-hidden;
 }
-.page.content>.wp-block-group {
-    @apply py-section px-gutter;
-    &:not(.has-background) + .wp-block-group:not(.has-background),
-    &.has-lightgray-background-color + .wp-block-group.has-lightgray-background-color {
-        @apply pt-0;
-    }
-    + .wp-block-group.bg-primary-setOnCol {
-        @apply py-section #{!important};
-    }
-    &,
-    * {
-        &:first-child {
-            @apply mt-0;
-        }
 
-        &:last-child {
-            @apply mb-0;
+// Abstände für RocketPager-Elemente
+div[class^="rocketpager"] {
+    @apply mb-element;
+}
+
+.page.content {
+    >.wp-block-group {
+        // Abstände für Gruppe auf der 1. Ebene
+        @apply py-section;
+        &,
+        * {
+            &:first-child {
+                @apply mt-0;
+            }
+
+            &:last-child {
+                @apply mb-0;
+            }
         }
     }
+
+    // Spalten-Element
+    .wp-block-columns {
+        @apply mb-section last:mb-0 gap-section;
+
+        // Kleiner Abstand zwischen den Cols
+        &.is-style-gap--small {
+            @apply gap-mobile;
+        }
+    }
+}
+
+// Gruppen-Styling generell
+.wp-block-group {
+    @apply mx-auto px-gutter max-w-large;
+
+    // Abstände Padding - links uns rechts
     &.alignfull {
         @apply px-0;
     }
-    .wp-block-columns {
-        @apply mb-section last:mb-0 md:gap-16 lg:gap-20 xl:gap-24 2xl:gap-28;
-        figure {
-            @apply overflow-hidden;
-            > a {
-                &:hover{
-                    img {
-                        @apply scale-105;
-                    } 
-                }
-                img {
-                    @apply transition ease-in-out delay-150 duration-300;
-                }
-            }
-        }
-        &.is-style-gap--small {
-            &, &-location {
-                @apply gap-8;
-            }
-            &-location {
-                figure, img {
-                    @apply mb-0;
-                }
-                h3 {
-                    @apply mt-6;
-                }
-                .wp-block-buttons {
-                    @apply mt-0;
-                }
-            }
-        }
+    > .wp-block-group .wp-block-group{
+        @apply px-0 max-w-none w-full;
     }
-}
 
-.wp-block-group.alignwide,
-.alignwide {
-    @apply max-w-default mx-auto;
-}
-
-.wp-block-group:not(.alignfull) {
-    @apply px-gutter;
-}
-
-.wp-block-group>.wp-block-group.alignwide {
-    @apply max-w-default mx-auto px-gutter;
-}
-
-.wp-block-group h2 {
-    @apply max-w-prose;
-}
-
-.wp-block-group.alignfull {
-    @apply max-w-none w-full;
-}
-
-.wp-block-group > .wp-block-group .wp-block-group{
-    @apply px-0;
-}
-
-.wp-block-group {
-    @apply max-w-large mx-auto;
-}
-
-.wp-block-group.has-background {
-    > .wp-block-group + .is-style-overlapping--right-1 {
-        @apply pt-section;
+    // Spaltenbreite für Gruppen
+    // Spaltenbreite für Gruppen - Wordpress: Weite Breite
+    > .wp-block-group.alignwide {
+        @apply max-w-default;
     }
+
+    // Spaltenbreite für Gruppen - Wordpress: Gesamte Breite
+    &.alignfull {
+        @apply max-w-none w-full;
+    }
+
 }

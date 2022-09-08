@@ -45,7 +45,6 @@ module.exports = {
         'element-mobile': '30px',
         'element-tablet': '40px',
         'element-desktop': '60px',
-        'element-full-hd': '90px',
         // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
         'gutter-mobile': '20px',
         'gutter-display': '30px',
@@ -60,6 +59,14 @@ module.exports = {
         '9/10': '90%',
         '11/10': '110%',
         '12/10': '120%',
+      },
+      gap: {
+        // Gap-Abstände
+        'tiny': '15px',
+        'mobile': '30px',
+        'tablet': '40px',
+        'desktop': '60px',
+        'full-hd': '90px',
       },
       content: {
         default: '""',

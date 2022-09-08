@@ -2,7 +2,7 @@
     @apply text-2xl;
 }
 form.forminator-custom-form {
-    @apply shadow-lg;
+    @apply md:shadow-lg p-0 md:p-element-tablet lg:p-element-desktop #{!important};
 }
 .single {
     form.forminator-custom-form {
