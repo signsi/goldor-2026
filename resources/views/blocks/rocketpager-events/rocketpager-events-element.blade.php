@@ -20,7 +20,7 @@
         {{ the_excerpt() }}
         <a class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block text-base" href="{{ the_permalink() }}">Weiterlesen <i class="fa-light fa-arrow-right-long"></i></a>
     </div>
-    <div class="flex basis-auto md: md:basis-1/4 lg:basis-1/4  lg:justify-end">
+    <div class="flex basis-auto md: md:basis-1/4 lg:basis-1/4  items-start content-start">
         <div class="wp-block-buttons flex gap-2 flex-wrap items-start">
             @if (!empty($categories))
                 @foreach ($categories as $category)

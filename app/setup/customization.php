@@ -202,6 +202,11 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'checkbox',
+            'key' => 'cta_phone',
+            'label' => 'Telefon aktiviert?',
+        ],
+        [
+            'type' => 'checkbox',
             'key' => 'cta_social_share',
             'label' => 'Social Media aktiviert?',
         ],
@@ -219,6 +224,11 @@ function crb_attach_theme_options()
             'type' => 'text',
             'key' => 'cta_link_url',
             'label' => 'Link-URL',
+        ],
+        [
+            'type' => 'checkbox',
+            'key' => 'cta_scroll_top',
+            'label' => 'Scroll To Top Button aktiviert?',
         ],
     ];
 
