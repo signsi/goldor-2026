@@ -1,9 +1,9 @@
-@extends('blocks.helpers.block-wrapper')
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'h-full'])
 
 @section('content-section')
     <div
         id="map"
-        class="map mapsize--{{ block_value('mapsize') }}"
+        class="map mapsize--{{ block_value('mapsize') }} h-full"
         data-map-id="{{ block_value('mapID') }}"
         data-center-lat="{{ block_value('centerLat') }}" data-center-lng="{{ block_value('centerLng') }}"
         data-zoom="{{ block_value('zoomlevel') }}"

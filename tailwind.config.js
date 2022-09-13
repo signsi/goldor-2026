@@ -1,6 +1,9 @@
 module.exports = {
   important: true,
-  content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
+  content: [
+    './app/**/*.php', './resources/**/*.{php,vue,js}',
+    './safelist.txt'
+  ],
   theme: {
     extend: {
       colors: {
@@ -28,7 +31,6 @@ module.exports = {
         large: '71.25rem', //1140px
         xlarge: '90rem', //1440px
         content: '52.5rem', //840px
-        // 'content': '80%',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
@@ -107,15 +109,6 @@ module.exports = {
         DEFAULT: {
           css: {
             color: 'rgb(var(--color-font))',
-            'h4 + ul': {
-              marginTop: 0,
-            },
-            h1: {
-              fontWeight: '400',
-            },
-            h2: {
-              fontWeight: '400',
-            },
           },
           sm: {
             css: {
@@ -140,42 +133,6 @@ module.exports = {
                 marginBottom: theme('spacing.element-desktop'),
               },
             },
-          },
-        },
-        font: {
-          css: {
-            '--tw-prose-body': theme('rgb(var(--color-primary))'),
-            '--tw-prose-headings': theme('rgb(var(--color-primary))'),
-            '--tw-prose-lead': theme('rgb(var(--color-primary))'),
-            '--tw-prose-links': theme('rgb(var(--color-primary))'),
-            '--tw-prose-bold': theme('rgb(var(--color-primary))'),
-            '--tw-prose-counters': theme('rgb(var(--color-primary))'),
-            '--tw-prose-bullets': theme('rgb(var(--color-primary))'),
-            '--tw-prose-hr': theme('rgb(var(--color-primary))'),
-            '--tw-prose-quotes': theme('rgb(var(--color-primary))'),
-            '--tw-prose-quote-borders': theme('rgb(var(--color-primary))'),
-            '--tw-prose-captions': theme('rgb(var(--color-primary))'),
-            '--tw-prose-code': theme('rgb(var(--color-primary))'),
-            '--tw-prose-pre-code': theme('colors.font[100]'),
-            '--tw-prose-pre-bg': theme('rgb(var(--color-primary))'),
-            '--tw-prose-th-borders': theme('rgb(var(--color-primary))'),
-            '--tw-prose-td-borders': theme('colors.font[200]'),
-            '--tw-prose-invert-body': theme('colors.font[200]'),
-            '--tw-prose-invert-headings': theme('colors.white'),
-            '--tw-prose-invert-lead': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-links': theme('colors.white'),
-            '--tw-prose-invert-bold': theme('colors.white'),
-            '--tw-prose-invert-counters': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-bullets': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-hr': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-quotes': theme('colors.font[100]'),
-            '--tw-prose-invert-quote-borders': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-captions': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-code': theme('colors.white'),
-            '--tw-prose-invert-pre-code': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
-            '--tw-prose-invert-th-borders': theme('rgb(var(--color-primary))'),
-            '--tw-prose-invert-td-borders': theme('rgb(var(--color-primary))'),
           },
         },
       }),

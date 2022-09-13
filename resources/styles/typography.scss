@@ -11,11 +11,8 @@
     }
     p{
         &.has-large-font-size,
-            &.is-style-lead {
-                @apply text-lg lg:text-xl xl:text-2xl leading-snug #{!important};
-            // &.is-style-lead + .wp-block-buttons {
-            //     @apply mt-element;
-            // }
+        &.is-style-lead {
+            @apply text-lg lg:text-xl xl:text-2xl leading-snug #{!important};
         }
     }
     strong {
