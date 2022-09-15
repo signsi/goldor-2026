@@ -1,19 +1,23 @@
 import { domReady } from '@roots/sage/client';
-import { registerBlockStyle, unregisterBlockStyle } from '@wordpress/blocks';
 import './backend/custom-styles';
-
-/* Add custom attribute to paragraph block, in Toolbar */
 const { __ } = wp.i18n;
-
-// TODO: abstände im editor
+const { createHigherOrderComponent } = wp.compose;
+const { Fragment } = wp.element;
+import { __experimentalDimensionControl } from '@wordpress/components';
+import classnames from 'classnames'
+import Spacings from './components/Spacings';
 
 
 
 const getFlattened = (data, identifier) => {
-  const obj = Object.fromEntries(new Map(Object.entries(data[identifier]).map(([key, val]) => {
-    return [identifier + '.' + key, val];
-  })));
-  return obj;
+  if (data) {
+    const obj = Object.fromEntries(new Map(Object.entries(data[identifier]).map(([key, val]) => {
+      return [identifier + '.' + key, val];
+    })));
+    return obj;
+  } else {
+    return {}
+  }
 }
 
 const mapToClass = (obj) => {
@@ -24,24 +28,6 @@ const mapToClass = (obj) => {
   })
 }
 
-
-// Enable custom attributes on Paragraph block
-const enableToolbarButtonOnBlocks = [
-  // TODO: add all blocks needed
-  'core/paragraph',
-  'core/group',
-  'core/columns',
-  'core/heading',
-  'genesis-custom-blocks/rocketpager-team'
-
-];
-
-const { createHigherOrderComponent } = wp.compose;
-const { Fragment } = wp.element;
-import { __experimentalDimensionControl } from '@wordpress/components';
-import classnames from 'classnames'
-import Spacings from './components/Spacings';
-
 // https://mariecomet.fr/en/2021/12/14/adding-options-controls-existing-gutenberg-block/
 // https://github.com/MarieComet/core-block-custom-attributes
 
@@ -50,6 +36,10 @@ import Spacings from './components/Spacings';
  */
 
 const setToolbarButtonAttribute = (settings, name) => {
+  // Do nothing if it's another block than our defined ones.
+  if (!name.includes("core")) {
+    return settings;
+  }
 
   return Object.assign({}, settings, {
     attributes: Object.assign({}, settings.attributes, {
@@ -85,6 +75,11 @@ wp.hooks.addFilter(
 
 const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
   return (props) => {
+    if (!props.name.includes("core")) {
+      return (
+        <BlockEdit {...props} />
+      );
+    }
 
     const { attributes, setAttributes } = props;
     const { spacings } = attributes;
@@ -122,9 +117,16 @@ wp.hooks.addFilter(
 
 const withToolbarButtonProp = createHigherOrderComponent((BlockListBlock) => {
   return (props) => {
+    if (!props.name.includes("core")) {
+      return (
+        <BlockListBlock {...props} />
+      );
+    }
+
     const { attributes } = props;
     const { paragraphAttribute } = attributes;
 
+    // TODO: add spacing specific classes
     if (paragraphAttribute && 'custom' === paragraphAttribute) {
       return <BlockListBlock {...props} className={'has-custom-attribute'} />
     } else {
@@ -146,18 +148,18 @@ const main = async (err) => {
   }
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
-    // Do nothing if it's another block than our defined ones.
-    const { spacings } = attributes;
-    const flat_m = getFlattened(spacings, 'm')
-    const flat_p = getFlattened(spacings, 'p');
-    const classes_m = mapToClass(flat_m);
-    const classes_p = mapToClass(flat_p);
-    const classes = [...classes_m, ...classes_p];
+    if (blockType.name.includes("core")) {
+      const { spacings } = attributes;
+      const flat_m = getFlattened(spacings, 'm')
+      const flat_p = getFlattened(spacings, 'p');
+      const classes_m = mapToClass(flat_m);
+      const classes_p = mapToClass(flat_p);
+      const classes = [...classes_m, ...classes_p];
 
-    if (classes.length > 0) {
-      extraProps.className = classnames(extraProps.className, classes.join(" "));
+      if (classes.length > 0) {
+        extraProps.className = classnames(extraProps.className, classes.join(" "));
+      }
     }
-
 
     return extraProps;
 
