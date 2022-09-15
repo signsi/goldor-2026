@@ -190,7 +190,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     }
     //  Spalten-Element - randabfallend recht 1
     &.is-style-overlapping--right-1 {
-        @apply px-gutter 2xl:px-0 pt-section;
+        @apply px-gutter 2xl:px-0;
         .wp-block-column {
             @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
             &[style*="flex-basis:33.33%"] {
