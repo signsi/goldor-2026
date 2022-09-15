@@ -21,10 +21,10 @@
         <a class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block text-base" href="{{ the_permalink() }}">Weiterlesen <i class="fa-light fa-arrow-right-long"></i></a>
     </div>
     <div class="flex basis-auto md: md:basis-1/4 lg:basis-1/4  items-start content-start">
-        <div class="wp-block-buttons flex gap-2 flex-wrap items-start">
+        <div class="wp-block-buttons">
             @if (!empty($categories))
                 @foreach ($categories as $category)
-                    <div class="wp-block-button is-style-outline inline-block">
+                    <div class="wp-block-button is-style-outline">
                         <a href="{{ the_permalink() }}" class="wp-block-button__link whitespace-pre group-hover:border-primary group-hover:bg-primary group-hover:text-white">{{ $category->name }}</a>
                     </div>
                 @endforeach

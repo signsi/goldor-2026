@@ -149,6 +149,9 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
 //  Button
 .wp-block-buttons {
     @apply mt-element;
+    .is-style-outline {
+        @apply mb-2;
+    }
 }
 .wp-block-button__link{
     @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
@@ -208,7 +211,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
             @apply mt-6;
         }
         .wp-block-buttons {
-            @apply mt-0 space-y-2;
+            @apply mt-0;
         }
     }
 
