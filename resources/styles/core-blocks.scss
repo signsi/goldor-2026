@@ -208,7 +208,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
             @apply mt-6;
         }
         .wp-block-buttons {
-            @apply mt-0;
+            @apply mt-0 space-y-2;
         }
     }
 
@@ -222,7 +222,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
             &:hover{
                 img {
                     @apply scale-105;
-                } 
+                }
             }
             img {
                 @apply transition ease-in-out delay-150 duration-300;
