@@ -319,3 +319,16 @@ ul.is-style-liststyle-icon--linklist {
         }
     }
 }
+
+// Tabelle
+.wp-block-table {
+    thead, tr {
+        @apply border-b-2 border-lightgray;
+    }
+    th {
+        @apply text-sm font-normal text-darkgrey #{!important};
+    }
+    td, th {
+        @apply border-0 px-0;
+    }
+}
