@@ -27,6 +27,9 @@ module.exports = async (app) => {
      "block.animatednumbers": [
         '@scripts/blocks/rocketpager-animatednumbers'
       ],
+      "block.modal": [
+        '@scripts/blocks/rocketpager-modal'
+      ],
       "block.hero-slider": [
         'slick-carousel',
         '@scripts/blocks/rocketpager-hero-slider',
