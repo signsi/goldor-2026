@@ -29,6 +29,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-animatednumbers', 
     bundle('block.animatednumbers')->enqueue();
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-modal', function () {
+    bundle('block.modal')->enqueue();
+}, 10, 3);
+
 add_action('genesis_custom_blocks_render_template_rocketpager-videoelement', function () {
     wp_enqueue_script('youtube-iframe-api', 'https://www.youtube.com/iframe_api', ['block.videoelement/1'], null, true);
     bundle('block.videoelement')->enqueue();
