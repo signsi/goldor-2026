@@ -1,13 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.app-width-content')
 
 @section('content')
-  @include('partials.page-header')
-
   @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, but the page you are trying to view does not exist.', 'sage') !!}
-    </x-alert>
-
-    {!! get_search_form(false) !!}
+    <div class="flex flex-grow flex-col max-w-content px-gutter py-section mx-auto">
+      <div class="max-w-fit">
+        <h3 class="text-primary mt-0">{{ __('404', 'rocketpager') }}</h3>
+        <h1>{{ __('Seite nicht gefunden', 'rocketpager') }}</h1>
+        <p class="!mb-gutter">{{ __('Leider konnten wir die von Ihnen gesuchte Seite nicht finden.', 'rocketpager') }}</p>
+        @include('sections.footer.elements.search')
+        <ul class="is-style-liststyle-icon--return">
+          <li class="flex"><a href="{{ home_url('/') }}" rel="home">{{ __('Zurück zur Startseite', 'rocketpager') }}</a></li>
+        </ul>
+      </div>
+    </div>
   @endif
 @endsection
