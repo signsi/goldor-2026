@@ -2,71 +2,71 @@
 
     /* Spacing - Gutter */
     .m-gutter{
-        @apply m-gutter-mobile md:m-gutter-display;
+        @apply m-gutter-mobile md:m-gutter-display #{!important};
     }
     .mx-gutter{
-        @apply mx-gutter-mobile md:mx-gutter-display;
+        @apply mx-gutter-mobile md:mx-gutter-display #{!important};
     }
     .my-gutter{
-        @apply my-gutter-mobile md:my-gutter-display;
+        @apply my-gutter-mobile md:my-gutter-display #{!important};
     }
     .ml-gutter{
-        @apply ml-gutter-mobile md:ml-gutter-display;
+        @apply ml-gutter-mobile md:ml-gutter-display #{!important};
     }
     .mr-gutter{
-        @apply mr-gutter-mobile md:mr-gutter-display;
+        @apply mr-gutter-mobile md:mr-gutter-display #{!important};
     }
     .mt-gutter{
-        @apply mt-gutter-mobile md:mt-gutter-display;
+        @apply mt-gutter-mobile md:mt-gutter-display #{!important};
     }
     .mb-gutter{
-        @apply mb-gutter-mobile md:mb-gutter-display;
+        @apply mb-gutter-mobile md:mb-gutter-display #{!important};
     }
 
     /* Spacing - Element */
     .m-element{
-        @apply m-element-mobile md:m-element-tablet lg:m-element-desktop;
+        @apply m-element-mobile md:m-element-tablet lg:m-element-desktop #{!important};
     }
     .mx-element{
-        @apply mx-element-mobile md:mx-element-tablet lg:mx-element-desktop;
+        @apply mx-element-mobile md:mx-element-tablet lg:mx-element-desktop #{!important};
     }
     .my-element{
-        @apply my-element-mobile md:my-element-tablet lg:my-element-desktop;
+        @apply my-element-mobile md:my-element-tablet lg:my-element-desktop #{!important};
     }
     .ml-element{
-        @apply ml-element-mobile md:ml-element-tablet lg:ml-element-desktop;
+        @apply ml-element-mobile md:ml-element-tablet lg:ml-element-desktop #{!important};
     }
     .mr-element{
-        @apply mr-element-mobile md:mr-element-tablet lg:mr-element-desktop;
+        @apply mr-element-mobile md:mr-element-tablet lg:mr-element-desktop #{!important};
     }
     .mt-element{
-        @apply mt-element-mobile md:mt-element-tablet lg:mt-element-desktop;
+        @apply mt-element-mobile md:mt-element-tablet lg:mt-element-desktop #{!important};
     }
     .mb-element{
-        @apply mb-element-mobile md:mb-element-tablet lg:mb-element-desktop;
+        @apply mb-element-mobile md:mb-element-tablet lg:mb-element-desktop #{!important};
     }
 
     /* Spacing - Section */
     .m-section{
-        @apply m-section-mobile md:m-section-tablet lg:m-section-desktop 2xl:m-section-full-hd;
+        @apply m-section-mobile md:m-section-tablet lg:m-section-desktop 2xl:m-section-full-hd #{!important};
     }
     .mx-section{
-        @apply mx-section-mobile md:mx-section-tablet lg:mx-section-desktop 2xl:mx-section-full-hd;
+        @apply mx-section-mobile md:mx-section-tablet lg:mx-section-desktop 2xl:mx-section-full-hd #{!important};
     }
     .my-section{
-        @apply my-section-mobile md:my-section-tablet lg:my-section-desktop 2xl:my-section-full-hd;
+        @apply my-section-mobile md:my-section-tablet lg:my-section-desktop 2xl:my-section-full-hd #{!important};
     }
     .ml-section{
-        @apply ml-section-mobile md:ml-section-tablet lg:ml-section-desktop 2xl:ml-section-full-hd;
+        @apply ml-section-mobile md:ml-section-tablet lg:ml-section-desktop 2xl:ml-section-full-hd #{!important};
     }
     .mr-section{
-        @apply mr-section-mobile md:mr-section-tablet lg:mr-section-desktop 2xl:mr-section-full-hd;
+        @apply mr-section-mobile md:mr-section-tablet lg:mr-section-desktop 2xl:mr-section-full-hd #{!important};
     }
     .mt-section{
-        @apply mt-section-mobile md:mt-section-tablet lg:mt-section-desktop 2xl:mt-section-full-hd;
+        @apply mt-section-mobile md:mt-section-tablet lg:mt-section-desktop 2xl:mt-section-full-hd #{!important};
     }
     .mb-section{
-        @apply mb-section-mobile md:mb-section-tablet lg:mb-section-desktop 2xl:mb-section-full-hd;
+        @apply mb-section-mobile md:mb-section-tablet lg:mb-section-desktop 2xl:mb-section-full-hd #{!important};
     }
 
 }

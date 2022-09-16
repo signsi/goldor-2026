@@ -144,7 +144,7 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
         //Only add class to 'top level' items on the 'primary' menu.
         if ('primary_navigation' == $args->theme_location && $depth === 0) {
             if (in_array("menu-item-has-children", $item->classes)) {
-                $subMenuParentClasses = "text-primary group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500";
+                $subMenuParentClasses = "text-primary group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary";
                 $classes = explode(" ", $subMenuParentClasses);
                 $item->classes = $classes;
                 $output = "<div class='relative inline-flex items-center'>" . $output;
