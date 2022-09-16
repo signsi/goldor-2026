@@ -6,30 +6,8 @@ body {
     @apply overflow-x-hidden;
 }
 
-// Abstände für RocketPager-Elemente
-// div[class^="rocketpager"] {
-//     @apply mb-element;
-// }
-
-.page.content {
-    >.wp-block-group {
-        // Abstände für Gruppe auf der 1. Ebene
-        @apply py-section;
-        &,
-        * {
-            &:first-child {
-                @apply mt-0;
-            }
-
-            &:last-child {
-                @apply mb-0;
-            }
-        }
-    }
-}
-
 // Spalten-Element
-.wp-block-group .wp-block-columns {
+.wp-block-columns {
     @apply gap-section mb-section last:mb-0;
 
     // Kleiner Abstand zwischen den Cols
@@ -37,17 +15,33 @@ body {
         @apply gap-mobile;
     }
 }
+.page.content {
+    >.wp-block-group {
+        // Abstände für Gruppe auf der 1. Ebene
+        @apply py-section;
+    }
+}
 
 // Gruppen-Styling generell
 .wp-block-group {
     @apply mx-auto px-gutter max-w-large;
 
+    * {
+        &:first-child {
+            @apply mt-0;
+        }
+
+        &:last-child {
+            @apply mb-0;
+        }
+    }
+
     // Abstände Padding - links uns rechts
     &.alignfull {
-        @apply px-0 #{!important};
+        @apply px-0;
     }
     > .wp-block-group .wp-block-group{
-        @apply px-0 max-w-none w-full #{!important};
+        @apply px-0 max-w-none w-full;
     }
 
     // Spaltenbreite für Gruppen

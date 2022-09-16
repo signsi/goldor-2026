@@ -53,7 +53,7 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featu
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group > .is-nowrap.wp-block-group {
-    @apply p-0 space-x-0;
+    @apply p-0 space-x-0 #{!important};
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
@@ -64,11 +64,11 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group {
-    @apply absolute inset-x-0 bottom-0  px-4 py-8 z-10 flex flex-col-reverse;
+    @apply absolute inset-x-0 bottom-0  px-4 py-8 z-10 flex flex-col-reverse #{!important};
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group {
-    @apply bg-white/90 p-5 m-0;
+    @apply bg-white/90 p-5 m-0 #{!important};
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li i {
@@ -110,7 +110,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
             > .wp-block-group {
                 @apply p-5 mx-0;
                 > .wp-block-group {
-                    @apply p-0;
+                    @apply p-0 #{!important};
                 }
             }
             img {
@@ -193,11 +193,11 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     }
     //  Spalten-Element - randabfallend recht 1
     &.is-style-overlapping--right-1 {
-        @apply px-gutter 2xl:px-0;
+        @apply px-gutter;
         .wp-block-column {
             @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
             &[style*="flex-basis:33.33%"] {
-                @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2)+30px)] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
+                @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
             }
         }
     }
