@@ -31,7 +31,6 @@ add_filter('excerpt_length', function ($length){
 //     return $block_content . ' AAA';
 // }, 10, 2);
 
-
 /**
  * Adding group to each <li> for the query block.
  */
