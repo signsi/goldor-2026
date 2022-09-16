@@ -28,7 +28,7 @@ $buttons = [
             <div class="flex flex-col lg:justify-between">
                 @include('sections.footer.elements.footer-logo')
                 <div class="hidden lg:block">@include('partials.top.socialmedia-nav')</div>
-                <div class="hidden lg:block">@include('sections.footer.elements.search')</div>
+                <div class="hidden lg:block">@include('partials.search')</div>
             </div>
             <div class="flex flex-col justify-between footer--address">
                 @include('sections.footer.elements.address')

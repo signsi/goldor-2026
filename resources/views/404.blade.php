@@ -7,7 +7,7 @@
         <h3 class="text-primary mt-0">{{ __('404', 'rocketpager') }}</h3>
         <h1>{{ __('Seite nicht gefunden', 'rocketpager') }}</h1>
         <p class="!mb-gutter">{{ __('Leider konnten wir die von Ihnen gesuchte Seite nicht finden.', 'rocketpager') }}</p>
-        @include('sections.footer.elements.search')
+        @include('partials.search')
         <ul class="is-style-liststyle-icon--return">
           <li class="flex"><a href="{{ home_url('/') }}" rel="home">{{ __('Zurück zur Startseite', 'rocketpager') }}</a></li>
         </ul>

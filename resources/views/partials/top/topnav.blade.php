@@ -10,19 +10,6 @@
             </button>
         </div>
         <div class="hidden lg:flex lg:flex-col lg:items-end">
-              {{-- <nav class="hide-sticky">
-                @php
-                    $locations = get_nav_menu_locations();
-                    if (array_key_exists('top_navigation', $locations) && 0 !== $locations['top_navigation']) {
-                        wp_nav_menu([
-                            'theme_location' => 'top_navigation',
-                            'menu_class' => 'flex space-x-6 lg:space-x-13 mb-3',
-                            'container_class' => '',
-                            'add_li_class' => 'relative text-sm lg:text-lg font-normal text-font opacity-90 hover:text-primary transition-all w-min-content',
-                        ]);
-                    }
-                @endphp
-            </nav> --}}
             <nav>
                 @php
                     $locations = get_nav_menu_locations();
@@ -46,7 +33,7 @@
         </div>
 
         <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-secondary">
-            <div class="h-screen bg-theme text-font divide-y divide-primary">
+            <div class="h-screen bg-theme text-font">
                 <div class="">
                     <div class="flex items-center justify-between px-4 py-4 bg-white">
                         @include('partials.top.logo')
@@ -64,24 +51,22 @@
                         </div>
                     </div>
                     <div class="my-6 px-4 py-4">
+                        @include('partials.search')
                         <nav>
                             @php
                                 $locations = get_nav_menu_locations();
                                 if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
                                     wp_nav_menu([
                                         'theme_location' => 'primary_navigation',
-                                        'menu_class' => 'flex flex-col space-y-3 items-baseline',
+                                        'menu_class' => 'flex flex-col items-baseline justify-between',
                                         'container_class' => '',
-                                        'add_li_class' => 'flex items-center relative text-lg font-normal transition-all w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-orange before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-orange',
-                                        'walker' => new SubmenuWrap(),
+                                        'add_li_class' => 'py-3 w-full text-lg font-bold border-b border-solid border-gray-300 group',
+                                        'walker' => new MobileSubmenuWrap(),
                                     ]);
                                 }
                             @endphp
                         </nav>
                     </div>
-                </div>
-                <div class="mx-4 py-6">
-                    @include('partials.top.socialmedia-nav')
                 </div>
             </div>
         </div>
