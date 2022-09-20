@@ -122,31 +122,22 @@ export function setupMobileSubMenus() {
     const closeAllSubMenus = () => {
         menuParents.forEach(item => {
             const childContainer = item.querySelectorAll(":scope > div")[1];
-            const subMenuOpen = isVisible(childContainer);
-
             closeSubMenu(childContainer);
-
         })
     }
-
     outsideArea.addEventListener('click', (e) => {
         closeAllSubMenus();
-
     })
 
 }
 
-
-
 export function setupMobileNav() {
-
+    const mobileNav = document.querySelector("#mobileNav");
     const mobileNavButton = document.querySelector("#mobileToggle");
     const mobileNavClose = document.querySelector("#mobileClose");
-    const mobileNavCloseLink = document.querySelector("ul#menu-primary_navigation-1>li a");
-    const mobileNav = document.querySelector("#mobileNav");
+    const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
     const mobileClassesHidden = ['opacity-0', 'scale-95', '-translate-y-full', '-z-10'];
     const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-y-0', 'z-20'];
-
     if (mobileNavButton) {
         mobileNavButton.addEventListener('click', (e) => {
             mobileNav.classList.remove(...mobileClassesHidden);
@@ -159,12 +150,18 @@ export function setupMobileNav() {
             mobileNav.classList.remove(...mobileClassesShown);
         })
     }
+    if (mobileNavCloseLinks) {
+        mobileNavCloseLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                mobileNav.classList.add(...mobileClassesHidden);
+                mobileNav.classList.remove(...mobileClassesShown);
+                menuButtonCloseHandler();
+            })
+        })
+    }
 }
 
 export function setupFixedNav() {
-
-
-
     const headerClasses = ' siteHeader sticky top-0 transition-all z-50 bg-white'
     const headerElementClass = 'siteHeader'
     const siteHeader = document.querySelector(`.${headerElementClass}`);
