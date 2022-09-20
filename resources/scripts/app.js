@@ -1,5 +1,5 @@
 import { domReady } from '@roots/sage/client';
-import { setupMobileNav, setupSubMenus, setupFixedNav } from './nav';
+import { setupMobileNav, setupMobileSubMenus, setupSubMenus, setupFixedNav } from './nav';
 import 'jquery';
 import "./lightbox-config.js";
 import "./back-to-top.js";
@@ -17,9 +17,10 @@ const main = async (err) => {
 
   // desktop sub menus
   setupSubMenus();
+  // mobile sub menus
+  setupMobileSubMenus();
   // mobile toggle
   setupMobileNav();
-
   // headroom-like top nav
   setupFixedNav();
 

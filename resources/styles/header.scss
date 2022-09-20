@@ -5,6 +5,9 @@ header {
     .menu-primary_subnavigation a {
         @apply text-font hover:text-primary;
     }
+    ul.menu-primary_subnavigation > li {
+        @apply text-base font-semibold #{!important};
+    }
 }
 
 .siteHeader--notTop {

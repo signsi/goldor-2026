@@ -62,16 +62,87 @@ export function setupSubMenus() {
 
     outsideArea.addEventListener('click', (e) => {
         closeAllSubMenus();
+    })
+
+}
+
+
+export function setupMobileSubMenus() {
+
+    const openSubMenu = (childContainer) => {
+        childContainer.classList.add(...classesShown);
+        childContainer.classList.remove(...classesHidden);
+    }
+
+    const closeSubMenu = (childContainer) => {
+        childContainer.classList.remove(...classesShown);
+        childContainer.classList.add(...classesHidden);
+    }
+
+    // Fügt beim Klick auf ID "mobileToggle" die CSS-Klasse "overflow-y-hidden" dem <body> hinzu.
+    const btnOpen = document.getElementById('mobileToggle');
+    btnOpen.addEventListener('click', function onClick(event) {
+        document.body.classList.add('overflow-y-hidden');
+    });
+
+    // Entfernt beim Klick auf ID "mobileClose" die CSS-Klasse "overflow-y-hidden" dem <body>.
+    const btnClose = document.getElementById('mobileClose');
+    btnClose.addEventListener('click', function onClick(event) {
+        document.body.classList.remove('overflow-y-hidden');
+    });
+
+    const mobileNav = document.querySelector("#mobileNav");
+    // .submenuToggle liegt bei den SVGs .submenuToggle
+    const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
+    const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
+
+    // const submMenuRemove = $("ul#menu-primary_navigation-1>li.menu-item-has-children ul>li>div");
+    const classesShown = ['opacity-1', 'translate-y-0', 'block'];
+    const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
+    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-darkgrey');
+    const outsideArea = document.querySelector('body');
+
+    submMenuParentSvg.forEach(svgButton => {
+        svgButton.addEventListener('click', (e) => {
+            const childContainer = e.target.parentElement.parentElement.querySelector("ul").parentElement
+            const subMenuOpen = isVisible(childContainer);
+            if (subMenuOpen) {
+                closeAllSubMenus();
+                openSubMenu(childContainer);
+                e.target.classList.add("rotate-180");
+            } else {
+                closeAllSubMenus();
+                e.target.classList.remove("rotate-180");
+            }
+            e.stopPropagation();
+        }
+        )
+    })
+
+    const closeAllSubMenus = () => {
+        menuParents.forEach(item => {
+            const childContainer = item.querySelectorAll(":scope > div")[1];
+            const subMenuOpen = isVisible(childContainer);
+
+            closeSubMenu(childContainer);
+
+        })
+    }
+
+    outsideArea.addEventListener('click', (e) => {
+        closeAllSubMenus();
 
     })
 
 }
 
 
+
 export function setupMobileNav() {
 
     const mobileNavButton = document.querySelector("#mobileToggle");
     const mobileNavClose = document.querySelector("#mobileClose");
+    const mobileNavCloseLink = document.querySelector("ul#menu-primary_navigation-1>li a");
     const mobileNav = document.querySelector("#mobileNav");
     const mobileClassesHidden = ['opacity-0', 'scale-95', '-translate-y-full', '-z-10'];
     const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-y-0', 'z-20'];
