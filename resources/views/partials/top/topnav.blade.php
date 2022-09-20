@@ -32,7 +32,7 @@
             @endif
         </div>
 
-        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-secondary">
+        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-secondary overflow-x-hidden">
             <div class="h-screen bg-theme text-font">
                 <div class="">
                     <div class="flex items-center justify-between px-4 py-4 bg-white">
@@ -58,10 +58,10 @@
                                 if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
                                     wp_nav_menu([
                                         'theme_location' => 'primary_navigation',
-                                        'menu_class' => 'flex flex-col items-baseline justify-between',
+                                        'menu_class' => 'flex flex-col items-baseline justify-between linkGrowing',
                                         'container_class' => '',
-                                        'add_li_class' => 'py-3 w-full text-lg font-bold border-b border-solid border-gray-300 group',
-                                        'walker' => new MobileSubmenuWrap(),
+                                        'add_li_class' => 'z-10 p-3 w-full text-lg font-bold border-b border-solid border-gray-300 group last:border-b-0',
+                                        'walker' => new SubmenuWrap(),
                                     ]);
                                 }
                             @endphp
