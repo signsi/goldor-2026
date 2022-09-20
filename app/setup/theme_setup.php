@@ -127,7 +127,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='relative lg:absolute w-full z-10 lg:mt-[18px] xl:mt-[30px] transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden lg:before:absolute lg:before:border-y-2 lg:before:border-solid lg:before:border-gray-300 lg:before:inset-y-0 lg:before:-left-[100vw] lg:before:-right-[100vw] lg:before:bg-secondary'><ul class='menu-primary_subnavigation my-3 lg:my-12 border-t-2 lg:border-t-0 border-solid border-primary z-20 flex flex-col lg:min-w-max'>\n";
+            $output .= "\n$indent<div class='submenuContainer relative lg:absolute w-full z-10 lg:mt-[18px] xl:mt-[30px] transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden lg:before:absolute lg:before:border-y-2 lg:before:border-solid lg:before:border-gray-300 lg:before:inset-y-0 lg:before:-left-[100vw] lg:before:-right-[100vw] lg:before:bg-secondary'><ul class='menu-primary_subnavigation my-3 lg:my-12 border-t-2 lg:border-t-0 border-solid border-primary z-20 flex flex-col lg:min-w-max'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {

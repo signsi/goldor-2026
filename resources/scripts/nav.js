@@ -4,27 +4,37 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const classesShown = ['opacity-1', 'translate-y-0', 'block'];
+const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
+
+const openSubMenu = (menuContainer) => {
+    menuContainer.classList.add(...classesShown);
+    menuContainer.classList.remove(...classesHidden);
+}
+const closeSubMenu = (menuContainer) => {
+    menuContainer.classList.remove(...classesShown);
+    menuContainer.classList.add(...classesHidden);
+}
+
+const menuButtonCloseHandler = () => {
+    document.body.classList.remove('overflow-y-hidden');
+}
+
+// Fügt beim Klick auf ID "mobileToggle" die CSS-Klasse "overflow-y-hidden" dem <body> hinzu.
+const btnOpen = document.getElementById('mobileToggle');
+btnOpen.addEventListener('click', function onClick(event) {
+    document.body.classList.add('overflow-y-hidden');
+});
+
+// Entfernt beim Klick auf ID "mobileClose" die CSS-Klasse "overflow-y-hidden" dem <body>.
+const btnClose = document.getElementById('mobileClose');
+btnClose.addEventListener('click', menuButtonCloseHandler);
 
 
 export function setupSubMenus() {
-
-    const openSubMenu = (childContainer) => {
-        childContainer.classList.add(...classesShown);
-        childContainer.classList.remove(...classesHidden);
-    }
-
-    const closeSubMenu = (childContainer) => {
-        childContainer.classList.remove(...classesShown);
-        childContainer.classList.add(...classesHidden);
-    }
-
-
-
     const topNav = document.querySelector("#topNav");
     const submMenuParents = topNav.querySelectorAll("ul#menu-primary_navigation>li.menu-item-has-children");
     const submMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
-    const classesShown = ['opacity-1', 'translate-y-0', 'block'];
-    const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
     submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
     const outsideArea = document.querySelector('body');
     submMenuParents.forEach(item => {
@@ -68,17 +78,6 @@ export function setupSubMenus() {
 
 
 export function setupMobileSubMenus() {
-
-    const openSubMenu = (childContainer) => {
-        childContainer.classList.add(...classesShown);
-        childContainer.classList.remove(...classesHidden);
-    }
-
-    const closeSubMenu = (childContainer) => {
-        childContainer.classList.remove(...classesShown);
-        childContainer.classList.add(...classesHidden);
-    }
-
     // Fügt beim Klick auf ID "mobileToggle" die CSS-Klasse "overflow-y-hidden" dem <body> hinzu.
     const btnOpen = document.getElementById('mobileToggle');
     btnOpen.addEventListener('click', function onClick(event) {
@@ -96,9 +95,6 @@ export function setupMobileSubMenus() {
     const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    // const submMenuRemove = $("ul#menu-primary_navigation-1>li.menu-item-has-children ul>li>div");
-    const classesShown = ['opacity-1', 'translate-y-0', 'block'];
-    const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
     // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-darkgrey');
     const outsideArea = document.querySelector('body');
 
@@ -112,7 +108,6 @@ export function setupMobileSubMenus() {
                 e.target.classList.add("rotate-180");
             } else {
                 closeAllSubMenus();
-                e.target.classList.remove("rotate-180");
             }
             e.stopPropagation();
         }
@@ -122,13 +117,13 @@ export function setupMobileSubMenus() {
     const closeAllSubMenus = () => {
         menuParents.forEach(item => {
             const childContainer = item.querySelectorAll(":scope > div")[1];
+            // oberstes Element anzielen
+            childContainer.parentElement.parentElement.querySelectorAll(".rotate-180").forEach(openMenuToggle => {
+                openMenuToggle.classList.remove("rotate-180");
+            })
             closeSubMenu(childContainer);
         })
     }
-    outsideArea.addEventListener('click', (e) => {
-        closeAllSubMenus();
-    })
-
 }
 
 export function setupMobileNav() {

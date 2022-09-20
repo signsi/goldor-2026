@@ -8,6 +8,21 @@ header {
     ul.menu-primary_subnavigation > li {
         @apply text-base font-semibold #{!important};
     }
+    .menu-primary_navigation-container>ul{
+        /* >li.current-menu-parent {
+            .submenuToggle {
+                @apply rotate-180;
+            }
+            >.submenuContainer {
+                @apply opacity-100 translate-y-0 block;
+            }
+        } */
+        /* li {
+            &.current-menu-item a{
+                @apply text-primary lg:text-darkgrey;
+            }
+        } */
+    }
 }
 
 .siteHeader--notTop {
