@@ -55,7 +55,7 @@
 .page.content>.wp-block-group.bg-primary-bottom-3-4-white {
   @include colorWhiteSmallUp;
   .slick-arrow {
-    @apply bg-white hover:bg-secondary xl:bg-primary;
+    @apply bg-white hover:bg-secondary xl:bg-primary xl:hover:bg-darkgreen;
     &.slick-prev::before, &.slick-next::before {
       @apply text-primary xl:text-white;
     }
