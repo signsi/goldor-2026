@@ -7,6 +7,14 @@ header {
         .menu-primary_navigation-container {
             /* Level 0 */
             >ul {
+                >li {
+                    &.current_page_parent, &.current-menu-item {
+                        @apply text-primary before:w-full before:left-0 before:bg-primary #{!important};
+                        .submenuToggle {
+                            @apply text-primary #{!important};
+                        }
+                    }
+                }
                 .menu-primary_subnavigation a {
                     @apply text-font hover:text-primary;
                 }

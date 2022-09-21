@@ -1,23 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.app-width-content')
 
 @section('content')
-  @include('partials.page-header')
-
   @if (! have_posts())
-    <x-alert type="warning">
-      {!! __('Sorry, no results were found.', 'sage') !!}
-    </x-alert>
-
-    {!! get_search_form(false) !!}
+    @include('partials.content-noresults')
+    @else
+      <div class="wp-block-group alignfull">
+        <div class="wp-block-group alignwide">
+        <h1>{{ __('Archiv', 'rocketpager') }}</h1>
+          <div class="columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6">
+              @while(have_posts()) @php(the_post())
+                @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
+              @endwhile
+          </div>
+        </div>
+      </div>
   @endif
-
-  @while(have_posts()) @php(the_post())
-    @includeFirst(['partials.content-' . get_post_type(), 'partials.content'])
-  @endwhile
-
-  {!! get_the_posts_navigation() !!}
-@endsection
-
-@section('sidebar')
-  @include('sections.sidebar')
 @endsection

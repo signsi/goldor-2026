@@ -9,3 +9,6 @@ form.forminator-custom-form {
         @apply shadow-none p-0 my-element #{!important};
     }
 }
+.forminator-ui#forminator-module-509.forminator-design--material .forminator-button-submit {
+    @include buttonStyleDefault;
+}

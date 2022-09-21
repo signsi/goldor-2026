@@ -54,6 +54,12 @@
 }
 .page.content>.wp-block-group.bg-primary-bottom-3-4-white {
   @include colorWhiteSmallUp;
+  .slick-arrow {
+    @apply bg-white hover:bg-secondary xl:bg-primary;
+    &.slick-prev::before, &.slick-next::before {
+      @apply text-primary xl:text-white;
+    }
+  }
   &>* {
     @apply relative z-20;
   }

@@ -14,7 +14,8 @@
                         </div>
                     </div>
                 @endif
-                <picture class="-z-10 after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:content-[''] after:z-10 after:mix-blend-multiply after:opacity-80 after:bg-gradient-to-t after:from-black-transparent after:to-transparent">
+                
+                <picture class="-z-10 @if ( is_front_page() )after:absolute after:bottom-0 after:inset-x-0 after:h-1/4 after:content-[''] after:z-10 after:mix-blend-multiply after:opacity-80 after:bg-gradient-to-t after:from-black-transparent after:to-transparent @endif">
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'header-image',

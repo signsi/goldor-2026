@@ -99,3 +99,11 @@
       }
   }
 }
+
+@mixin buttonStyleDefault {
+  @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
+}
+
+@mixin buttonStyleOutline {
+  @apply border-primary text-primary text-xs sm:text-sm md:text-base py-1 px-3 hover:border-primary hover:bg-primary hover:text-white;
+}

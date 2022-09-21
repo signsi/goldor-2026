@@ -11,7 +11,7 @@
                 block_row('icon');
                 $isImage = block_sub_value('content-type') == 'image';
             @endphp
-            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" @else <div @endif class="bg-secondary border-3 border-secondary group hover:bg-white hover:border-primary flex flex-col justify-between group p-5 text-center md:text-left no-underline">
+            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" class="bg-secondary border-3 border-secondary flex flex-col justify-between group p-5 text-center md:text-left no-underline hover:bg-white hover:border-primary" @else <div @endif class="bg-secondary border-3 border-secondary flex flex-col justify-between group p-5 text-center md:text-left no-underline">
                 <div class="flex flex-col justify-start h-full mb-4 md:mb-6 lg:mb-8">
                     <div class="{{ App\existsReturnKey('rounded-bg', 'rounded-full bg-white') }}">
                         @if ( $isImage )
