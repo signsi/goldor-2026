@@ -1,5 +1,5 @@
 <div class="group break-inside-avoid mb-4 lg:mb-6 bg-secondary hover:bg-primary transition-colors{{ $animation }}">
-    <a href="{{ the_permalink() }}" class="no-underline text-font">
+    <a href="{{ the_permalink() }}" class="no-underline text-font group-hover:text-white">
         <div class="image-wrapper not-prose overflow-hidden">
             {{ the_post_thumbnail( $preview_size, ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
         </div>
