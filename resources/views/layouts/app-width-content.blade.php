@@ -21,7 +21,9 @@
     lg:prose-hr:my-section-desktop
     xl:prose-hr:my-section-full-hd
   ">
-    @yield('content')
+    <div class="page content">
+      @yield('content')
+    </div>
 </main>
 
 @include('sections.footer.footer1')

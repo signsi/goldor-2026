@@ -36,7 +36,7 @@ div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category{
-    @apply flex space-x-3 after:content-['–'] after:pl-2;
+    @apply flex space-x-3 after:content-['–'] after:px-2;
 }
 
 div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category a,
@@ -123,10 +123,10 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
                 @apply hover:cursor-pointer no-underline hover:text-white;
             }
             .read-more-wrapper {
-                @apply transition p-0 ease-in-out delay-150 duration-300 pb-5 px-5;
+                @apply flex items-center transition p-0 ease-in-out delay-150 duration-300 pb-5 px-5;
             }
             i {
-                @apply text-white transition-colors
+                @apply text-white transition-colors ml-2;
             }
             .wp-block-read-more, .wp-block-post-date a, p.wp-block-post-excerpt__excerpt {
                 @apply text-base;
@@ -154,13 +154,13 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     }
 }
 .wp-block-button__link{
-    @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
+    @include buttonStyleDefault;
 }
 
 .is-style-outline>.wp-block-button__link,
 .is-style-outline>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline:not(.has-background){
-    @apply border-primary text-primary text-xs sm:text-sm md:text-base py-1 px-3 hover:border-primary hover:bg-primary hover:text-white;
+    @include buttonStyleOutline;
 }
 
 //  Text Media
@@ -193,7 +193,7 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
     }
     //  Spalten-Element - randabfallend recht 1
     &.is-style-overlapping--right-1 {
-        @apply px-gutter;
+        @apply px-gutter md:pr-0;
         .wp-block-column {
             @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
             &[style*="flex-basis:33.33%"] {
@@ -237,6 +237,11 @@ figure, figure.wp-block-image {
     figcaption {
         @apply text-sm text-darkgrey mt-3;
     }
+}
+
+// Galerie
+figure.wp-block-gallery.has-nested-images {
+    @apply flex flex-col flex-wrap gap-gutter items-center;
 }
 
 //  List-Styles

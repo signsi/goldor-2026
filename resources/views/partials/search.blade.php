@@ -1,7 +1,7 @@
 <div class="flex items-center mb-6 lg:mb-0">
     <div class="w-full">
         <form class="searchform" role="search" method="get" action="{{ esc_url( home_url( '/' ) ) }}">
-            <label for="search" class="sr-only">Suche</label>
+            <label for="search" class="sr-only">{{ __('Suche', 'rocketpager') }}</label>
             <div class="relative">
                 <input id="search" name="s" class="border-primary focus:placeholder-primary transition-all focus:ring-primary focus:border-primary block w-full rounded-full border bg-transparent focus:bg-white py-3 pl-6 leading-5 placeholder-grey focus:outline-none focus:ring-1 text-sm xl:text-lg" placeholder="Wonach suchen Sie?" type="search">
                 <div id="icon-wrapper" class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 xl:pr-6 transition-opacity">

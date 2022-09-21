@@ -91,7 +91,7 @@
                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                 @endif
                 @if ( block_sub_value('email') )
-                    <p><a href="mailto:{{ block_sub_value('email') }}" class="underline text-primary hover:text-darkgreen">E-Mail</a>@if ( block_sub_value('phone') ) | <a href="tel:{{ block_sub_value('phone') }}" class="underline text-primary hover:text-darkgreen">{{ block_sub_value('phone') }}</a> @endif </p>
+                    <p><a href="mailto:{{ block_sub_value('email') }}" class="underline text-primary hover:text-font">E-Mail</a>@if ( block_sub_value('phone') ) | <a href="tel:{{ block_sub_value('phone') }}" class="underline text-primary hover:text-font">{{ block_sub_value('phone') }}</a> @endif </p>
                 @endif
             </div>
         </div>
