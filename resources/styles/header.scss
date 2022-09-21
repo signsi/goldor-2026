@@ -1,30 +1,50 @@
 header {
     a {
-        @apply transition-colors hover:text-primary;
+        @apply transition-colors;
     }
-    .menu-primary_subnavigation a {
-        @apply text-font hover:text-primary;
-    }
-    ul.menu-primary_subnavigation > li {
-        @apply text-base font-semibold #{!important};
-    }
-    .menu-primary_navigation-container>ul{
-        /* >li.current-menu-parent {
-            .submenuToggle {
-                @apply rotate-180;
+    /* Desktop-Navigation */
+    #topNav {
+        .menu-primary_navigation-container {
+            /* Level 0 */
+            >ul {
+                .menu-primary_subnavigation a {
+                    @apply text-font hover:text-primary;
+                }
             }
-            >.submenuContainer {
-                @apply opacity-100 translate-y-0 block;
-            }
-        } */
-        /* li {
-            &.current-menu-item a{
-                @apply text-primary lg:text-darkgrey;
-            }
-        } */
+        }
     }
+    /* Mobile-Navigation */
+    #mobileNav {
+        .menu-primary_navigation-container {
+            /* Level 0 */
+            >ul{
+                /* Level 1 */
+                .submenuContainer {
+                    /* Level 2 standardmässig geöffnet */
+                    >ul.menu-primary_subnavigation {
+                        > li {
+                            @apply text-base font-semibold last:pb-0 #{!important};
+                            a {
+                                @apply pl-2 flex;
+                            }
+                            .submenuContainer {
+                                @apply opacity-100 translate-y-0 block #{!important};
+                                >ul.menu-primary_subnavigation {
+                                    @apply mt-2 mb-0 border-t-0 #{!important};
+                                    > li {
+                                        @apply pl-2 text-sm py-2 first:border-t font-light last:pb-0 #{!important};
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }     
 }
 
+/* Fixed Header */
 .siteHeader--notTop {
     @apply bg-white;
 }
