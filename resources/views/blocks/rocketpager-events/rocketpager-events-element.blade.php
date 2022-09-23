@@ -2,7 +2,7 @@
     $categories = get_the_category( $post->ID );
 @endphp
 
-<div class="event-wrapper flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-8 border-t-2 border-darkgrey-400 py-6 md:py-4 group">
+<div class="event-wrapper flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-8 border-t-2 border-grey-400 py-6 md:py-4 group">
     <div class="basis-full md:basis-1/3 lg:basis-2/5 xl:basis-1/3">
         <div class="flex flex-col-reverse xl:flex-row">
             <div class="basis-full md:basis-1/2">

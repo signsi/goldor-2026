@@ -25,10 +25,6 @@ add_action('genesis_custom_blocks_render_template_rocketpager-carousel-slider', 
     bundle('block.videoelement')->enqueue();
 }, 10, 3);
 
-add_action('genesis_custom_blocks_render_template_rocketpager-animatednumbers', function () {
-    bundle('block.animatednumbers')->enqueue();
-}, 10, 3);
-
 add_action('genesis_custom_blocks_render_template_rocketpager-modal', function () {
     bundle('block.modal')->enqueue();
 }, 10, 3);

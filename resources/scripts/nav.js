@@ -95,7 +95,7 @@ export function setupMobileSubMenus() {
     const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-darkgrey');
+    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-grey');
     const outsideArea = document.querySelector('body');
 
     submMenuParentSvg.forEach(svgButton => {

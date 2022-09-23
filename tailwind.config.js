@@ -8,16 +8,24 @@ module.exports = {
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary))',
-        darkgreen: 'rgb(var(--color-darkgreen))',
+        primarydark: 'rgb(var(--color-primarydark))',
+        primarylight: 'rgb(var(--color-primarylight))',
+        primarytransparent: 'rgb(var(--color-primarytransparent))',
         secondary: 'rgb(var(--color-secondary))',
+        secondarydark: 'rgb(var(--color-secondarydark))',
+        secondarylight: 'rgb(var(--color-secondarylight))',
+        pink: 'rgb(var(--color-pink))',
+        pinkdark: 'rgb(var(--color-pinkdark))',
+        pinklight: 'rgb(var(--color-pinklight))',
         font: 'rgb(var(--color-font))',
-        'black-transparent': 'rgb(var(--color-font) / 50%)',
-        orange: 'rgb(var(--color-orange))',
-        yellow: 'rgb(var(--color-yellow))',
-        raspberry: 'rgb(var(--color-raspberry))',
         grey: 'rgb(var(--color-grey))',
-        darkgrey: 'rgb(var(--color-darkgrey))',
-        lightgray: 'rgb(var(--color-lightgray))',
+        white: 'rgb(var(--color-white))',
+        aubergine: 'rgb(var(--color-aubergine))',
+        auberginedark: 'rgb(var(--color-auberginedark))',
+        auberginelight: 'rgb(var(--color-auberginelight))',
+        petrol: 'rgb(var(--color-petrol))',
+        petroldark: 'rgb(var(--color- petroldark))',
+        petrollight: 'rgb(var(--color- petrollight))',
       },
       opacity: {
         default: '1',
@@ -34,7 +42,7 @@ module.exports = {
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
-        sans: ['Open Sans', 'Arial', 'sans-serif'],
+        sans: ['Raleway', 'Arial', 'sans-serif'],
         icon: '"Font Awesome 6 Pro"',
       },
       spacing: {
@@ -136,6 +144,9 @@ module.exports = {
           },
         },
       }),
+      backgroundColor: ({ theme }) => ({
+        'primary': 'rgb(var(--color-primary))',
+       }),
     },
   },
   plugins: [

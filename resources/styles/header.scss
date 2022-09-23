@@ -14,6 +14,16 @@ header {
                             @apply text-primary #{!important};
                         }
                     }
+                    .submenuContainer {
+                        ul.menu-primary_subnavigation {
+                            > li {
+                                @apply mb-2 font-normal last:mb-0 #{!important};
+                                a {
+                                    @apply pl-2 flex;
+                                }
+                            }
+                        }
+                    }
                 }
                 .menu-primary_subnavigation a {
                     @apply text-font hover:text-primary;
@@ -49,7 +59,7 @@ header {
                 }
             }
         }
-    }     
+    }
 }
 
 /* Fixed Header */

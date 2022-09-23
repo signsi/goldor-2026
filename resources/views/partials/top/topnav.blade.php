@@ -1,5 +1,9 @@
+@php
+$search_active = App\getThemeOption('cta_search');
+@endphp
+
 <div id="topNav" class="relative bg-white max-w-default w-full mx-auto">
-    <div class="flex justify-between md:space-x-25 items-end sm:px-6 px-4 py-6 xl:py-9">
+    <div class="flex justify-between md:space-x-25 items-center p-gutter">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 lg:hidden">
             <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-primary hover:bg-secondary" aria-expanded="false">
@@ -9,7 +13,7 @@
                 </svg>
             </button>
         </div>
-        <div class="hidden lg:flex lg:flex-col lg:items-end">
+        <div class="hidden lg:flex lg:flex-row justify-end items-center">
             <nav>
                 @php
                     $locations = get_nav_menu_locations();
@@ -18,13 +22,16 @@
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative group text-sm lg:text-lg 2xl:text-xl font-semibold text-darkgrey hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_li_class' => 'relative group text-sm lg:text-lg 2xl:text-xl font-bold text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
                             'add_sub_li_class' => 'before:content-none text-sm lg:text-lg !mb-5',
                             'walker' => new SubmenuWrap(),
                         ]);
                     }
                 @endphp
             </nav>
+            @if ($search_active)
+                <svg class="show-modal-search hover:cursor-pointer hover:fill-primary h-7 w-7 ml-element transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg>
+            @endif
             @if (is_active_sidebar('sidebar-primary-cta'))
                 <div class="flex items-center md:ml-12">
                     @php dynamic_sidebar('sidebar-primary-cta') @endphp
@@ -32,7 +39,7 @@
             @endif
         </div>
 
-        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-secondary overflow-x-hidden">
+        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-bluelight overflow-x-hidden">
             <div class="h-screen bg-theme text-font">
                 <div class="">
                     <div class="flex items-center justify-between px-4 py-4 bg-white">

@@ -46,16 +46,16 @@
   }
 }
 .page.content>.wp-block-group.bg-primary-bottom-3-4 {
-  @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-lightgray before:content-[''] before:absolute before:z-10;
+  @apply relative before:top-3/4 before:inset-x-0 before:bottom-0 before:bg-grey before:content-[''] before:absolute before:z-10;
 
-  +.wp-block-group.has-lightgray-background-color {
+  +.wp-block-group.has-grey-background-color {
     @apply pt-0;
   }
 }
 .page.content>.wp-block-group.bg-primary-bottom-3-4-white {
   @include colorWhiteSmallUp;
   .slick-arrow {
-    @apply bg-white hover:bg-secondary xl:bg-primary xl:hover:bg-darkgreen;
+    @apply bg-white hover:bg-secondary xl:bg-primary xl:hover:bg-primarydark;
     &.slick-prev::before, &.slick-next::before {
       @apply text-primary xl:text-white;
     }

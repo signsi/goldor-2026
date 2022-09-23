@@ -6,6 +6,6 @@ $company_name = App\getThemeOption('company_name');
 
 <a href="{{ home_url('/') }}" rel="home">
     <div class="logo-wrapper">
-        <img class="h-[30px] md:h-[35px] lg:h-[30px]  xl:h-[40px] w-auto" src="{{ $logo_src1 }}" alt="Logo Viva Luzern AG" />
+        <img class="h-[60px] md:h-[80px] w-auto" src="{{ $logo_src1 }}" alt="Logo - Zodas" />
     </div>
 </a>

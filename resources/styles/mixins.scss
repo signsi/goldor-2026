@@ -7,13 +7,14 @@
   h6,
   ul li,
   p,
+  p strong,
   p a {
     @apply text-white;
   }
 
   p a,
   ul li a {
-    @apply text-white hover:text-secondary;
+    @apply text-white hover:underline;
   }
 
   .wp-block-button__link {
@@ -35,12 +36,13 @@
   }
 
   ul.is-style-liststyle-icon--linklist,
-  ul.is-style-liststyle-icon--download {
+  ul.is-style-liststyle-icon--download,
+  ul.is-style-liststyle-icon--singlelink {
     >li {
-      @apply hover:text-secondary hover:after:text-secondary;
+      @apply hover:text-white hover:after:text-white;
 
       a {
-        @apply hover:text-secondary;
+        @apply hover:text-white hover:underline;
       }
     }
   }
@@ -61,6 +63,7 @@
   h6,
   ul li,
   p,
+  p strong,
   p a {
       @apply md:text-white;
   }
@@ -101,9 +104,13 @@
 }
 
 @mixin buttonStyleDefault {
-  @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-darkgreen;
+  @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-primarydark;
 }
 
 @mixin buttonStyleOutline {
-  @apply border-primary text-primary text-xs sm:text-sm md:text-base py-1 px-3 hover:border-primary hover:bg-primary hover:text-white;
+  @apply border-primary text-primary hover:border-primary hover:bg-primary hover:text-white;
+}
+
+@mixin buttonStyleOutlineWhite {
+  @apply border-white text-white bg-transparent border-2 text-xs sm:text-sm transition-colors md:text-base py-1 px-4 hover:border-white hover:bg-white hover:text-secondary;
 }

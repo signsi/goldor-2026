@@ -41,7 +41,7 @@ function getThemeOption($field_id, $default_value = '')
 function get_jobs_option($key)
 {
     if (function_exists('carbon_get_theme_option')) {
-        $full_key = 'vivaluzern_jobs_' . $key;
+        $full_key = 'zodas_jobs_' . $key;
         $value = carbon_get_the_post_meta($full_key);
         return $value;
     } else {
@@ -184,7 +184,7 @@ function breadcrumbs()
 
         global $post;
         $homeLink = get_bloginfo('url');
-        echo '<a class="no-underline text-primary hover:text-orange" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
+        echo '<a class="no-underline text-primary hover:text-aubergine" href="' . $homeLink . '">' . $home . '</a> ' . $delimiter . ' ';
 
         if (is_category()) {
             global $wp_query;

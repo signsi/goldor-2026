@@ -56,3 +56,7 @@ body {
     }
 
 }
+
+div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
+    @apply max-w-none
+}

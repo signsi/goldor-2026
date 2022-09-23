@@ -24,9 +24,6 @@ module.exports = async (app) => {
         '@scripts/editor',
         '@styles/editor'
       ],
-     "block.animatednumbers": [
-        '@scripts/blocks/rocketpager-animatednumbers'
-      ],
       "block.modal": [
         '@scripts/blocks/rocketpager-modal'
       ],

@@ -48,7 +48,7 @@ body:not(.home) .slides picture  {
 }
 
 .slick-arrow {
-  @apply transition-colors bg-primary hover:bg-darkgreen;
+  @apply transition-colors bg-primary hover:bg-primarydark;
 }
 
 /* Dots */

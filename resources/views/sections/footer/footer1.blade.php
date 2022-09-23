@@ -20,38 +20,38 @@ $buttons = [
 ];
 @endphp
 
-<footer class="bg-secondary" aria-labelledby="footer-heading">
+<footer class="bg-secondarydark has-primary-background-color has-background" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
-    <div class="max-w-default px-gutter pt-element mx-auto">
-
-        <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-12">
-            <div class="flex flex-col lg:justify-between">
-                @include('sections.footer.elements.footer-logo')
-                <div class="hidden lg:block">@include('partials.top.socialmedia-nav')</div>
-                <div class="hidden lg:block">@include('partials.search')</div>
-            </div>
-            <div class="flex flex-col justify-between footer--address">
+    <div class="max-w-default px-gutter py-element mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 lg:gap-y-0">
+            <div>
                 @include('sections.footer.elements.address')
-                @php dynamic_sidebar('sidebar-footer-1') @endphp
             </div>
-            <div class="block lg:hidden mt-6 lg:mt-0">@include('partials.top.socialmedia-nav')</div>
-            <div class="hidden lg:flex lg:flex-col lg:space-y-6">@php dynamic_sidebar('sidebar-footer-2') @endphp</div>
-            <div class="hidden lg:flex lg:flex-col lg:space-y-6">@php dynamic_sidebar('sidebar-footer-3') @endphp</div>
-        </div>
-        <div class="mt-10 py-5 lg:mt-14 lg:py-6 border-t border-grey">
-            <nav>
-                @php
-                    $locations = get_nav_menu_locations();
-                    if (array_key_exists('footer_navigation', $locations) && 0 !== $locations['footer_navigation']) {
-                        wp_nav_menu([
-                            'theme_location' => 'footer_navigation',
-                            'menu_class' => 'flex space-x-3 justify-center',
-                            'container_class' => '',
-                            'add_li_class' => 'relative text-sm text-grey font-normal pr-3 border-r border-grey last:pr-0 last:border-r-0'
-                        ]);
-                    }
-                @endphp
-            </nav>
+            <div class="flex flex-col justify-between">
+                @php dynamic_sidebar('sidebar-footer-1') @endphp
+                @include('sections.footer.elements.socialmedia-nav')
+            </div>
+            <div class="flex flex-col justify-between">
+                @php dynamic_sidebar('sidebar-footer-2') @endphp
+            </div>
         </div>
     </div>
 </footer>
+<div class="bg-secondary" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="sr-only">Footer bottom</h2>
+    <div class="max-w-default px-gutter py-2.5 mx-auto">
+        <nav>
+            @php
+                $locations = get_nav_menu_locations();
+                if (array_key_exists('footer_navigation', $locations) && 0 !== $locations['footer_navigation']) {
+                    wp_nav_menu([
+                        'theme_location' => 'footer_navigation',
+                        'menu_class' => 'flex space-x-3 justify-start',
+                        'container_class' => '',
+                        'add_li_class' => 'relative text-sm text-font hover:text-white font-normal pr-3 border-r border-grey last:pr-0 last:border-r-0'
+                    ]);
+                }
+            @endphp
+        </nav>
+    </div>
+</div>
