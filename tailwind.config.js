@@ -35,7 +35,7 @@ module.exports = {
       maxWidth: {
         default: '90rem', //1440px
         slimmer: '37.5rem', //600px
-        slim: '47rem', //752px
+        slim: '45rem', //720px
         large: '71.25rem', //1140px
         xlarge: '90rem', //1440px
         content: '52.5rem', //840px
@@ -103,6 +103,11 @@ module.exports = {
       backgroundPosition: {
         100: '100%',
         '0_100': '0% 100%',
+      },
+      backgroundImage: {
+        'hero-pattern-1': "url('../images/zodas-logo-cluster-1.svg')",
+        'hero-pattern-2': "url('../images/zodas-logo-cluster-2.svg')",
+        'hero-pattern-3': "url('../images/zodas-logo-cluster-3.svg')",
       },
       animation: {
         'pulse-scale': 'pulse_scale 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',

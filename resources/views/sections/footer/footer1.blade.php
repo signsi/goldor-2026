@@ -20,7 +20,7 @@ $buttons = [
 ];
 @endphp
 
-<footer class="bg-secondarydark has-primary-background-color has-background" aria-labelledby="footer-heading">
+<footer class="has-secondarydark-background-color has-background" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="max-w-default px-gutter py-element mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 lg:gap-y-0">

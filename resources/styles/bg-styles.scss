@@ -1,4 +1,4 @@
-.has-primary-background-color.has-background {
+[class*="has-background"]:where(:not(.has-white-background-color):not(.has-grey-background-color)) {
   @include colorWhiteSmallUp;
 }
 

@@ -1,3 +1,15 @@
+@mixin buttonStyleDefault {
+  @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-primarydark;
+}
+
+@mixin buttonStyleOutline {
+  @apply border-primary text-primary hover:border-primary hover:bg-primary hover:text-white;
+}
+
+@mixin buttonStyleOutlineWhite {
+  @apply border-white text-white bg-transparent border-2 text-xs sm:text-sm transition-colors md:text-base py-1 px-4 hover:border-white hover:bg-white hover:text-secondary;
+}
+
 @mixin colorWhiteSmallUp {
   h1,
   h2,
@@ -16,10 +28,15 @@
   ul li a {
     @apply text-white hover:underline;
   }
-
   .wp-block-button__link {
     @apply bg-white text-primary hover:bg-secondary;
   }
+  .is-style-outline {
+    .wp-block-button__link {
+      @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font #{!important};
+    }
+  }
+
 
   ul.is-style-liststyle-icon--check-circle {
     >li {
@@ -39,10 +56,10 @@
   ul.is-style-liststyle-icon--download,
   ul.is-style-liststyle-icon--singlelink {
     >li {
-      @apply hover:text-white hover:after:text-white;
+      @apply text-white hover:text-white hover:after:text-white;
 
       a {
-        @apply hover:text-white hover:underline;
+        @apply text-white hover:text-white hover:underline;
       }
     }
   }
@@ -76,6 +93,11 @@
   .wp-block-button__link {
       @apply md:bg-white md:text-primary md:hover:bg-secondary md:hover:text-white;
   }
+  .is-style-outline {
+    .wp-block-button__link {
+      @include buttonStyleOutlineWhite;
+    }
+  }
 
   ul.is-style-liststyle-icon--check-circle {
       >li {
@@ -101,16 +123,4 @@
       }
       }
   }
-}
-
-@mixin buttonStyleDefault {
-  @apply bg-primary text-white font-semibold no-underline text-base lg:text-xl hover:bg-primarydark;
-}
-
-@mixin buttonStyleOutline {
-  @apply border-primary text-primary hover:border-primary hover:bg-primary hover:text-white;
-}
-
-@mixin buttonStyleOutlineWhite {
-  @apply border-white text-white bg-transparent border-2 text-xs sm:text-sm transition-colors md:text-base py-1 px-4 hover:border-white hover:bg-white hover:text-secondary;
 }

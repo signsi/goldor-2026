@@ -3,6 +3,11 @@
 // EXTEND BACKEND STYLES
 add_action('init', function () {
     register_block_style('core/group', [
+        'name' => 'slim',
+        'label' => __('Extra schmale Breite', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/group', [
         'name' => 'small',
         'label' => __('Schmale Breite', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
@@ -18,13 +23,8 @@ add_action('init', function () {
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/columns', [
-        'name' => 'gap--small',
-        'label' => __('Schmaler Abstand zwischen Spalten', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'gap--small-location',
-        'label' => __('Spalten für Standorte', 'rocketpager'),
+        'name' => 'gap--large',
+        'label' => __('Abstand (Sektion) zwischen Spalten', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/columns', [

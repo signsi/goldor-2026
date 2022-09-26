@@ -6,15 +6,7 @@ body {
     @apply overflow-x-hidden;
 }
 
-// Spalten-Element
-.wp-block-columns {
-    @apply gap-section mb-section last:mb-0;
 
-    // Kleiner Abstand zwischen den Cols
-    &.is-style-gap--small {
-        @apply gap-mobile;
-    }
-}
 .page.content {
     >.wp-block-group {
         // Abstände für Gruppe auf der 1. Ebene
@@ -55,8 +47,14 @@ body {
         @apply max-w-none w-full;
     }
 
-}
+    &.bg1 {
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 xl:before:right-0 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
+    }
+    &.bg2 {
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-2 before:left-0 md:before:right-1/4 lg:before:right-1/2 xl:before:right-0 before:bottom-0 before:top-1/4 before:bg-contain before:bg-no-repeat;
+    }
+    &.bg3 {
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-right-top before:absolute before:bg-hero-pattern-3 before:right-0 md:before:left-1/4 lg:before:left-1/2 xl:before:left-0 before:bottom-element before:top-0 before:bg-contain before:bg-no-repeat;
+    }
 
-div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
-    @apply max-w-none
 }

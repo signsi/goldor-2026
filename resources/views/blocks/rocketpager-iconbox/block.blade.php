@@ -11,7 +11,7 @@
                 block_row('icon');
                 $isImage = block_sub_value('content-type') == 'image';
             @endphp
-            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" class="bg-white flex flex-col justify-center group p-5 no-underline hover:bg-secondarydark" @else <div @endif class="bg-white flex flex-col justify-center p-5 no-underline">
+            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" class="relative border-solid border-2 border-grey bg-white flex flex-col justify-center group p-5 no-underline hover:bg-secondarydark hover:border-secondarydark transition-colors" @else <div @endif class="relative border-solid border-2 border-grey bg-white flex flex-col justify-center p-5 no-underline">
                 <div class="flex @if ( block_value('layout-row') ) flex-col justify-start md:flex-row md:items-center md:space-x-4 @else flex-col justify-start @endif h-full">
                     <div class="mx-auto @if ( block_value('layout-row') ) basis-1/4 @endif">
                         @if ( $isImage )
@@ -36,28 +36,46 @@
                         @endif
                         @if ( block_sub_value('text') )
                             @if ( !block_value('flippingbox') )
-                                <div class="mt-4 group-hover:text-white @if (block_sub_value('heading')) @else md:mt-6 lg:mt-8 @endif">
+                                <div class="mt-4 group-hover:text-white not-prose @if (block_sub_value('heading')) @else md:mt-6 lg:mt-8 @endif">
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                                 </div>
                             @endif
                         @endif
                         @if ( block_value('layout-row') )
                             @if (block_sub_value('link'))
-                                <span class="no-underline transition-transform text-primary hover:no-underline group-hover:origin-center group-hover:text-white group-hover:translate-x-2 mt-3 block" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
+                                @if (block_sub_value('linktext'))
+                                    <span class="no-underline transition-transform text-primary hover:no-underline group-hover:origin-center group-hover:text-white group-hover:translate-x-2 mt-3 block" href="{{ block_sub_value('link') }}">{{ block_sub_value('linktext') }} <i class="fa-light fa-arrow-right-long"></i></span>
+                                @endif
                             @endif
                         @endif
                     </div>
                 </div>
                 @if ( !block_value('layout-row') )
                     @if (block_sub_value('link'))
-                        <span class="text-center no-underline transition-transform hover:no-underline text-primary group-hover:origin-center group-hover:text-white group-hover:translate-x-2 mt-gutter block" href="{{ block_sub_value('link') }}">Mehr erfahren <i class="fa-light fa-arrow-right-long"></i></span>
+                         @if (block_sub_value('linktext'))
+                            <span class="text-center no-underline transition-transform hover:no-underline text-primary group-hover:origin-center group-hover:text-white group-hover:translate-x-2 mt-gutter block" href="{{ block_sub_value('link') }}">{{ block_sub_value('linktext') }} <i class="fa-light fa-arrow-right-long"></i></span>
+                        @endif
                     @endif
                 @endif
-                {{-- @if ( block_value('flippingbox') )
-                    <div class="">
-
+                @if ( block_value('flippingbox') )
+                    <div class="absolute inset-0 p-5 bg-secondarydark -z-10 group-hover:z-10 overflow-hidden transition-colors">
+                        @if ( block_sub_value('title') )
+                            <div class="my-0">
+                                <{{ block_sub_value('heading') }} class="text-base font-bold group-hover:text-white">{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</{{ block_sub_value('heading') }}>
+                            </div>
+                        @endif
+                        @if ( block_sub_value('text') )
+                            <div class="group-hover:text-white text-base font-light not-prose">
+                                {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
+                            </div>
+                        @endif
+                        @if (block_sub_value('link'))
+                            @if (block_sub_value('linktext'))
+                                <span class="text-sm no-underline transition-transform text-primary hover:no-underline group-hover:text-white mt-5 block" href="{{ block_sub_value('link') }}">{{ block_sub_value('linktext') }} <i class="fa-light fa-arrow-right-long"></i></span>
+                            @endif
+                        @endif
                     </div>
-                @endif --}}
+                @endif
             @if (block_sub_value('link')) </a> @else </div> @endif
         @endwhile
         {{ reset_block_rows( 'icon' ) }}
