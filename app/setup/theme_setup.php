@@ -2,57 +2,72 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
+
+    // Group-Styles
     register_block_style('core/group', [
-        'name' => 'slim',
-        'label' => __('Extra schmale Breite', 'rocketpager'),
+        'name' => 'tiny',
+        'label' => __('Extra schmall', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/group', [
-        'name' => 'small',
-        'label' => __('Schmale Breite', 'rocketpager'),
+        'name' => 'slim',
+        'label' => __('Schmall', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/group', [
         'name' => 'default',
-        'label' => __('Weite Breite', 'rocketpager'),
+        'label' => __('Standard', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/group', [
-        'name' => 'full',
-        'label' => __('Gesamte Breite', 'rocketpager'),
+        'name' => 'large',
+        'label' => __('Breit', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
-    register_block_style('core/columns', [
-        'name' => 'gap--large',
-        'label' => __('Abstand (Sektion) zwischen Spalten', 'rocketpager'),
+    register_block_style('core/group', [
+        'name' => 'xlarge',
+        'label' => __('Extra breit', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
-    register_block_style('core/columns', [
-        'name' => 'overlapping--right-1',
-        'label' => __('randabfallend rechts', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'overlapping--right-2',
-        'label' => __('randabfallend links', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
+
+    // Columns-Styles
+    // register_block_style('core/columns', [
+    //     'name' => 'overlapping--right-1',
+    //     'label' => __('randabfallend rechts', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/columns', [
+    //     'name' => 'overlapping--right-2',
+    //     'label' => __('randabfallend links', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
     register_block_style('core/columns', [
         'name' => 'offset-top',
         'label' => __('nach oben versetzt', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
+
+    // Paragraph-Styles
     register_block_style('core/paragraph', [
         'name' => 'lead',
         'label' => __('Medium', 'rocketpager'),
     ]);
+
+    // Button-Styles
     register_block_style('core/button', [
         'name' => 'outline-white',
         'label' => __('Outline weiss (klein)', 'rocketpager'),
     ]);
+
+    // List-Styles
     register_block_style('core/list', [
         'name' => 'liststyle-icon--check-circle',
         'label' => __('Icon-Liste', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--arrowright',
+        'label' => __('Pfeil-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/list', [
@@ -73,21 +88,6 @@ add_action('init', function () {
     register_block_style('core/list', [
         'name' => 'liststyle-icon--return',
         'label' => __('Link zurück', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markergreen',
-        'label' => __('Adress-Block (Marker grün)', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markeraubergine',
-        'label' => __('Adress-Block (Marker aubergine)', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markerpink',
-        'label' => __('Adress-Block (Marker gelb)', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
 });
@@ -151,7 +151,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='submenuContainer relative left-0 lg:absolute mt-[53px] w-full z-10 transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden'><ul class='menu-primary_subnavigation bg-primarytransparent bg-opacity-25 p-gutter z-20 flex flex-col lg:min-w-max'>\n";
+            $output .= "\n$indent<div class='submenuContainer relative left-0 lg:absolute mt-[53px] w-full z-10 transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden'><ul class='menu-primary_subnavigation bg-primarytransparent p-gutter z-20 flex flex-col lg:min-w-max'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {

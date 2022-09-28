@@ -1,10 +1,4 @@
 <?php
-$unsere_leistungen_block = new WP_Query(
-    [
-        'post_type' => 'wp_block',
-        'title' => 'Vorsorge im Alter',
-    ]
-);
 function slug_post_type_template()
 {
     // page
@@ -44,16 +38,16 @@ function slug_post_type_template()
 
 
     // post
-    $page_type_object = get_post_type_object('post');
-    $page_type_object->template = [
-        ['core/block', ['ref' => 1296 ], []],
-    ];
+    // $page_type_object = get_post_type_object('post');
+    // $page_type_object->template = [
+    //     ['core/block', ['ref' => 1296 ], []],
+    // ];
 
     // post
-    $page_type_object = get_post_type_object('events');
-    $page_type_object->template = [
-        ['core/block', ['ref' => 1643 ], []],
-    ];
+    // $page_type_object = get_post_type_object('events');
+    // $page_type_object->template = [
+    //     ['core/block', ['ref' => 1643 ], []],
+    // ];
 
 }
 add_action('init', 'slug_post_type_template');

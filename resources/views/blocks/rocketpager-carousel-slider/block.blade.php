@@ -32,7 +32,7 @@
         @endphp
         <div class="carousel-element @if($isBoxSlider) p-0 pb-4 md:p-4 md:pt-0 @endif" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
             @if ( $preview_type == 'post-image' )
-                <div class="image-wrapper not-prose">
+                <div class="image-wrapper ">
                     @if(block_sub_value('link'))
                         <a href="{{ block_sub_value('link') }}">
                     @endif
@@ -51,7 +51,7 @@
                     @endif
                 </div>
             @else
-                <div class="video-wrapper not-prose">
+                <div class="video-wrapper ">
                     @switch($preview_type)
                         @case('post-video')
                             @include('blocks.helpers.video-youtube',
@@ -83,7 +83,7 @@
                     @endswitch
                 </div>
             @endif
-            <div class="text-wrapper pr-4 not-prose {{ $isBoxSlider ? 'px-0 text-left' : 'py-4 text-left'}}">
+            <div class="text-wrapper pr-4  {{ $isBoxSlider ? 'px-0 text-left' : 'py-4 text-left'}}">
                 @if ( block_sub_value( 'title') )
                     <p class="title !mb-2 @if ( block_sub_value('link') ) font-normal @else font-bold @endif">{{ block_sub_value('title') }}</p>
                 @endif

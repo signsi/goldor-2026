@@ -2,7 +2,7 @@
 $search_active = App\getThemeOption('cta_search');
 @endphp
 
-<div id="topNav" class="relative bg-white max-w-default w-full mx-auto">
+<div id="topNav" class="relative bg-white max-w-default 2xl:max-w-xlarge w-full mx-auto">
     <div class="flex justify-between md:space-x-25 items-center p-gutter">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 lg:hidden">
@@ -22,8 +22,8 @@ $search_active = App\getThemeOption('cta_search');
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative group text-sm lg:text-lg 2xl:text-xl font-bold text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
-                            'add_sub_li_class' => 'before:content-none text-sm lg:text-lg !mb-5',
+                            'add_li_class' => 'relative group text-base font-bold text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_sub_li_class' => 'before:content-none !mb-5',
                             'walker' => new SubmenuWrap(),
                         ]);
                     }

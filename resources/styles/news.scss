@@ -21,7 +21,7 @@ a.is-checked > li {
     @apply flex;
     .nav-previous, .nav-next {
         a {
-            @apply relative w-7 h-7 block text-0 before:bg-gray-300 before:text-sm before:p-1.5 before:rounded-sm before:absolute before:text-font hover:before:bg-primary hover:before:text-white before:transition-colors before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none before:font-light;
+            @apply relative w-9 h-9 flex text-center items-center items-center text-0 before:bg-gray-300 before:text-sm before:p-1.5 before:rounded-sm before:absolute before:inset-0 before:text-font hover:before:bg-primary hover:before:text-white before:transition-colors before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none before:font-light;
         }
     }
     .nav-previous {

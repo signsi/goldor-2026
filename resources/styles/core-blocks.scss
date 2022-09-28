@@ -1,39 +1,47 @@
-//  Button
-.wp-block-button__link{
-    @include buttonStyleDefault;
+// Group
+.wp-block-group {
+    &.is-style-tiny {
+        @apply max-w-tiny #{!important};
+    }
+    &.is-style-slim {
+        @apply max-w-slim #{!important};
+    }
+    &.is-style-default {
+        @apply max-w-default #{!important};
+    }
+    &.is-style-large {
+        @apply max-w-large #{!important};
+    }
+    &.is-style-xlarge {
+        @apply max-w-xlarge #{!important};
+    }
 }
-
-.is-style-outline>.wp-block-button__link,
-.is-style-outline>.wp-block-button__link:not(.has-background),
-.wp-block-button__link.is-style-outline:not(.has-background){
-    @include buttonStyleOutline;
-}
-
-.is-style-outline-white>.wp-block-button__link,
-.is-style-outline-white>.wp-block-button__link:not(.has-background),
-.wp-block-button__link.is-style-outline-white:not(.has-background){
-    @include buttonStyleOutlineWhite;
-}
-
-
-//  Text Media
-.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
-    @apply pl-0;
-}
-
 
 // Spalten-Styling generell
 div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
     @apply max-w-none;
+}
+div[class^="wp-container-"] {
+    @apply max-w-none;
     // Spalten-Element
     &.wp-block-columns {
+        // Standardwert
         @apply gap-gutter;
-
-        //  Spalten-Element - grosser Abstand zwischen den Spalten
-        &.is-style-gap--large {
+        &.is-style-gap-tiny {
+            @apply gap-tiny;
+        }
+        &.is-style-gap-gutter {
+            @apply gap-gutter;
+        }
+        &.is-style-gap-element {
+            @apply gap-element;
+        }
+        &.is-style-gap-section {
             @apply gap-section;
         }
-
+        &.is-style-gap-0 {
+            @apply gap-0;
+        }
         //  Spalten-Element - randabfallend links
         &.is-style-overlapping--left {
             .wp-block-column {
@@ -78,7 +86,7 @@ div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
         }
     }
     &.wp-block-columns {
-        &.is-style-default, &.is-style-gap--large {
+        &.is-style-gap--section {
             .wp-block-column {
                 &:first-child {
                     .is-style-slim {
@@ -92,7 +100,46 @@ div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
                 }
             }
         }
+        &.is-style-gap--default {
+            .wp-block-column {
+                &:first-child {
+                    .is-style-slim {
+                        @apply md:pr-0 md:mr-0 xl:pl-[45px];
+                    }
+                }
+                &:last-child {
+                    .is-style-slim {
+                        @apply md:pl-0 md:ml-0;
+                    }
+                }
+            }
+        }
     }
+}
+
+//  Button
+.wp-block-button__link{
+    @include buttonStyleDefault;
+}
+
+.is-style-outline>.wp-block-button__link,
+.is-style-outline>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline:not(.has-background){
+    @include buttonStyleOutline;
+}
+
+.is-style-outline-white>.wp-block-button__link,
+.is-style-outline-white>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline-white:not(.has-background){
+    @include buttonStyleOutlineWhite;
+}
+.wp-block-buttons {
+    @apply mt-element;
+}
+
+//  Text Media
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
+    @apply pl-0;
 }
 
 //  Images
@@ -111,11 +158,6 @@ div[class^="wp-container-"] > :where(:not(.alignleft):not(.alignright)) {
         }
     }
 }
-figure, figure.wp-block-image {
-    figcaption {
-        @apply text-sm text-grey mt-3;
-    }
-}
 
 // Cover
 .wp-block-cover, .wp-block-cover-image {
@@ -128,38 +170,24 @@ figure.wp-block-gallery.has-nested-images {
 }
 
 //  List-Styles
-ul[class*="is-style-liststyle"] {
-    @apply my-element;
-}
+// ul[class*="is-style-liststyle"] {
+//     @apply my-element;
+// }
 ul.is-style-liststyle-icon--check-circle,
-ul.is-style-liststyle-icon--markeraubergine,
-ul.is-style-liststyle-icon--markergreen,
-ul.is-style-liststyle-icon--markerpink {
+ul.is-style-liststyle-icon--arrowright  {
     @apply list-outside pl-5;
     > li {
-        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-bold;
+        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-light;
     }
 }
 ul.is-style-liststyle-icon--check-circle {
     > li {
-        @apply marker:content-['\F058'];
+        @apply pl-3 marker:content-['\F058'];
     }
 }
-ul.is-style-liststyle-icon--markeraubergine,
-ul.is-style-liststyle-icon--markergreen,
-ul.is-style-liststyle-icon--markerpink {
+ul.is-style-liststyle-icon--arrowright {
     > li {
-        @apply mb-element marker:content-['\f3c5'];
-    }
-}
-ul.is-style-liststyle-icon--markerpink {
-    > li {
-        @apply marker:text-pink;
-    }
-}
-ul.is-style-liststyle-icon--markeraubergine {
-    > li {
-        @apply marker:text-aubergine;
+        @apply transition-all hover:origin-center hover:translate-x-2 pl-3 marker:content-['\f054'] hover:marker:content-['\f178'];
     }
 }
 ul.is-style-liststyle-icon--linklist,
@@ -209,34 +237,5 @@ ul.is-style-liststyle-icon--linklist {
         &, a {
             @apply font-bold;
         }
-    }
-}
-
-// Tabelle
-.wp-block-table {
-    thead, tr {
-        @apply border-b-2 border-grey;
-    }
-    th {
-        @apply text-sm font-normal text-grey #{!important};
-    }
-    td, th {
-        @apply border-0 px-0;
-    }
-}
-
-// Group
-.wp-block-group {
-    &.is-style-slim {
-        @apply max-w-slim #{!important};
-    }
-    &.is-style-small {
-        @apply max-w-large #{!important};
-    }
-    &.is-style-default {
-        @apply max-w-default #{!important};
-    }
-    &.is-style-full {
-        @apply max-w-full #{!important};
     }
 }

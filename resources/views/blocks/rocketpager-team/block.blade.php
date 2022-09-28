@@ -14,7 +14,7 @@
             @endphp
             @if ( !block_sub_value('hide-element') )
                 <div class="team-member transition-all duration-300 ease-in-out{{ App\getAnimation() }}">
-                    <div class="image-wrapper not-prose">
+                    <div class="image-wrapper ">
                         @include('blocks.helpers.image',
                         [
                             'name_ImageField' => 'portrait-image',
@@ -28,7 +28,7 @@
                             <p class="title !mb-2"><strong>{{ block_sub_value('name') }}</strong></p>
                         @endif
                         @if ( block_sub_value('text') )
-                            <div class="prose-p:leading-7">{!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}</div>
+                            <div>{!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}</div>
                         @endif
                         @if ( block_sub_value('email') )
                             <p><a href="mailto:{{ block_sub_value('email') }}" class="underline text-primary hover:text-font">E-Mail</a>@if ( block_sub_value('phone') ) | <a href="tel:{{ block_sub_value('phone') }}" class="underline text-primary hover:text-font">{{ block_sub_value('phone') }}</a> @endif </p>

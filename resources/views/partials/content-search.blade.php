@@ -2,7 +2,7 @@
   $function = function_exists( 'relevanssi_get_permalink' ) ? 'relevanssi_get_permalink' : 'get_permalink';
 @endphp
 
-<div class="flex flex-grow flex-col max-w-content px-gutter py-section mx-auto">
+<div class="flex flex-grow flex-col max-w-slim px-gutter py-section mx-auto">
   <h1>{{ __('Ihre Suchresultate', 'rocketpager') }}</h1>
   <p class="!mb-element mt-0">{{ __('Ihre Suche nach:', 'rocketpager') }} <strong>{!! $title !!}</strong></p>
   @while(have_posts()) @php(the_post())
@@ -15,7 +15,7 @@
           {{ get_the_date() }}
         </time>
       </header>
-      <div class="prose-p:mb-0">
+      <div class="p:mb-0">
         @php(the_excerpt())
       </div>
     </article>

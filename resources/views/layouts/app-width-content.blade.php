@@ -7,15 +7,7 @@
 </a>
 {{-- PARAM HEADER --}}
 @include('sections.header.header1')
-<main id="main"
-    class="
-    main mx-auto max-w-none
-    prose
-    prose-font
-    lg:prose-lg
-    prose-h1:text-primary
-    prose-hr:my-section
-  ">
+<main id="main" class="main mx-auto max-w-none">
     <div class="page content">
       @yield('content')
       @if ($search_active)

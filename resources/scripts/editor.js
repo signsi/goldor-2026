@@ -2,12 +2,12 @@ import { domReady } from '@roots/sage/client';
 import './backend/custom-styles';
 const { __ } = wp.i18n;
 const { createHigherOrderComponent } = wp.compose;
-const { Fragment } = wp.element;
-import { __experimentalDimensionControl } from '@wordpress/components';
+const { Fragment, useState } = wp.element;
+import { CheckboxControl } from '@wordpress/components';
 import classnames from 'classnames'
 import Spacings from './components/Spacings';
-
-
+const { InspectorControls } = wp.blockEditor;
+const { PanelBody, SelectControl } = wp.components;
 
 const getFlattened = (data, identifier) => {
   if (data) {
@@ -43,9 +43,6 @@ const setToolbarButtonAttribute = (settings, name) => {
 
   return Object.assign({}, settings, {
     attributes: Object.assign({}, settings.attributes, {
-      paragraphAttribute: {
-        type: 'string'
-      },
       spacings: {
         type: 'object',
         default: {
@@ -62,6 +59,18 @@ const setToolbarButtonAttribute = (settings, name) => {
             l: ""
           }
         }
+      },
+      hoverGroup: {
+        type: 'boolean',
+        default: false
+      },
+      animation: {
+        type: 'string',
+        default: '-'
+      },
+      gap: {
+        type: 'string',
+        default: '-'
       }
     }),
   });
@@ -82,11 +91,54 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
     }
 
     const { attributes, setAttributes } = props;
-    const { spacings } = attributes;
+    const { spacings, gap, hoverGroup, animation } = attributes;
 
     return (
       <Fragment>
         <BlockEdit {...props} />
+        <InspectorControls>
+          <PanelBody
+            title="Erweiterungen">
+            <CheckboxControl
+              label="Hover-Group?"
+              checked={hoverGroup}
+              onChange={isHoverGroup => setAttributes({ "hoverGroup": isHoverGroup })}
+            />
+            <SelectControl
+              label="Animation"
+              value={animation}
+              options={[
+                { label: '-', value: '-' },
+                { label: 'Fade in', value: 'fade-in' },
+                { label: 'Zoom in', value: 'zoom-in' },
+                { label: 'Slide von links', value: 'slide-from-left' },
+                { label: 'Slide von rechts', value: 'slide-from-right' },
+                { label: 'Slide von unten', value: 'slide-from-bottom' },
+                { label: 'Clip horizontal', value: 'clip-horizontally' },
+                { label: 'Clip vertikal', value: 'clip-vertically' },
+              ]}
+              onChange={newAnimation => setAttributes({ "animation": newAnimation })}
+              __nextHasNoMarginBottom
+            />
+            {
+              props.name.includes("columns") &&
+              <SelectControl
+                label="Spaltenabstand"
+                value={gap}
+                options={[
+                  { label: '-', value: '-' },
+                  { label: '0', value: 'is-style-gap-0' },
+                  { label: 'tiny', value: 'is-style-gap-tiny' },
+                  { label: 'gutter', value: 'is-style-gap-gutter' },
+                  { label: 'element', value: 'is-style-gap-element' },
+                  { label: 'section', value: 'is-style-gap-section' },
+                ]}
+                onChange={gap => setAttributes({ "gap": gap })}
+                __nextHasNoMarginBottom
+              />
+            }
+          </PanelBody>
+        </InspectorControls>
         <Spacings
           spacings={spacings}
           onChange={(id, value) => {
@@ -124,14 +176,8 @@ const withToolbarButtonProp = createHigherOrderComponent((BlockListBlock) => {
     }
 
     const { attributes } = props;
-    const { paragraphAttribute } = attributes;
+    return <BlockListBlock {...props} />
 
-    // TODO: add spacing specific classes
-    if (paragraphAttribute && 'custom' === paragraphAttribute) {
-      return <BlockListBlock {...props} className={'has-custom-attribute'} />
-    } else {
-      return <BlockListBlock {...props} />
-    }
   };
 }, 'withToolbarButtonProp');
 
@@ -149,12 +195,18 @@ const main = async (err) => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
-      const { spacings } = attributes;
+      const { spacings, animation, gap, hoverGroup } = attributes;
       const flat_m = getFlattened(spacings, 'm')
       const flat_p = getFlattened(spacings, 'p');
       const classes_m = mapToClass(flat_m);
       const classes_p = mapToClass(flat_p);
-      const classes = [...classes_m, ...classes_p];
+      // TODO: looks strange, but is used to conditionally add data to the array 🪄
+      const classes = [
+        ...classes_m, ...classes_p,
+        ...(animation === "-" ? [] : [animation]),
+        ...(gap === "-" ? [] : [gap]),
+        ...(hoverGroup ? ['group'] : [])
+      ];
 
       if (classes.length > 0) {
         extraProps.className = classnames(extraProps.className, classes.join(" "));
@@ -165,14 +217,12 @@ const main = async (err) => {
 
   };
 
-
   wp.hooks.addFilter(
     'blocks.getSaveContent.extraProps',
     'custom-attributes/save-toolbar-button-attribute',
     saveToolbarButtonAttribute
   );
 }
-
 
 domReady(main);
 import.meta.webpackHot?.accept(main);

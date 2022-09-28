@@ -4,7 +4,7 @@
             -webkit-text-fill-color: transparent;
         }
         .social-nav-wrapper a{
-            @apply text-xl mr-2 md:text-3xl md:mr-3 last:mr-0 no-underline hover:no-underline hover:text-primary;
+            @apply text-lg mr-2 md:mr-3 last:mr-0 no-underline hover:no-underline hover:text-primary;
         }
     }
 }

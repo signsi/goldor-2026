@@ -9,7 +9,7 @@
                 <div class="text-base">{{ get_the_date() }}</div>
             </div>
             <div class="basis-full lg:basis-1/2">
-                <div class="image-wrapper not-prose overflow-hidden">
+                <div class="image-wrapper  overflow-hidden">
                     <a href="{{ the_permalink() }}">{{ the_post_thumbnail( $preview_size, ['class' => 'transition-transform duration-300 ease-in-out md:group-hover:scale-110 mb-4']) }}</a>
                 </div>
             </div>

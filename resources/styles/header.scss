@@ -41,7 +41,7 @@ header {
                     /* Level 2 standardmässig geöffnet */
                     >ul.menu-primary_subnavigation {
                         > li {
-                            @apply text-base font-semibold last:pb-0 #{!important};
+                            @apply font-semibold last:pb-0 #{!important};
                             a {
                                 @apply pl-2 flex;
                             }

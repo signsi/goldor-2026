@@ -1,5 +1,28 @@
 @layer utilities{
 
+    /* Spacing - Typography */
+    .m-typography{
+        @apply m-typography-mobile md:m-typography-tablet;
+    }
+    .mx-typography{
+        @apply mx-typography-mobile md:mx-typography-tablet;
+    }
+    .my-typography{
+        @apply my-typography-mobile md:my-typography-tablet;
+    }
+    .ml-typography{
+        @apply ml-typography-mobile md:ml-typography-tablet;
+    }
+    .mr-typography{
+        @apply mr-typography-mobile md:mr-typography-tablet;
+    }
+    .mt-typography{
+        @apply mt-typography-mobile md:mt-typography-tablet;
+    }
+    .mb-typography{
+        @apply mb-typography-mobile md:mb-typography-tablet;
+    }
+
     /* Spacing - Gutter */
     .m-gutter{
         @apply m-gutter-mobile md:m-gutter-display;

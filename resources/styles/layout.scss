@@ -1,3 +1,4 @@
+// Allgemein
 html {
     @apply scroll-smooth;
 }
@@ -15,10 +16,9 @@ body {
 }
 
 // Gruppen-Styling generell
-.wp-block-group {
-    @apply mx-auto px-gutter max-w-large;
-
-    * {
+// .wp-block-group
+div, section {
+    > * {
         &:first-child {
             @apply mt-0;
         }
@@ -27,6 +27,9 @@ body {
             @apply mb-0;
         }
     }
+}
+.wp-block-group {
+    @apply mx-auto px-gutter max-w-large;
 
     // Abstände Padding - links uns rechts
     &.alignfull {
@@ -48,13 +51,13 @@ body {
     }
 
     &.bg1 {
-        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 xl:before:right-0 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
     }
     &.bg2 {
-        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-2 before:left-0 md:before:right-1/4 lg:before:right-1/2 xl:before:right-0 before:bottom-0 before:top-1/4 before:bg-contain before:bg-no-repeat;
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-2 before:left-0 md:before:right-1/4 lg:before:right-1/2 before:bottom-0 before:top-1/4 before:bg-contain before:bg-no-repeat;
     }
     &.bg3 {
-        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-right-top before:absolute before:bg-hero-pattern-3 before:right-0 md:before:left-1/4 lg:before:left-1/2 xl:before:left-0 before:bottom-element before:top-0 before:bg-contain before:bg-no-repeat;
+        @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-right-top before:absolute before:bg-hero-pattern-3 before:right-0 md:before:left-1/4 lg:before:left-1/2 before:bottom-element before:top-0 before:bg-contain before:bg-no-repeat;
     }
 
 }
