@@ -2,7 +2,7 @@
 $search_active = App\getThemeOption('cta_search');
 @endphp
 
-<div id="topNav" class="relative bg-white max-w-default 2xl:max-w-xlarge w-full mx-auto">
+<div id="topNav" class="relative bg-white max-w-large 2xl:max-w-xlarge w-full mx-auto">
     <div class="flex justify-between md:space-x-25 items-center p-gutter">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 lg:hidden">

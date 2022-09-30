@@ -29,7 +29,7 @@ div, section {
     }
 }
 .wp-block-group {
-    @apply mx-auto px-gutter max-w-large;
+    @apply mx-auto px-gutter max-w-default;
 
     // Abstände Padding - links uns rechts
     &.alignfull {

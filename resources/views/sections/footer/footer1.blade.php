@@ -23,7 +23,7 @@ $buttons = [
 <footer aria-labelledby="footer-heading">
     <div class="has-secondarydark-background-color has-background">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-default 2xl:max-w-xlarge px-gutter py-element mx-auto">
+        <div class="max-w-large 2xl:max-w-xlarge px-gutter py-element mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-8 lg:gap-y-0">
                 <div class="footerSidebar-1">
                     @include('sections.footer.elements.address')
@@ -40,7 +40,7 @@ $buttons = [
     </div>
     <div class="has-secondary-background-color has-background" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer bottom</h2>
-        <div class="footerDisclaimer max-w-default 2xl:max-w-xlarge px-gutter py-2.5 mx-auto">
+        <div class="footerDisclaimer max-w-large 2xl:max-w-xlarge px-gutter py-2.5 mx-auto">
             <nav>
                 @php
                     $locations = get_nav_menu_locations();

@@ -68,6 +68,10 @@ const setToolbarButtonAttribute = (settings, name) => {
         type: 'string',
         default: '-'
       },
+      layoutWidth: {
+        type: 'string',
+        default: 'is-style-layout-default'
+      },
       gap: {
         type: 'string',
         default: '-'
@@ -91,7 +95,7 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
     }
 
     const { attributes, setAttributes } = props;
-    const { spacings, gap, hoverGroup, animation } = attributes;
+    const { spacings, gap, hoverGroup, animation, layoutWidth } = attributes;
 
     return (
       <Fragment>
@@ -104,6 +108,23 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               checked={hoverGroup}
               onChange={isHoverGroup => setAttributes({ "hoverGroup": isHoverGroup })}
             />
+            {
+              (props.name.includes("group") || props.name.includes("columns")) &&
+              <SelectControl
+                label="Layout-Breite"
+                value={layoutWidth}
+                options={[
+                  { label: 'Tiny', value: 'is-style-layout-tiny' },
+                  { label: 'Slim', value: 'is-style-layout-slim' },
+                  { label: 'Default', value: 'is-style-layout-default' },
+                  { label: 'Large', value: 'is-style-layout-large' },
+                  { label: 'xLarge', value: 'is-style-layout-xlarge' },
+                  { label: 'Full', value: 'is-style-layout-full' },
+                ]}
+                onChange={newLayoutWidth => setAttributes({ "layoutWidth": newLayoutWidth })}
+                __nextHasNoMarginBottom
+              />
+            }
             <SelectControl
               label="Animation"
               value={animation}
@@ -195,7 +216,7 @@ const main = async (err) => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
-      const { spacings, animation, gap, hoverGroup } = attributes;
+      const { spacings, animation, gap, hoverGroup, layoutWidth } = attributes;
       const flat_m = getFlattened(spacings, 'm')
       const flat_p = getFlattened(spacings, 'p');
       const classes_m = mapToClass(flat_m);
@@ -205,6 +226,7 @@ const main = async (err) => {
         ...classes_m, ...classes_p,
         ...(animation === "-" ? [] : [animation]),
         ...(gap === "-" ? [] : [gap]),
+        ...(layoutWidth === "is-style-layout-default" ? [] : [layoutWidth]),
         ...(hoverGroup ? ['group'] : [])
       ];
 
