@@ -72,6 +72,10 @@ const setToolbarButtonAttribute = (settings, name) => {
         type: 'string',
         default: 'is-style-layout-default'
       },
+      isLayoutOffset: {
+        type: 'string',
+        default: '-'
+      },
       gap: {
         type: 'string',
         default: '-'
@@ -95,7 +99,7 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
     }
 
     const { attributes, setAttributes } = props;
-    const { spacings, gap, hoverGroup, animation, layoutWidth } = attributes;
+    const { spacings, gap, hoverGroup, isLayoutOffset, animation, layoutWidth } = attributes;
 
     return (
       <Fragment>
@@ -109,7 +113,8 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               onChange={isHoverGroup => setAttributes({ "hoverGroup": isHoverGroup })}
             />
             {
-              (props.name.includes("group") || props.name.includes("columns")) &&
+              (props.name.includes("group")) && 
+              <>
               <SelectControl
                 label="Layout-Breite"
                 value={layoutWidth}
@@ -124,6 +129,18 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
                 onChange={newLayoutWidth => setAttributes({ "layoutWidth": newLayoutWidth })}
                 __nextHasNoMarginBottom
               />
+              <SelectControl
+                label="Gruppe randabfallend darstellen"
+                value={isLayoutOffset}
+                options={[
+                  { label: '-', value: '-' },
+                  { label: 'Gruppe links am Rand ausrichten', value: 'is-offset is-offset-left' },
+                  { label: 'Gruppe rechts am Rand ausrichten', value: 'is-offset is-offset-right' },
+                ]}
+                onChange={newisLayoutOffset => setAttributes({ "isLayoutOffset": newisLayoutOffset })}
+                __nextHasNoMarginBottom
+              />
+              </>
             }
             <SelectControl
               label="Animation"
@@ -216,7 +233,7 @@ const main = async (err) => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
-      const { spacings, animation, gap, hoverGroup, layoutWidth } = attributes;
+      const { spacings, animation, gap, hoverGroup, layoutWidth, isLayoutOffset } = attributes;
       const flat_m = getFlattened(spacings, 'm')
       const flat_p = getFlattened(spacings, 'p');
       const classes_m = mapToClass(flat_m);
@@ -227,7 +244,8 @@ const main = async (err) => {
         ...(animation === "-" ? [] : [animation]),
         ...(gap === "-" ? [] : [gap]),
         ...(layoutWidth === "is-style-layout-default" ? [] : [layoutWidth]),
-        ...(hoverGroup ? ['group'] : [])
+        ...(hoverGroup ? ['group'] : []),
+        ...(isLayoutOffset === "-" ? [] : [isLayoutOffset]),
       ];
 
       if (classes.length > 0) {

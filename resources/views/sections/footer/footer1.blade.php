@@ -28,11 +28,11 @@ $buttons = [
                 <div class="footerSidebar-1">
                     @include('sections.footer.elements.address')
                 </div>
-                <div class="footerSidebar-2 flex flex-col justify-between">
+                <div class="footerSidebar-2 flex flex-col justify-between gap-y-8 lg:gap-y-0">
                     @php dynamic_sidebar('sidebar-footer-1') @endphp
                     @include('sections.footer.elements.socialmedia-nav')
                 </div>
-                <div class="footerSidebar-3 flex flex-col justify-between">
+                <div class="footerSidebar-3 flex flex-col justify-between gap-y-8 lg:gap-y-0">
                     @php dynamic_sidebar('sidebar-footer-2') @endphp
                 </div>
             </div>

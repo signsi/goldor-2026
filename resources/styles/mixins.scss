@@ -1,5 +1,5 @@
 @mixin buttonStyleDefault {
-  @apply bg-primary text-white font-semibold no-underline hover:bg-primarydark;
+  @apply bg-primary text-white text-base font-semibold no-underline hover:bg-primarydark;
 }
 
 @mixin buttonStyleOutline {
@@ -29,18 +29,11 @@
     @apply text-white hover:underline hover:text-font;
   }
   .wp-block-button__link {
-    @apply bg-white text-primary hover:bg-secondary;
+    @apply bg-white text-primary no-underline hover:bg-font hover:text-white;
   }
   .is-style-outline {
     .wp-block-button__link {
-      @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font #{!important};
-    }
-  }
-
-
-  ul.is-style-liststyle-icon--check-circle {
-    >li {
-      @apply marker:text-white;
+      @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font;
     }
   }
 
@@ -52,75 +45,27 @@
     }
   }
 
-  ul.is-style-liststyle-icon--linklist,
-  ul.is-style-liststyle-icon--download,
-  ul.is-style-liststyle-icon--singlelink {
-    >li {
-      @apply text-white hover:text-white hover:after:text-white;
-
-      a {
-        @apply text-white hover:text-white hover:underline;
-      }
+  ul[class*="is-style-liststyle"] {
+    > li {
+        @apply text-white marker:text-white after:text-white hover:text-font hover:after:text-font hover:marker:text-font;
+        &:hover {
+          a {
+            @apply text-font;
+          }
+        }
+        a {
+          @apply text-white no-underline hover:text-font hover:underline;
+        }
     }
   }
+
   .slick-arrow {
     @apply bg-white hover:bg-secondary;
     &.slick-prev::before, &.slick-next::before {
       @apply text-primary;
     }
   }
-}
-
-@mixin colorWhiteMediumUp {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul li,
-  p,
-  p strong,
-  p a {
-      @apply md:text-white;
-  }
-
-  p a,
-  ul li a {
-      @apply md:text-white md:hover:text-secondary;
-  }
-
-  .wp-block-button__link {
-      @apply md:bg-white md:text-primary md:hover:bg-secondary md:hover:text-white;
-  }
-  .is-style-outline {
-    .wp-block-button__link {
-      @include buttonStyleOutlineWhite;
-    }
-  }
-
-  ul.is-style-liststyle-icon--check-circle {
-      >li {
-      @apply md:marker:text-white;
-      }
-  }
-
-  ul.is-style-liststyle-icon--download {
-      @apply list-none pl-0;
-
-      >li {
-      @apply md:border-white;
-      }
-  }
-
-  ul.is-style-liststyle-icon--linklist,
-  ul.is-style-liststyle-icon--download {
-      >li {
-      @apply md:hover:text-secondary md:hover:after:text-secondary;
-
-      a {
-          @apply md:hover:text-secondary;
-      }
-      }
+  .search-input {
+    @apply border-white text-white #{!important}
   }
 }

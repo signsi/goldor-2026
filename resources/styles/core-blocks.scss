@@ -1,233 +1,12 @@
-/* Group */
-.wp-block-group {
-    &.is-style-layout-tiny {
-        @apply max-w-tiny #{!important};
-    }
-    &.is-style-layout-slim {
-        @apply max-w-slim #{!important};
-    }
-    &.is-style-layout-default {
-        @apply max-w-default #{!important};
-    }
-    &.is-style-layout-large {
-        @apply max-w-large #{!important};
-    }
-    &.is-style-layout-xlarge {
-        @apply max-w-xlarge #{!important};
-    }
-    &.is-style-layout-full {
-      @apply max-w-none px-0 mx-0 #{!important};
-    }
-
-    // Columns mit Spaltenbreite
-    .wp-block-columns {
-        &.is-style-columns-tiny,
-        &.is-style-columns-slim,
-        &.is-style-columns-default,
-        &.is-style-columns-large,
-        &.is-style-columns-xlarge {
-            @apply gap-0 #{!important};
-            .wp-block-column {
-                @apply first:pl-0 md:first:pr-[calc((theme(gap.mobile))/2)] md:last:pl-[calc((theme(gap.mobile))/2)] last:pr-0;
-                &:first-child {
-                    .wp-block-group {
-                        @apply md:ml-auto md:mr-0 2xl:px-0;
-                    }
-                }
-                &:last-child {
-                    .wp-block-group {
-                        @apply md:ml-0 md:mr-auto 2xl:px-0;
-                    }
-                }
-            }
-            &.is-style-gap-tiny {
-                .wp-block-column {
-                    @apply first:pl-0 md:first:pr-[calc((theme(gap.tiny))/2)] md:last:pl-[calc((theme(gap.tiny))/2)] last:pr-0;
-                }
-            }
-            &.is-style-gap-gutter {
-                .wp-block-column {
-                    @apply first:pl-0 md:first:pr-[calc((theme(gap.mobile))/2)] md:last:pl-[calc((theme(gap.mobile))/2)] last:pr-0;
-                }
-            }
-            &.is-style-gap-element {
-                .wp-block-column {
-                    @apply first:pl-0 md:first:pr-[calc((theme(gap.tablet))/2)] lg:first:pr-[calc((theme(gap.desktop))/2)] md:last:pl-[calc((theme(gap.tablet))/2)] lg:last:pl-[calc((theme(gap.desktop))/2)] last:pr-0;
-                }
-            }
-            &.is-style-gap-section {
-                .wp-block-column {
-                    @apply first:pl-0 md:first:pr-[calc((theme(gap.tablet))/2)] lg:first:pr-[calc((theme(gap.desktop))/2)] 2xl:first:pr-[calc((theme(gap.full-hd))/2)] md:last:pl-[calc((theme(gap.tablet))/2)] lg:last:pl-[calc((theme(gap.desktop))/2)] 2xl:last:pl-[calc((theme(gap.full-hd))/2)] last:pr-0;
-                }
-            }
-        }
-        &.is-style-columns-tiny{
-            .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-tiny .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.tiny)/2)))];
-            }
-            &.is-style-gap-gutter .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-element .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))];
-            }
-            &.is-style-gap-section .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-        &.is-style-columns-slim{
-            .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-tiny .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.tiny)/2)))];
-            }
-            &.is-style-gap-gutter .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-element .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))];
-            }
-            &.is-style-gap-section .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-        &.is-style-columns-default{
-            .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-tiny .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.tiny)/2)))];
-            }
-            &.is-style-gap-gutter .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-element .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))];
-            }
-            &.is-style-gap-section .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-        &.is-style-columns-large{
-            .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-tiny .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.tiny)/2)))];
-            }
-            &.is-style-gap-gutter .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-element .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))];
-            }
-            &.is-style-gap-section .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-        &.is-style-columns-xlarge{
-            .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-tiny .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.tiny)/2)))];
-            }
-            &.is-style-gap-gutter .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
-            }
-            &.is-style-gap-element .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))];
-            }
-            &.is-style-gap-section .wp-block-column .wp-block-group {
-                @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-    }
-}
-/* Columns */
-
-
-// Spalten-Styling generell
-div[class^="wp-container-"] {
-    // Spalten-Element
-    &.wp-block-columns {
-        // Standardwert
-        @apply gap-gutter;
-        &.is-style-gap-tiny {
-            @apply gap-tiny;
-        }
-        &.is-style-gap-gutter {
-            @apply gap-gutter;
-        }
-        &.is-style-gap-element {
-            @apply gap-element;
-        }
-        &.is-style-gap-section {
-            @apply gap-section;
-        }
-        &.is-style-gap-0 {
-            @apply gap-0;
-        }
-        //  Spalten-Element - randabfallend links
-        &.is-style-overlapping--left {
-            .wp-block-column {
-                &:first-child {
-                    @apply pr-gutter md:pr-0;
-                }
-                &:last-child {
-                    @apply xl:mr-[calc((100vw_-theme(maxWidth.xlarge))/2)] xl:max-w-[calc_(theme(maxWidth.xlarge)/2)] pr-gutter pl-gutter md:pl-0;
-                }
-            }
-        }
-        //  Spalten-Element - randabfallend recht
-        &.is-style-overlapping--right {
-            .wp-block-column {
-                &:first-child {
-                    @apply xl:ml-[calc((100vw_-theme(maxWidth.xlarge))/2)] xl:max-w-[calc_(theme(maxWidth.xlarge)/2)] pl-gutter pr-gutter md:pr-0;
-                }
-                &:last-child {
-                    @apply pl-gutter md:pl-0;
-                }
-            }
-        }
-        //  Spalten-Element - randabfallend recht 1
-        &.is-style-overlapping--right-1 {
-            @apply px-gutter md:pr-0;
-            .wp-block-column {
-                @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
-                &[style*="flex-basis:33.33%"] {
-                    @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
-                }
-            }
-        }
-        //  Spalten-Element - Spalte nach oben versetzt
-        &.is-style-offset-top {
-            @apply mb-section relative before:absolute before:content-[''] before:-left-[50vw] before:-right-[50vw] before:-top-section-mobile md:before:-top-section-tablet lg:before:-top-section-desktop 2xl:before:-top-section-full-hd before:bg-white before:bottom-3/4 md:before:bottom-1/2 z-10 before:-z-10;
-            .wp-block-column {
-                @apply p-gutter transition-all hover:shadow-lg hover:origin-center hover:-translate-y-2;
-                ul {
-                    @apply mt-0;
-                }
-            }
-        }
-    }
-}
-
 //  Button
 .wp-block-button__link{
     @include buttonStyleDefault;
 }
-
 .is-style-outline>.wp-block-button__link,
 .is-style-outline>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline:not(.has-background){
     @include buttonStyleOutline;
 }
-
 .is-style-outline-white>.wp-block-button__link,
 .is-style-outline-white>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline-white:not(.has-background){
@@ -270,9 +49,6 @@ figure.wp-block-gallery.has-nested-images {
 }
 
 //  List-Styles
-// ul[class*="is-style-liststyle"] {
-//     @apply my-element;
-// }
 ul.is-style-liststyle-icon--check-circle,
 ul.is-style-liststyle-icon--arrowright  {
     @apply list-outside pl-5;
@@ -299,15 +75,20 @@ ul.is-style-liststyle-icon--return {
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download{
     > li {
-        @apply flex items-center justify-between border-b transition-colors pl-0 after:pl-8  after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors hover:text-primary hover:after:text-primary ;
+        @apply flex items-center transition-colors after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none hover:text-primary hover:after:text-primary ;
         a {
-            @apply grow no-underline text-font hover:text-primary;
+            @apply grow no-underline text-font;
         }
     }
 }
 ul.is-style-liststyle-icon--download {
     > li {
-        @apply pb-2 mb-4 border-font after:font-light after:content-['\e094'];
+        @apply text-sm border-b-2 font-semibold flex-row-reverse justify-end pl-0 after:pr-4 pb-2 mb-4 border-font after:font-semibold after:content-['\e094'];
+        &:hover {
+            a:after, a {
+                @apply text-primary;
+            }
+        }
     }
 }
 ul.is-style-liststyle-icon--singlelink,
@@ -318,7 +99,7 @@ ul.is-style-liststyle-icon--return {
 }
 ul.is-style-liststyle-icon--singlelink {
     > li {
-        @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors;
+        @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none;
         a {
             @apply no-underline text-font hover:text-primary;
         }
@@ -327,15 +108,20 @@ ul.is-style-liststyle-icon--singlelink {
 ul.is-style-liststyle-icon--return {
     > li {
         a {
-            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none before:transition-colors;
+            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none;
         }
     }
 }
 ul.is-style-liststyle-icon--linklist {
     > li {
-        @apply first:border-t my-0 py-4 md:py-5 lg:py-6 border-grey after:font-light after:content-['\f178'];
+        @apply justify-between first:border-t border-b my-0 pl-0 after:pl-8 py-4 md:py-5 lg:py-6 border-grey after:font-light after:content-['\f178'];
         &, a {
             @apply font-bold;
         }
     }
+}
+
+// Search
+input#search:focus + #icon-wrapper {
+    @apply opacity-0;
 }

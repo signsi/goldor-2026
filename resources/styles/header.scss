@@ -26,7 +26,7 @@ header {
                     }
                 }
                 .menu-primary_subnavigation a {
-                    @apply text-font hover:text-primary;
+                    @apply text-font hover:text-white;
                 }
             }
         }
@@ -36,19 +36,35 @@ header {
         .menu-primary_navigation-container {
             /* Level 0 */
             >ul{
+                li {
+                    @apply border-b-white #{!important};
+                    a {
+                        @apply text-white hover:no-underline #{!important};
+                    }
+                    &:hover {
+                        &, a, .submenuToggle {
+                            @apply text-font #{!important};
+                        }
+                        .submenuToggle {
+                            @apply text-font border-font #{!important};
+                        }
+                    }
+                }
                 /* Level 1 */
                 .submenuContainer {
                     /* Level 2 standardmässig geöffnet */
+                    @apply mt-0 #{!important};
                     >ul.menu-primary_subnavigation {
+                        @apply p-3 #{!important};
                         > li {
-                            @apply font-semibold last:pb-0 #{!important};
+                            @apply py-2 mb-2 border-b-font font-semibold last:pb-0 #{!important};
                             a {
-                                @apply pl-2 flex;
+                                @apply text-font hover:text-white pl-2 flex text-sm font-semibold #{!important};
                             }
                             .submenuContainer {
-                                @apply opacity-100 translate-y-0 block #{!important};
+                                @apply mt-0 opacity-100 translate-y-0 block #{!important};
                                 >ul.menu-primary_subnavigation {
-                                    @apply mt-2 mb-0 border-t-0 #{!important};
+                                    @apply mb-0 border-t-0 #{!important};
                                     > li {
                                         @apply pl-2 text-sm py-2 first:border-t font-light last:pb-0 #{!important};
                                     }

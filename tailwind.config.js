@@ -143,6 +143,10 @@ module.exports = {
         'hero-pattern-2': "url('../images/zodas-logo-cluster-2.svg')",
         'hero-pattern-3': "url('../images/zodas-logo-cluster-3.svg')",
       },
+      backgroundSize: {
+        '50%': '50%',
+        '75%': '75%',
+      },
       animation: {
         'pulse-scale': 'pulse_scale 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },

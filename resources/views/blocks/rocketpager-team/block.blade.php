@@ -1,8 +1,42 @@
 @php
     $row_per_col = App\setColumns();
+    $ratio = block_value('aspect-ratio');
+    switch($ratio){
+        case 'aspect-ratio-16-9':
+            $ar_class = '16-9-thumb';
+        break;
+        case 'aspect-ratio-4-3':
+            $ar_class = '4-3-thumb';
+        break;
+        case 'aspect-ratio-square':
+            $ar_class = 'medium-crop';
+        break;
+        default:
+            $ar_class = 'medium-crop';
+    }
+    $offset = block_value('offset-right');
+    switch($offset){
+        case 'is-offset-right--default':
+            $offset_class = 'is-offset-right--default';
+        break;
+        case 'is-offset-right--tiny':
+            $offset_class = 'is-offset-right--tiny';
+        break;
+        case 'is-offset-right--slim':
+            $offset_class = 'is-offset-right--slim';
+        break;
+        case 'is-offset-right--large':
+            $offset_class = 'is-offset-right--large';
+        break;
+        case 'is-offset-right--xlarge':
+            $offset_class = 'is-offset-right--xlarge';
+        break;
+        default:
+            $offset_class = 'is-offset-right--default';
+    }
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => $offset_class])
 
 @section('content-section')
     <div class="grid gap-tiny lg:gap-mobile{{ $row_per_col }}">
@@ -18,8 +52,8 @@
                         @include('blocks.helpers.image',
                         [
                             'name_ImageField' => 'portrait-image',
-                            'thumbnail' => 'square-thumb',
-                            'additionalClasses' => array('class' => '!m-0'),
+                            'thumbnail' => $ar_class,
+                            'additionalClasses' => array('class' => 'nolazyload'),
                             'isRepeaterElement' => true
                         ])
                     </div>

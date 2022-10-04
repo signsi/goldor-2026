@@ -6,7 +6,7 @@ $search_active = App\getThemeOption('cta_search');
     <div class="flex justify-between md:space-x-25 items-center p-gutter">
         @include('partials.top.logo')
         <div class="-mr-2 -my-2 lg:hidden">
-            <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-primary hover:bg-secondary" aria-expanded="false">
+            <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-white hover:bg-primary" aria-expanded="false">
                 <span class="sr-only">Open menu</span>
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -39,14 +39,14 @@ $search_active = App\getThemeOption('cta_search');
             @endif
         </div>
 
-        <div id="mobileNav" class="absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out bg-bluelight overflow-x-hidden">
+        <div id="mobileNav" class="has-primary-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out overflow-y-auto overflow-x-hidden">
             <div class="h-screen bg-theme text-font">
                 <div class="">
                     <div class="flex items-center justify-between px-4 py-4 bg-white">
                         @include('partials.top.logo')
                         <div class="-mr-2">
                             <button type="button"
-                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-primary hover:bg-secondary"
+                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-font hover:text-white hover:bg-primary"
                                 id="mobileClose">
                                 <span class="sr-only">Close menu</span>
                                 <!-- Heroicon name: outline/x -->
@@ -67,7 +67,7 @@ $search_active = App\getThemeOption('cta_search');
                                         'theme_location' => 'primary_navigation',
                                         'menu_class' => 'flex flex-col items-baseline justify-between linkGrowing',
                                         'container_class' => '',
-                                        'add_li_class' => 'z-10 py-3 w-full text-lg font-bold border-b border-solid border-gray-300 group last:border-b-0',
+                                        'add_li_class' => 'z-10 py-3 w-full text-lg font-bold border-b border-solid border-font group last:border-b-0',
                                         'walker' => new SubmenuWrap(),
                                     ]);
                                 }
