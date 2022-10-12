@@ -23,13 +23,13 @@ body:not(.home) .slides picture  {
 /* Arrows */
 .slick-prev,
 .slick-next {
-  @apply block absolute bottom-0 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-white before:font-style-icons-light before:opacity-default;
+  @apply block absolute -bottom-10 md:-bottom-12 xl:-bottom-14 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-primary before:opacity-default;
   &:hover,
   &:focus {
     @apply outline-none text-transparent;
 
     &:before {
-      @apply opacity-on-hover;
+      @apply text-font;
     }
   }
 
@@ -40,20 +40,20 @@ body:not(.home) .slides picture  {
 }
 
 .slick-prev {
-  @apply left-0 right-auto before:content-slider-prev before:rtl:content-slider-next;
+  @apply left-auto right-section before:content-slider-prev before:rtl:content-slider-next;
 }
 
 .slick-next {
-  @apply left-12 md:left-14 xl:left-16 right-auto before:content-slider-next before:rtl:content-slider-prev;
+  @apply left-auto right-gutter before:content-slider-next before:rtl:content-slider-prev;
 }
 
 .slick-arrow {
-  @apply transition-colors bg-primary hover:bg-primarydark;
+  @apply transition-colors bg-transparent;
 }
 
 /* Dots */
 .slick-dots {
-  @apply block absolute bottom-8 md:bottom-10 list-none text-center w-full m-0 p-0;
+  @apply block relative mb-gutter mx-0 mt-0 p-0 list-none text-center w-full;
 
   li {
     @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;

@@ -1,4 +1,38 @@
-/* Group */
+// Spalten-Styling generell
+div[class^="wp-container-"] {
+    // Spalten-Element
+    &.wp-block-columns {
+        // Standardwert
+        @apply gap-gutter;
+        &.is-style-gap-tiny {
+            @apply gap-tiny;
+        }
+        &.is-style-gap-gutter {
+            @apply gap-gutter;
+        }
+        &.is-style-gap-element {
+            @apply gap-element;
+        }
+        &.is-style-gap-section {
+            @apply gap-section;
+        }
+        &.is-style-gap-0 {
+            @apply gap-0;
+        }
+        //  Spalten-Element - Spalte nach oben versetzt
+        &.is-style-offset-top {
+            @apply mb-section relative before:absolute before:content-[''] before:-left-[50vw] before:-right-[50vw] before:-top-section-mobile md:before:-top-section-tablet lg:before:-top-section-desktop 2xl:before:-top-section-full-hd before:bg-white before:bottom-3/4 md:before:bottom-1/2 z-10 before:-z-10;
+            .wp-block-column {
+                @apply p-gutter transition-all hover:shadow-lg hover:origin-center hover:-translate-y-2;
+                ul {
+                    @apply mt-0;
+                }
+            }
+        }
+    }
+}
+
+// Group
 .wp-block-group {
     @apply mx-auto px-gutter max-w-default;
     > .wp-block-group .wp-block-group{
@@ -52,8 +86,10 @@
       @apply max-w-none px-0 mx-0;
     }
 
-    // Columns mit Spaltenbreite
+    // Image-Offset-Columns mit diversen Spaltenbreite
     .wp-block-columns {
+        // Entferne Abstand unten für letzte Spalte
+        @apply last:mb-0;
         &.is-style-columns-tiny,
         &.is-style-columns-slim,
         &.is-style-columns-default,
@@ -177,44 +213,6 @@
             }
             &.is-style-gap-section .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
-            }
-        }
-    }
-}
-/* Columns */
-.wp-block-columns {
-    @apply mb-gutter;
-}
-
-// Spalten-Styling generell
-div[class^="wp-container-"] {
-    // Spalten-Element
-    &.wp-block-columns {
-        // Standardwert
-        @apply gap-gutter;
-        &.is-style-gap-tiny {
-            @apply gap-tiny;
-        }
-        &.is-style-gap-gutter {
-            @apply gap-gutter;
-        }
-        &.is-style-gap-element {
-            @apply gap-element;
-        }
-        &.is-style-gap-section {
-            @apply gap-section;
-        }
-        &.is-style-gap-0 {
-            @apply gap-0;
-        }
-        //  Spalten-Element - Spalte nach oben versetzt
-        &.is-style-offset-top {
-            @apply mb-section relative before:absolute before:content-[''] before:-left-[50vw] before:-right-[50vw] before:-top-section-mobile md:before:-top-section-tablet lg:before:-top-section-desktop 2xl:before:-top-section-full-hd before:bg-white before:bottom-3/4 md:before:bottom-1/2 z-10 before:-z-10;
-            .wp-block-column {
-                @apply p-gutter transition-all hover:shadow-lg hover:origin-center hover:-translate-y-2;
-                ul {
-                    @apply mt-0;
-                }
             }
         }
     }

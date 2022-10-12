@@ -49,28 +49,11 @@ figure.wp-block-gallery.has-nested-images {
 }
 
 //  List-Styles
-ul.is-style-liststyle-icon--check-circle,
-ul.is-style-liststyle-icon--arrowright  {
-    @apply list-outside pl-5;
-    > li {
-        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-light;
-    }
-}
-ul.is-style-liststyle-icon--check-circle {
-    > li {
-        @apply pl-3 marker:content-['\F058'];
-    }
-}
-ul.is-style-liststyle-icon--arrowright {
-    > li {
-        @apply transition-all hover:origin-center hover:translate-x-2 pl-3 marker:content-['\f054'] hover:marker:content-['\f178'];
-    }
-}
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download,
 ul.is-style-liststyle-icon--singlelink,
 ul.is-style-liststyle-icon--return {
-    @apply list-none pl-0;
+    @apply list-none pl-0 before:transition-colors;
 }
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download{
@@ -81,6 +64,32 @@ ul.is-style-liststyle-icon--download{
         }
     }
 }
+ul.is-style-liststyle-icon--singlelink,
+ul.is-style-liststyle-icon--return {
+    >li {
+        @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
+    }
+}
+ul.is-style-liststyle-icon--check-circle,
+ul.is-style-liststyle-icon--arrowright  {
+    @apply list-outside pl-5;
+    > li {
+        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-light;
+    }
+}
+//  List-Styles check circle
+ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply pl-3 marker:content-['\F058'];
+    }
+}
+//  List-Styles arrow right
+ul.is-style-liststyle-icon--arrowright {
+    > li {
+        @apply transition-all hover:origin-center hover:translate-x-2 pl-3 marker:content-['\f054'] hover:marker:content-['\f178'];
+    }
+}
+//  List-Styles download
 ul.is-style-liststyle-icon--download {
     > li {
         @apply text-sm border-b-2 font-semibold flex-row-reverse justify-end pl-0 after:pr-4 pb-2 mb-4 border-font after:font-semibold after:content-['\e094'];
@@ -91,20 +100,15 @@ ul.is-style-liststyle-icon--download {
         }
     }
 }
-ul.is-style-liststyle-icon--singlelink,
-ul.is-style-liststyle-icon--return {
-    >li {
-        @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
-    }
-}
+//  List-Styles single link
 ul.is-style-liststyle-icon--singlelink {
     > li {
-        @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none;
         a {
-            @apply no-underline text-font hover:text-primary;
+            @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none text-primary no-underline hover:text-font hover:before:text-font;
         }
     }
 }
+//  List-Styles return
 ul.is-style-liststyle-icon--return {
     > li {
         a {
@@ -112,6 +116,7 @@ ul.is-style-liststyle-icon--return {
         }
     }
 }
+//  List-Styles link list
 ul.is-style-liststyle-icon--linklist {
     > li {
         @apply justify-between first:border-t border-b my-0 pl-0 after:pl-8 py-4 md:py-5 lg:py-6 border-grey after:font-light after:content-['\f178'];

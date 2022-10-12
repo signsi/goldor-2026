@@ -16,7 +16,6 @@ body {
 }
 
 // Gruppen-Styling generell
-// .wp-block-group
 div, section {
     > * {
         &:first-child {
@@ -29,6 +28,7 @@ div, section {
     }
 }
 .wp-block-group {
+    // Custom BG Styles
     &.bg1 {
         @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
     }
@@ -44,5 +44,7 @@ div, section {
             @apply z-10;
         }
     }
-
+    &.bg5 {
+        @apply relative bg-hero-pattern-3 bg-no-repeat bg-right-top bg-75% md:bg-50% lg:bg-25%;
+    }
 }

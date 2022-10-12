@@ -14,7 +14,7 @@
         newwindow: true,
         style: "top",
         insecure: true,
-        unsupported: true,
+        unsupported: false,
         mobile: false,
         shift_page_down: true,
         text_for_i_in_de: {

@@ -10,11 +10,11 @@ p {
     }
 }
 a {
-    @apply transition-colors hover:text-primary;     
+    @apply transition-colors hover:text-primary;
 }
 div[class^="wp-container-"] {
     a {
-        @apply underline;   
+        @apply underline;
     }
 }
 blockquote,
@@ -70,7 +70,7 @@ ul, ol {
         @apply my-typography-mobile;
     }
     li {
-        @apply marker:text-font pl-2 my-typography-tiny; 
+        @apply marker:text-font pl-2 my-typography-tiny;
     }
 }
 ol {

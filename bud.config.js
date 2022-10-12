@@ -42,6 +42,10 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-carousel-slider',
         '@styles/new_styles/rocketpager-carousel-slider'
       ],
+      "block.team":[
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-team'
+      ],
       "block.google-maps": [
         '@scripts/blocks/rocketpager-google-maps',
         '@styles/new_styles/rocketpager-google-maps'
@@ -56,15 +60,17 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-videoelement',
         // 'https://www.youtube.com/iframe_api',
       ],
-      "block.team":[
-        '@styles/new_styles/rocketpager-team'
-      ],
       "block.iconbox":[
         '@styles/new_styles/rocketpager-iconbox'
       ],
       "block.text-image-list":[
         '@styles/new_styles/rocketpager-text-image-list'
-      ]
+      ],
+      "block.accordion":[
+        '@styles/new_styles/rocketpager-accordion',
+        'tw-elements'
+      ],
+
     })
 
     /**

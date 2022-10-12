@@ -2,7 +2,8 @@ module.exports = {
   important: true,
   content: [
     './app/**/*.php', './resources/**/*.{php,vue,js}',
-    './safelist.txt'
+    './safelist.txt',
+    './node_modules/tw-elements/dist/js/**/*.js',
   ],
   theme: {
     fluidTypeSettings: {
@@ -144,6 +145,7 @@ module.exports = {
         'hero-pattern-3': "url('../images/zodas-logo-cluster-3.svg')",
       },
       backgroundSize: {
+        '25%': '25%',
         '50%': '50%',
         '75%': '75%',
       },
@@ -156,37 +158,6 @@ module.exports = {
           '70%': { transform: 'scale(0.9)' },
         },
       },
-      // typography: ({ theme }) => ({
-      //   DEFAULT: {
-      //     css: {
-      //       color: 'rgb(var(--color-font))',
-      //     },
-      //     sm: {
-      //       css: {
-      //         ul: {
-      //           marginTop: theme('spacing.element-mobile'),
-      //           marginBottom: theme('spacing.element-mobile'),
-      //         },
-      //       },
-      //     },
-      //     md: {
-      //       css: {
-      //         ul: {
-      //           marginTop: theme('spacing.element-tablet'),
-      //           marginBottom: theme('spacing.element-tablet'),
-      //         },
-      //       },
-      //     },
-      //     xl: {
-      //       css: {
-      //         ul: {
-      //           marginTop: theme('spacing.element-desktop'),
-      //           marginBottom: theme('spacing.element-desktop'),
-      //         },
-      //       },
-      //     },
-      //   },
-      // }),
       backgroundColor: ({ theme }) => ({
         'primary': 'rgb(var(--color-primary))',
       }),
@@ -195,6 +166,7 @@ module.exports = {
   plugins: [
     require('tailwindcss-hyphens'),
     require('@tailwindcss/forms'),
+    require('tw-elements/dist/plugin'),
     // require('@tailwindcss/typography'),
     require('tailwindcss-fluid-type'),
   ],

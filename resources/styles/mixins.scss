@@ -36,7 +36,11 @@
       @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font;
     }
   }
-
+  ul {
+    > li {
+      @apply before:text-white marker:text-white after:text-white;
+    }
+  }
   ul.is-style-liststyle-icon--download {
     @apply list-none pl-0;
 
@@ -44,7 +48,6 @@
       @apply border-white;
     }
   }
-
   ul[class*="is-style-liststyle"] {
     > li {
         @apply text-white marker:text-white after:text-white hover:text-font hover:after:text-font hover:marker:text-font;
@@ -58,7 +61,13 @@
         }
     }
   }
-
+  ul.is-style-liststyle-icon--singlelink {
+    > li {
+      a {
+        @apply text-white no-underline hover:text-font hover:before:text-font hover:no-underline;
+      }
+    }
+  }
   .slick-arrow {
     @apply bg-white hover:bg-secondary;
     &.slick-prev::before, &.slick-next::before {
@@ -67,5 +76,86 @@
   }
   .search-input {
     @apply border-white text-white #{!important}
+  }
+}
+
+@mixin colorWhiteMediumUp {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  p,
+  p strong,
+  p a {
+    @apply md:text-white;
+  }
+
+  p a,
+  ul li a {
+    @apply md:text-white md:hover:underline md:hover:text-font;
+  }
+  .wp-block-button__link {
+    @apply md:bg-white md:text-primary md:no-underline md:hover:bg-font md:hover:text-white;
+  }
+  .is-style-outline {
+    .wp-block-button__link {
+      @apply md:border-white md:text-white md:bg-transparent md:border-2 md:hover:bg-white md:hover:text-font;
+    }
+  }
+
+  ul.is-style-liststyle-icon--download {
+    >li {
+      @apply md:border-white;
+    }
+  }
+  ul[class*="is-style-liststyle"] {
+    > li {
+        @apply md:text-white md:marker:text-white md:after:text-white md:hover:text-font md:hover:after:text-font md:hover:marker:text-font;
+        &:hover {
+          a {
+            @apply md:text-font;
+          }
+        }
+        a {
+          @apply md:text-white md:no-underline md:hover:text-font md:hover:underline;
+        }
+    }
+  }
+  ul.is-style-liststyle-icon--singlelink {
+    > li {
+      a {
+        @apply md:text-white md:no-underline md:hover:text-font md:hover:before:text-font md:hover:no-underline;
+      }
+    }
+  }
+  .slick-arrow {
+    @apply md:bg-white md:hover:bg-secondary;
+    &.slick-prev::before, &.slick-next::before {
+      @apply md:text-primary;
+    }
+  }
+  .search-input {
+    @apply md:border-white md:text-white #{!important}
+  }
+}
+
+@mixin colorDefaultEditor {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul li,
+  ul li:before,
+  ul li:after,
+  ul li:marker,
+  p,
+  p strong,
+  p a {
+    @apply text-font #{!important};
   }
 }

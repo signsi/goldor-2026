@@ -11,7 +11,7 @@
                 block_row('icon');
                 $isImage = block_sub_value('content-type') == 'image';
             @endphp
-            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" class="relative @if ( block_value('flippingbox') ) md:aspect-square @endif border-solid border-2 border-grey bg-white flex flex-col justify-center group p-5 no-underline hover:bg-secondarydark hover:border-secondarydark transition-colors" @else <div @endif class="relative @if ( block_value('flippingbox') ) md:aspect-square @endif border-solid border-2 border-grey bg-white flex flex-col justify-center p-5 no-underline">
+            @if (block_sub_value('link')) <a href="{{ block_sub_value('link') }}" class="relative @if ( block_value('flippingbox') ) md:aspect-square @endif border-solid border-2 border-grey bg-white flex flex-col justify-center group p-5 no-underline hover:bg-secondarydark hover:border-secondarydark transition-colors" @else <div @endif class="relative @if ( block_value('flippingbox') ) group md:aspect-square @endif border-solid border-2 border-grey bg-white flex flex-col justify-center p-5 no-underline">
                 <div class="flex @if ( block_value('layout-row') ) flex-col justify-start md:flex-row md:items-center md:space-x-4 @else flex-col justify-start @endif h-full">
                     <div class="mx-auto @if ( block_value('layout-row') ) basis-1/4 @endif">
                         @if ( $isImage )

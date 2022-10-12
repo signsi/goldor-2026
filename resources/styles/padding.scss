@@ -34,16 +34,16 @@
         @apply py-gutter-mobile md:py-gutter-display;
     }
     .pl-gutter{
-        @apply pl-gutter-mobile md:pl-gutter-display;
+        @apply pl-gutter-mobile md:pl-gutter-display #{!important};
     }
     .pr-gutter{
-        @apply pr-gutter-mobile md:pr-gutter-display;
+        @apply pr-gutter-mobile md:pr-gutter-display #{!important};
     }
     .pt-gutter{
-        @apply pt-gutter-mobile md:pt-gutter-display;
+        @apply pt-gutter-mobile md:pt-gutter-display #{!important};
     }
     .pb-gutter{
-        @apply pb-gutter-mobile md:pb-gutter-display;
+        @apply pb-gutter-mobile md:pb-gutter-display #{!important};
     }
 
     /* Spacing - Element */
@@ -57,16 +57,16 @@
         @apply py-element-mobile md:py-element-tablet lg:py-element-desktop;
     }
     .pl-element{
-        @apply pl-element-mobile md:pl-element-tablet lg:pl-element-desktop;
+        @apply pl-element-mobile md:pl-element-tablet lg:pl-element-desktop #{!important};
     }
     .pr-element{
-        @apply pr-element-mobile md:pr-element-tablet lg:pr-element-desktop;
+        @apply pr-element-mobile md:pr-element-tablet lg:pr-element-desktop #{!important};
     }
     .pt-element{
-        @apply pt-element-mobile md:pt-element-tablet lg:pt-element-desktop;
+        @apply pt-element-mobile md:pt-element-tablet lg:pt-element-desktop #{!important};
     }
     .pb-element{
-        @apply pb-element-mobile md:pb-element-tablet lg:pb-element-desktop;
+        @apply pb-element-mobile md:pb-element-tablet lg:pb-element-desktop #{!important};
     }
 
     /* Spacing - Section */
@@ -80,16 +80,16 @@
         @apply py-section-mobile md:py-section-tablet lg:py-section-desktop 2xl:py-section-full-hd;
     }
     .pl-section{
-        @apply pl-section-mobile md:pl-section-tablet lg:pl-section-desktop 2xl:pl-section-full-hd;
+        @apply pl-section-mobile md:pl-section-tablet lg:pl-section-desktop 2xl:pl-section-full-hd #{!important};
     }
     .pr-section{
-        @apply pr-section-mobile md:pr-section-tablet lg:pr-section-desktop 2xl:pr-section-full-hd;
+        @apply pr-section-mobile md:pr-section-tablet lg:pr-section-desktop 2xl:pr-section-full-hd #{!important};
     }
     .pt-section{
-        @apply pt-section-mobile md:pt-section-tablet lg:pt-section-desktop 2xl:pt-section-full-hd;
+        @apply pt-section-mobile md:pt-section-tablet lg:pt-section-desktop 2xl:pt-section-full-hd #{!important};
     }
     .pb-section{
-        @apply pb-section-mobile md:pb-section-tablet lg:pb-section-desktop 2xl:pb-section-full-hd;
+        @apply pb-section-mobile md:pb-section-tablet lg:pb-section-desktop 2xl:pb-section-full-hd #{!important};
     }
 
 }

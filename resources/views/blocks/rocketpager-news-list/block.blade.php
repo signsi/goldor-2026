@@ -66,7 +66,7 @@ foreach ($cats as $cat) {
         </div>
     @endif --}}
 
-    <div class="ajax-container columns-1 md:columns-2 lg:columns-3 md:gap-4 lg:gap-6" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container grid{{ $row_per_col }} gap-gutter" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         <!-- Elemente werden über AJAX geladen -->
     </div>
 
@@ -76,7 +76,7 @@ foreach ($cats as $cat) {
     </div>
 
     {{-- Load More Button --}}
-    <div class="wp-block-button flex items-center justify-center mt-element">
+    <div class="wp-block-button wp-block-button is-style-outline flex items-center justify-center mt-element">
         <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
     </div>
 @overwrite

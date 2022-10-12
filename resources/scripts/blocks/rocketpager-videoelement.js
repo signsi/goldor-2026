@@ -7,10 +7,10 @@ $(document).ready(function() {
 
         $video[0].play();
         $video.attr('controls','');
-        $controls.hide();
+        $controls.addClass('hidden');
 
         $video.one('ended', function(){
-            $controls.show();
+            $controls.removeClass('hidden');
             $(this).attr('controls',null);
         })
     });
@@ -20,7 +20,7 @@ $(document).ready(function() {
         const player_id = $('figure.wp-block-embed-youtube .control-container').index($controls);
 
         player[player_id].playVideo();
-        $controls.hide();
+        $controls.addClass('hidden');
     });
 });
 
