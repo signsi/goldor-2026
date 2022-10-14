@@ -30,7 +30,7 @@
                     </div>
                     <div class="text-center @if ( block_value('layout-row') ) md:basis-3/4 md:text-left @endif">
                         @if ( block_sub_value('title') )
-                            <div class="@if ( block_value('layout-row') ) mt-0 @else mt-4 md:mt-6 lg:mt-8 @endif">
+                            <div class="@if ( block_value('layout-row') ) mt-4 md:mt-0 @else mt-4 md:mt-6 lg:mt-8 @endif">
                                 <{{ block_sub_value('heading') }} class="group-hover:text-white">{!! App\sanitize_out(block_sub_value('title'), 'text') !!}</{{ block_sub_value('heading') }}>
                             </div>
                         @endif

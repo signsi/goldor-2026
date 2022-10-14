@@ -3,10 +3,19 @@ body {
     @apply text-base;
 }
 p {
-    @apply text-base my-typography;
+    @apply text-base my-typography xl:max-w-prose;
     &.lead,
     &.is-style-lead {
         @apply text-lg;
+    }
+    &.has-text-align-center {
+        @apply mx-auto;
+    }
+    &.has-text-align-left {
+        @apply ml-0 mr-auto;
+    }
+    &.has-text-align-right {
+        @apply mr-0 ml-auto;
     }
 }
 a {

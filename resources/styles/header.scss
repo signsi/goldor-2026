@@ -8,6 +8,7 @@ header {
             /* Level 0 */
             >ul {
                 >li {
+                    @apply font-bold;
                     &.current_page_parent, &.current-menu-item {
                         @apply text-primary before:w-full before:left-0 before:bg-primary #{!important};
                         .submenuToggle {
@@ -17,9 +18,9 @@ header {
                     .submenuContainer {
                         ul.menu-primary_subnavigation {
                             > li {
-                                @apply mb-2 font-normal last:mb-0 #{!important};
+                                @apply mb-3 font-normal last:mb-0;
                                 a {
-                                    @apply pl-2 flex;
+                                    @apply flex;
                                 }
                             }
                         }
@@ -37,16 +38,23 @@ header {
             /* Level 0 */
             >ul{
                 li {
-                    @apply border-b-white #{!important};
+                    @apply border-b-font #{!important};
                     a {
-                        @apply text-white hover:no-underline #{!important};
+                        @apply text-font hover:no-underline #{!important};
                     }
                     &:hover {
                         &, a, .submenuToggle {
-                            @apply text-font #{!important};
+                            @apply text-primary #{!important};
                         }
                         .submenuToggle {
-                            @apply text-font border-font #{!important};
+                            @apply text-white border-primary #{!important};
+                        }
+                    }
+                }
+                li {
+                    &.current_page_parent, &.current-menu-item {
+                        a {
+                            @apply text-primary #{!important};
                         }
                     }
                 }
@@ -55,11 +63,16 @@ header {
                     /* Level 2 standardmässig geöffnet */
                     @apply mt-0 #{!important};
                     >ul.menu-primary_subnavigation {
-                        @apply p-3 #{!important};
+                        @apply bg-transparent py-gutter-mobile px-0 #{!important};
                         > li {
-                            @apply py-2 mb-2 border-b-font font-semibold last:pb-0 #{!important};
+                            @apply mb-1 py-1 border-b-gray-300 font-semibold first:pt-0 last:pb-0 #{!important};
                             a {
-                                @apply text-font hover:text-white pl-2 flex text-sm font-semibold #{!important};
+                                @apply text-font hover:text-primary pl-0 flex text-sm font-semibold #{!important};
+                            }
+                            &.current_page_parent, &.current-menu-item {
+                                a {
+                                    @apply text-primary #{!important};
+                                }
                             }
                             .submenuContainer {
                                 @apply mt-0 opacity-100 translate-y-0 block #{!important};

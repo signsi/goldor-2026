@@ -2,30 +2,10 @@
     .accordion-button{
         @apply after:content-['\2b'];
         &:not(.collapsed){
-            @apply bg-transparent after:brightness-90 after:content-['\f068'];
+            @apply bg-transparent text-font after:content-['\f068'];
         }
     }
     .accordion-body > *:last-child{
         @apply pb-0;
-    }
-    .accordion-item {
-        &[class*="bg-"]:where(:not(.white):not(.grey)) {
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6,
-            ul li,
-            ul li::before,
-            ul li::after,
-            ul li::marker,
-            p,
-            p strong,
-            p a
-             {
-                @apply text-font;
-            }
-        }
     }
 }

@@ -55,8 +55,8 @@ module.exports = {
         auberginedark: 'rgb(var(--color-auberginedark))',
         auberginelight: 'rgb(var(--color-auberginelight))',
         petrol: 'rgb(var(--color-petrol))',
-        petroldark: 'rgb(var(--color- petroldark))',
-        petrollight: 'rgb(var(--color- petrollight))',
+        petroldark: 'rgb(var(--color-petroldark))',
+        petrollight: 'rgb(var(--color-petrollight))',
       },
       opacity: {
         default: '1',

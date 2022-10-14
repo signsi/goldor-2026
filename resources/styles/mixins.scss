@@ -31,11 +31,13 @@
   .wp-block-button__link {
     @apply bg-white text-primary no-underline hover:bg-font hover:text-white;
   }
-  .is-style-outline {
-    .wp-block-button__link {
-      @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font;
-    }
+
+  .is-style-outline>.wp-block-button__link,
+  .is-style-outline>.wp-block-button__link:not(.has-background),
+  .wp-block-button__link.is-style-outline:not(.has-background){
+    @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font;
   }
+
   ul {
     > li {
       @apply before:text-white marker:text-white after:text-white;
@@ -76,6 +78,13 @@
   }
   .search-input {
     @apply border-white text-white #{!important}
+  }
+  .rocketpager-accordion{
+    .accordion-button{
+        &:not(.collapsed){
+            @apply text-font;
+        }
+    }
   }
 }
 

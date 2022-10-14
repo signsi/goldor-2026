@@ -10,6 +10,11 @@ footer {
         }
       }
     }
+    .footerSidebar-3 {
+      .input-newsletter:focus + button #submitArrowRight {
+        @apply fill-font animate-bounce transition-colors #{!important};
+      }
+    }
     .footerDisclaimer {
       ul {
         li {

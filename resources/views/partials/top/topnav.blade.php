@@ -22,8 +22,8 @@ $search_active = App\getThemeOption('cta_search');
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 -mb-1.5',
                             'container_class' => '',
-                            'add_li_class' => 'relative group text-base font-bold text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
-                            'add_sub_li_class' => 'before:content-none !mb-5',
+                            'add_li_class' => 'relative group text-base text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
+                            'add_sub_li_class' => 'before:content-none',
                             'walker' => new SubmenuWrap(),
                         ]);
                     }
@@ -39,10 +39,11 @@ $search_active = App\getThemeOption('cta_search');
             @endif
         </div>
 
-        <div id="mobileNav" class="has-primary-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden opacity-0 scale-95 -translate-y-full ease-in-out overflow-y-auto overflow-x-hidden">
+        <div id="mobileNav" class="translate-x-full has-grey-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden">
+        {{-- <div id="mobileNav" class="opacity-0 scale-95 translate-x-full has-primary-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden"> --}}
             <div class="h-screen bg-theme text-font">
                 <div class="">
-                    <div class="flex items-center justify-between px-4 py-4 bg-white">
+                    <div class="flex items-center justify-between p-gutter bg-white shadow-md">
                         @include('partials.top.logo')
                         <div class="-mr-2">
                             <button type="button"
@@ -58,7 +59,6 @@ $search_active = App\getThemeOption('cta_search');
                         </div>
                     </div>
                     <div class="my-6 px-4 py-4">
-                        @include('partials.search')
                         <nav>
                             @php
                                 $locations = get_nav_menu_locations();
@@ -73,6 +73,7 @@ $search_active = App\getThemeOption('cta_search');
                                 }
                             @endphp
                         </nav>
+                        @include('partials.search')
                     </div>
                 </div>
             </div>
