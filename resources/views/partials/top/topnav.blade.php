@@ -73,6 +73,14 @@ $search_active = App\getThemeOption('cta_search');
                                 }
                             @endphp
                         </nav>
+                        <ul class="menuMobileBottom flex space-x-3 justify-start pl-0">
+                            <li class="relative text-sm font-normal border-r border-primary pl-0 pr-3">
+                                <a href="/sephir/">Sephir</a>
+                            </li>
+                            <li class="relative text-sm font-normal border-font pl-0 border-r-0">
+                                <a href="https://mailchimp.com/" target="_blank">Newsletter</a>
+                            </li>
+                        </ul>
                         @include('partials.search')
                     </div>
                 </div>

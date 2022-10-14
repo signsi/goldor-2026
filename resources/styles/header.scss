@@ -88,6 +88,15 @@ header {
                 }
             }
         }
+        .menuMobileBottom {
+            @apply list-none;
+            li {
+                /* @apply marker:hidden; */
+                a {
+                    @apply text-primary hover:text-font;
+                }
+            }
+        }
     }
 }
 
