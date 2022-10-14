@@ -3,12 +3,12 @@
 use function Roots\bundle;
 
 
-add_action('genesis_custom_blocks_render_template_rocketpager-team', function () {
-    bundle('block.team')->enqueue();
-}, 10, 3);
-
 add_action('genesis_custom_blocks_render_template_rocketpager-text-image-list', function () {
     bundle('block.text-image-list')->enqueue();
+}, 10, 3);
+
+add_action('genesis_custom_blocks_render_template_rocketpager-accordion', function () {
+    bundle('block.accordion')->enqueue();
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-hero-slider', function () {
@@ -25,8 +25,8 @@ add_action('genesis_custom_blocks_render_template_rocketpager-carousel-slider', 
     bundle('block.videoelement')->enqueue();
 }, 10, 3);
 
-add_action('genesis_custom_blocks_render_template_rocketpager-animatednumbers', function () {
-    bundle('block.animatednumbers')->enqueue();
+add_action('genesis_custom_blocks_render_template_rocketpager-team', function () {
+    bundle('block.team')->enqueue();
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-modal', function () {

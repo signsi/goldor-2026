@@ -1,61 +1,58 @@
-@layer components {
-  .font-style-icons {
-    @apply inline-block font-icon not-italic normal-nums text-icon antialiased;
-  }
-
-  .font-style-icons-thin {
-    @apply font-style-icons font-thin;
-  }
-
-  .font-style-icons-light {
-    @apply font-style-icons font-light;
-  }
-
-  .font-style-icons-regular {
-    @apply font-style-icons font-normal;
-  }
-
-  .font-style-icons-solid {
-    @apply font-style-icons font-black;
-  }
-
-  .video-absolute-container-ar {
-    @apply absolute inset-0 w-full h-full object-cover;
-  }
-
-  .video-absolute-container-no-ar {
-    @apply md:absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
-  }
-
-  .video-canvas-ar {
-    @apply block content-default bg-black;
-  }
-
-  .video-canvas-no-ar {
-    @apply md:absolute md:h-full md:w-full
-  }
-
-  .image-size-vh,
-  .mapsize--vh {
-    @apply h-[100vh];
-  }
-
-  .image-size-medium,
-  .mapsize--medium {
-    @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
-  }
-
-  .image-size-large,
-  .mapsize--large {
-    @apply h-[25vh] md:h-[33.33vh] lg:h-[75vh];
-  }
-
-  .image-size-small,
-  .mapsize--small {
-    @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
-  }
+.font-style-icons {
+  @apply inline-block font-icon not-italic normal-nums text-icon antialiased;
 }
 
+.font-style-icons-thin {
+  @apply font-style-icons font-thin;
+}
+
+.font-style-icons-light {
+  @apply font-style-icons font-light;
+}
+
+.font-style-icons-regular {
+  @apply font-style-icons font-normal;
+}
+
+.font-style-icons-solid {
+  @apply font-style-icons font-black;
+}
+
+.video-absolute-container-ar {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.video-absolute-container-no-ar {
+  @apply md:absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
+}
+
+.video-canvas-ar {
+  @apply block content-default bg-black;
+}
+
+.video-canvas-no-ar {
+  @apply md:absolute md:h-full md:w-full
+}
+
+.image-size-vh,
+.mapsize--vh {
+  @apply h-[100vh];
+}
+
+.image-size-medium,
+.mapsize--medium {
+  @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
+}
+
+.image-size-large,
+.mapsize--large {
+  @apply h-[25vh] md:h-[33.33vh] lg:h-[75vh];
+}
+
+.image-size-small,
+.mapsize--small {
+  @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+}
 
 .videosize--16x9,
 .videosize--16-9 {

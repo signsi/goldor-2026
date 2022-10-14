@@ -1,0 +1,67 @@
+.amelia-app-booking,
+.am-event-modal {
+    .am-event-details,
+    .am-event-modal__description {
+        .am-event-about {
+            @apply md:p-element md:max-w-default;
+        }
+        .am-event-about > div{
+            @apply first:hidden;
+        }
+        p, a, li, h1, h2, h3, h4, h5, h6 {
+            @apply font-sans #{!important}
+        }
+        p {
+            @apply text-sm #{!important};
+        }
+        a {
+            @apply text-sm underline text-primary transition-colors hover:text-font #{!important};
+        }
+        ul, ol {
+            @apply pl-typography-desktop #{!important};
+            ul, ol {
+                @apply my-typography-mobile #{!important};
+            }
+            li {
+                @apply text-sm marker:text-font pl-2 my-typography-tiny #{!important};
+            }
+        }
+        ol {
+            @apply list-decimal #{!important};
+        }
+        ul {
+            @apply list-disc #{!important};
+        }
+    }
+    .am-event-modal__description  {
+        @apply mt-gutter;
+    }
+    .el-input-number span {
+        @apply mt-2;
+        &.el-input-number__decrease {
+            @apply ml-3;
+        }
+        &.el-input-number__increase {
+            @apply mr-3;
+        }
+    }
+    .el-input-number {
+        @apply border-0;
+    }
+}
+.am-event-modal {
+    .am-event-modal__periods {
+        @apply hidden;
+    }
+}
+#am-modal.am-modal.am-in-body .am-event-modal__employees {
+    @apply mt-0 pt-0 border-t-0 #{!important};
+}
+#am-modal.am-modal.am-in-body .am-stripe-card, #am-modal.am-modal.am-in-body .form-control, #am-modal.am-modal.am-in-body input[type=email], #am-modal.am-modal.am-in-body input[type=password], #am-modal.am-modal.am-in-body input[type=tel], #am-modal.am-modal.am-in-body input[type=text], #am-modal.am-modal.am-in-body input[type=url], #am-modal.am-modal.am-in-body select, #am-modal.am-modal.am-in-body textarea, .amelia-app-booking #amelia-booking-wrap .am-stripe-card, .amelia-app-booking #amelia-booking-wrap .form-control, .amelia-app-booking #amelia-booking-wrap input[type=email], .amelia-app-booking #amelia-booking-wrap input[type=password], .amelia-app-booking #amelia-booking-wrap input[type=tel], .amelia-app-booking #amelia-booking-wrap input[type=text], .amelia-app-booking #amelia-booking-wrap input[type=url], .amelia-app-booking #amelia-booking-wrap select, .amelia-app-booking #amelia-booking-wrap textarea,
+#am-modal.am-modal.am-in-body, #am-modal.am-modal.am-in-body a, #am-modal.am-modal.am-in-body div, #am-modal.am-modal.am-in-body h1, #am-modal.am-modal.am-in-body h2, #am-modal.am-modal.am-in-body h3, #am-modal.am-modal.am-in-body h4, #am-modal.am-modal.am-in-body li, #am-modal.am-modal.am-in-body p, #am-modal.am-modal.am-in-body section, #am-modal.am-modal.am-in-body span, #am-modal.am-modal.am-in-body ul, .amelia-app-booking #amelia-booking-wrap, .amelia-app-booking #amelia-booking-wrap a, .amelia-app-booking #amelia-booking-wrap div, .amelia-app-booking #amelia-booking-wrap h1, .amelia-app-booking #amelia-booking-wrap h2, .amelia-app-booking #amelia-booking-wrap h3, .amelia-app-booking #amelia-booking-wrap h4, .amelia-app-booking #amelia-booking-wrap li, .amelia-app-booking #amelia-booking-wrap p, .amelia-app-booking #amelia-booking-wrap section, .amelia-app-booking #amelia-booking-wrap span, .amelia-app-booking #amelia-booking-wrap ul {
+    @apply font-sans #{!important};
+}
+#am-modal.am-modal.am-in-body .am-confirmation-booking .el-form-item__content, .amelia-app-booking #amelia-booking-wrap .am-confirmation-booking .el-form-item__content,
+.el-checkbox-group {
+    @apply mt-4;
+}

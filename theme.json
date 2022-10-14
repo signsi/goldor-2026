@@ -12,34 +12,49 @@
           "name": "Grün"
         },
         {
-          "slug": "darkgreen",
-          "color": "rgb(var(--color-darkgreen))",
-          "name": "Dunkelgrün"
+          "slug": "primarydark",
+          "color": "rgb(var(--color-primarydark))",
+          "name": "Grün (dunkel)"
+        },
+        {
+          "slug": "primarylight",
+          "color": "rgb(var(--color-primarylight))",
+          "name": "Grün (dunkel)"
         },
         {
           "slug": "secondary",
           "color": "rgb(var(--color-secondary))",
-          "name": "Hellgrün"
+          "name": "Blau"
+        },
+        {
+          "slug": "secondarydark",
+          "color": "rgb(var(--color-secondarydark))",
+          "name": "Blau (dunkel)"
+        },
+        {
+          "slug": "secondarylight",
+          "color": "rgb(var(--color-secondarylight))",
+          "name": "Blau (hell)"
+        },
+        {
+          "slug": "pink",
+          "color": "rgb(var(--color-pink))",
+          "name": "Pink"
+        },
+        {
+          "slug": "pinkdark",
+          "color": "rgb(var(--color-pinkdark))",
+          "name": "Pink (dunkel)"
+        },
+        {
+          "slug": "pinklight",
+          "color": "rgb(var(--color-pinklight))",
+          "name": "Pink (hell)"
         },
         {
           "slug": "font",
           "color": "rgb(var(--color-font))",
-          "name": "Font"
-        },
-        {
-          "slug": "orange",
-          "color": "rgb(var(--color-orange))",
-          "name": "Orange"
-        },
-        {
-          "slug": "raspberry",
-          "color": "rgb(var(--color-raspberry))",
-          "name": "Himbeer"
-        },
-        {
-          "slug": "yellow",
-          "color": "rgb(var(--color-yellow))",
-          "name": "Gelb"
+          "name": "Schwarz"
         },
         {
           "slug": "grey",
@@ -47,9 +62,39 @@
           "name": "Grau"
         },
         {
-          "slug": "lightgray",
-          "color": "rgb(var(--color-lightgray))",
-          "name": "Hellgrau"
+          "slug": "white",
+          "color": "rgb(var(--color-white))",
+          "name": "Weiss"
+        },
+        {
+          "slug": "aubergine",
+          "color": "rgb(var(--color-aubergine))",
+          "name": "Aubergine"
+        },
+        {
+          "slug": "auberginedark",
+          "color": "rgb(var(--color-auberginedark))",
+          "name": "Aubergine (dunkel)"
+        },
+        {
+          "slug": "auberginelight",
+          "color": "rgb(var(--color-auberginelight))",
+          "name": "Aubergine (hell)"
+        },
+        {
+          "slug": "petrol",
+          "color": "rgb(var(--color-petrol))",
+          "name": "Petrol"
+        },
+        {
+          "slug": "petroldark",
+          "color": "rgb(var(--color-petroldark))",
+          "name": "Petrol (dunkel)"
+        },
+        {
+          "slug": "petrollight",
+          "color": "rgb(var(--color-petrollight))",
+          "name": "Petrol (hell)"
         }
       ],
       "gradients": [{

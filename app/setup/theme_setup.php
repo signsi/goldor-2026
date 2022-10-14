@@ -2,33 +2,99 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
+
+    // Group-Styles
+    // register_block_style('core/group', [
+    //     'name' => 'tiny',
+    //     'label' => __('Extra schmall', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/group', [
+    //     'name' => 'slim',
+    //     'label' => __('Schmall', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/group', [
+    //     'name' => 'default',
+    //     'label' => __('Standard', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/group', [
+    //     'name' => 'large',
+    //     'label' => __('Breit', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/group', [
+    //     'name' => 'xlarge',
+    //     'label' => __('Extra breit', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+
+    // Columns-Styles
+    // register_block_style('core/columns', [
+    //     'name' => 'overlapping--right-1',
+    //     'label' => __('randabfallend rechts', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+    // register_block_style('core/columns', [
+    //     'name' => 'overlapping--right-2',
+    //     'label' => __('randabfallend links', 'rocketpager'),
+    //     'style_handle' => 'awp-block-styles',
+    // ]);
+
+    // Columns
     register_block_style('core/columns', [
-        'name' => 'gap--small',
-        'label' => __('Schmaler Abstand zwischen Spalten', 'rocketpager'),
+        'name' => 'columns-tiny',
+        'label' => __('Tiny', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/columns', [
-        'name' => 'gap--small-location',
-        'label' => __('Spalten für Standorte', 'rocketpager'),
+        'name' => 'columns-slim',
+        'label' => __('Slim', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/columns', [
-        'name' => 'overlapping--right-1',
-        'label' => __('randabfallend rechts', 'rocketpager'),
+        'name' => 'columns-default',
+        'label' => __('Default', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/columns', [
-        'name' => 'overlapping--right-2',
-        'label' => __('randabfallend links', 'rocketpager'),
+        'name' => 'columns-large',
+        'label' => __('Large', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
+    register_block_style('core/columns', [
+        'name' => 'columns-xlarge',
+        'label' => __('xLarge', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/columns', [
+        'name' => 'offset-top',
+        'label' => __('nach oben versetzt', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+
+    // Paragraph-Styles
     register_block_style('core/paragraph', [
         'name' => 'lead',
         'label' => __('Medium', 'rocketpager'),
     ]);
+
+    // Button-Styles
+    register_block_style('core/button', [
+        'name' => 'outline-white',
+        'label' => __('Outline weiss (klein)', 'rocketpager'),
+    ]);
+
+    // List-Styles
     register_block_style('core/list', [
         'name' => 'liststyle-icon--check-circle',
         'label' => __('Icon-Liste', 'rocketpager'),
+        'style_handle' => 'awp-block-styles',
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon--arrowright',
+        'label' => __('Pfeil-Liste', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
     register_block_style('core/list', [
@@ -51,21 +117,6 @@ add_action('init', function () {
         'label' => __('Link zurück', 'rocketpager'),
         'style_handle' => 'awp-block-styles',
     ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markergreen',
-        'label' => __('Adress-Block (Marker grün)', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markerorange',
-        'label' => __('Adress-Block (Marker orange)', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/list', [
-        'name' => 'liststyle-icon--markeryellow',
-        'label' => __('Adress-Block (Marker gelb)', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
 });
 
 // ADD LOGO TO LOGIN PAGE
@@ -73,7 +124,7 @@ add_action('login_enqueue_scripts', function () { ?>
     <style type="text/css">
         #login h1 a,
         .login h1 a {
-            background-image: url('/wp-content/themes/RocketPager_v3.0.0/public/images/logo-rocket-pink.svg');
+            background-image: url('/wp-content/themes/RocketPager-V3/public/images/logo-rocket-pink.svg');
             height: 100px;
             width: 320px;
             background-size: 320px 100px;
@@ -127,7 +178,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='submenuContainer relative lg:absolute w-full z-10 lg:mt-[18px] xl:mt-[30px] transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden lg:before:absolute lg:before:border-y-2 lg:before:border-solid lg:before:border-gray-300 lg:before:inset-y-0 lg:before:-left-[100vw] lg:before:-right-[100vw] lg:before:bg-secondary'><ul class='menu-primary_subnavigation mt-3 lg:my-12 border-t-2 lg:border-t-0 border-solid border-primary z-20 flex flex-col lg:min-w-max'>\n";
+            $output .= "\n$indent<div class='submenuContainer relative left-0 lg:absolute mt-[53px] w-full z-10 transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden'><ul class='menu-primary_subnavigation bg-primary p-gutter z-20 flex flex-col lg:min-w-max'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
@@ -147,7 +198,7 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
                 $classes = explode(" ", $subMenuParentClasses);
                 $item->classes = $classes;
                 $output = "<div class='relative flex justify-between items-center'>" . $output;
-                $output .= '<span class="sr-only">Open submenu</span><svg class="submenuToggle hover:cursor-pointer lg:bg-white rounded-md lg:p-0 ml-0 lg:ml-1 xl:ml-2 border border-solid border-gray-300 lg:border-0 inline-flex items-center justify-center h-8 w-8 lg:w-5 lg:h-5 p-1.5 text-darkgrey group-hover:text-white lg:group-hover:text-primary group-hover:bg-primary lg:group-hover:bg-transparent lg:group-hover:border-0 lg:group-hover:border-transparent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></div>';
+                $output .= '<span class="sr-only">Open submenu</span><svg class="submenuToggle hover:cursor-pointer bg-white rounded-md lg:p-0 ml-0 lg:ml-1 xl:ml-2 border border-solid border-gray-300 lg:border-0 inline-flex items-center justify-center h-8 w-8 lg:w-5 lg:h-5 p-1.5 text-primary lg:text-font group-hover:text-white lg:group-hover:text-primary group-hover:bg-primary lg:group-hover:bg-transparent lg:group-hover:border-0 lg:group-hover:border-transparent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></div>';
             }
         }
     }
@@ -170,5 +221,5 @@ add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
 }, 1, 4);
 
 // Entfernt -wp-container-{id}
-remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
-remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10, 2 );
+// remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
+// remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10, 2 );

@@ -2,7 +2,7 @@
 
 @section('content')
   @if (! have_posts())
-    <div class="flex flex-grow flex-col max-w-content px-gutter py-section mx-auto">
+    <div class="flex flex-grow flex-col max-w-slim px-gutter py-section mx-auto">
       <div class="max-w-fit">
         <h3 class="text-primary mt-0">{{ __('404', 'rocketpager') }}</h3>
         <h1>{{ __('Seite nicht gefunden', 'rocketpager') }}</h1>

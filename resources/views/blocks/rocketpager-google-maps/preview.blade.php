@@ -24,7 +24,7 @@
         @php block_row('markers') @endphp
             <div>
                 @if ( block_sub_value('content') )
-                    <div class="not-prose text-sm">{!! App\sanitize_out(block_sub_value('content'), 'inner_block') !!}</div>
+                    <div class="text-sm">{!! App\sanitize_out(block_sub_value('content'), 'inner_block') !!}</div>
                 @endif
                 @include('blocks.helpers.image',
                 [

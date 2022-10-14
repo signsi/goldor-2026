@@ -2,22 +2,61 @@ module.exports = {
   important: true,
   content: [
     './app/**/*.php', './resources/**/*.{php,vue,js}',
-    './safelist.txt'
+    './safelist.txt',
+    './node_modules/tw-elements/dist/js/**/*.js',
   ],
   theme: {
+    fluidTypeSettings: {
+
+    },
+    fluidType: {
+      settings: {
+        fontSizeMin: 1.125,
+        fontSizeMax: 1.25,
+        ratioMin: 1.125,
+        ratioMax: 1.2,
+        screenMin: 26.25,
+        screenMax: 90,
+        unit: 'rem',
+        prefix: ''
+      },
+      values: {
+        'xs': [-2, 1.4],
+        'sm': [-1, 1.4],
+        'base': [0, 1.4],
+        'lg': [1, 1.2],
+        'xl': [2, 1.2],
+        '2xl': [3, 1.2],
+        '3xl': [4, 1.2],
+        '4xl': [5, 1.1],
+        '5xl': [6, 1.1],
+        '6xl': [7, 1.1],
+        '7xl': [8, 1],
+        '8xl': [9, 1],
+        '9xl': [10, 1],
+      }
+    },
     extend: {
       colors: {
         primary: 'rgb(var(--color-primary))',
-        darkgreen: 'rgb(var(--color-darkgreen))',
+        primarydark: 'rgb(var(--color-primarydark))',
+        primarylight: 'rgb(var(--color-primarylight))',
+        primarytransparent: 'rgb(var(--color-primarytransparent))',
         secondary: 'rgb(var(--color-secondary))',
+        secondarydark: 'rgb(var(--color-secondarydark))',
+        secondarylight: 'rgb(var(--color-secondarylight))',
+        pink: 'rgb(var(--color-pink))',
+        pinkdark: 'rgb(var(--color-pinkdark))',
+        pinklight: 'rgb(var(--color-pinklight))',
         font: 'rgb(var(--color-font))',
-        'black-transparent': 'rgb(var(--color-font) / 50%)',
-        orange: 'rgb(var(--color-orange))',
-        yellow: 'rgb(var(--color-yellow))',
-        raspberry: 'rgb(var(--color-raspberry))',
         grey: 'rgb(var(--color-grey))',
-        darkgrey: 'rgb(var(--color-darkgrey))',
-        lightgray: 'rgb(var(--color-lightgray))',
+        white: 'rgb(var(--color-white))',
+        aubergine: 'rgb(var(--color-aubergine))',
+        auberginedark: 'rgb(var(--color-auberginedark))',
+        auberginelight: 'rgb(var(--color-auberginelight))',
+        petrol: 'rgb(var(--color-petrol))',
+        petroldark: 'rgb(var(--color-petroldark))',
+        petrollight: 'rgb(var(--color-petrollight))',
       },
       opacity: {
         default: '1',
@@ -25,19 +64,23 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-        default: '90rem', //1440px
-        slimmer: '37.5rem', //600px
-        slim: '47rem', //752px
-        large: '71.25rem', //1140px
-        xlarge: '90rem', //1440px
-        content: '52.5rem', //840px
+        tiny: '37.5rem', //600px
+        slim: '45rem', //720px
+        default: '71.25rem', //1140px
+        large: '90rem', //1440px
+        xlarge: '90vw', //90vw
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
-        sans: ['Open Sans', 'Arial', 'sans-serif'],
+        sans: ['Raleway', 'Arial', 'sans-serif'],
         icon: '"Font Awesome 6 Pro"',
       },
       spacing: {
+        // Abstände zwischen den typographischen Elementen
+        'typography-tiny': '15px',
+        'typography-mobile': '20px',
+        'typography-tablet': '25px',
+        'typography-desktop': '30px',
         // Abstände zwischen den verschiedenen Sections
         'section-mobile': '30px',
         'section-tablet': '40px',
@@ -96,6 +139,16 @@ module.exports = {
         100: '100%',
         '0_100': '0% 100%',
       },
+      backgroundImage: {
+        'hero-pattern-1': "url('../images/zodas-logo-cluster-1.svg')",
+        'hero-pattern-2': "url('../images/zodas-logo-cluster-2.svg')",
+        'hero-pattern-3': "url('../images/zodas-logo-cluster-3.svg')",
+      },
+      backgroundSize: {
+        '25%': '25%',
+        '50%': '50%',
+        '75%': '75%',
+      },
       animation: {
         'pulse-scale': 'pulse_scale 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
@@ -105,42 +158,16 @@ module.exports = {
           '70%': { transform: 'scale(0.9)' },
         },
       },
-      typography: ({ theme }) => ({
-        DEFAULT: {
-          css: {
-            color: 'rgb(var(--color-font))',
-          },
-          sm: {
-            css: {
-              ul: {
-                marginTop: theme('spacing.element-mobile'),
-                marginBottom: theme('spacing.element-mobile'),
-              },
-            },
-          },
-          md: {
-            css: {
-              ul: {
-                marginTop: theme('spacing.element-tablet'),
-                marginBottom: theme('spacing.element-tablet'),
-              },
-            },
-          },
-          xl: {
-            css: {
-              ul: {
-                marginTop: theme('spacing.element-desktop'),
-                marginBottom: theme('spacing.element-desktop'),
-              },
-            },
-          },
-        },
+      backgroundColor: ({ theme }) => ({
+        'primary': 'rgb(var(--color-primary))',
       }),
     },
   },
   plugins: [
     require('tailwindcss-hyphens'),
     require('@tailwindcss/forms'),
-    require('@tailwindcss/typography'),
+    require('tw-elements/dist/plugin'),
+    // require('@tailwindcss/typography'),
+    require('tailwindcss-fluid-type'),
   ],
 }

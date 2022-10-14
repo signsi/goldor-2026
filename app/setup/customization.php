@@ -80,13 +80,6 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
-            'key' => 'slogan',
-            'label' => 'Slogan',
-            'default' => 'Powerful advertising',
-
-        ],
-        [
-            'type' => 'text',
             'key' => 'strasse',
             'label' => 'Strasse',
             'default' => 'Neuweg 10',
@@ -198,7 +191,7 @@ function crb_attach_theme_options()
         [
             'type' => 'checkbox',
             'key' => 'cta_search',
-            'label' => 'Suche aktiviert?',
+            'label' => 'Suche aktiviert? (auch in der Navigation)',
         ],
         [
             'type' => 'checkbox',

@@ -149,13 +149,14 @@ if (!function_exists('setColumns')) {
     Beim Accordion wird dies über das Feld 'Erstes Element geöffnet' (first-element-open) gesetzt.
     Beim Extedend-Accordion ist es das Feld 'Accordion-Tab geöffnet' (all-elements-open).
  */
-if (!function_exists('getAccordionActive')) {
-    function getAccordionActive($index = 0)
+if (!function_exists('getFirstAccordionItemActive')) {
+    function getFirstAccordionItemActive($index = 0)
     {
         $isOpen = ( block_value('first-element-open') ||  block_value('all-elements-open') );
-        return ( $index == 0 && $isOpen ) ? ' is-active' : '';
+        return ( $index == 0 && $isOpen ) ? ['collClass' => '', 'showClass' => ' show'] : ['collClass' => ' collapsed', 'showClass' => ''];
     }
 }
+
 
 /*
     Funktion gibt den Deep-Link für das Accordion zurück. Dabei wird das (Sub)-Feld Titel (title) verwendet.

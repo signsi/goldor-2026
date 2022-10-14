@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- @include('partials.page-header-big') --}}
-    <div class="max-w-content w-full mx-auto px-4 md:px-6">
+    <div class="max-w-slim w-full mx-auto px-4 md:px-6">
         @php
         @endphp
         @if (!have_posts())

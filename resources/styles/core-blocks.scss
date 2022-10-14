@@ -1,220 +1,24 @@
-//  News Post Grid - HOME*/
-
-div.alignfull.wp-block-query.is-style-post-image-grid {
-    @apply mb-element;
-}
-div.alignfull.wp-block-query.is-style-post-image-grid ul {
-    @apply pl-0;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid .wp-block-post-template.is-flex-container.is-flex-container.columns-3>li {
-    @apply w-full md:w-[calc(100%/12*6-.83333em)] lg:w-[calc(100%/12*4-.83333em)];
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li {
-    @apply relative overflow-hidden pl-0;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover figure {
-    @apply scale-105;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li a{
-    @apply text-font no-underline;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-    @apply relative transition ease-in-out delay-150 duration-300;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title {
-    @apply mt-1;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-title a{
-    @apply font-bold;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category{
-    @apply flex space-x-3 after:content-['–'] after:px-2;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category a,
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-date a{
-    @apply whitespace-nowrap;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .taxonomy-category > :not([hidden]) ~ :not([hidden]) {
-    @apply ml-1;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .wp-block-post-featured-image {
-    @apply block aspect-square overflow-hidden;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group > .is-nowrap.wp-block-group {
-    @apply p-0 space-x-0 #{!important};
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li img,
-div.alignfull.wp-block-query.is-style-post-image-grid ul li a,
-div.alignfull.wp-block-query.is-style-post-image-grid ul li a img,
-div.alignfull.wp-block-query.is-style-post-image-grid ul li figure {
-    @apply block h-full w-full object-cover;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group {
-    @apply absolute inset-x-0 bottom-0  px-4 py-8 z-10 flex flex-col-reverse #{!important};
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li > .wp-block-group > .wp-block-group {
-    @apply bg-white/90 p-5 m-0 #{!important};
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li i {
-    @apply transition-colors;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover a.wp-block-read-more,
-div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover i  {
-    @apply text-primary;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li a.wp-block-read-more {
-    @apply h-auto contents;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li .read-more-wrapper {
-    @apply transition ease-in-out delay-150 duration-300;
-}
-
-div.alignfull.wp-block-query.is-style-post-image-grid ul li:hover .read-more-wrapper {
-    @apply origin-center translate-x-2;
-}
-
-//  News Post Carousel - Veranstaltungen*/
-div.alignfull.wp-block-query.is-style-post-image-carousel {
-    ul {
-        @apply pl-0 list-none;
-        li {
-            @apply flex flex-col pl-0 bg-primary overflow-hidden;
-            figure {
-                @apply mb-0 block overflow-hidden;
-            }
-            .wp-block-post-title {
-                @apply mt-1;
-                a {
-                    @apply font-bold;
-                }
-            }
-            > .wp-block-group {
-                @apply p-5 mx-0;
-                > .wp-block-group {
-                    @apply p-0 #{!important};
-                }
-            }
-            img {
-                @apply object-cover min-h-[340px] transition ease-in-out delay-150 duration-300;
-            }
-            p, a {
-                @apply text-white;
-            }
-            a {
-                @apply hover:cursor-pointer no-underline hover:text-white;
-            }
-            .read-more-wrapper {
-                @apply flex items-center transition p-0 ease-in-out delay-150 duration-300 pb-5 px-5;
-            }
-            i {
-                @apply text-white transition-colors ml-2;
-            }
-            .wp-block-read-more, .wp-block-post-date a, p.wp-block-post-excerpt__excerpt {
-                @apply text-base;
-            }
-            &:hover {
-                img {
-                    @apply scale-105;
-                }
-                .read-more-wrapper{
-                    @apply origin-center translate-x-2;
-                }
-                i, .wp-block-read-more {
-                    @apply text-secondary;
-                }
-            }
-        }
-    }
-}
-
 //  Button
-.wp-block-buttons {
-    @apply mt-element;
-    .is-style-outline {
-        @apply mb-2;
-    }
-}
 .wp-block-button__link{
     @include buttonStyleDefault;
 }
-
 .is-style-outline>.wp-block-button__link,
 .is-style-outline>.wp-block-button__link:not(.has-background),
 .wp-block-button__link.is-style-outline:not(.has-background){
     @include buttonStyleOutline;
 }
+.is-style-outline-white>.wp-block-button__link,
+.is-style-outline-white>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline-white:not(.has-background){
+    @include buttonStyleOutlineWhite;
+}
+.wp-block-buttons {
+    @apply mt-element;
+}
 
 //  Text Media
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
     @apply pl-0;
-}
-
-// Spalten-Element
-.wp-block-columns{
-    &.is-style-overlapping--left {
-        .wp-block-column {
-            &:first-child {
-                @apply pr-gutter md:pr-0;
-            }
-            &:last-child {
-                @apply xl:mr-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pr-gutter pl-gutter md:pl-0;
-            }
-        }
-    }
-    //  Spalten-Element - randabfallend recht
-    &.is-style-overlapping--right {
-        .wp-block-column {
-            &:first-child {
-                @apply xl:ml-[calc((100vw_-_90rem)/2)] xl:max-w-[calc_(_90rem/2)] pl-gutter pr-gutter md:pr-0;
-            }
-            &:last-child {
-                @apply pl-gutter md:pl-0;
-            }
-        }
-    }
-    //  Spalten-Element - randabfallend recht 1
-    &.is-style-overlapping--right-1 {
-        @apply px-gutter md:pr-0;
-        .wp-block-column {
-            @apply 2xl:pl-gutter 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:first:basis-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:first:max-w-[calc((((theme(maxWidth.xlarge))/2)-(theme(space.28)/2)))] 2xl:last:grow 2xl:last:pl-0 #{!important};
-            &[style*="flex-basis:33.33%"] {
-                @apply 2xl:max-w-none 2xl:first:pl-0 2xl:first:ml-[calc(((100vw-theme(maxWidth.xlarge))/2))] 2xl:basis-[calc((theme(maxWidth.xlarge)-15px)/100*(100/3*1))] #{!important};
-            }
-        }
-    }
-    //  Spalten-Element - Standorte
-    &.is-style-gap--small-location {
-        @apply gap-mobile;
-        figure, img {
-            @apply mb-0;
-        }
-        h3 {
-            @apply mt-6;
-        }
-        .wp-block-buttons {
-            @apply mt-0;
-        }
-    }
-
 }
 
 //  Images
@@ -233,10 +37,10 @@ div.alignfull.wp-block-query.is-style-post-image-carousel {
         }
     }
 }
-figure, figure.wp-block-image {
-    figcaption {
-        @apply text-sm text-darkgrey mt-3;
-    }
+
+// Cover
+.wp-block-cover, .wp-block-cover-image {
+    @apply h-full;
 }
 
 // Galerie
@@ -245,98 +49,84 @@ figure.wp-block-gallery.has-nested-images {
 }
 
 //  List-Styles
-ul[class*="is-style-liststyle"] {
-    @apply my-element;
-}
-ul.is-style-liststyle-icon--check-circle,
-ul.is-style-liststyle-icon--markerorange,
-ul.is-style-liststyle-icon--markergreen,
-ul.is-style-liststyle-icon--markeryellow {
-    @apply list-outside pl-5;
-    > li {
-        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-bold;
-    }
-}
-ul.is-style-liststyle-icon--check-circle {
-    > li {
-        @apply marker:content-['\F058'];
-    }
-}
-ul.is-style-liststyle-icon--markerorange,
-ul.is-style-liststyle-icon--markergreen,
-ul.is-style-liststyle-icon--markeryellow {
-    > li {
-        @apply mb-element marker:content-['\f3c5'];
-    }
-}
-ul.is-style-liststyle-icon--markeryellow {
-    > li {
-        @apply marker:text-yellow;
-    }
-}
-ul.is-style-liststyle-icon--markerorange {
-    > li {
-        @apply marker:text-orange;
-    }
-}
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download,
 ul.is-style-liststyle-icon--singlelink,
 ul.is-style-liststyle-icon--return {
-    @apply list-none pl-0;
+    @apply list-none pl-0 before:transition-colors;
 }
 ul.is-style-liststyle-icon--linklist,
 ul.is-style-liststyle-icon--download{
     > li {
-        @apply flex items-center justify-between border-b transition-colors pl-0 after:pl-8  after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors hover:text-primary hover:after:text-primary ;
+        @apply flex items-center transition-colors after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none hover:text-primary hover:after:text-primary ;
         a {
-            @apply grow no-underline text-font hover:text-primary;
+            @apply grow no-underline text-font;
         }
-    }
-}
-ul.is-style-liststyle-icon--download {
-    > li {
-        @apply pb-2 mb-4 border-font after:font-light after:content-['\e094'];
     }
 }
 ul.is-style-liststyle-icon--singlelink,
 ul.is-style-liststyle-icon--return {
-    > li {
+    >li {
         @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
     }
 }
+ul.is-style-liststyle-icon--check-circle,
+ul.is-style-liststyle-icon--arrowright  {
+    @apply list-outside pl-5;
+    > li {
+        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-light;
+    }
+}
+//  List-Styles check circle
+ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply pl-3 marker:content-['\F058'];
+    }
+}
+//  List-Styles arrow right
+ul.is-style-liststyle-icon--arrowright {
+    > li {
+        @apply transition-all hover:origin-center hover:translate-x-2 pl-3 marker:content-['\f054'] hover:marker:content-['\f178'];
+    }
+}
+//  List-Styles download
+ul.is-style-liststyle-icon--download {
+    > li {
+        @apply text-sm border-b-2 font-semibold flex-row-reverse justify-end pl-0 after:pr-4 pb-2 mb-4 border-font after:font-semibold after:content-['\e094'];
+        &:hover {
+            a:after, a {
+                @apply text-primary;
+            }
+        }
+    }
+}
+//  List-Styles single link
 ul.is-style-liststyle-icon--singlelink {
     > li {
         a {
-            @apply flex items-center no-underline text-font hover:text-primary after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none after:transition-colors;
+            @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none text-primary no-underline hover:text-font hover:before:text-font;
         }
     }
 }
+//  List-Styles return
 ul.is-style-liststyle-icon--return {
     > li {
         a {
-            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none before:transition-colors;
+            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none;
         }
     }
 }
+//  List-Styles link list
 ul.is-style-liststyle-icon--linklist {
     > li {
-        @apply first:border-t my-0 py-4 md:py-5 lg:py-6 border-darkgrey after:font-light after:content-['\f178'];
+        @apply justify-between first:border-t border-b my-0 pl-0 after:pl-8 py-4 md:py-5 lg:py-6 border-grey after:font-light after:content-['\f178'];
         &, a {
             @apply font-bold;
         }
     }
 }
 
-// Tabelle
-.wp-block-table {
-    thead, tr {
-        @apply border-b-2 border-lightgray;
-    }
-    th {
-        @apply text-sm font-normal text-darkgrey #{!important};
-    }
-    td, th {
-        @apply border-0 px-0;
-    }
+// Search
+input#search:focus + #icon-wrapper {
+    @apply opacity-0;
 }

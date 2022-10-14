@@ -95,7 +95,7 @@ export function setupMobileSubMenus() {
     const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-darkgrey');
+    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-grey');
     const outsideArea = document.querySelector('body');
 
     submMenuParentSvg.forEach(svgButton => {
@@ -131,8 +131,10 @@ export function setupMobileNav() {
     const mobileNavButton = document.querySelector("#mobileToggle");
     const mobileNavClose = document.querySelector("#mobileClose");
     const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
-    const mobileClassesHidden = ['opacity-0', 'scale-95', '-translate-y-full', '-z-10'];
-    const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-y-0', 'z-20'];
+    const mobileClassesHidden = ['translate-x-full', '-z-10'];
+    // const mobileClassesHidden = ['opacity-0', 'scale-95', 'translate-x-full', '-z-10'];
+    const mobileClassesShown = ['translate-x-0', 'z-20'];
+    // const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-x-0', 'z-20'];
     if (mobileNavButton) {
         mobileNavButton.addEventListener('click', (e) => {
             mobileNav.classList.remove(...mobileClassesHidden);

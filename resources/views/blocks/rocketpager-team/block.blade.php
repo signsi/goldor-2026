@@ -1,11 +1,27 @@
 @php
     $row_per_col = App\setColumns();
+    $isSlider = block_value('isSlider');
+    $addSlider = $isSlider ? ' isSlider' : '';
+    $ratio = block_value('aspect-ratio');
+    switch($ratio){
+        case 'aspect-ratio-16-9':
+            $ar_class = '16-9-thumb';
+        break;
+        case 'aspect-ratio-4-3':
+            $ar_class = '4-3-thumb';
+        break;
+        case 'aspect-ratio-square':
+            $ar_class = 'medium-crop';
+        break;
+        default:
+            $ar_class = 'medium-crop';
+    }
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => $addSlider])
 
 @section('content-section')
-    <div class="grid gap-tiny lg:gap-mobile{{ $row_per_col }}">
+    <div class="relative @if ( !block_value( 'isSlider') ) grid gap-tiny lg:gap-mobile{{ $row_per_col }} @else slider-wrapper @endif">
         @while (block_rows('team-member'))
             @php
                 block_row('team-member');
@@ -13,26 +29,32 @@
                 $instagram = block_sub_value('social-media-instagram')
             @endphp
             @if ( !block_sub_value('hide-element') )
-                <div class="team-member transition-all duration-300 ease-in-out{{ App\getAnimation() }}">
-                    <div class="image-wrapper not-prose">
+                <div class="team-member flex flex-col justify-between @if ( block_value( 'isSlider') ) h-full pr-gutter @else border-solid border-2 border-grey hover:shadow-lg transition-all @endif group duration-300 ease-in-out{{ App\getAnimation() }}">
+                    <div class="image-wrapper">
                         @include('blocks.helpers.image',
                         [
                             'name_ImageField' => 'portrait-image',
-                            'thumbnail' => 'square-thumb',
-                            'additionalClasses' => array('class' => '!m-0'),
+                            'thumbnail' => $ar_class,
+                            'additionalClasses' => array('class' => 'transition nolazyload group-hover:scale-105'),
                             'isRepeaterElement' => true
                         ])
                     </div>
-                    <div class="text-wrapper pr-4 py-4 text-left">
-                        @if ( block_sub_value( 'name') )
-                            <p class="title !mb-2"><strong>{{ block_sub_value('name') }}</strong></p>
-                        @endif
-                        @if ( block_sub_value('text') )
-                            <div class="prose-p:leading-7">{!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}</div>
-                        @endif
-                        @if ( block_sub_value('email') )
-                            <p><a href="mailto:{{ block_sub_value('email') }}" class="underline text-primary hover:text-font">E-Mail</a>@if ( block_sub_value('phone') ) | <a href="tel:{{ block_sub_value('phone') }}" class="underline text-primary hover:text-font">{{ block_sub_value('phone') }}</a> @endif </p>
-                        @endif
+                    <div class="text-wrapper flex flex-col p-gutter lg:min-h-[292px] xl:min-h-[315px] 2xl:min-h-[250px] @if ( block_value( 'isSlider') ) border-solid border-2 border-grey hover:shadow-lg transition-all @endif">
+                        <div class="text-wrapper--inner">
+                            @if ( block_sub_value( 'name') )
+                                <p><strong>{{ block_sub_value('name') }}</strong></p>
+                            @endif
+                            @if ( block_sub_value('text') )
+                                <div>{!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}</div>
+                            @endif
+                        </div>
+                        <div class="mt-auto">
+                            @if ( block_sub_value('email') )
+                                <ul class="is-style-liststyle-icon--singlelink group">
+                                    <li class="mt-typography mb-0 group-hover:origin-center group-hover:translate-x-2 text-primary hover:text-font"><a href="mailto:{{ block_sub_value('email') }}" rel="noreferrer noopener" class="text-sm font-semibold text-primary hover:text-font">E-Mail senden</a></li>
+                                </ul>
+                            @endif
+                        </div>
                     </div>
                 </div>
             @endif

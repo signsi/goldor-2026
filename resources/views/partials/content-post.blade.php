@@ -1,6 +1,6 @@
 <div class="group break-inside-avoid mb-4 lg:mb-6 bg-secondary">
     <a href="{{ the_permalink() }}" class="no-underline text-font">
-        <div class="image-wrapper not-prose overflow-hidden">
+        <div class="image-wrapper  overflow-hidden">
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
         </div>
         <div class="content-wrapper p-4 lg:py-gutter lg:px-gutter">
