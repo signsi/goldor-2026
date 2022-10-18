@@ -61,6 +61,8 @@ $buttons = [
                             'container_class' => '',
                             'add_li_class' => 'relative text-sm font-normal pr-3 border-r border-font last:pr-0 last:border-r-0'
                         ]);
+                    } else {
+                        echo "<a href='/wp-admin/nav-menus.php?menu=2'><figure><img src='https://media3.giphy.com/media/oBQZIgNobc7ewVWvCd/giphy.gif?cid=790b761180939b672f05df9b0bbb8c1e5ad5972f019ad1a5&rid=giphy.gif&ct=g' class='max-h-20' /><figcaption>Füge eine Navigation mit dem Namen 'footer_disclaimer_navigation' hinzu.</figcaption></figure></a>";
                     }
                 @endphp
             </nav>

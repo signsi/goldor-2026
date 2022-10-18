@@ -22,9 +22,9 @@
     }
     if ($the_query->have_posts()) {
         if ( in_category('89')) {
-            printf("<div class='wp-block-group alignfull'><div class='wp-block-group__inner-container'><div class='wp-block-group alignfull bg-bright'><div class='wp-block-group__inner-container'><div class='wp-block-group alignwide row--slim'><div class='wp-block-group__inner-container'><h2>Weitere Jobangebote</h2><ul class='newest-posts'>");
+            printf("<div class='wp-block-group is-style-layout-full'><div class='wp-block-group__inner-container'><div class='wp-block-group is-style-layout-full'><div class='wp-block-group__inner-container'><div class='wp-block-group row--slim'><div class='wp-block-group__inner-container'><h2>Weitere Jobangebote</h2><ul class='newest-posts'>");
         } else {
-            printf("<div class='wp-block-group alignfull'><div class='wp-block-group__inner-container'><div class='wp-block-group alignfull bg-bright'><div class='wp-block-group__inner-container'><div class='wp-block-group alignwide row--slim'><div class='wp-block-group__inner-container'><h2>Ausgewählte Beiträge</h2><ul class='newest-posts'>");
+            printf("<div class='wp-block-group is-style-layout-full'><div class='wp-block-group__inner-container'><div class='wp-block-group is-style-layout-full'><div class='wp-block-group__inner-container'><div class='wp-block-group row--slim'><div class='wp-block-group__inner-container'><h2>Ausgewählte Beiträge</h2><ul class='newest-posts'>");
         }
         while ($the_query->have_posts()) {
             $the_query->the_post();
