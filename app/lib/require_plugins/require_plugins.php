@@ -101,29 +101,18 @@ function rocketpacker_register_required_plugins()
 		array(
 			'name'               => 'Genesis Custom Blocks Pro', // The plugin name.
 			'slug'               => 'genesis-custom-blocks-pro', // The plugin slug (typically the folder name).
-			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro.zip', // The plugin source.
-			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
+			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro.1.5.1.zip', // The plugin source.
+			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => true, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-		// array(
-		// 	'name'      => 'Smush Pro',
-		// 	'slug'      => 'wp-shmush-pro',
-		// 	'source'             => get_template_directory() . '/lib/944810_smush-pro-3.9.6.zip', // The plugin source.
-		// 	'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-		// 	'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		// 	'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-		// 	'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		// ),
 		array(
-			'name'      => 'Defender Pro',
-			'slug'      => 'wp-defender',
-			'source'             => get_template_directory() . '/lib/944810_defender-pro-2.7.1.zip', // The plugin source.
+			'name'      => 'WPMU DEV Dashboard',
+			'slug'      => 'wpmudev-updates',
+			'source'             => get_template_directory() . '/lib/944810_wpmu-dev-dashboard-4.11.16.zip', // The plugin source.
 			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -132,9 +121,31 @@ function rocketpacker_register_required_plugins()
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 		array(
-			'name'      => 'Snapshot Pro',
-			'slug'      => 'snapshot-backups',
-			'source'             => get_template_directory() . '/lib/944810_snapshot-pro-4.7.zip', // The plugin source.
+			'name'      => 'Smush Pro',
+			'slug'      => 'wp-shmush-pro',
+			'source'             => get_template_directory() . '/lib/944810_smush-pro-3.12.1.zip', // The plugin source.
+			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+		array(
+			'name'      => 'Defender Pro',
+			'slug'      => 'wp-defender',
+			'source'             => get_template_directory() . '/lib/944810_defender-pro-3.3.2.zip', // The plugin source.
+			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
+			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+		array(
+			'name'      => 'Forminator Pro',
+			'slug'      => 'forminator',
+			'source'             => get_template_directory() . '/lib/944810_forminator-pro-1.19.zip', // The plugin source.
 			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -145,7 +156,7 @@ function rocketpacker_register_required_plugins()
 		array(
 			'name'      => 'Hummingbird Pro',
 			'slug'      => 'wp-hummingbird',
-			'source'             => get_template_directory() . '/lib/944810_hummingbird-pro-3.3.zip', // The plugin source.
+			'source'             => get_template_directory() . '/lib/944810_hummingbird-pro-3.3.5.zip', // The plugin source.
 			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -154,23 +165,12 @@ function rocketpacker_register_required_plugins()
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 		array(
-			'name'      => 'WPMU DEV Dashboard',
-			'slug'      => 'wpmudev-updates',
-			'source'             => get_template_directory() . '/lib/944810_wpmu-dev-dashboard-4.11.8.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'name'      => 'Yoast SEO',
+			'slug'      => 'wordpress-seo',
+			'required'  => false,
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
-		// array(
-		// 	'name'      => 'Yoast SEO',
-		// 	'slug'      => 'wordpress-seo',
-		// 	'required'  => false,
-		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		// ),
 		array(
 			'name'      => 'Enable Media Replace',
 			'slug'      => 'enable-media-replace',
@@ -192,13 +192,13 @@ function rocketpacker_register_required_plugins()
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 		),
-		// array(
-		// 	'name'      => 'WebP Converter for Media',
-		// 	'slug'      => 'webp-converter-for-media',
-		// 	'required'  => false,
-		// 	'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-		// 	'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-		// ),
+		array(
+			'name'      => 'WebP Converter for Media',
+			'slug'      => 'webp-converter-for-media',
+			'required'  => false,
+			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+		),
 		array(
 			'name'      => 'SVG Support',
 			'slug'      => 'svg-support',
@@ -212,14 +212,6 @@ function rocketpacker_register_required_plugins()
 		// By setting 'is_callable' to either a function from that plugin or a class method
 		// `array( 'class', 'method' )` similar to how you hook in to actions and filters, TGMPA can still
 		// recognize the plugin as being installed.
-		/*
-        array(
-            'name'        => 'WordPress SEO by Yoast',
-            'slug'        => 'wordpress-seo',
-            'is_callable' => 'wpseo_init',
-        ),
-        */
-
 	);
 
 	/*

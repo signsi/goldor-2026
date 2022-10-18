@@ -230,7 +230,7 @@ function crb_attach_theme_options()
             'type' => 'image',
             'key' => 'logo_main',
             'label' => 'Logo (Main)',
-            'default' => asset('images/logo-rocket-pink.svg')
+            'default' => asset('images/logo-rocket-black.svg')
         ],
         [
             'type' => 'image',

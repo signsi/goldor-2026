@@ -26,6 +26,8 @@ $search_active = App\getThemeOption('cta_search');
                             'add_sub_li_class' => 'before:content-none',
                             'walker' => new SubmenuWrap(),
                         ]);
+                    } else {
+                        echo "<a href='/wp-admin/nav-menus.php?menu=2'><figure><img src='https://media3.giphy.com/media/oBQZIgNobc7ewVWvCd/giphy.gif?cid=790b761180939b672f05df9b0bbb8c1e5ad5972f019ad1a5&rid=giphy.gif&ct=g' class='max-h-20' /><figcaption>Füge eine Navigation mit dem Namen 'primary_navigation' hinzu.</figcaption></figure></a>";
                     }
                 @endphp
             </nav>
