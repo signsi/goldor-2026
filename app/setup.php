@@ -187,14 +187,10 @@ add_action( 'admin_menu', function() {
     }
 } );
 
-// <link rel="preconnect" href="https://fonts.googleapis.com">
-// <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-// <link href="https://fonts.googleapis.com/css2?family=Gentium+Basic:wght@400;700&display=swap" rel="stylesheet">
-
 require_once 'setup/theme_setup.php';
 require_once 'setup/block_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'helpers/helpers.php';
 require_once 'setup/customization.php';
 require_once 'setup/default_block_templates.php';
-require_once 'setup/custom_post_types.php';
+// require_once 'setup/custom_post_types.php';
