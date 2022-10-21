@@ -207,18 +207,21 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
 
 
 add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
-    if (isset($args->add_li_class)) {
-        if ($args->depth === 0) {
-            $classes[] = $args->add_li_class;
+    if ('primary_navigation' === $args->theme_location) {
+        if (isset($args->add_li_class)) {
+            if ($depth === 0) {
+                $classes[] = $args->add_li_class;
+            }
         }
-    }
-    if (isset($args->add_sub_li_class)) {
-        if ($depth === 1) {
-            $classes[] = $args->add_sub_li_class;
+        if (isset($args->add_sub_li_class)) {
+            if ($depth === 1) {
+                $classes[] = $args->add_sub_li_class;
+            }
         }
     }
     return $classes;
 }, 1, 4);
+
 
 // Entfernt -wp-container-{id}
 // remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
