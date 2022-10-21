@@ -49,3 +49,10 @@ add_filter('render_block_core/query', function ($block_content, $block) {
 
     return $block_content;
 }, 10, 2);
+
+// Removes noreferrer on the frontend only, you will likely still see noreferrer in the code view of the editor
+add_filter('the_content', function ($content) {
+    $replace = array("noreferrer " => "" ," noreferrer" => "");
+    $new_content = strtr($content, $replace);
+    return $new_content;
+}, 999);
