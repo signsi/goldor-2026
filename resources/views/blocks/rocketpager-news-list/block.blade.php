@@ -67,6 +67,17 @@ foreach ($cats as $cat) {
     @endif --}}
 
     <div class="ajax-container grid{{ $row_per_col }} gap-gutter" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+        @if ($the_query->have_posts())
+            @while ($the_query->have_posts())
+                @php
+                    $the_query->the_post();
+                    global $post;
+                @endphp
+                @include('blocks.rocketpager-news-list.rocketpager-news-list-element')
+            @endwhile
+        @endif
+        {{-- Restore original Post Data --}}
+        @php wp_reset_postdata(); @endphp
         <!-- Elemente werden über AJAX geladen -->
     </div>
 
