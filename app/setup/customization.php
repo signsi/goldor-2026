@@ -141,6 +141,16 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
+            'key' => 'twitter',
+            'label' => 'Twitter Profil',
+        ],
+        [
+            'type' => 'text',
+            'key' => 'google_plus',
+            'label' => 'Google-Plus Profil',
+        ],
+        [
+            'type' => 'text',
             'key' => 'instagram',
             'label' => 'Instagram Profil',
         ],
@@ -230,7 +240,7 @@ function crb_attach_theme_options()
             'type' => 'image',
             'key' => 'logo_main',
             'label' => 'Logo (Main)',
-            'default' => asset('images/logo-rocket-pink.svg')
+            'default' => asset('images/logo-rocket-black.svg')
         ],
         [
             'type' => 'image',
@@ -262,6 +272,11 @@ function crb_attach_theme_options()
             'type' => 'text',
             'key' => 'nootiz_id',
             'label' => 'Nootiz ID',
+        ],
+        [
+            'type' => 'text',
+            'key' => 'mailchimp_url',
+            'label' => 'MailChimp URL',
         ],
         [
             'type' => 'html',
