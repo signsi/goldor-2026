@@ -11,7 +11,7 @@ $disable_meta_author = block_value('disable-meta-author');
 $disable_meta_category = block_value('disable-meta-category');
 $number_of_posts = block_value('number-of-posts');
 $post_category = block_value('category');
-$category_name = $post_category ? $post_category->name : '';
+$category_name = $post_category && !is_wp_error( $post_category ) ? $post_category->name : '';
 $row_per_col = App\setColumns();
 $post_type = 'post';
 

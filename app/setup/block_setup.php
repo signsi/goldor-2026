@@ -45,7 +45,7 @@ add_action('genesis_custom_blocks_render_template_rocketpager-google-maps', func
 
 add_action('genesis_custom_blocks_render_template_rocketpager-news-list', function () {
     $ajax_url = admin_url('admin-ajax.php');
-    bundle('block.news-list')->enqueue()->localize('load_more_posts', [
+    bundle('ajax')->enqueue()->localize('load_more_posts', [
         'ajaxurl' => esc_url($ajax_url),
         'theme_directory_uri' => get_template_directory_uri()
     ]);

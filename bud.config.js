@@ -24,6 +24,9 @@ module.exports = async (app) => {
         '@scripts/editor',
         '@styles/editor'
       ],
+      "ajax": [
+        '@scripts/ajax-loading-blocks'
+      ],
       "block.modal": [
         '@scripts/blocks/rocketpager-modal'
       ],
@@ -49,9 +52,6 @@ module.exports = async (app) => {
       "block.google-maps": [
         '@scripts/blocks/rocketpager-google-maps',
         '@styles/new_styles/rocketpager-google-maps'
-      ],
-      "block.news-list": [
-        '@scripts/blocks/rocketpager-news-list'
       ],
       "block.events": [
         '@scripts/blocks/rocketpager-events'
