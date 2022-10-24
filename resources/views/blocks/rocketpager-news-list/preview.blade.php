@@ -1,7 +1,7 @@
 @php
     //Variables
     $category = block_value( 'category' );
-    $category_name = $category ? $category->name : '';
+    $category_name = $category && !is_wp_error( $category ) ? $category->name : '';
     $flex_type = App\setColumns(true);
 
     // The Query

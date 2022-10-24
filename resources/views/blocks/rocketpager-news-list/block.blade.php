@@ -2,6 +2,7 @@
 use function Roots\asset;
 
 //Variables
+$element_path = App\getAjaxElementPath();
 $animation = App\getAnimation();
 $preview_size = block_value('preview-size');
 $disable_meta = block_value('disable-meta');
@@ -10,7 +11,7 @@ $disable_meta_author = block_value('disable-meta-author');
 $disable_meta_category = block_value('disable-meta-category');
 $number_of_posts = block_value('number-of-posts');
 $post_category = block_value('category');
-$category_name = $post_category ? $post_category->name : '';
+$category_name = $post_category && !is_wp_error( $post_category ) ? $post_category->name : '';
 $row_per_col = App\setColumns();
 $post_type = 'post';
 
@@ -24,6 +25,7 @@ $the_query = new WP_Query($args);
 $args['max_num_pages'] = $the_query->max_num_pages;
 
 $block_args = [
+    'element_path' => $element_path,
     'animation' => $animation,
     'preview_size' => $preview_size,
     'disable_meta' => $disable_meta,
@@ -47,7 +49,7 @@ foreach ($cats as $cat) {
 }
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'rocketpager-has-ajax', 'ignoreAnimation' => true])
 
 @section('content-section')
     {{-- Filter --}}
@@ -67,6 +69,17 @@ foreach ($cats as $cat) {
     @endif --}}
 
     <div class="ajax-container grid{{ $row_per_col }} gap-gutter" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+        @if ($the_query->have_posts())
+            @while ($the_query->have_posts())
+                @php
+                    $the_query->the_post();
+                    global $post;
+                @endphp
+                @include('blocks.rocketpager-news-list.element')
+            @endwhile
+        @endif
+        {{-- Restore original Post Data --}}
+        @php wp_reset_postdata(); @endphp
         <!-- Elemente werden über AJAX geladen -->
     </div>
 

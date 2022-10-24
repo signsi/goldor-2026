@@ -11,30 +11,33 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
         _loadButton: $rocketpager_container.find('.wp-block-button .wp-block-button__link'),
         _query_args: $rocketpager_container.children('div.ajax-container').first().data("query-args"),
         _block_args: $rocketpager_container.children('div.ajax-container').first().data("block-args"),
-        _page: 0,
+        _page: 1,
         _lastPage: false,
         _queue: new PQueue(),
-        _delay: 500,
-        // Die init-Methode startet die Scroll-Detektion und triggert den Event `did-interval-scroll`.
+        _delay: 0,
+        _initial: true,
         init() {
             this._query_args.paged = this._page;
-            console.log(load_more_posts.ajaxurl);
+            if(this._page >= this._query_args.max_num_pages){
+                this._lastPage = true;
+                this._loadButton.hide();
+            }
 
-            this.reset();
             this.handleCategorySelection(this);
             this._loadButton.on('click', () => {
                 this.loadPosts();
             });
-        },
-        reset() {
-            this._container.empty();
-            this._loadButton.hide();
 
             if(!this._loadingImage.attr('src')){
                 const image_src = this._loadingImage.data('src');
                 this._loadingImage.attr('src', image_src);
                 this._loadingImage.removeAttr('data-src');
             }
+            this._loadingImage.hide();
+        },
+        reset() {
+            this._container.empty();
+            this._loadButton.hide();
             this._loadingImage.show();
 
             this._page = 0;
@@ -82,15 +85,16 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
             //P-Queue needed?
             const task = setTimeout(() => {
                 curr_object._container.append(post);
+                curr_object._loadingImage.hide();
             }, curr_object._delay)
 
             curr_object._queue.add(() => task)
         },
         handleResponsePosts(json_posts_array, curr_object) {
-            curr_object._loadingImage.hide();
             // ist die Antwort leer, brechen wir ab
             if (!json_posts_array.length) {
                 curr_object._container.addClass('no-results');
+                curr_object._loadingImage.hide();
             } else {
                 // haben wir Beiträge erhalten, parsen wir das JSON und fahren mit der Verarbeitung fort
                 const posts_array = JSON.parse(json_posts_array)
@@ -100,12 +104,12 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
                 if (curr_object._query_args.paged == curr_object._query_args.max_num_pages) {
                     curr_object._lastPage = true;
                     if(curr_object._loadButton.is(':visible')){
-                        curr_object._loadButton.fadeOut(200);
+                        curr_object._loadButton.hide();
                     }
                 }
                 else{
                     if(!curr_object._loadButton.is(':visible')){
-                        curr_object._loadButton.fadeIn(200);
+                        curr_object._loadButton.show();
                     }
                 }
                 // Wir gehen alle Beiträge durch, und laden die Beiträge verspätet nacheinander
@@ -135,7 +139,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
                 url: load_more_posts.ajaxurl,
                 type: 'post',
                 data: {
-                    action: 'rocket_ajax_load_more_events',
+                    action: 'rocket_ajax_load_more',
                     json_data: json_args,
                 }
             }
@@ -173,7 +177,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
     };
 }
 
-$('.rocketpager-events').each(function() {
+$('.rocketpager-has-ajax').each(function() {
     const rocketpagerNewsList = RocketPagerAjaxLoad($(this).first());
     rocketpagerNewsList.init();
 });
