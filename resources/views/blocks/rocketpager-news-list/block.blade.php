@@ -2,6 +2,7 @@
 use function Roots\asset;
 
 //Variables
+$element_path = App\getAjaxElementPath();
 $animation = App\getAnimation();
 $preview_size = block_value('preview-size');
 $disable_meta = block_value('disable-meta');
@@ -24,6 +25,7 @@ $the_query = new WP_Query($args);
 $args['max_num_pages'] = $the_query->max_num_pages;
 
 $block_args = [
+    'element_path' => $element_path,
     'animation' => $animation,
     'preview_size' => $preview_size,
     'disable_meta' => $disable_meta,
@@ -47,7 +49,7 @@ foreach ($cats as $cat) {
 }
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'rocketpager-has-ajax', 'ignoreAnimation' => true])
 
 @section('content-section')
     {{-- Filter --}}
@@ -73,7 +75,7 @@ foreach ($cats as $cat) {
                     $the_query->the_post();
                     global $post;
                 @endphp
-                @include('blocks.rocketpager-news-list.rocketpager-news-list-element')
+                @include('blocks.rocketpager-news-list.element')
             @endwhile
         @endif
         {{-- Restore original Post Data --}}

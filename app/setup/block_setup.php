@@ -109,7 +109,7 @@ if (!function_exists('rocket_ajax_load_more')):
                 // lass="cell animate__animated animate__fadeInUp <?php echo $delays[$index]
                 ob_start();
 
-                $blade_path = 'blocks/rocketpager-news-list/rocketpager-news-list-element';
+                $blade_path = $block_args['element_path'];
                 echo \Roots\view($blade_path, $block_args)->render();
 
                 /**

@@ -22,6 +22,11 @@ function getDefaultPreviewView()
     echo \Roots\view($path)->render();
 }
 
+function getAjaxElementPath(){
+    $block_config = block_config();
+    return 'blocks/' . $block_config['name'] . '/element';
+}
+
 
 if (!function_exists('is_true')) {
     function is_true($key)
