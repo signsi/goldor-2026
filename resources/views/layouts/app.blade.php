@@ -23,37 +23,35 @@
             do_action('get_header');
         @endphp
 
-<a class="sr-only focus:not-sr-only" href="#main">
-    {{ __('Skip to content') }}
-</a>
+        <a class="sr-only focus:not-sr-only" href="#main">
+            {{ __('Skip to content') }}
+        </a>
 
-{{-- PARAM HEADER --}}
-@include('sections.header.header1')
-<main id="main" class="main mx-auto max-w-none">
-    @yield('content')
-    @if ($search_active)
-        @include('partials.modal-search')
-    @endif
-</main>
+        {{-- PARAM HEADER --}}
+        @include('sections.header.header1')
+        <main id="main" class="main mx-auto max-w-none">
+            @yield('content')
+            @if ($search_active)
+                @include('partials.modal-search')
+            @endif
+        </main>
 
-@hasSection('sidebar')
-    <aside class="sidebar">
-        @yield('sidebar')
-    </aside>
-@endif
+        @hasSection('sidebar')
+            <aside class="sidebar">
+                @yield('sidebar')
+            </aside>
+        @endif
 
-@include('sections.footer.footer1')
-@include('partials.top.sticky-cta')
+        @include('sections.footer.footer1')
+        @include('partials.top.sticky-cta')
 
-
-
-@include('partials.browser-update')
+        @include('partials.browser-update')
         @include('partials.googletagmanager')
         @include('partials.nootiz')
         @php
             do_action('get_footer');
             wp_footer();
         @endphp
-        @stack('footer_scripts');
+        @stack('footer_scripts')
     </body>
 </html>
