@@ -8,7 +8,8 @@ body {
 }
 
 
-.page.content {
+main,
+body.single main > article {
     >.wp-block-group {
         // Abstände für Gruppe auf der 1. Ebene
         @apply py-section;

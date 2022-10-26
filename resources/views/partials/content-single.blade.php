@@ -1,3 +1,3 @@
-<article @php(post_class('page content'))>
+<article>
     @php(the_content())
 </article>

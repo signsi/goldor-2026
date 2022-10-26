@@ -1,4 +1,4 @@
-@extends('layouts.app-width-content')
+@extends('layouts.app')
 
 @section('content')
 
@@ -13,6 +13,3 @@
     </div>
 
 @endsection
-
-
-

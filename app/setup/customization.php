@@ -51,8 +51,16 @@ function get_mapped_fields($fields)
             )
                 ->set_value_type('url')
                 ->set_default_value($default);
-        } else if ($type == 'html') {
-            $field = Field::make('header_scripts', "rocket_$key", __('Header Scripts'));
+        } else if ($type == 'header_scripts') {
+            $field = Field::make(
+                'header_scripts',
+                "rocket_$key",
+                __('Header Scripts'));
+        } else if ($type == 'footer_scripts') {
+            $field = Field::make(
+                'footer_scripts',
+                "rocket_$key",
+                __('Footer Scripts'));
         } else {
             return "Feldtyp ist nicht implementiert.";
         }
@@ -279,14 +287,12 @@ function crb_attach_theme_options()
             'label' => 'MailChimp URL',
         ],
         [
-            'type' => 'html',
-            'key' => 'code_head',
-            'label' => 'Code vor dem schliessenden </head>-Tag'
+            'type' => 'header_scripts',
+            'key' => 'code_head'
         ],
         [
-            'type' => 'html',
-            'key' => 'code_body',
-            'label' => 'Code unmittelbar nach dem öffnenden <body>-Tag'
+            'type' => 'footer_scripts',
+            'key' => 'code_body'
         ]
     ];
 

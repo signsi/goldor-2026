@@ -3,7 +3,7 @@
 @section('content-section')
     <div
         id="map"
-        class="map mapsize--{{ block_value('mapsize') }}"
+        class="map mapsize--{{ block_value('mapsize') }} not-prose"
         data-map-id="{{ block_value('mapID') }}"
         data-center-lat="{{ block_value('centerLat') }}" data-center-lng="{{ block_value('centerLng') }}"
         data-zoom="{{ block_value('zoomlevel') }}"
