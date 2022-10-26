@@ -13,12 +13,14 @@ $(document).ready(function() {
         var mapId = mapElement.data('map-id');
         var center = {lat: mapElement.data('center-lat'), lng: mapElement.data('center-lng')};
         var zoom = mapElement.data('zoom');
-        var gestureHandling = mapElement.data('controls-active') == 'Yes' ? 'cooperative' : 'none';
-        var disableDefaultUI = mapElement.data('zoom-active') == 'No' ? true : false;
+        var zoomControl = mapElement.data('zoom-active') == 'No' ? false : true;
+        var gestureHandling = mapElement.data('zoom-active') == 'No' ? 'none' : 'cooperative';
+        var disableDefaultUI = mapElement.data('controls-active') == 'Yes' ? false : true;
 
         var mapConfig = {
             center,
             zoom,
+            zoomControl,
             gestureHandling,
             disableDefaultUI,
         }
