@@ -1,5 +1,5 @@
 <script>
-    const configDE = {
+    const config = {
         required:{
             i: 99,
             f:-6,
@@ -13,58 +13,33 @@
         test: false,
         newwindow: true,
         style: "top",
-        insecure: true,
+        insecure: false,
         unsupported: false,
         mobile: false,
         shift_page_down: true,
         text_for_i_in_de: {
-        'msg':'Internet Explorer wird nicht supported.',
-        'msgmore': 'Bitte nutze einen anderen Browser für das volle Erlebnis.'
-        },     
-        l: 'de'
-    };
-
-    const configMultiple = {
-        required:{
-            i: 99,
-            f:-6,
-            o:-6,
-            s:-6,
-            c:-6
-        },
-        reminder: 0,
-        noclose:true,
-        no_permanent_hide: false,
-        test: false,
-        newwindow: true,
-        style: "top",
-        insecure: true,
-        unsupported: true,
-        mobile: false,
-        shift_page_down: true,
-        text_for_i_in_de: {
-        'msg':'Internet Explorer wird nicht supported.',
-        'msgmore': 'Bitte nutze einen anderen Browser für das volle Erlebnis.'
+            'msg':'Internet Explorer wird nicht supported.',
+            'msgmore': 'Bitte nutze einen anderen Browser für das volle Erlebnis.'
         },
         text_for_i_in_en: {
-        'msg':'Internet Explorer is not supported.',
-        'msgmore': 'Please use an other browser to have the full experience.'
-        },  
+            'msg':'Internet Explorer is not supported.',
+            'msgmore': 'Please use an other browser to have the full experience.'
+        },
         text_for_i_in_fr: {
-        'msg': "Internet Explorer n'est pas pris en charge.",      
-        'msgmore': "Veuillez utiliser un autre navigateur pour profiter pleinement de l'expérience."
+            'msg': "Internet Explorer n'est pas pris en charge.",
+            'msgmore': "Veuillez utiliser un autre navigateur pour profiter pleinement de l'expérience."
         },
         text_for_i_in_it: {
-        'msg': "Internet Explorer non è supportato.",      
-        'msgmore': "Si prega di utilizzare un altro browser per un'esperienza completa."
-        },      
+            'msg': "Internet Explorer non è supportato.",
+            'msgmore': "Si prega di utilizzare un altro browser per un'esperienza completa."
+        },
         l: '<?php echo get_bloginfo("language"); ?>'
     };
 
-    var $buoop = configDE; 
-    function $buo_f(){ 
-        var e = document.createElement("script"); 
-        e.src = "//browser-update.org/update.min.js"; 
+    var $buoop = config;
+    function $buo_f(){
+        var e = document.createElement("script");
+        e.src = "//browser-update.org/update.min.js";
         document.body.appendChild(e);
     };
     try {
