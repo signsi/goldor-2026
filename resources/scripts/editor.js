@@ -113,7 +113,7 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               onChange={isHoverGroup => setAttributes({ "hoverGroup": isHoverGroup })}
             />
             {
-              (props.name.includes("group")) && 
+              (props.name.includes("group")) &&
               <>
               <SelectControl
                 label="Layout-Breite"
@@ -147,13 +147,16 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               value={animation}
               options={[
                 { label: '-', value: '-' },
-                { label: 'Fade in', value: 'fade-in' },
-                { label: 'Zoom in', value: 'zoom-in' },
-                { label: 'Slide von links', value: 'slide-from-left' },
-                { label: 'Slide von rechts', value: 'slide-from-right' },
-                { label: 'Slide von unten', value: 'slide-from-bottom' },
-                { label: 'Clip horizontal', value: 'clip-horizontally' },
-                { label: 'Clip vertikal', value: 'clip-vertically' },
+                { label: 'ZoomIn', value: 'wow animate__animated animate__zoomIn' },
+                { label: 'FadeIn', value: 'wow animate__animated animate__fadeIn' },
+                { label: 'FadeInUp', value: 'wow animate__animated animate__fadeInUp' },
+                { label: 'FadeInDown', value: 'wow animate__animated animate__fadeInDown' },
+                { label: 'FadeInLeft', value: 'wow animate__animated animate__fadeInLeft' },
+                { label: 'FadeInRight', value: 'wow animate__animated animate__fadeInRight' },
+                { label: 'FadeInTopLeft', value: 'wow animate__animated animate__fadeInTopLeft' },
+                { label: 'FadeInTopRight', value: 'wow animate__animated animate__fadeInTopRight' },
+                { label: 'FadeInBottomLeft', value: 'wow animate__animated animate__fadeInBottomLeft' },
+                { label: 'FadeInBottomRight', value: 'wow animate__animated animate__fadeInBottomRight' },
               ]}
               onChange={newAnimation => setAttributes({ "animation": newAnimation })}
               __nextHasNoMarginBottom
