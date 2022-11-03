@@ -11,8 +11,8 @@
 
 <div class="p-gutter-mobile {{ $div_class }}">
     @if($hidden)
-        <div class="hidden_Element">
-            <h2>RocketPager-Element wird Live nicht angezeigt.</h2>
+        <div class="absolute w-full h-full grid place-items-center inset-0 bg-[rgba(255,0,0,0.5)] z-10">
+            <h2 class="text-red-600 text-center">RocketPager-Element wird Live nicht angezeigt.</h2>
         </div>
     @endif
     @yield('content-section-before-flex')
