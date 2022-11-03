@@ -6,7 +6,7 @@
     $div_class = $block_config['name'];
     $div_class .= $element_classes ? ' ' . $element_classes : '';
     $direction = App\existsReturnKey('order', 'direction: rtl;');
-    $hidden = block_value('hide-element');
+    $hidden = block_value('hideElement');
 @endphp
 
 <div class="p-gutter-mobile {{ $div_class }}">

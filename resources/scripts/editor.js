@@ -37,7 +37,7 @@ const mapToClass = (obj) => {
 
 const setToolbarButtonAttribute = (settings, name) => {
   // Do nothing if it's another block than our defined ones.
-  if (!name.includes("core")) {
+  if (!name.includes("core") && !name.includes("genesis-custom-blocks")) {
     return settings;
   }
 
@@ -59,6 +59,10 @@ const setToolbarButtonAttribute = (settings, name) => {
             l: ""
           }
         }
+      },
+      hideElement: {
+        type: 'boolean',
+        default: false
       },
       hoverGroup: {
         type: 'boolean',
@@ -92,14 +96,19 @@ wp.hooks.addFilter(
 
 const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
   return (props) => {
-    if (!props.name.includes("core")) {
+    if (props.name.includes("genesis-custom-blocks")) {
+      console.log(props);
+    }
+
+
+    if (!props.name.includes("core") && !props.name.includes("genesis-custom-blocks")) {
       return (
         <BlockEdit {...props} />
       );
     }
 
     const { attributes, setAttributes } = props;
-    const { spacings, gap, hoverGroup, isLayoutOffset, animation, layoutWidth } = attributes;
+    const { spacings, gap, hideElement, hoverGroup, isLayoutOffset, animation, layoutWidth } = attributes;
 
     return (
       <Fragment>
@@ -107,6 +116,11 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
         <InspectorControls>
           <PanelBody
             title="Erweiterungen">
+            <CheckboxControl
+              label="Element nicht darstellen?"
+              checked={hideElement}
+              onChange={isHideElement => setAttributes({ "hideElement": isHideElement })}
+            />
             <CheckboxControl
               label="Hover-Group?"
               checked={hoverGroup}
@@ -236,7 +250,7 @@ const main = async (err) => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
-      const { spacings, animation, gap, hoverGroup, layoutWidth, isLayoutOffset } = attributes;
+      const { spacings, animation, gap, hideElement, hoverGroup, layoutWidth, isLayoutOffset } = attributes;
       const flat_m = getFlattened(spacings, 'm')
       const flat_p = getFlattened(spacings, 'p');
       const classes_m = mapToClass(flat_m);
@@ -247,6 +261,7 @@ const main = async (err) => {
         ...(animation === "-" ? [] : [animation]),
         ...(gap === "-" ? [] : [gap]),
         ...(layoutWidth === "is-style-layout-default" ? [] : [layoutWidth]),
+        ...(hideElement ? ['hidden'] : []),
         ...(hoverGroup ? ['group'] : []),
         ...(isLayoutOffset === "-" ? [] : [isLayoutOffset]),
       ];
