@@ -30,6 +30,9 @@ module.exports = async (app) => {
       "block.modal": [
         '@scripts/blocks/rocketpager-modal'
       ],
+      "block.audio-image": [
+        '@styles/new_styles/rocketpager-audio-image-box'
+      ],
       "block.hero-slider": [
         'slick-carousel',
         '@scripts/blocks/rocketpager-hero-slider',
@@ -45,9 +48,14 @@ module.exports = async (app) => {
         '@scripts/blocks/rocketpager-carousel-slider',
         '@styles/new_styles/rocketpager-carousel-slider'
       ],
-      "block.team":[
+      "block.carousel-header": [
         'slick-carousel',
-        '@scripts/blocks/rocketpager-team'
+        '@scripts/blocks/rocketpager-carousel-header',
+        '@styles/new_styles/rocketpager-carousel-header'
+      ],
+      "block.testimonial-slider": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-testimonial-slider'
       ],
       "block.google-maps": [
         '@scripts/blocks/rocketpager-google-maps',
