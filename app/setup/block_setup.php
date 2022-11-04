@@ -2,6 +2,65 @@
 
 use function Roots\bundle;
 
+add_filter( 'genesis_custom_blocks_default_fields', function($default_fields){
+
+    $default_fields['spacings']  = ['type' => 'object'];
+    $default_fields['hideElement']  = ['type' => 'boolean'];
+    $default_fields['hoverGroup']  = ['type' => 'boolean'];
+    $default_fields['animation']  = ['type' => 'string'];
+    $default_fields['layoutWidth']  = ['type' => 'string'];
+    $default_fields['isLayoutOffset']  = ['type' => 'string'];
+    $default_fields['gap']  = ['type' => 'string'];
+
+    return $default_fields;
+});
+
+add_filter( 'genesis_custom_blocks_get_block_attributes', function($attributes){
+
+    $attributes['spacings']  = [
+        'type' => 'object',
+        'default' => [
+            'p' => [
+                't' => '',
+                'r' => '',
+                'b' => '',
+                'l' => '',
+            ],
+            'm' => [
+                't' => '',
+                'r' => '',
+                'b' => '',
+                'l' => '',
+            ],
+        ]
+    ];
+    $attributes['hideElement']  = [
+        'type' => 'boolean' ,
+        'default' => false
+    ];
+    $attributes['hoverGroup']  = [
+        'type' => 'boolean' ,
+        'default' => false
+    ];
+    $attributes['animation']  = [
+        'type' => 'string' ,
+        'default' => '-'
+    ];
+    $attributes['layoutWidth']  = [
+        'type' => 'string' ,
+        'default' => 'is-style-layout-default'
+    ];
+    $attributes['isLayoutOffset']  = [
+        'type' => 'string' ,
+        'default' => '-'
+    ];
+    $attributes['gap']  = [
+        'type' => 'string' ,
+        'default' => '-'
+    ];
+
+    return $attributes;
+} );
 
 add_action('genesis_custom_blocks_render_template_rocketpager-text-image-list', function () {
     bundle('block.text-image-list')->enqueue();

@@ -6,13 +6,13 @@
     $div_class = $block_config['name'];
     $div_class .= $element_classes ? ' ' . $element_classes : '';
     $direction = App\existsReturnKey('order', 'direction: rtl;');
-    $hidden = block_value('hide-element');
+    $hidden = block_value('hideElement');
 @endphp
 
 <div class="p-gutter-mobile {{ $div_class }}">
     @if($hidden)
-        <div class="hidden_Element">
-            <h2>RocketPager-Element wird Live nicht angezeigt.</h2>
+        <div class="absolute w-full h-full grid place-items-center inset-0 bg-[rgba(255,0,0,0.5)] z-10">
+            <h2 class="text-red-600 text-center">RocketPager-Element wird Live nicht angezeigt.</h2>
         </div>
     @endif
     @yield('content-section-before-flex')

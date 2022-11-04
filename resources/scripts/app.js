@@ -4,7 +4,7 @@ import 'jquery';
 import "./lightbox-config.js";
 import "./back-to-top.js";
 import "./modal-search.js";
-import 'wowjs';
+import "./wow-config.js";
 
 
 /**
