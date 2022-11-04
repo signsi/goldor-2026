@@ -121,32 +121,31 @@ if (!function_exists('getAnimation')) {
 if (!function_exists('getSpacings')) {
     function getSpacings()
     {
-        function getFlattenedSpacingType($data, $identifier){
-            $arr = array();
-            foreach ($data[$identifier] as $k => $v) {
-                $bezeichnung = $identifier . $k;
-                $arr[$bezeichnung] = $v;
-            }
-            return $arr;
-        }
+        $spacings = block_value('spacings');
+        $classes = _mapToSpacingClass(_getFlattenedSpacingType($spacings, 'm'));
+        $classes .= _mapToSpacingClass(_getFlattenedSpacingType($spacings, 'p'));
 
-        function mapToSpacingClass($arr){
-            $classes = '';
-            foreach ($arr as $k => $v) {
-                if(is_array($v)){
-                    if(array_key_exists('class', $v)){
-                        $classes .= $v['class'] !== "" ? ' ' . $k . '-' . $v['class'] : '';
-                    }
+        return $classes;
+    }
+
+    function _getFlattenedSpacingType($data, $identifier){
+        $arr = array();
+        foreach ($data[$identifier] as $k => $v) {
+            $bezeichnung = $identifier . $k;
+            $arr[$bezeichnung] = $v;
+        }
+        return $arr;
+    }
+
+    function _mapToSpacingClass($arr){
+        $classes = '';
+        foreach ($arr as $k => $v) {
+            if(is_array($v)){
+                if(array_key_exists('class', $v)){
+                    $classes .= $v['class'] !== "" ? ' ' . $k . '-' . $v['class'] : '';
                 }
             }
-            return $classes;
         }
-
-
-        $spacings = block_value('spacings');
-        $classes = mapToSpacingClass(getFlattenedSpacingType($spacings, 'm'));
-        $classes .= mapToSpacingClass(getFlattenedSpacingType($spacings, 'p'));
-
         return $classes;
     }
 }

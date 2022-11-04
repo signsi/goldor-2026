@@ -1,5 +1,8 @@
-h1 {
-    em {
-        @apply font-light not-italic;
+body:not(.wp-core-ui),
+.interface-interface-skeleton__content {
+    h1 {
+        em {
+            @apply font-light not-italic;
+        }
     }
 }

@@ -1,7 +1,5 @@
 @php
     $row_per_col = App\setColumns();
-    $isSlider = block_value('isSlider');
-    $addSlider = $isSlider ? ' isSlider' : '';
     $ratio = block_value('aspect-ratio');
     switch($ratio){
         case 'aspect-ratio-16-9':
@@ -18,7 +16,7 @@
     }
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => $addSlider])
+@extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
     <div class="relative @if ( !block_value( 'isSlider') ) grid gap-tiny lg:gap-mobile{{ $row_per_col }} @else slider-wrapper @endif">

@@ -66,6 +66,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-text-image-list', 
     bundle('block.text-image-list')->enqueue();
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-audio-image-box', function () {
+    bundle('block.audio-image')->enqueue();
+}, 10, 3);
+
 add_action('genesis_custom_blocks_render_template_rocketpager-accordion', function () {
     bundle('block.accordion')->enqueue();
 }, 10, 3);
@@ -84,8 +88,12 @@ add_action('genesis_custom_blocks_render_template_rocketpager-carousel-slider', 
     bundle('block.videoelement')->enqueue();
 }, 10, 3);
 
-add_action('genesis_custom_blocks_render_template_rocketpager-team', function () {
-    bundle('block.team')->enqueue();
+add_action('genesis_custom_blocks_render_template_rocketpager-carousel-header', function () {
+    bundle('block.carousel-header')->enqueue();
+}, 10, 3);
+
+add_action('genesis_custom_blocks_render_template_rocketpager-testimonial-slider', function () {
+    bundle('block.testimonial-slider')->enqueue();
 }, 10, 3);
 
 add_action('genesis_custom_blocks_render_template_rocketpager-modal', function () {
@@ -112,10 +120,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-news-list', functi
 
 if (!function_exists('rocket_ajax_load_more')):
     function rocket_ajax_load_more() {
-        $args = json_decode(wp_unslash($_POST['json_data']));
+        $args = json_decode(wp_unslash($_POST['json_data']), true);
 
-        $query_args = (array) $args->{'query_args'};
-        $block_args = (array) $args->{'block_args'};
+        $query_args = $args['query_args'];
+        $block_args = $args['block_args'];
 
         $ajax_query = new WP_Query($query_args);
 

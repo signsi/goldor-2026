@@ -21,6 +21,7 @@ $args = [
     'posts_per_page' => $number_of_posts,
     'category_name' => $category_name,
 ];
+
 $the_query = new WP_Query($args);
 $args['max_num_pages'] = $the_query->max_num_pages;
 
@@ -34,8 +35,8 @@ $block_args = [
     'disable_meta_category' => $disable_meta_category,
 ];
 
-$json_query_args = wp_json_encode($args);
-$json_block_args = wp_json_encode($block_args);
+$json_query_args = wp_json_encode($args, JSON_FORCE_OBJECT);
+$json_block_args = wp_json_encode($block_args, JSON_FORCE_OBJECT);
 
 //  🐈 🐈‍⬛
 $cats = App\get_categories_by_post_type($post_type, [
