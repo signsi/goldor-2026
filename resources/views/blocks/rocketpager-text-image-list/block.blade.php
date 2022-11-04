@@ -12,7 +12,7 @@
         @while (block_rows('post'))
             @php block_row('post'); @endphp
             <div class="flex flex-col justify-start pb-gutter bg-white text-font{{ App\getAnimation() }}">
-                <div class="not-prose mb-gutter">
+                <div class="mb-gutter">
                     @switch( $col )
                         @case(1)
                             @include('blocks.helpers.image',
@@ -61,7 +61,7 @@
                     @endswitch
                 </div>
                 @if ( block_sub_value('title') )
-                    <div class="title-wrapper not-prose px-gutter">
+                    <div class="title-wrapper px-gutter">
                         <h3 class="font-black text-3xl">{{ block_sub_value('title') }}</h3>
                     </div>
                 @endif

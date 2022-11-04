@@ -8,7 +8,7 @@
     $social_media_googleplus = block_value('social-media-googleplus') ? block_value('social-media-googleplus') : App\getThemeOption('google_plus');
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => 'not-prose'])
+@extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
     <ul class="flex flex-row gap-3 list-none ml-0">

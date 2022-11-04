@@ -6,7 +6,7 @@
 
 @section('content-section')
     <div class="contact-container flex flex-col-reverse lg:flex-row justify-center items-center h-full gap-gutter">
-        <div class="info-container text-center not-prose px-gutter">
+        <div class="info-container text-center px-gutter">
             @if ( block_value( 'info-slogan') )
                 <p class="info-slogan uppercase font-bold mb-0">{{ block_value('info-slogan') }}</p>
             @endif

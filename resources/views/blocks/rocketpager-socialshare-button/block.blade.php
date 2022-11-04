@@ -4,7 +4,7 @@
     $showFacebook = block_value('social-share-facebook');
     $showWhatsapp = block_value('social-share-whatsApp');
     $showMail = block_value('social-share-email');
-    $rocketpagerClasses = 'py-5 border-y border-primary not-prose';
+    $rocketpagerClasses = 'py-5 border-y border-primary';
     $ulClasses = 'flex justify-center items-center mb-0 ml-0';
     $liClasses = 'mb-0 ml-3 before:hidden';
     $aClasses = 'text-white group-hover:text-primary group-hover:hover:text-font transition duration-300 ease-out'

@@ -2,7 +2,7 @@
     $row_per_col = App\setColumns();
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => 'not-prose'])
+@extends('blocks.helpers.block-wrapper'])
 
 @section('content-section')
     <ul class="list-projects relative list-none grid {{ $row_per_col }} m-0 p-0 z-[200] transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]">

@@ -12,7 +12,7 @@
                     @include('blocks.helpers.background-image',
                     [
                         'name_ImageField' => 'testimonial-logo',
-                        'class_object_fill_breakpoint' => 'bg-object-wrapper img-wrapper max-w-[170px] h-[170px] mx-auto mb-5 overflow-hidden rounded-full p-4 bg-white not-prose',
+                        'class_object_fill_breakpoint' => 'bg-object-wrapper img-wrapper max-w-[170px] h-[170px] mx-auto mb-5 overflow-hidden rounded-full p-4 bg-white',
                         'class_object_fit' => array('class' => 'object-contain p-6'),
                         'thumbnail' => 'small-width',
                         'isRepeaterElement' => true
