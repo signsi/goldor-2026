@@ -248,7 +248,6 @@ const main = async (err) => {
       const { spacings, animation, gap, hideElement, hoverGroup, layoutWidth, isLayoutOffset } = attributes;
       const flat_m = getFlattened(spacings, 'm')
       const flat_p = getFlattened(spacings, 'p');
-      console.log(flat_m);
       const classes_m = mapToClass(flat_m);
       const classes_p = mapToClass(flat_p);
       // TODO: looks strange, but is used to conditionally add data to the array 🪄
