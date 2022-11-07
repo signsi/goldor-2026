@@ -3,124 +3,126 @@ body:not(.wp-core-ui),
 .interface-interface-skeleton__content {
     @apply text-base;
 
-    p {
-        @apply text-base my-typography xl:max-w-prose;
-        &.lead,
-        &.is-style-lead {
-            @apply text-lg;
-        }
-        &.has-text-align-center {
-            @apply mx-auto;
-        }
-        &.has-text-align-left {
-            @apply ml-0 mr-auto;
-        }
-        &.has-text-align-right {
-            @apply mr-0 ml-auto;
-        }
-    }
-    a {
-        @apply transition-colors hover:text-primary;
-    }
-    div[class^="wp-container-"] {
-        a {
-            @apply underline;
-        }
-    }
-    blockquote,
-    blockquote.wp-block-quote {
-        @apply font-medium italic text-font my-typography pl-gutter-mobile border-l-4 border-grey;
-    }
-    code, kbd, samp, pre {
-        @apply text-sm font-semibold;
-    }
-    pre,
-    pre.wp-block-code {
-        @apply bg-black text-grey my-typography rounded p-gutter overflow-x-auto font-normal;
-        code {
-            @apply bg-transparent border-0 p-0 font-normal;
-        }
-    }
-    hr,
-    hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-        @apply border-t border-b-0 border-grey border-solid w-full my-element;
-    }
-    h1, h2 {
-        @apply font-bold mt-[calc((theme(spacing.typography-mobile))*2)] md:mt-[calc((theme(spacing.typography-tablet))*2)] lg:mt-[calc((theme(spacing.typography-desktop))*2)] mb-typography-mobile md:mb-typography-tablet lg:mb-typography-desktop;
-    }
-    h3, h4, h5, h6 {
-        @apply font-semibold mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)] mb-typography-tiny;
-    }
-    h1 {
-        @apply text-4xl text-primary;
-    }
-    h2 {
-        @apply text-3xl;
-    }
-    h3 {
-        @apply text-xl;
-    }
-    h4 {
+}
+
+
+p {
+    @apply text-base my-typography xl:max-w-prose;
+    &.lead,
+    &.is-style-lead {
         @apply text-lg;
     }
-    h5 {
-        @apply text-base;
+    &.has-text-align-center {
+        @apply mx-auto;
     }
-    h6 {
-        @apply text-xs;
+    &.has-text-align-left {
+        @apply ml-0 mr-auto;
     }
-    h1, h2, h3, h4, h5, h6 {
-        + * {
-            @apply mt-0;
-        }
+    &.has-text-align-right {
+        @apply mr-0 ml-auto;
     }
+}
+a:not([class^=components-]) {
+    @apply transition-colors hover:text-primary;
+}
+div[class^="wp-container-"] {
+    a {
+        @apply underline;
+    }
+}
+blockquote,
+blockquote.wp-block-quote {
+    @apply font-medium italic text-font my-typography pl-gutter-mobile border-l-4 border-grey;
+}
+code, kbd, samp, pre {
+    @apply text-sm font-semibold;
+}
+pre,
+pre.wp-block-code {
+    @apply bg-black text-grey my-typography rounded p-gutter overflow-x-auto font-normal;
+    code {
+        @apply bg-transparent border-0 p-0 font-normal;
+    }
+}
+hr,
+hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+    @apply border-t border-b-0 border-grey border-solid w-full my-element;
+}
+h1, h2 {
+    @apply font-bold mt-[calc((theme(spacing.typography-mobile))*2)] md:mt-[calc((theme(spacing.typography-tablet))*2)] lg:mt-[calc((theme(spacing.typography-desktop))*2)] mb-typography-mobile md:mb-typography-tablet lg:mb-typography-desktop;
+}
+h3, h4, h5, h6 {
+    @apply font-semibold mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)] mb-typography-tiny;
+}
+h1 {
+    @apply text-4xl text-primary;
+}
+h2 {
+    @apply text-3xl;
+}
+h3 {
+    @apply text-xl;
+}
+h4 {
+    @apply text-lg;
+}
+h5 {
+    @apply text-base;
+}
+h6 {
+    @apply text-xs;
+}
+h1, h2, h3, h4, h5, h6 {
+    + * {
+        @apply mt-0;
+    }
+}
+ul, ol {
+    @apply pl-typography-desktop;
     ul, ol {
-        @apply pl-typography-desktop;
-        ul, ol {
-            @apply my-typography-mobile;
-        }
+        @apply my-typography-mobile;
+    }
+    li {
+        @apply marker:text-font pl-2 my-typography-tiny;
+    }
+}
+ol {
+    @apply list-decimal;
+}
+ul {
+    @apply list-disc;
+    // Menu
+    &[id^="menu-"], ul {
+        @apply pl-0 list-none;
         li {
-            @apply marker:text-font pl-2 my-typography-tiny;
+            @apply my-0 pl-0;
         }
     }
-    ol {
-        @apply list-decimal;
-    }
-    ul {
-        @apply list-disc;
-        // Menu
-        &[id^="menu-"], ul {
-            @apply pl-0 list-none;
-            li {
-                @apply my-0 pl-0;
-            }
-        }
-    }
-    figure.wp-block-image {
-        @apply my-element-mobile;
-    }
-    figcaption,
-    .wp-block-image figcaption {
-        @apply text-left text-xs text-font mt-typography-tiny;
-    }
+}
+figure.wp-block-image {
+    @apply my-element-mobile;
+}
+figcaption,
+.wp-block-image figcaption {
+    @apply text-left text-xs text-font mt-typography-tiny;
+}
 
-    .wp-block-table,
-    figure.wp-block-table {
-        @apply table-auto my-element-mobile text-sm;
-        thead {
-            @apply border-b border-solid border-font;
-        }
-        th {
-            @apply first:pl-0 last:pr-0 px-3 pb-3 pt-0 font-semibold align-bottom text-left;
-        }
-        td, th {
-            @apply border-0;
-        }
-        td {
-            @apply first:pl-0 last:pr-0 p-3 align-baseline;
-        }
-        tr {
-            @apply border-b border-grey;
-        }
+.wp-block-table,
+figure.wp-block-table {
+    @apply table-auto my-element-mobile text-sm;
+    thead {
+        @apply border-b border-solid border-font;
+    }
+    th {
+        @apply first:pl-0 last:pr-0 px-3 pb-3 pt-0 font-semibold align-bottom text-left;
+    }
+    td, th {
+        @apply border-0;
+    }
+    td {
+        @apply first:pl-0 last:pr-0 p-3 align-baseline;
+    }
+    tr {
+        @apply border-b border-grey;
     }
 }
