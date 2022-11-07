@@ -1,5 +1,5 @@
 @php
-    $hidden = block_value('hide-element');
+    $hidden = block_value('hideElement');
 @endphp
 
 @extends('blocks.helpers.preview-wrapper')
