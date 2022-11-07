@@ -8,7 +8,7 @@
     <ul class="list-projects relative list-none grid {{ $row_per_col }} m-0 p-0 z-[200] transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]">
         @while (block_rows('projekt'))
             @php block_row('projekt') @endphp
-            <li class="project-item pl-0 mb-0 before:hidden" style="transform: matrix(1, 0, 0, 1, 0, 0);">
+            <li class="project-item pl-0 my-0 before:hidden" style="transform: matrix(1, 0, 0, 1, 0, 0);">
                 <a class="block relative overflow-hidden text-white no-underline before:content-default before:block before:pb-[75%] group" href="{{ block_sub_value('project-link') }}" data-color="{{ block_sub_value('project-color') }}" style="background-color:{{ block_sub_value('project-color') }}">
                     <div class="inner absolute bottom-4/10 2xl:bottom-1/4 inset-x-10 md:inset-x-[3vw] z-30 transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]" style="transform: matrix(1, 0, 0, 1, 0, 0);">
                         @if (block_sub_value('project-type') )
