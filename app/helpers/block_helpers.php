@@ -111,7 +111,7 @@ if (!function_exists('mapToKeyString')) {
 if (!function_exists('getAnimation')) {
     function getAnimation($ignoreAnimation = false)
     {
-        return !$ignoreAnimation && block_value('animation') && block_value('animation') != 'Keine Animation' ? ' ' . block_value('animation') : '';
+        return !$ignoreAnimation && block_value('animation') && block_value('animation') != '-'  ? ' ' . block_value('animation') : '';
     }
 }
 

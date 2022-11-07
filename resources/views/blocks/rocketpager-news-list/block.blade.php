@@ -91,6 +91,6 @@ foreach ($cats as $cat) {
 
     {{-- Load More Button --}}
     <div class="wp-block-button wp-block-button is-style-outline flex items-center justify-center mt-element">
-        <a class="wp-block-button__link">{!! App\pl_e('Mehr laden') !!}</a>
+        <a class="wp-block-button__link ajax-load-more">{!! App\pl_e('Mehr laden') !!}</a>
     </div>
 @overwrite

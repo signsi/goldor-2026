@@ -1,14 +1,16 @@
-const modal = document.querySelector('.modal-wrapper');
+$('.rocketpager-modal').each(function() {
 
-const showModal = document.querySelector('.show-modal');
-const closeModal = document.querySelectorAll('.close-modal');
+  const modal = $(this).find('.modal-wrapper').first();
 
-showModal.addEventListener('click', function (){
-  modal.classList.remove('hidden')
-});
 
-closeModal.forEach(close => {
-  close.addEventListener('click', function (){
-    modal.classList.add('hidden')
+  const showModal = $(this).find('.show-modal').first();
+  const closeModal = $(this).find('.close-modal').first();
+
+  showModal.on('click', function (){
+    modal.removeClass('hidden');
+  });
+
+  closeModal.on('click', function (){
+    modal.addClass('hidden');
   });
 });

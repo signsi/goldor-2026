@@ -23,10 +23,10 @@
                 @endif
 
                 @if ( block_sub_value('testimonial-companyname') )
-                    <p class="testimonial-title mb-3"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
+                    <p class="testimonial-title mb-3 mx-auto"><strong>{{ block_sub_value('testimonial-companyname') }}</strong></p>
                 @endif
                 @if ( block_sub_value('testimonial-content') )
-                    <p class="mb-0">«{{ block_sub_value('testimonial-content') }}»
+                    <p class="mb-0 mx-auto">«{{ block_sub_value('testimonial-content') }}»
                         @if ( block_sub_value( 'testimonial-name') )
                             - <i>{{ block_sub_value('testimonial-name') }}</i>
                         @endif

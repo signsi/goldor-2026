@@ -74,6 +74,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-accordion', functi
     bundle('block.accordion')->enqueue();
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-accordion-extended', function () {
+    bundle('block.accordion')->enqueue();
+}, 10, 3);
+
 add_action('genesis_custom_blocks_render_template_rocketpager-hero-slider', function () {
     bundle('block.hero-slider')->enqueue();
 }, 10, 3);

@@ -11,7 +11,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <ul class="flex flex-row gap-3 list-none ml-0">
+    <ul class="flex flex-row gap-3 list-none ml-0 pl-0">
         @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing', 'anchor_classes' => 'text-primary hover:text-font'])

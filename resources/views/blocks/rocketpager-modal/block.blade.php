@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="modal-wrapper h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-10">
+    <div class="modal-wrapper h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 z-10 @if ( block_value( 'add-open-modal')) hidden @endif">
         <div class="bg-white rounded shadow-lg w-10/12 md:w-1/3">
             @if ( block_value('title'))
                 <div class="px-8 pt-8 flex justify-between items-start">
