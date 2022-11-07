@@ -8,7 +8,7 @@
 @section('content-section')
     <div class="accordion" id="{{ $accordion_id }}">
         <div class="accordion-item bg-white border border-gray-200">
-            <h2 class="accordion-header mb-0 !pb-0" id="heading-{{ $accordion_id }}">
+            <h2 class="accordion-header m-0 p-0" id="heading-{{ $accordion_id }}">
             <button class="accordion-button {{ App\getFirstAccordionItemActive()['collClass'] }} relative flex items-center w-full py-4 px-5 text-base text-gray-800 text-left bg-white border-0 rounded-none transition focus:outline-none"
                     type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $accordion_id }}" aria-expanded="true" aria-controls="collapse-{{ $accordion_id }}">
                 {{ block_value('title') }}

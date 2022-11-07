@@ -72,7 +72,6 @@ module.exports = async (app) => {
         '@styles/new_styles/rocketpager-text-image-list'
       ],
       "block.accordion":[
-        '@styles/new_styles/rocketpager-accordion',
         'tw-elements'
       ],
 
