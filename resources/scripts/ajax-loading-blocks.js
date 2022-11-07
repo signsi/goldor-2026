@@ -8,7 +8,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
         _rocketpager_container: $rocketpager_container,
         _container: $rocketpager_container.children('div.ajax-container'),
         _loadingImage: $rocketpager_container.find('.loading-image img'),
-        _loadButton: $rocketpager_container.find('.wp-block-button .wp-block-button__link'),
+        _loadButton: $rocketpager_container.find('.ajax-load-more'),
         _query_args: $rocketpager_container.children('div.ajax-container').first().data("query-args"),
         _block_args: $rocketpager_container.children('div.ajax-container').first().data("block-args"),
         _page: 1,
