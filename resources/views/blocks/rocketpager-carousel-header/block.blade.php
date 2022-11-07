@@ -16,7 +16,7 @@
                         ])
                         @if ( block_sub_value( 'text') )
                             <div class="absolute inset-x-0 md:bottom-0 p-gutter translate-y-11/10 transition-all transition-300 ease-in text-white bg-black/[.8] group-hover:translate-y-0">
-                                <h3 class="mb-0">{{ block_sub_value('title') }}</h3>
+                                <h3 class="m-0">{{ block_sub_value('title') }}</h3>
                                 @if ( block_sub_value( 'text') )
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                                 @endif
@@ -57,7 +57,7 @@
                 <div class="basis-auto">
                     <div class="relative p-gutter text-primary bg-white/[.8]">
                         @if ( block_value( 'title') )
-                            <h1>{{ block_value('title') }}</h1>
+                            <h1 class="mt-0">{{ block_value('title') }}</h1>
                         @endif
                         @if ( block_value( 'subtitle') )
                             <h3 class="mb-0">{{ block_value('subtitle') }}</h3>
