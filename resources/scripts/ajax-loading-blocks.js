@@ -44,8 +44,7 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
             this._query_args.paged = this._page;
             this._lastPage = false;
 
-            const json_query_args = JSON.stringify(this._query_args);
-            this.getNumOfPosts(json_query_args);
+            this.loadPosts();
         },
         changeCategory(category_slug) {
             this._query_args.category_name = category_slug;
@@ -78,26 +77,20 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
             const args = {};
             args.query_args = this._query_args;
             args.block_args = this._block_args;
+            args.meta_query = args.query_args.hasOwnProperty('meta_query') ? args.query_args.meta_query[0] : {};
             const json_args = JSON.stringify(args);
             this.getPosts(json_args);
         },
-        addPostToQueue: (post, curr_object) => {
-            //P-Queue needed?
-            const task = setTimeout(() => {
-                curr_object._container.append(post);
-                curr_object._loadingImage.hide();
-            }, curr_object._delay)
-
-            curr_object._queue.add(() => task)
-        },
-        handleResponsePosts(json_posts_array, curr_object) {
+        handleResponsePosts(json_res, curr_object) {
+            const res = JSON.parse(json_res);
+            const elements = res.elements;
+            curr_object._query_args.max_num_pages = res.max;
+            curr_object._loadingImage.hide();
             // ist die Antwort leer, brechen wir ab
-            if (!json_posts_array.length) {
+            if (elements == '') {
                 curr_object._container.addClass('no-results');
-                curr_object._loadingImage.hide();
             } else {
                 // haben wir Beiträge erhalten, parsen wir das JSON und fahren mit der Verarbeitung fort
-                const posts_array = JSON.parse(json_posts_array)
                 curr_object._container.removeClass('no-results');
 
                 // Haben wir die letzte Seite erreicht, setzen wir die ensprechende Variable
@@ -112,27 +105,10 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
                         curr_object._loadButton.show();
                     }
                 }
-                // Wir gehen alle Beiträge durch, und laden die Beiträge verspätet nacheinander
-                // Auf der letzten Seite zeigen wir zusätzlich die Endbox an.
-                posts_array.map(post => $(post.content))
-                    .forEach((post, i) => {
-
-                        if (window.useAjax) {
-                            curr_object.addPostToQueue(post, curr_object)
-                        }
-
-                    })
+                // Die neuen Beiträge werden angehängt
+                curr_object._container.append(elements);
             }
 
-        },
-        handleResponseNumOfPosts(json_posts_array, curr_object) {
-            // ist die Antwort leer, brechen wir ab
-            if (json_posts_array.length)  {
-                // haben wir Beiträge erhalten, parsen wir das JSON und fahren mit der Verarbeitung fort
-                curr_object._query_args.max_num_pages = parseInt(json_posts_array);
-            }
-
-            curr_object.loadPosts();
         },
         getPosts(json_args) {
             const requestOptions = {
@@ -151,26 +127,6 @@ const RocketPagerAjaxLoad = ($rocketpager_container) => {
 
                 error: (jqXHR, exception) => {
                     console.error('AJAX Call for getPosts() not successfull:\n', jqXHR, exception);
-                }
-            });
-        },
-        getNumOfPosts(json_query_args) {
-            const requestOptions = {
-                url: load_more_posts.ajaxurl,
-                type: 'post',
-                data: {
-                    action: 'rocket_ajax_get_max_num_pages',
-                    json_data: json_query_args
-                }
-            }
-            $.ajax({
-                ...requestOptions,
-                success: (data) => {
-                    this.handleResponseNumOfPosts(data, this)
-                },
-
-                error: (jqXHR, exception) => {
-                    console.error('AJAX Call for getNumOfPosts() not successfull:\n', jqXHR, exception);
                 }
             });
         },
