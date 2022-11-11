@@ -124,89 +124,36 @@ add_action('genesis_custom_blocks_render_template_rocketpager-news-list', functi
 
 if (!function_exists('rocket_ajax_load_more')):
     function rocket_ajax_load_more() {
-        $args = json_decode(wp_unslash($_POST['json_data']), true);
-
-        $query_args = $args['query_args'];
-        $block_args = $args['block_args'];
+        $args = json_decode(wp_unslash($_POST['json_data']));
+        $query_args = (array) $args->{'query_args'};
+        $block_args = (array) $args->{'block_args'};
+        $query_args['meta_query'] = array((array) $args->{'meta_query'});
 
         $ajax_query = new WP_Query($query_args);
 
-        // Determine which preview to use based on the post_type
-        $post_type = $ajax_query->get('post_type');
+        $output = '';
+        $max_pages = $ajax_query->max_num_pages;
 
-        // Default to the "post" post type for previews
-        if (!$post_type || is_array($post_type)) {
-            $post_type = 'post';
-        }
-
-        // Calculate the current offset
-        $iteration = intval($ajax_query->query['posts_per_page']) * intval($ajax_query->query['paged']);
-        $project_index = $iteration;
-        $post_data = [];
-        $index = 0;
-        if ($ajax_query->have_posts()):
-            while ($ajax_query->have_posts()): $ajax_query->the_post();
-
+        if($ajax_query->have_posts()) {
+            ob_start();
+            while($ajax_query->have_posts()) : $ajax_query->the_post();
                 global $post;
-
-                $iteration++;
-                // subtract the already shown projects
-                $project_index = $iteration - $ajax_query->query['posts_per_page'];
-
-                /**
-                 * Fires before output of a grid item in the posts loop.
-                 *
-                 * Allows output of custom elements within the posts loop, like banners.
-                 * To add markup spanning the entire width of the posts grid, wrap it in the following element:
-                 * <div class="grid-item col-1">[Your content]</div>
-                 * @param int   $post_id     Post ID.
-                 * @param int   $iteration     The current iteration of the loop.
-                 */
-
-                //do_action('rocket_posts_loop_before_grid_item', $post->ID, $iteration);
-                // Variables
-                $categories = get_the_category();
-                $first_cat = $categories[0]->name;
-                $first_cat_url = get_category_link($categories[0]->term_id);
-                // path to theme root
-                // lass="cell animate__animated animate__fadeInUp <?php echo $delays[$index]
-                ob_start();
 
                 $blade_path = $block_args['element_path'];
                 echo \Roots\view($blade_path, $block_args)->render();
-
-                /**
-                 * Fires after output of a grid item in the posts loop.
-                 */
-
-                //do_action('rocket_posts_loop_after_grid_item', $post->ID, $iteration);
-                $out = ob_get_clean();
-                $post_data[] = [
-                    "content" => trim($out),
-                    "index" => $project_index,
-                ];
-                $index++;
             endwhile;
-            print_r(json_encode($post_data));
-        endif;
+            $output = ob_get_contents();
+            ob_end_clean();
+        }
 
-        wp_die();
+        $result = [
+            'max' => $max_pages,
+            'elements' => $output,
+        ];
+
+        echo json_encode($result);
+        exit;
     }
     add_action('wp_ajax_nopriv_rocket_ajax_load_more', 'rocket_ajax_load_more');
     add_action('wp_ajax_rocket_ajax_load_more', 'rocket_ajax_load_more');
-endif;
-
-if (!function_exists('rocket_ajax_get_max_num_pages')):
-    function rocket_ajax_get_max_num_pages(){
-
-        $query_args = json_decode(wp_unslash($_POST['json_data']), true);
-
-        $the_query = new WP_Query($query_args);
-
-        print_r($the_query->max_num_pages);
-
-        wp_die();
-    }
-    add_action('wp_ajax_nopriv_rocket_ajax_get_max_num_pages', 'rocket_ajax_get_max_num_pages');
-    add_action('wp_ajax_rocket_ajax_get_max_num_pages', 'rocket_ajax_get_max_num_pages');
 endif;
