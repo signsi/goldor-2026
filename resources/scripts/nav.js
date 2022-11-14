@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const currentURL = new URL(window.location.href);
+
 const classesShown = ['opacity-1', 'translate-y-0', 'block'];
 const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
 
@@ -16,20 +18,41 @@ const closeSubMenu = (menuContainer) => {
     menuContainer.classList.add(...classesHidden);
 }
 
+const menuButtonOpenHandler = () => {
+    document.body.classList.add('overflow-y-hidden')
+}
+
 const menuButtonCloseHandler = () => {
     document.body.classList.remove('overflow-y-hidden');
 }
 
-// Fügt beim Klick auf ID "mobileToggle" die CSS-Klasse "overflow-y-hidden" dem <body> hinzu.
-const btnOpen = document.getElementById('mobileToggle');
-btnOpen.addEventListener('click', function onClick(event) {
-    document.body.classList.add('overflow-y-hidden');
-});
+const setSubMenuClassesOfSamePage = (subMenuParents) => {
 
-// Entfernt beim Klick auf ID "mobileClose" die CSS-Klasse "overflow-y-hidden" dem <body>.
-const btnClose = document.getElementById('mobileClose');
-btnClose.addEventListener('click', menuButtonCloseHandler);
+    subMenuParents.forEach(subMenuParent => {
+        if(!subMenuParent.classList.contains('current-menu-parent')) return;
 
+        if(!subMenuParent.classList.contains('current-menu-item')) return;
+
+        if(currentURL.hash){
+            subMenuParent.classList.add('not-active-menu-item-same-page', 'has-active-menu-item-same-page');
+            const subMenuItems = subMenuParent.querySelectorAll('.current-menu-item > a');
+            subMenuItems.forEach(subMenuItem => {
+                const subMenutItemUrl = new URL(subMenuItem.href, currentURL.origin);
+                subMenutItemUrl.pathname += "/";
+                if(subMenutItemUrl.toString() === currentURL.toString()){
+                    subMenuItem.parentElement.classList.add('active-menu-item-same-page');
+                }
+                else{
+                    subMenuItem.parentElement.classList.add('not-active-menu-item-same-page');
+                }
+            });
+
+        }
+        else{
+            subMenuParent.classList.add('active-menu-item-same-page');
+        }
+    });
+}
 
 export function setupSubMenus() {
     const topNav = document.querySelector("#topNav");
@@ -37,9 +60,11 @@ export function setupSubMenus() {
     const submMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
     submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
     const outsideArea = document.querySelector('body');
+
+    setSubMenuClassesOfSamePage(submMenuParents);
+
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
-            console.log("click submenuParent", e.target)
             // wir versichern uns, dass wir direkt auf das Elternelement
             // und nicht auf Kinderelemente geklickt haben.
             const isDirectClick = e.target.parentElement.tagName === "DIV"
@@ -76,27 +101,57 @@ export function setupSubMenus() {
 
 }
 
-
-export function setupMobileSubMenus() {
-    // Fügt beim Klick auf ID "mobileToggle" die CSS-Klasse "overflow-y-hidden" dem <body> hinzu.
-    const btnOpen = document.getElementById('mobileToggle');
-    btnOpen.addEventListener('click', function onClick(event) {
-        document.body.classList.add('overflow-y-hidden');
-    });
-
-    // Entfernt beim Klick auf ID "mobileClose" die CSS-Klasse "overflow-y-hidden" dem <body>.
-    const btnClose = document.getElementById('mobileClose');
-    btnClose.addEventListener('click', function onClick(event) {
-        document.body.classList.remove('overflow-y-hidden');
-    });
-
+export function setupMobileNav() {
     const mobileNav = document.querySelector("#mobileNav");
-    // .submenuToggle liegt bei den SVGs .submenuToggle
+    const mobileNavButton = document.querySelector("#mobileToggle");
+    const mobileNavClose = document.querySelector("#mobileClose");
+    const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
+    const mobileClassesHidden = ['translate-x-full', '-z-10'];
+    // const mobileClassesHidden = ['opacity-0', 'scale-95', 'translate-x-full', '-z-10'];
+    const mobileClassesShown = ['translate-x-0', 'z-20'];
+    // const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-x-0', 'z-20'];
     const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    // submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1 text-base').children('a').removeClass().addClass('text-grey');
-    const outsideArea = document.querySelector('body');
+    setSubMenuClassesOfSamePage(menuParents);
+
+    if (mobileNavButton) {
+        mobileNavButton.addEventListener('click', (e) => {
+            mobileNav.classList.remove(...mobileClassesHidden);
+            mobileNav.classList.add(...mobileClassesShown);
+
+            menuButtonOpenHandler();
+            closeAllSubMenus();
+
+            menuParents.forEach(menuParent => {
+                if(!menuParent.classList.contains('current-menu-parent')) return;
+
+                if(menuParent.classList.contains('active-menu-item-same-page')) return;
+
+                const childContainer = menuParent.querySelector(".submenuContainer");
+                const subMenuBtn = menuParent.querySelector(".submenuToggle")
+
+                openSubMenu(childContainer);
+                subMenuBtn.classList.add("rotate-180");
+            });
+        })
+    }
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', (e) => {
+            mobileNav.classList.add(...mobileClassesHidden);
+            mobileNav.classList.remove(...mobileClassesShown);
+            menuButtonCloseHandler();
+        })
+    }
+    if (mobileNavCloseLinks) {
+        mobileNavCloseLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                mobileNav.classList.add(...mobileClassesHidden);
+                mobileNav.classList.remove(...mobileClassesShown);
+                menuButtonCloseHandler();
+            })
+        })
+    }
 
     submMenuParentSvg.forEach(svgButton => {
         svgButton.addEventListener('click', (e) => {
@@ -126,40 +181,8 @@ export function setupMobileSubMenus() {
     }
 }
 
-export function setupMobileNav() {
-    const mobileNav = document.querySelector("#mobileNav");
-    const mobileNavButton = document.querySelector("#mobileToggle");
-    const mobileNavClose = document.querySelector("#mobileClose");
-    const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
-    const mobileClassesHidden = ['translate-x-full', '-z-10'];
-    // const mobileClassesHidden = ['opacity-0', 'scale-95', 'translate-x-full', '-z-10'];
-    const mobileClassesShown = ['translate-x-0', 'z-20'];
-    // const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-x-0', 'z-20'];
-    if (mobileNavButton) {
-        mobileNavButton.addEventListener('click', (e) => {
-            mobileNav.classList.remove(...mobileClassesHidden);
-            mobileNav.classList.add(...mobileClassesShown);
-        })
-    }
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', (e) => {
-            mobileNav.classList.add(...mobileClassesHidden);
-            mobileNav.classList.remove(...mobileClassesShown);
-        })
-    }
-    if (mobileNavCloseLinks) {
-        mobileNavCloseLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                mobileNav.classList.add(...mobileClassesHidden);
-                mobileNav.classList.remove(...mobileClassesShown);
-                menuButtonCloseHandler();
-            })
-        })
-    }
-}
-
 export function setupFixedNav() {
-    const headerClasses = ' siteHeader sticky top-0 transition-all z-50 bg-white'
+    const headerClasses = ' sticky top-0 transition-all z-50 bg-white'
     const headerElementClass = 'siteHeader'
     const siteHeader = document.querySelector(`.${headerElementClass}`);
 
