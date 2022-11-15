@@ -19,11 +19,11 @@ const closeSubMenu = (menuContainer) => {
 }
 
 const menuButtonOpenHandler = () => {
-    document.body.classList.add('overflow-y-hidden')
+    $('body').addClass('overflow-y-hidden')
 }
 
 const menuButtonCloseHandler = () => {
-    document.body.classList.remove('overflow-y-hidden');
+    $('body').removeClass('overflow-y-hidden');
 }
 
 const setSubMenuClassesOfSamePage = (subMenuParents) => {
