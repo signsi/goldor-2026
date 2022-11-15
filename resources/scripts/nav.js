@@ -181,20 +181,19 @@ export function setupMobileNav() {
     }
 }
 
-export function setupFixedNav() {
-    const headerClasses = ' sticky top-0 transition-all z-50 bg-white'
-    const headerElementClass = 'siteHeader'
-    const siteHeader = document.querySelector(`.${headerElementClass}`);
+export function setupFixedNav(headerElementClass = 'siteHeader') {
+    const $siteHeader = $(`.${headerElementClass}`);
+    const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
 
 
-    if (siteHeader !== null) {
+    if ($siteHeader.length) {
 
         var header_progress = 0;
         var header_direction = 1;
 
-        ScrollTrigger.create({
+        const st_header = ScrollTrigger.create({
             trigger: "#main",
             start: "top top",
             endTrigger: 'footer',
@@ -216,8 +215,12 @@ export function setupFixedNav() {
                         newClassName += ` ${headerElementClass}--unpinned`;
                     }
                 }
-                siteHeader.className = newClassName + headerClasses;
+                $siteHeader.removeClass().addClass(newClassName + headerClasses);
             }
+        });
+
+        $(document).on('DOMNodeInserted', function() {
+            st_header.refresh();
         });
     }
 }
