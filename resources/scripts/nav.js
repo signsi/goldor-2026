@@ -195,8 +195,9 @@ export function setupFixedNav() {
         var header_direction = 1;
 
         ScrollTrigger.create({
-            trigger: ".pageContent", // defined in layout
+            trigger: "#main",
             start: "top top",
+            endTrigger: 'footer',
             end: 'bottom bottom',
             scrub: true,
             markers: false,
