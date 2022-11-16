@@ -9,13 +9,13 @@ const currentURL = new URL(window.location.href);
 const classesShown = ['opacity-1', 'translate-y-0', 'block'];
 const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
 
-const openSubMenu = (menuContainer) => {
-    menuContainer.classList.add(...classesShown);
-    menuContainer.classList.remove(...classesHidden);
+const openSubMenu = ($menuContainer) => {
+    $menuContainer.addClass(classesShown);
+    $menuContainer.removeClass(classesHidden);
 }
-const closeSubMenu = (menuContainer) => {
-    menuContainer.classList.remove(...classesShown);
-    menuContainer.classList.add(...classesHidden);
+const closeSubMenu = ($menuContainer) => {
+    $menuContainer.removeClass(classesShown);
+    $menuContainer.addClass(classesHidden);
 }
 
 const menuButtonOpenHandler = () => {
@@ -75,7 +75,7 @@ export function setupSubMenus() {
                 if (subMenuOpen) {
                     // closeSubMenu(childContainer);
                     closeAllSubMenus();
-                    openSubMenu(childContainer);
+                    openSubMenu($(childContainer));
                     e.preventDefault();
                     e.stopImmediatePropagation();
                     e.stopPropagation();
@@ -90,7 +90,7 @@ export function setupSubMenus() {
             const childContainer = item.querySelectorAll(":scope > div")[1];
             const subMenuOpen = isVisible(childContainer);
 
-            closeSubMenu(childContainer);
+            closeSubMenu($(childContainer));
 
         })
     }
@@ -131,7 +131,7 @@ export function setupMobileNav() {
                 const childContainer = menuParent.querySelector(".submenuContainer");
                 const subMenuBtn = menuParent.querySelector(".submenuToggle")
 
-                openSubMenu(childContainer);
+                openSubMenu($(childContainer));
                 subMenuBtn.classList.add("rotate-180");
             });
         })
@@ -159,7 +159,7 @@ export function setupMobileNav() {
             const subMenuOpen = isVisible(childContainer);
             if (subMenuOpen) {
                 closeAllSubMenus();
-                openSubMenu(childContainer);
+                openSubMenu($(childContainer));
                 e.target.classList.add("rotate-180");
             } else {
                 closeAllSubMenus();
@@ -176,7 +176,7 @@ export function setupMobileNav() {
             childContainer.parentElement.parentElement.querySelectorAll(".rotate-180").forEach(openMenuToggle => {
                 openMenuToggle.classList.remove("rotate-180");
             })
-            closeSubMenu(childContainer);
+            closeSubMenu($(childContainer));
         })
     }
 }
