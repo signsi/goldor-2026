@@ -55,39 +55,34 @@ const setSubMenuClassesOfSamePage = (subMenuParents) => {
 }
 
 export function setupSubMenus() {
-    const topNav = document.querySelector("#topNav");
-    const submMenuParents = topNav.querySelectorAll("ul#menu-primary_navigation>li.menu-item-has-children");
-    const submMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
-    submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
-    const outsideArea = document.querySelector('body');
+    const $outsideArea = $('body');
+    const $topNav = $("#topNav");
+    const $subMenuParents = $topNav.find("ul#menu-primary_navigation>li.menu-item-has-children");
+    const subMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
-    setSubMenuClassesOfSamePage(submMenuParents);
+    subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
+    //setSubMenuClassesOfSamePage($subMenuParents[0]);
 
-    submMenuParents.forEach(item => {
-        item.addEventListener('click', (e) => {
-            const $childContainer = $(item).children('.submenuContainer');
-            const subMenuOpen = $childContainer.hasClass('hideSubMenu');
+    $subMenuParents.on('click', function(e) {
+        const $childContainer = $(this).children('.submenuContainer');
+        const subMenuOpen = $childContainer.hasClass('hideSubMenu');
 
-            if (subMenuOpen) {
-                // closeSubMenu(childContainer);
-                closeAllSubMenus();
-                openSubMenu($childContainer);
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-            }
-        })
+        if (subMenuOpen) {
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+        }
     });
 
     const closeAllSubMenus = () => {
-        submMenuParents.forEach(item => {
-            const childContainer = item.querySelectorAll(":scope > div")[1];
+            const $childContainer = $subMenuParents.children('.submenuContainer');
 
-            closeSubMenu($(childContainer));
-        })
+            closeSubMenu($childContainer);
     }
 
-    outsideArea.addEventListener('click', (e) => {
+    $outsideArea.on('click', (e) => {
         closeAllSubMenus();
     })
 
