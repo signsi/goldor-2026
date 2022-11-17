@@ -6,8 +6,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const currentURL = new URL(window.location.href);
 
-const classesShown = ['opacity-1', 'translate-y-0', 'block'];
-const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
+const classesShown = ['opacity-1', 'translate-y-0', 'block', 'showSubMenu'];
+const classesHidden = ['opacity-0', 'translate-y-1', 'hidden', 'hideSubMenu'];
 
 const openSubMenu = ($menuContainer) => {
     $menuContainer.addClass(classesShown);
@@ -65,22 +65,16 @@ export function setupSubMenus() {
 
     submMenuParents.forEach(item => {
         item.addEventListener('click', (e) => {
-            // wir versichern uns, dass wir direkt auf das Elternelement
-            // und nicht auf Kinderelemente geklickt haben.
-            const isDirectClick = e.target.parentElement.tagName === "DIV"
-            if (isDirectClick) {
-                const childContainer = item.querySelectorAll(":scope > div")[1];
-                const subMenuOpen = isVisible(childContainer);
+            const $childContainer = $(item).children('.submenuContainer');
+            const subMenuOpen = $childContainer.hasClass('hideSubMenu');
 
-                if (subMenuOpen) {
-                    // closeSubMenu(childContainer);
-                    closeAllSubMenus();
-                    openSubMenu($(childContainer));
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    e.stopPropagation();
-                }
-                return false;
+            if (subMenuOpen) {
+                // closeSubMenu(childContainer);
+                closeAllSubMenus();
+                openSubMenu($childContainer);
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
             }
         })
     });
@@ -88,10 +82,8 @@ export function setupSubMenus() {
     const closeAllSubMenus = () => {
         submMenuParents.forEach(item => {
             const childContainer = item.querySelectorAll(":scope > div")[1];
-            const subMenuOpen = isVisible(childContainer);
 
             closeSubMenu($(childContainer));
-
         })
     }
 
