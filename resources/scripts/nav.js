@@ -8,6 +8,8 @@ const currentURL = new URL(window.location.href);
 
 const classesShown = ['opacity-1', 'translate-y-0', 'block', 'showSubMenu'];
 const classesHidden = ['opacity-0', 'translate-y-1', 'hidden', 'hideSubMenu'];
+const mobileClassesShown = ['translate-x-0', 'z-20'];
+const mobileClassesHidden = ['translate-x-full', '-z-10'];
 
 const openSubMenu = ($menuContainer) => {
     $menuContainer.addClass(classesShown);
@@ -18,11 +20,14 @@ const closeSubMenu = ($menuContainer) => {
     $menuContainer.addClass(classesHidden);
 }
 
-const menuButtonOpenHandler = () => {
+const openMobileMenu = ($mobileMenu) => {
+    $mobileMenu.addClass(mobileClassesShown);
+    $mobileMenu.removeClass(mobileClassesHidden);
     $('body').addClass('overflow-y-hidden')
 }
-
-const menuButtonCloseHandler = () => {
+const closeMobileMenu = ($mobileMenu) => {
+    $mobileMenu.removeClass(mobileClassesShown);
+    $mobileMenu.addClass(mobileClassesHidden);
     $('body').removeClass('overflow-y-hidden');
 }
 
@@ -65,9 +70,9 @@ export function setupSubMenus() {
 
     $subMenuParents.on('click', function(e) {
         const $childContainer = $(this).children('.submenuContainer');
-        const subMenuOpen = $childContainer.hasClass('hideSubMenu');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
-        if (subMenuOpen) {
+        if (subMenuHidden) {
             closeAllSubMenus();
             openSubMenu($childContainer);
             e.preventDefault();
@@ -82,89 +87,56 @@ export function setupSubMenus() {
             closeSubMenu($childContainer);
     }
 
-    $outsideArea.on('click', (e) => {
+    $outsideArea.on('click', function() {
         closeAllSubMenus();
     })
 
 }
 
 export function setupMobileNav() {
-    const mobileNav = document.querySelector("#mobileNav");
-    const mobileNavButton = document.querySelector("#mobileToggle");
-    const mobileNavClose = document.querySelector("#mobileClose");
-    const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
-    const mobileClassesHidden = ['translate-x-full', '-z-10'];
-    // const mobileClassesHidden = ['opacity-0', 'scale-95', 'translate-x-full', '-z-10'];
-    const mobileClassesShown = ['translate-x-0', 'z-20'];
-    // const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-x-0', 'z-20'];
-    const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
-    const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
+    const $mobileNav = $("#mobileNav");
+    const $mobileNavButton = $("#mobileToggle");
+    const $mobileNavClose = $("#mobileClose");
+    const $mobileNavCloseLinks = $mobileNav.find(".menu-primary_navigation-container > ul > li a");
+    const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
+    const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    setSubMenuClassesOfSamePage(menuParents);
+    //setSubMenuClassesOfSamePage(menuParents);
 
-    if (mobileNavButton) {
-        mobileNavButton.addEventListener('click', (e) => {
-            mobileNav.classList.remove(...mobileClassesHidden);
-            mobileNav.classList.add(...mobileClassesShown);
+    $mobileNavButton.on('click', function() {
+        const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".active-menu-item-same-page")');
+        const $childContainer = $menuOpenParents.find(".submenuContainer");
+        const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
-            menuButtonOpenHandler();
-            closeAllSubMenus();
-
-            menuParents.forEach(menuParent => {
-                if(!menuParent.classList.contains('current-menu-parent')) return;
-
-                if(menuParent.classList.contains('active-menu-item-same-page')) return;
-
-                const childContainer = menuParent.querySelector(".submenuContainer");
-                const subMenuBtn = menuParent.querySelector(".submenuToggle")
-
-                openSubMenu($(childContainer));
-                subMenuBtn.classList.add("rotate-180");
-            });
-        })
-    }
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', (e) => {
-            mobileNav.classList.add(...mobileClassesHidden);
-            mobileNav.classList.remove(...mobileClassesShown);
-            menuButtonCloseHandler();
-        })
-    }
-    if (mobileNavCloseLinks) {
-        mobileNavCloseLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                mobileNav.classList.add(...mobileClassesHidden);
-                mobileNav.classList.remove(...mobileClassesShown);
-                menuButtonCloseHandler();
-            })
-        })
-    }
-
-    submMenuParentSvg.forEach(svgButton => {
-        svgButton.addEventListener('click', (e) => {
-            const childContainer = e.target.parentElement.parentElement.querySelector("ul").parentElement
-            const subMenuOpen = isVisible(childContainer);
-            if (subMenuOpen) {
-                closeAllSubMenus();
-                openSubMenu($(childContainer));
-                e.target.classList.add("rotate-180");
-            } else {
-                closeAllSubMenus();
-            }
-            e.stopPropagation();
-        }
-        )
+        openMobileMenu($mobileNav);
+        closeAllSubMenus();
+        openSubMenu($childContainer);
+        $subMenuBtn.addClass("rotate-180");
+    })
+    $mobileNavClose.on('click', function(){
+        closeMobileMenu($mobileNav);
+    })
+    $mobileNavCloseLinks.on('click', function() {
+        closeMobileMenu($mobileNav);
     })
 
+    $submMenuParentSvg.on('click', function() {
+        const $childContainer = $(this).parent().siblings('.submenuContainer');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
+
+        closeAllSubMenus();
+
+        if (subMenuHidden) {
+            openSubMenu($childContainer);
+            $(this).addClass("rotate-180");
+        }
+    });
+
     const closeAllSubMenus = () => {
-        menuParents.forEach(item => {
-            const childContainer = item.querySelectorAll(":scope > div")[1];
-            // oberstes Element anzielen
-            childContainer.parentElement.parentElement.querySelectorAll(".rotate-180").forEach(openMenuToggle => {
-                openMenuToggle.classList.remove("rotate-180");
-            })
-            closeSubMenu($(childContainer));
-        })
+        $submMenuParentSvg.removeClass("rotate-180");
+        const $childContainer = $menuParents.children('.submenuContainer');
+
+        closeSubMenu($childContainer);
     }
 }
 
