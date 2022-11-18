@@ -2,11 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 @import '@fancyapps/ui/dist/fancybox.css';
-@import "animate.css/animate.min.css";
 
 @charset 'UTF-8';
 @import './variables.scss';
 @import './mixins.scss';
+@import './animation.scss';
 @import './typography.scss';
 @import './typography-extend.scss';
 @import './bg-styles.scss';
