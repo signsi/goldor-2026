@@ -26,6 +26,8 @@ $(document).ready(function() {
 
 window.onYouTubeIframeAPIReady = function() {
 
+    $('.wp-block-embed-youtube .info-cookies').remove();
+
     $('figure.has-Custom-PlayButton .yt-player').each(function (index) {
         var player_id = $(this).attr('id');
         var youtube_id = $(this).data('youtube-id');

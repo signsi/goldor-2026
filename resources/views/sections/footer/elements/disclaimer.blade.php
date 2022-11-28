@@ -3,7 +3,7 @@
 $disclaimer_ausrichtung = App\getThemeOption('footer_disclaimer');
 $locations = get_nav_menu_locations();
 $add_li_class = ' relative text-sm font-normal pr-3 border-r border-font last:pr-0 last:border-r-0';
-$cookie_list_item = is_plugin_active('webtoffee-gdpr-cookie-consent/cookie-law-info.php') && !is_privacy_policy() ? '<li id="menu-item-cookie-setting" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217' . $add_li_class . ' ">' . do_shortcode('[wt_cli_manage_consent]') .'</li>' : '';
+$cookie_list_item = App\is_plugin_active_and_available('webtoffee-gdpr-cookie-consent/cookie-law-info.php') && !is_privacy_policy() ? '<li id="menu-item-cookie-setting" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217' . $add_li_class . ' ">' . do_shortcode('[wt_cli_manage_consent]') .'</li>' : '';
 
 if (array_key_exists('disclaimer_navigation', $locations) && 0 !== $locations['disclaimer_navigation']){
     wp_nav_menu([
