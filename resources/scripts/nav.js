@@ -1,4 +1,3 @@
-import isVisible from "./helpers";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -31,32 +30,27 @@ const closeMobileMenu = ($mobileMenu) => {
     $('body').removeClass('overflow-y-hidden');
 }
 
-const setSubMenuClassesOfSamePage = (subMenuParents) => {
+const setSubMenuClassesOfSamePage = ($subMenuParents) => {
+    const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
 
-    subMenuParents.forEach(subMenuParent => {
-        if(!subMenuParent.classList.contains('current-menu-parent')) return;
+    if(currentURL.hash){
+        $subMenuParentSamePage.addClass(['not-active-menu-item-same-page', 'has-active-menu-item-same-page']);
+        const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
+        $subMenuItems.each(function() {
+            const subMenutItemUrl = new URL(this.href, currentURL.origin);
+            subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
+            if(subMenutItemUrl.toString() === currentURL.toString()){
+                $(this).parent().addClass('active-menu-item-same-page');
+            }
+            else{
+                $(this).parent().addClass('not-active-menu-item-same-page');
+            }
+        });
 
-        if(!subMenuParent.classList.contains('current-menu-item')) return;
-
-        if(currentURL.hash){
-            subMenuParent.classList.add('not-active-menu-item-same-page', 'has-active-menu-item-same-page');
-            const subMenuItems = subMenuParent.querySelectorAll('.current-menu-item > a');
-            subMenuItems.forEach(subMenuItem => {
-                const subMenutItemUrl = new URL(subMenuItem.href, currentURL.origin);
-                subMenutItemUrl.pathname += "/";
-                if(subMenutItemUrl.toString() === currentURL.toString()){
-                    subMenuItem.parentElement.classList.add('active-menu-item-same-page');
-                }
-                else{
-                    subMenuItem.parentElement.classList.add('not-active-menu-item-same-page');
-                }
-            });
-
-        }
-        else{
-            subMenuParent.classList.add('active-menu-item-same-page');
-        }
-    });
+    }
+    else{
+        $subMenuParentSamePage.addClass('active-menu-item-same-page');
+    }
 }
 
 export function setupSubMenus() {
@@ -66,7 +60,7 @@ export function setupSubMenus() {
     const subMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
-    //setSubMenuClassesOfSamePage($subMenuParents[0]);
+    setSubMenuClassesOfSamePage($subMenuParents);
 
     $subMenuParents.on('click', function(e) {
         const $childContainer = $(this).children('.submenuContainer');
@@ -101,7 +95,7 @@ export function setupMobileNav() {
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    //setSubMenuClassesOfSamePage(menuParents);
+    setSubMenuClassesOfSamePage($menuParents);
 
     $mobileNavButton.on('click', function() {
         const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".active-menu-item-same-page")');
@@ -145,8 +139,6 @@ export function setupFixedNav(headerElementClass = 'siteHeader') {
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
-
-
     if ($siteHeader.length) {
 
         var header_progress = 0;
@@ -155,7 +147,6 @@ export function setupFixedNav(headerElementClass = 'siteHeader') {
         const st_header = ScrollTrigger.create({
             trigger: "#main",
             start: "top top",
-            endTrigger: 'footer',
             end: 'bottom bottom',
             scrub: true,
             markers: false,
