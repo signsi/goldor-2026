@@ -219,6 +219,11 @@ add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
             }
         }
     }
+    else{
+        if(isset($args->add_li_class)) {
+            $classes[] = $args->add_li_class;
+        }
+    }
     return $classes;
 }, 1, 4);
 

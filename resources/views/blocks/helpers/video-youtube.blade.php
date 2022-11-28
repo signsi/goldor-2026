@@ -20,11 +20,34 @@ Aufruf:
     $embed_aspect_ratio = App\getEmbedAspectRatio($video_dimension);
 @endphp
 
+@once
+    @push('footer_scripts')
+        <script>
+            function $load_youtube_iframe_api(){
+                var e = document.createElement("script");
+                e.src = "https://www.youtube.com/iframe_api";
+                document.body.appendChild(e);
+            };
+            try {
+                document.addEventListener("DOMContentLoaded", $load_youtube_iframe_api,false)
+            }
+            catch(e){
+                window.attachEvent("onload", $load_youtube_iframe_api)
+            }
+        </script>
+    @endpush
+@endonce
 
 @if ( $youtube_id )
     <div class="video-wrapper videosize--{{ $video_dimension }}">
         <figure class="wp-block-embed-youtube wp-block-embed is-type-video is-provider-youtube wp-has-aspect-ratio{{ $embed_aspect_ratio }}{{ $hasButtonClass }} relative overflow-hidden">
             <div class="wp-block-embed__wrapper">
+                @if(App\is_plugin_active_and_available('webtoffee-gdpr-cookie-consent/cookie-law-info.php'))
+                    <div class="info-cookies absolute inset-0 w-full h-full grid place-items-center text-center p-2">
+                        {{ __('Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.') }}
+                    </div>
+                @endif
+
                 <div class="yt-player" id="{{ $player_id }}" data-youtube-id="{{ $youtube_id }}"></div>
             </div>
 

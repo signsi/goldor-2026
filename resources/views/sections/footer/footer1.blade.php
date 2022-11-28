@@ -43,21 +43,8 @@ $buttons = [
         <h2 id="footer-heading" class="sr-only">Footer bottom</h2>
         <div class="footerDisclaimer max-w-large 2xl:max-w-xlarge px-gutter py-2.5 mx-auto">
             <nav>
-                @php
-                    $locations = get_nav_menu_locations();
-                    if (array_key_exists('footer_navigation', $locations) && 0 !== $locations['footer_navigation']) {
-                        wp_nav_menu([
-                            'theme_location' => 'footer_navigation',
-                            'menu_class' => 'flex space-x-3 justify-start',
-                            'container_class' => '',
-                            'add_li_class' => 'relative text-sm font-normal pr-3 border-r border-font last:pr-0 last:border-r-0'
-                        ]);
-                    } else {
-                        echo "<a href='/wp-admin/nav-menus.php?menu=2'><figure><img src='https://media2.giphy.com/media/R6gvnAxj2ISzJdbA63/giphy.gif?cid=790b76117862214d3f3aedf39134a7466107025d3f133323&rid=giphy.gif&ct=g' class='max-h-20' /><figcaption>Füge eine Navigation mit dem Namen 'footer_disclaimer_navigation' hinzu.</figcaption></figure></a>";
-                    }
-                @endphp
+                @include('sections.footer.elements.disclaimer')
             </nav>
         </div>
     </div>
 </footer>
-

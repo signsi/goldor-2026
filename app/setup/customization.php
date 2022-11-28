@@ -188,9 +188,9 @@ function crb_attach_theme_options()
             'key' => 'footer_disclaimer',
             'label' => 'Wie soll der Disclaimer im Footer ausgerichtet werden?',
             'options' => [
-                'left' => 'linksbündig',
-                'center' => 'zentriert',
-                'right' => 'rechtsbündig'
+                'justify-start' => 'linksbündig',
+                'justify-center' => 'zentriert',
+                'justify-end' => 'rechtsbündig'
             ],
         ]
     ];
