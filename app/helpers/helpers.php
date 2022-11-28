@@ -295,4 +295,18 @@ function get_categories_by_post_type($post_type, $args = '')
     return get_categories($args);
 }
 
+if ( ! function_exists( 'get_plugins' ) || ! function_exists( 'is_plugin_active' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
+function is_plugin_active_and_available($plugin_slug): bool {
+    return check_plugin_installed($plugin_slug) ? is_plugin_active($plugin_slug) : false;
+}
+
+function check_plugin_installed( $plugin_slug ): bool {
+    $installed_plugins = get_plugins();
+
+    return array_key_exists( $plugin_slug, $installed_plugins ) || in_array( $plugin_slug, $installed_plugins, true );
+}
+
 require_once 'block_helpers.php';
