@@ -1,6 +1,5 @@
 import { domReady } from '@roots/sage/client';
 import { setupMobileNav, setupSubMenus, setupFixedNav } from './nav';
-import 'jquery';
 import "./lightbox-config.js";
 import "./back-to-top.js";
 import "./modal-search.js";

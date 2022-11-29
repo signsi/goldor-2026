@@ -1,4 +1,3 @@
-import isVisible from "./helpers";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -6,202 +5,155 @@ gsap.registerPlugin(ScrollTrigger);
 
 const currentURL = new URL(window.location.href);
 
-const classesShown = ['opacity-1', 'translate-y-0', 'block'];
-const classesHidden = ['opacity-0', 'translate-y-1', 'hidden'];
+const classesShown = ['opacity-1', 'translate-y-0', 'block', 'showSubMenu'];
+const classesHidden = ['opacity-0', 'translate-y-1', 'hidden', 'hideSubMenu'];
+const mobileClassesShown = ['translate-x-0', 'z-20', 'scale-x-100'];
+const mobileClassesHidden = ['translate-x-full', '-z-10', 'scale-x-0'];
 
-const openSubMenu = (menuContainer) => {
-    menuContainer.classList.add(...classesShown);
-    menuContainer.classList.remove(...classesHidden);
+const openSubMenu = ($menuContainer) => {
+    $menuContainer.addClass(classesShown);
+    $menuContainer.removeClass(classesHidden);
 }
-const closeSubMenu = (menuContainer) => {
-    menuContainer.classList.remove(...classesShown);
-    menuContainer.classList.add(...classesHidden);
-}
-
-const menuButtonOpenHandler = () => {
-    document.body.classList.add('overflow-y-hidden')
+const closeSubMenu = ($menuContainer) => {
+    $menuContainer.removeClass(classesShown);
+    $menuContainer.addClass(classesHidden);
 }
 
-const menuButtonCloseHandler = () => {
-    document.body.classList.remove('overflow-y-hidden');
+const openMobileMenu = ($mobileMenu) => {
+    $mobileMenu.addClass(mobileClassesShown);
+    $mobileMenu.removeClass(mobileClassesHidden);
+    $('body').addClass('overflow-y-hidden')
+}
+const closeMobileMenu = ($mobileMenu) => {
+    $mobileMenu.removeClass(mobileClassesShown);
+    $mobileMenu.addClass(mobileClassesHidden);
+    $('body').removeClass('overflow-y-hidden');
 }
 
-const setSubMenuClassesOfSamePage = (subMenuParents) => {
+const setSubMenuClassesOfSamePage = ($subMenuParents) => {
+    const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
 
-    subMenuParents.forEach(subMenuParent => {
-        if(!subMenuParent.classList.contains('current-menu-parent')) return;
+    if(currentURL.hash){
+        $subMenuParentSamePage.addClass(['not-active-menu-item-same-page', 'has-active-menu-item-same-page']);
+        const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
+        $subMenuItems.each(function() {
+            const subMenutItemUrl = new URL(this.href, currentURL.origin);
+            subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
+            if(subMenutItemUrl.toString() === currentURL.toString()){
+                $(this).parent().addClass('active-menu-item-same-page');
+            }
+            else{
+                $(this).parent().addClass('not-active-menu-item-same-page');
+            }
+        });
 
-        if(!subMenuParent.classList.contains('current-menu-item')) return;
-
-        if(currentURL.hash){
-            subMenuParent.classList.add('not-active-menu-item-same-page', 'has-active-menu-item-same-page');
-            const subMenuItems = subMenuParent.querySelectorAll('.current-menu-item > a');
-            subMenuItems.forEach(subMenuItem => {
-                const subMenutItemUrl = new URL(subMenuItem.href, currentURL.origin);
-                subMenutItemUrl.pathname += "/";
-                if(subMenutItemUrl.toString() === currentURL.toString()){
-                    subMenuItem.parentElement.classList.add('active-menu-item-same-page');
-                }
-                else{
-                    subMenuItem.parentElement.classList.add('not-active-menu-item-same-page');
-                }
-            });
-
-        }
-        else{
-            subMenuParent.classList.add('active-menu-item-same-page');
-        }
-    });
+    }
+    else{
+        $subMenuParentSamePage.addClass('active-menu-item-same-page');
+    }
 }
 
 export function setupSubMenus() {
-    const topNav = document.querySelector("#topNav");
-    const submMenuParents = topNav.querySelectorAll("ul#menu-primary_navigation>li.menu-item-has-children");
-    const submMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
-    submMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
-    const outsideArea = document.querySelector('body');
+    const $outsideArea = $('body');
+    const $topNav = $("#topNav");
+    const $subMenuParents = $topNav.find("ul#menu-primary_navigation>li.menu-item-has-children");
+    const subMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
-    setSubMenuClassesOfSamePage(submMenuParents);
+    subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
+    setSubMenuClassesOfSamePage($subMenuParents);
 
-    submMenuParents.forEach(item => {
-        item.addEventListener('click', (e) => {
-            // wir versichern uns, dass wir direkt auf das Elternelement
-            // und nicht auf Kinderelemente geklickt haben.
-            const isDirectClick = e.target.parentElement.tagName === "DIV"
-            if (isDirectClick) {
-                const childContainer = item.querySelectorAll(":scope > div")[1];
-                const subMenuOpen = isVisible(childContainer);
+    $subMenuParents.on('click', function(e) {
+        const $childContainer = $(this).children('.submenuContainer');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
-                if (subMenuOpen) {
-                    // closeSubMenu(childContainer);
-                    closeAllSubMenus();
-                    openSubMenu(childContainer);
-                    e.preventDefault();
-                    e.stopImmediatePropagation();
-                    e.stopPropagation();
-                }
-                return false;
-            }
-        })
+        if (subMenuHidden) {
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+        }
     });
 
     const closeAllSubMenus = () => {
-        submMenuParents.forEach(item => {
-            const childContainer = item.querySelectorAll(":scope > div")[1];
-            const subMenuOpen = isVisible(childContainer);
+            const $childContainer = $subMenuParents.children('.submenuContainer');
 
-            closeSubMenu(childContainer);
-
-        })
+            closeSubMenu($childContainer);
     }
 
-    outsideArea.addEventListener('click', (e) => {
+    $outsideArea.on('click', function() {
         closeAllSubMenus();
     })
 
 }
 
 export function setupMobileNav() {
-    const mobileNav = document.querySelector("#mobileNav");
-    const mobileNavButton = document.querySelector("#mobileToggle");
-    const mobileNavClose = document.querySelector("#mobileClose");
-    const mobileNavCloseLinks = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li a");
-    const mobileClassesHidden = ['translate-x-full', '-z-10'];
-    // const mobileClassesHidden = ['opacity-0', 'scale-95', 'translate-x-full', '-z-10'];
-    const mobileClassesShown = ['translate-x-0', 'z-20'];
-    // const mobileClassesShown = ['opacity-1', 'scale-100', 'translate-x-0', 'z-20'];
-    const menuParents = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li.menu-item-has-children");
-    const submMenuParentSvg = mobileNav.querySelectorAll(".menu-primary_navigation-container > ul > li .submenuToggle");
+    const $mobileNav = $("#mobileNav");
+    const $mobileNavButton = $("#mobileToggle");
+    const $mobileNavClose = $("#mobileClose");
+    const $mobileNavCloseLinks = $mobileNav.find(".menu-primary_navigation-container > ul > li a");
+    const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
+    const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    setSubMenuClassesOfSamePage(menuParents);
+    setSubMenuClassesOfSamePage($menuParents);
 
-    if (mobileNavButton) {
-        mobileNavButton.addEventListener('click', (e) => {
-            mobileNav.classList.remove(...mobileClassesHidden);
-            mobileNav.classList.add(...mobileClassesShown);
+    $mobileNavButton.on('click', function() {
+        const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".active-menu-item-same-page")');
+        const $childContainer = $menuOpenParents.find(".submenuContainer");
+        const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
-            menuButtonOpenHandler();
-            closeAllSubMenus();
-
-            menuParents.forEach(menuParent => {
-                if(!menuParent.classList.contains('current-menu-parent')) return;
-
-                if(menuParent.classList.contains('active-menu-item-same-page')) return;
-
-                const childContainer = menuParent.querySelector(".submenuContainer");
-                const subMenuBtn = menuParent.querySelector(".submenuToggle")
-
-                openSubMenu(childContainer);
-                subMenuBtn.classList.add("rotate-180");
-            });
-        })
-    }
-    if (mobileNavClose) {
-        mobileNavClose.addEventListener('click', (e) => {
-            mobileNav.classList.add(...mobileClassesHidden);
-            mobileNav.classList.remove(...mobileClassesShown);
-            menuButtonCloseHandler();
-        })
-    }
-    if (mobileNavCloseLinks) {
-        mobileNavCloseLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                mobileNav.classList.add(...mobileClassesHidden);
-                mobileNav.classList.remove(...mobileClassesShown);
-                menuButtonCloseHandler();
-            })
-        })
-    }
-
-    submMenuParentSvg.forEach(svgButton => {
-        svgButton.addEventListener('click', (e) => {
-            const childContainer = e.target.parentElement.parentElement.querySelector("ul").parentElement
-            const subMenuOpen = isVisible(childContainer);
-            if (subMenuOpen) {
-                closeAllSubMenus();
-                openSubMenu(childContainer);
-                e.target.classList.add("rotate-180");
-            } else {
-                closeAllSubMenus();
-            }
-            e.stopPropagation();
-        }
-        )
+        openMobileMenu($mobileNav);
+        closeAllSubMenus();
+        openSubMenu($childContainer);
+        $subMenuBtn.addClass("rotate-180");
+    })
+    $mobileNavClose.on('click', function(){
+        closeMobileMenu($mobileNav);
+    })
+    $mobileNavCloseLinks.on('click', function() {
+        closeMobileMenu($mobileNav);
     })
 
+    $submMenuParentSvg.on('click', function() {
+        const $childContainer = $(this).parent().siblings('.submenuContainer');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
+
+        closeAllSubMenus();
+
+        if (subMenuHidden) {
+            openSubMenu($childContainer);
+            $(this).addClass("rotate-180");
+        }
+    });
+
     const closeAllSubMenus = () => {
-        menuParents.forEach(item => {
-            const childContainer = item.querySelectorAll(":scope > div")[1];
-            // oberstes Element anzielen
-            childContainer.parentElement.parentElement.querySelectorAll(".rotate-180").forEach(openMenuToggle => {
-                openMenuToggle.classList.remove("rotate-180");
-            })
-            closeSubMenu(childContainer);
-        })
+        $submMenuParentSvg.removeClass("rotate-180");
+        const $childContainer = $menuParents.children('.submenuContainer');
+
+        closeSubMenu($childContainer);
     }
 }
 
-export function setupFixedNav() {
-    const headerClasses = ' sticky top-0 transition-all z-50 bg-white'
-    const headerElementClass = 'siteHeader'
-    const siteHeader = document.querySelector(`.${headerElementClass}`);
+export function setupFixedNav(headerElementClass = 'siteHeader') {
+    const $siteHeader = $(`.${headerElementClass}`);
+    const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
-
-
-    if (siteHeader !== null) {
+    if ($siteHeader.length) {
 
         var header_progress = 0;
         var header_direction = 1;
 
-        ScrollTrigger.create({
+        const st_header = ScrollTrigger.create({
             trigger: "#main",
             start: "top top",
-            endTrigger: 'footer',
             end: 'bottom bottom',
             scrub: true,
             markers: false,
             onUpdate: function (self) {
+                var velocity = self.getVelocity();
+                if(velocity > -200 && velocity < 200) return;
+
                 header_progress = self.progress.toFixed(2);
                 header_direction = self.direction;
                 var newClassName = "";
@@ -216,8 +168,12 @@ export function setupFixedNav() {
                         newClassName += ` ${headerElementClass}--unpinned`;
                     }
                 }
-                siteHeader.className = newClassName + headerClasses;
+                $siteHeader.removeClass().addClass(newClassName + headerClasses);
             }
+        });
+
+        $(document).on('DOMNodeInserted', function() {
+            st_header.refresh();
         });
     }
 }
