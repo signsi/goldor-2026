@@ -41,7 +41,7 @@ $search_active = App\getThemeOption('cta_search');
             @endif
         </div>
 
-        <div id="mobileNav" class="translate-x-full has-grey-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden">
+        <div id="mobileNav" class="translate-x-full has-grey-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden scale-x-0">
         {{-- <div id="mobileNav" class="opacity-0 scale-95 translate-x-full has-primary-background-color has-background absolute top-0 left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden"> --}}
             <div class="h-screen bg-theme text-font">
                 <div class="">

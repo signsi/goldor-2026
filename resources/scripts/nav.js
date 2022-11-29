@@ -7,8 +7,8 @@ const currentURL = new URL(window.location.href);
 
 const classesShown = ['opacity-1', 'translate-y-0', 'block', 'showSubMenu'];
 const classesHidden = ['opacity-0', 'translate-y-1', 'hidden', 'hideSubMenu'];
-const mobileClassesShown = ['translate-x-0', 'z-20'];
-const mobileClassesHidden = ['translate-x-full', '-z-10'];
+const mobileClassesShown = ['translate-x-0', 'z-20', 'scale-x-100'];
+const mobileClassesHidden = ['translate-x-full', '-z-10', 'scale-x-0'];
 
 const openSubMenu = ($menuContainer) => {
     $menuContainer.addClass(classesShown);
@@ -151,6 +151,9 @@ export function setupFixedNav(headerElementClass = 'siteHeader') {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
+                var velocity = self.getVelocity();
+                if(velocity > -200 && velocity < 200) return;
+
                 header_progress = self.progress.toFixed(2);
                 header_direction = self.direction;
                 var newClassName = "";
