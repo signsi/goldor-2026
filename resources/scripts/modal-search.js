@@ -1,14 +1,15 @@
-const modal = document.querySelector('.modal-wrapper-search');
+const modal = $('.modal-wrapper-search');
 
-const showModal = document.querySelector('.show-modal-search');
-const closeModal = document.querySelectorAll('.close-modal-search');
 
-showModal?.addEventListener('click', function (){
-  modal.classList.remove('hidden')
+const showModal = $('.show-modal-search');
+const closeModal = $('.close-modal-search');
+
+showModal.on('click', function (event){
+  event.preventDefault();
+  modal.removeClass('hidden');
+  $(modal).find('.search-input')[0].focus();
 });
 
-closeModal.forEach(close => {
-  close.addEventListener('click', function (){
-    modal.classList.add('hidden')
-  });
+closeModal.on('click', function (){
+    modal.addClass('hidden');
 });
