@@ -1,12 +1,35 @@
-function isElement(element) {
-    return element instanceof Element || element instanceof HTMLDocument;
-}
+/**
+* Debounce.
+*
+* @param {Function} func
+* @param {number} wait
+* @param {boolean} immediate
+*/
+export default function debounce(func, wait, immediate) {
+   'use strict';
 
-export default function isVisible(element) {
-    // NOTE: muss abhängig von der gwählten Animation angepasst werden!
-    if (isElement(element)) {
-        return !(window.getComputedStyle(element).opacity === "1");
-    } else {
-        return false;
-    }
+   var timeout;
+   wait      = (typeof wait !== 'undefined') ? wait : 20;
+   immediate = (typeof immediate !== 'undefined') ? immediate : true;
+
+   return function() {
+
+       var context = this, args = arguments;
+       var later = function() {
+           timeout = null;
+
+           if (!immediate) {
+               func.apply(context, args);
+           }
+       };
+
+       var callNow = immediate && !timeout;
+
+       clearTimeout(timeout);
+       timeout = setTimeout(later, wait);
+
+       if (callNow) {
+           func.apply(context, args);
+       }
+   };
 }

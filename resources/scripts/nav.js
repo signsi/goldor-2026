@@ -151,6 +151,8 @@ export function setupFixedNav(headerElementClass = 'siteHeader') {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
+                if($siteHeader.hasClass('siteHeader--anchorScroll')) return;
+
                 var velocity = self.getVelocity();
                 if(velocity > -200 && velocity < 200) return;
 

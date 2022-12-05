@@ -4,6 +4,7 @@ import "./lightbox-config.js";
 import "./back-to-top.js";
 import "./modal-search.js";
 import "./wow-config.js";
+import "./anchor-jump.js";
 
 
 /**

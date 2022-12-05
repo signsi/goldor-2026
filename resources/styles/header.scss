@@ -105,6 +105,7 @@ header {
     @apply bg-white;
 }
 .siteHeader--unpinned,
-.siteHeader--bottom {
+.siteHeader--bottom,
+.siteHeader--anchorScroll {
     transform: translateY(-100%);
 }
