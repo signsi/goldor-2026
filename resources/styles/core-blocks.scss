@@ -127,6 +127,6 @@ ul.is-style-liststyle-icon--linklist {
 }
 
 // Search
-input#search:focus + #icon-wrapper {
+input.search-input:focus + .icon-wrapper {
     @apply opacity-0;
 }

@@ -29,6 +29,7 @@
 
         {{-- PARAM HEADER --}}
         @include('sections.header.header1')
+        {{ App\breadcrumbs() }}
         <main id="main" class="main mx-auto max-w-none">
             @yield('content')
             @if ($search_active)

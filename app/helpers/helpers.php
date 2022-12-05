@@ -215,9 +215,6 @@ function breadcrumbs()
                 echo get_category_parents($cat, TRUE, ' ' . $delimiter . ' ');
                 echo $before . get_the_title() . $after;
             }
-        } elseif (!is_single() && !is_page() && get_post_type() != 'post' && !is_404()) {
-            $post_type = get_post_type_object(get_post_type());
-            echo $before . $post_type->labels->singular_name . $after;
         } elseif (is_attachment()) {
             $parent = get_post($post->post_parent);
             $cat = get_the_category($parent->ID);
@@ -244,6 +241,9 @@ function breadcrumbs()
             echo $before . 'Beiträge mit dem Schlagwort "' . single_tag_title('', false) . '"' . $after;
         } elseif (is_404()) {
             echo $before . 'Fehler 404' . $after;
+        } elseif (get_post_type() != 'post') {
+            $post_type = get_post_type_object(get_post_type());
+            echo $before . $post_type->labels->singular_name . $after;
         }
 
         if (get_query_var('paged')) {
