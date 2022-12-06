@@ -5,15 +5,14 @@
 * @param {number} wait
 * @param {boolean} immediate
 */
-export default function debounce(func, wait, immediate) {
+export function debounce(func, wait, immediate) {
    'use strict';
 
    var timeout;
-   wait      = (typeof wait !== 'undefined') ? wait : 20;
+   wait      = (typeof wait !== 'undefined') ? wait : 50;
    immediate = (typeof immediate !== 'undefined') ? immediate : true;
 
    return function() {
-
        var context = this, args = arguments;
        var later = function() {
            timeout = null;

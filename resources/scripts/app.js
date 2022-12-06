@@ -1,10 +1,10 @@
 import { domReady } from '@roots/sage/client';
+import { handleAnchorJump } from "./anchor-jump.js";
 import { setupMobileNav, setupSubMenus, setupFixedNav } from './nav';
-import "./lightbox-config.js";
-import "./back-to-top.js";
-import "./modal-search.js";
-import "./wow-config.js";
-import "./anchor-jump.js";
+import { setupSearchModal} from "./modal-search.js";
+import { setupBackToTop } from "./back-to-top.js";
+import { setupLightbox } from "./lightbox-config.js";
+import { setupWowAnimation } from "./wow-config.js";
 
 
 /**
@@ -16,6 +16,8 @@ const main = async (err) => {
     console.error(err);
   }
 
+  handleAnchorJump();
+
   // desktop sub menus
   setupSubMenus();
   // mobile menu
@@ -23,6 +25,10 @@ const main = async (err) => {
   // headroom-like top nav
   setupFixedNav();
 
+  setupSearchModal();
+  setupBackToTop();
+  setupLightbox();
+  setupWowAnimation();
 };
 
 /**

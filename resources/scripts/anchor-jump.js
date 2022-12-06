@@ -48,8 +48,8 @@ const anchorJump = () => {
     }
 }
 
-$(document).ready(function() {
+export function handleAnchorJump() {
     anchorJump();
 
     $(window).on('locationchange hashchange', anchorJump );
-});
+};

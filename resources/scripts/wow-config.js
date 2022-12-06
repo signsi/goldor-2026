@@ -1,6 +1,6 @@
 import { WOW } from "wowjs";
 
-$(document).ready(function() {
+export function setupWowAnimation() {
     const wow = new WOW();
     wow.init();
 
@@ -8,4 +8,4 @@ $(document).ready(function() {
         wow.sync();
     });
 
-});
+};
