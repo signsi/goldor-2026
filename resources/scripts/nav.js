@@ -5,62 +5,75 @@ gsap.registerPlugin(ScrollTrigger);
 
 const currentURL = new URL(window.location.href);
 
-const classesShown = ['opacity-1', 'translate-y-0', 'block', 'showSubMenu'];
-const classesHidden = ['opacity-0', 'translate-y-1', 'hidden', 'hideSubMenu'];
-const mobileClassesShown = ['translate-x-0', 'z-20', 'scale-x-100'];
-const mobileClassesHidden = ['translate-x-full', '-z-10', 'scale-x-0'];
+const config = {};
+const configDefault = {
+    hasFixedHeader: true,
+    hasAnchorLinks: true,
+    classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
+    classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
+    classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
+    classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
+    classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
+    classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
+    classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
+}
+
+Object.assign(config, configDefault);
 
 const openSubMenu = ($menuContainer) => {
-    $menuContainer.addClass(classesShown);
-    $menuContainer.removeClass(classesHidden);
+    $menuContainer.addClass(config.classesSubMenuDesktopShow).addClass('showSubMenu');
+    $menuContainer.removeClass(config.classesSubMenuDesktopHide).removeClass('hideSubMenu');
 }
 const closeSubMenu = ($menuContainer) => {
-    $menuContainer.removeClass(classesShown);
-    $menuContainer.addClass(classesHidden);
+    $menuContainer.removeClass(config.classesSubMenuDesktopShow).removeClass('showSubMenu');
+    $menuContainer.addClass(config.classesSubMenuDesktopHide).addClass('hideSubMenu');
 }
 
 const openMobileMenu = ($mobileMenu) => {
-    $mobileMenu.addClass(mobileClassesShown);
-    $mobileMenu.removeClass(mobileClassesHidden);
+    $mobileMenu.addClass(config.classesMobileMenuShow);
+    $mobileMenu.removeClass(config.classesMobileMenuHide);
     $('body').addClass('overflow-y-hidden')
 }
 const closeMobileMenu = ($mobileMenu) => {
-    $mobileMenu.removeClass(mobileClassesShown);
-    $mobileMenu.addClass(mobileClassesHidden);
+    $mobileMenu.removeClass(config.classesMobileMenuShow);
+    $mobileMenu.addClass(config.classesMobileMenuHide);
     $('body').removeClass('overflow-y-hidden');
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {
     const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
+    const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
+
+    $subMenuParentSamePage.addClass(config.classesAnchorPageMenuParent);
 
     if(currentURL.hash){
-        $subMenuParentSamePage.addClass(['not-active-menu-item-same-page', 'has-active-menu-item-same-page']);
-        const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
         $subMenuItems.each(function() {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
             if(subMenutItemUrl.toString() === currentURL.toString()){
-                $(this).parent().addClass('active-menu-item-same-page');
+                $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
             else{
-                $(this).parent().addClass('not-active-menu-item-same-page');
+                $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
             }
         });
 
     }
     else{
-        $subMenuParentSamePage.addClass('active-menu-item-same-page');
+        $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
+        $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
     }
 }
 
-export function setupSubMenus() {
+function setupDesktopNav() {
     const $outsideArea = $('body');
     const $topNav = $("#topNav");
     const $subMenuParents = $topNav.find("ul#menu-primary_navigation>li.menu-item-has-children");
     const subMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
-    setSubMenuClassesOfSamePage($subMenuParents);
+
+    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
 
     $subMenuParents.on('click', function(e) {
         const $childContainer = $(this).children('.submenuContainer');
@@ -87,7 +100,7 @@ export function setupSubMenus() {
 
 }
 
-export function setupMobileNav() {
+function setupMobileNav() {
     const $mobileNav = $("#mobileNav");
     const $mobileNavButton = $("#mobileToggle");
     const $mobileNavClose = $("#mobileClose");
@@ -95,10 +108,10 @@ export function setupMobileNav() {
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    setSubMenuClassesOfSamePage($menuParents);
+    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
 
     $mobileNavButton.on('click', function() {
-        const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".active-menu-item-same-page")');
+        const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".ignoreParentMenu")');
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
@@ -134,7 +147,7 @@ export function setupMobileNav() {
     }
 }
 
-export function setupFixedNav(headerElementClass = 'siteHeader') {
+function setupFixedNav(headerElementClass = 'siteHeader') {
     const $siteHeader = $(`.${headerElementClass}`);
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
@@ -178,4 +191,18 @@ export function setupFixedNav(headerElementClass = 'siteHeader') {
             st_header.refresh();
         });
     }
+}
+
+export function setupNavigation(configSetup){
+    Object.assign(config, configSetup);
+
+    // desktop sub menus
+    setupDesktopNav();
+    // mobile menu
+    setupMobileNav();
+
+    if(!config.hasFixedHeader) return;
+
+    // headroom-like top nav
+    setupFixedNav();
 }

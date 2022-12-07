@@ -69,8 +69,8 @@ header {
                             a {
                                 @apply text-font hover:text-primary pl-0 flex text-sm font-semibold #{!important};
                             }
-                            &.current_page_parent, &.current-menu-item {
-                                a {
+                            &.current-menu-item:not(.not-active-menu-item-same-page) {
+                                >a {
                                     @apply text-primary #{!important};
                                 }
                             }
