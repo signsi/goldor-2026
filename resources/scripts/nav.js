@@ -7,12 +7,14 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
-    hasFixedHeader: true,
-    hasAnchorLinks: true,
     classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
     classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
+    classesMobileMenuOverflowBody: ['overflow-y-hidden'],
     classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
     classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
+    hasFixedHeader: true,
+    classHeaderElement: 'siteHeader',
+    hasAnchorLinks: true,
     classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
     classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
     classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
@@ -32,12 +34,12 @@ const closeSubMenu = ($menuContainer) => {
 const openMobileMenu = ($mobileMenu) => {
     $mobileMenu.addClass(config.classesMobileMenuShow);
     $mobileMenu.removeClass(config.classesMobileMenuHide);
-    $('body').addClass('overflow-y-hidden')
+    $('body').addClass(config.classesMobileMenuOverflowBody)
 }
 const closeMobileMenu = ($mobileMenu) => {
     $mobileMenu.removeClass(config.classesMobileMenuShow);
     $mobileMenu.addClass(config.classesMobileMenuHide);
-    $('body').removeClass('overflow-y-hidden');
+    $('body').removeClass(config.classesMobileMenuOverflowBody);
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {
@@ -147,8 +149,8 @@ function setupMobileNav() {
     }
 }
 
-function setupFixedNav(headerElementClass = 'siteHeader') {
-    const $siteHeader = $(`.${headerElementClass}`);
+function setupFixedNav() {
+    const $siteHeader = $(`.${config.classHeaderElement}`);
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
@@ -164,7 +166,7 @@ function setupFixedNav(headerElementClass = 'siteHeader') {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
-                if($siteHeader.hasClass('siteHeader--anchorScroll')) return;
+                if($siteHeader.hasClass('activeAnchorScroll')) return;
 
                 var velocity = self.getVelocity();
                 if(velocity > -200 && velocity < 200) return;
