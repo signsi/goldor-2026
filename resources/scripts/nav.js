@@ -150,7 +150,8 @@ function setupMobileNav() {
 }
 
 function setupFixedNav() {
-    const $siteHeader = $(`.${config.classHeaderElement}`);
+    const headerElementClass = config.classHeaderElement
+    const $siteHeader = $(`.${headerElementClass}`);
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
