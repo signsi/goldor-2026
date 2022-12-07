@@ -1,11 +1,11 @@
 import { WOW } from "wowjs";
 
-$(document).ready(function() {
+export function setupWowAnimation() {
     const wow = new WOW();
     wow.init();
 
-    $(document).on('DOMNodeInserted', function() {
+    $(document).on('DOMNodeInserted','.wow', function() {
         wow.sync();
     });
 
-});
+};

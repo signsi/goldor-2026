@@ -63,14 +63,16 @@ $tel = App\getThemeOption('tel');
                 </a>
             @endif
             @if ($scroll_active)
-                <a id="to-top-button" class="flex mt-20 lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative cursor-pointer !opacity-100 group">
-                    <div class="pl-4 font-base flex justify-center items-center transition group-hover:ease-in-out group-hover:delay-150 group-hover:scale-105">
-                        <svg class="w-auto h-9" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="27" cy="27" r="26" fill="#7BA048" stroke="white" stroke-width="2"/>
-                            <path d="M25.5 42C25.5 42.8284 26.1716 43.5 27 43.5C27.8284 43.5 28.5 42.8284 28.5 42L25.5 42ZM28.0607 11.9393C27.4749 11.3536 26.5251 11.3536 25.9393 11.9393L16.3934 21.4853C15.8076 22.0711 15.8076 23.0208 16.3934 23.6066C16.9792 24.1924 17.9289 24.1924 18.5147 23.6066L27 15.1213L35.4853 23.6066C36.0711 24.1924 37.0208 24.1924 37.6066 23.6066C38.1924 23.0208 38.1924 22.0711 37.6066 21.4853L28.0607 11.9393ZM28.5 42L28.5 13L25.5 13L25.5 42L28.5 42Z" fill="white"/>
-                        </svg>
-                    </div>
-                </a>
+                <div id="to-top-button" class="flex mt-20 lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative cursor-pointer !opacity-100 group">
+                    <a class="hidden">
+                        <div class="pl-4 font-base flex justify-center items-center transition group-hover:ease-in-out group-hover:delay-150 group-hover:scale-105">
+                            <svg class="w-auto h-9" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="27" cy="27" r="26" fill="#7BA048" stroke="white" stroke-width="2"/>
+                                <path d="M25.5 42C25.5 42.8284 26.1716 43.5 27 43.5C27.8284 43.5 28.5 42.8284 28.5 42L25.5 42ZM28.0607 11.9393C27.4749 11.3536 26.5251 11.3536 25.9393 11.9393L16.3934 21.4853C15.8076 22.0711 15.8076 23.0208 16.3934 23.6066C16.9792 24.1924 17.9289 24.1924 18.5147 23.6066L27 15.1213L35.4853 23.6066C36.0711 24.1924 37.0208 24.1924 37.6066 23.6066C38.1924 23.0208 38.1924 22.0711 37.6066 21.4853L28.0607 11.9393ZM28.5 42L28.5 13L25.5 13L25.5 42L28.5 42Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
             @endif
         </div>
     </div>

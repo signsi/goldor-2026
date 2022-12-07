@@ -29,7 +29,40 @@ const videoConfig = {
         },
 };
 
-$(document).ready(function() {
+function removeFancyboxForNotVisibleSlides(){
+    const visibleSlides = $(this).find('.slick-slide.slick-active').length;
+    const clonedVisibleSlides = visibleSlides - 1;
+
+    $(this).find( '.slick-slide.slick-cloned [data-fancybox]' ).each(function( index ) {
+        if(index < visibleSlides || index >= (visibleSlides + clonedVisibleSlides)){
+            $(this).removeAttr('data-fancybox');
+        }
+    });
+}
+
+function removeClonedSlides(fancybox){
+    const isOpenedWithClonedSlide = $(fancybox.options['$trigger']).closest('.slick-slide').hasClass('slick-cloned');
+    const idOfOpenedSlide = $(fancybox.options['$trigger']).closest('.carousel-element').data('carousel-id');
+    const slides = fancybox.Carousel.slides;
+
+    for( var slideIndex = 0; slideIndex < slides.length; slideIndex++){
+        const slideId = $(slides[slideIndex]['$trigger']).closest('.carousel-element').data('carousel-id');
+        const isClonedSlide = $(slides[slideIndex]['$trigger']).closest('.slick-slide').hasClass('slick-cloned');
+
+        if(isOpenedWithClonedSlide & !isClonedSlide & slideId === idOfOpenedSlide){
+            fancybox.Carousel.slideTo(slideIndex);
+            fancybox.Carousel.updatePage();
+        }
+
+        if ( isClonedSlide ) {
+            slides.splice(slideIndex, 1);
+            fancybox.Carousel.updatePage();
+            slideIndex--;
+        }
+    }
+}
+
+export function setupLightbox() {
 
     $('.slick-slider').each(function(){
         removeFancyboxForNotVisibleSlides();
@@ -37,8 +70,6 @@ $(document).ready(function() {
     $('.slick-slider').on('breakpoint', function(){
         removeFancyboxForNotVisibleSlides();
     });
-
-    //$('.slick-slide.slick-cloned [data-fancybox]').removeAttr('data-fancybox');
 
     Fancybox.bind('figure.wp-block-image a[href$=".jpg"], figure.wp-block-image a[href$=".jpeg"], figure.wp-block-image a[href$=".png"], figure.wp-block-image a[href$=".svg"], figure.wp-block-media-text__media a[href$=".jpg"], figure.wp-block-media-text__media a[href$=".jepg"], figure.wp-block-media-text__media a[href$=".png"], figure.wp-block-media-text__media a[href$=".svg"]', {
         groupAttr: false,
@@ -118,37 +149,4 @@ $(document).ready(function() {
         groupAttr: false,
         Html: videoConfig,
     });
-});
-
-function removeFancyboxForNotVisibleSlides(){
-    const visibleSlides = $(this).find('.slick-slide.slick-active').length;
-    const clonedVisibleSlides = visibleSlides - 1;
-
-    $(this).find( '.slick-slide.slick-cloned [data-fancybox]' ).each(function( index ) {
-        if(index < visibleSlides || index >= (visibleSlides + clonedVisibleSlides)){
-            $(this).removeAttr('data-fancybox');
-        }
-    });
-}
-
-function removeClonedSlides(fancybox){
-    const isOpenedWithClonedSlide = $(fancybox.options['$trigger']).closest('.slick-slide').hasClass('slick-cloned');
-    const idOfOpenedSlide = $(fancybox.options['$trigger']).closest('.carousel-element').data('carousel-id');
-    const slides = fancybox.Carousel.slides;
-
-    for( var slideIndex = 0; slideIndex < slides.length; slideIndex++){
-        const slideId = $(slides[slideIndex]['$trigger']).closest('.carousel-element').data('carousel-id');
-        const isClonedSlide = $(slides[slideIndex]['$trigger']).closest('.slick-slide').hasClass('slick-cloned');
-
-        if(isOpenedWithClonedSlide & !isClonedSlide & slideId === idOfOpenedSlide){
-            fancybox.Carousel.slideTo(slideIndex);
-            fancybox.Carousel.updatePage();
-        }
-
-        if ( isClonedSlide ) {
-            slides.splice(slideIndex, 1);
-            fancybox.Carousel.updatePage();
-            slideIndex--;
-        }
-    }
-}
+};

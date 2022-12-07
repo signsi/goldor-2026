@@ -1,15 +1,16 @@
 const modal = $('.modal-wrapper-search');
-
-
 const showModal = $('.show-modal-search');
 const closeModal = $('.close-modal-search');
 
-showModal.on('click', function (event){
-  event.preventDefault();
-  modal.removeClass('hidden');
-  $(modal).find('.search-input')[0].focus();
-});
 
-closeModal.on('click', function (){
-    modal.addClass('hidden');
-});
+export function setupSearchModal(){
+  showModal.on('click', function (event){
+    event.preventDefault();
+    modal.removeClass('hidden');
+    $(modal).find('.search-input')[0].focus();
+  });
+
+  closeModal.on('click', function (){
+      modal.addClass('hidden');
+  });
+}

@@ -23,7 +23,7 @@ const anchorJump = () => {
             $(window).scrollTop(targetPos);
 
             $('img.lazyload').removeClass('lazyload').addClass('pause-lazyloading');
-            $('header').addClass('siteHeader--anchorScroll');
+            $('header').addClass('activeAnchorScroll');
 
             $(document).on('lazyloaded.anchor DOMNodeInserted.anchor', function(event){
                 if(targetPos <= $(window).scrollTop() + 1 && targetPos >= $(window).scrollTop() - 1 ) return;
@@ -41,15 +41,15 @@ const anchorJump = () => {
             });
 
             $(window).one('wheel touchstart', function(){
-                $('header').removeClass('siteHeader--anchorScroll');
+                $('header').removeClass('activeAnchorScroll');
                 endAnchorJump();
             });
         }
     }
 }
 
-$(document).ready(function() {
+export function handleAnchorJump() {
     anchorJump();
 
     $(window).on('locationchange hashchange', anchorJump );
-});
+};
