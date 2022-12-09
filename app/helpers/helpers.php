@@ -60,19 +60,19 @@ function blockValueExists($key)
 
 function pl_e($string = '')
 {
-    if (function_exists('pll_e')) {
-        pll_e($string);
+    if (function_exists('pll__')) {
+        _e(pl__($string));
     } else {
-        echo $string;
+        _e($string);
     }
 }
 
 function pl__($string = '')
 {
     if (function_exists('pll__')) {
-        return pll__($string);
+        return __(pll__($string), 'rocketpager');
     }
-    return $string;
+    return __($string, 'rocketpager');
 }
 
 function get_home_url($path = ''){

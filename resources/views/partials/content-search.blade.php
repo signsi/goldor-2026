@@ -3,8 +3,9 @@
 @endphp
 
 <div class="flex flex-grow flex-col max-w-slim px-gutter py-section mx-auto">
-  <h1>{{ __('Ihre Suchresultate', 'rocketpager') }}</h1>
-  <p class="!mb-element mt-0">{{ __('Ihre Suche nach:', 'rocketpager') }} <strong>{!! $title !!}</strong></p>
+  <h1>{{ App\pl__('Suche mit Resultate - Titel') }}</h1>
+  <p class="mt-0">{{ App\pl__('Suche mit Resultate - Suchanfrage') }} <strong>{!! $title !!}</strong></p>
+  <p class="mt-0 !mb-element">{!! App\pl_e('Suche mit Resultate - Meldung') !!}</p>
   @while(have_posts()) @php(the_post())
     <article @php(post_class('py-gutter border-t border-solid border-gray-300'))>
       <header>
@@ -25,4 +26,3 @@
   </div>
 
 </div>
-

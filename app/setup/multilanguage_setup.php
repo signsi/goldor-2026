@@ -1,0 +1,77 @@
+<?php
+/**
+ * Theme setup.
+ */
+namespace App;
+use function Roots\asset;
+/**
+ * Register the theme assets.
+ *
+ * @return void
+ *
+ */
+
+
+
+/**
+ * Register capabilities manage_languages to show Language-Menu and manage_translations to show Translation-Menu of Polylang.
+ *
+ * @return void
+ */
+add_action( 'admin_menu', function() {
+    if ( ! current_user_can( 'manage_options' ) && function_exists( 'PLL' ) ) {
+        add_menu_page( __( 'Strings translations', 'polylang' ), __( 'Languages', 'polylang' ), 'manage_translations', 'mlang_strings', array( PLL(), 'languages_page' ), 'dashicons-translation' );
+    }
+} );
+
+// MULTILANGUAGE
+add_action('after_setup_theme', function () {
+	load_theme_textdomain( 'rocketpager' );
+
+    if (function_exists('pll_register_string')) {
+        $group = 'rocketpager';
+        pll_register_string('Suchen', 'Suchen', $group, false);
+        pll_register_string('Suche...', 'Suche...', $group, false);
+        pll_register_string('Interesse geweckt', 'Haben wir Ihr Interesse geweckt?', $group, false);
+        pll_register_string('Weitere Begriffe', 'Nach weiteren Begriffen suchen...', $group, false);
+        pll_register_string('Suche nach:', 'Suche nach:', $group, false);
+        pll_register_string('Neuste Beiträge Titel Beiträge:', 'Ausgewählte Beiträge', $group, false);
+        pll_register_string('Teile', 'Teile auf Facebook', $group, false);
+        pll_register_string('Social Share Interesse', 'Hier ist ein Beitrag, der dich interessieren könnte:', $group, false);
+        pll_register_string('Beitrag weiterleiten', 'Beitrag weiterleiten', $group, false);
+        pll_register_string('Tweet this', 'Tweet this', $group, false);
+        pll_register_string('Offcanvas Suche', 'Wonach suchen Sie?', $group, false);
+        pll_register_string('Sticky CTA Kontaktformular', 'Kontaktformular', $group, false);
+        pll_register_string('Sprachauswahl', 'Welche Sprache möchten Sie nutzen?', $group, false);
+        pll_register_string('Schliessen', 'Abbrechen', $group, false);
+        pll_register_string('Schliesse Sprachauswahl', 'Schliesse Sprachauswahl', $group, false);
+        pll_register_string('Sprachauswahl', 'Sprachauswahl', $group, false);
+        // RocketPager Customize
+        $group = 'RocketPager Customize';
+
+
+        // RocketPager Elements (Genesis Custom Blocks)
+        $group = 'RocketPager Elements (Genesis Custom Blocks)';
+
+        // RocketPager Core --> Wenn diese nicht gesetzt werden, werden die Default-Werte von den {local}.po Files genommen.
+        // !!! Hier keine Strings hinzufügen/entfernen oder bearbeiten !!!
+        $group = 'RocketPager Core';
+        pll_register_string('Seite Suche (Resultate) - Titel', 'Suche mit Resultate - Titel', $group, false);
+        pll_register_string('Seite Suche (Resultate) - Suchanfrage', 'Suche mit Resultate - Suchanfrage', $group, false);
+        pll_register_string('Seite Suche (Resultate) - Meldung', 'Suche mit Resultate - Meldung', $group, true);
+        pll_register_string('Seite Suche (ohne Resultate) - Titel', 'Suche ohne Resultate - Titel', $group, false);
+        pll_register_string('Seite Suche (ohne Resultate) - Meldung', 'Suche ohne Resultate - Meldung', $group, true);
+        pll_register_string('Seite 404 - 404', 'Error 404 - 404', $group, false);
+        pll_register_string('Seite 404 - Titel', 'Error 404 - Titel', $group, false);
+        pll_register_string('Seite 404 - Info', 'Error 404 - Info', $group, true);
+        pll_register_string('Seite Archiv - Titel', 'Archiv - Titel', $group, false);
+        pll_register_string('Seite Geschützter Bereich - Titel', 'Passwort Seite - Titel', $group, false);
+        pll_register_string('Seite Geschützter Bereich - Info', 'Passwort Seite - Info', $group, true);
+        pll_register_string('Seite Geschützter Bereich - Error', 'Passwort Seite - Error', $group, false);
+        pll_register_string('Seite Geschützter Bereich - Submit', 'Passwort Seite - Submit', $group, false);
+        pll_register_string('Kategorie', 'Kategorie', $group, false);
+        pll_register_string('Weiterlesen', 'Weiterlesen', $group, false);
+        pll_register_string('Mehr laden', 'Mehr laden', $group, false);
+        pll_register_string('Zurück zur Startseite', 'Zurück zur Startseite', $group, false);
+    }
+});
