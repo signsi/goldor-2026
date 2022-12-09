@@ -1,6 +1,6 @@
 <div class="flex items-center mt-6 lg:mt-0">
     <div class="w-full">
-        <form class="searchform" role="search" method="get" action="{{ esc_url( home_url( '/' ) ) }}">
+        <form class="searchform" role="search" method="get" action="{{ App\get_home_url( '/' ) }}">
             <label for="search" class="sr-only">{{ __('Suche', 'rocketpager') }}</label>
             <div class="relative">
                 <input id="search-{{ wp_rand(0, PHP_INT_MAX) }}" name="s" class="search-input placeholder-primary transition-all ring-primary border-primary block w-full rounded-full border bg-white py-3 pl-6 leading-5 focus:placeholder-font focus:border-font focus:ring-font placeholder:transition-colors outline-none ring-1 text-sm" placeholder="Wonach suchen Sie?" type="search">

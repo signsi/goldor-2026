@@ -5,6 +5,6 @@
       @include('partials.search')
     </div>
     <ul class="is-style-liststyle-icon--return">
-      <li class="flex"><a href="{{ home_url('/') }}" rel="home">{{ __('Zurück zur Startseite', 'rocketpager') }}</a></li>
+      <li class="flex"><a href="{{ App\get_home_url() }}" rel="home">{{ __('Zurück zur Startseite', 'rocketpager') }}</a></li>
     </ul>
 </div>

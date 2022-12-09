@@ -42,7 +42,7 @@
                     <div class="relative h-full after:content[''] after:absolute after:inset-0 after:mix-blend-multiply after:bg-primary">
                     </div>
                     <div class="absolute inset-gutter-mobile md:inset-gutter-desktop">
-                        <a href="{{home_url("/")}}" rel="home">
+                        <a href="{{App\get_home_url("/")}}" rel="home">
                             <div class="logo">
                                 @include('blocks.helpers.image',
                                 [

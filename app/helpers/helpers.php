@@ -75,6 +75,10 @@ function pl__($string = '')
     return $string;
 }
 
+function get_home_url($path = ''){
+    return esc_url(function_exists('pll_home_url') ? pll_home_url() . $path : home_url($path));
+}
+
 
 /*
     Die Funktion kann zum Sanitizen gebraucht werden. Default mässig werden alle nicht erlauben Tags, welche nicht in
