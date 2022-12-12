@@ -29,9 +29,6 @@ add_action('after_setup_theme', function () {
 	load_theme_textdomain( 'rocketpager' );
 
     if (function_exists('pll_register_string')) {
-        $group = 'rocketpager';
-        pll_register_string('Neuste Beiträge Titel Beiträge:', 'Ausgewählte Beiträge', $group, false);
-        pll_register_string('Sticky CTA Kontaktformular', 'Kontaktformular', $group, false);
         // RocketPager Customize
         $group = 'RocketPager Customize';
 
@@ -75,5 +72,9 @@ add_action('after_setup_theme', function () {
         pll_register_string('Suche...', 'Suche...', $group, false);
         pll_register_string('Suchen', 'Suchen', $group, false);
         pll_register_string('Suche nach:', 'Suche nach:', $group, false);
+        pll_register_string('Aktuelle Beiträge', 'Aktuelle &post', $group, false);
+        pll_register_string('Weitere Beiträge', 'Weitere &post', $group, false);
+        pll_register_string('Aktuelle Stellen', 'Aktuelle &jobs', $group, false);
+        pll_register_string('Weitere Stellen', 'Weitere &jobs', $group, false);
     }
 });

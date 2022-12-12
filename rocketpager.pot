@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 12:22+0000\n"
+"POT-Creation-Date: 2022-12-12 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -189,4 +189,16 @@ msgid "Social Share - Facebook"
 msgstr ""
 
 msgid "Social Share - Mail"
+msgstr ""
+
+msgid "Aktuelle &post"
+msgstr ""
+
+msgid "Weitere &post"
+msgstr ""
+
+msgid "Aktuelle &jobs"
+msgstr ""
+
+msgid "Weitere &jobs"
 msgstr ""

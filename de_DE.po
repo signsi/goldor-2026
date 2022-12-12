@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-09 11:53+0000\n"
-"PO-Revision-Date: 2022-12-12 12:29+0000\n"
+"PO-Revision-Date: 2022-12-12 14:37+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -14,6 +14,12 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.6.3; wp-6.0.3\n"
 "X-Domain: rocketpager"
+
+msgid "Aktuelle &jobs"
+msgstr "Aktuelle Stellen"
+
+msgid "Aktuelle &post"
+msgstr "Aktuelle Beiträge"
 
 msgid "Archiv - Titel"
 msgstr "Archiv"
@@ -184,6 +190,12 @@ msgstr "Wonach suchen Sie?"
 #: app/setup/theme_setup.php:48
 msgid "Tiny"
 msgstr "Tiny"
+
+msgid "Weitere &jobs"
+msgstr "Weitere Stellen"
+
+msgid "Weitere &post"
+msgstr "Weitere Beiträge"
 
 msgid "Weiterlesen"
 msgstr "Weiterlesen"
