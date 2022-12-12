@@ -15,14 +15,18 @@ function get_mapped_fields($fields)
         $label = $n['label'] ?? null;
         $placeholder = $n['placeholder'] ?? null;
         $default = $n['default'] ?? null;
+        $translateable = $n['translateable'] ?? false;
 
         if ($type == 'text') {
+            $helptext = $translateable ? __('Das Textfeld muss pro Sprache einzeln definiert werden.') : null;
+            $key .= $translateable ? App\crb_get_i18n_suffix() : '';
             $field = Field::make(
                 $type,
                 "rocket_$key",
                 __($label)
 
             )->set_attribute('placeholder', $placeholder)
+                ->set_help_text($helptext)
                 ->set_default_value($default);
         } else if ($type == 'checkbox') {
             $field = Field::make(
@@ -79,30 +83,35 @@ function crb_attach_theme_options()
             'type' => 'separator',
             'key' => 'separator_0',
             'label' => 'Adresse',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
             'key' => 'firmenname',
             'label' => 'Firmenname',
             'default' => 'Rocket GmbH',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
             'key' => 'strasse',
             'label' => 'Strasse',
             'default' => 'Neuweg 10',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
             'key' => 'plz',
             'label' => 'PLZ',
             'default' => 'CH-6003',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
             'key' => 'ort',
             'label' => 'Ort',
             'default' => 'Luzern',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
@@ -230,11 +239,13 @@ function crb_attach_theme_options()
             'type' => 'text',
             'key' => 'cta_link_text',
             'label' => 'Link-Text',
+            'translateable' => true,
         ],
         [
             'type' => 'text',
             'key' => 'cta_link_url',
             'label' => 'Link-URL',
+            'translateable' => true,
         ],
         [
             'type' => 'checkbox',

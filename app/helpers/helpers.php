@@ -21,6 +21,15 @@ function isNotEmpty($value)
     }
 }
 
+function crb_get_i18n_suffix() {
+    $suffix = '';
+    if ( ! defined( 'ICL_LANGUAGE_CODE' ) ) {
+        return $suffix;
+    }
+    $suffix = '_' . ICL_LANGUAGE_CODE;
+    return $suffix;
+}
+
 function getThemeOption($field_id, $default_value = '')
 {
     /**
@@ -33,7 +42,7 @@ function getThemeOption($field_id, $default_value = '')
      * --> Siehe rocketpager-options -> class-rocketpager-options-admin.php
      */
     if ($field_id && function_exists('carbon_get_theme_option')) {
-        return carbon_get_theme_option('rocket_' . $field_id) ?? $default_value;
+        return carbon_get_theme_option('rocket_' . $field_id . crb_get_i18n_suffix()) ?? carbon_get_theme_option('rocket_' . $field_id) ?? $default_value;
     }
     return false;
 }
