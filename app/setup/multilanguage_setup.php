@@ -29,7 +29,7 @@ add_action('after_setup_theme', function () {
 	load_theme_textdomain( 'rocketpager' );
 
     if (function_exists('pll_register_string')) {
-        // RocketPager Customize
+        // RocketPager Customize (Bsp. für Custom Post Types)
         $group = 'RocketPager Customize';
 
         // RocketPager Elements (Genesis Custom Blocks)
