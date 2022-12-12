@@ -49,7 +49,7 @@
                         <div class="mt-auto">
                             @if ( block_sub_value('email') )
                                 <ul class="is-style-liststyle-icon--singlelink group">
-                                    <li class="mt-typography mb-0 group-hover:origin-center group-hover:translate-x-2 text-primary hover:text-font"><a href="mailto:{{ block_sub_value('email') }}" rel="noreferrer noopener" class="text-sm font-semibold text-primary hover:text-font">E-Mail senden</a></li>
+                                    <li class="mt-typography mb-0 group-hover:origin-center group-hover:translate-x-2 text-primary hover:text-font"><a href="mailto:{{ block_sub_value('email') }}" rel="noreferrer noopener" class="text-sm font-semibold text-primary hover:text-font">{{ App\pl__('E-Mail senden') }}</a></li>
                                 </ul>
                             @endif
                         </div>

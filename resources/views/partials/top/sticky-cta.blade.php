@@ -39,7 +39,7 @@ $tel = App\getThemeOption('tel');
                         </svg>
                     </div>
                     <div class="flex items-center py-0 pl-5 pr-10 lg:h-[40px] 2xl:h-[60px]">
-                        <form class="searchform" role="search" method="get" action="{{ App\get_home_url( '/' ) }}">
+                        <form class="searchform" role="search" method="get" action="{{ App\get_home_url() }}">
                             <label for="search" class="sr-only">{{ App\pl__('Suche') }}</label>
                             <div class="relative">
                                 <input id="search" name="s" class="placeholder-primary shadow-none block w-full border-0 bg-transparent py-3 pl-6 leading-5 focus:outline-none ring-0 focus:ring-0 text-base xl:text-xl" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">

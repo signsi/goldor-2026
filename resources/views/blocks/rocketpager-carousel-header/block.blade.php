@@ -23,7 +23,7 @@
                                 @if ( block_sub_value( 'button-link') )
                                     <div class="wp-block-buttons mb-0 mt-3">
                                         <div class="wp-block-button mb-0">
-                                            <a class="wp-block-button__link hover:text-primary" href="{{ block_sub_value('button-link') }}">{{ block_sub_value('button-text') ? block_sub_value('button-text') : "Erfahren Sie mehr" }}</a>
+                                            <a class="wp-block-button__link hover:text-primary" href="{{ block_sub_value('button-link') }}">{{ block_sub_value('button-text') ? block_sub_value('button-text') : App\pl__("Erfahren Sie mehr") }}</a>
                                         </div>
                                     </div>
                                 @endif
@@ -42,7 +42,7 @@
                     <div class="relative h-full after:content[''] after:absolute after:inset-0 after:mix-blend-multiply after:bg-primary">
                     </div>
                     <div class="absolute inset-gutter-mobile md:inset-gutter-desktop">
-                        <a href="{{App\get_home_url("/")}}" rel="home">
+                        <a href="{{App\get_home_url()}}" rel="home">
                             <div class="logo">
                                 @include('blocks.helpers.image',
                                 [
