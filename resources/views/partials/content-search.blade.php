@@ -29,6 +29,6 @@
 <div class="flex flex-grow flex-col max-w-slim px-gutter pb-section pt-element mx-auto">
     <p>{!! App\pl_e('Suche mit Resultate - Meldung weitere Suche') !!}</p>
     <div class="max-w-xs">
-      @include('partials.search')
+      @include('forms.search')
     </div>
 </div>

@@ -5,7 +5,7 @@
             <i class="close-modal-search fa-solid fa-circle-xmark hover:cursor-pointer text-primary hover:text-font transition-colors"></i>
         </div>
         <div class="px-gutter pt-0 pb-gutter">
-            @include('partials.search')
+            @include('forms.search')
         </div>
     </div>
 </div>

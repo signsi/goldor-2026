@@ -32,7 +32,6 @@ add_action('after_setup_theme', function () {
         // RocketPager Customize
         $group = 'RocketPager Customize';
 
-
         // RocketPager Elements (Genesis Custom Blocks)
         $group = 'RocketPager Elements (Genesis Custom Blocks)';
 
@@ -76,5 +75,7 @@ add_action('after_setup_theme', function () {
         pll_register_string('Weitere Beiträge', 'Weitere &post', $group, false);
         pll_register_string('Aktuelle Stellen', 'Aktuelle &jobs', $group, false);
         pll_register_string('Weitere Stellen', 'Weitere &jobs', $group, false);
+        pll_register_string('Link zum Profil', 'Link zum Profil', $group, false);
+        pll_register_string('Cookie Info - Darstellung Inhalt', 'Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.', $group, false);
     }
 });

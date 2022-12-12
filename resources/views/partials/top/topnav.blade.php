@@ -83,7 +83,7 @@ $search_active = App\getThemeOption('cta_search');
                                 <a href="https://mailchimp.com/" target="_blank">Newsletter</a>
                             </li>
                         </ul>
-                        @include('partials.search')
+                        @include('forms.search')
                     </div>
                 </div>
             </div>

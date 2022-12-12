@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-09 11:53+0000\n"
-"PO-Revision-Date: 2022-12-12 14:37+0000\n"
+"PO-Revision-Date: 2022-12-12 15:25+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -20,6 +20,9 @@ msgstr "Aktuelle Stellen"
 
 msgid "Aktuelle &post"
 msgstr "Aktuelle Beiträge"
+
+msgid "Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen."
+msgstr "Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen."
 
 msgid "Archiv - Titel"
 msgstr "Archiv"
@@ -67,6 +70,9 @@ msgstr "Large"
 #: app/setup/theme_setup.php:112
 msgid "Link mit Pfeil"
 msgstr "Link mit Pfeil"
+
+msgid "Link zum Profil"
+msgstr "Link zum Profil"
 
 #: app/setup/theme_setup.php:117
 msgid "Link zurück"
