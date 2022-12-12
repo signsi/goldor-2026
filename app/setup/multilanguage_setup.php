@@ -31,10 +31,6 @@ add_action('after_setup_theme', function () {
     if (function_exists('pll_register_string')) {
         $group = 'rocketpager';
         pll_register_string('Neuste Beiträge Titel Beiträge:', 'Ausgewählte Beiträge', $group, false);
-        pll_register_string('Teile', 'Teile auf Facebook', $group, false);
-        pll_register_string('Social Share Interesse', 'Hier ist ein Beitrag, der dich interessieren könnte:', $group, false);
-        pll_register_string('Beitrag weiterleiten', 'Beitrag weiterleiten', $group, false);
-        pll_register_string('Tweet this', 'Tweet this', $group, false);
         pll_register_string('Sticky CTA Kontaktformular', 'Kontaktformular', $group, false);
         // RocketPager Customize
         $group = 'RocketPager Customize';
@@ -65,6 +61,12 @@ add_action('after_setup_theme', function () {
         pll_register_string('Sprachauswahl - Titel Modal', 'Sprachauswahl - Titel Modal', $group, false);
         pll_register_string('Sprachauswahl - Schliessen', 'Sprachauswahl - Schliessen', $group, false);
         pll_register_string('Sprachauswahl - Schliessen (Accessibility)', 'Sprachauswahl - Schliessen (Accessibility)', $group, false);
+        pll_register_string('Social Share - Meldung', 'Social Share - Meldung', $group, false);
+        pll_register_string('Social Share - LinkedIn', 'Social Share - LinkedIn', $group, false);
+        pll_register_string('Social Share - Twitter', 'Social Share - Twitter', $group, false);
+        pll_register_string('Social Share - Whatsapp', 'Social Share - Whatsapp', $group, false);
+        pll_register_string('Social Share - Facebook', 'Social Share - Facebook', $group, false);
+        pll_register_string('Social Share - Mail', 'Social Share - Mail', $group, false);
         pll_register_string('Kategorie', 'Kategorie', $group, false);
         pll_register_string('Weiterlesen', 'Weiterlesen', $group, false);
         pll_register_string('Mehr laden', 'Mehr laden', $group, false);

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-09 11:53+0000\n"
-"PO-Revision-Date: 2022-12-12 10:52+0000\n"
+"PO-Revision-Date: 2022-12-12 12:29+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -114,6 +114,24 @@ msgstr "RocketPager V3.1"
 #: app/setup/theme_setup.php:53
 msgid "Slim"
 msgstr "Slim"
+
+msgid "Social Share - Facebook"
+msgstr "teile auf Facebook"
+
+msgid "Social Share - LinkedIn"
+msgstr "teile auf LinkedIn"
+
+msgid "Social Share - Mail"
+msgstr "weiterleiten per Mail"
+
+msgid "Social Share - Meldung"
+msgstr "Hier ist ein Beitrag, der dich interessieren könnte:"
+
+msgid "Social Share - Twitter"
+msgstr "jetzt twittern"
+
+msgid "Social Share - Whatsapp"
+msgstr "weiterleiten per WhatsApp"
 
 msgid "Sprachauswahl - Schliessen"
 msgstr "Abbrechen"

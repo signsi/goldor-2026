@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 10:50+0000\n"
+"POT-Creation-Date: 2022-12-12 12:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -171,4 +171,22 @@ msgid "Sprachauswahl - Schliessen"
 msgstr ""
 
 msgid "Sprachauswahl - Schliessen (Accessibility)"
+msgstr ""
+
+msgid "Social Share - Meldung"
+msgstr ""
+
+msgid "Social Share - LinkedIn"
+msgstr ""
+
+msgid "Social Share - Twitter"
+msgstr ""
+
+msgid "Social Share - Whatsapp"
+msgstr ""
+
+msgid "Social Share - Facebook"
+msgstr ""
+
+msgid "Social Share - Mail"
 msgstr ""
