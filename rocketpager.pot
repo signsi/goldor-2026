@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-09 16:43+0000\n"
+"POT-Creation-Date: 2022-12-12 10:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -140,8 +140,35 @@ msgstr ""
 msgid "Suche ohne Resultate - Meldung"
 msgstr ""
 
-msgid "Suche mit Resultate - Suchanfrage"
+msgid "Suche mit Resultate - Meldung Resultate"
 msgstr ""
 
-msgid "New message"
+msgid "Suche mit Resultate - Meldung weitere Suche"
+msgstr ""
+
+msgid "Suchfeld - Suche"
+msgstr ""
+
+msgid "Suche"
+msgstr ""
+
+msgid "Suchen"
+msgstr ""
+
+msgid "Suche nach:"
+msgstr ""
+
+msgid "Suche..."
+msgstr ""
+
+msgid "Sprachauswahl - Titel Menü"
+msgstr ""
+
+msgid "Sprachauswahl - Titel Modal"
+msgstr ""
+
+msgid "Sprachauswahl - Schliessen"
+msgstr ""
+
+msgid "Sprachauswahl - Schliessen (Accessibility)"
 msgstr ""

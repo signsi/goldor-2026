@@ -29,7 +29,7 @@ $company_name = App\getThemeOption('company_name');
 
                 {{-- Language Switcher --}}
                 <div class="shopNavHeader_navToolItem shopNavHeader_navToolItem-languageswitcher">
-                    <a title="{!! App\pl_e('Sprachauswahl') !!}" class="shopNavHeader_navToolItemLink" data-toggle="modal-languageswitcher">
+                    <a title="{{ App\pl__('Sprachauswahl') }}" class="shopNavHeader_navToolItemLink" data-toggle="modal-languageswitcher">
                         <i class="fal fa-globe nav-icon"></i>
                     </a>
                 </div>

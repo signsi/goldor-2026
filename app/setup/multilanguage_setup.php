@@ -30,22 +30,12 @@ add_action('after_setup_theme', function () {
 
     if (function_exists('pll_register_string')) {
         $group = 'rocketpager';
-        pll_register_string('Suchen', 'Suchen', $group, false);
-        pll_register_string('Suche...', 'Suche...', $group, false);
-        pll_register_string('Interesse geweckt', 'Haben wir Ihr Interesse geweckt?', $group, false);
-        pll_register_string('Weitere Begriffe', 'Nach weiteren Begriffen suchen...', $group, false);
-        pll_register_string('Suche nach:', 'Suche nach:', $group, false);
         pll_register_string('Neuste Beiträge Titel Beiträge:', 'Ausgewählte Beiträge', $group, false);
         pll_register_string('Teile', 'Teile auf Facebook', $group, false);
         pll_register_string('Social Share Interesse', 'Hier ist ein Beitrag, der dich interessieren könnte:', $group, false);
         pll_register_string('Beitrag weiterleiten', 'Beitrag weiterleiten', $group, false);
         pll_register_string('Tweet this', 'Tweet this', $group, false);
-        pll_register_string('Offcanvas Suche', 'Wonach suchen Sie?', $group, false);
         pll_register_string('Sticky CTA Kontaktformular', 'Kontaktformular', $group, false);
-        pll_register_string('Sprachauswahl', 'Welche Sprache möchten Sie nutzen?', $group, false);
-        pll_register_string('Schliessen', 'Abbrechen', $group, false);
-        pll_register_string('Schliesse Sprachauswahl', 'Schliesse Sprachauswahl', $group, false);
-        pll_register_string('Sprachauswahl', 'Sprachauswahl', $group, false);
         // RocketPager Customize
         $group = 'RocketPager Customize';
 
@@ -57,10 +47,12 @@ add_action('after_setup_theme', function () {
         // !!! Hier keine Strings hinzufügen/entfernen oder bearbeiten !!!
         $group = 'RocketPager Core';
         pll_register_string('Seite Suche (Resultate) - Titel', 'Suche mit Resultate - Titel', $group, false);
-        pll_register_string('Seite Suche (Resultate) - Suchanfrage', 'Suche mit Resultate - Suchanfrage', $group, false);
+        pll_register_string('Seite Suche (Resultate) - Meldung Resultate', 'Suche mit Resultate - Meldung Resultate', $group, false);
         pll_register_string('Seite Suche (Resultate) - Meldung', 'Suche mit Resultate - Meldung', $group, true);
+        pll_register_string('Seite Suche (Resultate) - Meldung weitere Suche', 'Suche mit Resultate - Meldung weitere Suche', $group, true);
         pll_register_string('Seite Suche (ohne Resultate) - Titel', 'Suche ohne Resultate - Titel', $group, false);
         pll_register_string('Seite Suche (ohne Resultate) - Meldung', 'Suche ohne Resultate - Meldung', $group, true);
+        pll_register_string('Suchefeld - Text Suche', 'Suchfeld - Suche', $group, false);
         pll_register_string('Seite 404 - 404', 'Error 404 - 404', $group, false);
         pll_register_string('Seite 404 - Titel', 'Error 404 - Titel', $group, false);
         pll_register_string('Seite 404 - Info', 'Error 404 - Info', $group, true);
@@ -69,9 +61,17 @@ add_action('after_setup_theme', function () {
         pll_register_string('Seite Geschützter Bereich - Info', 'Passwort Seite - Info', $group, true);
         pll_register_string('Seite Geschützter Bereich - Error', 'Passwort Seite - Error', $group, false);
         pll_register_string('Seite Geschützter Bereich - Submit', 'Passwort Seite - Submit', $group, false);
+        pll_register_string('Sprachauswahl - Titel Menüpunkt', 'Sprachauswahl - Titel Menü', $group, false);
+        pll_register_string('Sprachauswahl - Titel Modal', 'Sprachauswahl - Titel Modal', $group, false);
+        pll_register_string('Sprachauswahl - Schliessen', 'Sprachauswahl - Schliessen', $group, false);
+        pll_register_string('Sprachauswahl - Schliessen (Accessibility)', 'Sprachauswahl - Schliessen (Accessibility)', $group, false);
         pll_register_string('Kategorie', 'Kategorie', $group, false);
         pll_register_string('Weiterlesen', 'Weiterlesen', $group, false);
         pll_register_string('Mehr laden', 'Mehr laden', $group, false);
         pll_register_string('Zurück zur Startseite', 'Zurück zur Startseite', $group, false);
+        pll_register_string('Suche', 'Suche', $group, false);
+        pll_register_string('Suche...', 'Suche...', $group, false);
+        pll_register_string('Suchen', 'Suchen', $group, false);
+        pll_register_string('Suche nach:', 'Suche nach:', $group, false);
     }
 });

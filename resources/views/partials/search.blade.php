@@ -3,7 +3,7 @@
         <form class="searchform" role="search" method="get" action="{{ App\get_home_url( '/' ) }}">
             <label for="search" class="sr-only">{{ __('Suche', 'rocketpager') }}</label>
             <div class="relative">
-                <input id="search-{{ wp_rand(0, PHP_INT_MAX) }}" name="s" class="search-input placeholder-primary transition-all ring-primary border-primary block w-full rounded-full border bg-white py-3 pl-6 leading-5 focus:placeholder-font focus:border-font focus:ring-font placeholder:transition-colors outline-none ring-1 text-sm" placeholder="Wonach suchen Sie?" type="search">
+                <input id="search-{{ wp_rand(0, PHP_INT_MAX) }}" name="s" class="search-input placeholder-primary transition-all ring-primary border-primary block w-full rounded-full border bg-white py-3 pl-6 leading-5 focus:placeholder-font focus:border-font focus:ring-font placeholder:transition-colors outline-none ring-1 text-sm" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">
                 <div class="icon-wrapper pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 xl:pr-6 transition-opacity">
                     <svg class="text-primary h-5 w-5 xl:h-6 xl:w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                         fill="currentColor">
