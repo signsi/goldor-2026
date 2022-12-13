@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    @while (have_posts())
-        @php(the_post())
-        @includeFirst(['partials.content-page', 'partials.content'])
-    @endwhile
+    @if (! have_posts())
+        @include('partials.content.content-noresults')
+    @else
+        @while (have_posts())
+            @php(the_post())
+            @includeFirst(['partials.content.content-page', 'partials.content.content'])
+        @endwhile
+    @endif
 @endsection

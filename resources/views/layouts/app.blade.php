@@ -32,9 +32,7 @@
         {{ App\breadcrumbs() }}
         <main id="main" class="main mx-auto max-w-none">
             @yield('content')
-            @if ($search_active)
-                @include('partials.modal-search')
-            @endif
+            @includeWhen($search_active, 'partials.search.modal-search')
         </main>
 
         @hasSection('sidebar')
@@ -46,8 +44,8 @@
         @include('sections.footer.footer')
         @include('sections.offcanvas.sticky-cta')
 
-        @include('partials.browser-update')
-        @include('partials.nootiz')
+        @include('partials.scripts.browser-update')
+        @include('partials.scripts.nootiz')
         @php
             do_action('get_footer');
             wp_footer();

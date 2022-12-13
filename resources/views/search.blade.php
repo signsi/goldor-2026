@@ -2,8 +2,8 @@
 
 @section('content')
   @if (! have_posts())
-    @include('partials.content-noresults')
+    @include('partials.content.content-noresults')
   @else
-    @include('partials.content-search')
+    @include('partials.search.results')
   @endif
 @endsection

@@ -6,7 +6,7 @@
         <div class="wp-block-group">
             @while (have_posts())
                 @php(the_post())
-                @includeFirst(['partials.content-front-post', 'partials.content'])
+                @includeFirst(['partials.content.content-front-post', 'partials.content.content'])
             @endwhile
             {!! get_the_posts_navigation() !!}
         </div>
