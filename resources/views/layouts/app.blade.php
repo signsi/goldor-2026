@@ -28,7 +28,7 @@
         </a>
 
         {{-- PARAM HEADER --}}
-        @include('sections.header.header1')
+        @include('sections.header.header')
         {{ App\breadcrumbs() }}
         <main id="main" class="main mx-auto max-w-none">
             @yield('content')
@@ -43,8 +43,8 @@
             </aside>
         @endif
 
-        @include('sections.footer.footer1')
-        @include('partials.top.sticky-cta')
+        @include('sections.footer.footer')
+        @include('sections.offcanvas.sticky-cta')
 
         @include('partials.browser-update')
         @include('partials.nootiz')
