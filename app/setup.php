@@ -175,22 +175,11 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
-
-/**
- * Register capabilities manage_languages to show Language-Menu and manage_translations to show Translation-Menu of Polylang.
- *
- * @return void
- */
-add_action( 'admin_menu', function() {
-    if ( ! current_user_can( 'manage_options' ) && function_exists( 'PLL' ) ) {
-        add_menu_page( __( 'Strings translations', 'polylang' ), __( 'Languages', 'polylang' ), 'manage_translations', 'mlang_strings', array( PLL(), 'languages_page' ), 'dashicons-translation' );
-    }
-} );
-
 require_once 'helpers/helpers.php';
 require_once 'setup/theme_setup.php';
 require_once 'setup/block_setup.php';
 require_once 'setup/woocommerce_setup.php';
 require_once 'setup/customization.php';
 require_once 'setup/default_block_templates.php';
+require_once 'setup/multilanguage_setup.php';
 // require_once 'setup/custom_post_types.php';

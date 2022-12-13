@@ -6,7 +6,7 @@
         <div class="grid-container">
             <div class="grid-x grid-margin-x">
                 <div class="cell small-12 large-6 align-center margin-auto">
-                @include('partials.search-form')
+                @include('forms.search')
                 </div>
             </div>
         </div>

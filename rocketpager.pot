@@ -1,0 +1,210 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: RocketPager V3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-12 15:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.0.3\n"
+"X-Domain: rocketpager"
+
+#: app/setup/theme_setup.php:58
+msgid "Default"
+msgstr ""
+
+#. Description of the theme
+msgid "Der RocketPager ist das Grundtemplate von Rocket."
+msgstr ""
+
+#: app/setup/theme_setup.php:102
+msgid "Download-Liste"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://rocket.ch"
+msgstr ""
+
+#. URI of the theme
+msgid "https://rocketpager-v3.dev-rocket.ch"
+msgstr ""
+
+#: app/setup/theme_setup.php:92
+msgid "Icon-Liste"
+msgstr ""
+
+#: app/setup/theme_setup.php:63
+msgid "Large"
+msgstr ""
+
+#: app/setup/theme_setup.php:112
+msgid "Link mit Pfeil"
+msgstr ""
+
+#: app/setup/theme_setup.php:117
+msgid "Link zurück"
+msgstr ""
+
+#: app/setup/theme_setup.php:107
+msgid "Link-Liste"
+msgstr ""
+
+#: app/setup/theme_setup.php:80
+msgid "Medium"
+msgstr ""
+
+#: app/setup/theme_setup.php:73
+msgid "nach oben versetzt"
+msgstr ""
+
+#: app/setup/theme_setup.php:86
+msgid "Outline weiss (klein)"
+msgstr ""
+
+#: app/setup/theme_setup.php:97
+msgid "Pfeil-Liste"
+msgstr ""
+
+#. Author of the theme
+msgid "Rocket GmbH"
+msgstr ""
+
+#. Name of the theme
+msgid "RocketPager V3.1"
+msgstr ""
+
+#: app/setup/theme_setup.php:53
+msgid "Slim"
+msgstr ""
+
+#: app/setup/theme_setup.php:48
+msgid "Tiny"
+msgstr ""
+
+#: app/setup/theme_setup.php:68
+msgid "xLarge"
+msgstr ""
+
+msgid "Error 404 - 404"
+msgstr ""
+
+msgid "Error 404 - Titel"
+msgstr ""
+
+msgid "Error 404 - Info"
+msgstr ""
+
+msgid "Zurück zur Startseite"
+msgstr ""
+
+msgid "Passwort Seite - Titel"
+msgstr ""
+
+msgid "Passwort Seite - Info"
+msgstr ""
+
+msgid "Passwort Seite - Error"
+msgstr ""
+
+msgid "Weiterlesen"
+msgstr ""
+
+msgid "Archiv - Titel"
+msgstr ""
+
+msgid "Mehr laden"
+msgstr ""
+
+msgid "Kategorie"
+msgstr ""
+
+msgid "Passwort Seite - Submit"
+msgstr ""
+
+msgid "Suche mit Resultate - Titel"
+msgstr ""
+
+msgid "Suche ohne Resultate - Titel"
+msgstr ""
+
+msgid "Suche mit Resultate - Meldung"
+msgstr ""
+
+msgid "Suche ohne Resultate - Meldung"
+msgstr ""
+
+msgid "Suche mit Resultate - Meldung Resultate"
+msgstr ""
+
+msgid "Suche mit Resultate - Meldung weitere Suche"
+msgstr ""
+
+msgid "Suchfeld - Suche"
+msgstr ""
+
+msgid "Suche"
+msgstr ""
+
+msgid "Suchen"
+msgstr ""
+
+msgid "Suche nach:"
+msgstr ""
+
+msgid "Suche..."
+msgstr ""
+
+msgid "Sprachauswahl - Titel Menü"
+msgstr ""
+
+msgid "Sprachauswahl - Titel Modal"
+msgstr ""
+
+msgid "Sprachauswahl - Schliessen"
+msgstr ""
+
+msgid "Sprachauswahl - Schliessen (Accessibility)"
+msgstr ""
+
+msgid "Social Share - Meldung"
+msgstr ""
+
+msgid "Social Share - LinkedIn"
+msgstr ""
+
+msgid "Social Share - Twitter"
+msgstr ""
+
+msgid "Social Share - Whatsapp"
+msgstr ""
+
+msgid "Social Share - Facebook"
+msgstr ""
+
+msgid "Social Share - Mail"
+msgstr ""
+
+msgid "Aktuelle &post"
+msgstr ""
+
+msgid "Weitere &post"
+msgstr ""
+
+msgid "Aktuelle &jobs"
+msgstr ""
+
+msgid "Weitere &jobs"
+msgstr ""
+
+msgid "Link zum Profil"
+msgstr ""
+
+msgid "Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen."
+msgstr ""

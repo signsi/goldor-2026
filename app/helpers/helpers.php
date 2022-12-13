@@ -21,6 +21,15 @@ function isNotEmpty($value)
     }
 }
 
+function crb_get_i18n_suffix() {
+    $suffix = '';
+    if ( ! defined( 'ICL_LANGUAGE_CODE' ) ) {
+        return $suffix;
+    }
+    $suffix = '_' . ICL_LANGUAGE_CODE;
+    return $suffix;
+}
+
 function getThemeOption($field_id, $default_value = '')
 {
     /**
@@ -33,7 +42,7 @@ function getThemeOption($field_id, $default_value = '')
      * --> Siehe rocketpager-options -> class-rocketpager-options-admin.php
      */
     if ($field_id && function_exists('carbon_get_theme_option')) {
-        return carbon_get_theme_option('rocket_' . $field_id) ?? $default_value;
+        return carbon_get_theme_option('rocket_' . $field_id . crb_get_i18n_suffix()) ?? carbon_get_theme_option('rocket_' . $field_id) ?? $default_value;
     }
     return false;
 }
@@ -60,19 +69,23 @@ function blockValueExists($key)
 
 function pl_e($string = '')
 {
-    if (function_exists('pll_e')) {
-        pll_e($string);
+    if (function_exists('pll__')) {
+        _e(pl__($string));
     } else {
-        echo $string;
+        _e($string);
     }
 }
 
 function pl__($string = '')
 {
     if (function_exists('pll__')) {
-        return pll__($string);
+        return __(pll__($string), 'rocketpager');
     }
-    return $string;
+    return __($string, 'rocketpager');
+}
+
+function get_home_url($path = ''){
+    return esc_url(function_exists('pll_home_url') ? pll_home_url() . $path : home_url($path));
 }
 
 

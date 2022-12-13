@@ -47,7 +47,6 @@
         @include('partials.top.sticky-cta')
 
         @include('partials.browser-update')
-        @include('partials.googletagmanager')
         @include('partials.nootiz')
         @php
             do_action('get_footer');

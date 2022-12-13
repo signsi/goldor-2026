@@ -14,6 +14,8 @@ Aufruf:
     $media_name = $media_name ?? '';
     $anchor_classes = $anchor_classes ?? '';
     $noListitem = $noListitem ?? false;
+    $description = App\pl__('Link zum Profil');
+    $description .= $media_name != '' ?  ' - ' . $media_name : '';
 @endphp
 
 @if ($media_link)
@@ -21,7 +23,7 @@ Aufruf:
         <li>
     @endif
 
-        <a class="{{ $anchor_classes }}" href="{{ $media_link }}" target="_blank"><i class="{{ $icon_classes }}"></i></a>
+        <a class="{{ $anchor_classes }}" href="{{ $media_link }}" target="_blank"><i class="{{ $icon_classes }}" title="{{ $description }}"></i></a>
 
     @if (!$noListitem)
         </li>

@@ -24,7 +24,7 @@ $company_email = App\getThemeOption('company_email');
     <ul>
         <li><a title="Mail an {{$company_name}}" href="mailto:{{$company_email}}">{{$company_email}}</a></li>
         <li><a titlte="{{$company_name}} anrufen" href="tel:{{$phone_link}}">{{$company_phone}}</a></li>
-        <li><a href="#" data-toggle="modal-search"><i class="fas fa-search"></i>{!! App\pl_e('Wonach suchen Sie?') !!}</a></li>
+        <li><a href="#" data-toggle="modal-search"><i class="fas fa-search"></i>{{ App\pl__('Suchfeld - Suche') }}</a></li>
     </ul>
 </div>
 <!-- Mobile Navigation END -->

@@ -44,7 +44,7 @@ Aufruf:
             <div class="wp-block-embed__wrapper">
                 @if(App\is_plugin_active_and_available('webtoffee-gdpr-cookie-consent/cookie-law-info.php'))
                     <div class="info-cookies absolute inset-0 w-full h-full grid place-items-center text-center p-2">
-                        <p>{{ __('Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.') }}
+                        <p>{{ App\pl__('Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.') }}
                          ({!! do_shortcode('[wt_cli_manage_consent]') !!})
                     </div>
                 @endif

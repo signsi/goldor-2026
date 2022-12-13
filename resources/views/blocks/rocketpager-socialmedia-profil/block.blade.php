@@ -12,12 +12,12 @@
 
 @section('content-section')
     <ul class="flex flex-row gap-3 list-none ml-0 pl-0">
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_instagram, 'icon_classes' => 'fab fa-instagram', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('blocks.helpers.social-link',['media_name' => '', 'media_link' => $social_media_googleplus, 'icon_classes' => 'fab fa-google-plus', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'LinkedIn', 'media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Twitter', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Xing', 'media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Facebook', 'media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Youtube', 'media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Instagram', 'media_link' => $social_media_instagram, 'icon_classes' => 'fab fa-instagram', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('blocks.helpers.social-link',['media_name' => 'Google Plus', 'media_link' => $social_media_googleplus, 'icon_classes' => 'fab fa-google-plus', 'anchor_classes' => 'text-primary hover:text-font'])
     </ul>
 @overwrite
