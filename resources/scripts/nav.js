@@ -151,7 +151,7 @@ function setupMobileNav() {
 
 function setupFixedNav() {
     const headerElementClass = config.classHeaderElement
-    const $siteHeader = $(`.${headerElementClass}`);
+    const $siteHeader = $('#siteHeader');
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
     // https://codepen.io/GreenSock/pen/LYZmaeW
@@ -176,11 +176,11 @@ function setupFixedNav() {
                 header_direction = self.direction;
                 var newClassName = "";
                 if (header_progress === '0.00') {
-                    newClassName = `${headerElementClass} ${headerElementClass}--top`;
+                    newClassName = `${headerElementClass}--top`;
                 } else if (header_progress === '1.00') {
-                    newClassName = `${headerElementClass} ${headerElementClass}--notTop ${headerElementClass}--bottom`;
+                    newClassName = `${headerElementClass}--notTop ${headerElementClass}--bottom`;
                 } else {
-                    newClassName = `${headerElementClass} ${headerElementClass}--notTop`;
+                    newClassName = `${headerElementClass}--notTop`;
 
                     if (header_direction === 1) {
                         newClassName += ` ${headerElementClass}--unpinned`;

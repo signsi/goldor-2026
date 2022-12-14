@@ -8,7 +8,7 @@
 <div class="wp-block-group has-grey-background-color has-background is-style-layout-full share-on">
   <div class="wp-block-group is-style-layout-small">
         <h3>Share on</h3>
-        @include('partials.social-share', [
+        @include('partials.social.social-share', [
             'list_classes' => 'menu nav-icons icon-left',
             'useSquare' => true,
             'icon_classes' => 'fa-2x',

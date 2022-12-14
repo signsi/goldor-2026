@@ -32,7 +32,7 @@
         {{ App\breadcrumbs() }}
         <main id="main" class="main mx-auto max-w-none">
             @yield('content')
-            @includeWhen($search_active, 'partials.search.modal-search')
+            @includeWhen($search_active, 'sections.offcanvas.modal-search')
         </main>
 
         @hasSection('sidebar')

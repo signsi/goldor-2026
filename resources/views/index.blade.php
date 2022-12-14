@@ -18,5 +18,5 @@
 @endsection
 
 @section('sidebar')
-    @include('sections.sidebar')
+    @php(dynamic_sidebar('sidebar-primary'))
 @endsection

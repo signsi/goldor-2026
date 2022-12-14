@@ -20,7 +20,7 @@ $buttons = [
 ];
 @endphp
 
-<footer aria-labelledby="footer-heading">
+<footer id="siteFooter" aria-labelledby="footer-heading">
     <div class="has-secondarydark-background-color has-background">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-large 2xl:max-w-xlarge px-gutter py-element mx-auto">
@@ -31,6 +31,7 @@ $buttons = [
                 <div class="footerSidebar-2 flex flex-col justify-between gap-y-8 lg:gap-y-0">
                     @php dynamic_sidebar('sidebar-footer-1') @endphp
                     @relInclude('elements.socialmedia-nav')
+                    @relInclude('elements.social')
                 </div>
                 <div class="footerSidebar-3 flex flex-col justify-between gap-y-8 lg:gap-y-0">
                     @relInclude('elements.mailchimp')

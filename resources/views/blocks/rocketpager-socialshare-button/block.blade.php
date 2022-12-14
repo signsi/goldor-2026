@@ -17,7 +17,7 @@
         <div class="wp-block-button w-full mb-0">
             <div class="wp-block-button__link w-full flex justify-center items-center border border-primary bg-primary hover:bg-white hover:text-primary transition duration-300 ease-in-out group">
                 {{ App\pl__('Teilen') }}
-                @include('partials.social-share',[
+                @include('partials.social.social-share',[
                     'showLinkedin' => $showLinkedin,
                     'showTwitter' => $showTwitter,
                     'showFacebook' => $showFacebook,

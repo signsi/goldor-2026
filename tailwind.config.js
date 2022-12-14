@@ -126,6 +126,7 @@ module.exports = {
       fontSize: {
         0: ['0', '0'],
         icon: ['20px', '1'],
+        'icon-big': ['32px', '1'],
         '5.5xl': ['56px', '1.1'],
       },
       lineHeight: {
