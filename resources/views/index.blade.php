@@ -2,11 +2,7 @@
 
 @section('content')
     @if (!have_posts())
-        <x-alert type="warning">
-            {!! __('Sorry, no results were found.', 'sage') !!}
-        </x-alert>
-
-        {!! get_search_form(false) !!}
+        @include('partials.content.content-none');
     @endif
 
     @while (have_posts())
