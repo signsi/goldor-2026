@@ -141,9 +141,7 @@ module.exports = {
         '0_100': '0% 100%',
       },
       backgroundImage: {
-        'hero-pattern-1': "url('../images/zodas-logo-cluster-1.svg')",
-        'hero-pattern-2': "url('../images/zodas-logo-cluster-2.svg')",
-        'hero-pattern-3': "url('../images/zodas-logo-cluster-3.svg')",
+        'hero-pattern-1': "url('../images/logo-rocket-pink.svg')",
       },
       backgroundSize: {
         '25%': '25%',
