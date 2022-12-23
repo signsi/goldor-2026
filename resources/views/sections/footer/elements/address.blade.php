@@ -12,6 +12,7 @@ $logo_src = App\getThemeOption('logo_footer');
 $phone_link = str_replace(' ', '', $company_phone);
 @endphp
 
+@include('sections.footer.elements.logo')
 <p>{{ $company_name }}<br>
     {{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
 </p>

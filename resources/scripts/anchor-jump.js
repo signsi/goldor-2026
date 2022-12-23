@@ -23,7 +23,7 @@ const anchorJump = () => {
             $(window).scrollTop(targetPos);
 
             $('img.lazyload').removeClass('lazyload').addClass('pause-lazyloading');
-            $('header').addClass('activeAnchorScroll');
+            $('#siteHeader').addClass('activeAnchorScroll');
 
             $(document).on('lazyloaded.anchor DOMNodeInserted.anchor', function(event){
                 if(targetPos <= $(window).scrollTop() + 1 && targetPos >= $(window).scrollTop() - 1 ) return;
@@ -41,7 +41,7 @@ const anchorJump = () => {
             });
 
             $(window).one('wheel touchstart', function(){
-                $('header').removeClass('activeAnchorScroll');
+                $('#siteHeader').removeClass('activeAnchorScroll');
                 endAnchorJump();
             });
         }

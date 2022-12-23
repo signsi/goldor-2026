@@ -6,7 +6,7 @@
     @else
         @while (have_posts())
             @php(the_post())
-            @includeFirst(['partials.content.content-page', 'partials.content.content'])
+            @includeFirst(['partials.content.content-front-page', 'partials.content.content-page', 'partials.content.content'])
         @endwhile
     @endif
 @endsection

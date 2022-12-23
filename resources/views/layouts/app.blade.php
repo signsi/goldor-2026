@@ -28,13 +28,11 @@
         </a>
 
         {{-- PARAM HEADER --}}
-        @include('sections.header.header1')
+        @include('sections.header.header')
         {{ App\breadcrumbs() }}
         <main id="main" class="main mx-auto max-w-none">
             @yield('content')
-            @if ($search_active)
-                @include('partials.modal-search')
-            @endif
+            @includeWhen($search_active, 'sections.offcanvas.modal-search')
         </main>
 
         @hasSection('sidebar')
@@ -43,11 +41,11 @@
             </aside>
         @endif
 
-        @include('sections.footer.footer1')
-        @include('partials.top.sticky-cta')
+        @include('sections.footer.footer')
+        @include('sections.offcanvas.sticky-cta')
 
-        @include('partials.browser-update')
-        @include('partials.nootiz')
+        @include('partials.scripts.browser-update')
+        @include('partials.scripts.nootiz')
         @php
             do_action('get_footer');
             wp_footer();

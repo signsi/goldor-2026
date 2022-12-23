@@ -58,12 +58,12 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Main Navigation', 'sage'),
-        'top_navigation' => __('Top Navigation', 'sage'),
-        'location_navigation' => __('Standort Navigation', 'sage'),
-        'career_navigation' => __('Karriere Navigation', 'sage'),
-        'service_navigation' => __('Service Navigation', 'sage'),
-        'disclaimer_navigation' => __('Disclaimer Navigation', 'sage')
+        'primary_navigation' => __('Main Navigation', 'rocketpager'),
+        'top_navigation' => __('Top Navigation', 'rocketpager'),
+        'location_navigation' => __('Standort Navigation', 'rocketpager'),
+        'career_navigation' => __('Karriere Navigation', 'rocketpager'),
+        'service_navigation' => __('Service Navigation', 'rocketpager'),
+        'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager')
     ]);
 
     /**
@@ -139,13 +139,8 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary'
-    ] + $config);
-
-    register_sidebar([
-        'name' => __('Primary CTA', 'sage'),
-        'id' => 'sidebar-primary-cta'
+        'name' => __('CTA', 'sage'),
+        'id' => 'sidebar-cta'
     ] + $config);
 
     register_sidebar([

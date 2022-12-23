@@ -125,6 +125,11 @@ if (!function_exists('sanitize_out')) {
                 'lang'      => true,
                 'xml:lang'  => true,
             ),
+            'a' => array(
+                'href' => true,
+                'target' => true,
+                'rel' => true
+            ),
             'br' => array(),
             'span'       => array(
                 'style'    => true,

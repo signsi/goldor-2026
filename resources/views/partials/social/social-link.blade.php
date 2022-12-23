@@ -1,6 +1,6 @@
 {{--
 Aufruf:
-@include('blocks.helpers.social-link',
+@include('partials.social.social-link',
     [
         'media_name' => Linkedin,                                   -> Name des Social-Media-Kanals,
         'media_link' => https://www.linkedin.com/company/3156472/,  -> Link des Social-Media-Kanals,
