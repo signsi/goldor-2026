@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="wp-block-group mt-section">
-                {!! get_the_posts_navigation() !!}
+                @include('partials.components.postnavigation')
             </div>
         </div>
     @endif

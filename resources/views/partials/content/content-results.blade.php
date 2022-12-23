@@ -21,8 +21,8 @@
       </div>
     </article>
   @endwhile
-  <div class="posts_navigation pt-gutter mt-element border-t border-solid border-gray-300">
-    {!! get_the_posts_navigation() !!}
+  <div class="posts_navigation pt-gutter border-t border-solid border-gray-300">
+    @include('partials.components.postnavigation')
   </div>
 </div>
 
