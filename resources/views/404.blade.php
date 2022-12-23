@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('partials.content.none');
+  @include('partials.content.content-none');
 @endsection

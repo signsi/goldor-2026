@@ -139,13 +139,8 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary'
-    ] + $config);
-
-    register_sidebar([
-        'name' => __('Primary CTA', 'sage'),
-        'id' => 'sidebar-primary-cta'
+        'name' => __('CTA', 'sage'),
+        'id' => 'sidebar-cta'
     ] + $config);
 
     register_sidebar([
