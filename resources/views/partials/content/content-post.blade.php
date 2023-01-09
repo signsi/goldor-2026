@@ -13,7 +13,7 @@
             <div class="text-wrapper mb-4 md:mb-6 lg:mb-8">
                 {{ the_excerpt() }}
             </div>
-            <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block" href="{{ the_permalink() }}">Weiterlesen <i class="fa-light fa-arrow-right-long"></i></span>
+            <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block" href="{{ the_permalink() }}">{{ App\pl__('Weiterlesen') }} <i class="fa-light fa-arrow-right-long"></i></span>
         </div>
     </a>
 </div>

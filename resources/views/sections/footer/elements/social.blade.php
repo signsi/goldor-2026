@@ -10,7 +10,7 @@
 @endphp
 
 <div class="flex flex-col">
-    <p class="mb-2 lg:mb-4 font-bold">{{ __('Folgen Sie uns', 'rocketpager') }}</p>
+    <p class="mb-2 lg:mb-4 font-bold">{{ App\pl__('Folge uns') }}</p>
     <div class="flex space-x-4 justify-start text-icon-big">
         @include('partials.social.social-link',['media_name' => 'LinkedIn', 'media_link' => $linkedin, 'icon_classes' => 'fab fa-linkedin', 'anchor_classes' => $anchorClass, 'noListitem' => true])
         @include('partials.social.social-link',['media_name' => 'Facebook', 'media_link' => $facebook, 'icon_classes' => 'fab fa-facebook-square', 'anchor_classes' => $anchorClass, 'noListitem' => true])
