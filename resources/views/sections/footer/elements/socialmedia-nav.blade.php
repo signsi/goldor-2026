@@ -11,7 +11,7 @@ $google_plus = App\getThemeOption('google_plus');
 @endphp
 
 <div class="flex flex-col">
-    <p class="mb-2 lg:mb-4 font-bold">{{ __('Folgen Sie uns', 'rocketpager') }}</p>
+    <p class="mb-2 lg:mb-4 font-bold">{{ App\pl__('Folge uns') }}</p>
     <div class="flex space-x-3 justify-start">
         @if($linkedin != '')
             <a href="{{ $linkedin }}" target="_blank" class="flex justify-center">

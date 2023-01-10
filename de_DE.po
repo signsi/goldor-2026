@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-09 11:53+0000\n"
-"PO-Revision-Date: 2022-12-12 15:25+0000\n"
+"PO-Revision-Date: 2023-01-09 17:24+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -27,6 +27,9 @@ msgstr "Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen."
 msgid "Archiv - Titel"
 msgstr "Archiv"
 
+msgid "Autor"
+msgstr "Autor"
+
 #: app/setup/theme_setup.php:58
 msgid "Default"
 msgstr "Default"
@@ -47,6 +50,9 @@ msgstr "Leider konnten wir die von Ihnen gesuchte Seite nicht finden."
 
 msgid "Error 404 - Titel"
 msgstr "Seite nicht gefunden"
+
+msgid "Folge uns"
+msgstr "Folge uns"
 
 #. Author URI of the theme
 msgid "https://rocket.ch"
@@ -88,6 +94,9 @@ msgstr "Medium"
 
 msgid "Mehr laden"
 msgstr "Mehr laden"
+
+msgid "Mehr zu"
+msgstr "Mehr zu"
 
 #: app/setup/theme_setup.php:73
 msgid "nach oben versetzt"

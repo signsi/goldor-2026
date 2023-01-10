@@ -67,9 +67,11 @@ add_action('after_setup_theme', function () {
         pll_register_string('Social Share - Whatsapp', 'Social Share - Whatsapp', $group, false);
         pll_register_string('Social Share - Facebook', 'Social Share - Facebook', $group, false);
         pll_register_string('Social Share - Mail', 'Social Share - Mail', $group, false);
+        pll_register_string('Folge uns', 'Folge uns', $group, false);
         pll_register_string('Kategorie', 'Kategorie', $group, false);
         pll_register_string('Weiterlesen', 'Weiterlesen', $group, false);
         pll_register_string('Mehr laden', 'Mehr laden', $group, false);
+        pll_register_string('Mehr zu', 'Mehr zu', $group, false);
         pll_register_string('Zurück zur Startseite', 'Zurück zur Startseite', $group, false);
         pll_register_string('Suche', 'Suche', $group, false);
         pll_register_string('Suche...', 'Suche...', $group, false);
@@ -81,5 +83,6 @@ add_action('after_setup_theme', function () {
         pll_register_string('Weitere Stellen', 'Weitere &jobs', $group, false);
         pll_register_string('Link zum Profil', 'Link zum Profil', $group, false);
         pll_register_string('Cookie Info - Darstellung Inhalt', 'Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.', $group, false);
+        pll_register_string('Autor', 'Autor', $group, false);
     }
 });

@@ -23,12 +23,11 @@
             <div class="my-6 px-4 py-4">
                 <nav>
                     @php
-                        $locations = get_nav_menu_locations();
-                        if (array_key_exists('primary_navigation', $locations) && 0 !== $locations['primary_navigation']) {
+                        if (has_nav_menu('primary_navigation')) {
                             wp_nav_menu([
                                 'theme_location' => 'primary_navigation',
-                                'menu_class' => 'flex flex-col items-baseline justify-between linkGrowing',
-                                'container_class' => '',
+                                'menu_class' => 'menu-primary_navigation-mobile flex flex-col items-baseline justify-between linkGrowing',
+                                'container_class' => 'menu-primary_navigation-container',
                                 'add_li_class' => 'z-10 py-3 w-full text-lg font-bold border-b border-solid border-font group last:border-b-0',
                                 'walker' => new SubmenuWrap(),
                             ]);

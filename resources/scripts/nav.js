@@ -70,8 +70,8 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
 function setupDesktopNav() {
     const $outsideArea = $('body');
     const $topNav = $("#topNav");
-    const $subMenuParents = $topNav.find("ul#menu-primary_navigation>li.menu-item-has-children");
-    const subMenuRemove = $("ul#menu-primary_navigation>li.menu-item-has-children ul>li>div");
+    const $subMenuParents = $topNav.find("ul.menu-primary_navigation>li.menu-item-has-children");
+    const subMenuRemove = $("ul.menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
 

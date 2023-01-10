@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-12 15:24+0000\n"
+"POT-Creation-Date: 2023-01-09 17:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -207,4 +207,13 @@ msgid "Link zum Profil"
 msgstr ""
 
 msgid "Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen."
+msgstr ""
+
+msgid "Autor"
+msgstr ""
+
+msgid "Mehr zu"
+msgstr ""
+
+msgid "Folge uns"
 msgstr ""
