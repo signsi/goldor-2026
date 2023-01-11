@@ -111,6 +111,13 @@ themes/your-theme-name/   # → Root of your Sage based theme
 └── bud.config.js         # → Bud configuration
 ```
 
+## Define Page Template
+1. create Partial-File `template-{name}.blade.php` in the folder resources/views
+2. add following at the top of the file:
+{{--
+  Template Name: XYZ
+--}}
+
 ## Theme setup
 
 Edit `app/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, and sidebars.
