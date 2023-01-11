@@ -1087,6 +1087,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"
   integrity sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==
 
+"@rocket-gmbh/tailconf_helpers@^0.0.5":
+  version "0.0.5"
+  resolved "https://gitlab.com/api/v4/projects/40273092/packages/npm/@rocket-gmbh/tailconf_helpers/-/@rocket-gmbh/tailconf_helpers-0.0.5.tgz#7bc854e07fc50cbaec23f4769a5efbf6e88ae639"
+  integrity sha1-e8hU4H/FDLrsI/R2ml779uiK5jk=
+
 "@roots/bud-api@5.5.0":
   version "5.5.0"
   resolved "https://registry.npmjs.org/@roots/bud-api/-/bud-api-5.5.0.tgz#2ae7c204f1b867de446d4b03d8936672338c4235"
