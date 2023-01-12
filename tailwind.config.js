@@ -1,3 +1,6 @@
+const theme = require('./theme.json');
+const tailconf = require('@rocket-gmbh/tailconf_helpers');
+
 module.exports = {
   important: true,
   content: [
@@ -37,27 +40,7 @@ module.exports = {
       }
     },
     extend: {
-      colors: {
-        primary: 'rgb(var(--color-primary))',
-        primarydark: 'rgb(var(--color-primarydark))',
-        primarylight: 'rgb(var(--color-primarylight))',
-        primarytransparent: 'rgb(var(--color-primarytransparent))',
-        secondary: 'rgb(var(--color-secondary))',
-        secondarydark: 'rgb(var(--color-secondarydark))',
-        secondarylight: 'rgb(var(--color-secondarylight))',
-        pink: 'rgb(var(--color-pink))',
-        pinkdark: 'rgb(var(--color-pinkdark))',
-        pinklight: 'rgb(var(--color-pinklight))',
-        font: 'rgb(var(--color-font))',
-        grey: 'rgb(var(--color-grey))',
-        white: 'rgb(var(--color-white))',
-        aubergine: 'rgb(var(--color-aubergine))',
-        auberginedark: 'rgb(var(--color-auberginedark))',
-        auberginelight: 'rgb(var(--color-auberginelight))',
-        petrol: 'rgb(var(--color-petrol))',
-        petroldark: 'rgb(var(--color-petroldark))',
-        petrollight: 'rgb(var(--color-petrollight))',
-      },
+      colors: tailconf.colorMapper(tailconf.getTheme('settings.color.palette',theme)),
       opacity: {
         default: '1',
         'on-hover': '0.8',
@@ -167,6 +150,6 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('tw-elements/dist/plugin'),
     // require('@tailwindcss/typography'),
-    require('tailwindcss-fluid-type'),
+    tailconf.useFluidPlugin(),
   ],
 }
