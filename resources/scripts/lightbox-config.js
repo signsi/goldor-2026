@@ -71,7 +71,7 @@ export function setupLightbox() {
         removeFancyboxForNotVisibleSlides();
     });
 
-    Fancybox.bind('figure.wp-block-image a[href$=".jpg"], figure.wp-block-image a[href$=".jpeg"], figure.wp-block-image a[href$=".png"], figure.wp-block-image a[href$=".svg"], figure.wp-block-media-text__media a[href$=".jpg"], figure.wp-block-media-text__media a[href$=".jepg"], figure.wp-block-media-text__media a[href$=".png"], figure.wp-block-media-text__media a[href$=".svg"]', {
+    Fancybox.bind('figure.wp-block-image a[href$=".webp"], figure.wp-block-image a[href$=".jpg"], figure.wp-block-image a[href$=".jpeg"], figure.wp-block-image a[href$=".png"], figure.wp-block-image a[href$=".svg"], figure.wp-block-media-text__media a[href$=".webp"], figure.wp-block-media-text__media a[href$=".jpg"], figure.wp-block-media-text__media a[href$=".jepg"], figure.wp-block-media-text__media a[href$=".png"], figure.wp-block-media-text__media a[href$=".svg"]', {
         groupAttr: false,
         Toolbar: toolbarSingle,
     });
