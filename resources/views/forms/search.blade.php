@@ -2,8 +2,8 @@
     $input_label = 'search-' . wp_rand(0, PHP_INT_MAX)
 @endphp
 
-<div class="flex items-center">
-    <div class="w-full max-w-md">
+<div class="flex items-center mt-6 lg:mt-0">
+    <div class="w-full">
         <form class="searchform" role="search" method="get" action="{{ App\get_home_url() }}">
             <label for="{{ $input_label }}" class="sr-only">{{ App\pl__('Suche') }}</label>
             <div class="relative">
