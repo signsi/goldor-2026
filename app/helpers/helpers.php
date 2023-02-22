@@ -110,6 +110,7 @@ if (!function_exists('sanitize_out')) {
             'width'           => true,
             'frameborder'     => true,
             'allowfullscreen' => true,
+            'title' => true,
         );
 
         $allowed_texterea_tags = array(
