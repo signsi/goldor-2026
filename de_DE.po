@@ -233,3 +233,9 @@ msgstr "xLarge"
 
 msgid "Zurück zur Startseite"
 msgstr "Zurück zur Startseite"
+
+msgid "Video in Lightbox anschauen"
+msgstr "Video in Lightbox anschauen"
+
+msgid "Bild in Lightbox anschauen"
+msgstr "Bild in Lightbox anschauen"
