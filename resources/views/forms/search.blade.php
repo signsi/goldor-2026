@@ -3,7 +3,7 @@
 @endphp
 
 <div class="flex items-center mt-6 lg:mt-0">
-    <div class="w-full max-w-tiny">
+    <div class="w-full max-w-md">
         <form class="searchform" role="search" method="get" action="{{ App\get_home_url() }}">
             <label for="{{ $input_label }}" class="sr-only">{{ App\pl__('Suche') }}</label>
             <div class="relative">
