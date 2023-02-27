@@ -59,8 +59,7 @@ add_action('after_setup_theme', function () {
     register_nav_menus([
         'primary_navigation' => __('Main Navigation', 'rocketpager'),
         'top_navigation' => __('Top Navigation', 'rocketpager'),
-        'location_navigation' => __('Standort Navigation', 'rocketpager'),
-        'career_navigation' => __('Karriere Navigation', 'rocketpager'),
+        'quicklink_navigation' => __('Quick-Links Navigation', 'rocketpager'),
         'service_navigation' => __('Service Navigation', 'rocketpager'),
         'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager')
     ]);
@@ -146,7 +145,6 @@ add_action('widgets_init', function () {
         'name' => __('Footer 1', 'sage'),
         'id' => 'sidebar-footer-1'
     ] + $config);
-
     register_sidebar([
         'name' => __('Footer 2', 'sage'),
         'id' => 'sidebar-footer-2'
@@ -160,12 +158,20 @@ add_action('widgets_init', function () {
         'id' => 'sidebar-footer-4'
     ] + $config);
     register_sidebar([
-        'name' => __('Footer CTA', 'sage'),
-        'id' => 'sidebar-footer-cta'
+        'name' => __('Footer Address', 'sage'),
+        'id' => 'sidebar-footer-address'
     ] + $config);
     register_sidebar([
-        'name' => __('Footer Social', 'sage'),
-        'id' => 'sidebar-footer-social'
+        'name' => __('Footer Quick-Links', 'sage'),
+        'id' => 'sidebar-footer-quicklink'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer Service', 'sage'),
+        'id' => 'sidebar-footer-service'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer CTA', 'sage'),
+        'id' => 'sidebar-footer-cta'
     ] + $config);
 });
 
