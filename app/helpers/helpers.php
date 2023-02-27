@@ -70,10 +70,10 @@ function blockValueExists($key)
 function pl_e($string = '')
 {
     if (function_exists('pll__')) {
-        _e(pl__($string));
-    } else {
-        _e($string);
+        $string = (pl__($string));
     }
+
+    _e($string, 'rocketpager');
 }
 
 function pl__($string = '')
