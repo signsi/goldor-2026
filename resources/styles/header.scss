@@ -1,6 +1,6 @@
 header#siteHeader {
     a {
-        @apply transition-colors;
+        @apply transition-colors text-inherit hover:text-inherit;
     }
     /* Desktop-Navigation */
     #topNav {

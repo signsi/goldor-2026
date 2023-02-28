@@ -139,8 +139,9 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('CTA', 'rocketpager'),
-        'id' => 'sidebar-cta'
+        'name' => __('Navigation CTA', 'rocketpager'),
+        'id' => 'sidebar-cta',
+        'description' =>  __('Hinzufügen CTA (Buttons) in der Hauptnavigation', 'rocketpager'),
     ] + $config);
 
     register_sidebar([

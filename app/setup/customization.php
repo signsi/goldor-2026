@@ -186,6 +186,16 @@ function crb_attach_theme_options()
     $navigation_options = [
         [
             'type' => 'checkbox',
+            'key' => 'header_lang_switcher',
+            'label' => 'Sprach-Umschalter aktiviert?',
+        ],
+        [
+            'type' => 'checkbox',
+            'key' => 'header_search',
+            'label' => 'Suche aktiviert?',
+        ],
+        [
+            'type' => 'checkbox',
             'key' => 'megamenu',
             'label' => 'MegaMenü aktiviert?',
         ],
@@ -218,7 +228,7 @@ function crb_attach_theme_options()
         [
             'type' => 'checkbox',
             'key' => 'cta_search',
-            'label' => 'Suche aktiviert? (auch in der Navigation)',
+            'label' => 'Suche aktiviert?',
         ],
         [
             'type' => 'checkbox',
