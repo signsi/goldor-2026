@@ -59,8 +59,9 @@ add_action('after_setup_theme', function () {
     register_nav_menus([
         'primary_navigation' => __('Main Navigation', 'rocketpager'),
         'top_navigation' => __('Top Navigation', 'rocketpager'),
-        'quicklink_navigation' => __('Quick-Links Navigation', 'rocketpager'),
-        'service_navigation' => __('Service Navigation', 'rocketpager'),
+        'footer_navigation_1' => __('Footer Navigation 1', 'rocketpager'),
+        'footer_navigation_2' => __('Footer Navigation 2', 'rocketpager'),
+        'footer_navigation_3' => __('Footer Navigation 3', 'rocketpager'),
         'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager')
     ]);
 
@@ -137,41 +138,39 @@ add_action('widgets_init', function () {
     ];
 
     register_sidebar([
-        'name' => __('CTA', 'sage'),
+        'name' => __('CTA', 'rocketpager'),
         'id' => 'sidebar-cta'
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer 1', 'sage'),
-        'id' => 'sidebar-footer-1'
+        'name' => __('Footer Spalte 1', 'rocketpager'),
+        'id' => 'sidebar-footer-1',
+        'description' =>  __('Überschreiben der ersten Spalte (Logo & Adresse). Das Widget "Footer Adresse" wird dabei auch überschrieben.', 'rocketpager'),
     ] + $config);
     register_sidebar([
-        'name' => __('Footer 2', 'sage'),
-        'id' => 'sidebar-footer-2'
+        'name' => __('Footer Spalte 2', 'rocketpager'),
+        'id' => 'sidebar-footer-2',
+        'description' =>  __('Überschreiben der zweiten Spalt.', 'rocketpager'),
     ] + $config);
     register_sidebar([
-        'name' => __('Footer 3', 'sage'),
-        'id' => 'sidebar-footer-3'
+        'name' => __('Footer Spalte 3', 'rocketpager'),
+        'id' => 'sidebar-footer-3',
+        'description' =>  __('Überschreiben der dritten Spalte.', 'rocketpager'),
     ] + $config);
     register_sidebar([
-        'name' => __('Footer 4', 'sage'),
-        'id' => 'sidebar-footer-4'
+        'name' => __('Footer Spalte 4', 'rocketpager'),
+        'id' => 'sidebar-footer-4',
+        'description' =>  __('Überschreiben der vierten Spalte.', 'rocketpager'),
     ] + $config);
     register_sidebar([
-        'name' => __('Footer Address', 'sage'),
-        'id' => 'sidebar-footer-address'
+        'name' => __('Footer Adresse', 'rocketpager'),
+        'id' => 'sidebar-footer-address',
+        'description' =>  __('Überschreiben der Adresse. Logo ist nicht betroffen', 'rocketpager'),
     ] + $config);
     register_sidebar([
-        'name' => __('Footer Quick-Links', 'sage'),
-        'id' => 'sidebar-footer-quicklink'
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer Service', 'sage'),
-        'id' => 'sidebar-footer-service'
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer CTA', 'sage'),
-        'id' => 'sidebar-footer-cta'
+        'name' => __('Footer CTA', 'rocketpager'),
+        'id' => 'sidebar-footer-cta',
+        'description' =>  __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
     ] + $config);
 });
 
