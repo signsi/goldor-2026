@@ -62,7 +62,8 @@ add_action('after_setup_theme', function () {
         'footer_navigation_1' => __('Footer Navigation 1', 'rocketpager'),
         'footer_navigation_2' => __('Footer Navigation 2', 'rocketpager'),
         'footer_navigation_3' => __('Footer Navigation 3', 'rocketpager'),
-        'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager')
+        'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager'),
+        'language_switcher' => __('Language Navigation', 'rocketpager')
     ]);
 
     /**
