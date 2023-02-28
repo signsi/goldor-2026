@@ -2,7 +2,7 @@
     $newsletter_url = App\getThemeOption('newsletter_url') ?? false;
 @endphp
 @if($mailchimp_url != '')
-    <div class="newsletterLoginContainer">
+    <div class="footer-newsletter">
         <p class="mb-0"><strong>{{ __('Newsletter abonnieren', 'rocketpager') }}</strong></p>
         <div class="mailchimpWrapper">
             <form action="{{$mailchimp_url}}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="flex items-center justify-between relative group validate" target="_blank" novalidate>
