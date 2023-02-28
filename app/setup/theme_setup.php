@@ -178,7 +178,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='submenuContainer hideSubMenu relative left-0 lg:absolute mt-[53px] w-full z-10 transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden'><ul class='menu-primary_subnavigation bg-primary p-gutter z-20 flex flex-col lg:min-w-max'>\n";
+            $output .= "\n$indent<div class='submenuContainer hideSubMenu relative left-0 lg:absolute mt-[46px] w-full z-10 transform transition-all duration-700 ease-in-out opacity-0 translate-y-1 hidden'><ul class='menu-primary_subnavigation bg-primary p-gutter z-20 flex flex-col lg:min-w-max'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
