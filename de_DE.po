@@ -119,7 +119,8 @@ msgid "Passwort Seite - Error"
 msgstr "Das von Ihnen eingegebene Passwort ist ungültig."
 
 msgid "Passwort Seite - Info"
-msgstr "Dieser Inhalt ist passwortgeschützt. Um ihn anzuschauen, geben Sie bitte Ihr "
+msgstr ""
+"Dieser Inhalt ist passwortgeschützt. Um ihn anzuschauen, geben Sie bitte Ihr "
 "Passwort unten ein:"
 
 msgid "Passwort Seite - Submit"
@@ -178,7 +179,8 @@ msgid "Suche"
 msgstr "Suche"
 
 msgid "Suche mit Resultate - Meldung"
-msgstr "Auf den folgenden Seiten oder Beiträgen wurde Ihr Suchbegriff gefunden..."
+msgstr ""
+"Auf den folgenden Seiten oder Beiträgen wurde Ihr Suchbegriff gefunden..."
 
 msgid "Suche mit Resultate - Meldung Resultate"
 msgstr "Ihre Suche nach:"
@@ -193,7 +195,8 @@ msgid "Suche nach:"
 msgstr "Suche nach:"
 
 msgid "Suche ohne Resultate - Meldung"
-msgstr "Der von Ihnen gewählte Suchbegriff wurde auf keiner Seite gefunden.<br>"
+msgstr ""
+"Der von Ihnen gewählte Suchbegriff wurde auf keiner Seite gefunden.<br>"
 "Überprüfen Sie die Rechtschreibung oder versuchen Sie es erneut."
 
 msgid "Suche ohne Resultate - Titel"
@@ -230,9 +233,3 @@ msgstr "xLarge"
 
 msgid "Zurück zur Startseite"
 msgstr "Zurück zur Startseite"
-
-msgid "Video in Lightbox anschauen"
-msgstr "Video in Lightbox anschauen"
-
-msgid "Bild in Lightbox anschauen"
-msgstr "Bild in Lightbox anschauen"
