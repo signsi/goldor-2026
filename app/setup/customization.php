@@ -294,8 +294,9 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
-            'key' => 'mailchimp_url',
-            'label' => 'MailChimp URL',
+            'key' => 'newsletter_url',
+            'label' => 'Newsletter URL',
+            'translateable' => true,
         ],
         [
             'type' => 'header_scripts',

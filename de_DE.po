@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: RocketPager V3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-09 11:53+0000\n"
-"PO-Revision-Date: 2023-01-09 17:24+0000\n"
+"PO-Revision-Date: 2023-02-28 10:05+0000\n"
 "Last-Translator: \n"
 "Language-Team: Deutsch\n"
 "Language: de_DE\n"
@@ -30,6 +30,9 @@ msgstr "Archiv"
 msgid "Autor"
 msgstr "Autor"
 
+msgid "Bild in Lightbox anschauen"
+msgstr "Bild in Lightbox anschauen"
+
 #: app/setup/theme_setup.php:58
 msgid "Default"
 msgstr "Default"
@@ -53,6 +56,9 @@ msgstr "Seite nicht gefunden"
 
 msgid "Folge uns"
 msgstr "Folge uns"
+
+msgid "Hier abonnieren"
+msgstr "Hier abonnieren"
 
 #. Author URI of the theme
 msgid "https://rocket.ch"
@@ -102,6 +108,9 @@ msgstr "Mehr zu"
 msgid "nach oben versetzt"
 msgstr "nach oben versetzt"
 
+msgid "Newsletter abonnieren"
+msgstr "Newsletter abonnieren"
+
 #: app/setup/theme_setup.php:86
 msgid "Outline weiss (klein)"
 msgstr "Outline weiss (klein)"
@@ -110,7 +119,8 @@ msgid "Passwort Seite - Error"
 msgstr "Das von Ihnen eingegebene Passwort ist ungültig."
 
 msgid "Passwort Seite - Info"
-msgstr "Dieser Inhalt ist passwortgeschützt. Um ihn anzuschauen, geben Sie bitte Ihr "
+msgstr ""
+"Dieser Inhalt ist passwortgeschützt. Um ihn anzuschauen, geben Sie bitte Ihr "
 "Passwort unten ein:"
 
 msgid "Passwort Seite - Submit"
@@ -169,7 +179,8 @@ msgid "Suche"
 msgstr "Suche"
 
 msgid "Suche mit Resultate - Meldung"
-msgstr "Auf den folgenden Seiten oder Beiträgen wurde Ihr Suchbegriff gefunden..."
+msgstr ""
+"Auf den folgenden Seiten oder Beiträgen wurde Ihr Suchbegriff gefunden..."
 
 msgid "Suche mit Resultate - Meldung Resultate"
 msgstr "Ihre Suche nach:"
@@ -184,7 +195,8 @@ msgid "Suche nach:"
 msgstr "Suche nach:"
 
 msgid "Suche ohne Resultate - Meldung"
-msgstr "Der von Ihnen gewählte Suchbegriff wurde auf keiner Seite gefunden.<br>"
+msgstr ""
+"Der von Ihnen gewählte Suchbegriff wurde auf keiner Seite gefunden.<br>"
 "Überprüfen Sie die Rechtschreibung oder versuchen Sie es erneut."
 
 msgid "Suche ohne Resultate - Titel"
@@ -203,6 +215,9 @@ msgstr "Wonach suchen Sie?"
 msgid "Tiny"
 msgstr "Tiny"
 
+msgid "Video in Lightbox anschauen"
+msgstr "Video in Lightbox anschauen"
+
 msgid "Weitere &jobs"
 msgstr "Weitere Stellen"
 
@@ -218,9 +233,3 @@ msgstr "xLarge"
 
 msgid "Zurück zur Startseite"
 msgstr "Zurück zur Startseite"
-
-msgid "Video in Lightbox anschauen"
-msgstr "Video in Lightbox anschauen"
-
-msgid "Bild in Lightbox anschauen"
-msgstr "Bild in Lightbox anschauen"
