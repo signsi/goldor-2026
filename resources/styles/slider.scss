@@ -76,23 +76,3 @@ body:not(.home) .slides picture  {
     }
   }
 }
-
-// SLIDER HEIGHTS
-.slides,
-.slick-track {
-  &.height-small {
-    @apply image-size-small;
-  }
-
-  &.height-medium {
-    @apply image-size-medium;
-  }
-
-  &.height-large {
-    @apply image-size-large;
-  }
-
-  &.height-vh {
-    @apply image-size-vh;
-  }
-}

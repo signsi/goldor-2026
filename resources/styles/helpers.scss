@@ -34,21 +34,29 @@
   @apply md:absolute md:h-full md:w-full
 }
 
+.h-vh,
+.height-vh,
 .image-size-vh,
 .mapsize--vh {
-  @apply h-[100vh];
+  @apply h-[calc(100vh-(theme(height.menu-items-mobile)+2*theme(spacing.gutter-mobile)))] md:h-[calc(100vh-(theme(height.menu-items)+2*theme(spacing.gutter-display)))];
 }
 
-.image-size-medium,
-.mapsize--medium {
-  @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
-}
-
+.h-large,
+.height-large,
 .image-size-large,
 .mapsize--large {
   @apply h-[25vh] md:h-[33.33vh] lg:h-[75vh];
 }
 
+.h-medium,
+.height-medium,
+.image-size-medium,
+.mapsize--medium {
+  @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
+}
+
+.h-small,
+.height-small,
 .image-size-small,
 .mapsize--small {
   @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
