@@ -7,22 +7,19 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
-    classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
-    classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
     hasFixedHeader: true,
-    classHeaderElement: 'siteHeader',
     hasAnchorLinks: true,
 }
 
 Object.assign(config, configDefault);
 
 const openSubMenu = ($menuContainer) => {
-    $menuContainer.addClass(config.classesSubMenuDesktopShow).addClass('showSubMenu');
-    $menuContainer.removeClass(config.classesSubMenuDesktopHide).removeClass('hideSubMenu');
+    $menuContainer.addClass('showSubMenu');
+    $menuContainer.removeClass('hideSubMenu');
 }
 const closeSubMenu = ($menuContainer) => {
-    $menuContainer.removeClass(config.classesSubMenuDesktopShow).removeClass('showSubMenu');
-    $menuContainer.addClass(config.classesSubMenuDesktopHide).addClass('hideSubMenu');
+    $menuContainer.removeClass('showSubMenu');
+    $menuContainer.addClass('hideSubMenu');
 }
 
 const toggleMobileMenuButton = () => {
@@ -151,7 +148,7 @@ function setupMobileNav() {
 }
 
 function setupFixedNav() {
-    const headerElementClass = config.classHeaderElement
+    const headerElementClass = 'siteHeader'
     const $siteHeader = $('#siteHeader');
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 

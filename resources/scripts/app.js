@@ -18,10 +18,7 @@ domReady(async (err) => {
   handleAnchorJump();
 
   setupNavigation({
-    classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
-    classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
     hasFixedHeader: true,
-    classHeaderElement: 'siteHeader',
     hasAnchorLinks: true,
   });
 
