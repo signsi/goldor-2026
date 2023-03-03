@@ -110,6 +110,10 @@ module.exports = {
         'desktop': '60px',
         'full-hd': '90px',
       },
+      height: {
+        'menu-items': '45px',
+        'menu-items-mobile': '35px'
+      },
       content: {
         default: '""',
         'slider-prev': '"\\f177"',
