@@ -9,15 +9,9 @@ const config = {};
 const configDefault = {
     classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
     classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
-    classesMobileMenuOverflowBody: ['overflow-y-hidden'],
-    classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
-    classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
     hasFixedHeader: true,
     classHeaderElement: 'siteHeader',
     hasAnchorLinks: true,
-    classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
-    classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
-    classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
 }
 
 Object.assign(config, configDefault);
@@ -37,7 +31,8 @@ const toggleMobileMenuButton = () => {
 }
 
 const toggleMobileMenuButton = () => {
-    $('#mobileToggle, #mobileClose').toggleClass('hidden inline-flex');
+    $('#mobileToggle').toggleClass('mobileMenuOpen');
+    $('#mobileToggle svg path').toggleClass('hidden');
 }
 
 const openMobileMenu = ($mobileMenu) => {
@@ -57,24 +52,38 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
     const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
     const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
 
-    $subMenuParentSamePage.addClass(config.classesAnchorPageMenuParent);
+    $subMenuParentSamePage.addClass('current-menu-parent-has-items-same-page');
 
     if (currentURL.hash) {
         $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
+<<<<<<< HEAD
             if (subMenutItemUrl.toString() === currentURL.toString()) {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
             else {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
+=======
+            if(subMenutItemUrl.toString() === currentURL.toString()){
+                $(this).parent().addClass('active-menu-item-same-page');
+            }
+            else{
+                $(this).parent().addClass('not-active-menu-item-same-page');
+>>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
             }
         });
 
     }
+<<<<<<< HEAD
     else {
         $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
         $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
+=======
+    else{
+        $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
+        $subMenuItems.parent().addClass('not-active-menu-item-same-page');
+>>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
     }
 }
 
@@ -128,6 +137,7 @@ function setupMobileNav() {
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
+<<<<<<< HEAD
         openMobileMenu($mobileNav);
         closeAllSubMenus();
         openSubMenu($childContainer);
@@ -135,6 +145,17 @@ function setupMobileNav() {
     })
     $mobileNavClose.on('click', function () {
         closeMobileMenu($mobileNav);
+=======
+        if($mobileNavButton.hasClass('mobileMenuOpen')){
+            closeMobileMenu($mobileNav);
+        }
+        else{
+            openMobileMenu($mobileNav);
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+            $subMenuBtn.addClass("rotate-180");
+        }
+>>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
     })
     $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
