@@ -36,6 +36,10 @@ const toggleMobileMenuButton = () => {
     $('#mobileToggle svg path').toggleClass('hidden');
 }
 
+const toggleMobileMenuButton = () => {
+    $('#mobileToggle, #mobileClose').toggleClass('hidden inline-flex');
+}
+
 const openMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
     $mobileMenu.addClass('mobileMenuShow');
