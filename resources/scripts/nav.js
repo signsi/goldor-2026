@@ -31,12 +31,18 @@ const closeSubMenu = ($menuContainer) => {
     $menuContainer.addClass(config.classesSubMenuDesktopHide).addClass('hideSubMenu');
 }
 
+const toggleMobileMenuButton = () => {
+    $('#mobileToggle, #mobileClose').toggleClass('hidden inline-flex');
+}
+
 const openMobileMenu = ($mobileMenu) => {
+    toggleMobileMenuButton();
     $mobileMenu.addClass(config.classesMobileMenuShow);
     $mobileMenu.removeClass(config.classesMobileMenuHide);
-    $('body').addClass(config.classesMobileMenuOverflowBody)
+    $('body').addClass(config.classesMobileMenuOverflowBody);
 }
 const closeMobileMenu = ($mobileMenu) => {
+    toggleMobileMenuButton();
     $mobileMenu.removeClass(config.classesMobileMenuShow);
     $mobileMenu.addClass(config.classesMobileMenuHide);
     $('body').removeClass(config.classesMobileMenuOverflowBody);
