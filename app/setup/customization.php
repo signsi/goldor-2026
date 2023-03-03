@@ -195,6 +195,18 @@ function crb_attach_theme_options()
             'label' => 'Suche aktiviert?',
         ],
         [
+            'type' => 'radio',
+            'key' => 'header_mobile_slide_from',
+            'label' => 'Von welcher Seite soll das MobileMenü hereinfahren',
+            'options' => [
+                'menuSlideFromTop' => 'oben',
+                'menuSlideFromBottom' => 'unten',
+                'menuSlideFromLeft' => 'links',
+                'menuSlideFromRight' => 'rechts',
+                'menuSlideFromTopRight' => 'oben rechts'
+            ],
+        ],
+        [
             'type' => 'checkbox',
             'key' => 'megamenu',
             'label' => 'MegaMenü aktiviert?',

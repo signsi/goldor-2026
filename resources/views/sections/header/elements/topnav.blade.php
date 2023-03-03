@@ -3,7 +3,7 @@
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
 @endphp
 
-<div id="topNav" class="relative max-w-large 2xl:max-w-xlarge w-full mx-auto z-50">
+<div id="topNav" class="relative bg-white max-w-large 2xl:max-w-xlarge w-full mx-auto z-50">
     <div class="flex justify-between md:space-x-12 items-center p-gutter">
         @include('sections.header.elements.logo')
         <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile md:h-menu-items items-center">
@@ -47,15 +47,6 @@
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
                 <path id="open-icon" class="" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16 M4 12h16 M4 18h16" />
                 <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6 M6 6l12 12" />
-            </svg>
-        </button>
-
-        <button type="button" id="mobileClose" class="bg-white rounded-md p-2 hidden items-center justify-center text-font hover:text-white hover:bg-primary lg:hidden">
-            <span class="sr-only">Close menu</span>
-            <!-- Heroicon name: outline/x -->
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
     </div>

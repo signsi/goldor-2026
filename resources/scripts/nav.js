@@ -9,15 +9,9 @@ const config = {};
 const configDefault = {
     classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
     classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
-    classesMobileMenuOverflowBody: ['overflow-y-hidden'],
-    classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
-    classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
     hasFixedHeader: true,
     classHeaderElement: 'siteHeader',
     hasAnchorLinks: true,
-    classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
-    classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
-    classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
 }
 
 Object.assign(config, configDefault);
@@ -32,44 +26,45 @@ const closeSubMenu = ($menuContainer) => {
 }
 
 const toggleMobileMenuButton = () => {
-    $('#mobileToggle, #mobileClose').toggleClass('hidden inline-flex');
+    $('#mobileToggle').toggleClass('mobileMenuOpen');
+    $('#mobileToggle svg path').toggleClass('hidden');
 }
 
 const openMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
-    $mobileMenu.addClass(config.classesMobileMenuShow);
-    $mobileMenu.removeClass(config.classesMobileMenuHide);
-    $('body').addClass(config.classesMobileMenuOverflowBody);
+    $mobileMenu.addClass('mobileMenuShow');
+    $mobileMenu.removeClass('mobileMenuHide');
+    $('body').addClass('overflow-y-hidden');
 }
 const closeMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
-    $mobileMenu.removeClass(config.classesMobileMenuShow);
-    $mobileMenu.addClass(config.classesMobileMenuHide);
-    $('body').removeClass(config.classesMobileMenuOverflowBody);
+    $mobileMenu.removeClass('mobileMenuShow');
+    $mobileMenu.addClass('mobileMenuHide');
+    $('body').removeClass('overflow-y-hidden');
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {
     const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
     const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
 
-    $subMenuParentSamePage.addClass(config.classesAnchorPageMenuParent);
+    $subMenuParentSamePage.addClass('current-menu-parent-has-items-same-page');
 
     if (currentURL.hash) {
         $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-            if (subMenutItemUrl.toString() === currentURL.toString()) {
-                $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
+            if(subMenutItemUrl.toString() === currentURL.toString()){
+                $(this).parent().addClass('active-menu-item-same-page');
             }
-            else {
-                $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
+            else{
+                $(this).parent().addClass('not-active-menu-item-same-page');
             }
         });
 
     }
-    else {
-        $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
-        $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
+    else{
+        $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
+        $subMenuItems.parent().addClass('not-active-menu-item-same-page');
     }
 }
 
