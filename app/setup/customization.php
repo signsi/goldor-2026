@@ -185,6 +185,16 @@ function crb_attach_theme_options()
 
     $navigation_options = [
         [
+            'type' => 'radio',
+            'key' => 'header_positioned',
+            'label' => 'Wie soll das Header-Menu positioniert werden?',
+            'options' => [
+                'siteHeaderAnimated sticky' => 'Menu wird oben fixiert angezeigt, wenn hinauf gescrollt wird (animiert)',
+                'sticky' => 'Menu läuft immer oben fixiert mit',
+                '' => 'Menu nur zuoberst darstellen (kein mitlaufen)',
+            ],
+        ],
+        [
             'type' => 'checkbox',
             'key' => 'header_lang_switcher',
             'label' => 'Sprach-Umschalter aktiviert?',
@@ -197,7 +207,7 @@ function crb_attach_theme_options()
         [
             'type' => 'radio',
             'key' => 'header_mobile_slide_from',
-            'label' => 'Von welcher Seite soll das MobileMenü hereinfahren',
+            'label' => 'Von welcher Seite soll das MobileMenü hereinfahren?',
             'options' => [
                 'menuSlideFromTop' => 'oben',
                 'menuSlideFromBottom' => 'unten',
@@ -205,12 +215,7 @@ function crb_attach_theme_options()
                 'menuSlideFromRight' => 'rechts',
                 'menuSlideFromTopRight' => 'oben rechts'
             ],
-        ],
-        [
-            'type' => 'checkbox',
-            'key' => 'megamenu',
-            'label' => 'MegaMenü aktiviert?',
-        ],
+        ]
     ];
 
     $footer_options = [

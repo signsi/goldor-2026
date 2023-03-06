@@ -3,7 +3,7 @@
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
 @endphp
 
-<div id="topNav" class="relative bg-white max-w-large 2xl:max-w-xlarge w-full mx-auto z-50">
+<div id="topNav" class="relative max-w-large 2xl:max-w-xlarge w-full mx-auto z-50">
     <div class="flex justify-between md:space-x-12 items-center p-gutter">
         @include('sections.header.elements.logo')
         <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile md:h-menu-items items-center">

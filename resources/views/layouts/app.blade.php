@@ -21,8 +21,12 @@
     </aside>
 @endif
 
-@include('sections.footer.footer')
-@include('sections.offcanvas.sticky-cta')
+        {{-- PARAM HEADER --}}
+        @include('sections.header.header')
+        <main id="main" class="main mx-auto max-w-none">
+            @yield('content')
+            @includeWhen($search_active, 'sections.offcanvas.modal-search')
+        </main>
 
 @include('partials.scripts.browser-update')
 @include('partials.scripts.nootiz')

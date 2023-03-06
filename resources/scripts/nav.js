@@ -7,7 +7,7 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
-    hasFixedHeader: true,
+    hasAnimatedHeader: true,
     hasAnchorLinks: true,
 }
 
@@ -202,7 +202,7 @@ export function setupNavigation(configSetup) {
     // // mobile menu
     setupMobileNav();
 
-    if (!config.hasFixedHeader) return;
+    if(!config.hasAnimatedHeader) return;
 
     // headroom-like top nav
     setupFixedNav();

@@ -18,7 +18,7 @@ domReady(async (err) => {
   handleAnchorJump();
 
   setupNavigation({
-    hasFixedHeader: true,
+    hasAnimatedHeader: $('#siteHeader').hasClass('siteHeaderAnimated'),
     hasAnchorLinks: true,
   });
 
