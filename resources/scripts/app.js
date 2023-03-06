@@ -15,6 +15,9 @@ domReady(async (err) => {
     console.error(err);
   }
 
+  let barHeight = Math.max(window.screen.availHeight - window.innerHeight - $('#siteHeader').height() , 0);
+  document.documentElement.style.setProperty('--bar-height', `${barHeight}px`);
+
   handleAnchorJump();
 
   setupNavigation({
