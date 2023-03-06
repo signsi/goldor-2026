@@ -7,10 +7,14 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
+<<<<<<< HEAD
     classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
     classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
     hasFixedHeader: true,
     classHeaderElement: 'siteHeader',
+=======
+    hasAnimatedHeader: true,
+>>>>>>> e52aa508 (Hinzufuegen Funktionalitaeten Header)
     hasAnchorLinks: true,
 }
 
@@ -137,7 +141,6 @@ function setupMobileNav() {
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
-<<<<<<< HEAD
         openMobileMenu($mobileNav);
         closeAllSubMenus();
         openSubMenu($childContainer);
@@ -145,17 +148,6 @@ function setupMobileNav() {
     })
     $mobileNavClose.on('click', function () {
         closeMobileMenu($mobileNav);
-=======
-        if($mobileNavButton.hasClass('mobileMenuOpen')){
-            closeMobileMenu($mobileNav);
-        }
-        else{
-            openMobileMenu($mobileNav);
-            closeAllSubMenus();
-            openSubMenu($childContainer);
-            $subMenuBtn.addClass("rotate-180");
-        }
->>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
     })
     $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
