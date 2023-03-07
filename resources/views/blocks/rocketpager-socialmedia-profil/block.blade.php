@@ -5,7 +5,6 @@
     $social_media_facebook = block_value('social-media-facebook') ? block_value('social-media-facebook') : App\getThemeOption('facebook');
     $social_media_youtube = block_value('social-media-youtube') ? block_value('social-media-youtube') : App\getThemeOption('youtube');
     $social_media_instagram = block_value('social-media-instagram') ? block_value('social-media-instagram') : App\getThemeOption('instagram');
-    $social_media_googleplus = block_value('social-media-googleplus') ? block_value('social-media-googleplus') : App\getThemeOption('google_plus');
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
@@ -18,6 +17,5 @@
         @include('partials.social.social-link',['media_name' => 'Facebook', 'media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('partials.social.social-link',['media_name' => 'Youtube', 'media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('partials.social.social-link',['media_name' => 'Instagram', 'media_link' => $social_media_instagram, 'icon_classes' => 'fab fa-instagram', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('partials.social.social-link',['media_name' => 'Google Plus', 'media_link' => $social_media_googleplus, 'icon_classes' => 'fab fa-google-plus', 'anchor_classes' => 'text-primary hover:text-font'])
     </ul>
 @overwrite

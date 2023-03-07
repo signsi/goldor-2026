@@ -153,11 +153,6 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
-            'key' => 'google_plus',
-            'label' => 'Google-Plus Profil',
-        ],
-        [
-            'type' => 'text',
             'key' => 'instagram',
             'label' => 'Instagram Profil',
         ],

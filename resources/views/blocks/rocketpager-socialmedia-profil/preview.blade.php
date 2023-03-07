@@ -5,7 +5,6 @@
     $social_media_facebook = block_value('social-media-facebook') ? block_value('social-media-facebook') : App\getThemeOption('facebook');
     $social_media_youtube = block_value('social-media-youtube') ? block_value('social-media-youtube') : App\getThemeOption('youtube');
     $social_media_instagram = block_value('social-media-instagram') ? block_value('social-media-instagram') : App\getThemeOption('instagram');
-    $social_media_googleplus = block_value('social-media-googleplus') ? block_value('social-media-googleplus') : App\getThemeOption('google_plus');
 @endphp
 
 @extends('blocks.helpers.preview-wrapper')
@@ -40,11 +39,6 @@
         @if ( $social_media_instagram )
             <li>
                 Instagram: {{ $social_media_instagram }}
-            </li>
-        @endif
-        @if ( $social_media_googleplus )
-            <li>
-                Google Plus: {{ $social_media_googleplus }}
             </li>
         @endif
     </ul>

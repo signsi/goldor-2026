@@ -6,7 +6,6 @@ $xing = App\getThemeOption('xing');
 $facebook = App\getThemeOption('facebook');
 $instagram = App\getThemeOption('instagram');
 $youtube = App\getThemeOption('youtube');
-$google_plus = App\getThemeOption('google_plus');
 
 @endphp
 
@@ -39,12 +38,6 @@ $google_plus = App\getThemeOption('google_plus');
                     <a href="{{ $instagram }}" target="_blank" class="flex justify-center">
                         <span class="sr-only">Instagram</span>
                         <svg class="h-8 w-8 group" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="transition-colors fill-white group-hover:fill-font" d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"/></svg>
-                    </a>
-                @endif
-                @if($google_plus != '')
-                    <a href="{{ $google_plus }}" target="_blank" class="flex justify-center">
-                        <span class="sr-only">Google Plus</span>
-                        <svg class="h-8 w-8 group" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path class="transition-colors fill-white group-hover:fill-font" d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zM164 356c-55.3 0-100-44.7-100-100s44.7-100 100-100c27 0 49.5 9.8 67 26.2l-27.1 26.1c-7.4-7.1-20.3-15.4-39.8-15.4-34.1 0-61.9 28.2-61.9 63.2 0 34.9 27.8 63.2 61.9 63.2 39.6 0 54.4-28.5 56.8-43.1H164v-34.4h94.4c1 5 1.6 10.1 1.6 16.6 0 57.1-38.3 97.6-96 97.6zm220-81.8h-29v29h-29.2v-29h-29V245h29v-29H355v29h29v29.2z"/></svg>
                     </a>
                 @endif
                 @if($xing != '')
