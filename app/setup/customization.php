@@ -133,16 +133,6 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'separator',
-            'key' => 'separator_1',
-            'label' => 'Wartungsmodus',
-        ],
-        [
-            'type' => 'checkbox',
-            'key' => 'maintenance_active',
-            'label' => 'Wartungsmodus eingeschaltet?',
-        ],
-        [
-            'type' => 'separator',
             'key' => 'separator_2',
             'label' => 'Social Media',
         ],
