@@ -120,6 +120,8 @@ add_action('init', function () {
 });
 
 // ADD LOGO TO LOGIN PAGE
+
+// TODO: braucht es das noch oder ist das nicht direkt im branda?
 add_action('login_enqueue_scripts', function () { ?>
     <style type="text/css">
         #login h1 a,
@@ -143,11 +145,6 @@ add_action('login_enqueue_scripts', function () { ?>
             border-color: #7BA048;
         }
     </style>
-<?php });
-
-// THEME-COLOR FÜR HEADER EINFÄRBEN
-add_action('wp_head', function () { ?>
-    <meta name="theme-color" content="#7BA048" />
 <?php });
 
 // USE HOME URL FOR LOGIN PAGE

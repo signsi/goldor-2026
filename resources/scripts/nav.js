@@ -159,8 +159,8 @@ function setupFixedNav() {
         var header_direction = 1;
 
         const st_header = ScrollTrigger.create({
-            trigger: "#main",
-            start: "top top",
+            trigger: "body",
+            start: "top-=100px top",
             end: 'bottom bottom',
             scrub: true,
             markers: false,
