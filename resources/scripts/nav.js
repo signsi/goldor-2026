@@ -171,8 +171,8 @@ function setupFixedNav() {
         var header_direction = 1;
 
         const st_header = ScrollTrigger.create({
-            trigger: "body",
-            start: "top-=100px top",
+            trigger: "#main",
+            start: "top top",
             end: 'bottom bottom',
             scrub: true,
             markers: false,
@@ -214,7 +214,7 @@ export function setupNavigation(configSetup) {
     // // mobile menu
     setupMobileNav();
 
-    if(!config.hasAnimatedHeader) return;
+    if (!config.hasAnimatedHeader) return;
 
     // headroom-like top nav
     setupFixedNav();
