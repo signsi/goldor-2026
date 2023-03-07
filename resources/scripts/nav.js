@@ -62,32 +62,18 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
         $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-<<<<<<< HEAD
             if (subMenutItemUrl.toString() === currentURL.toString()) {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
             else {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
-=======
-            if(subMenutItemUrl.toString() === currentURL.toString()){
-                $(this).parent().addClass('active-menu-item-same-page');
-            }
-            else{
-                $(this).parent().addClass('not-active-menu-item-same-page');
->>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
             }
         });
 
     }
-<<<<<<< HEAD
     else {
         $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
         $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
-=======
-    else{
-        $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
-        $subMenuItems.parent().addClass('not-active-menu-item-same-page');
->>>>>>> fa5e8fc3 (Vereinfachung Config Nav JS und Integration Sprache swoie Auswahl SlideIn Seite MobileMenue)
     }
 }
 
@@ -185,8 +171,8 @@ function setupFixedNav() {
         var header_direction = 1;
 
         const st_header = ScrollTrigger.create({
-            trigger: "#main",
-            start: "top top",
+            trigger: "body",
+            start: "top-=100px top",
             end: 'bottom bottom',
             scrub: true,
             markers: false,
