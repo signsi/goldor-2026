@@ -13,6 +13,11 @@ export default async (app) => {
    * @see {@link https://bud.js.org/docs/bud.entry/}
    */
   app
+
+    .provide({
+      jquery: ["jQuery", "$"],
+    })
+
     .entry({
       app: ['@scripts/app', '@styles/app'],
       editor: ['@scripts/editor', '@styles/editor'],

@@ -201,7 +201,7 @@ export function setupNavigation(configSetup) {
 
     // desktop sub menus
     setupDesktopNav();
-    // mobile menu
+    // // mobile menu
     setupMobileNav();
 
     if (!config.hasFixedHeader) return;
