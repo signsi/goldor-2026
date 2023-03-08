@@ -171,6 +171,17 @@ function crb_attach_theme_options()
     $navigation_options = [
         [
             'type' => 'radio',
+            'key' => 'header_logo',
+            'label' => 'Welches Logo soll verwendet werden (siehe Logos)?',
+            'options' => [
+                'logo_rgb' => 'Logo (RGB)',
+                'logo_rgb_negativ' => 'Logo negativ (RGB)',
+                'logo_sw' => 'Logo (schwarz/weiss)',
+                'logo_sw_negativ' => 'Logo negativ (schwarz/weiss)'
+            ],
+        ],
+        [
+            'type' => 'radio',
             'key' => 'header_positioned',
             'label' => 'Wie soll das Header-Menu positioniert werden?',
             'options' => [
@@ -204,6 +215,17 @@ function crb_attach_theme_options()
     ];
 
     $footer_options = [
+        [
+            'type' => 'radio',
+            'key' => 'footer_logo',
+            'label' => 'Welches Logo soll verwendet werden (siehe Logos)?',
+            'options' => [
+                'logo_rgb' => 'Logo (RGB)',
+                'logo_rgb_negativ' => 'Logo negativ (RGB)',
+                'logo_sw' => 'Logo (schwarz/weiss)',
+                'logo_sw_negativ' => 'Logo negativ (schwarz/weiss)'
+            ],
+        ],
         [
             'type' => 'radio',
             'key' => 'footer_disclaimer',
@@ -269,27 +291,27 @@ function crb_attach_theme_options()
     $logo_options = [
         [
             'type' => 'image',
-            'key' => 'logo_main',
-            'label' => 'Logo (Main)',
+            'key' => 'logo_rgb',
+            'label' => 'Logo (RGB)',
+            'default' => asset('images/logo-rocket-pink.svg')
+        ],
+        [
+            'type' => 'image',
+            'key' => 'logo_rgb_negativ',
+            'label' => 'Logo negativ (RGB)',
+            'default' => asset('images/logo-rocket-pink.svg')
+        ],
+        [
+            'type' => 'image',
+            'key' => 'logo_sw',
+            'label' => 'Logo (schwarz/weiss)',
             'default' => asset('images/logo-rocket-black.svg')
         ],
         [
             'type' => 'image',
-            'key' => 'logo_footer',
-            'label' => 'Logo (Footer)',
-            'default' => asset('images/logo-rocket-black.svg')
-        ],
-        [
-            'type' => 'image',
-            'key' => 'logo_negative',
-            'label' => 'Logo (Negativ)',
-            'default' => asset('images/logo-rocket-black.svg')
-        ],
-        [
-            'type' => 'image',
-            'key' => 'logo_sticky',
-            'label' => 'Logo (Sticky)',
-            'default' => asset('images/logo-rocket.svg')
+            'key' => 'logo_sw_negativ',
+            'label' => 'Logo negativ (schwarz/weiss)',
+            'default' => asset('images/logo-rocket-white.svg')
         ],
     ];
 

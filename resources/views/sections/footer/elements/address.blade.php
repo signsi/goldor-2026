@@ -8,7 +8,6 @@ $company_email = App\getThemeOption('email');
 $company_phone = App\getThemeOption('tel');
 $company_page = App\getThemeOption('website');
 
-$logo_src = App\getThemeOption('logo_footer');
 $phone_link = str_replace(' ', '', $company_phone);
 @endphp
 
@@ -21,7 +20,7 @@ $phone_link = str_replace(' ', '', $company_phone);
         </p>
         <p class="mt-0">
             <a href="tel:{{ $company_phone }}">
-                {{ $company_phone }}</a><br>
+                {{ $phone_link }}</a><br>
             <a href="mailto:{{ $company_email }}">
                 {{ $company_email }}<br></a>
             <a href="https://{{ $company_page }}">

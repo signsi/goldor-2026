@@ -1,6 +1,6 @@
 @php
-$logo_src = App\getThemeOption('logo_main');
-$company_name = App\getThemeOption('firmenname');
+    $logo_src = App\getThemeOption(App\getThemeOption('header_logo'));
+    $company_name = App\getThemeOption('firmenname');
 @endphp
 
 <a href="{{ App\get_home_url() }}" rel="home">
