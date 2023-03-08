@@ -1,5 +1,5 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap";
+import gsap from "gsap/dist/gsap.min.js";
+import ScrollTrigger from "gsap/dist/ScrollTrigger.min.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,20 +48,20 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
 
     $subMenuParentSamePage.addClass(config.classesAnchorPageMenuParent);
 
-    if(currentURL.hash){
-        $subMenuItems.each(function() {
+    if (currentURL.hash) {
+        $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-            if(subMenutItemUrl.toString() === currentURL.toString()){
+            if (subMenutItemUrl.toString() === currentURL.toString()) {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
-            else{
+            else {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
             }
         });
 
     }
-    else{
+    else {
         $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
         $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
     }
@@ -75,9 +75,9 @@ function setupDesktopNav() {
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
 
-    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
+    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
 
-    $subMenuParents.on('click', function(e) {
+    $subMenuParents.on('click', function (e) {
         const $childContainer = $(this).children('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
@@ -91,12 +91,12 @@ function setupDesktopNav() {
     });
 
     const closeAllSubMenus = () => {
-            const $childContainer = $subMenuParents.children('.submenuContainer');
+        const $childContainer = $subMenuParents.children('.submenuContainer');
 
-            closeSubMenu($childContainer);
+        closeSubMenu($childContainer);
     }
 
-    $outsideArea.on('click', function() {
+    $outsideArea.on('click', function () {
         closeAllSubMenus();
     })
 
@@ -110,9 +110,9 @@ function setupMobileNav() {
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
+    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
 
-    $mobileNavButton.on('click', function() {
+    $mobileNavButton.on('click', function () {
         const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".ignoreParentMenu")');
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
@@ -122,14 +122,14 @@ function setupMobileNav() {
         openSubMenu($childContainer);
         $subMenuBtn.addClass("rotate-180");
     })
-    $mobileNavClose.on('click', function(){
+    $mobileNavClose.on('click', function () {
         closeMobileMenu($mobileNav);
     })
-    $mobileNavCloseLinks.on('click', function() {
+    $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
     })
 
-    $submMenuParentSvg.on('click', function() {
+    $submMenuParentSvg.on('click', function () {
         const $childContainer = $(this).parent().siblings('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
@@ -167,10 +167,10 @@ function setupFixedNav() {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
-                if($siteHeader.hasClass('activeAnchorScroll')) return;
+                if ($siteHeader.hasClass('activeAnchorScroll')) return;
 
                 var velocity = self.getVelocity();
-                if(velocity > -200 && velocity < 200) return;
+                if (velocity > -200 && velocity < 200) return;
 
                 header_progress = self.progress.toFixed(2);
                 header_direction = self.direction;
@@ -190,13 +190,13 @@ function setupFixedNav() {
             }
         });
 
-        $(document).on('DOMNodeInserted', function() {
+        $(document).on('DOMNodeInserted', function () {
             st_header.refresh();
         });
     }
 }
 
-export function setupNavigation(configSetup){
+export function setupNavigation(configSetup) {
     Object.assign(config, configSetup);
 
     // desktop sub menus
@@ -204,7 +204,7 @@ export function setupNavigation(configSetup){
     // mobile menu
     setupMobileNav();
 
-    if(!config.hasFixedHeader) return;
+    if (!config.hasFixedHeader) return;
 
     // headroom-like top nav
     setupFixedNav();
