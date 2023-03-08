@@ -39,15 +39,15 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: "#FF0000",
-        primarydark: "#FF0000",
-        primarylight: "#FF0000",
-        secondary: "#FF0000",
-        secondarydark: "#FF0000",
-        secondarylight: "#FF0000",
-        pink: "#FFC0CB",
-        pinkdark: "#FF0000",
-        pinklight: "#FF0000",
+        primary: "#D81E5B",
+        primarydark: "#6C0F2D",
+        primarylight: "#DB346B",
+        secondary: "#8F95D3",
+        secondarydark: "#646893",
+        secondarylight: "#B0B4E0",
+        pink: "#D81E5B",
+        pinkdark: "#811236",
+        pinklight: "#E3618C",
 
         font: "#000000",
         grey: "#CCC",
@@ -59,8 +59,6 @@ module.exports = {
         petrol: "#FFC0CB",
         petroldark: "#FFC0CB",
         petrollight: "#FFC0CB"
-
-
 
       },
       opacity: {
@@ -133,6 +131,10 @@ module.exports = {
         icon: ['20px', '1'],
         'icon-big': ['32px', '1'],
         '5.5xl': ['56px', '1.1'],
+      },
+      height: {
+        'menu-items': '45px',
+        'menu-items-mobile': '35px'
       },
       lineHeight: {
         0: '0',

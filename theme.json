@@ -1040,7 +1040,7 @@
         {
           "name": "Pink",
           "slug": "pink",
-          "color": "#ffc0cb"
+          "color": "#d81e5b"
         },
         {
           "name": "Rose 50",
@@ -1095,12 +1095,12 @@
         {
           "name": "Primary",
           "slug": "primary",
-          "color": "#ff0000"
+          "color": "#d81e5b"
         },
         {
           "name": "Secondary",
           "slug": "secondary",
-          "color": "#ff0000"
+          "color": "#8f95d3"
         },
         {
           "name": "Success 50",
@@ -1330,27 +1330,27 @@
         {
           "name": "Primarylight",
           "slug": "primarylight",
-          "color": "#ff0000"
+          "color": "#db346b"
         },
         {
           "name": "Secondarydark",
           "slug": "secondarydark",
-          "color": "#ff0000"
+          "color": "#646893"
         },
         {
           "name": "Secondarylight",
           "slug": "secondarylight",
-          "color": "#ff0000"
+          "color": "#b0b4e0"
         },
         {
           "name": "Pinkdark",
           "slug": "pinkdark",
-          "color": "#ff0000"
+          "color": "#811236"
         },
         {
           "name": "Pinklight",
           "slug": "pinklight",
-          "color": "#ff0000"
+          "color": "#e3618c"
         },
         {
           "name": "Font",
