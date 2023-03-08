@@ -38,7 +38,31 @@ module.exports = {
       }
     },
     extend: {
-      colors: tailconf.colorMapper(tailconf.getTheme('settings.color.palette', theme)),
+      colors: {
+        primary: "#FF0000",
+        primarydark: "#FF0000",
+        primarylight: "#FF0000",
+        secondary: "#FF0000",
+        secondarydark: "#FF0000",
+        secondarylight: "#FF0000",
+        pink: "#FFC0CB",
+        pinkdark: "#FF0000",
+        pinklight: "#FF0000",
+
+        font: "#000000",
+        grey: "#CCC",
+        primarydark: "#333",
+
+        aubergine: "#FFC0CB",
+        auberginedark: "#FFC0CB",
+        auberginelight: "#FFC0CB",
+        petrol: "#FFC0CB",
+        petroldark: "#FFC0CB",
+        petrollight: "#FFC0CB"
+
+
+
+      },
       opacity: {
         default: '1',
         'on-hover': '0.8',
