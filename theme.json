@@ -180,6 +180,11 @@
           "color": "transparent"
         },
         {
+          "name": "Inherit",
+          "slug": "inherit",
+          "color": "inherit"
+        },
+        {
           "name": "Gray-300",
           "slug": "gray-300",
           "color": "var(--color-gray-300)"

@@ -50,6 +50,7 @@ module.exports = {
       black: 'var(--color-black)',
       white: 'var(--color-white)',
       transparent: 'transparent',
+      inherit: 'inherit',
 
       'gray-300': 'var(--color-gray-300)'
 
