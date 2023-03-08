@@ -42,7 +42,8 @@
   ],
   "require": {
     "php": "^8.0",
-    "roots/acorn": "^3.1"
+    "roots/acorn": "^3.1",
+    "htmlburger/carbon-fields": "^3.3"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "3.7.1"
