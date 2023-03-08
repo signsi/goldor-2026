@@ -37,30 +37,24 @@ module.exports = {
         '9xl': [10, 1],
       }
     },
+    colors: {
+      primary: 'var(--color-primary)',
+      primarydark: 'var(--color-primarydark)',
+      primarylight: 'var(--color-primarylight)',
+      secondary: 'var(--color-secondary)',
+      secondarydark: 'var(--color-secondarylight)',
+      secondarylight: 'var(--color-secondarydark)',
+
+      font: 'var(--color-font)',
+      grey: 'var(--color-grey)',
+      black: 'var(--color-black)',
+      white: 'var(--color-white)',
+      transparent: 'transparent',
+
+      'gray-300': 'var(--color-gray-300)'
+
+    },
     extend: {
-      colors: {
-        primary: "#D81E5B",
-        primarydark: "#6C0F2D",
-        primarylight: "#DB346B",
-        secondary: "#8F95D3",
-        secondarydark: "#646893",
-        secondarylight: "#B0B4E0",
-        pink: "#D81E5B",
-        pinkdark: "#811236",
-        pinklight: "#E3618C",
-
-        font: "#000000",
-        grey: "#CCC",
-        primarydark: "#333",
-
-        aubergine: "#FFC0CB",
-        auberginedark: "#FFC0CB",
-        auberginelight: "#FFC0CB",
-        petrol: "#FFC0CB",
-        petroldark: "#FFC0CB",
-        petrollight: "#FFC0CB"
-
-      },
       opacity: {
         default: '1',
         'on-hover': '0.8',
@@ -164,9 +158,10 @@ module.exports = {
           '70%': { transform: 'scale(0.9)' },
         },
       },
-      backgroundColor: ({ theme }) => ({
-        'primary': 'rgb(var(--color-primary))',
-      }),
+      // TODO: braucht es das?
+      // backgroundColor: ({ theme }) => ({
+      //   'primary': 'rgb(var(--color-primary))',
+      // }),
     },
   },
   plugins: [

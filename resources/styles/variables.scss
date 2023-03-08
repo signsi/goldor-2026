@@ -2,6 +2,38 @@
   :root {
     // rgb, dezimal
     // used in theme.json
-    
+    // Color Palettes
+    // Defaults - Color Palettes
+    --color-grey: #DCDCDB;
+    --color-greydark: #989792;
+    --color-white: #FFF;
+    --color-black: #000;
+
+    // Figma - Color Palettes
+    --color-cemsuisse01: #004E47;
+    --color-cemsuisse02: #006856;
+    --color-cemsuisse03: #2D8B66;
+    --color-cemsuisse04: #5AA778;
+    --color-cemsuisse05: #97C5A2;
+    --color-cemsuisse06: #CDE5CE;
+    --color-cemsuissebeige: #CDCBB4;
+    --color-cemsuissedark01: #00352A;
+    --color-cemsuissedark02: #163647;
+    --color-cemsuisseblau01: #001C33;
+    --color-cemsuisseblau02: #003865;
+    --color-cemsuisseblau03: #004C65;
+    --color-cemsuisseblau04: #7B9CAE;
+    --color-cemsuisseblau05: #CCD7E0;
+
+    // Variables - Color Palettes
+    --color-primary: var(--color-cemsuisse01);
+    --color-primarydark: var(--color-cemsuisse01);
+    --color-primarylight: var(--color-cemsuissedark02);
+
+    --color-secondary: var(--color-cemsuisseblau03);
+    --color-secondarydark: var(--color-cemsuisseblau02);
+    --color-secondarylight: var(--color-cemsuisseblau02);
+
+    --color-font: var(--color-black);
   }
 }
