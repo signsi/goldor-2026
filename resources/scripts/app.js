@@ -15,20 +15,31 @@ domReady(async (err) => {
     console.error(err);
   }
 
-  let fullHeight = window.innerHeight;
-  document.documentElement.style.setProperty('--full-height', `${fullHeight}px`);
+  // jQuery ready
+  jQuery(function ($) {
+    handleAnchorJump();
 
-  handleAnchorJump();
+    setupNavigation({
+      classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
+      classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
+      classesMobileMenuOverflowBody: ['overflow-y-hidden'],
+      classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
+      classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
+      hasFixedHeader: true,
+      classHeaderElement: 'siteHeader',
+      hasAnchorLinks: true,
+      classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
+      classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
+      classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
+    });
 
-  setupNavigation({
-    hasAnimatedHeader: $('#siteHeader').hasClass('siteHeaderAnimated'),
-    hasAnchorLinks: true,
+    setupSearchModal();
+    setupBackToTop();
+    setupLightbox();
+    setupWowAnimation();
   });
 
-  setupSearchModal();
-  setupBackToTop();
-  setupLightbox();
-  setupWowAnimation();
+
 });
 
 /**
