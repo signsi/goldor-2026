@@ -57,7 +57,12 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Primary Navigation', 'sage'),
+        'primary_navigation' => __('Main Navigation', 'rocketpager'),
+        'top_navigation' => __('Top Navigation', 'rocketpager'),
+        'location_navigation' => __('Standort Navigation', 'rocketpager'),
+        'career_navigation' => __('Karriere Navigation', 'rocketpager'),
+        'service_navigation' => __('Service Navigation', 'rocketpager'),
+        'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager')
     ]);
 
     /**
@@ -129,16 +134,45 @@ add_action('widgets_init', function () {
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h3>',
-        'after_title' => '</h3>',
+        'after_title' => '</h3>'
     ];
 
     register_sidebar([
-        'name' => __('Primary', 'sage'),
-        'id' => 'sidebar-primary',
+        'name' => __('CTA', 'sage'),
+        'id' => 'sidebar-cta'
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer', 'sage'),
-        'id' => 'sidebar-footer',
+        'name' => __('Footer 1', 'sage'),
+        'id' => 'sidebar-footer-1'
+    ] + $config);
+
+    register_sidebar([
+        'name' => __('Footer 2', 'sage'),
+        'id' => 'sidebar-footer-2'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer 3', 'sage'),
+        'id' => 'sidebar-footer-3'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer 4', 'sage'),
+        'id' => 'sidebar-footer-4'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer CTA', 'sage'),
+        'id' => 'sidebar-footer-cta'
+    ] + $config);
+    register_sidebar([
+        'name' => __('Footer Social', 'sage'),
+        'id' => 'sidebar-footer-social'
     ] + $config);
 });
+
+require_once 'helpers/helpers.php';
+require_once 'setup/theme_setup.php';
+require_once 'setup/block_setup.php';
+require_once 'setup/customization.php';
+require_once 'setup/default_block_templates.php';
+require_once 'setup/multilanguage_setup.php';
+// require_once 'setup/custom_post_types.php';
