@@ -1,0 +1,132 @@
+//  Button
+.wp-block-button__link{
+    @include buttonStyleDefault;
+}
+.is-style-outline>.wp-block-button__link,
+.is-style-outline>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline:not(.has-background){
+    @include buttonStyleOutline;
+}
+.is-style-outline-white>.wp-block-button__link,
+.is-style-outline-white>.wp-block-button__link:not(.has-background),
+.wp-block-button__link.is-style-outline-white:not(.has-background){
+    @include buttonStyleOutlineWhite;
+}
+.wp-block-buttons {
+    @apply mt-element;
+}
+
+//  Text Media
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content{
+    @apply pl-0;
+}
+
+//  Images
+.wp-block-group {
+    figure {
+        @apply overflow-hidden;
+        > a {
+            &:hover{
+                img {
+                    @apply scale-105;
+                }
+            }
+            img {
+                @apply transition ease-in-out delay-150 duration-300;
+            }
+        }
+    }
+}
+
+// Cover
+.wp-block-cover, .wp-block-cover-image {
+    @apply h-full;
+}
+
+// Galerie
+figure.wp-block-gallery.has-nested-images {
+    @apply flex flex-col flex-wrap gap-gutter items-center;
+}
+
+//  List-Styles
+ul.is-style-liststyle-icon--linklist,
+ul.is-style-liststyle-icon--download,
+ul.is-style-liststyle-icon--singlelink,
+ul.is-style-liststyle-icon--return {
+    @apply list-none pl-0 before:transition-colors;
+}
+ul.is-style-liststyle-icon--linklist,
+ul.is-style-liststyle-icon--download{
+    > li {
+        @apply flex items-center transition-colors after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none hover:text-primary hover:after:text-primary ;
+        a {
+            @apply grow no-underline text-font;
+        }
+    }
+}
+ul.is-style-liststyle-icon--singlelink,
+ul.is-style-liststyle-icon--return {
+    >li {
+        @apply pl-0 transition-transform hover:origin-center hover:translate-x-2;
+    }
+}
+ul.is-style-liststyle-icon--check-circle,
+ul.is-style-liststyle-icon--arrowright  {
+    @apply list-outside pl-5;
+    > li {
+        @apply pl-3 marker:text-primary marker:font-icon marker:antialiased marker:inline-block marker:normal-nums marker:leading-none marker:font-light;
+    }
+}
+//  List-Styles check circle
+ul.is-style-liststyle-icon--check-circle {
+    > li {
+        @apply pl-3 marker:content-['\F058'];
+    }
+}
+//  List-Styles arrow right
+ul.is-style-liststyle-icon--arrowright {
+    > li {
+        @apply transition-all hover:origin-center hover:translate-x-2 pl-3 marker:content-['\f054'] hover:marker:content-['\f178'];
+    }
+}
+//  List-Styles download
+ul.is-style-liststyle-icon--download {
+    > li {
+        @apply text-sm border-b-2 font-semibold flex-row-reverse justify-end pl-0 after:pr-4 pb-2 mb-4 border-font after:font-semibold after:content-['\e094'];
+        &:hover {
+            a:after, a {
+                @apply text-primary;
+            }
+        }
+    }
+}
+//  List-Styles single link
+ul.is-style-liststyle-icon--singlelink {
+    > li {
+        a {
+            @apply flex items-center after:content-['\f178'] after:font-light after:pl-2 after:font-icon after:antialiased after:inline-block after:normal-nums after:leading-none text-primary no-underline hover:text-font hover:before:text-font;
+        }
+    }
+}
+//  List-Styles return
+ul.is-style-liststyle-icon--return {
+    > li {
+        a {
+            @apply flex items-center no-underline text-font hover:text-primary before:rotate-180 before:content-['\f178'] before:font-light before:pl-2 before:font-icon before:antialiased before:inline-block before:normal-nums before:leading-none;
+        }
+    }
+}
+//  List-Styles link list
+ul.is-style-liststyle-icon--linklist {
+    > li {
+        @apply justify-between first:border-t border-b my-0 pl-0 after:pl-8 py-4 md:py-5 lg:py-6 border-grey after:font-light after:content-['\f178'];
+        &, a {
+            @apply font-bold;
+        }
+    }
+}
+
+// Search
+input.search-input:focus + .icon-wrapper {
+    @apply opacity-0;
+}

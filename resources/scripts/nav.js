@@ -7,8 +7,17 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
-    hasAnimatedHeader: true,
+    classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
+    classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
+    classesMobileMenuOverflowBody: ['overflow-y-hidden'],
+    classesMobileMenuShow: ['translate-x-0', 'z-20', 'scale-x-100'],
+    classesMobileMenuHide: ['translate-x-full', '-z-10', 'scale-x-0'],
+    hasFixedHeader: true,
+    classHeaderElement: 'siteHeader',
     hasAnchorLinks: true,
+    classesAnchorPageMenuParent: ['current-menu-parent-has-items-same-page'],
+    classesAnchorPageMenuItemActive: ['active-menu-item-same-page'],
+    classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
 }
 
 Object.assign(config, configDefault);
@@ -44,24 +53,24 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
     const $subMenuParentSamePage = $subMenuParents.filter('.current-menu-parent.current-menu-item');
     const $subMenuItems = $subMenuParentSamePage.find('.current-menu-item > a');
 
-    $subMenuParentSamePage.addClass('current-menu-parent-has-items-same-page');
+    $subMenuParentSamePage.addClass(config.classesAnchorPageMenuParent);
 
     if (currentURL.hash) {
         $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
             if(subMenutItemUrl.toString() === currentURL.toString()){
-                $(this).parent().addClass('active-menu-item-same-page');
+                $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
             else{
-                $(this).parent().addClass('not-active-menu-item-same-page');
+                $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
             }
         });
 
     }
     else{
-        $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
-        $subMenuItems.parent().addClass('not-active-menu-item-same-page');
+        $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
+        $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
     }
 }
 
@@ -148,7 +157,7 @@ function setupMobileNav() {
 }
 
 function setupFixedNav() {
-    const headerElementClass = 'siteHeader'
+    const headerElementClass = config.classHeaderElement
     const $siteHeader = $('#siteHeader');
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 

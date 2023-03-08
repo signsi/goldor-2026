@@ -1,0 +1,15 @@
+.rocketpager-text-image-list{
+    .linklist-wrapper{
+        ul{
+            @apply list-none;
+
+            li{
+                @apply relative mb-0 pl-4;
+
+                a{
+                    @apply no-underline duration-300 before:absolute before:font-icon before:content-arrow-right-long before:font-light before:-left-4 hover:text-font;
+                }
+            }
+        }
+    }
+}

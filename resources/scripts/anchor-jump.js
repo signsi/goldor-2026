@@ -49,5 +49,7 @@ const anchorJump = () => {
 }
 
 export function handleAnchorJump() {
-    $(window).on('load hashchange', anchorJump );
+    anchorJump();
+
+    $(window).on('locationchange hashchange', anchorJump );
 };
