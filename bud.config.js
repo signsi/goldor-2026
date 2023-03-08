@@ -69,7 +69,8 @@ export default async (app) => {
         '@styles/new_styles/rocketpager-text-image-list'
       ],
       "block.accordion": [
-        'tw-elements'
+        // 'tw-elements'
+        '@scripts/blocks/rocketpager-accordion',
       ],
     })
 
