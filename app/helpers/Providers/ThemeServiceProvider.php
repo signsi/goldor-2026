@@ -14,6 +14,18 @@ class ThemeServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        parent::register();
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {   
+        parent::boot();
+        
         Blade::directive('relInclude', function ($args) {
             $args = Blade::stripParentheses($args);
 
@@ -28,16 +40,6 @@ class ThemeServiceProvider extends ServiceProvider
             $viewBasePath = dirname(trim($viewBasePath,'\/'));
             $args = substr_replace($args, $viewBasePath.'.', 1, 0);
             return "<?php echo \$__env->make({$args}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
-        });
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+});
+}
 }
