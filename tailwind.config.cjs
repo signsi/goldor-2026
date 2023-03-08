@@ -164,7 +164,6 @@ module.exports = {
     require('tailwindcss-hyphens'),
     require('@tailwindcss/forms'),
     require('tw-elements/dist/plugin'),
-    // require('@tailwindcss/typography'),
     tailconf.useFluidPlugin(),
   ],
 };
