@@ -158,10 +158,6 @@ module.exports = {
           '70%': { transform: 'scale(0.9)' },
         },
       },
-      // TODO: braucht es das?
-      // backgroundColor: ({ theme }) => ({
-      //   'primary': 'rgb(var(--color-primary))',
-      // }),
     },
   },
   plugins: [
