@@ -1,0 +1,30 @@
+@layer base {
+  :root {
+    // rgb, dezimal
+    // used in theme.json
+    --color-primary: 144 177 23;
+    --color-primarydark: 128 158 20;
+    --color-primarylight: 212 248 85;
+    --color-primarytransparent: 144 177 23 / 20%;
+
+    --color-secondary: 98 173 207;
+    --color-secondarydark: 42 126 158;
+    --color-secondarylight: 149 223 255;
+
+    --color-pink: 237 108 119;
+    --color-pinkdark: 182 59 75;
+    --color-pinklight: 255 157 166;
+
+    --color-font: 0 0 0;
+    --color-grey: 230 230 230;
+    --color-white: 255 255 255;
+
+    --color-aubergine: 137 16 121;
+    --color-auberginedark: 88 0 77;
+    --color-auberginelight: 188 74 168;
+
+    --color-petrol: 0 128 128;
+    --color-petroldark: 0 83 84;
+    --color-petrollight: 76 176 175;
+  }
+}

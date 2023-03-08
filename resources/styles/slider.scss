@@ -1,0 +1,98 @@
+@import "slick-carousel/slick/slick.css";
+
+/* Cropped Stil */
+.cropped-stil .slick-list.draggable {
+  @apply pr-5 md:pr-10 lg:pr-14 xl:pr-20;
+}
+.cropped-stil .slick-list .slick-slide {
+  @apply opacity-50 transition-opacity;
+}
+.cropped-stil .slick-list .slick-slide .text-wrapper {
+  @apply opacity-0 transition-opacity;
+}
+.cropped-stil .slick-list .slick-slide.slick-active,
+.cropped-stil .slick-list .slick-slide.slick-active .text-wrapper {
+  @apply opacity-100;
+}
+
+/* not for class .home */
+body:not(.home) .slides picture  {
+  @apply after:content-none;
+}
+
+/* Arrows */
+.slick-prev,
+.slick-next {
+  @apply block absolute -bottom-10 md:-bottom-12 xl:-bottom-14 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-primary before:opacity-default;
+  &:hover,
+  &:focus {
+    @apply outline-none text-transparent;
+
+    &:before {
+      @apply text-font;
+    }
+  }
+
+  &.slick-disabled:before {
+    @apply opacity-not-active;
+  }
+
+}
+
+.slick-prev {
+  @apply left-auto right-section before:content-slider-prev before:rtl:content-slider-next;
+}
+
+.slick-next {
+  @apply left-auto right-gutter before:content-slider-next before:rtl:content-slider-prev;
+}
+
+.slick-arrow {
+  @apply transition-colors bg-transparent;
+}
+
+/* Dots */
+.slick-dots {
+  @apply block relative mb-gutter mx-0 mt-0 p-0 list-none text-center w-full;
+
+  li {
+    @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;
+
+    button {
+      @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
+
+      &:hover,
+      &:focus {
+        @apply outline-none before:opacity-on-hover;
+      }
+
+      &:before {
+        @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
+      }
+    }
+
+    &.slick-active button:before {
+      @apply text-font opacity-default;
+    }
+  }
+}
+
+// SLIDER HEIGHTS
+.slides,
+.slick-track {
+  &.height-small {
+    @apply image-size-small;
+  }
+
+  &.height-medium {
+    @apply image-size-medium;
+  }
+
+  &.height-large {
+    @apply image-size-large;
+  }
+
+  &.height-vh {
+    @apply image-size-vh;
+  }
+}

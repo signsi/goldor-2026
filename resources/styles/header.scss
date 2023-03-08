@@ -1,0 +1,111 @@
+header#siteHeader {
+    a {
+        @apply transition-colors;
+    }
+    /* Desktop-Navigation */
+    #topNav {
+        .menu-primary_navigation-container {
+            /* Level 0 */
+            >ul {
+                >li {
+                    @apply font-bold;
+                    &.current_page_parent, &.current-menu-item {
+                        @apply text-primary before:w-full before:left-0 before:bg-primary #{!important};
+                        .submenuToggle {
+                            @apply text-primary #{!important};
+                        }
+                    }
+                    .submenuContainer {
+                        ul.menu-primary_subnavigation {
+                            > li {
+                                @apply mb-3 font-normal last:mb-0;
+                                a {
+                                    @apply flex;
+                                }
+                            }
+                        }
+                    }
+                }
+                .menu-primary_subnavigation a {
+                    @apply text-font hover:text-white;
+                }
+            }
+        }
+    }
+    /* Mobile-Navigation */
+    #mobileNav {
+        .menu-primary_navigation-container {
+            /* Level 0 */
+            >ul{
+                li {
+                    @apply border-b-font #{!important};
+                    a {
+                        @apply text-font hover:no-underline #{!important};
+                    }
+                    &:hover {
+                        &, a, .submenuToggle {
+                            @apply text-primary #{!important};
+                        }
+                        .submenuToggle {
+                            @apply text-white border-primary #{!important};
+                        }
+                    }
+                }
+                li {
+                    &.current_page_parent, &.current-menu-item {
+                        a {
+                            @apply text-primary #{!important};
+                        }
+                    }
+                }
+                /* Level 1 */
+                .submenuContainer {
+                    /* Level 2 standardmässig geöffnet */
+                    @apply mt-0 #{!important};
+                    >ul.menu-primary_subnavigation {
+                        @apply bg-transparent py-gutter-mobile px-0 #{!important};
+                        > li {
+                            @apply mb-1 py-1 border-b-gray-300 font-semibold first:pt-0 last:pb-0 #{!important};
+                            a {
+                                @apply text-font hover:text-primary pl-0 flex text-sm font-semibold #{!important};
+                            }
+                            &.current-menu-item:not(.not-active-menu-item-same-page) {
+                                >a {
+                                    @apply text-primary #{!important};
+                                }
+                            }
+                            .submenuContainer {
+                                @apply mt-0 opacity-100 translate-y-0 block #{!important};
+                                >ul.menu-primary_subnavigation {
+                                    @apply mb-0 border-t-0 #{!important};
+                                    > li {
+                                        @apply pl-2 text-sm py-2 first:border-t font-light last:pb-0 #{!important};
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .menuMobileBottom {
+            @apply list-none;
+            li {
+                /* @apply marker:hidden; */
+                a {
+                    @apply text-primary hover:text-font;
+                }
+            }
+        }
+    }
+}
+
+/* Fixed Header */
+.siteHeader--notTop {
+    @apply bg-white;
+}
+.siteHeader--unpinned,
+.siteHeader--bottom,
+.activeAnchorScroll {
+    transform: translateY(-100%);
+}

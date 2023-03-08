@@ -1,0 +1,29 @@
+.rocketpager-google-maps{
+    .map{
+        @apply w-full;
+        &.mapsize {
+            &--16x9 {
+                @apply pt-[56.25%];
+            }
+            &--4x3 {
+                @apply pt-[75%];
+            }
+        }
+
+        // Um das InfoWindow zu Stylen kann der kommentierte Code verwendet werden. Zu beachten gilt jedoch, dass davon alle aktiven InfoWindows betroffen sind.
+        // Damit dies vernünftig funktioniert, müsste man die Map so Stylen, dass es nur den definierten Marker gibt.
+
+        .data-content{
+            @apply mt-[0.3em];
+            img{
+                @apply w-auto max-h-[150px] flex mx-auto pt-2 mb-4;
+            }
+            p, a{
+                @apply m-0 text-sm;
+            }
+        }
+    }
+    >.data-content{
+        @apply opacity-0;
+    }
+}

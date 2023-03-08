@@ -16,6 +16,56 @@ export default async (app) => {
     .entry({
       app: ['@scripts/app', '@styles/app'],
       editor: ['@scripts/editor', '@styles/editor'],
+      "ajax": [
+        '@scripts/ajax-loading-blocks'
+      ],
+      "block.modal": [
+        '@scripts/blocks/rocketpager-modal'
+      ],
+      "block.audio-image": [
+        '@styles/new_styles/rocketpager-audio-image-box'
+      ],
+      "block.hero-slider": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-hero-slider',
+        '@styles/new_styles/rocketpager-hero-slider'
+      ],
+      "block.content-slider": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-content-slider',
+        '@styles/new_styles/rocketpager-content-slider'
+      ],
+      "block.carousel-slider": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-carousel-slider',
+        '@styles/new_styles/rocketpager-carousel-slider'
+      ],
+      "block.carousel-header": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-carousel-header',
+        '@styles/new_styles/rocketpager-carousel-header'
+      ],
+      "block.testimonial-slider": [
+        'slick-carousel',
+        '@scripts/blocks/rocketpager-testimonial-slider'
+      ],
+      "block.google-maps": [
+        '@scripts/blocks/rocketpager-google-maps',
+        '@styles/new_styles/rocketpager-google-maps'
+      ],
+      "block.videoelement": [
+        '@scripts/blocks/rocketpager-videoelement',
+        // 'https://www.youtube.com/iframe_api',
+      ],
+      "block.iconbox": [
+        '@styles/new_styles/rocketpager-iconbox'
+      ],
+      "block.text-image-list": [
+        '@styles/new_styles/rocketpager-text-image-list'
+      ],
+      "block.accordion": [
+        'tw-elements'
+      ],
     })
 
     /**
