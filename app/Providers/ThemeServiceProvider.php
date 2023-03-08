@@ -27,7 +27,7 @@ class ThemeServiceProvider extends SageServiceProvider
     public function boot()
     {
     parent::boot();
-            // Ermöglicht relative Import von Blade-Files
+// Ermöglicht relative Import von Blade-Files
             // Quelle: https://stackoverflow.com/questions/49894221/laravel-blade-include-files-with-relative-path
             $this->enableRelativeBladeIncludes();
         
@@ -48,7 +48,7 @@ class ThemeServiceProvider extends SageServiceProvider
             $viewBasePath = dirname(trim($viewBasePath,'\/'));
             $args = substr_replace($args, $viewBasePath.'.', 1, 0);
             return "<?php echo \$__env->make({$args}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
-        });
-    }
+});
+}
 
 }

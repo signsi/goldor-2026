@@ -1,16 +1,15 @@
-import { domReady } from '@roots/sage/client';
+import domReady from '@roots/sage/client/dom-ready';
 import { handleAnchorJump } from "./anchor-jump.js";
 import { setupNavigation } from './nav.js';
-import { setupSearchModal} from "./modal-search.js";
+import { setupSearchModal } from "./modal-search.js";
 import { setupBackToTop } from "./back-to-top.js";
 import { setupLightbox } from "./lightbox-config.js";
 import { setupWowAnimation } from "./wow-config.js";
 
-
 /**
- * app.main
+ * Application entrypoint
  */
-const main = async (err) => {
+domReady(async (err) => {
   if (err) {
     // handle hmr errors
     console.error(err);
@@ -36,12 +35,9 @@ const main = async (err) => {
   setupBackToTop();
   setupLightbox();
   setupWowAnimation();
-};
+});
 
 /**
- * Initialize
- *
- * @see https://webpack.js.org/api/hot-module-replacement
+ * @see {@link https://webpack.js.org/api/hot-module-replacement/}
  */
-domReady(main);
-import.meta.webpackHot?.accept(main);
+import.meta.webpackHot?.accept(console.error);
