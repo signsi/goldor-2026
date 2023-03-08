@@ -1,9 +1,9 @@
+@charset 'UTF-8';
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import '@fancyapps/ui/dist/fancybox.css';
-
-@charset 'UTF-8';
+@import '@fancyapps/ui/dist/fancybox/fancybox.css';
 @import './variables.scss';
 @import './mixins.scss';
 @import './animation.scss';

@@ -1,3 +1,5 @@
+@charset 'UTF-8';
+
 @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Open+Sans:wght@400;600;700&display=swap');
 
 .block-editor-block-list__layout .block-editor-block-list__block {
@@ -13,10 +15,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import '@fancyapps/ui/dist/fancybox.css';
+@import '@fancyapps/ui/dist/fancybox/fancybox.css';
 @import "animate.css/animate.min.css";
 
-@charset 'UTF-8';
 @import './variables.scss';
 @import './mixins.scss';
 @import './typography.scss';

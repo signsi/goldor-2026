@@ -17,6 +17,8 @@ domReady(async (err) => {
 
   // jQuery ready
   jQuery(function ($) {
+    window.$ = jQuery;
+
     handleAnchorJump();
 
     setupNavigation({
@@ -33,12 +35,11 @@ domReady(async (err) => {
       classesAnchorPageMenuItemNotActive: ['not-active-menu-item-same-page'],
     });
 
-    // setupSearchModal();
-    // setupBackToTop();
-    // setupLightbox();
-    // setupWowAnimation();
+    setupSearchModal();
+    setupBackToTop();
+    setupLightbox();
+    setupWowAnimation();
   });
-
 
 });
 
