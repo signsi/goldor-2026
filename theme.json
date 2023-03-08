@@ -1430,7 +1430,11 @@
         {
           "name": "Pink",
           "slug": "pink",
+<<<<<<< HEAD
           "color": "rgb(var(--color-pink))"
+=======
+          "color": "#d81e5b"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Rose 50",
@@ -1488,12 +1492,20 @@
         {
           "name": "Primary",
           "slug": "primary",
+<<<<<<< HEAD
           "color": "rgb(var(--color-primary))"
+=======
+          "color": "#d81e5b"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Secondary",
           "slug": "secondary",
+<<<<<<< HEAD
           "color": "rgb(var(--color-secondary))"
+=======
+          "color": "#8f95d3"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Success 50",
@@ -2993,27 +3005,47 @@
         {
           "name": "Primarylight",
           "slug": "primarylight",
+<<<<<<< HEAD
           "color": "rgb(var(--color-primarylight))"
+=======
+          "color": "#db346b"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Secondarydark",
           "slug": "secondarydark",
+<<<<<<< HEAD
           "color": "rgb(var(--color-secondarydark))"
+=======
+          "color": "#646893"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Secondarylight",
           "slug": "secondarylight",
+<<<<<<< HEAD
           "color": "rgb(var(--color-secondarylight))"
+=======
+          "color": "#b0b4e0"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Pinkdark",
           "slug": "pinkdark",
+<<<<<<< HEAD
           "color": "rgb(var(--color-pinkdark))"
+=======
+          "color": "#811236"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Pinklight",
           "slug": "pinklight",
+<<<<<<< HEAD
           "color": "rgb(var(--color-pinklight))"
+=======
+          "color": "#e3618c"
+>>>>>>> 50a62253 (colors)
         },
         {
           "name": "Font",

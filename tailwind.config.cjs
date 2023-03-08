@@ -130,6 +130,10 @@ module.exports = {
         'icon-big': ['32px', '1'],
         '5.5xl': ['56px', '1.1'],
       },
+      height: {
+        'menu-items': '45px',
+        'menu-items-mobile': '35px'
+      },
       lineHeight: {
         0: '0',
         'extra-loose': '1.1',
