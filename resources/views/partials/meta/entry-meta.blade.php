@@ -1,3 +1,3 @@
-@relInclude('entry-meta-date')
+@relativeInclude('entry-meta-date')
 
-@relInclude('entry-meta-author')
+@relativeInclude('entry-meta-author')

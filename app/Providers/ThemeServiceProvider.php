@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Blade;
 use Roots\Acorn\Sage\SageServiceProvider;
+use Illuminate\Support\Facades\Blade;
+use Roots\Acorn\ServiceProvider;
+
 
 class ThemeServiceProvider extends SageServiceProvider
 {
@@ -18,17 +20,21 @@ class ThemeServiceProvider extends SageServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+    * Bootstrap any application services.
+    *
+    * @return void
+    */
     public function boot()
     {
-        parent::boot();
+    parent::boot();
+            // Ermöglicht relative Import von Blade-Files
+            // Quelle: https://stackoverflow.com/questions/49894221/laravel-blade-include-files-with-relative-path
+            $this->enableRelativeBladeIncludes();
         
-        // Ermöglicht relative Import von Blade-Files
-        // Quelle: https://stackoverflow.com/questions/49894221/laravel-blade-include-files-with-relative-path
-        \Blade::directive('relInclude', function ($args) {
+    }
+
+    private function enableRelativeBladeIncludes() {
+        \Blade::directive('relativeInclude', function ($args) {
             $args = Blade::stripParentheses($args);
 
             $viewBasePath = Blade::getPath();
@@ -43,6 +49,6 @@ class ThemeServiceProvider extends SageServiceProvider
             $args = substr_replace($args, $viewBasePath.'.', 1, 0);
             return "<?php echo \$__env->make({$args}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
         });
-
     }
+
 }

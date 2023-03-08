@@ -4,4 +4,4 @@
     </span>
 </a>
 <span class="mx-1">&#183;</span>
-@relInclude('entry-meta-date')
+@relativeInclude('entry-meta-date')

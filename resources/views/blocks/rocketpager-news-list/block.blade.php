@@ -76,7 +76,7 @@ foreach ($cats as $cat) {
                     $the_query->the_post();
                     global $post;
                 @endphp
-                @relInclude('element')
+                @relativeInclude('element')
             @endwhile
         @endif
         {{-- Restore original Post Data --}}
