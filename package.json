@@ -2,43 +2,26 @@
   "name": "sage",
   "private": true,
   "browserslist": [
-    "extends @wordpress/browserslist-config"
+    "extends @roots/browserslist-config"
   ],
   "engines": {
-    "node": ">=15.0.0"
+    "node": ">=16.0.0"
   },
+  "type": "module",
   "scripts": {
     "dev": "bud dev",
-    "startup": "bash ./shell_scripts/startup.sh",
-    "deploy": "bash ./shell_scripts/deploy.sh",
-    "deploy:theme": "bash ./shell_scripts/deploy-theme.sh",
-    "sync": "bash ./shell_scripts/db-sync.sh",
     "build": "bud build",
-    "translate": "npm run translate:pot && npm run translate:js",
-    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --ignore-domain --include=\"app,resources\"",
-    "translate:js": "wp i18n make-json ./resources/lang --pretty-print"
+    "translate": "yarn translate:pot && yarn translate:update",
+    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"app,resources\"",
+    "translate:update": "wp i18n update-po ./resources/lang/sage.pot ./resources/lang/*.po",
+    "translate:compile": "yarn translate:mo && yarn translate:js",
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
   },
   "devDependencies": {
-    "@roots/bud": "5.5.0",
-    "@roots/bud-sass": "^5.5.0",
-    "@roots/bud-tailwindcss": "5.5.0",
-    "@roots/sage": "5.5.0"
+    "@roots/bud": "6.9.0",
+    "@roots/bud-tailwindcss": "6.9.0",
+    "@roots/sage": "6.9.0"
   },
-  "dependencies": {
-    "@fancyapps/ui": "^4.0.29",
-    "@googlemaps/js-api-loader": "^1.14.3",
-    "@rocket-gmbh/tailconf_helpers": "^0.1.0",
-    "@tailwindcss/forms": "^0.5.2",
-    "@tailwindcss/typography": "^0.5.2",
-    "animate.css": "^4.1.1",
-    "gsap": "^3.10.4",
-    "headroom.js": "^0.12.0",
-    "p-queue": "^7.2.0",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
-    "tailwindcss-fluid-type": "^1.3.3",
-    "tailwindcss-hyphens": "^0.1.0",
-    "tw-elements": "^1.0.0-alpha12",
-    "wowjs": "^1.1.3"
-  }
+  "dependencies": {}
 }

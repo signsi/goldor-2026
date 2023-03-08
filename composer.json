@@ -37,13 +37,15 @@
       "App\\": "app/"
     }
   },
+  "post-autoload-dump": [
+    "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
+  ],
   "require": {
-    "php": "^7.4|^8.0",
-    "htmlburger/carbon-fields": "^3.3",
-    "roots/acorn": "^2.0"
+    "php": "^8.0",
+    "roots/acorn": "^3.1"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "^3.6"
+    "squizlabs/php_codesniffer": "3.7.1"
   },
   "suggest": {
     "log1x/sage-directives": "A collection of useful Blade directives for WordPress and Sage (^1.0).",
@@ -67,8 +69,5 @@
         "App\\Providers\\ThemeServiceProvider"
       ]
     }
-  },
-  "post-autoload-dump": [
-    "Roots\\Acorn\\ComposerScripts::postAutoloadDump"
-  ]
+  }
 }
