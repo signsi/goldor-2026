@@ -57,13 +57,7 @@ add_action('after_setup_theme', function () {
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
     register_nav_menus([
-        'primary_navigation' => __('Main Navigation', 'rocketpager'),
-        'top_navigation' => __('Top Navigation', 'rocketpager'),
-        'footer_navigation_1' => __('Footer Navigation 1', 'rocketpager'),
-        'footer_navigation_2' => __('Footer Navigation 2', 'rocketpager'),
-        'footer_navigation_3' => __('Footer Navigation 3', 'rocketpager'),
-        'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager'),
-        'language_switcher' => __('Language Navigation', 'rocketpager')
+        'primary_navigation' => __('Primary Navigation', 'sage'),
     ]);
 
     /**
@@ -135,51 +129,16 @@ add_action('widgets_init', function () {
         'before_widget' => '<section class="widget %1$s %2$s">',
         'after_widget' => '</section>',
         'before_title' => '<h3>',
-        'after_title' => '</h3>'
+        'after_title' => '</h3>',
     ];
 
     register_sidebar([
-        'name' => __('Navigation CTA', 'rocketpager'),
-        'id' => 'sidebar-cta',
-        'description' =>  __('Hinzufügen CTA (Buttons) in der Hauptnavigation', 'rocketpager'),
+        'name' => __('Primary', 'sage'),
+        'id' => 'sidebar-primary',
     ] + $config);
 
     register_sidebar([
-        'name' => __('Footer Spalte 1', 'rocketpager'),
-        'id' => 'sidebar-footer-1',
-        'description' =>  __('Überschreiben der ersten Spalte (Logo & Adresse). Das Widget "Footer Adresse" wird dabei auch überschrieben.', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer Spalte 2', 'rocketpager'),
-        'id' => 'sidebar-footer-2',
-        'description' =>  __('Überschreiben der zweiten Spalt.', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer Spalte 3', 'rocketpager'),
-        'id' => 'sidebar-footer-3',
-        'description' =>  __('Überschreiben der dritten Spalte.', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer Spalte 4', 'rocketpager'),
-        'id' => 'sidebar-footer-4',
-        'description' =>  __('Überschreiben der vierten Spalte.', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer Adresse', 'rocketpager'),
-        'id' => 'sidebar-footer-address',
-        'description' =>  __('Überschreiben der Adresse. Logo ist nicht betroffen', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer CTA', 'rocketpager'),
-        'id' => 'sidebar-footer-cta',
-        'description' =>  __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
+        'name' => __('Footer', 'sage'),
+        'id' => 'sidebar-footer',
     ] + $config);
 });
-
-require_once 'helpers/helpers.php';
-require_once 'setup/theme_setup.php';
-require_once 'setup/block_setup.php';
-require_once 'setup/customization.php';
-require_once 'setup/default_block_templates.php';
-require_once 'setup/multilanguage_setup.php';
-// require_once 'setup/custom_post_types.php';
