@@ -50,8 +50,4 @@
             </svg>
         </button>
     </div>
-<<<<<<< HEAD
 </div>
-=======
-</div>
->>>>>>> 19ae884e (probleme mit custom blade directive)

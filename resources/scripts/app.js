@@ -7,7 +7,7 @@ import { setupLightbox } from "./lightbox-config.js";
 import { setupWowAnimation } from "./wow-config.js";
 
 /**
- * app.main
+ * Application entrypoint
  */
 domReady(async (err) => {
   if (err) {
@@ -31,11 +31,7 @@ domReady(async (err) => {
   setupWowAnimation();
 });
 
-
 /**
- * Initialize
- *
- * @see https://webpack.js.org/api/hot-module-replacement
+ * @see {@link https://webpack.js.org/api/hot-module-replacement/}
  */
-domReady(main);
-import.meta.webpackHot?.accept(main);
+import.meta.webpackHot?.accept(console.error);
