@@ -14,6 +14,7 @@
       "palette": [
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
           "name": "Primary 50",
           "slug": "primary-50",
           "color": "#f1f5fb"
@@ -406,11 +407,166 @@
           "name": "Inherit",
           "slug": "inherit",
           "color": "inherit"
+=======
+          "name": "Primary 50",
+          "slug": "primary-50",
+          "color": "#f1f5fb"
+>>>>>>> 21599c85 (bg color todo hinzugefügt)
         },
         {
-          "name": "Current",
-          "slug": "current",
-          "color": "currentcolor"
+          "name": "Primary 100",
+          "slug": "primary-100",
+          "color": "#e3ebf7"
+        },
+        {
+          "name": "Primary 200",
+          "slug": "primary-200",
+          "color": "#c7d7f0"
+        },
+        {
+          "name": "Primary 300",
+          "slug": "primary-300",
+          "color": "#abc2e8"
+        },
+        {
+          "name": "Primary 400",
+          "slug": "primary-400",
+          "color": "#8faee0"
+        },
+        {
+          "name": "Primary 500",
+          "slug": "primary-500",
+          "color": "#6590d5"
+        },
+        {
+          "name": "Primary 600",
+          "slug": "primary-600",
+          "color": "#3061af"
+        },
+        {
+          "name": "Primary 700",
+          "slug": "primary-700",
+          "color": "#285192"
+        },
+        {
+          "name": "Primary 800",
+          "slug": "primary-800",
+          "color": "#204075"
+        },
+        {
+          "name": "Primary 900",
+          "slug": "primary-900",
+          "color": "#183058"
+        },
+        {
+          "name": "Primary DEFAULT",
+          "slug": "primary-default",
+          "color": "#3b71ca"
+        },
+        {
+          "name": "Primary Accent-100",
+          "slug": "primary-accent-100",
+          "color": "#d9e4f3"
+        },
+        {
+          "name": "Primary Accent-200",
+          "slug": "primary-accent-200",
+          "color": "#cedbee"
+        },
+        {
+          "name": "Primarydark",
+          "slug": "primarydark",
+          "color": "var(--color-primarydark)"
+        },
+        {
+          "name": "Primarylight",
+          "slug": "primarylight",
+          "color": "var(--color-primarylight)"
+        },
+        {
+          "name": "Secondary 50",
+          "slug": "secondary-50",
+          "color": "#f8f9f9"
+        },
+        {
+          "name": "Secondary 100",
+          "slug": "secondary-100",
+          "color": "#f1f2f4"
+        },
+        {
+          "name": "Secondary 200",
+          "slug": "secondary-200",
+          "color": "#e4e6e9"
+        },
+        {
+          "name": "Secondary 300",
+          "slug": "secondary-300",
+          "color": "#d6d9de"
+        },
+        {
+          "name": "Secondary 400",
+          "slug": "secondary-400",
+          "color": "#c8ccd3"
+        },
+        {
+          "name": "Secondary 500",
+          "slug": "secondary-500",
+          "color": "#b3b9c2"
+        },
+        {
+          "name": "Secondary 600",
+          "slug": "secondary-600",
+          "color": "#848d9c"
+        },
+        {
+          "name": "Secondary 700",
+          "slug": "secondary-700",
+          "color": "#6b7585"
+        },
+        {
+          "name": "Secondary 800",
+          "slug": "secondary-800",
+          "color": "#565d6b"
+        },
+        {
+          "name": "Secondary 900",
+          "slug": "secondary-900",
+          "color": "#404650"
+        },
+        {
+          "name": "Secondary DEFAULT",
+          "slug": "secondary-default",
+          "color": "#9fa6b2"
+        },
+        {
+          "name": "Secondarydark",
+          "slug": "secondarydark",
+          "color": "var(--color-secondarylight)"
+        },
+        {
+          "name": "Secondarylight",
+          "slug": "secondarylight",
+          "color": "var(--color-secondarydark)"
+        },
+        {
+          "name": "Font",
+          "slug": "font",
+          "color": "var(--color-font)"
+        },
+        {
+          "name": "Grey",
+          "slug": "grey",
+          "color": "var(--color-grey)"
+        },
+        {
+          "name": "Black",
+          "slug": "black",
+          "color": "var(--color-black)"
+        },
+        {
+          "name": "White",
+          "slug": "white",
+          "color": "var(--color-white)"
         },
         {
           "name": "Transparent",
@@ -418,6 +574,7 @@
           "color": "transparent"
         },
         {
+<<<<<<< HEAD
           "name": "Black",
           "slug": "black",
           "color": "#000"
@@ -1506,6 +1663,11 @@
 =======
           "color": "#8f95d3"
 >>>>>>> 50a62253 (colors)
+=======
+          "name": "Gray-300",
+          "slug": "gray-300",
+          "color": "var(--color-gray-300)"
+>>>>>>> 21599c85 (bg color todo hinzugefügt)
         },
         {
           "name": "Success 50",
@@ -1726,6 +1888,7 @@
           "name": "Info DEFAULT",
           "slug": "info-default",
           "color": "#54b4d3"
+<<<<<<< HEAD
         },
         {
           "name": "Slate-50",
@@ -3087,6 +3250,8 @@
           "slug": "petrollight",
           "color": "rgb(var(--color-petrollight))"
 >>>>>>> bc1e2f49 (resolved gsap imports)
+=======
+>>>>>>> 21599c85 (bg color todo hinzugefügt)
         }
       ]
     },
