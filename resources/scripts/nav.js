@@ -59,16 +59,16 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
         $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-            if(subMenutItemUrl.toString() === currentURL.toString()){
+            if (subMenutItemUrl.toString() === currentURL.toString()) {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
             }
-            else{
+            else {
                 $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
             }
         });
 
     }
-    else{
+    else {
         $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
         $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
     }
