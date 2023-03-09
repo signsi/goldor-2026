@@ -3,6 +3,7 @@ const tailconf = require('@rocket-gmbh/tailconf_helpers');
 
 // https://tailwindcss.com/docs/configuration
 module.exports = {
+  important: true,
   content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/tw-elements/dist/js/**/*.js',
 
   ],
