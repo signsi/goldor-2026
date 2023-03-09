@@ -265,7 +265,7 @@ function crb_attach_theme_options()
             'type' => 'image',
             'key' => 'logo_footer',
             'label' => 'Logo (Footer)',
-            'default' => asset('images/logo-rocket-black.svg')
+            'default' => asset('images/logo-rocket-white.svg')
         ],
         [
             'type' => 'image',

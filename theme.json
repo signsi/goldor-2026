@@ -13,69 +13,34 @@
       "duotone": [],
       "palette": [
         {
-          "name": "Primary 50",
-          "slug": "primary-50",
-          "color": "#f1f5fb"
+          "name": "Inherit",
+          "slug": "inherit",
+          "color": "inherit"
         },
         {
-          "name": "Primary 100",
-          "slug": "primary-100",
-          "color": "#e3ebf7"
+          "name": "Transparent",
+          "slug": "transparent",
+          "color": "transparent"
         },
         {
-          "name": "Primary 200",
-          "slug": "primary-200",
-          "color": "#c7d7f0"
+          "name": "Black",
+          "slug": "black",
+          "color": "var(--color-black)"
         },
         {
-          "name": "Primary 300",
-          "slug": "primary-300",
-          "color": "#abc2e8"
+          "name": "White",
+          "slug": "white",
+          "color": "var(--color-white)"
         },
         {
-          "name": "Primary 400",
-          "slug": "primary-400",
-          "color": "#8faee0"
+          "name": "Primary",
+          "slug": "primary",
+          "color": "var(--color-primary)"
         },
         {
-          "name": "Primary 500",
-          "slug": "primary-500",
-          "color": "#6590d5"
-        },
-        {
-          "name": "Primary 600",
-          "slug": "primary-600",
-          "color": "#3061af"
-        },
-        {
-          "name": "Primary 700",
-          "slug": "primary-700",
-          "color": "#285192"
-        },
-        {
-          "name": "Primary 800",
-          "slug": "primary-800",
-          "color": "#204075"
-        },
-        {
-          "name": "Primary 900",
-          "slug": "primary-900",
-          "color": "#183058"
-        },
-        {
-          "name": "Primary DEFAULT",
-          "slug": "primary-default",
-          "color": "#3b71ca"
-        },
-        {
-          "name": "Primary Accent-100",
-          "slug": "primary-accent-100",
-          "color": "#d9e4f3"
-        },
-        {
-          "name": "Primary Accent-200",
-          "slug": "primary-accent-200",
-          "color": "#cedbee"
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "var(--color-secondary)"
         },
         {
           "name": "Primarydark",
@@ -86,61 +51,6 @@
           "name": "Primarylight",
           "slug": "primarylight",
           "color": "var(--color-primarylight)"
-        },
-        {
-          "name": "Secondary 50",
-          "slug": "secondary-50",
-          "color": "#f8f9f9"
-        },
-        {
-          "name": "Secondary 100",
-          "slug": "secondary-100",
-          "color": "#f1f2f4"
-        },
-        {
-          "name": "Secondary 200",
-          "slug": "secondary-200",
-          "color": "#e4e6e9"
-        },
-        {
-          "name": "Secondary 300",
-          "slug": "secondary-300",
-          "color": "#d6d9de"
-        },
-        {
-          "name": "Secondary 400",
-          "slug": "secondary-400",
-          "color": "#c8ccd3"
-        },
-        {
-          "name": "Secondary 500",
-          "slug": "secondary-500",
-          "color": "#b3b9c2"
-        },
-        {
-          "name": "Secondary 600",
-          "slug": "secondary-600",
-          "color": "#848d9c"
-        },
-        {
-          "name": "Secondary 700",
-          "slug": "secondary-700",
-          "color": "#6b7585"
-        },
-        {
-          "name": "Secondary 800",
-          "slug": "secondary-800",
-          "color": "#565d6b"
-        },
-        {
-          "name": "Secondary 900",
-          "slug": "secondary-900",
-          "color": "#404650"
-        },
-        {
-          "name": "Secondary DEFAULT",
-          "slug": "secondary-default",
-          "color": "#9fa6b2"
         },
         {
           "name": "Secondarydark",
@@ -163,249 +73,9 @@
           "color": "var(--color-grey)"
         },
         {
-          "name": "Black",
-          "slug": "black",
-          "color": "var(--color-black)"
-        },
-        {
-          "name": "White",
-          "slug": "white",
-          "color": "var(--color-white)"
-        },
-        {
-          "name": "Transparent",
-          "slug": "transparent",
-          "color": "transparent"
-        },
-        {
-          "name": "Inherit",
-          "slug": "inherit",
-          "color": "inherit"
-        },
-        {
           "name": "Gray-300",
           "slug": "gray-300",
           "color": "var(--color-gray-300)"
-        },
-        {
-          "name": "Success 50",
-          "slug": "success-50",
-          "color": "#eafcf2"
-        },
-        {
-          "name": "Success 100",
-          "slug": "success-100",
-          "color": "#d6fae4"
-        },
-        {
-          "name": "Success 200",
-          "slug": "success-200",
-          "color": "#acf5c9"
-        },
-        {
-          "name": "Success 300",
-          "slug": "success-300",
-          "color": "#83f0ae"
-        },
-        {
-          "name": "Success 400",
-          "slug": "success-400",
-          "color": "#59ea93"
-        },
-        {
-          "name": "Success 500",
-          "slug": "success-500",
-          "color": "#1ce26b"
-        },
-        {
-          "name": "Success 600",
-          "slug": "success-600",
-          "color": "#118c42"
-        },
-        {
-          "name": "Success 700",
-          "slug": "success-700",
-          "color": "#0e7537"
-        },
-        {
-          "name": "Success 800",
-          "slug": "success-800",
-          "color": "#0c5d2c"
-        },
-        {
-          "name": "Success 900",
-          "slug": "success-900",
-          "color": "#094621"
-        },
-        {
-          "name": "Success DEFAULT",
-          "slug": "success-default",
-          "color": "#14a44d"
-        },
-        {
-          "name": "Danger 50",
-          "slug": "danger-50",
-          "color": "#fcf2f4"
-        },
-        {
-          "name": "Danger 100",
-          "slug": "danger-100",
-          "color": "#fae5e9"
-        },
-        {
-          "name": "Danger 200",
-          "slug": "danger-200",
-          "color": "#f5ccd3"
-        },
-        {
-          "name": "Danger 300",
-          "slug": "danger-300",
-          "color": "#f0b2bd"
-        },
-        {
-          "name": "Danger 400",
-          "slug": "danger-400",
-          "color": "#eb99a6"
-        },
-        {
-          "name": "Danger 500",
-          "slug": "danger-500",
-          "color": "#e37285"
-        },
-        {
-          "name": "Danger 600",
-          "slug": "danger-600",
-          "color": "#d42a46"
-        },
-        {
-          "name": "Danger 700",
-          "slug": "danger-700",
-          "color": "#b0233a"
-        },
-        {
-          "name": "Danger 800",
-          "slug": "danger-800",
-          "color": "#8d1c2f"
-        },
-        {
-          "name": "Danger 900",
-          "slug": "danger-900",
-          "color": "#6a1523"
-        },
-        {
-          "name": "Danger DEFAULT",
-          "slug": "danger-default",
-          "color": "#dc4c64"
-        },
-        {
-          "name": "Warning 50",
-          "slug": "warning-50",
-          "color": "#fdf8ef"
-        },
-        {
-          "name": "Warning 100",
-          "slug": "warning-100",
-          "color": "#fbf2de"
-        },
-        {
-          "name": "Warning 200",
-          "slug": "warning-200",
-          "color": "#f7e4be"
-        },
-        {
-          "name": "Warning 300",
-          "slug": "warning-300",
-          "color": "#f4d79d"
-        },
-        {
-          "name": "Warning 400",
-          "slug": "warning-400",
-          "color": "#f0c97d"
-        },
-        {
-          "name": "Warning 500",
-          "slug": "warning-500",
-          "color": "#eab54c"
-        },
-        {
-          "name": "Warning 600",
-          "slug": "warning-600",
-          "color": "#c48a17"
-        },
-        {
-          "name": "Warning 700",
-          "slug": "warning-700",
-          "color": "#a37313"
-        },
-        {
-          "name": "Warning 800",
-          "slug": "warning-800",
-          "color": "#825c0f"
-        },
-        {
-          "name": "Warning 900",
-          "slug": "warning-900",
-          "color": "#62450b"
-        },
-        {
-          "name": "Warning DEFAULT",
-          "slug": "warning-default",
-          "color": "#e4a11b"
-        },
-        {
-          "name": "Info 50",
-          "slug": "info-50",
-          "color": "#f3fafc"
-        },
-        {
-          "name": "Info 100",
-          "slug": "info-100",
-          "color": "#e7f4f9"
-        },
-        {
-          "name": "Info 200",
-          "slug": "info-200",
-          "color": "#cee9f2"
-        },
-        {
-          "name": "Info 300",
-          "slug": "info-300",
-          "color": "#b6dfec"
-        },
-        {
-          "name": "Info 400",
-          "slug": "info-400",
-          "color": "#9ed4e6"
-        },
-        {
-          "name": "Info 500",
-          "slug": "info-500",
-          "color": "#79c4dc"
-        },
-        {
-          "name": "Info 600",
-          "slug": "info-600",
-          "color": "#34a4ca"
-        },
-        {
-          "name": "Info 700",
-          "slug": "info-700",
-          "color": "#2b89a8"
-        },
-        {
-          "name": "Info 800",
-          "slug": "info-800",
-          "color": "#236d86"
-        },
-        {
-          "name": "Info 900",
-          "slug": "info-900",
-          "color": "#1a5265"
-        },
-        {
-          "name": "Info DEFAULT",
-          "slug": "info-default",
-          "color": "#54b4d3"
         }
       ]
     },
@@ -431,9 +101,9 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "name": "Raleway",
+          "name": "IBM Plex Sans",
           "slug": "sans",
-          "fontFamily": "Raleway,Arial,sans-serif"
+          "fontFamily": "IBM Plex Sans,Helvetica,sans-serif"
         },
         {
           "name": "Crete Round",

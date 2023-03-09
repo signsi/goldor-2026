@@ -136,7 +136,7 @@ export default async (app) => {
         customFontSize: false,
       },
     })
-    .useTailwindColors()
+    .useTailwindColors(true).enable()
     .useTailwindFontFamily()
     .useTailwindFontSize()
     .enable();

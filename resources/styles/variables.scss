@@ -9,6 +9,8 @@
     --color-white: #FFF;
     --color-black: #000;
 
+    --color-rocket-pink: #FF0096;
+
     // Figma - Color Palettes
     --color-cemsuisse01: #004E47;
     --color-cemsuisse02: #006856;
@@ -26,7 +28,7 @@
     --color-cemsuisseblau05: #CCD7E0;
 
     // Variables - Color Palettes
-    --color-primary: var(--color-cemsuisse01);
+    --color-primary: var(--color-rocket-pink);
     --color-primarydark: var(--color-cemsuisse01);
     --color-primarylight: var(--color-cemsuissedark02);
 
@@ -35,5 +37,11 @@
     --color-secondarylight: var(--color-cemsuisseblau02);
 
     --color-font: var(--color-black);
+
   }
+}
+
+:root {
+  --wp-admin-theme-color: var(--color-primary);
+
 }

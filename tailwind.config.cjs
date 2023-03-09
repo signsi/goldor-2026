@@ -37,25 +37,25 @@ module.exports = {
         '9xl': [10, 1],
       }
     },
-    colors: {
-      primary: 'var(--color-primary)',
-      primarydark: 'var(--color-primarydark)',
-      primarylight: 'var(--color-primarylight)',
-      secondary: 'var(--color-secondary)',
-      secondarydark: 'var(--color-secondarylight)',
-      secondarylight: 'var(--color-secondarydark)',
-
-      font: 'var(--color-font)',
-      grey: 'var(--color-grey)',
-      black: 'var(--color-black)',
-      white: 'var(--color-white)',
-      transparent: 'transparent',
-      inherit: 'inherit',
-
-      'gray-300': 'var(--color-gray-300)'
-
-    },
     extend: {
+      colors: {
+        primary: 'var(--color-primary)',
+        primarydark: 'var(--color-primarydark)',
+        primarylight: 'var(--color-primarylight)',
+        secondary: 'var(--color-secondary)',
+        secondarydark: 'var(--color-secondarylight)',
+        secondarylight: 'var(--color-secondarydark)',
+
+        font: 'var(--color-font)',
+        grey: 'var(--color-grey)',
+        black: 'var(--color-black)',
+        white: 'var(--color-white)',
+        transparent: 'transparent',
+        inherit: 'inherit',
+
+        'gray-300': 'var(--color-gray-300)'
+
+      },
       opacity: {
         default: '1',
         'on-hover': '0.8',
@@ -70,7 +70,7 @@ module.exports = {
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
-        sans: ['Raleway', 'Arial', 'sans-serif'],
+        sans: ['IBM Plex Sans', 'Helvetica', 'sans-serif'],
         icon: '"Font Awesome 6 Pro"',
       },
       spacing: {
