@@ -7,14 +7,7 @@ const currentURL = new URL(window.location.href);
 
 const config = {};
 const configDefault = {
-<<<<<<< HEAD
-    classesSubMenuDesktopShow: ['opacity-1', 'translate-y-0', 'block'],
-    classesSubMenuDesktopHide: ['opacity-0', 'translate-y-1', 'hidden'],
-    hasFixedHeader: true,
-    classHeaderElement: 'siteHeader',
-=======
     hasAnimatedHeader: true,
->>>>>>> e52aa508 (Hinzufuegen Funktionalitaeten Header)
     hasAnchorLinks: true,
 }
 
@@ -27,11 +20,6 @@ const openSubMenu = ($menuContainer) => {
 const closeSubMenu = ($menuContainer) => {
     $menuContainer.removeClass('showSubMenu');
     $menuContainer.addClass('hideSubMenu');
-}
-
-const toggleMobileMenuButton = () => {
-    $('#mobileToggle').toggleClass('mobileMenuOpen');
-    $('#mobileToggle svg path').toggleClass('hidden');
 }
 
 const toggleMobileMenuButton = () => {
@@ -58,22 +46,22 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
 
     $subMenuParentSamePage.addClass('current-menu-parent-has-items-same-page');
 
-    if (currentURL.hash) {
-        $subMenuItems.each(function () {
+    if(currentURL.hash){
+        $subMenuItems.each(function() {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-            if (subMenutItemUrl.toString() === currentURL.toString()) {
-                $(this).parent().addClass(config.classesAnchorPageMenuItemActive);
+            if(subMenutItemUrl.toString() === currentURL.toString()){
+                $(this).parent().addClass('active-menu-item-same-page');
             }
-            else {
-                $(this).parent().addClass(config.classesAnchorPageMenuItemNotActive);
+            else{
+                $(this).parent().addClass('not-active-menu-item-same-page');
             }
         });
 
     }
-    else {
-        $subMenuParentSamePage.addClass(config.classesAnchorPageMenuItemActive).addClass('ignoreParentMenu');
-        $subMenuItems.parent().addClass(config.classesAnchorPageMenuItemNotActive);
+    else{
+        $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
+        $subMenuItems.parent().addClass('not-active-menu-item-same-page');
     }
 }
 
@@ -85,9 +73,9 @@ function setupDesktopNav() {
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
 
-    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
+    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
 
-    $subMenuParents.on('click', function (e) {
+    $subMenuParents.on('click', function(e) {
         const $childContainer = $(this).children('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
@@ -101,12 +89,12 @@ function setupDesktopNav() {
     });
 
     const closeAllSubMenus = () => {
-        const $childContainer = $subMenuParents.children('.submenuContainer');
+            const $childContainer = $subMenuParents.children('.submenuContainer');
 
-        closeSubMenu($childContainer);
+            closeSubMenu($childContainer);
     }
 
-    $outsideArea.on('click', function () {
+    $outsideArea.on('click', function() {
         closeAllSubMenus();
     })
 
@@ -120,26 +108,28 @@ function setupMobileNav() {
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
+    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
 
-    $mobileNavButton.on('click', function () {
+    $mobileNavButton.on('click', function() {
         const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".ignoreParentMenu")');
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
-        openMobileMenu($mobileNav);
-        closeAllSubMenus();
-        openSubMenu($childContainer);
-        $subMenuBtn.addClass("rotate-180");
+        if($mobileNavButton.hasClass('mobileMenuOpen')){
+            closeMobileMenu($mobileNav);
+        }
+        else{
+            openMobileMenu($mobileNav);
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+            $subMenuBtn.addClass("rotate-180");
+        }
     })
-    $mobileNavClose.on('click', function () {
-        closeMobileMenu($mobileNav);
-    })
-    $mobileNavCloseLinks.on('click', function () {
+    $mobileNavCloseLinks.on('click', function() {
         closeMobileMenu($mobileNav);
     })
 
-    $submMenuParentSvg.on('click', function () {
+    $submMenuParentSvg.on('click', function() {
         const $childContainer = $(this).parent().siblings('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
@@ -160,7 +150,7 @@ function setupMobileNav() {
 }
 
 function setupFixedNav() {
-    const headerElementClass = config.classHeaderElement
+    const headerElementClass = 'siteHeader'
     const $siteHeader = $('#siteHeader');
     const headerClasses = ` ${$siteHeader.attr('class')}`;
 
@@ -177,10 +167,10 @@ function setupFixedNav() {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
-                if ($siteHeader.hasClass('activeAnchorScroll')) return;
+                if($siteHeader.hasClass('activeAnchorScroll')) return;
 
                 var velocity = self.getVelocity();
-                if (velocity > -200 && velocity < 200) return;
+                if(velocity > -200 && velocity < 200) return;
 
                 header_progress = self.progress.toFixed(2);
                 header_direction = self.direction;
@@ -200,21 +190,21 @@ function setupFixedNav() {
             }
         });
 
-        $(document).on('DOMNodeInserted', function () {
+        $(document).on('DOMNodeInserted', function() {
             st_header.refresh();
         });
     }
 }
 
-export function setupNavigation(configSetup) {
+export function setupNavigation(configSetup){
     Object.assign(config, configSetup);
 
     // desktop sub menus
     setupDesktopNav();
-    // // mobile menu
+    // mobile menu
     setupMobileNav();
 
-    if (!config.hasAnimatedHeader) return;
+    if(!config.hasAnimatedHeader) return;
 
     // headroom-like top nav
     setupFixedNav();
