@@ -18,6 +18,12 @@ const openSubMenu = ($menuContainer) => {
     $menuContainer.removeClass('hideSubMenu');
 }
 const closeSubMenu = ($menuContainer) => {
+    const menuParent = $menuContainer.parent();
+
+    // TODO: eigene funktion für icon-handling
+    const icon = menuParent.find('svg');
+    icon.removeClass('rotate-180');
+
     $menuContainer.removeClass('showSubMenu');
     $menuContainer.addClass('hideSubMenu');
 }
@@ -46,20 +52,20 @@ const setSubMenuClassesOfSamePage = ($subMenuParents) => {
 
     $subMenuParentSamePage.addClass('current-menu-parent-has-items-same-page');
 
-    if(currentURL.hash){
-        $subMenuItems.each(function() {
+    if (currentURL.hash) {
+        $subMenuItems.each(function () {
             const subMenutItemUrl = new URL(this.href, currentURL.origin);
             subMenutItemUrl.pathname += subMenutItemUrl.pathname.endsWith("/") ? '' : '/';
-            if(subMenutItemUrl.toString() === currentURL.toString()){
+            if (subMenutItemUrl.toString() === currentURL.toString()) {
                 $(this).parent().addClass('active-menu-item-same-page');
             }
-            else{
+            else {
                 $(this).parent().addClass('not-active-menu-item-same-page');
             }
         });
 
     }
-    else{
+    else {
         $subMenuParentSamePage.addClass('active-menu-item-same-page').addClass('ignoreParentMenu');
         $subMenuItems.parent().addClass('not-active-menu-item-same-page');
     }
@@ -69,32 +75,55 @@ function setupDesktopNav() {
     const $outsideArea = $('body');
     const $topNav = $("#topNav");
     const $subMenuParents = $topNav.find("ul.menu-primary_navigation>li.menu-item-has-children");
+    const $subMenuItems = $subMenuParents.find("li.menu-item");
     const subMenuRemove = $("ul.menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
 
-    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
+    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($subMenuParents);
 
-    $subMenuParents.on('click', function(e) {
+    $subMenuParents.on('click', function (e) {
         const $childContainer = $(this).children('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
         if (subMenuHidden) {
-            closeAllSubMenus();
-            openSubMenu($childContainer);
             e.preventDefault();
             e.stopImmediatePropagation();
             e.stopPropagation();
+
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+
+            // TODO: separate funktion für icon
+            const icon = $(this).find('svg');
+            icon.addClass("rotate-180");
+        } else {
+            if ($(e.target).closest(".submenuContainer").length) {
+                const eventLi = $(e.target).parent();
+                console.log("eventLI", eventLi);
+            } else {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                closeAllSubMenus();
+            }
         }
     });
 
-    const closeAllSubMenus = () => {
-            const $childContainer = $subMenuParents.children('.submenuContainer');
+    // $subMenuItems.on('click', e => {
+    //     console.log("subMenu items click")
+    //     e.preventDefault();
+    //     e.stopImmediatePropagation();
+    //     e.stopPropagation();
+    // })
 
-            closeSubMenu($childContainer);
+    const closeAllSubMenus = () => {
+        const $childContainer = $subMenuParents.children('.submenuContainer');
+
+        closeSubMenu($childContainer);
     }
 
-    $outsideArea.on('click', function() {
+    $outsideArea.on('click', function () {
         closeAllSubMenus();
     })
 
@@ -108,28 +137,28 @@ function setupMobileNav() {
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
 
-    if(config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
+    if (config.hasAnchorLinks) setSubMenuClassesOfSamePage($menuParents);
 
-    $mobileNavButton.on('click', function() {
+    $mobileNavButton.on('click', function () {
         const $menuOpenParents = $menuParents.filter('.current-menu-parent:not(".ignoreParentMenu")');
         const $childContainer = $menuOpenParents.find(".submenuContainer");
         const $subMenuBtn = $menuOpenParents.find(".submenuToggle");
 
-        if($mobileNavButton.hasClass('mobileMenuOpen')){
+        if ($mobileNavButton.hasClass('mobileMenuOpen')) {
             closeMobileMenu($mobileNav);
         }
-        else{
+        else {
             openMobileMenu($mobileNav);
             closeAllSubMenus();
             openSubMenu($childContainer);
             $subMenuBtn.addClass("rotate-180");
         }
     })
-    $mobileNavCloseLinks.on('click', function() {
+    $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
     })
 
-    $submMenuParentSvg.on('click', function() {
+    $submMenuParentSvg.on('click', function () {
         const $childContainer = $(this).parent().siblings('.submenuContainer');
         const subMenuHidden = $childContainer.hasClass('hideSubMenu');
 
@@ -167,10 +196,10 @@ function setupFixedNav() {
             scrub: true,
             markers: false,
             onUpdate: function (self) {
-                if($siteHeader.hasClass('activeAnchorScroll')) return;
+                if ($siteHeader.hasClass('activeAnchorScroll')) return;
 
                 var velocity = self.getVelocity();
-                if(velocity > -200 && velocity < 200) return;
+                if (velocity > -200 && velocity < 200) return;
 
                 header_progress = self.progress.toFixed(2);
                 header_direction = self.direction;
@@ -190,13 +219,13 @@ function setupFixedNav() {
             }
         });
 
-        $(document).on('DOMNodeInserted', function() {
+        $(document).on('DOMNodeInserted', function () {
             st_header.refresh();
         });
     }
 }
 
-export function setupNavigation(configSetup){
+export function setupNavigation(configSetup) {
     Object.assign(config, configSetup);
 
     // desktop sub menus
@@ -204,7 +233,7 @@ export function setupNavigation(configSetup){
     // mobile menu
     setupMobileNav();
 
-    if(!config.hasAnimatedHeader) return;
+    if (!config.hasAnimatedHeader) return;
 
     // headroom-like top nav
     setupFixedNav();
