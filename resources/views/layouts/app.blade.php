@@ -10,8 +10,9 @@
 </a>
 
 @include('sections.header.header')
-<main id="main" class="main mx-auto max-w-none">
+<main id="main" class="mx-auto main max-w-none">
     @yield('content')
+    {{-- TODO: scheint nicht zu funktionieren --}}
     @includeWhen($search_active, 'sections.offcanvas.modal-search')
 </main>
 
