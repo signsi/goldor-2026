@@ -12,7 +12,7 @@
 @include('sections.header.header')
 <main id="main" class="mx-auto main max-w-none">
     @yield('content')
-    {{-- TODO: scheint nicht zu funktionieren --}}
+    {{-- TODO: ist abhängig von zwei Variablen! --}}
     @includeWhen($search_active, 'sections.offcanvas.modal-search')
 </main>
 
