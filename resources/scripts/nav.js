@@ -75,7 +75,6 @@ function setupDesktopNav() {
     const $outsideArea = $('body');
     const $topNav = $("#topNav");
     const $subMenuParents = $topNav.find("ul.menu-primary_navigation>li.menu-item-has-children");
-    const $subMenuItems = $subMenuParents.find("li.menu-item");
     const subMenuRemove = $("ul.menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
@@ -109,13 +108,6 @@ function setupDesktopNav() {
             }
         }
     });
-
-    // $subMenuItems.on('click', e => {
-    //     console.log("subMenu items click")
-    //     e.preventDefault();
-    //     e.stopImmediatePropagation();
-    //     e.stopPropagation();
-    // })
 
     const closeAllSubMenus = () => {
         const $childContainer = $subMenuParents.children('.submenuContainer');
