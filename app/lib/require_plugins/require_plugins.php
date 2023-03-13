@@ -64,13 +64,13 @@ function rocketpacker_register_required_plugins()
 		// This is an example of how to include a plugin bundled with a theme.
 		/*
         array(
-            'name'               => 'Rocket Gutenberg Extension', // The plugin name.
-            'slug'               => 'rocket-gutenberg-extension', // The plugin slug (typically the folder name).
-            'source'             => get_template_directory() . '/lib/gutenberg-extension.zip', // The plugin source.
-            'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-            'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-            'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-            'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+            'name'               => 'Rocket Gutenberg Extension',
+            'slug'               => 'rocket-gutenberg-extension', 
+            'source'             => get_template_directory() . '/lib/gutenberg-extension.zip', 
+            'required'           => false, 
+            'version'            => '', 
+            'force_activation'   => false, 
+            'force_deactivation' => true, 
             'external_url'       => '', // If set, overrides default API URL and points to an external URL.
             'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
@@ -80,10 +80,10 @@ function rocketpacker_register_required_plugins()
 
         // This is an example of how to include a plugin from an arbitrary external source in your theme.
         array(
-            'name'         => 'TGM New Media Plugin', // The plugin name.
-            'slug'         => 'tgm-new-media-plugin', // The plugin slug (typically the folder name).
-            'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', // The plugin source.
-            'required'     => true, // If false, the plugin is only 'recommended' instead of required.
+            'name'         => 'TGM New Media Plugin',
+            'slug'         => 'tgm-new-media-plugin', 
+            'source'       => 'https://s3.amazonaws.com/tgm/tgm-new-media-plugin.zip', 
+            'required'     => true, 
             'external_url' => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
         ),
 
@@ -97,114 +97,101 @@ function rocketpacker_register_required_plugins()
         ),
 
         */
-
+		// 8a6ba8ae-acac-42a0-b046-b238b095f88e
 		array(
-			'name'               => 'Genesis Custom Blocks Pro', // The plugin name.
-			'slug'               => 'genesis-custom-blocks-pro', // The plugin slug (typically the folder name).
-			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro.1.5.1.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => true, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'name'               => 'Genesis Custom Blocks Pro',
+			'slug'               => 'genesis-custom-blocks-pro', 
+			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro.1.5.1.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => true, 
 		),
 		array(
 			'name'      => 'WPMU DEV Dashboard',
 			'slug'      => 'wpmudev-updates',
-			'source'             => get_template_directory() . '/lib/944810_wpmu-dev-dashboard-4.11.16.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'source'             => get_template_directory() . '/lib/944810_wpmu-dev-dashboard-4.11.8.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+
 		),
 		array(
 			'name'      => 'Smush Pro',
 			'slug'      => 'wp-shmush-pro',
-			'source'             => get_template_directory() . '/lib/944810_smush-pro-3.12.1.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'source'             => get_template_directory() . '/lib/944810_smush-pro-3.12.1.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+
 		),
 		array(
 			'name'      => 'Defender Pro',
 			'slug'      => 'wp-defender',
-			'source'             => get_template_directory() . '/lib/944810_defender-pro-3.3.2.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'source'             => get_template_directory() . '/lib/944810_defender-pro-3.3.2.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+
 		),
 		array(
 			'name'      => 'Forminator Pro',
 			'slug'      => 'forminator',
-			'source'             => get_template_directory() . '/lib/944810_forminator-pro-1.19.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'source'             => get_template_directory() . '/lib/944810_forminator-pro-1.19.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+
 		),
 		array(
 			'name'      => 'Hummingbird Pro',
 			'slug'      => 'wp-hummingbird',
-			'source'             => get_template_directory() . '/lib/944810_hummingbird-pro-3.3.5.zip', // The plugin source.
-			'required'           => false, // If false, the plugin is only 'recommended' instead of required.
-			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url'       => '', // If set, overrides default API URL and points to an external URL.
-			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+			'source'             => get_template_directory() . '/lib/944810_hummingbird-pro-3.3.5.zip', 
+			'required'           => false, 
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+
 		),
 		array(
 			'name'      => 'Yoast SEO',
 			'slug'      => 'wordpress-seo',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		array(
 			'name'      => 'Enable Media Replace',
 			'slug'      => 'enable-media-replace',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		array(
 			'name'      => 'Yoast Duplicate Post',
 			'slug'      => 'duplicate-post',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		array(
 			'name'      => 'Regenerate Thumbnails',
 			'slug'      => 'regenerate-thumbnails',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		array(
 			'name'      => 'WebP Converter for Media',
 			'slug'      => 'webp-converter-for-media',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		array(
 			'name'      => 'SVG Support',
 			'slug'      => 'svg-support',
 			'required'  => false,
-			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
 		),
 		// This is an example of the use of 'is_callable' functionality. A user could - for instance -
 		// have WPSEO installed *or* WPSEO Premium. The slug would in that last case be different, i.e.
