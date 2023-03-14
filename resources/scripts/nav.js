@@ -172,24 +172,6 @@ function setupMobileNav() {
         }
     });
 
-    /*
-    $mobileNavCloseLinks.on('click', function () {
-        closeMobileMenu($mobileNav);
-    })
-
-    $submMenuParentSvg.on('click', function () {
-        const $childContainer = $(this).parent().siblings('.submenuContainer');
-        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
-
-        closeAllSubMenus();
-
-        if (subMenuHidden) {
-            openSubMenu($childContainer);
-            $(this).addClass("rotate-180");
-        }
-    });
-    */
-
     const closeAllSubMenus = () => {
         $submMenuParentSvg.removeClass("rotate-180");
         const $childContainer = $menuParents.children('.submenuContainer');
