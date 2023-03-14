@@ -75,7 +75,6 @@ function setupDesktopNav() {
     const $outsideArea = $('body');
     const $topNav = $("#topNav");
     const $subMenuParents = $topNav.find("ul.menu-primary_navigation>li.menu-item-has-children");
-    const $subMenuItems = $subMenuParents.find("li.menu-item");
     const subMenuRemove = $("ul.menu-primary_navigation>li.menu-item-has-children ul>li>div");
 
     subMenuRemove.removeClass().addClass('divContainer').children('ul').removeClass().addClass('mb-4 last:mb-0').children('li').removeClass().addClass('font-normal mt-1');
@@ -100,7 +99,6 @@ function setupDesktopNav() {
         } else {
             if ($(e.target).closest(".submenuContainer").length) {
                 const eventLi = $(e.target).parent();
-                console.log("eventLI", eventLi);
             } else {
                 e.preventDefault();
                 e.stopImmediatePropagation();
@@ -109,13 +107,6 @@ function setupDesktopNav() {
             }
         }
     });
-
-    // $subMenuItems.on('click', e => {
-    //     console.log("subMenu items click")
-    //     e.preventDefault();
-    //     e.stopImmediatePropagation();
-    //     e.stopPropagation();
-    // })
 
     const closeAllSubMenus = () => {
         const $childContainer = $subMenuParents.children('.submenuContainer');
@@ -146,14 +137,42 @@ function setupMobileNav() {
 
         if ($mobileNavButton.hasClass('mobileMenuOpen')) {
             closeMobileMenu($mobileNav);
-        }
-        else {
+        } else {
             openMobileMenu($mobileNav);
             closeAllSubMenus();
             openSubMenu($childContainer);
             $subMenuBtn.addClass("rotate-180");
         }
     })
+
+    $menuParents.on('click', function (e) {
+        const $childContainer = $(this).children('.submenuContainer');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
+
+        if (subMenuHidden) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+
+            // TODO: separate funktion für icon
+            const icon = $(this).find('svg');
+            icon.addClass("rotate-180");
+        } else {
+            if ($(e.target).closest(".submenuContainer").length) {
+                const eventLi = $(e.target).parent();
+            } else {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                closeAllSubMenus();
+            }
+        }
+    });
+
+    /*
     $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
     })
@@ -169,6 +188,7 @@ function setupMobileNav() {
             $(this).addClass("rotate-180");
         }
     });
+    */
 
     const closeAllSubMenus = () => {
         $submMenuParentSvg.removeClass("rotate-180");
