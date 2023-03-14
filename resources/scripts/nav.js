@@ -99,7 +99,6 @@ function setupDesktopNav() {
         } else {
             if ($(e.target).closest(".submenuContainer").length) {
                 const eventLi = $(e.target).parent();
-                console.log("eventLI", eventLi);
             } else {
                 e.preventDefault();
                 e.stopImmediatePropagation();
@@ -138,14 +137,42 @@ function setupMobileNav() {
 
         if ($mobileNavButton.hasClass('mobileMenuOpen')) {
             closeMobileMenu($mobileNav);
-        }
-        else {
+        } else {
             openMobileMenu($mobileNav);
             closeAllSubMenus();
             openSubMenu($childContainer);
             $subMenuBtn.addClass("rotate-180");
         }
     })
+
+    $menuParents.on('click', function (e) {
+        const $childContainer = $(this).children('.submenuContainer');
+        const subMenuHidden = $childContainer.hasClass('hideSubMenu');
+
+        if (subMenuHidden) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            e.stopPropagation();
+
+            closeAllSubMenus();
+            openSubMenu($childContainer);
+
+            // TODO: separate funktion für icon
+            const icon = $(this).find('svg');
+            icon.addClass("rotate-180");
+        } else {
+            if ($(e.target).closest(".submenuContainer").length) {
+                const eventLi = $(e.target).parent();
+            } else {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+                closeAllSubMenus();
+            }
+        }
+    });
+
+    /*
     $mobileNavCloseLinks.on('click', function () {
         closeMobileMenu($mobileNav);
     })
@@ -161,6 +188,7 @@ function setupMobileNav() {
             $(this).addClass("rotate-180");
         }
     });
+    */
 
     const closeAllSubMenus = () => {
         $submMenuParentSvg.removeClass("rotate-180");
