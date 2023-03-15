@@ -176,6 +176,11 @@ add_action('widgets_init', function () {
     ] + $config);
 });
 
+// lädt fontawesome für en Editor, oft brauchen wir dort auch Icons
+add_action( 'admin_enqueue_scripts', function() {
+    wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
+} );
+
 require_once 'helpers/helpers.php';
 require_once 'setup/theme_setup.php';
 require_once 'setup/block_setup.php';
