@@ -72,7 +72,8 @@ module.exports = {
       fontFamily: {
         serif: ['Crete Round', 'serif'],
         sans: ['IBM Plex Sans', 'Helvetica', 'sans-serif'],
-        icon: '"Font Awesome 6 Pro"',
+        icon: 'var(--fa-style-family-classic)',
+        'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
         // Abstände zwischen den typographischen Elementen
