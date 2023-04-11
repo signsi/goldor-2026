@@ -26,6 +26,12 @@ add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
 }, 100);
 
+// lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
+add_action( 'admin_enqueue_scripts', function() {
+    wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
+    bundle('editor')->enqueue();
+} );
+
 /**
  * Register the initial theme setup.
  *
@@ -175,11 +181,6 @@ add_action('widgets_init', function () {
         'description' =>  __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
     ] + $config);
 });
-
-// lädt fontawesome für en Editor, oft brauchen wir dort auch Icons
-add_action( 'admin_enqueue_scripts', function() {
-    wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
-} );
 
 require_once 'helpers/helpers.php';
 require_once 'setup/theme_setup.php';
