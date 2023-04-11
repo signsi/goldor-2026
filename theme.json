@@ -122,9 +122,14 @@
           "fontFamily": "Roboto,sans-serif"
         },
         {
-          "name": "\"Font Awesome 6 Pro\"",
+          "name": "Var(--fa-style-family-classic)",
           "slug": "icon",
-          "fontFamily": "\"Font Awesome 6 Pro\""
+          "fontFamily": "var(--fa-style-family-classic)"
+        },
+        {
+          "name": "Var(--fa-style-family-sharp)",
+          "slug": "icon-sharp",
+          "fontFamily": "var(--fa-style-family-sharp)"
         }
       ],
       "fontSizes": [
