@@ -133,6 +133,13 @@ function rocketpacker_register_required_plugins()
 			'force_deactivation' => false, 
 		),
 		array(
+			'name'      => 'Password Protected',
+			'slug'      => 'password-protected',
+			'required'  => false,
+			'force_activation'   => false, 
+			'force_deactivation' => false, 
+		),
+		array(
 			'name'      => 'Polylang',
 			'slug'      => 'polylang',
 			'required'  => false,
