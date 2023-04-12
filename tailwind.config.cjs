@@ -4,8 +4,7 @@ const tailconf = require('@rocket-gmbh/tailconf_helpers');
 // https://tailwindcss.com/docs/configuration
 module.exports = {
   important: true,
-  content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/tw-elements/dist/js/**/*.js',
-
+  content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/flowbite/**/*.js'
   ],
   theme: {
     fluidTypeSettings: {
@@ -170,7 +169,8 @@ module.exports = {
   plugins: [
     require('tailwindcss-hyphens'),
     require('@tailwindcss/forms'),
-    require("tw-elements/dist/plugin.cjs"),
+    // require('tw-elements/dist/plugin.cjs'),
+    require('flowbite/plugin'),
     tailconf.useFluidPlugin(),
   ],
 };

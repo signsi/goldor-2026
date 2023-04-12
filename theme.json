@@ -38,11 +38,6 @@
           "color": "var(--color-primary)"
         },
         {
-          "name": "Secondary",
-          "slug": "secondary",
-          "color": "var(--color-secondary)"
-        },
-        {
           "name": "Primarydark",
           "slug": "primarydark",
           "color": "var(--color-primarydark)"
@@ -51,6 +46,11 @@
           "name": "Primarylight",
           "slug": "primarylight",
           "color": "var(--color-primarylight)"
+        },
+        {
+          "name": "Secondary",
+          "slug": "secondary",
+          "color": "var(--color-secondary)"
         },
         {
           "name": "Secondarydark",
@@ -114,12 +114,7 @@
         {
           "name": "Ui-monospace",
           "slug": "mono",
-          "fontFamily": "ui-monospace,monospace"
-        },
-        {
-          "name": "Roboto",
-          "slug": "body",
-          "fontFamily": "Roboto,sans-serif"
+          "fontFamily": "ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,\"Liberation Mono\",\"Courier New\",monospace"
         },
         {
           "name": "Var(--fa-style-family-classic)",
