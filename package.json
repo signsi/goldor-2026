@@ -32,6 +32,7 @@
     "@tailwindcss/forms": "^0.5.2",
     "@tailwindcss/typography": "^0.5.2",
     "animate.css": "^4.1.1",
+    "flowbite": "^1.6.5",
     "gsap": "^3.11.4",
     "headroom.js": "^0.12.0",
     "p-queue": "^7.2.0",
@@ -39,7 +40,6 @@
     "slick-carousel": "^1.8.1",
     "tailwindcss-fluid-type": "^2.0.3",
     "tailwindcss-hyphens": "^0.1.0",
-    "tw-elements": "^1.0.0-beta1",
     "wowjs": "^1.1.3"
   }
 }

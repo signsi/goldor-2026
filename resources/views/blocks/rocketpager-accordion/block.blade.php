@@ -1,6 +1,8 @@
 @php
     $id_num = wp_rand(0, PHP_INT_MAX);
     $accordion_id = 'simple-accordion-' . $id_num;
+    $firstOpen = block_value('first-element-open');
+    $isFirstElement = true;
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
@@ -8,39 +10,44 @@
 @section('content-section')
 
     @if (block_rows('element'))
-        <div class="accordion" id="{{ $accordion_id }}">
+        <div class="accordion" id="{{ $accordion_id }}" data-accordion="collapse">
             @while (block_rows('element'))
                 @php
                     block_row('element');
                     $identifier = App\echoDeepLinktitle() . '-' . $id_num;
                 @endphp
                 @if (!block_sub_value('hide-element'))
-                    <div class="accordion-item bg-white border border-gray-200">
-                        <h2 class="accordion-header mb-0" id="heading-{{ $identifier }}">
-                            <button
-                                class="accordion-button group relative flex w-full items-center rounded-none border-0 bg-white py-4 px-5 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
-                                type="button" data-te-collapse-init data-te-collapse-collapsed data-te-toggle="collapse"
-                                data-te-target="#collapse-{{ $identifier }}" {{-- aria-expanded="true" --}}
-                                aria-controls="collapse-{{ $identifier }}">
-                                {{ block_sub_value('title') }}
-                                <span class="ml-auto -mr-1 h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                            d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                    </svg>
+                    <div class="">
+                        <h2 id="heading-{{ $identifier }}" class="text-base mb-0">
+                            <button type="button"
+                                class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                                data-accordion-target="#body-{{ $identifier }}"
+                                {{ $firstOpen && $isFirstElement ? 'aria-expanded="true"' : 'aria-expanded="false"' }}
+                                aria-controls="body-{{ $identifier }}">
+                                <span>
+                                    {{ block_sub_value('title') }}
                                 </span>
+                                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                             </button>
                         </h2>
-                        <div id="collapse-{{ $identifier }}" class="hidden" data-te-parent="#{{ $accordion_id }}">
-                            <div class="accordion-body py-4 px-5 text-font">
-                                {!! App\sanitize_out(block_sub_value('content'), 'text_area') !!}
-                            </div>
+                        <div id="body-{{ $identifier }}"
+                            class="{{ $firstOpen && $isFirstElement ? 'visible' : 'hidden' }} p-5 border-gray-200 border border-b-0"
+                            aria-labelledby="heading-{{ $identifier }}">
+                            {!! App\sanitize_out(block_sub_value('content'), 'text_area') !!}
                         </div>
                     </div>
                 @endif
+                @php
+                    $isFirstElement = false;
+                @endphp
             @endwhile
-            {{ reset_block_rows('element') }}
         </div>
+
+        {{ reset_block_rows('element') }}
     @endif
 @overwrite

@@ -29,6 +29,7 @@ add_action('enqueue_block_editor_assets', function () {
 // lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
 add_action( 'admin_enqueue_scripts', function($hook) {
     wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
+    // wp_enqueue_script( 'google-font', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap', array(), '1.0.0', true );
 } );
 
 /**
