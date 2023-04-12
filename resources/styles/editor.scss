@@ -2,32 +2,33 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
-// @import '@fancyapps/ui/dist/fancybox/fancybox.css';
-// @import "animate.css/animate.min.css";
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '@fancyapps/ui/dist/fancybox/fancybox.css';
+@import "animate.css/animate.min.css";
 
-// @import './variables.scss';
-// @import './mixins.scss';
-// @import './typography.scss';
-// @import './typography-extend.scss';
-// @import './typography-editor-resets.scss';
-// @import './bg-styles.scss';
-// @import './helpers.scss';
-// @import './slider.scss';
-// @import './margin.scss';
-// @import './padding.scss';
-// @import './spacing.scss';
-// @import './layout.scss';
-// @import './header.scss';
-// @import './footer.scss';
-// @import './group-columns.scss';
-// @import './core-blocks.scss';
-// @import './news.scss';
-// @import './forminator.scss';
-// @import './new_styles/image-wrapper.scss';
-// @import './new_styles/rocketpager-iconbox.scss';
+@import './variables.scss';
+@import './mixins.scss';
+@import './typography.scss';
+@import './typography-extend.scss';
+@import './typography-editor-resets.scss';
+@import './bg-styles.scss';
+@import './helpers.scss';
+@import './slider.scss';
+@import './margin.scss';
+@import './padding.scss';
+@import './spacing.scss';
+@import './layout.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './group-columns.scss';
+@import './core-blocks.scss';
+@import './news.scss';
+@import './forminator.scss';
+@import './new_styles/image-wrapper.scss';
+@import './new_styles/rocketpager-iconbox.scss';
+
 .cf-container {
 
     input[type=checkbox],

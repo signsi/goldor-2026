@@ -27,9 +27,8 @@ add_action('enqueue_block_editor_assets', function () {
 }, 100);
 
 // lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
-add_action( 'admin_enqueue_scripts', function() {
+add_action( 'admin_enqueue_scripts', function($hook) {
     wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
-    bundle('editor')->enqueue();
 } );
 
 /**
