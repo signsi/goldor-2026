@@ -2,9 +2,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
 // @import '@fancyapps/ui/dist/fancybox/fancybox.css';
 // @import "animate.css/animate.min.css";
 
@@ -28,12 +28,39 @@
 // @import './forminator.scss';
 // @import './new_styles/image-wrapper.scss';
 // @import './new_styles/rocketpager-iconbox.scss';
+.cf-container {
 
+    input[type=checkbox],
+    input[type=radio] {
+        --tw-shadow: 0 0 #0000;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        background-origin: border-box;
+        border-color: #6b7280;
+        border-width: 1px;
+        color: #2563eb;
+        display: inline-block;
+        flex-shrink: 0;
+        height: 1rem;
+        padding: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        -webkit-user-select: none;
+        user-select: none;
+        vertical-align: middle;
+        width: 1rem;
+    }
+}
 
-
-// :root {
-//     --wp-admin-theme-color: var(--color-primary);
-// }
+.cf-container {
+    input[type=checkbox]:checked::before {
+        content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2020%2020%27%3E%3Cpath%20d%3D%27M14.83%204.89l1.34.94-5.81%208.38H9.02L5.78%209.67l1.34-1.25%202.57%202.4z%27%20fill%3D%27%233582c4%27%2F%3E%3C%2Fsvg%3E);
+        margin: -0.1875rem 0 0 -0.25rem;
+        height: 1.3125rem;
+        width: 1.3125rem;
+    }
+}
 
 .block-editor-block-list__layout .block-editor-block-list__block {
     font-family: 'Open Sans', sans-serif;
