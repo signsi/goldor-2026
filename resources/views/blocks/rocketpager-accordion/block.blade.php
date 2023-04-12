@@ -22,7 +22,7 @@
                             <button type="button"
                                 class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
                                 data-accordion-target="#body-{{ $identifier }}"
-                                {{ $firstOpen && $isFirstElement ? 'aria-expanded="true"' : 'aria-expanded="false"' }}
+                                {{ $firstOpen && $isFirstElement ? 'aria-expanded=true' : 'aria-expanded=false' }}
                                 aria-controls="body-{{ $identifier }}">
                                 <span>
                                     {{ block_sub_value('title') }}
@@ -36,7 +36,7 @@
                             </button>
                         </h2>
                         <div id="body-{{ $identifier }}"
-                            class="{{ $firstOpen && $isFirstElement ? 'visible' : 'hidden' }} p-5 border-gray-200 border border-b-0"
+                            class="{{ $firstOpen && $isFirstElement ? '' : 'hidden' }} p-5 border-gray-200 border border-b-0"
                             aria-labelledby="heading-{{ $identifier }}">
                             {!! App\sanitize_out(block_sub_value('content'), 'text_area') !!}
                         </div>
