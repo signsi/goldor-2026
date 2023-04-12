@@ -8,7 +8,6 @@ header#siteHeader {
             /* Level 0 */
             >ul {
                 >li {
-                    @apply font-bold;
                     &.current_page_parent, &.current-menu-item {
                         @apply text-primary before:w-full before:left-0 before:bg-primary #{!important};
                         .submenuToggle {
