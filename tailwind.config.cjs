@@ -170,7 +170,7 @@ module.exports = {
   plugins: [
     require('tailwindcss-hyphens'),
     require('@tailwindcss/forms'),
-    require('tw-elements/dist/plugin'),
+    require("tw-elements/dist/plugin.cjs"),
     tailconf.useFluidPlugin(),
   ],
 };
