@@ -28,7 +28,7 @@
                 </button>
             </h2>
             <div id="body-{{ $accordion_id }}"
-                class="{{ $isOpen ? 'visible' : 'hidden' }} p-5 border-gray-200 border border-b-0"
+                class="{{ $isOpen ? '' : 'hidden' }} p-5 border-gray-200 border border-b-0"
                 aria-labelledby="heading-{{ $accordion_id }}">
                 {!! App\sanitize_out(block_value('inner-block'), 'allow_iframe') !!}
             </div>
