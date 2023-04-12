@@ -1,6 +1,8 @@
 @php
     $id_num = wp_rand(0, PHP_INT_MAX);
     $accordion_id = 'simple-accordion-' . $id_num;
+    $firstOpen = block_value('first-element-open');
+    $isFirstElement = true;
 @endphp
 
 @extends('blocks.helpers.block-wrapper')
@@ -19,7 +21,8 @@
                         <h2 id="heading-{{ $identifier }}" class="text-base mb-0">
                             <button type="button"
                                 class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800"
-                                data-accordion-target="#body-{{ $identifier }}" aria-expanded="true"
+                                data-accordion-target="#body-{{ $identifier }}"
+                                {{ $firstOpen && $isFirstElement ? 'aria-expanded="true"' : 'aria-expanded="false"' }}
                                 aria-controls="body-{{ $identifier }}">
                                 <span>
                                     {{ block_sub_value('title') }}
@@ -32,15 +35,16 @@
                                 </svg>
                             </button>
                         </h2>
-                        <div id="body-{{ $identifier }}" class="hidden p-5 border-gray-200 border border-b-0" aria-labelledby="heading-{{ $identifier }}">
+                        <div id="body-{{ $identifier }}"
+                            class="{{ $firstOpen && $isFirstElement ? 'visible' : 'hidden' }} p-5 border-gray-200 border border-b-0"
+                            aria-labelledby="heading-{{ $identifier }}">
                             {!! App\sanitize_out(block_sub_value('content'), 'text_area') !!}
-
-                            {{-- <div
-                                class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 [&>p]:text-font">
-                            </div> --}}
                         </div>
                     </div>
                 @endif
+                @php
+                    $isFirstElement = false;
+                @endphp
             @endwhile
         </div>
 
