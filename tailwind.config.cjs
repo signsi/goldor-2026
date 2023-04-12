@@ -113,8 +113,8 @@ module.exports = {
         'full-hd': '90px',
       },
       height: {
-        'menu-items': '45px',
-        'menu-items-mobile': '35px'
+        'menu-items': '30px',
+        'menu-items-mobile': '30px'
       },
       content: {
         default: '""',
@@ -131,10 +131,6 @@ module.exports = {
         icon: ['20px', '1'],
         'icon-big': ['32px', '1'],
         '5.5xl': ['56px', '1.1'],
-      },
-      height: {
-        'menu-items': '45px',
-        'menu-items-mobile': '35px'
       },
       lineHeight: {
         0: '0',
