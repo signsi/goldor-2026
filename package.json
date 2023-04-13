@@ -38,6 +38,7 @@
     "p-queue": "^7.2.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "tailwind-children": "^0.5.0",
     "tailwindcss-fluid-type": "^2.0.3",
     "tailwindcss-hyphens": "^0.1.0",
     "wowjs": "^1.1.3"

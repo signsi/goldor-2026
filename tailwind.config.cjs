@@ -168,5 +168,6 @@ module.exports = {
     // require('tw-elements/dist/plugin.cjs'),
     require('flowbite/plugin'),
     tailconf.useFluidPlugin(),
+    require('tailwind-children'),
   ],
 };
