@@ -26,11 +26,20 @@ add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
 }, 100);
 
-// lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
-add_action( 'admin_enqueue_scripts', function($hook) {
+function enqueue_fonts() {
     wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
-    // wp_enqueue_script( 'google-font', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap', array(), '1.0.0', true );
-} );
+    wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap', false );
+}
+
+// lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
+add_action( 'admin_enqueue_scripts', function() {
+    bundle('editor')->enqueue();
+    enqueue_fonts();
+});
+
+add_action( 'wp_enqueue_scripts', function() {
+    enqueue_fonts();
+});
 
 /**
  * Register the initial theme setup.
