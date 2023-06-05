@@ -1,0 +1,80 @@
+version: '3.7'
+services:
+  db:
+    image: mariadb:10.6.10
+    container_name: ${PROJECT_NAME}_db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '${PORT_DB}:3306'
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - 'seccomp:unconfined'
+      - 'apparmor:unconfined'
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    container_name: ${PROJECT_NAME}_wp
+    build:
+      args:
+        BASE_IMG: ${BASE_IMG:-wordpress:6.2.2-php8.2-apache}
+        gid: "1006"
+        uid: "1000"
+        username: rocket-dev
+      context:  ${SCRIPT_PATH:-/home/rocket-dev/rocket-env-scripts}
+      dockerfile: Dockerfile_wp
+    env_file:
+      - .env
+    environment:
+      SSH_AUTH_SOCK: /ssh-agent
+    depends_on:
+      - db
+    init: true
+    volumes:
+      # - ./uploads:/var/www/html/wp-content/uploads
+      # - ./themes:/var/www/html/wp-content/themes
+      # - ./plugins:/var/www/html/wp-content/plugins
+      # - ./.htaccess:/var/www/html/.htaccess
+      - ./wp-config.php:/var/www/html/wp-config.php
+      # - ./php.ini:/usr/local/etc/php/conf.d/php.ini/php.ini
+      - wp_data:/var/www/html
+      - ${SCRIPT_PATH:-/home/rocket-dev/rocket-env-scripts}/:/scripts
+      - ${HOME}/.ssh:/home/rocket-dev/.ssh
+      # - ./export:/var/www/html/export
+      - ./.env:/.env
+    ports:
+      - '${PORT_WP}:80'
+    restart: always
+    links:
+      - db
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: ${PROJECT_NAME}_phpmyadmin
+    depends_on:
+      - db
+    restart: always
+    ports:
+      - '${PORT_PMA}:80'
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      UPLOAD_LIMIT: 1G
+
+volumes:
+  db_data: {}
+  wp_data: {}
