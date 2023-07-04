@@ -33,7 +33,8 @@ function enqueue_fonts() {
 
 // lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
 add_action( 'admin_enqueue_scripts', function() {
-    bundle('editor')->enqueue();
+    // TODO: editor.scss Styling brauchen wir nur im Block-Editor
+    // bundle('editor')->enqueue();
     enqueue_fonts();
 });
 
