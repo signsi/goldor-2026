@@ -11,30 +11,27 @@ module.exports = {
 
     },
     fluidType: {
-      settings: {
-        fontSizeMin: 1.125,
-        fontSizeMax: 1.25,
-        ratioMin: 1.125,
-        ratioMax: 1.2,
-        screenMin: 26.25,
-        screenMax: 90,
-        unit: 'rem',
-        prefix: ''
+      settings:{
+        screenMin: 768,
+        screenMax: 1280,
       },
       values: {
-        'xs': [-2, 1.4],
-        'sm': [-1, 1.4],
-        'base': [0, 1.4],
-        'lg': [1, 1.2],
-        'xl': [2, 1.2],
-        '2xl': [3, 1.2],
-        '3xl': [4, 1.2],
-        '4xl': [5, 1.1],
-        '5xl': [6, 1.1],
-        '6xl': [7, 1.1],
-        '7xl': [8, 1],
-        '8xl': [9, 1],
-        '9xl': [10, 1],
+        'xs': [12, 14, 1.5],
+        'sm': [15, 18, 1.5],
+        'base': [16, 20, 1.4],
+        'lg': [18, 24, 1.4],
+        'xl': [20, 28, 1.4],
+        '2xl': [22, 32, 1.3],
+        '3xl': [24, 40, 1.2],
+        '4xl': [28, 44, 1.2],
+        '5xl': [32, 52, 1.1],
+        '6xl': [44, 64, 1.1],
+        '7xl': [64, 72, 1],
+        '8xl': [72, 96, 1],
+        '9xl': [96, 128, 1],
+        'icon': ['20px', {'lineHeight':'1'}],
+        'icon-big': ['32px', {'lineHeight':'1'}],
+        '0': 0,
       }
     },
     extend: {
@@ -125,12 +122,6 @@ module.exports = {
         'square': '"\\f0c8"',
         'square-checked': '"\\f14a"',
         'arrow-right-long': '"\\f178"',
-      },
-      fontSize: {
-        0: ['0', '0'],
-        icon: ['20px', '1'],
-        'icon-big': ['32px', '1'],
-        '5.5xl': ['56px', '1.1'],
       },
       lineHeight: {
         0: '0',

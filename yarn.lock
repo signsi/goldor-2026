@@ -3229,10 +3229,10 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.7.tgz#ccab5c8f7dc557a52ca3288c10075c9ccd37fff7"
   integrity sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==
 
-"@rocket-gmbh/tailconf_helpers@^0.1.0":
-  version "0.1.0"
-  resolved "https://gitlab.com/api/v4/projects/40273092/packages/npm/@rocket-gmbh/tailconf_helpers/-/@rocket-gmbh/tailconf_helpers-0.1.0.tgz#f0e8aa9d18633888c3f0d1d568368ba756cb2049"
-  integrity sha1-8OiqnRhjOIjD8NHVaDaLp1bLIEk=
+"@rocket-gmbh/tailconf_helpers@^1.0.0":
+  version "1.0.0"
+  resolved "https://gitlab.com/api/v4/projects/40273092/packages/npm/@rocket-gmbh/tailconf_helpers/-/@rocket-gmbh/tailconf_helpers-1.0.0.tgz#f201ca5eb0ce610bc67b6aeee6bbdeb0460b5621"
+  integrity sha1-8gHKXrDOYQvGe2ru5rvesEYLViE=
 
 "@roots/blade-loader@6.9.1":
   version "6.9.1"
@@ -4541,9 +4541,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001400, caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
-  version "1.0.30001478"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001478.tgz#0ef8a1cf8b16be47a0f9fc4ecfc952232724b32a"
-  integrity sha512-gMhDyXGItTHipJj2ApIvR+iVB5hd0KP3svMWWXDvZOmjzJJassGLMfxRkQCSYgGd2gtdL/ReeiyvMSFD1Ss6Mw==
+  version "1.0.30001515"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001515.tgz"
+  integrity sha512-eEFDwUOZbE24sb+Ecsx3+OvNETqjWIdabMy52oOkIgcUtAsQifjUG9q4U9dgTHJM2mfk4uEPxc0+xuFdJ629QA==
 
 ccount@^2.0.0:
   version "2.0.1"
