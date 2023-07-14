@@ -129,11 +129,6 @@
       ],
       "fontSizes": [
         {
-          "name": "0",
-          "slug": "0",
-          "size": "0"
-        },
-        {
           "name": "xs",
           "slug": "xs",
           "size": "0.75rem"
@@ -197,21 +192,6 @@
           "name": "9xl",
           "slug": "9xl",
           "size": "8rem"
-        },
-        {
-          "name": "icon",
-          "slug": "icon",
-          "size": "20px"
-        },
-        {
-          "name": "icon-big",
-          "slug": "icon-big",
-          "size": "32px"
-        },
-        {
-          "name": "5.5xl",
-          "slug": "5.5xl",
-          "size": "56px"
         }
       ]
     }
