@@ -139,31 +139,37 @@ function crb_attach_theme_options()
         [
             'type' => 'text',
             'key' => 'linkedin',
+            'default' => '#',
             'label' => 'LinkedIn Profil',
         ],
         [
             'type' => 'text',
             'key' => 'facebook',
+            'default' => '#',
             'label' => 'Facebook Profil',
         ],
         [
             'type' => 'text',
             'key' => 'twitter',
+            'default' => '#',
             'label' => 'Twitter Profil',
         ],
         [
             'type' => 'text',
             'key' => 'instagram',
+            'default' => '#',
             'label' => 'Instagram Profil',
         ],
         [
             'type' => 'text',
             'key' => 'xing',
+            'default' => '#',
             'label' => 'XING Profil',
         ],
         [
             'type' => 'text',
             'key' => 'youtube',
+            'default' => '#',
             'label' => 'YouTube Profil',
         ],
     ];

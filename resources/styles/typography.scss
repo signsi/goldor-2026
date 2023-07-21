@@ -4,13 +4,8 @@ body:not(.wp-core-ui),
     @apply text-base lining-nums;
 }
 
-
 p {
-    @apply text-base my-typography xl:max-w-prose;
-    &.lead,
-    &.is-style-lead {
-        @apply text-lg;
-    }
+    @apply text-base my-typography max-w-prose;
     &.has-text-align-center {
         @apply mx-auto;
     }
@@ -21,6 +16,47 @@ p {
         @apply mr-0 ml-auto;
     }
 }
+
+.has-xs-font-size {
+    @apply text-xs #{!important};
+}
+.has-sm-font-size {
+    @apply text-sm #{!important};
+}
+.has-base-font-size {
+    @apply text-base #{!important};
+}
+.has-lg-font-size {
+    @apply text-lg #{!important};
+}
+.has-xl-font-size {
+    @apply text-xl #{!important};
+}
+.has-2xl-font-size {
+    @apply text-2xl #{!important};
+}
+.has-3xl-font-size {
+    @apply text-3xl #{!important};
+}
+.has-4xl-font-size {
+    @apply text-4xl #{!important};
+}
+.has-5xl-font-size {
+    @apply text-5xl #{!important};
+}
+.has-6xl-font-size {
+    @apply text-6xl #{!important};
+}
+.has-7xl-font-size {
+    @apply text-7xl #{!important};
+}
+.has-8xl-font-size {
+    @apply text-8xl #{!important};
+}
+.has-9xl-font-size {
+    @apply text-9xl #{!important};
+}
+
 a:not([class^=components-]) {
     @apply transition-colors hover:text-primary;
 }

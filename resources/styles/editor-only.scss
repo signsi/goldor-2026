@@ -1,0 +1,11 @@
+:root {
+    --wp--preset--font-family--body: "IBM Plex Sans", Helvetica, sans-serif;
+}
+
+html :where(.editor-styles-wrapper) {
+    @apply font-sans;
+}
+
+.is-root-container.block-editor-block-list__layout > .wp-block {
+    @apply py-section px-gutter;
+}

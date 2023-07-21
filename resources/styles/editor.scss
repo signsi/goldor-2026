@@ -14,8 +14,8 @@
 // @import './bg-styles.scss';
 // @import './helpers.scss';
 // @import './slider.scss';
-// @import './margin.scss';
-// @import './padding.scss';
+@import './margin.scss';
+@import './padding.scss';
 // @import './spacing.scss';
 // @import './layout.scss';
 // @import './header.scss';
@@ -26,11 +26,5 @@
 // @import './forminator.scss';
 // @import './new_styles/image-wrapper.scss';
 // @import './new_styles/rocketpager-iconbox.scss';
+@import './editor-only.scss';
 
-:root {
-    --wp--preset--font-family--body: "IBM Plex Sans", Helvetica, sans-serif;
-}
-
-html :where(.editor-styles-wrapper) {
-    @apply font-sans;
-}

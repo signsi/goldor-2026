@@ -2,46 +2,6 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
-
-    // Group-Styles
-    // register_block_style('core/group', [
-    //     'name' => 'tiny',
-    //     'label' => __('Extra schmall', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-    // register_block_style('core/group', [
-    //     'name' => 'slim',
-    //     'label' => __('Schmall', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-    // register_block_style('core/group', [
-    //     'name' => 'default',
-    //     'label' => __('Standard', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-    // register_block_style('core/group', [
-    //     'name' => 'large',
-    //     'label' => __('Breit', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-    // register_block_style('core/group', [
-    //     'name' => 'xlarge',
-    //     'label' => __('Extra breit', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-
-    // Columns-Styles
-    // register_block_style('core/columns', [
-    //     'name' => 'overlapping--right-1',
-    //     'label' => __('randabfallend rechts', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-    // register_block_style('core/columns', [
-    //     'name' => 'overlapping--right-2',
-    //     'label' => __('randabfallend links', 'rocketpager'),
-    //     'style_handle' => 'awp-block-styles',
-    // ]);
-
     // Columns
     register_block_style('core/columns', [
         'name' => 'columns-tiny',
@@ -88,34 +48,64 @@ add_action('init', function () {
 
     // List-Styles
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--check-circle',
-        'label' => __('Icon-Liste', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-left',
+        'label' => __('Icon - Pfeil links (links vom Text)', 'rocketpager'),
     ]);
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--arrowright',
-        'label' => __('Pfeil-Liste', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-right',
+        'label' => __('Icon - Pfeil rechts (links vom Text)', 'rocketpager'),
     ]);
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--download',
-        'label' => __('Download-Liste', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-down',
+        'label' => __('Icon - Pfeil unten (links vom Text)', 'rocketpager'),
     ]);
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--linklist',
-        'label' => __('Link-Liste', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-left-long',
+        'label' => __('Icon - langer Pfeil links (links vom Text)', 'rocketpager'),
     ]);
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--singlelink',
-        'label' => __('Link mit Pfeil', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-right-long',
+        'label' => __('Icon - langer Pfeil rechts (links vom Text)', 'rocketpager'),
     ]);
     register_block_style('core/list', [
-        'name' => 'liststyle-icon--return',
-        'label' => __('Link zurück', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
+        'name' => 'liststyle-icon-start--arrow-down-long',
+        'label' => __('Icon - langer Pfeil unten (links vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-start--circle-check',
+        'label' => __('Icon - Check (links vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-start--arrow-down-to-line',
+        'label' => __('Icon - Download (links vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-right',
+        'label' => __('Icon - Pfeil rechts (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-down',
+        'label' => __('Icon - Pfeil unten (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-right-long',
+        'label' => __('Icon - langer Pfeil rechts (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-down-long',
+        'label' => __('Icon - langer Pfeil unten (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--circle-check',
+        'label' => __('Icon - Check (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-down-to-line',
+        'label' => __('Icon - Download (rechts vom Text)', 'rocketpager'),
+    ]);
+    register_block_style('core/list', [
+        'name' => 'liststyle-icon-end--arrow-down-to-line--bordered',
+        'label' => __('Icon - Download mit Rahmen (rechts vom Text)', 'rocketpager'),
     ]);
 });
 
