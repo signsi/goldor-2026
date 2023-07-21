@@ -5,6 +5,9 @@ html {
 
 body {
     @apply overflow-x-hidden;
+    &.blog main p {
+        @apply mx-auto;
+    }
 }
 
 
@@ -14,6 +17,9 @@ body.single main > article {
         // Abstände für Gruppe auf der 1. Ebene
         @apply py-section;
     }
+}
+#main > *:not(.wp-block-group) {
+    @apply first:pt-section last:pb-section mx-auto max-w-default;
 }
 
 // Gruppen-Styling generell

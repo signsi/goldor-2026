@@ -3,7 +3,7 @@
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-large 2xl:max-w-xlarge px-gutter py-element mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-gutter">
-                <div class="footerSidebar-1 flex flex-col gap-y-gutter">
+                <div class="footerSidebar-1 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-1'))
                         @php (dynamic_sidebar('sidebar-footer-1'))
                     @else
@@ -11,25 +11,25 @@
                         @relativeInclude('elements.address')
                     @endif
                 </div>
-                <div class="footerSidebar-2 flex flex-col gap-y-gutter">
+                <div class="footerSidebar-2 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-2'))
                         @php (dynamic_sidebar('sidebar-footer-2'))
                     @else
                         @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1'])
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2'])
                     @endif
                 </div>
-                <div class="footerSidebar-3 flex flex-col gap-y-gutter">
+                <div class="footerSidebar-3 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php (dynamic_sidebar('sidebar-footer-3'))
                     @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_3', 'list_style' => 'is-style-liststyle-icon--download'])
+                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2'])
                     @endif
                 </div>
-                <div class="footerSidebar-4 md:col-span-3 2xl:col-span-1 grid grid-cols-1 md:grid-cols-3 2xl:flex 2xl:flex-col gap-gutter">
+                <div class="footerSidebar-4 md:col-span-3 2xl:col-span-1 grid grid-cols-1 md:grid-cols-3 2xl:flex 2xl:flex-col gap-element">
                     @if(is_active_sidebar('sidebar-footer-4'))
                         @php (dynamic_sidebar('sidebar-footer-4'))
                     @else
+                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_3', 'list_style' => 'is-style-liststyle-icon--download'])
                         @relativeInclude('elements.socialmedia-nav')
                         @relativeInclude('elements.mailchimp')
                         @if(is_active_sidebar('sidebar-footer-cta'))

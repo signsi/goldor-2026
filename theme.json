@@ -102,9 +102,9 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "name": "IBM Plex Sans",
+          "name": "DM Sans",
           "slug": "sans",
-          "fontFamily": "IBM Plex Sans,Helvetica,sans-serif"
+          "fontFamily": "DM Sans,Helvetica,sans-serif"
         },
         {
           "name": "Crete Round",

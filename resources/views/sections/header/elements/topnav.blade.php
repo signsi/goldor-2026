@@ -21,10 +21,9 @@
                     @endphp
                 @else
                     <a href='/wp-admin/nav-menus.php'>
-                        <figure>
-                            <img src='https://media3.giphy.com/media/oBQZIgNobc7ewVWvCd/giphy.gif?cid=790b761180939b672f05df9b0bbb8c1e5ad5972f019ad1a5&rid=giphy.gif&ct=g' class='max-h-20' />
-                            <figcaption>Füge eine Navigation mit dem Namen 'primary_navigation' hinzu.</figcaption>
-                        </figure>
+                        <div class="p-3 border border-solid border-font text-xs text-font hover:bg-primary hover:text-white transition-colors">
+                            Erstelle eine Navigation und verlinke diese mit der "Main Navigation".
+                        </div>
                     </a>
                 @endif
             </nav>

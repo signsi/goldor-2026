@@ -17,10 +17,9 @@
             ]))
         @else
             <a href='/wp-admin/nav-menus.php'>
-                <figure>
-                    <img src='https://media2.giphy.com/media/R6gvnAxj2ISzJdbA63/giphy.gif?cid=790b76117862214d3f3aedf39134a7466107025d3f133323&rid=giphy.gif&ct=g' class='max-h-20' />
-                    <figcaption>Füge eine Navigation mit dem Namen '{{ $menu_location }}' hinzu oder definiere die Spalte.</figcaption>
-                </figure>
+                <div class="p-3 border border-solid border-white text-xs text-white hover:bg-white hover:text-font transition-colors">
+                    Füge eine Navigation mit dem Namen '{{ $menu_location }}' hinzu oder definiere die Spalte.
+                </div>
             </a>
         @endif
     </div>

@@ -155,3 +155,8 @@ if (!function_exists('rocket_ajax_load_more')):
     add_action('wp_ajax_nopriv_rocket_ajax_load_more', 'rocket_ajax_load_more');
     add_action('wp_ajax_rocket_ajax_load_more', 'rocket_ajax_load_more');
 endif;
+
+// Entfernt die Widgets beim Theme-Wechsel
+add_action('switch_theme', function () {
+    update_option( 'widget_block', '' );
+});

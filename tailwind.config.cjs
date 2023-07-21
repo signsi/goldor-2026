@@ -62,12 +62,17 @@ module.exports = {
         tiny: '37.5rem', //600px
         slim: '45rem', //720px
         default: '71.25rem', //1140px
+        medium: '80rem', //1280px
         large: '90rem', //1440px
-        xlarge: '90vw', //90vw
+        xlarge: '71.875vw',
+        '2xlarge': '90vw',
+      },
+      screens: {
+        '3xl': '1680px',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
-        sans: ['IBM Plex Sans', 'Helvetica', 'sans-serif'],
+        sans: ['DM Sans', 'Helvetica', 'sans-serif'],
         icon: 'var(--fa-style-family-classic)',
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
@@ -118,10 +123,18 @@ module.exports = {
         'slider-prev': '"\\f177"',
         'slider-next': '"\\f178"',
         'slider-dot': '"\\2022"',
-        'check-circle': '"\\f111"',
-        'square': '"\\f0c8"',
-        'square-checked': '"\\f14a"',
+
+        'arrow-left-long': '"\\f177"',
         'arrow-right-long': '"\\f178"',
+        'arrow-down-long': '"\\f175"',
+
+        'arrow-left': '"\\f060"',
+        'arrow-right': '"\\f061"',
+        'arrow-down': '"\\f063"',
+
+        'circle-check': '"\\f058"',
+        'arrow-down-to-line': '"\\f33d"',
+        'square-checked': '"\\f14a"',
       },
       lineHeight: {
         0: '0',

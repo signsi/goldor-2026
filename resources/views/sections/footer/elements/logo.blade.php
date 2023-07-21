@@ -5,7 +5,6 @@
 
 <div class="footer-logo flex">
     <a href="{{ App\get_home_url() }}" rel="home">
-        <img src="{{ $logo_src }}" class="h-[30px] md:h-[35px] lg:h-[30px] xl:h-[40px] w-auto"
-            alt="Logo - {{ $company_name }}" />
+        <img src="{{ $logo_src }}" class="h-menu-items-mobile md:h-menu-items w-auto" alt="Logo - {{ $company_name }}" />
     </a>
 </div>

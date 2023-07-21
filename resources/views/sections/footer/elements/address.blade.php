@@ -15,12 +15,12 @@ $phone_link = str_replace(' ', '', $company_phone);
     @if(is_active_sidebar('sidebar-footer-address'))
         @php dynamic_sidebar('sidebar-footer-address') @endphp
     @else
-        <p>{{ $company_name }}<br>
+        <p class="text-xs">{{ $company_name }}<br>
             {{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
         </p>
-        <p class="mt-0">
-            <a href="tel:{{ $company_phone }}">
-                {{ $phone_link }}</a><br>
+        <p class="text-xs mt-0">
+            <a href="tel:{{ $phone_link }}">
+                {{ $company_phone }}</a><br>
             <a href="mailto:{{ $company_email }}">
                 {{ $company_email }}<br></a>
             <a href="https://{{ $company_page }}">

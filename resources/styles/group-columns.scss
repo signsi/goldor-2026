@@ -71,15 +71,21 @@
         }
     }
     &.is-style-layout-large {
-        @apply max-w-large;
+        @apply max-w-default lg:max-w-medium 3xl:max-w-large;
         &.is-offset {
             @apply 2xl:max-w-[calc(((100%-theme(maxWidth.large))/2)+theme(maxWidth.large)-theme(gap.mobile))];
         }
     }
     &.is-style-layout-xlarge {
-        @apply max-w-large 2xl:max-w-xlarge;
+        @apply max-w-default 2xl:max-w-xlarge;
         &.is-offset {
             @apply 2xl:max-w-[calc(((100%-theme(maxWidth.xlarge))/2)+theme(maxWidth.xlarge)-theme(gap.mobile))];
+        }
+    }
+    &.is-style-layout-2xlarge {
+        @apply max-w-large 2xl:max-w-2xlarge;
+        &.is-offset {
+            @apply 2xl:max-w-[calc(((100%-theme(maxWidth.2xlarge))/2)+theme(maxWidth.xlarge)-theme(gap.mobile))];
         }
     }
     &.is-style-layout-full {
