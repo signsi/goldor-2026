@@ -36,7 +36,7 @@
 .wp-block-group {
     @apply mx-auto px-gutter max-w-default;
     > .wp-block-group .wp-block-group{
-        @apply px-0 max-w-none w-full;
+        @apply px-0;
     }
 
     // Fallback - Abstände Padding - links uns rechts

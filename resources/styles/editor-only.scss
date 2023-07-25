@@ -6,6 +6,6 @@ html :where(.editor-styles-wrapper) {
     @apply font-sans;
 }
 
-.is-root-container.block-editor-block-list__layout > .wp-block {
+.is-root-container:not(.edit-widgets-main-block-list).block-editor-block-list__layout > .wp-block {
     @apply py-section px-gutter;
 }

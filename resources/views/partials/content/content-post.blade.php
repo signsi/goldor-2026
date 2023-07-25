@@ -1,19 +1,19 @@
-<div class="group bg-secondary">
+<div class="group bg-primarylight">
     <a href="{{ the_permalink() }}" class="no-underline text-font">
         <div class="image-wrapper  overflow-hidden">
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
         </div>
-        <div class="content-wrapper p-4 lg:py-gutter lg:px-gutter">
-            <div class="date-wrapper mb-2 text-sm">
+        <div class="content-wrapper p-gutter lg:py-gutter lg:px-gutter">
+            <div class="date-wrapper text-sm">
                 @include('partials.meta.entry-meta-date')
             </div>
-            <div class="title-wrapper mb-6">
-                <h3>{{ the_title() }}</h3>
+            <div class="title-wrapper mt-1 mb-typography">
+                <h4>{{ the_title() }}</h4>
             </div>
-            <div class="text-wrapper mb-4 md:mb-6 lg:mb-8">
+            <div class="text-wrapper text-sm mb-typography [&_*]:text-sm">
                 {{ the_excerpt() }}
             </div>
-            <span class="no-underline transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 !mb-3 block" href="{{ the_permalink() }}">{{ App\pl__('Weiterlesen') }} <i class="fa-light fa-arrow-right-long"></i></span>
+            <span class="no-underline text-sm transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 block" href="{{ the_permalink() }}">{{ App\pl__('Weiterlesen') }} <i class="fa-light fa-arrow-right-long"></i></span>
         </div>
     </a>
 </div>
