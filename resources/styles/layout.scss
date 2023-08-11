@@ -18,9 +18,9 @@ body.single main > article {
         @apply py-section;
     }
 }
-#main > *:not(.wp-block-group) {
-    @apply first:pt-section last:pb-section mx-auto max-w-default;
-}
+// #main > *:not(.wp-block-group) {
+//     @apply first:pt-section last:pb-section mx-auto max-w-default;
+// }
 
 // Gruppen-Styling generell
 div, section {
