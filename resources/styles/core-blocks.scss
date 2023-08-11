@@ -45,8 +45,8 @@
 }
 
 // Galerie
-figure.wp-block-gallery.has-nested-images {
-  @apply flex flex-col flex-wrap gap-gutter items-center;
+.wp-block-gallery {
+  @apply gap-x-gutter-mobile gap-y-gutter-mobile md:gap-x-gutter-mobile md:gap-y-gutter-display #{!important};
 }
 
 // List-Styles
