@@ -1,3 +1,4 @@
+/* Mixin for button styles */
 @mixin buttonStyleDefault {
   @apply bg-primary text-white text-base font-semibold no-underline hover:bg-primarydark;
 }
@@ -10,57 +11,32 @@
   @apply border-white text-white no-underline bg-transparent border-2 text-sm transition-colors py-1 px-4 hover:border-white hover:bg-white hover:text-secondary;
 }
 
+/* Mixin for text color white for small and up screens */
 @mixin colorWhiteSmallUp {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul li,
-  p,
-  p strong,
-  p a {
+  @apply text-white;
+  h1, h2, h3, h4, h5, h6, p, p strong, p a {
     @apply text-white;
+    a {
+      @apply hover:underline hover:text-font;
+    }
   }
-
-  p a,
-  ul li a {
-    @apply text-white hover:underline hover:text-font;
-  }
-  .wp-block-button__link {
-    @apply bg-white text-primary no-underline hover:bg-font hover:text-white;
-  }
-
-  .is-style-outline>.wp-block-button__link,
-  .is-style-outline>.wp-block-button__link:not(.has-background),
-  .wp-block-button__link.is-style-outline:not(.has-background){
-    @apply border-white text-white bg-transparent border-2 hover:bg-white hover:text-font;
-  }
-
-  ul {
-    > li {
-      @apply before:text-white marker:text-white after:text-white;
+  ul li {
+    @apply before:text-white marker:text-white after:text-white;
+    a {
+      @apply text-white hover:underline hover:text-font;
     }
   }
   ul.is-style-liststyle-icon--download {
-    @apply list-none pl-0;
-
-    >li {
+    > li {
       @apply border-white;
     }
   }
   ul[class*="is-style-liststyle"] {
     > li {
-        @apply text-white marker:text-white after:text-white hover:text-font hover:after:text-font hover:marker:text-font;
-        &:hover {
-          a {
-            @apply text-font;
-          }
-        }
-        a {
-          @apply text-white no-underline hover:text-font hover:underline;
-        }
+      @apply text-white marker:text-white after:text-white hover:text-font hover:after:text-font hover:marker:text-font;
+      a {
+        @apply text-white no-underline hover:text-font hover:underline;
+      }
     }
   }
   ul.is-style-liststyle-icon--singlelink {
@@ -72,99 +48,27 @@
   }
   .slick-arrow {
     @apply bg-white hover:bg-secondary;
-    &.slick-prev::before, &.slick-next::before {
+    &.slick-prev::before,
+    &.slick-next::before {
       @apply text-primary;
     }
   }
   .search-input {
-    @apply border-white text-white #{!important}
+    @apply border-white text-white #{!important};
   }
-  .rocketpager-accordion{
-    .accordion-button{
-        &:not(.collapsed){
-            @apply text-font;
-        }
-    }
-  }
-}
-
-@mixin colorWhiteMediumUp {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul li,
-  p,
-  p strong,
-  p a {
-    @apply md:text-white;
-  }
-
-  p a,
-  ul li a {
-    @apply md:text-white md:hover:underline md:hover:text-font;
-  }
-  .wp-block-button__link {
-    @apply md:bg-white md:text-primary md:no-underline md:hover:bg-font md:hover:text-white;
-  }
-  .is-style-outline {
-    .wp-block-button__link {
-      @apply md:border-white md:text-white md:bg-transparent md:border-2 md:hover:bg-white md:hover:text-font;
-    }
-  }
-
-  ul.is-style-liststyle-icon--download {
-    >li {
-      @apply md:border-white;
-    }
-  }
-  ul[class*="is-style-liststyle"] {
-    > li {
-        @apply md:text-white md:marker:text-white md:after:text-white md:hover:text-font md:hover:after:text-font md:hover:marker:text-font;
-        &:hover {
-          a {
-            @apply md:text-font;
-          }
-        }
-        a {
-          @apply md:text-white md:no-underline md:hover:text-font md:hover:underline;
-        }
-    }
-  }
-  ul.is-style-liststyle-icon--singlelink {
-    > li {
-      a {
-        @apply md:text-white md:no-underline md:hover:text-font md:hover:before:text-font md:hover:no-underline;
+  .rocketpager-accordion {
+    .accordion-button {
+      &:not(.collapsed) {
+        @apply text-font;
       }
     }
   }
-  .slick-arrow {
-    @apply md:bg-white md:hover:bg-secondary;
-    &.slick-prev::before, &.slick-next::before {
-      @apply md:text-primary;
-    }
-  }
-  .search-input {
-    @apply md:border-white md:text-white #{!important}
-  }
 }
 
+/* Mixin for default editor text color */
 @mixin colorDefaultEditor {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  ul li,
-  ul li:before,
-  ul li:after,
-  ul li:marker,
-  p,
-  p strong,
-  p a {
+  @apply text-font #{!important};
+  h1, h2, h3, h4, h5, h6, ul li, ul li:before, ul li:after, ul li:marker, p, p strong, p a {
     @apply text-font #{!important};
   }
 }

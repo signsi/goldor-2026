@@ -3,6 +3,7 @@
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-large 2xl:max-w-xlarge px-gutter py-element mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+                <!-- Footer Sidebar 1 -->
                 <div class="footerSidebar-1 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-1'))
                         @php (dynamic_sidebar('sidebar-footer-1'))
@@ -11,6 +12,7 @@
                         @relativeInclude('elements.address')
                     @endif
                 </div>
+                <!-- Footer Sidebar 2 -->
                 <div class="footerSidebar-2 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-2'))
                         @php (dynamic_sidebar('sidebar-footer-2'))
@@ -18,6 +20,7 @@
                         @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1'])
                     @endif
                 </div>
+                <!-- Footer Sidebar 3 -->
                 <div class="footerSidebar-3 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php (dynamic_sidebar('sidebar-footer-3'))
@@ -25,6 +28,7 @@
                         @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2'])
                     @endif
                 </div>
+                <!-- Footer Sidebar 4 -->
                 <div class="footerSidebar-4 flex flex-col gap-y-element">
                     @if(is_active_sidebar('sidebar-footer-4'))
                         @php (dynamic_sidebar('sidebar-footer-4'))
@@ -40,6 +44,7 @@
             </div>
         </div>
     </div>
+    <!-- Footer Bottom Section -->
     <div class="has-secondary-background-color has-background" aria-labelledby="footer-bottom">
         <h2 id="footer-bottom" class="sr-only">Footer bottom</h2>
         <div class="footerDisclaimer max-w-large 2xl:max-w-xlarge px-gutter py-2.5 mx-auto">

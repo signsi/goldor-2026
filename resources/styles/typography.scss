@@ -1,9 +1,12 @@
 /* Tailwind basierendes Stylesheet, welches Prose ersetzt */
+
+/* Allgemeine Stilregeln */
 body:not(.wp-core-ui),
 .interface-interface-skeleton__content {
     @apply text-base lining-nums;
 }
 
+/* Textabsätze */
 p {
     @apply text-base my-typography max-w-prose;
     &.has-text-align-center {
@@ -17,54 +20,24 @@ p {
     }
 }
 
-.has-xs-font-size {
-    @apply text-xs #{!important};
-}
-.has-sm-font-size {
-    @apply text-sm #{!important};
-}
-.has-base-font-size {
-    @apply text-base #{!important};
-}
-.has-lg-font-size {
-    @apply text-lg #{!important};
-}
-.has-xl-font-size {
-    @apply text-xl #{!important};
-}
-.has-2xl-font-size {
-    @apply text-2xl #{!important};
-}
-.has-3xl-font-size {
-    @apply text-3xl #{!important};
-}
-.has-4xl-font-size {
-    @apply text-4xl #{!important};
-}
-.has-5xl-font-size {
-    @apply text-5xl #{!important};
-}
-.has-6xl-font-size {
-    @apply text-6xl #{!important};
-}
-.has-7xl-font-size {
-    @apply text-7xl #{!important};
-}
-.has-8xl-font-size {
-    @apply text-8xl #{!important};
-}
-.has-9xl-font-size {
-    @apply text-9xl #{!important};
+/* Textgrößen */
+@layer utilities {
+    @for $i from 1 to 10 {
+        .has-#{$i}xl-font-size {
+            @apply text-#{$i}xl #{!important};
+        }
+    }
 }
 
+/* Links */
 a:not([class^=components-]) {
     @apply transition-colors hover:text-primary;
 }
-div[class^="wp-container-"] {
-    a {
-        @apply underline;
-    }
+div[class^="wp-container-"] a {
+    @apply underline;
 }
+
+/* Blockzitate und Code */
 blockquote,
 blockquote.wp-block-quote {
     @apply font-medium italic text-font my-typography pl-gutter-mobile border-l-4 border-grey;
@@ -79,39 +52,48 @@ pre.wp-block-code {
         @apply bg-transparent border-0 p-0 font-normal;
     }
 }
+
+/* Horizontale Linien */
 hr,
 hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
     @apply border-t border-b-0 border-grey border-solid w-full my-element;
 }
-h1, h2 {
-    @apply font-bold mt-[calc((theme(spacing.typography-mobile))*2)] md:mt-[calc((theme(spacing.typography-tablet))*2)] lg:mt-[calc((theme(spacing.typography-desktop))*2)] mb-typography-mobile md:mb-typography-tablet lg:mb-typography-desktop;
-}
-h3, h4, h5, h6 {
-    @apply font-semibold mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)] mb-typography-tiny;
-}
-h1 {
-    @apply text-4xl text-primary;
-}
-h2 {
-    @apply text-3xl;
-}
-h3 {
-    @apply text-xl;
-}
-h4 {
-    @apply text-lg;
-}
-h5 {
-    @apply text-base;
-}
-h6 {
-    @apply text-xs;
-}
-h1, h2, h3, h4, h5, h6 {
-    + * {
-        @apply mt-0;
+
+/* Überschriften */
+@layer components {
+    .heading-base {
+        @apply + * mt-0;
+    }
+    h1 {
+        @apply text-4xl text-primary;
+        @apply font-bold;
+        @apply mt-[calc((theme(spacing.typography-mobile))*2)] md:mt-[calc((theme(spacing.typography-tablet))*2)] lg:mt-[calc((theme(spacing.typography-desktop))*2)];
+        @apply mb-typography-mobile md:mb-typography-tablet lg:mb-typography-desktop;
+    }
+    h2 {
+        @apply text-3xl;
+        @apply font-bold;
+    }
+    h3, h4, h5, h6 {
+        @apply font-semibold;
+        @apply mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)];
+        @apply mb-typography-tiny;
+    }
+    h3 {
+        @apply text-xl;
+    }
+    h4 {
+        @apply text-lg;
+    }
+    h5 {
+        @apply text-base;
+    }
+    h6 {
+        @apply text-xs;
     }
 }
+
+/* Listen */
 ul, ol {
     @apply pl-typography-desktop;
     ul, ol {
@@ -126,7 +108,7 @@ ol {
 }
 ul {
     @apply list-disc;
-    // Menu
+    // Menüs
     &[id^="menu-"], ul {
         @apply pl-0 list-none;
         li {
@@ -134,6 +116,8 @@ ul {
         }
     }
 }
+
+/* Bilder und Bildunterschriften */
 figure.wp-block-image {
     @apply my-element-mobile;
 }
@@ -142,6 +126,7 @@ figcaption,
     @apply text-left text-xs text-font mt-typography-tiny;
 }
 
+/* Tabellen */
 .wp-block-table,
 figure.wp-block-table {
     @apply table-auto my-element-mobile text-sm;

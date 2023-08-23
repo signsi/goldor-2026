@@ -1,95 +1,94 @@
-@layer utilities{
+@layer utilities {
 
     /* Spacing - Typography */
-    .p-typography{
+    .p-typography {
         @apply p-typography-mobile md:p-typography-tablet;
     }
-    .px-typography{
+    .px-typography {
         @apply px-typography-mobile md:px-typography-tablet;
     }
-    .py-typography{
+    .py-typography {
         @apply py-typography-mobile md:py-typography-tablet;
     }
-    .pl-typography{
+    .pl-typography {
         @apply pl-typography-mobile md:pl-typography-tablet;
     }
-    .pr-typography{
+    .pr-typography {
         @apply pr-typography-mobile md:pr-typography-tablet;
     }
-    .pt-typography{
+    .pt-typography {
         @apply pt-typography-mobile md:pt-typography-tablet;
     }
-    .pb-typography{
+    .pb-typography {
         @apply pb-typography-mobile md:pb-typography-tablet;
     }
 
     /* Spacing - Gutter */
-    .p-gutter{
+    .p-gutter {
         @apply p-gutter-mobile md:p-gutter-display;
     }
-    .px-gutter{
+    .px-gutter {
         @apply px-gutter-mobile md:px-gutter-display;
     }
-    .py-gutter{
+    .py-gutter {
         @apply py-gutter-mobile md:py-gutter-display;
     }
-    .pl-gutter{
+    .pl-gutter {
         @apply pl-gutter-mobile md:pl-gutter-display;
     }
-    .pr-gutter{
+    .pr-gutter {
         @apply pr-gutter-mobile md:pr-gutter-display;
     }
-    .pt-gutter{
+    .pt-gutter {
         @apply pt-gutter-mobile md:pt-gutter-display;
     }
-    .pb-gutter{
+    .pb-gutter {
         @apply pb-gutter-mobile md:pb-gutter-display;
     }
 
     /* Spacing - Element */
-    .p-element{
+    .p-element {
         @apply p-element-mobile md:p-element-tablet lg:p-element-desktop;
     }
-    .px-element{
+    .px-element {
         @apply px-element-mobile md:px-element-tablet lg:px-element-desktop;
     }
-    .py-element{
+    .py-element {
         @apply py-element-mobile md:py-element-tablet lg:py-element-desktop;
     }
-    .pl-element{
+    .pl-element {
         @apply pl-element-mobile md:pl-element-tablet lg:pl-element-desktop;
     }
-    .pr-element{
+    .pr-element {
         @apply pr-element-mobile md:pr-element-tablet lg:pr-element-desktop;
     }
-    .pt-element{
+    .pt-element {
         @apply pt-element-mobile md:pt-element-tablet lg:pt-element-desktop;
     }
-    .pb-element{
+    .pb-element {
         @apply pb-element-mobile md:pb-element-tablet lg:pb-element-desktop;
     }
 
     /* Spacing - Section */
-    .p-section{
+    .p-section {
         @apply p-section-mobile md:p-section-tablet lg:p-section-desktop 2xl:p-section-full-hd;
     }
-    .px-section{
+    .px-section {
         @apply px-section-mobile md:px-section-tablet lg:px-section-desktop 2xl:px-section-full-hd;
     }
-    .py-section{
+    .py-section {
         @apply py-section-mobile md:py-section-tablet lg:py-section-desktop 2xl:py-section-full-hd;
     }
-    .pl-section{
+    .pl-section {
         @apply pl-section-mobile md:pl-section-tablet lg:pl-section-desktop 2xl:pl-section-full-hd;
     }
-    .pr-section{
+    .pr-section {
         @apply pr-section-mobile md:pr-section-tablet lg:pr-section-desktop 2xl:pr-section-full-hd;
     }
-    .pt-section{
+    .pt-section {
         @apply pt-section-mobile md:pt-section-tablet lg:pt-section-desktop 2xl:pt-section-full-hd;
     }
-    .pb-section{
+    .pb-section {
         @apply pb-section-mobile md:pb-section-tablet lg:pb-section-desktop 2xl:pb-section-full-hd;
     }
-
 }
