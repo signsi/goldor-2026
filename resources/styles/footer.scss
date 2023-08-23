@@ -1,10 +1,12 @@
+/* Footer */
 footer#siteFooter {
-  a{
-    @apply no-underline hover:no-underline;
+  a {
+      @apply no-underline hover:no-underline;
   }
+
   [class*="has-background"] {
-    .footer-newsletter .input-newsletter:focus + button #submitArrowRight {
-      @apply fill-font animate-bounce transition-colors #{!important};
-    }
+      .footer-newsletter .input-newsletter:focus + button #submitArrowRight {
+          @apply fill-font animate-bounce transition-colors #{!important};
+      }
   }
 }

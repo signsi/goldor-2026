@@ -1,54 +1,50 @@
-// Spalten-Styling generell
-.is-layout-flex {
-    // Spalten-Element
-    &.wp-block-columns {
-        // Standardwert
+/* Spalten-Styling generell */
+.is-layout-flex .wp-block-columns {
+    @apply gap-gutter;
+
+    &.is-style-gap-tiny {
+        @apply gap-tiny;
+    }
+    &.is-style-gap-gutter {
         @apply gap-gutter;
-        &.is-style-gap-tiny {
-            @apply gap-tiny;
-        }
-        &.is-style-gap-gutter {
-            @apply gap-gutter;
-        }
-        &.is-style-gap-element {
-            @apply gap-element;
-        }
-        &.is-style-gap-section {
-            @apply gap-section;
-        }
-        &.is-style-gap-0 {
-            @apply gap-0;
-        }
-        //  Spalten-Element - Spalte nach oben versetzt
-        &.is-style-offset-top {
-            @apply mb-section relative before:absolute before:content-[''] before:-left-[50vw] before:-right-[50vw] before:-top-section-mobile md:before:-top-section-tablet lg:before:-top-section-desktop 2xl:before:-top-section-full-hd before:bg-white before:bottom-3/4 md:before:bottom-1/2 z-10 before:-z-10;
-            .wp-block-column {
-                @apply p-gutter transition-all hover:shadow-lg hover:origin-center hover:-translate-y-2;
-                ul {
-                    @apply mt-0;
-                }
+    }
+    &.is-style-gap-element {
+        @apply gap-element;
+    }
+    &.is-style-gap-section {
+        @apply gap-section;
+    }
+    &.is-style-gap-0 {
+        @apply gap-0;
+    }
+    &.is-style-offset-top {
+        @apply mb-section relative before:absolute before:content-[''] before:-left-[50vw] before:-right-[50vw] before:-top-section-mobile md:before:-top-section-tablet lg:before:-top-section-desktop 2xl:before:-top-section-full-hd before:bg-white before:bottom-3/4 md:before:bottom-1/2 z-10 before:-z-10;
+        
+        .wp-block-column {
+            @apply p-gutter transition-all hover:shadow-lg hover:origin-center hover:-translate-y-2;
+            ul {
+                @apply mt-0;
             }
         }
     }
 }
 
-// Group
+/* Group */
 .wp-block-group {
     @apply mx-auto px-gutter max-w-default;
-    > .wp-block-group .wp-block-group{
+
+    > .wp-block-group .wp-block-group {
         @apply px-0;
     }
 
-    // Fallback - Abstände Padding - links uns rechts
     &.alignfull {
         @apply max-w-none w-full px-0;
     }
-    // Fallback - Spaltenbreite für Gruppen - Wordpress: Weite Breite
+
     > .wp-block-group.alignwide {
         @apply max-w-default;
     }
 
-    // Spaltenbreite für Gruppen + Offset-Styles
     &.is-offset {
         @apply px-gutter-mobile md:px-gutter-display 2xl:px-0 2xl:max-w-[calc(((100%-theme(maxWidth.default))/2)+theme(maxWidth.default)-theme(gap.mobile))];
     }
@@ -58,6 +54,7 @@
     &.is-offset-right {
         @apply ml-auto mr-0;
     }
+
     &.is-style-layout-tiny {
         @apply max-w-tiny;
         &.is-offset {
@@ -89,21 +86,22 @@
         }
     }
     &.is-style-layout-full {
-      @apply max-w-none px-0 mx-0;
+        @apply max-w-none px-0 mx-0;
     }
 
-    // Image-Offset-Columns mit diversen Spaltenbreite
     .wp-block-columns {
-        // Entferne Abstand unten für letzte Spalte
         @apply last:mb-0;
+
         &.is-style-columns-tiny,
         &.is-style-columns-slim,
         &.is-style-columns-default,
         &.is-style-columns-large,
         &.is-style-columns-xlarge {
             @apply gap-0 #{!important};
+
             .wp-block-column {
                 @apply first:pl-0 md:first:pr-[calc((theme(gap.mobile))/2)] md:last:pl-[calc((theme(gap.mobile))/2)] last:pr-0;
+
                 &:first-child {
                     .wp-block-group {
                         @apply md:ml-auto md:mr-0 2xl:px-0;
@@ -115,6 +113,7 @@
                     }
                 }
             }
+
             &.is-style-gap-tiny {
                 .wp-block-column {
                     @apply first:pl-0 md:first:pr-[calc((theme(gap.tiny))/2)] md:last:pl-[calc((theme(gap.tiny))/2)] last:pr-0;
@@ -136,7 +135,8 @@
                 }
             }
         }
-        &.is-style-columns-tiny{
+
+        &.is-style-columns-tiny {
             .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
             }
@@ -153,7 +153,7 @@
                 @apply md:max-w-[calc((theme(maxWidth.tiny)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
             }
         }
-        &.is-style-columns-slim{
+        &.is-style-columns-slim {
             .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
             }
@@ -170,7 +170,7 @@
                 @apply md:max-w-[calc((theme(maxWidth.slim)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
             }
         }
-        &.is-style-columns-default{
+        &.is-style-columns-default {
             .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
             }
@@ -187,7 +187,7 @@
                 @apply md:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.default)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
             }
         }
-        &.is-style-columns-large{
+        &.is-style-columns-large {
             .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
             }
@@ -204,7 +204,7 @@
                 @apply md:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.large)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
             }
         }
-        &.is-style-columns-xlarge{
+        &.is-style-columns-xlarge {
             .wp-block-column .wp-block-group {
                 @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.mobile)/2)))];
             }

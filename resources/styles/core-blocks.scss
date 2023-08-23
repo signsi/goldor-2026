@@ -1,36 +1,37 @@
-//  Button
+/* Button Styles */
 .wp-block-button__link {
   @include buttonStyleDefault;
 }
-.is-style-outline > .wp-block-button__link,
-.is-style-outline > .wp-block-button__link:not(.has-background),
-.wp-block-button__link.is-style-outline:not(.has-background) {
-  @include buttonStyleOutline;
+
+.is-style-outline,
+.is-style-outline-white {
+  > .wp-block-button__link,
+  .wp-block-button__link:not(.has-background) {
+    @include buttonStyleOutline;
+  }
 }
-.is-style-outline-white > .wp-block-button__link,
-.is-style-outline-white > .wp-block-button__link:not(.ha∏s-background),
-.wp-block-button__link.is-style-outline-white:not(.has-background) {
-  @include buttonStyleOutlineWhite;
-}
+
 .wp-block-buttons {
   @apply mt-element;
 }
 
-//  Text Media
+/* Text Media */
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
   @apply pl-0;
 }
 
-//  Images
+/* Images */
 .wp-block-group {
   figure {
     @apply overflow-hidden;
+
     > a {
       &:hover {
         img {
           @apply scale-105;
         }
       }
+
       img {
         @apply transition ease-in-out delay-150 duration-300;
       }
@@ -38,86 +39,47 @@
   }
 }
 
-// Cover
+/* Cover */
 .wp-block-cover,
 .wp-block-cover-image {
   @apply h-full;
 }
 
-// Galerie
+/* Galerie */
 .wp-block-gallery {
-  @apply gap-x-gutter-mobile gap-y-gutter-mobile md:gap-x-gutter-mobile md:gap-y-gutter-display #{!important};
+  @apply gap-x-gutter-mobile gap-y-gutter-mobile md:gap-x-gutter-mobile md:gap-y-gutter-display;
 }
 
-// List-Styles
-// Generelle Styles
+/* List Styles */
 ul[class*="liststyle-icon"] {
   @apply list-none pl-0 my-gutter;
+
   > li {
     @apply flex items-center pl-0 transition-colors hover:text-primarylight;
-    &::before, &::after {
+
+    &::before,
+    &::after {
       @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
     }
-  } 
+  }
 
-  // Icons links oder rechts vom Text darstellen
+  /* Icons links oder rechts vom Text darstellen */
   &[class*="-start"] > li {
     @apply before:pr-3 after:hidden;
   }
+
   &[class*="-end"] > li {
     @apply before:hidden after:pl-3;
   }
 
-  // Alle Icons
-  &[class*="--arrow-left"] > li {
-    @apply before:content-arrow-left after:content-arrow-left;
-    // Animation: Icon bewegt sich beim Hover nach links
-    &:hover::before {
-      @apply origin-center -translate-x-1.5;
-    }
-  }
-  &[class*="--arrow-right"] > li {
-    @apply before:content-arrow-right after:content-arrow-right;
-    // Animation: Icon bewegt sich beim Hover nach rechts
-    &:hover::after {
-      @apply origin-center translate-x-1.5;
-    }
-  }
-  &[class*="--arrow-down"] > li {
-    @apply before:content-arrow-down after:content-arrow-down;
-  }
-  &[class*="--arrow-left-long"] > li {
-    @apply before:content-arrow-left-long after:content-arrow-left-long;
-    // Animation: Icon bewegt sich beim Hover nach links
-    &:hover::before {
-      @apply origin-center -translate-x-1.5;
-    }
-  }
-  &[class*="--arrow-right-long"] > li {
-    @apply before:content-arrow-right-long after:content-arrow-right-long;
-    // Animation: Icon bewegt sich beim Hover nach rechts
-    &:hover::after {
-      @apply origin-center translate-x-1.5;
-    }
-  }
-  &[class*="--arrow-down-long"] > li {
-    @apply before:content-arrow-down-long after:content-arrow-down-long;
-  }
-  &[class*="--circle-check"] > li {
-    @apply before:content-circle-check after:content-circle-check;
-  }
-  &[class*="--arrow-down-to-line"] > li {
-    @apply before:content-arrow-down-to-line after:content-arrow-down-to-line;
-  }
-
-  // Spezialfall
+  /* Spezialfall */
   &[class*="--arrow-down-to-line--bordered"] > li {
     @apply after:content-arrow-down-to-line after:ml-auto;
     @apply my-0 border-t last:border-b border-solid border-y-black py-5;
   }
 }
 
-// Search
+/* Search */
 input.search-input:focus + .icon-wrapper {
   @apply opacity-0;
 }

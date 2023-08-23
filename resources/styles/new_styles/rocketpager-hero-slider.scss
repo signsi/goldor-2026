@@ -1,3 +1,5 @@
-.hero-slider .slick-slide {
-    @apply leading-0;
+.hero-slider {
+    .slick-slide {
+        @apply leading-0;
+    }
 }

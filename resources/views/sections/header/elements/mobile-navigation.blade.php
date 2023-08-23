@@ -8,13 +8,13 @@
     <div class="flex flex-col gap-10 px-4 py-10 bg-theme text-font">
         <nav>
             @if (has_nav_menu('primary_navigation'))
-                    @php(wp_nav_menu([
-                        'theme_location' => 'primary_navigation',
-                        'menu_class' => 'menu-primary_navigation-mobile flex flex-col items-baseline justify-between linkGrowing',
-                        'container_class' => 'menu-primary_navigation-container',
-                        'add_li_class' => 'z-10 py-3 w-full text-lg font-bold group last:border-b-0',
-                        'walker' => new SubmenuWrap(),
-                    ]))
+                @php(wp_nav_menu([
+                    'theme_location' => 'primary_navigation',
+                    'menu_class' => 'menu-primary_navigation-mobile flex flex-col items-baseline justify-between linkGrowing',
+                    'container_class' => 'menu-primary_navigation-container',
+                    'add_li_class' => 'z-10 py-3 w-full text-lg font-bold group last:border-b-0',
+                    'walker' => new SubmenuWrap(),
+                ]))
             @endif
         </nav>
         @includeWhen($lang_switch_active, 'partials.language.langswitcher')

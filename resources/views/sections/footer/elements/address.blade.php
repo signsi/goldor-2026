@@ -1,30 +1,28 @@
 @php
-$company_name = App\getThemeOption('firmenname');
-$company_street = App\getThemeOption('strasse');
-$company_plz = App\getThemeOption('plz');
-$company_city = App\getThemeOption('ort');
+    $company_name = App\getThemeOption('firmenname');
+    $company_street = App\getThemeOption('strasse');
+    $company_plz = App\getThemeOption('plz');
+    $company_city = App\getThemeOption('ort');
 
-$company_email = App\getThemeOption('email');
-$company_phone = App\getThemeOption('tel');
-$company_page = App\getThemeOption('website');
+    $company_email = App\getThemeOption('email');
+    $company_phone = App\getThemeOption('tel');
+    $company_page = App\getThemeOption('website');
 
-$phone_link = str_replace(' ', '', $company_phone);
+    $phone_link = str_replace(' ', '', $company_phone);
 @endphp
 
-<div class="footer-address flex flex-col">
+<div class="footer-address">
     @if(is_active_sidebar('sidebar-footer-address'))
         @php dynamic_sidebar('sidebar-footer-address') @endphp
     @else
-        <p class="text-xs">{{ $company_name }}<br>
+        <address class="text-xs not-italic">
+            {{ $company_name }}<br>
             {{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
-        </p>
-        <p class="text-xs mt-0">
-            <a href="tel:{{ $phone_link }}">
-                {{ $company_phone }}</a><br>
-            <a href="mailto:{{ $company_email }}">
-                {{ $company_email }}<br></a>
-            <a href="https://{{ $company_page }}">
-                {{ $company_page }}<br></a>
+        </address>
+        <p class="text-xs">
+            <a href="tel:{{ $phone_link }}" aria-label="Telefonnummer">{{ $company_phone }}</a><br>
+            <a href="mailto:{{ $company_email }}" aria-label="E-Mail-Adresse">{{ $company_email }}</a><br>
+            <a href="https://{{ $company_page }}" aria-label="Website">{{ $company_page }}</a><br>
         </p>
     @endif
 </div>
