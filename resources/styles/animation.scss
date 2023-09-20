@@ -3,3 +3,24 @@
 .wow {
     @apply invisible;
 }
+
+.icon-scroll::before {
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: scroll;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
+
+.animate__delay-1s {
+    animation-delay: 1s !important;
+}

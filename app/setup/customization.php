@@ -265,11 +265,12 @@ function crb_attach_theme_options()
             'key' => 'cta_phone',
             'label' => 'Telefon aktiviert?',
         ],
-        [
-            'type' => 'checkbox',
-            'key' => 'cta_social_share',
-            'label' => 'Social Media aktiviert?',
-        ],
+        // TODO: social share - funktioniert nicht
+        // [
+        //     'type' => 'checkbox',
+        //     'key' => 'cta_social_share',
+        //     'label' => 'Social Media aktiviert?',
+        // ],
         [
             'type' => 'checkbox',
             'key' => 'cta_link',

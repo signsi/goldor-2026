@@ -1,13 +1,24 @@
 /* Button Styles */
 .wp-block-button__link {
+  @include buttonStyleFont;
   @include buttonStyleDefault;
 }
 
-.is-style-outline,
-.is-style-outline-white {
-  > .wp-block-button__link,
-  .wp-block-button__link:not(.has-background) {
+.wp-block-button {
+  &.is-style-outline>.wp-block-button__link,
+  &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
     @include buttonStyleOutline;
+  }
+}
+
+.wp-block-button {
+  &.is-style-outline-white>.wp-block-button__link,
+  &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+    @include buttonStyleOutlineWhite;
   }
 }
 
@@ -18,6 +29,10 @@
 /* Text Media */
 .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
   @apply pl-0;
+}
+
+figure.is-type-video {
+  @apply h-full;
 }
 
 /* Images */
@@ -55,7 +70,7 @@ ul[class*="liststyle-icon"] {
   @apply list-none pl-0 my-gutter;
 
   > li {
-    @apply flex items-center pl-0 transition-colors hover:text-primarylight;
+    @apply flex items-center pl-0 transition-colors hover:text-secondary;
 
     &::before,
     &::after {

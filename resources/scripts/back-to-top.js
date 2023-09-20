@@ -1,7 +1,7 @@
 import { debounce } from './helpers.js';
 
 export function setupBackToTop(scrollDuration = 250, offsetVisibility = 100, durationVisibilityAnimation = 500){
-  const $backToTop = $("#to-top-button > a");
+  const $backToTop = $("#to-top-button");
 
   $backToTop.removeClass('hidden').hide();
 

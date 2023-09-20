@@ -1,5 +1,5 @@
 <footer id="siteFooter" aria-labelledby="footer-heading">
-    <div class="has-secondarydark-background-color has-background">
+    <div class="has-primary-background-color has-background">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-large 2xl:max-w-xlarge px-gutter py-element mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">

@@ -19,62 +19,51 @@
             @foreach ($cta_elements as $cta => $options)
                 @if ($options === true)
                     @if ($cta === 'phone')
-                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative rounded-l-full outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all" href="tel:{{ $tel }}" target="_blank">
+                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all" href="tel:{{ $tel }}" target="_blank">
                             <div class="lg:p-3 2xl:p-4 font-base flex justify-center items-center">
-                                <svg class="w-auto lg:h-6 2xl:h-7" width="40" height="39" viewBox="0 0 40 39" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M38.1764 35.95V27.59C38.1764 26.65 37.5264 25.84 36.6064 25.64L30.2864 24.24C29.5964 24.09 28.8764 24.31 28.3964 24.83L23.2764 30.3C12.1764 26 9.12643 16.35 9.12643 16.35L14.3164 11.76C14.8464 11.29 15.0964 10.57 14.9564 9.87L13.5064 2.61C13.3164 1.68 12.4964 1 11.5464 1H3.03643C1.96643 1 1.08643 1.83 1.03643 2.9C0.706433 10.31 1.89643 36.93 36.1064 37.97C37.2364 38 38.1864 37.1 38.1864 35.97L38.1764 35.95Z" fill="#E5ECDA" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg class="hover:cursor-pointer fill-primary hover:fill-secondary h-7 w-7 transition-colors" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
                                 </svg>
                             </div>
                             <div class="flex items-center py-0 pl-5 pr-10 lg:h-[40px] 2xl:h-[60px]">
-                                <span class="text-base whitespace-nowrap xl:text-xl hover:text-font transition-colors">{{ $tel }}</span>
+                                <span class="text-base whitespace-nowrap hover:text-font transition-colors">{{ $tel }}</span>
                             </div>
                         </a>
                     @elseif ($cta === 'search')
-                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative rounded-l-full outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all">
+                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all">
                             <div class="lg:p-3 2xl:p-4 font-base flex justify-center items-center">
-                                <svg class="w-auto lg:h-6 2xl:h-7" width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21.4377 24.565L24.4995 21.5032L39.6245 36.6282C40.3811 37.3848 40.3882 38.6222 39.6245 39.3859L39.3134 39.697C38.5568 40.4536 37.3194 40.4607 36.5557 39.697L21.4307 24.572L21.4377 24.565Z" fill="#E5ECDA" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M15 29C22.732 29 29 22.732 29 15C29 7.26801 22.732 1 15 1C7.26801 1 1 7.26801 1 15C1 22.732 7.26801 29 15 29Z" fill="#E5ECDA" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M15 24.5C20.2467 24.5 24.5 20.2467 24.5 15C24.5 9.75329 20.2467 5.5 15 5.5C9.75329 5.5 5.5 9.75329 5.5 15C5.5 20.2467 9.75329 24.5 15 24.5Z" fill="white" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg class="hover:cursor-pointer fill-primary hover:fill-secondary h-7 w-7 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path d="M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z"></path>
                                 </svg>
                             </div>
                             <div class="flex items-center py-0 pl-5 pr-10 lg:h-[40px] 2xl:h-[60px]">
                                 <form class="searchform" role="search" method="get" action="{{ App\get_home_url() }}">
                                     <label for="search" class="sr-only">{{ App\pl__('Suche') }}</label>
                                     <div class="relative">
-                                        <input id="search" name="s" class="placeholder-primary shadow-none block w-full border-0 bg-transparent py-3 pl-6 leading-5 focus:outline-none ring-0 focus:ring-0 text-base xl:text-xl" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">
+                                        <input id="search" name="s" class="placeholder-primary shadow-none block w-full border-0 bg-transparent py-3 pl-6 leading-5 focus:outline-none ring-0 focus:ring-0 text-base" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">
                                     </div>
                                 </form>
                             </div>
                         </a>
                     @elseif ($cta === 'scroll')
-                        <div id="to-top-button" class="flex mt-20 lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative cursor-pointer !opacity-100 group">
-                            <a class="hidden">
-                                <div id="to-top-button" class="flex mt-20 lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative cursor-pointer !opacity-100 group">
-                                    <a class="hidden">
-                                        <div class="pl-4 font-base flex justify-center items-center transition group-hover:ease-in-out group-hover:delay-150 group-hover:scale-105">
-                                            <svg class="w-auto h-9" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <circle cx="27" cy="27" r="26" fill="#7BA048" stroke="white" stroke-width="2"/>
-                                                <path d="M25.5 42C25.5 42.8284 26.1716 43.5 27 43.5C27.8284 43.5 28.5 42.8284 28.5 42L25.5 42ZM28.0607 11.9393C27.4749 11.3536 26.5251 11.3536 25.9393 11.9393L16.3934 21.4853C15.8076 22.0711 15.8076 23.0208 16.3934 23.6066C16.9792 24.1924 17.9289 24.1924 18.5147 23.6066L27 15.1213L35.4853 23.6066C36.0711 24.1924 37.0208 24.1924 37.6066 23.6066C38.1924 23.0208 38.1924 22.0711 37.6066 21.4853L28.0607 11.9393ZM28.5 42L28.5 13L25.5 13L25.5 42L28.5 42Z" fill="white"/>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </a>
+                        <div id="to-top-button" class="float-right hidden mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] relative outline-none hover:no-underline hover:cursor-pointer transition-all">
+                            <div class="lg:p-3 2xl:p-4 font-base flex justify-center items-center">
+                                <svg class="hover:cursor-pointer fill-primary hover:fill-secondary h-7 w-7 transition-colors" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512">
+                                    <path d="M169.4 41.4c12.5-12.5 32.8-12.5 45.3 0l160 160c9.2 9.2 11.9 22.9 6.9 34.9s-16.6 19.8-29.6 19.8H256V440c0 22.1-17.9 40-40 40H168c-22.1 0-40-17.9-40-40V256H32c-12.9 0-24.6-7.8-29.6-19.8s-2.2-25.7 6.9-34.9l160-160z"/>
+                                </svg>
+                            </div>
                         </div>
                     @endif
                 @elseif (is_array($options) && $options['active'])
                     @if ($cta === 'link')
-                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative rounded-l-full outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all" href="{!! $options['url'] !!}" target="_blank">
+                        <a class="flex mb-4 shadow-md bg-white text-primary lg:h-[40px] 2xl:h-[60px] lg:-ml-[60px] 2xl-ml-[80px] -right-full relative outline-none hover:no-underline hover:cursor-pointer hover:right-0 transition-all" href="{!! $options['url'] !!}" target="_blank">
                             <div class="lg:p-3 2xl:p-4 font-base flex justify-center items-center">
-                                <svg class="w-auto lg:h-6 2xl:h-7" width="46" height="36" viewBox="0 0 46 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 1L23 23.67L45 1" fill="#E5ECDA"/>
-                                    <path d="M1 1L23 23.67L45 1" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M45 1H1V35H45V1Z" stroke="#7BA048" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg class="hover:cursor-pointer fill-primary hover:fill-secondary h-7 w-7 transition-colors" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                    <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
                                 </svg>
                             </div>
                             <div class="flex items-center py-0 pl-5 pr-10 lg:h-[40px] 2xl:h-[60px]">
-                                <span class="text-base whitespace-nowrap xl:text-xl hover:text-font transition-colors">{!! $link_text !!}</span>
+                                <span class="text-base whitespace-nowrap hover:text-font transition-colors">{!! $options['text'] !!}</span>
                             </div>
                         </a>
                     @endif

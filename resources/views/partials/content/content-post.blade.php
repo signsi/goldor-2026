@@ -1,4 +1,4 @@
-<div class="group bg-primarylight">
+<div class="group bg-secondary">
     <a href="{{ the_permalink() }}" class="no-underline text-font">
         <div class="image-wrapper  overflow-hidden">
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}

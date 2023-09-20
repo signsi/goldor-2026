@@ -1,5 +1,5 @@
 /* Spalten-Styling generell */
-.is-layout-flex .wp-block-columns {
+.wp-block-columns-is-layout-flex {
     @apply gap-gutter;
 
     &.is-style-gap-tiny {
@@ -30,16 +30,13 @@
 }
 
 /* Group */
-.wp-block-group {
+.wp-block-group,
+body .is-layout-constrained > .wp-block-group:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     @apply mx-auto px-gutter max-w-default;
 
-    > .wp-block-group .wp-block-group {
-        @apply px-0;
-    }
-
-    &.alignfull {
-        @apply max-w-none w-full px-0;
-    }
+    // > .wp-block-group .wp-block-group {
+    //     @apply px-0;
+    // }
 
     > .wp-block-group.alignwide {
         @apply max-w-default;

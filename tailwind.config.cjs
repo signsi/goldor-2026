@@ -37,11 +37,9 @@ module.exports = {
     extend: {
       colors: {
         primary: 'var(--color-primary)',
-        primarydark: 'var(--color-primarydark)',
-        primarylight: 'var(--color-primarylight)',
         secondary: 'var(--color-secondary)',
-        secondarydark: 'var(--color-secondarylight)',
-        secondarylight: 'var(--color-secondarydark)',
+        tertiary: 'var(--color-tertiary)',
+        quaternary: 'var(--color-quaternary)',
 
         font: 'var(--color-font)',
         grey: 'var(--color-grey)',
