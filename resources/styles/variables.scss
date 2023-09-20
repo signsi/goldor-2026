@@ -1,29 +1,28 @@
 /* Base Layer */
 :root {
-  /* Color Palettes */
+  /* Color Default Palettes */
   --color-white: #FFF;
   --color-black: #000;
   --color-grey: #808080;
   --color-greydark: #4D4D4D;
-  --color-greylight: #F2F2F2;
-  --color-castletongreen: #00543C;
-  --color-cambridgeblue: #80AA9E;
-  --color-darkgreen: #002A1E;
+  --color-greylight: #DDDDDD;
   --color-pigmentgreen: #27AE60;
-  --color-yaleblue: #003865;
-  --color-airblue: #809CB2;
-  --color-oxfordblue: #001C33;
   --color-azure: #2F80ED;
   --color-gold: #E2B93B;
   --color-indianred: #EB5757;
+
+  /* Color Theme */
+  --color-charcoal: #28536B;
+  --color-airsuperiorityblue: #7EA8BE;
+  --color-rosybrown: #C2948A;
+  --color-khaki: #BBB193;
   
   /* Color Palettes */
-  --color-primary: var(--color-castletongreen);
-  --color-primarydark: var(--color-darkgreen);
-  --color-primarylight: var(--color-cambridgeblue);
-  --color-secondary: var(--color-yaleblue);
-  --color-secondarydark: var(--color-oxfordblue);
-  --color-secondarylight: var(--color-airblue);
+  --color-primary: var(--color-charcoal);
+  --color-secondary: var(--color-airsuperiorityblue);
+  --color-tertiary: var(--color-rosybrown);
+  --color-quaternary: var(--color-khaki);
+
   --color-info: var(--color-azure);
   --color-success: var(--color-pigmentgreen);
   --color-warning: var(--color-gold);
@@ -33,4 +32,7 @@
   /* Other Variables */
   --full-height: 100vh;
   --wp-admin-theme-color: var(--color-primary);
+  // --custom-height-1: 120px;
+  // --custom-height-2: 150px;
+  // --custom-height-3: 280px;
 }

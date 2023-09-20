@@ -1,9 +1,5 @@
 /* Site Header */
 header#siteHeader {
-    a {
-        @apply transition-colors text-inherit hover:text-inherit;
-    }
-
     /* Desktop Navigation */
     #topNav {
         .menu-primary_navigation-container {

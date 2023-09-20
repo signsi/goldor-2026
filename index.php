@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <?php wp_head(); ?>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta name="theme-color" content="#7BA048" />
+  <meta name="theme-color" content="#FFF" />
 </head>
 
 <body <?php body_class(); ?>>

@@ -1,5 +1,7 @@
 @php
-    $isCTASearchActive = App\getThemeOption('cta_search');
+    $ctaSearchOption = App\getThemeOption('cta_search');
+    $headerSearchOption = App\getThemeOption('header_search');  
+    $isCTASearchActive = $ctaSearchOption || $headerSearchOption;
 @endphp
 
 @stack('header_scripts')

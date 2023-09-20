@@ -131,8 +131,8 @@ add_action('login_enqueue_scripts', function () { ?>
         .wp-core-ui #login .button-primary.active:focus,
         .wp-core-ui #login .button-primary.active:hover,
         .wp-core-ui #login .button-primary:active {
-            background: #7BA048;
-            border-color: #7BA048;
+            background: #000;
+            border-color: #000;
         }
     </style>
 <?php });

@@ -38,29 +38,19 @@
           "color": "var(--color-primary)"
         },
         {
-          "name": "Primarydark",
-          "slug": "primarydark",
-          "color": "var(--color-primarydark)"
-        },
-        {
-          "name": "Primarylight",
-          "slug": "primarylight",
-          "color": "var(--color-primarylight)"
-        },
-        {
           "name": "Secondary",
           "slug": "secondary",
           "color": "var(--color-secondary)"
         },
         {
-          "name": "Secondarydark",
-          "slug": "secondarydark",
-          "color": "var(--color-secondarylight)"
+          "name": "Tertiary",
+          "slug": "tertiary",
+          "color": "var(--color-tertiary)"
         },
         {
-          "name": "Secondarylight",
-          "slug": "secondarylight",
-          "color": "var(--color-secondarydark)"
+          "name": "Quaternary",
+          "slug": "quaternary",
+          "color": "var(--color-quaternary)"
         },
         {
           "name": "Font",

@@ -1,22 +1,9 @@
-<!-- Language Switcher -->
-<div class="reveal languageSwitcher" id="modal-languageswitcher" data-reveal data-animation-in="fade-in">
-    <h3 class="reveal-title">{{ App\pl__('Sprachauswahl - Titel Modal') }}</h3>
-        <ul class="lang-switcher ">
-            @php pll_the_languages([
-                    'show_flags' => 0,
-                    'show_names' => 1,
-                    'hide_current' => 0,
-                    'no_translation' => 1,
-                ]);
-            @endphp
-        </ul>
-    <button class="close-button-2" data-close aria-label="{{ App\pl__('Sprachauswahl - Schliessen (Accessibility)') }}" type="button">
-        <i class="fal fa-times"></i>
-    </button>
-
-    <div class="wp-block-buttons">
-        <div class="wp-block-button"><a class="wp-block-button__link" data-close aria-label="{{ App\pl__('Sprachauswahl - Schliessen (Accessibility)') }}">{{ App\pl__('Sprachauswahl - Schliessen') }}</a></div>
+<div id="modal-languageswitcher" class="modal-wrapper-languageswitcher h-screen w-full fixed left-0 top-0 hidden flex justify-center items-center z-50 transition-all bg-primary">
+    <div class="bg-white p-gutter shadow-lg rounded-lg w-10/12 md:w-1/3 max-w-md">
+        <div class="flex justify-between items-start">
+            <h3 class="mt-0">{{ App\pl__('Sprachauswahl - Titel Modal') }}</h3>
+            <i id="close-modal-languageswitcher" class="fa-solid fa-circle-xmark hover:cursor-pointer text-primary hover:text-font transition-colors"></i>
+        </div>
+        @include('partials.language.langswitcher')
     </div>
-
 </div>
-<!-- Language Switcher END -->

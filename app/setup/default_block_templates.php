@@ -4,39 +4,42 @@ function slug_post_type_template()
     // page
     $page_type_object = get_post_type_object('page');
     $page_type_object->template = [
-        ['core/group', ['layoutWidth' => 'is-style-layout-full'], [
-            ['core/group', ['layoutWidth' => 'is-style-layout-full'], [
-                ['core/heading', ['level' => 2, 'content' => 'Der sichtbare Seitentitel mit der Überschrift h2'], []],
-                ['core/paragraph', ['className' => 'is-style-lead', 'content' => 'Ich bin ein Paragraph mit dem Stile "Medium": Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
-                ['core/paragraph', ['content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
-                ['core/paragraph', ['content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
-            ]]
-        ]],
-    ];
-
-    $page_type_object = get_post_type_object('post');
-    $page_type_object->template = [
-        ['core/group', ['layoutWidth' => 'is-style-layout-full'], [
-            ['core/group', ['layoutWidth' => 'is-style-layout-full'], [
-                ['core/heading', ['level' => 2, 'content' => 'Der sichtbare Seitentitel mit der Überschrift h2'], []],
-                ['core/paragraph', ['className' => 'is-style-lead', 'content' => 'Ich bin ein Paragraph mit dem Stile "Medium": Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
-                ['core/paragraph', ['content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
-                ['core/paragraph', ['content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'placeholder' => 'Dein Inhalt'], []],
+        ['core/group', ['layout' => ['type' => 'constrained'], 'layoutWidth' => 'is-style-layout-full'], [
+            ['core/group', ['layout' => ['type' => 'constrained'], 'animation' => 'wow animate__animated animate__fadeInUp'], [
+                ['core/heading', ['level' => 2, 'content' => 'Ich bin eine Vorlage mit eine Überschrift H2 und der inneren Gruppenbreite: Default'], []],
+                ['core/paragraph', ['fontSize' => 'lg', 'content' => 'Ich bin ein Paragraph mit der Schriftgrösse "lg" und perfekt als Intro geeignet. Ich bin ein Paragraph mit der Schriftgrösse "lg" und perfekt als Intro geeignet.'], []],
+                ['core/paragraph', ['content' => 'Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph.'], []],
+                ['core/buttons', [], [
+                    ['core/button', ['className' => 'wp-block-button'], [
+                        ['core/buttonLink', ['url' => '#', 'text' => 'Button Standard'], []],
+                    ]],
+                    ['core/button', ['className' => 'wp-block-button is-style-outline'], [
+                        ['core/buttonLink', ['url' => '#', 'text' => 'Button Kontur'], []],
+                    ]],
+                ]],
             ]]
         ]],
     ];
 
     // post
-    // $page_type_object = get_post_type_object('post');
-    // $page_type_object->template = [
-    //     ['core/block', ['ref' => 1296 ], []],
-    // ];
-
-    // post
-    // $page_type_object = get_post_type_object('events');
-    // $page_type_object->template = [
-    //     ['core/block', ['ref' => 1643 ], []],
-    // ];
-
+    $post_type_object = get_post_type_object('post');
+    $post_type_object->template = [
+        ['core/group', ['layout' => ['type' => 'constrained'], 'layoutWidth' => 'is-style-layout-full'], [
+            ['core/group', ['layout' => ['type' => 'constrained'], 'animation' => 'wow animate__animated animate__fadeInUp'], [
+                ['core/heading', ['level' => 2, 'content' => 'Ich bin eine Vorlage mit eine Überschrift H2 und der inneren Gruppenbreite: Default'], []],
+                ['core/paragraph', ['fontSize' => 'lg', 'content' => 'Ich bin ein Paragraph mit der Schriftgrösse "lg" und perfekt als Intro geeignet. Ich bin ein Paragraph mit der Schriftgrösse "lg" und perfekt als Intro geeignet.'], []],
+                ['core/paragraph', ['content' => 'Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph. Ich bin ein normaler Paragraph.'], []],
+                ['core/buttons', [], [
+                    ['core/button', ['className' => 'wp-block-button'], [
+                        ['core/buttonLink', ['url' => '#', 'text' => 'Button Standard'], []],
+                    ]],
+                    ['core/button', ['className' => 'wp-block-button is-style-outline'], [
+                        ['core/buttonLink', ['url' => '#', 'text' => 'Button Kontur'], []],
+                    ]],
+                ]],
+            ]]
+        ]],
+    ];
 }
 add_action('init', 'slug_post_type_template');
+

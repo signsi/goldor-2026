@@ -1,30 +1,24 @@
 @charset 'UTF-8';
 
+// Importiere externe Stylesheets
+@import '@fancyapps/ui/dist/fancybox/fancybox.css';
+@import 'animate.css/animate.min.css';
+
+// Importiere Tailwind CSS
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import '@fancyapps/ui/dist/fancybox/fancybox.css';
-@import "animate.css/animate.min.css";
 
+// Importiere benutzerdefinierte SCSS-Dateien
 @import './variables.scss';
 @import './mixins.scss';
-// @import './typography.scss';
-// @import './typography-extend.scss';
-// @import './typography-editor-resets.scss';
-// @import './bg-styles.scss';
-// @import './helpers.scss';
-// @import './slider.scss';
+@import './typography.scss';
 @import './margin.scss';
 @import './padding.scss';
-// @import './spacing.scss';
-// @import './layout.scss';
-// @import './header.scss';
-// @import './footer.scss';
-// @import './group-columns.scss';
-// @import './core-blocks.scss';
-// @import './news.scss';
-// @import './forminator.scss';
-// @import './new_styles/image-wrapper.scss';
-// @import './new_styles/rocketpager-iconbox.scss';
+@import './spacing.scss';
+@import './layout.scss';
+@import './group-columns.scss';
+@import './core-blocks.scss';
+@import './forminator.scss';
 @import './editor-only.scss';
 
