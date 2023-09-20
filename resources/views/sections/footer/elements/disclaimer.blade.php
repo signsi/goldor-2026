@@ -8,7 +8,7 @@
     @php
         $menu_args = [
             'theme_location' => 'disclaimer_navigation',
-            'menu_class' => 'flex space-x-3 ' . $disclaimer_alignment,
+            'menu_class' => 'flex space-x-3 my-0 ' . $disclaimer_alignment,
             'add_li_class' => $list_item_class,
             'container' => false,
             'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s' . $cookie_list_item . '</ul>',

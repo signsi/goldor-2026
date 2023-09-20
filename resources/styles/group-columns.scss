@@ -30,17 +30,12 @@
 }
 
 /* Group */
+body .is-style-layout-full > :where(:not(.alignleft):not(.alignright):not(.alignfull)) * {
+    @apply mx-0 #{!important};
+}
 .wp-block-group,
 body .is-layout-constrained > .wp-block-group:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     @apply mx-auto px-gutter max-w-default;
-
-    // > .wp-block-group .wp-block-group {
-    //     @apply px-0;
-    // }
-
-    > .wp-block-group.alignwide {
-        @apply max-w-default;
-    }
 
     &.is-offset {
         @apply px-gutter-mobile md:px-gutter-display 2xl:px-0 2xl:max-w-[calc(((100%-theme(maxWidth.default))/2)+theme(maxWidth.default)-theme(gap.mobile))];

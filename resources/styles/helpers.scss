@@ -1,9 +1,7 @@
-/* General Styles */
 .font-style-icons {
   @apply inline-block font-icon not-italic normal-nums text-icon antialiased;
 }
 
-/* Font Styles */
 .font-style-icons-thin {
   @apply font-style-icons font-thin;
 }
@@ -20,13 +18,12 @@
   @apply font-style-icons font-black;
 }
 
-/* Video Containers */
 .video-absolute-container-ar {
   @apply absolute inset-0 w-full h-full object-cover;
 }
 
 .video-absolute-container-no-ar {
-  @apply md:absolute md:w-[1.778vh] md:h-[56.25vw] md:min-w-full md:min-h-full md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2;
+  @apply absolute w-[1.778vh] h-[56.25vw] min-w-full min-h-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
 }
 
 .video-canvas-ar {
@@ -34,54 +31,84 @@
 }
 
 .video-canvas-no-ar {
-  @apply md:absolute md:h-full md:w-full;
+  @apply absolute h-full w-full object-cover;
 }
 
-/* Size Classes */
-.h-vh, .height-vh, .image-size-vh, .mapsize--vh {
-  @apply h-[calc(var(--full-height)-(theme(height.menu-items-mobile)+2*theme(spacing.gutter-mobile)))] md:h-[calc(var(--full-height)-(theme(height.menu-items)+2*theme(spacing.gutter-display)))];
+.h-vh,
+.height-vh,
+.image-size-vh,
+.mapsize--vh {
+  @apply h-screen;
 }
 
-.h-large, .height-large, .image-size-large, .mapsize--large {
-  @apply h-[25vh] md:h-[33.33vh] lg:h-[75vh];
+.h-large,
+.height-large,
+.image-size-large,
+.mapsize--large {
+  @apply pt-[56.25%] md:pt-0 md:h-[33.33vh] lg:h-[75vh];
 }
 
-.h-medium, .height-medium, .image-size-medium, .mapsize--medium {
-  @apply h-[25vh] md:h-[33.33vh] lg:h-[50vh];
+.h-medium,
+.height-medium,
+.image-size-medium,
+.mapsize--medium {
+  @apply pt-[56.25%] md:pt-0 md:h-[33.33vh] lg:h-[50vh];
 }
 
-.h-small, .height-small, .image-size-small, .mapsize--small {
-  @apply h-[20vh] md:h-[25vh] lg:h-[33.33vh];
+.h-small,
+.height-small,
+.image-size-small,
+.mapsize--small {
+  @apply pt-[56.25%] md:pt-0 md:h-[25vh] lg:h-[33.33vh];
 }
 
-/* Video Size Classes */
-.videosize--16x9, .videosize--16-9 {
+.videosize--16x9,
+.videosize--16-9 {
   video {
-      @apply video-absolute-container-ar;
+    @apply video-absolute-container-ar;
   }
 
-  .wp-block-video::before, .video-lightbox-preview::before {
-      @apply video-canvas-ar pt-[56.25%];
-  }
-}
-
-.videosize--4x3, .videosize--4-3 {
-  video {
-      @apply video-absolute-container-ar;
-  }
-
-  .wp-block-video::before, .video-lightbox-preview::before {
-      @apply video-canvas-ar pt-[75%];
+  .wp-block-video::before,
+  .video-lightbox-preview::before {
+    @apply video-canvas-ar pt-[56.25%];
   }
 }
 
-.videosize--1x1, .videosize--1-1, .videosize--square {
+.videosize--9x16,
+.videosize--9-16 {
   video {
-      @apply video-absolute-container-ar;
+    @apply video-absolute-container-ar;
   }
 
-  .wp-block-video::before, .video-lightbox-preview::before {
-      @apply video-canvas-ar pt-[100%];
+  .wp-block-video::before,
+  .video-lightbox-preview::before {
+    @apply video-canvas-ar pt-[144%];
+  }
+}
+
+
+.videosize--4x3,
+.videosize--4-3 {
+  video {
+    @apply video-absolute-container-ar;
+  }
+
+  .wp-block-video::before,
+  .video-lightbox-preview::before {
+    @apply video-canvas-ar pt-[75%];
+  }
+}
+
+.videosize--1x1,
+.videosize--1-1,
+.videosize--square {
+  video {
+    @apply video-absolute-container-ar;
+  }
+
+  .wp-block-video::before,
+  .video-lightbox-preview::before {
+    @apply video-canvas-ar pt-[100%];
   }
 }
 
@@ -89,23 +116,25 @@
   @apply h-[inherit] md:h-[25vh] lg:h-[33.33vh];
 
   .wp-block-video {
-      @apply video-absolute-container-no-ar;
+    @apply video-absolute-container-no-ar;
   }
 
-  video, .wp-block-embed__wrapper {
-      @apply video-canvas-no-ar;
+  video,
+  .wp-block-embed__wrapper {
+    @apply video-canvas-no-ar;
   }
 }
 
 .videosize--medium {
-  @apply h-[inherit] md:h-[33.33vh] lg:h-[50vh];
+  @apply h-[inherit] md:h-[33.33vh] xl:h-[60vh];
 
   .wp-block-video {
-      @apply video-absolute-container-no-ar;
+    @apply video-absolute-container-no-ar;
   }
 
-  video, .wp-block-embed__wrapper {
-      @apply video-canvas-no-ar;
+  video,
+  .wp-block-embed__wrapper {
+    @apply video-canvas-no-ar;
   }
 }
 
@@ -113,10 +142,11 @@
   @apply h-[100vh];
 
   .wp-block-video {
-      @apply video-absolute-container-no-ar;
+    @apply video-absolute-container-no-ar;
   }
 
-  video, .wp-block-embed__wrapper {
-      @apply video-canvas-no-ar;
+  video,
+  .wp-block-embed__wrapper {
+    @apply video-canvas-no-ar;
   }
 }
