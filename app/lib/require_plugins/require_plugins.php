@@ -139,13 +139,13 @@ function rocketpacker_register_required_plugins()
 			'force_activation'   => false, 
 			'force_deactivation' => false, 
 		),
-		array(
-			'name'      => 'Polylang',
-			'slug'      => 'polylang',
-			'required'  => false,
-			'force_activation'   => false, 
-			'force_deactivation' => false, 
-		),
+		// array(
+		// 	'name'      => 'Polylang',
+		// 	'slug'      => 'polylang',
+		// 	'required'  => false,
+		// 	'force_activation'   => false, 
+		// 	'force_deactivation' => false, 
+		// ),
 		array(
 			'name'      => 'Yoast Duplicate Post',
 			'slug'      => 'duplicate-post',

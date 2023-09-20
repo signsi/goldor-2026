@@ -34,16 +34,11 @@ add_action('init', function () {
         'style_handle' => 'awp-block-styles',
     ]);
 
-    // Paragraph-Styles
-    register_block_style('core/paragraph', [
-        'name' => 'lead',
-        'label' => __('Medium', 'rocketpager'),
-    ]);
 
     // Button-Styles
     register_block_style('core/button', [
         'name' => 'outline-white',
-        'label' => __('Outline weiss (klein)', 'rocketpager'),
+        'label' => __('Outline weiss', 'rocketpager'),
     ]);
 
     // List-Styles
@@ -144,17 +139,13 @@ add_filter('login_headerurl', function () {
 
 
 // ADD NEW IMAGE-SIZES
-add_image_size('16-9-thumb-small', 354, 199, $crop = true);
 add_image_size('16-9-thumb', 768, 432, $crop = true);
 add_image_size('4-3-thumb', 768, 576, $crop = true);
 add_image_size('small-crop', 300, 300, $crop = true);
 add_image_size('medium-crop', 600, 600, $crop = true);
 add_image_size('square-thumb', 768, 768, $crop = true);
-add_image_size('slider-width', 1920, 450, $crop = true);
 add_image_size('small-width', 200, 200);
 add_image_size('medium-width', 768, 768);
-add_image_size('medium-large-width', 800, 800);
-add_image_size('large-width', 920, 920);
 add_image_size('full-width', 1140, 1140);
 
 

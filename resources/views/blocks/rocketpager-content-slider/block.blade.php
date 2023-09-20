@@ -24,4 +24,3 @@
         {{ reset_block_rows('slide') }}
     </div>
 @overwrite
-

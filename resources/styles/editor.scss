@@ -20,5 +20,18 @@
 @import './group-columns.scss';
 @import './core-blocks.scss';
 @import './forminator.scss';
-@import './editor-only.scss';
 
+// Benutzerdefinierte Stile für die Website
+.is-root-container:not(.edit-widgets-main-block-list).block-editor-block-list__layout > .wp-block {
+    @apply py-section px-gutter;
+}
+
+.block-editor-block-list__block {
+    h1, h2, h3, h4, h5, h6 {
+        @apply mt-0 #{!important};
+    }
+}
+
+h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
+    @apply text-center;
+}

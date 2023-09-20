@@ -47,10 +47,12 @@ module.exports = {
         white: 'var(--color-white)',
         transparent: 'transparent',
         inherit: 'inherit',
-
         'gray-300': 'var(--color-gray-300)'
-
       },
+      boxShadow: {
+        'scrolldown': 'inset 0 0 0 1px var(--color-white)',
+      },
+
       opacity: {
         default: '1',
         'on-hover': '0.8',
@@ -71,7 +73,7 @@ module.exports = {
       fontFamily: {
         serif: ['Crete Round', 'serif'],
         sans: ['DM Sans', 'Helvetica', 'sans-serif'],
-        icon: 'var(--fa-style-family-classic)',
+        icon:  '"Font Awesome 6 Pro"',
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
@@ -130,9 +132,19 @@ module.exports = {
         'arrow-right': '"\\f061"',
         'arrow-down': '"\\f063"',
 
+        'chevron-left': '"\\f053"',
+        'chevron-right': '"\\f054"',
+        'chevron-down': '"\\f078"',
+        'chevron-up': '"\\f077"',
+
+        'angle-right': '"\\f105"',
+
+        'circle-empty': '"\\f111"',
         'circle-check': '"\\f058"',
         'arrow-down-to-line': '"\\f33d"',
         'square-checked': '"\\f14a"',
+        'pdf': '"\\f1c1"',
+
       },
       lineHeight: {
         0: '0',
