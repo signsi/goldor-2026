@@ -21,6 +21,10 @@
 @import './core-blocks.scss';
 @import './forminator.scss';
 
+html :where(.editor-styles-wrapper) {
+    @apply font-sans;
+}
+
 // Benutzerdefinierte Stile für die Website
 .is-root-container:not(.edit-widgets-main-block-list).block-editor-block-list__layout > .wp-block {
     @apply py-section px-gutter;
