@@ -5,6 +5,7 @@ import { setupSearchModal } from "./modal-search.js";
 import { setupBackToTop } from "./back-to-top.js";
 import { setupLightbox } from "./lightbox-config.js";
 import { setupWowAnimation } from "./wow-config.js";
+import { setupCalculateBgColor } from "./calculate-bg-color.js";
 
 /**
  * Application entrypoint
@@ -34,6 +35,7 @@ domReady(async (err) => {
     setupBackToTop();
     setupLightbox();
     setupWowAnimation();
+    setupCalculateBgColor();
   });
 
 

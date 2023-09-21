@@ -15,6 +15,9 @@ body:not(.wp-core-ui),
     &.has-text-align-right {
         @apply mr-0 ml-auto;
     }
+    a {
+      @apply hover:text-secondary;
+    }
   }
   .has-text-align-center {
     * {

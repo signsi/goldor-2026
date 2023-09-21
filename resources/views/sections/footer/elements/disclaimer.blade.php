@@ -1,6 +1,6 @@
 @php
     $disclaimer_alignment = App\getThemeOption('footer_disclaimer');
-    $list_item_class = 'relative text-xs font-normal pr-3 border-r border-white last:pr-0 last:border-r-0';
+    $list_item_class = 'relative text-xs font-normal pr-3 border-r last:pr-0 last:border-r-0';
     $cookie_list_item = App\is_plugin_active_and_available('webtoffee-gdpr-cookie-consent/cookie-law-info.php') && !is_privacy_policy() ? '<li id="menu-item-cookie-setting" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-217 ' . $list_item_class . '">' . do_shortcode('[wt_cli_manage_consent]') . '</li>' : '';
 @endphp
 
@@ -18,7 +18,7 @@
     {!! wp_nav_menu($menu_args) !!}
 @else
     <a href='/wp-admin/nav-menus.php'>
-        <div class="p-3 border border-solid border-white text-xs text-white hover:bg-white hover:text-font transition-colors">
+        <div class="p-3 border border-solid text-xs text-white hover:bg-white hover:text-font transition-colors">
             Füge eine Navigation mit dem Namen 'disclaimer_navigation' hinzu oder definiere die Spalte.
         </div>
     </a>

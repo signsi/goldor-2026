@@ -53,6 +53,16 @@
           "color": "var(--color-quaternary)"
         },
         {
+          "name": "Hellgelb",
+          "slug": "hellgelb",
+          "color": "var(--color-hellgelb)"
+        },
+        {
+          "name": "Dunkelrot",
+          "slug": "dunkelrot",
+          "color": "var(--color-dunkelrot)"
+        },
+        {
           "name": "Font",
           "slug": "font",
           "color": "var(--color-font)"
