@@ -41,6 +41,9 @@ module.exports = {
         tertiary: 'var(--color-tertiary)',
         quaternary: 'var(--color-quaternary)',
 
+        hellgelb: 'var(--color-hellgelb)',
+        dunkelrot: 'var(--color-dunkelrot)',
+
         font: 'var(--color-font)',
         grey: 'var(--color-grey)',
         black: 'var(--color-black)',

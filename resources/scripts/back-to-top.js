@@ -20,3 +20,4 @@ export function setupBackToTop(scrollDuration = 250, offsetVisibility = 100, dur
     return false;
   });
 }
+
