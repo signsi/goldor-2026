@@ -15,45 +15,99 @@
   @apply opacity-100;
 }
 
-/* not for class .home */
-body:not(.home) .slides picture  {
-  @apply after:content-none;
+// Zeigt an, dass man den Slide nach links oder rechts ziehen kann
+.slick-list.draggable {
+  @apply hover:cursor-grabbing;
 }
 
 /* Arrows */
+.slick-arrow {
+  @apply bg-secondary hover:bg-primary transition-colors;
+}
+
 .slick-prev,
 .slick-next {
-  @apply block absolute -bottom-10 md:-bottom-12 xl:-bottom-14 top-auto left-auto w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 p-0 border-none rounded-full outline-none z-10 cursor-pointer bg-transparent text-transparent before:text-primary before:opacity-default;
-  &:hover,
-  &:focus {
-    @apply outline-none text-transparent;
+  @apply absolute w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12 text-0 rounded-none z-10;
+  @apply before:text-lg before:font-icon hover:before:text-white focus:before:text-white;
 
-    &:before {
-      @apply text-font;
-    }
-  }
+  // Default-Positionierung unten rechts
+  @apply top-0 bottom-auto;
 
   &.slick-disabled:before {
     @apply opacity-not-active;
   }
-
 }
 
+/* Standard-Pfeile mit Positionierung unten rechts und Icon */
 .slick-prev {
-  @apply left-auto right-section before:content-chevron-left before:rtl:content-chevron-right;
+  @apply before:content-chevron-left before:rtl:content-chevron-right;
+  
+  // Default-Positionierung
+  @apply left-0 right-auto;
 }
 
 .slick-next {
-  @apply left-auto right-gutter before:content-chevron-right before:rtl:content-chevron-left;
+  @apply border-l border-solid border-l-primary before:content-chevron-right before:rtl:content-chevron-left;
+
+  // Default-Positionierung
+  @apply left-8 md:left-10 xl:left-12 right-auto;
+
 }
 
-.slick-arrow {
-  @apply transition-colors bg-transparent;
+/* Basisstil für Pfeilbuttons */
+.arrowsTopLeft, .arrowsTopRight {
+  .slick-prev, .slick-next {
+    @apply top-0 bottom-auto;
+  }
 }
+.arrowsBottomLeft, .arrowsBottomRight {
+  .slick-prev, .slick-next {
+    @apply top-auto bottom-0 translate-y-full -mb-4;
+  }
+}
+
+/* Pfeile oben links */
+.arrowsTopLeft .slick-prev {
+  @apply left-0 right-auto;
+}
+
+.arrowsTopLeft .slick-next {
+  @apply left-8 md:left-10 xl:left-12 right-auto;
+}
+
+/* Pfeile oben rechts */
+.arrowsTopRight .slick-prev {
+  @apply right-8 md:right-10 xl:right-12 left-auto;
+}
+
+.arrowsTopRight .slick-next {
+  @apply right-0 left-auto;
+}
+
+/* Pfeile unten links */
+.arrowsBottomLeft .slick-prev {
+  @apply left-0 right-auto;
+}
+
+.arrowsBottomLeft .slick-next {
+  @apply left-8 md:left-10 xl:left-12 right-auto;
+}
+
+/* Pfeile unten rechts */
+.arrowsBottomRight .slick-prev {
+  @apply right-8 md:right-10 xl:right-12 left-auto;
+}
+
+.arrowsBottomRight .slick-next {
+  @apply right-0 left-auto;
+}
+
+
 
 /* Dots */
 .slick-dots {
   @apply block relative mb-gutter mx-0 mt-0 p-0 list-none text-center w-full;
+  @apply pl-0 #{!important};
 
   li {
     @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;

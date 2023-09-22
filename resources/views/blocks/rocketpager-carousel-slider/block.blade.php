@@ -3,7 +3,7 @@
     $additional_classes = App\mapToKeyString(['carousel-stil', 'ratio']);
     $isBoxSlider = block_value( 'carousel-stil') == 'box-slider';
     $isCroppedSlider = block_value( 'cropped-stil');
-    $additional_classes .= $isBoxSlider ? ' pr-0 pl-0' : '';
+    $additional_classes .= $isBoxSlider ? ' pr-0 pl-0 my-element' : 'my-element';
     $additional_classes .= block_value( 'cropped-stil') ? ' cropped-stil' : '';
     $idLightbox = App\getLightboxIdentifier();
     $ratio = block_value('aspect-ratio');
@@ -23,17 +23,16 @@
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => $additional_classes])
-{{-- @extends('blocks.helpers.block-wrapper') --}}
 
 @section('content-section')
-    <div class="carousel-slider">
+    <div class="carousel-slider {{ block_value('arrows-alignment') }}">
         @while ( block_rows('carousel-item') )
             @php
                 block_row('carousel-item');
                 $preview_type = block_sub_value('preview-element');
             @endphp
-            <div class="carousel-element" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
-                <div class="mr-4 @if(block_sub_value('title')) bg-white shadow-md @endif ">
+            <div class="carousel-element" {{ block_value('arrows-alignment') }} data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
+                <div class="mr-4 @if(block_sub_value('title')) bg-white shadow-lg @endif ">
                     @if ( $preview_type == 'post-image' )
                         <div class="image-wrapper ">
                             @if(block_sub_value('link'))
@@ -43,7 +42,7 @@
                                 @include('blocks.helpers.image',
                                 [
                                     'name_ImageField' => 'preview-image',
-                                    'additionalClasses' => array('class' => 'nolazyload !m-0'),
+                                    'additionalClasses' => array('class' => 'transition-transform scale-100 hover:scale-105 nolazyload !m-0'),
                                     'thumbnail' => $ar_class,
                                     'isRepeaterElement' => true,
                                     'identifierLightbox' => $idLightbox
@@ -86,17 +85,26 @@
                             @endswitch
                         </div>
                     @endif
-                    <div class="text-wrapper p-gutter">
+                    <div class="relative group text-wrapper p-gutter [&_*]:text-font [&_*]:text-sm">
                         @if ( block_sub_value( 'title') )
-                            <p class="text-font font-bold text-sm mt-0 !mb-2 @if ( block_sub_value('link') ) font-normal @else font-bold @endif">{{ block_sub_value('title') }}</p>
+                            <p class="font-bold my-0">{{ block_sub_value('title') }}</p>
                         @endif
                         @if ( block_sub_value('text') )
-                            <div class="">
-                            {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
+                            <div class="mb-gutter [&_p]:mt-0">
+                                {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                             </div>
                         @endif
-                        @if ( block_sub_value('email') )
-                            <a class="text-font text-sm hover:text-primary" href="mailto:{{ block_sub_value('email') }}">{{ App\pl__('E-Mail') }}</a>@if ( block_sub_value('phone') )<span class="!text-font text-sm"> | </span><a href="tel:{{ block_sub_value('phone') }}">{{ block_sub_value('phone') }}</a> @endif </p>
+                        @if ( block_sub_value('email') || block_sub_value('phone') )
+                            <div class="absolute opacity-0 group-hover:opacity-100 group-hover:justify-center transition-colors group-hover:items-center inset-0 bg-transparent group-hover:bg-primary">
+                                <ul class="flex justify-center items-center h-full my-0 pl-0 space-x-6 [&_*]:text-white transition-transform translate-y-full group-hover:translate-y-0">
+                                    @if ( block_sub_value('email') )
+                                        <a href="mailto:{{ block_sub_value('email') }}"><i class="hover:text-font text-xl fa-solid fa-envelope"></i></a>
+                                    @endif
+                                    @if ( block_sub_value('phone') )
+                                        <a href="tel:{{ block_sub_value('phone') }}"><i class="hover:text-font text-xl fa-solid fa-phone"></i></a>
+                                    @endif
+                                </ul>
+                            </div>
                         @endif
                     </div>
                 </div>
