@@ -1,28 +1,12 @@
 .rocketpager-content-slider {
     @apply relative;
-    .content-slider {
-        @apply mb-10;
-    }
     &.cropped-stil figure{
         @apply pr-4;
-    }
-    .slick-list.draggable {
-        @apply hover:cursor-grabbing;
     }
     .slick-track > .slick-slide {
         @apply leading-0;
     }
     figcaption {
         @apply text-left ;
-    }
-    .slick-prev, .slick-next {
-        @apply top-0 bg-secondary hover:bg-primary transition-colors rounded-none before:text-lg before:font-icon;
-        
-    }
-    .slick-prev {
-        @apply left-0 mr-gutter-mobile md:mr-0;
-    }
-    .slick-next {
-        @apply right-auto left-8 md:left-10 xl:left-12 mr-gutter-mobile md:mr-0;
     }
 }
