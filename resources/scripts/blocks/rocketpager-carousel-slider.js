@@ -2,8 +2,8 @@ $(document).ready(function () {
     $(".carousel-slider").slick({
         slidesToShow: 3,
         slidesToScroll: 1,
-        dots: false,
-        arrows: true,
+        dots: true,
+        arrows: false,
         adaptiveHeight: true,
         responsive: [
             {

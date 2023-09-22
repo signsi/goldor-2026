@@ -5,13 +5,13 @@
         .wp-block-heading {
             @apply + * mt-0;
         }
-        h1{
-            @apply text-4xl text-primary #{!important};
-            @apply font-bold;
+        h1, .heading-1 { 
+            @apply text-4xl #{!important};
+            @apply font-bold text-primary;
         }
         .has-4xl-font-size {
-            @apply text-4xl text-primary #{!important};
-            @apply font-bold;
+            @apply text-4xl #{!important};
+            @apply font-bold text-primary;
         }
         h2, .has-3xl-font-size{
             @apply text-3xl #{!important};

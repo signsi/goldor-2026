@@ -1,16 +1,16 @@
 @layer components {
     .bg-object-container {
-        @apply absolute top-0 bottom-0 left-0 right-0 w-full h-full transition-opacity duration-200 ease-out;
+        @apply absolute inset-0 w-full h-full transition-opacity duration-200 ease-out;
     }
 }
 
 .bg-object-wrapper {
-    @apply relative w-full h-full;
+    @apply relative w-full;
 
     picture {
-        @apply absolute top-0 left-0 w-full h-full;
+        @apply absolute inset-0 w-full h-full;
         img {
-            @extend .bg-object-container; // Nutze den Platzhalter hier
+            @extend .bg-object-container;
         }
     }
 }
