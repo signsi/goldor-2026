@@ -45,21 +45,21 @@
 .height-large,
 .image-size-large,
 .mapsize--large {
-  @apply pt-[56.25%] md:pt-0 md:h-[33.33vh] lg:h-[75vh];
+  @apply h-[50vh] lg:h-[75vh];
 }
 
 .h-medium,
 .height-medium,
 .image-size-medium,
 .mapsize--medium {
-  @apply pt-[56.25%] md:pt-0 md:h-[33.33vh] lg:h-[50vh];
+  @apply h-[33.33vh] lg:h-[50vh];
 }
 
 .h-small,
 .height-small,
 .image-size-small,
 .mapsize--small {
-  @apply pt-[56.25%] md:pt-0 md:h-[25vh] lg:h-[33.33vh];
+  @apply h-[25vh] lg:h-[33.33vh];
 }
 
 .videosize--16x9,

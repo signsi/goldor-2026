@@ -107,26 +107,13 @@
 /* Dots */
 .slick-dots {
   @apply block relative mb-gutter mx-0 mt-0 p-0 list-none text-center w-full;
-  @apply pl-0 #{!important};
-
   li {
-    @apply inline-block relative w-5 h-5 my-0 mx-[5px] p-0 pl-5 cursor-pointer before:hidden;
-
-    button {
-      @apply block w-5 h-5 border-none outline-none p-[5px] cursor-pointer text-0 text-transparent bg-transparent;
-
-      &:hover,
-      &:focus {
-        @apply outline-none before:opacity-on-hover;
-      }
-
-      &:before {
-        @apply absolute top-0 left-0 w-5 h-5 font-style-icons-light text-4xl md:text-5xl leading-5 content-slider-dot text-center text-font opacity-not-active
-      }
+    @apply relative inline-block px-0 my-0 mx-1.5 cursor-pointer text-[0px] marker:hidden #{!important};
+    &.slick-active button{
+      @apply opacity-100 relative before:absolute before:inset-0 before:rounded-full before:bg-transparent before:border before:border-solid before:border-secondary before:scale-150;
     }
-
-    &.slick-active button:before {
-      @apply text-font opacity-default;
+    button {
+      @apply transition-opacity opacity-20 hover:opacity-100 w-3 h-3 bg-primary rounded-full;
     }
   }
 }

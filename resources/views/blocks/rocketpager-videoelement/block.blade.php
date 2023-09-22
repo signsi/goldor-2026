@@ -5,7 +5,7 @@
     $useCustomPlayBtn = block_value('use-custom-play-button');
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => ''])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'relative'])
 
 @section('content-section')
     @switch($video_type)
@@ -44,5 +44,8 @@
                 ])
             @endif
     @endswitch
+    @if ( block_value('arrow-down') )
+        @include('blocks.helpers.scroll-down')
+    @endif
 
 @overwrite

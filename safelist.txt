@@ -178,3 +178,11 @@ gap-gutter
 gap-tiny
 gap-element
 gap-section
+
+max-w-tiny
+max-w-slim
+max-w-default
+max-w-medium
+max-w-large
+max-w-xlarge
+max-w-2xlarge
