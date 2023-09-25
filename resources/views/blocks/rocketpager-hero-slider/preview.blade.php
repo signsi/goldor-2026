@@ -1,13 +1,14 @@
 @php
     $boxWidth = block_value('box-width');
     $boxAlignment = block_value('box-alignment');
+    $textAlignment = block_value('text-alignment');
 @endphp
 
 
 @extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 
-<div class="text-sm bg-grey text-white p-gutter">
+<div class="text-xs bg-grey text-white p-gutter">
     <strong><u>Einstellung der Textbox</u></strong>
     <br>
     Breite der Textbox:
@@ -68,6 +69,26 @@
     @endswitch
     @if ( block_value('arrow-down') )
         <br>Scroll Down-Button ist aktiviert 
+    @endif
+    <br>
+    Ausrichtung des Textes:
+    @switch($textAlignment)
+        @case('text-left')
+            linksbündig
+            @break
+
+        @case('text-center')
+            zentriert
+            @break
+
+        @case('text-right')
+            rechtsbündig
+            @break
+    @endswitch
+
+    @if ( block_value('box-bg') )
+        <br>
+        Textbox farblich hinterlegt
     @endif
 </div>
 

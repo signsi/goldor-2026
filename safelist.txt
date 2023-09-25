@@ -186,3 +186,7 @@ max-w-medium
 max-w-large
 max-w-xlarge
 max-w-2xlarge
+
+text-left
+text-center
+text-right

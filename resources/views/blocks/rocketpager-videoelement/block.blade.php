@@ -3,9 +3,11 @@
     $iframe_link = block_value('iframe-link');
     $video_size = block_value('video-size');
     $useCustomPlayBtn = block_value('use-custom-play-button');
+    $hasGradient = block_value('hasGradient');
 @endphp
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => 'relative'])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'relative' . ($hasGradient ? ' hasGradient' : '')])
+
 
 @section('content-section')
     @switch($video_type)

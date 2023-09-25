@@ -162,6 +162,7 @@ module.exports = {
       },
       backgroundImage: {
         'hero-pattern-1': "url('../images/logo-rocket-pink.svg')",
+        'gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%)',
       },
       backgroundSize: {
         '25%': '25%',
