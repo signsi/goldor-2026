@@ -150,3 +150,7 @@
     @apply video-canvas-no-ar;
   }
 }
+
+.hasGradient {
+  @apply relative after:bg-gradient after:absolute after:bottom-0 after:inset-x-0 after:h-[25vh] after:top-0 lg:after:top-0;
+}

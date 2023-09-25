@@ -7,7 +7,7 @@
 @extends('blocks.helpers.preview-wrapper')
 
 @section('content-section-before-flex')
-    <div class="w-full p-element bg-grey text-font">
+    <div class="w-full text-xs bg-grey text-white p-gutter">
     <strong><u>Video-Element</u></strong><br><br>
     @switch($video_type)
         @case('extern-video')
@@ -54,6 +54,9 @@
         @endif
         @if (block_value('use-custom-play-button'))
             <br>Custom Play Button verwenden - ist aktiviert
+        @endif
+        @if (block_value('hasGradient'))
+            <br>Leicher Farbverlauf im Hintergrund (für bessere Lesbarkeit) - ist aktiviert
         @endif
         
     </div>
