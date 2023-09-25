@@ -48,6 +48,33 @@ body:not(.wp-core-ui),
         @apply bg-transparent border-0 p-0 font-normal;
     }
   }
+  /* Button Styles */
+  .wp-block-button {
+    >.wp-block-button__link {
+      @include buttonStyleFont;
+      @include buttonStyleDefault;
+    }
+  }
+  .wp-block-button {
+  &.is-style-outline>.wp-block-button__link,
+  &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+    @include buttonStyleOutline;
+    }
+  }
+  .wp-block-button {
+  &.is-style-outline-white>.wp-block-button__link,
+  &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+    @include buttonStyleOutlineWhite;
+    }
+  }
+  
+  .wp-block-group .wp-block-buttons {
+    @apply mt-element;
+  }
 
   /* Horizontale Linien */
   hr,
