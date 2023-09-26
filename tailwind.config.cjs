@@ -46,6 +46,8 @@ module.exports = {
 
         font: 'var(--color-font)',
         grey: 'var(--color-grey)',
+        greylight: 'var(--color-greylight)',
+        greydark: 'var(--color-greydark)',
         black: 'var(--color-black)',
         white: 'var(--color-white)',
         transparent: 'transparent',

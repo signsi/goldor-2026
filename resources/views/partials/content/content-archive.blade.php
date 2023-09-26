@@ -1,5 +1,5 @@
 <div class="wp-block-group is-style-layout-full">
-    <div class="wp-block-group">
+    <div class="wp-block-group wow animate__ animate__fadeInUp">
     <h1>{{ App\pl__('Archiv - Titel') }}</h1>
         <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
             @while(have_posts()) @php(the_post())

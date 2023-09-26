@@ -17,7 +17,7 @@
                     @php
                         wp_nav_menu([
                             'theme_location' => 'primary_navigation',
-                            'menu_class' => 'menu-primary_navigation flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 items-center',
+                            'menu_class' => 'menu-primary_navigation flex space-x-6 lg:space-x-4 xl:space-x-10 2xl:space-x-12 items-center my-0',
                             'container_class' => 'menu-primary_navigation-container',
                             'add_li_class' => 'relative group text-base text-font hover:text-primary w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-primary before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-primary',
                             'add_sub_li_class' => 'before:content-none',

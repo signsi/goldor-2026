@@ -96,7 +96,7 @@ body:not(.wp-core-ui),
 
   /* Listen */
   ul, ol {
-    @apply pl-typography-desktop mt-typography-mobile mb-typography;
+    @apply mb-typography;
     li {
         @apply pl-2 my-typography-tiny text-base;
     }
@@ -108,7 +108,7 @@ body:not(.wp-core-ui),
     @apply list-disc;
     // Menüs
     &[id^="menu-"], ul {
-        @apply pl-0 list-none;
+        @apply list-none;
         li {
             @apply my-0 pl-0;
         }
@@ -186,13 +186,16 @@ body:not(.wp-core-ui),
 
   /* List-Styles */
   ul[class*="liststyle-icon"] {
-    @apply list-none pl-0 my-gutter;
+    @apply list-none pl-0;
     
     > li {
       @apply flex items-center pl-0 transition-colors hover:text-secondary;
       
       &::before, &::after {
         @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
+      }
+      &, &::before, &::after, & a {
+        @apply transition-all;
       }
     }
 
@@ -231,13 +234,27 @@ body:not(.wp-core-ui),
     }
 
     /* Animation: Icons beim Hover bewegen */
+    &[class*="--arrow-right"],
+    &[class*="--arrow-right-long"],
     &[class*="--arrow-left"],
-    &[class*="--arrow-left-long"]:hover > li::before {
-      @apply origin-center -translate-x-1.5;
+    &[class*="--arrow-left-long"]{
+      > li::before,
+      > li::after {
+        @apply translate-x-0 transition-all;
+
+      }
+    }
+    &[class*="--arrow-left"],
+    &[class*="--arrow-left-long"]{
+      > li:hover::before {
+        @apply origin-center -translate-x-1.5;
+      }
     }
     &[class*="--arrow-right"],
-    &[class*="--arrow-right-long"]:hover > li::after {
-      @apply origin-center translate-x-1.5;
+    &[class*="--arrow-right-long"]{
+      > li:hover::after {
+        @apply origin-center translate-x-1.5;
+      }
     }
 
     /* Spezialfall */

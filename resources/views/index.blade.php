@@ -5,15 +5,14 @@
         @include('partials.content.content-none')
     @else
         <div class="wp-block-group is-style-layout-full">
-            <div class="wp-block-group">
-                <h1>{{ App\pl__('Archiv - Titel') }}</h1>
-                @while(have_posts())
-                    @php(the_post())
-                    @include('partials.content.content')
-                @endwhile
-                <div class="wp-block-group mt-element">
-                    @include('partials.components.postnavigation')
-                </div>
+            <div class="wp-block-group wow animate__ animate__fadeInUp">
+            <h1>{{ App\pl__('Archiv - Titel') }}</h1>
+            @while(have_posts())
+                @php(the_post())
+                @include('partials.content.content')
+            @endwhile
+            <div class="wp-block-group mt-element">
+                @include('partials.components.postnavigation')
             </div>
         </div>
     @endif
