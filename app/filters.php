@@ -11,13 +11,9 @@ namespace App;
  *
  * @return string
  */
-add_filter('excerpt_more', function () {
-    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), __('Continued', 'sage'));
-});
-
 
 add_filter('excerpt_more', function () {
-    return sprintf(' &hellip; <a href="%s">%s</a>', get_permalink(), pl__('Weiterlesen'));
+    return sprintf(' &hellip; <ul class="is-style-liststyle-icon-end--arrow-right group my-0"><li class="my-0 group-hover:origin-center group-hover:translate-x-2 after:text-xs after:pl-2"><a href="%s" class="text-xs">%s</a></li></ul>', get_permalink(), pl__('Weiterlesen'));
 });
 
 add_filter('excerpt_length', function ($length){

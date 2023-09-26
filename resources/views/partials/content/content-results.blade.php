@@ -8,7 +8,7 @@
       <p class="mt-0">{{ App\pl__('Suche mit Resultate - Meldung Resultate') }} <strong>{{ get_search_query() }}</strong></p>
       <p class="mt-0 !mb-element">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
       @while(have_posts()) @php(the_post())
-        <article @php(post_class('py-gutter border-t border-solid border-gray-300'))>
+        <article @php(post_class('py-gutter border-t border-solid border-greylight'))>
           <header>
             <p class="my-0">
               <a href="{{ call_user_func( $function ) }}" class="text-primary font-bold">{!! get_the_title() !!}</a>
@@ -17,12 +17,12 @@
               @include('partials.meta.entry-meta-date')
             </div>
           </header>
-          <div class="p:mb-0 [&_*]:text-sm [&_p]:flex [&_p]:flex-col [&_p_a]:mt-3 [&_p_a]:text-xs [&_p_a]:text-primary [&_p_a]:hover:text-font">
+          <div class="p:mb-0 [&_p]:text-sm [&_p]:flex [&_p]:flex-col">
             @php(the_excerpt())
           </div>
         </article>
       @endwhile
-      <div class="posts_navigation pt-gutter border-t border-solid border-gray-300">
+      <div class="posts_navigation pt-gutter border-t border-solid border-greylight">
         @include('partials.components.postnavigation')
       </div>
   </div>
