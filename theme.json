@@ -73,6 +73,16 @@
           "color": "var(--color-grey)"
         },
         {
+          "name": "Greylight",
+          "slug": "greylight",
+          "color": "var(--color-greylight)"
+        },
+        {
+          "name": "Greydark",
+          "slug": "greydark",
+          "color": "var(--color-greydark)"
+        },
+        {
           "name": "Gray-300",
           "slug": "gray-300",
           "color": "var(--color-gray-300)"

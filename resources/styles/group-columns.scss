@@ -36,7 +36,6 @@ body .is-style-layout-full > :where(:not(.alignleft):not(.alignright):not(.align
 .wp-block-group,
 body .is-layout-constrained > .wp-block-group:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     @apply mx-auto px-gutter max-w-default;
-
     &.is-offset {
         @apply px-gutter-mobile md:px-gutter-display 2xl:px-0 2xl:max-w-[calc(((100%-theme(maxWidth.default))/2)+theme(maxWidth.default)-theme(gap.mobile))];
     }
@@ -213,5 +212,10 @@ body .is-layout-constrained > .wp-block-group:where(:not(.alignleft):not(.alignr
                 @apply md:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.tablet)/2)))] lg:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.desktop)/2)))] 2xl:max-w-[calc((theme(maxWidth.xlarge)/2)-(theme(spacing.gutter-display)+(theme(gap.full-hd)/2)))];
             }
         }
+    }
+}
+main > div > .wp-block-group {
+    > *{
+        @apply first:mt-0 last:mb-0;
     }
 }
