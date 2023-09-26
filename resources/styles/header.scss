@@ -14,7 +14,7 @@ header#siteHeader {
                     .submenuContainer {
                         ul.menu-primary_subnavigation {
                             > li {
-                                @apply mb-3 font-normal last:mb-0;
+                                @apply text-sm mb-2 font-normal last:mb-0;
                                 a {
                                     @apply flex;
                                 }
