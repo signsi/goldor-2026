@@ -6,6 +6,7 @@ import { setupBackToTop } from "./back-to-top.js";
 import { setupLightbox } from "./lightbox-config.js";
 import { setupWowAnimation } from "./wow-config.js";
 import { setupCalculateBgColor } from "./calculate-bg-color.js";
+import { setupAnimations } from './animations.js';
 
 /**
  * Application entrypoint
@@ -16,10 +17,12 @@ domReady(async (err) => {
     console.error(err);
   }
 
+  setupAnimations();
+
   // jQuery ready
   jQuery(function ($) {
     handleAnchorJump();
-    
+
     let fullHeight = window.innerHeight;
     document.documentElement.style.setProperty('--full-height', `${fullHeight}px`);
 
@@ -34,7 +37,7 @@ domReady(async (err) => {
     setupSearchModal();
     setupBackToTop();
     setupLightbox();
-    setupWowAnimation();
+    // setupWowAnimation();
     setupCalculateBgColor();
   });
 
