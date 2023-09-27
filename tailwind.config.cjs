@@ -146,6 +146,7 @@ module.exports = {
 
         'circle-empty': '"\\f111"',
         'circle-check': '"\\f058"',
+        'circle-small': '"\\e122"',
         'arrow-down-to-line': '"\\f33d"',
         'square-checked': '"\\f14a"',
         'pdf': '"\\f1c1"',

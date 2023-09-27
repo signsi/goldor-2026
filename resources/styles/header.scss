@@ -6,7 +6,7 @@ header#siteHeader {
             > ul {
                 > li {
                     &.current_page_parent, &.current-menu-item {
-                        @apply text-primary before:w-full before:left-0 before:bg-primary #{!important};
+                        @apply text-secondary before:w-full before:left-0 before:bg-secondary #{!important};
                         .submenuToggle {
                             @apply text-primary #{!important};
                         }
@@ -126,6 +126,25 @@ header#siteHeader {
     }
 }
 
+/* Language Switcher */
+ul.lang-switcher-nav {
+    li {
+        &.current-lang {
+            @apply font-bold text-primary;
+        }
+    }
+}
+#modal-languageswitcher ul.lang-switcher-nav {
+    li {
+        &.current-lang {
+            @apply after:content-circle-check after:font-bold after:text-primary #{!important};
+        }
+    }
+    a {
+        @apply pl-8 pr-6 mr-0 pr-0;
+    }
+}
+
 /* Fixed Header */
 .siteHeader--notTop {
     @apply bg-white;
@@ -136,3 +155,4 @@ header#siteHeader {
 .activeAnchorScroll {
     transform: translateY(-100%);
 }
+
