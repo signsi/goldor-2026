@@ -2,6 +2,7 @@
     $ctaSearchOption = App\getThemeOption('cta_search');
     $headerSearchOption = App\getThemeOption('header_search');  
     $isCTASearchActive = $ctaSearchOption || $headerSearchOption;
+    $isLanguageActive = App\getThemeOption('header_lang_switcher');
 @endphp
 
 @stack('header_scripts')
@@ -22,6 +23,9 @@
     @endif
 
     @includeWhen($isCTASearchActive, 'sections.offcanvas.modal-search')
+    @if (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher'))
+        @includeWhen($isLanguageActive, 'sections.offcanvas.modal-language')
+    @endif
 </main>
 
 @include('sections.footer.footer')

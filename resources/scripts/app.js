@@ -2,6 +2,7 @@ import domReady from '@roots/sage/client/dom-ready';
 import { handleAnchorJump } from "./anchor-jump.js";
 import { setupNavigation } from './nav.js';
 import { setupSearchModal } from "./modal-search.js";
+import { setupLanguageswitcherModal } from "./modal-languageswitcher.js";
 import { setupBackToTop } from "./back-to-top.js";
 import { setupLightbox } from "./lightbox-config.js";
 import { setupWowAnimation } from "./wow-config.js";
@@ -35,6 +36,7 @@ domReady(async (err) => {
 
 
     setupSearchModal();
+    setupLanguageswitcherModal();
     setupBackToTop();
     setupLightbox();
     // setupWowAnimation();

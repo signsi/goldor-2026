@@ -17,7 +17,7 @@
                 ]))
             @endif
         </nav>
-        @includeWhen($lang_switch_active, 'partials.language.langswitcher')
-        @includeWhen($search_active, 'forms.search')
+        @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList')
+        @includeWhen($search_active, 'forms.search') 
     </div>
 </div>

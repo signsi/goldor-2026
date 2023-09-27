@@ -94,6 +94,13 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
+            'key' => 'bereich',
+            'label' => 'Bereich',
+            'default' => 'Powerful Advertising',
+            'translateable' => true,
+        ],
+        [
+            'type' => 'text',
             'key' => 'strasse',
             'label' => 'Strasse',
             'default' => 'Neuweg 10',
@@ -199,7 +206,7 @@ function crb_attach_theme_options()
         [
             'type' => 'checkbox',
             'key' => 'header_lang_switcher',
-            'label' => 'Sprach-Umschalter aktiviert?',
+            'label' => 'Sprach-Umschalter aktiviert? (Polylang Plugin muss installiert sein)',
         ],
         [
             'type' => 'checkbox',
@@ -250,11 +257,12 @@ function crb_attach_theme_options()
             'key' => 'cta',
             'label' => 'CTA aktiviert?',
         ],
-        [
-            'type' => 'checkbox',
-            'key' => 'cta_lang_switcher',
-            'label' => 'Sprach-Umschalter aktiviert?',
-        ],
+        // TODO: language-switcher - funktioniert nicht
+        // [
+        //     'type' => 'checkbox',
+        //     'key' => 'cta_lang_switcher',
+        //     'label' => 'Sprach-Umschalter aktiviert? (Polylang Plugin muss installiert sein)',
+        // ],
         [
             'type' => 'checkbox',
             'key' => 'cta_search',

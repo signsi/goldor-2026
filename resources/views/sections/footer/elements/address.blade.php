@@ -1,5 +1,6 @@
 @php
     $company_name = App\getThemeOption('firmenname');
+    $company_division = App\getThemeOption('bereich');
     $company_street = App\getThemeOption('strasse');
     $company_plz = App\getThemeOption('plz');
     $company_city = App\getThemeOption('ort');
@@ -17,6 +18,7 @@
     @else
         <address class="text-xs not-italic">
             {{ $company_name }}<br>
+            {{ $company_division }}<br>
             {{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
         </address>
         <p class="text-xs">
