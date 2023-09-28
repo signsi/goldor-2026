@@ -139,10 +139,10 @@ function setupMobileNav() {
             closeMobileMenu($mobileNav);
         } else {
             openMobileMenu($mobileNav);
-            closeAllSubMenus();
-            openSubMenu($childContainer);
-            $subMenuBtn.addClass("rotate-180");
         }
+    })
+    $mobileNavCloseLinks.on('click', function() {
+        closeMobileMenu($mobileNav);
     })
 
     $menuParents.on('click', function (e) {
