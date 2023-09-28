@@ -1,10 +1,10 @@
-/* Body Styles */
-body:not(.wp-core-ui),
-.interface-interface-skeleton__content {
-    /* Heading Styles */
-    h1 {
-        em {
-            @apply font-light not-italic;
+@mixin typographyExtended {
+    /* Überschriften */
+    @layer components {
+        h1 {
+            em {
+                @apply font-light not-italic;
+            }
         }
     }
 }

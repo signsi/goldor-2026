@@ -8,15 +8,14 @@
 
 /* Globale Variablen und Mixins */
 @import './variables.scss';
-@import './mixins.scss';
 @import './animation.scss';
 
 /* Typografie und Schriftarten */
 @import './typography.scss';
+@include typography;
 @import './typography-extend.scss';
-
-/* Hintergrundstile */
-@import './bg-styles.scss';
+@include typographyExtended;
+@import './buttons.scss';
 
 /* Hilfsklassen und Utilities */
 @import './helpers.scss';
@@ -32,15 +31,11 @@
 
 /* Globale Variablen und Mixins */
 @import './variables.scss';
-@import './mixins.scss';
 @import './animation.scss';
 
 /* Typografie und Schriftarten */
 @import './typography.scss';
 @import './typography-extend.scss';
-
-/* Hintergrundstile */
-@import './bg-styles.scss';
 
 /* Hilfsklassen und Utilities */
 @import './helpers.scss';
@@ -54,6 +49,7 @@
 
 /* Block-Stile */
 @import './core-blocks.scss';
+@include coreBlocks;
 @import './news.scss';
 @import './forminator.scss';
 
@@ -63,8 +59,8 @@
 @import './padding.scss';
 
 /* Zusätzliche Stile */
-@import './new_styles/image-wrapper.scss';
-@import './new_styles/rocketpager-iconbox.scss';
+@import './rocketpager_blockstyles/image-wrapper.scss';
+@import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
@@ -76,7 +72,6 @@
 @import './group-columns.scss';
 
 /* Block-Stile */
-@import './core-blocks.scss';
 @import './news.scss';
 @import './forminator.scss';
 
@@ -85,9 +80,9 @@
 @import './margin.scss';
 @import './padding.scss';
 
-/* Zusätzliche Stile */
-@import './new_styles/image-wrapper.scss';
-@import './new_styles/rocketpager-iconbox.scss';
+/* Zusätzliche RocketPager Block-Stile */
+@import './rocketpager_blockstyles/image-wrapper.scss';
+@import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';

@@ -1,8 +1,7 @@
 /* Tailwind basierendes Stylesheet, welches Prose ersetzt */
 
 /* Allgemeine Stilregeln */
-body:not(.wp-core-ui),
-.interface-interface-skeleton__content {
+@mixin coreBlocks {
   /* Textabsätze */
   p {
     @apply text-base my-typography max-w-prose;

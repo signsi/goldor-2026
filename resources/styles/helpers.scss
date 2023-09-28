@@ -34,32 +34,36 @@
   @apply absolute h-full w-full object-cover;
 }
 
-.h-vh,
-.height-vh,
-.image-size-vh,
-.mapsize--vh {
-  @apply h-screen;
-}
-
-.h-large,
-.height-large,
-.image-size-large,
-.mapsize--large {
-  @apply h-[50vh] lg:h-[75vh];
+.h-small,
+.height-small,
+.image-size-small,
+.mapsize--small,
+.videosize--small {
+  @apply h-33vh;
 }
 
 .h-medium,
 .height-medium,
 .image-size-medium,
-.mapsize--medium {
-  @apply h-[33.33vh] lg:h-[50vh];
+.mapsize--medium,
+.videosize--medium {
+  @apply h-33vh lg:h-50vh;
 }
 
-.h-small,
-.height-small,
-.image-size-small,
-.mapsize--small {
-  @apply h-[25vh] lg:h-[33.33vh];
+.h-large,
+.height-large,
+.image-size-large,
+.mapsize--large,
+.videosize--large {
+  @apply h-50vh lg:h-75vh;
+}
+
+.h-vh,
+.height-vh,
+.image-size-vh,
+.mapsize--vh,
+.videosize--vh {
+  @apply h-screen;
 }
 
 .videosize--16x9,
@@ -112,35 +116,10 @@
   }
 }
 
-.videosize--small {
-  @apply h-[inherit] md:h-[25vh] lg:h-[33.33vh];
-
-  .wp-block-video {
-    @apply video-absolute-container-no-ar;
-  }
-
-  video,
-  .wp-block-embed__wrapper {
-    @apply video-canvas-no-ar;
-  }
-}
-
-.videosize--medium {
-  @apply h-[inherit] md:h-[33.33vh] xl:h-[60vh];
-
-  .wp-block-video {
-    @apply video-absolute-container-no-ar;
-  }
-
-  video,
-  .wp-block-embed__wrapper {
-    @apply video-canvas-no-ar;
-  }
-}
-
+.videosize--small,
+.videosize--medium,
+.videosize--large,
 .videosize--vh {
-  @apply h-[100vh];
-
   .wp-block-video {
     @apply video-absolute-container-no-ar;
   }
@@ -151,6 +130,11 @@
   }
 }
 
+// Zusatz-CSS Klassen
 .hasGradient {
-  @apply relative after:bg-gradient after:absolute after:bottom-0 after:inset-x-0 after:h-[25vh] after:top-0 lg:after:top-0;
+  @apply relative after:bg-gradient after:absolute after:bottom-0 after:inset-x-0 after:h-25vh after:top-0 lg:after:top-0;
+}
+
+body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)).offsetRight {
+  @apply px-gutter ml-auto mr-auto xl:px-0 lg:ml-[calc((100vw_-_theme(maxWidth.slim))_/_2)] xl:ml-[calc((100vw_-_theme(maxWidth.slim))_/_2_+_30px)] #{!important};
 }
