@@ -30,7 +30,7 @@
 }
 
 /* Group */
-body .is-style-layout-full > :where(:not(.alignleft):not(.alignright):not(.alignfull)) > * {
+body .is-style-layout-full > :where(:not(.alignleft):not(.alignright):not(.alignfull)) > *:not(.progress) {
     @apply mx-0 #{!important};
 }
 .wp-block-group,

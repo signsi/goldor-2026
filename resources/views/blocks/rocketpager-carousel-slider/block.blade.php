@@ -114,4 +114,7 @@
         @endwhile
         {{ reset_block_rows( 'carousel-item' ) }}
     </div>
+    @if ( block_value( 'use-progressbar') )
+        <div class="progress mt-gutter w-1/2 lg:w-1/3" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+    @endif
 @overwrite

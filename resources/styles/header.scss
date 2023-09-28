@@ -32,7 +32,7 @@ header#siteHeader {
     /* Mobile Navigation */
     #mobileNav {
         &.mobileMenuShow {
-            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-20;
+            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-40;
         }
 
         &,
@@ -71,7 +71,7 @@ header#siteHeader {
                     }
 
                     .submenuContainer {
-                        @apply mt-0 opacity-100 translate-y-0 block #{!important};
+                        @apply mt-0 #{!important};
 
                         > ul.menu-primary_subnavigation {
                             @apply bg-transparent py-gutter-mobile px-0 #{!important};
@@ -121,7 +121,7 @@ header#siteHeader {
         }
 
         &.hideSubMenu {
-            @apply opacity-0 translate-y-1 hidden;
+            @apply opacity-0 translate-y-1 hidden #{!important};
         }
     }
 }

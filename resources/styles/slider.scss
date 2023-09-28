@@ -106,7 +106,8 @@
 
 /* Dots */
 .slick-dots {
-  @apply block relative mb-gutter mx-0 mt-0 p-0 list-none text-center w-full;
+  @apply block relative mb-gutter mx-0 p-0 list-none text-center w-full;
+  @apply mt-gutter #{!important};
   li {
     @apply relative inline-block px-0 my-0 mx-1.5 cursor-pointer text-[0px] marker:hidden #{!important};
     &.slick-active button{
@@ -116,4 +117,9 @@
       @apply transition-opacity opacity-20 hover:opacity-100 w-3 h-3 bg-primary rounded-full;
     }
   }
+}
+
+/* Process Bar */
+.progress {
+  @apply block w-full ml-auto mr-auto h-2.5 rounded-lg overflow-hidden bg-white bg-no-repeat transition-all bg-gradient-to-r from-primary to-primary bg-[length:0_100%];
 }
