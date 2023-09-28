@@ -11,8 +11,9 @@
 
 // Importiere benutzerdefinierte SCSS-Dateien
 @import './variables.scss';
-@import './mixins.scss';
 @import './typography.scss';
+@import './typography-extend.scss';
+@import './buttons.scss';
 @import './margin.scss';
 @import './padding.scss';
 @import './spacing.scss';
@@ -21,21 +22,27 @@
 @import './core-blocks.scss';
 @import './forminator.scss';
 
-html :where(.editor-styles-wrapper) {
-    @apply font-sans;
+// Alle Styles nur für den Editor
+.interface-interface-skeleton__content {
+    @include typography;
+    @include typographyExtended;
+    @include coreBlocks;
 }
 
 // Benutzerdefinierte Stile für die Website
-.is-root-container:not(.edit-widgets-main-block-list).block-editor-block-list__layout > .wp-block {
-    @apply py-section px-gutter;
+html :where(.editor-styles-wrapper) {
+    @apply font-sans;
 }
-
+.is-root-container > div {
+    @apply py-section px-gutter w-full mx-0 max-w-full;
+}
 .block-editor-block-list__block {
     h1, h2, h3, h4, h5, h6 {
         @apply mt-0 #{!important};
     }
 }
 
+// Page Title im Backend zentrieren
 h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
     @apply text-center;
 }
