@@ -21,26 +21,6 @@
 @import './helpers.scss';
 @import './spacing.scss';
 
-/* Layout und Struktur *//* @charset 'UTF-8'; */ /* Kann weggelassen werden, da UTF-8 normalerweise standardmäßig verwendet wird */
-
-/* Tailwind Base */
-@import 'tailwindcss/base';
-
-/* Dritt-Anbieter-Stile */
-@import '@fancyapps/ui/dist/fancybox/fancybox.css';
-
-/* Globale Variablen und Mixins */
-@import './variables.scss';
-@import './animation.scss';
-
-/* Typografie und Schriftarten */
-@import './typography.scss';
-@import './typography-extend.scss';
-
-/* Hilfsklassen und Utilities */
-@import './helpers.scss';
-@import './spacing.scss';
-
 /* Layout und Struktur */
 @import './layout.scss';
 @import './header.scss';
@@ -74,15 +54,6 @@
 /* Block-Stile */
 @import './news.scss';
 @import './forminator.scss';
-
-/* Eigene spezifische Stile */
-@import './slider.scss';
-@import './margin.scss';
-@import './padding.scss';
-
-/* Zusätzliche RocketPager Block-Stile */
-@import './rocketpager_blockstyles/image-wrapper.scss';
-@import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
