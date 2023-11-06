@@ -72,6 +72,9 @@ export default async (app) => {
             "block.accordion": [
                 '@scripts/blocks/rocketpager-accordion',
             ],
+            "block.bilderwand": [
+                '@scripts/blocks/rocketpager-bilderwand',
+            ],
         })
 
         /**
