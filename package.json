@@ -34,7 +34,6 @@
     "animate.css": "^4.1.1",
     "flowbite": "^2.0.0",
     "gsap": "npm:@gsap/business",
-    "headroom.js": "^0.12.0",
     "p-queue": "^7.2.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
