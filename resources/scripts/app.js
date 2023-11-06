@@ -39,7 +39,7 @@ domReady(async (err) => {
     setupLanguageswitcherModal();
     setupBackToTop();
     setupLightbox();
-    setupWowAnimation();
+    // setupWowAnimation();
     setupCalculateBgColor();
   });
 

@@ -74,6 +74,8 @@ export default async (app) => {
             ],
             "block.bilderwand": [
                 '@scripts/blocks/rocketpager-bilderwand',
+                '@styles/rocketpager_blockstyles/rocketpager-bilderwand'
+
             ],
         })
 

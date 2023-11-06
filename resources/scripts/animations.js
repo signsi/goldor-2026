@@ -7,14 +7,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function setupAnimations() {
 
-    const target = "#main .wp-block-group figure, #main .wp-block-group .wp-block-button";
+    const target = "#main .wp-block-group *:not(.bilderwand__item) > figure, #main .wp-block-group .wp-block-button";
 
     ScrollTrigger.batch(target, {
         onEnter: elements => {
             gsap.from(elements, {
                 autoAlpha: 0,
-                y: 200,
-                stagger: 0.3
+                y: 50,
             });
         },
         once: true
