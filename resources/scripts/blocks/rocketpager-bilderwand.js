@@ -16,7 +16,7 @@ bilderwandItems.forEach(item => {
             trigger: item,
             // start: "top bottom",
             start: "20% bottom",
-            markers: true,
+            // markers: true,
             end: "bottom top",
             onEnter: () => {
                 gsap.to(img, { opacity: 1, duration: 0.5 });
