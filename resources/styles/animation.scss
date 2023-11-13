@@ -1,9 +1,3 @@
-// @import "animate.css/animate.min.css";
-
-// .wow {
-//     @apply invisible;
-// }
-
 .icon-scroll::before {
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -20,12 +14,3 @@
         transform: translateY(30px);
     }
 }
-
-// .anim__delay-1s {
-//     animation-delay: 1s !important;
-// }
-
-
-// .anim__fadeInUp {
-//     opacity: 0;
-// }

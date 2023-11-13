@@ -20,9 +20,6 @@ export function setupAnimations() {
 
     document.addEventListener("DOMContentLoaded", (event) => {
 
-
-        console.log("setupAnimations");
-
         gsap.defaults({ overwrite: "auto", duration: 1, ease: "power2.inOut" });
 
         const getAnimation = (element, animation) => {
@@ -60,8 +57,6 @@ export function setupAnimations() {
         targets.forEach((target, index) => {
             ScrollTrigger.batch(target, {
                 onEnter: element => {
-                    console.log("enter")
-                    console.log("getElement", element, target)
                     getAnimation(element, target);
                 },
                 // once: true
