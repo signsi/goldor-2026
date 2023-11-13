@@ -26,19 +26,20 @@ add_action('enqueue_block_editor_assets', function () {
     bundle('editor')->enqueue();
 }, 100);
 
-function enqueue_fonts() {
-    wp_enqueue_script( 'bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true );
-    wp_enqueue_style( 'google-font', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap', false );
+function enqueue_fonts()
+{
+    wp_enqueue_script('bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true);
+    wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap', false);
 }
 
 // lädt fontawesome für den Editor, oft brauchen wir dort auch Icons
-add_action( 'admin_enqueue_scripts', function() {
+add_action('admin_enqueue_scripts', function () {
     // TODO: editor.scss Styling brauchen wir nur im Block-Editor
     // bundle('editor')->enqueue();
     enqueue_fonts();
 });
 
-add_action( 'wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
     enqueue_fonts();
 });
 
@@ -136,7 +137,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('wp-block-styles');
 
     add_theme_support('block-templates');
-    
+
     // Enqueue editor styles.
     add_editor_style('editor-style.css');
 }, 20);
@@ -157,39 +158,43 @@ add_action('widgets_init', function () {
     register_sidebar([
         'name' => __('Navigation CTA', 'rocketpager'),
         'id' => 'sidebar-cta',
-        'description' =>  __('Hinzufügen CTA (Buttons) in der Hauptnavigation', 'rocketpager'),
+        'description' => __('Hinzufügen CTA (Buttons) in der Hauptnavigation', 'rocketpager'),
     ] + $config);
 
     register_sidebar([
         'name' => __('Footer Spalte 1', 'rocketpager'),
         'id' => 'sidebar-footer-1',
-        'description' =>  __('Überschreiben der ersten Spalte (Logo & Adresse). Das Widget "Footer Adresse" wird dabei auch überschrieben.', 'rocketpager'),
+        'description' => __('Überschreiben der ersten Spalte (Logo & Adresse). Das Widget "Footer Adresse" wird dabei auch überschrieben.', 'rocketpager'),
     ] + $config);
     register_sidebar([
         'name' => __('Footer Spalte 2', 'rocketpager'),
         'id' => 'sidebar-footer-2',
-        'description' =>  __('Überschreiben der zweiten Spalt.', 'rocketpager'),
+        'description' => __('Überschreiben der zweiten Spalt.', 'rocketpager'),
     ] + $config);
     register_sidebar([
         'name' => __('Footer Spalte 3', 'rocketpager'),
         'id' => 'sidebar-footer-3',
-        'description' =>  __('Überschreiben der dritten Spalte.', 'rocketpager'),
+        'description' => __('Überschreiben der dritten Spalte.', 'rocketpager'),
     ] + $config);
     register_sidebar([
         'name' => __('Footer Spalte 4', 'rocketpager'),
         'id' => 'sidebar-footer-4',
-        'description' =>  __('Überschreiben der vierten Spalte.', 'rocketpager'),
+        'description' => __('Überschreiben der vierten Spalte.', 'rocketpager'),
     ] + $config);
     register_sidebar([
         'name' => __('Footer Adresse', 'rocketpager'),
         'id' => 'sidebar-footer-address',
-        'description' =>  __('Überschreiben der Adresse. Logo ist nicht betroffen', 'rocketpager'),
+        'description' => __('Überschreiben der Adresse. Logo ist nicht betroffen', 'rocketpager'),
     ] + $config);
     register_sidebar([
         'name' => __('Footer CTA', 'rocketpager'),
         'id' => 'sidebar-footer-cta',
-        'description' =>  __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
+        'description' => __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
     ] + $config);
+});
+
+add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_script('lodash');
 });
 
 require_once 'helpers/helpers.php';
