@@ -5,7 +5,6 @@ import { setupSearchModal } from "./modal-search.js";
 import { setupLanguageswitcherModal } from "./modal-languageswitcher.js";
 import { setupBackToTop } from "./back-to-top.js";
 import { setupLightbox } from "./lightbox-config.js";
-import { setupWowAnimation } from "./wow-config.js";
 import { setupCalculateBgColor } from "./calculate-bg-color.js";
 import { setupAnimations } from './animations.js';
 
@@ -39,7 +38,7 @@ domReady(async (err) => {
     setupLanguageswitcherModal();
     setupBackToTop();
     setupLightbox();
-    // setupWowAnimation();
+    // setupscroll-revealAnimation();
     setupCalculateBgColor();
   });
 

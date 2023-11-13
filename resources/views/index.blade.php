@@ -5,7 +5,7 @@
         @include('partials.content.content-none')
     @else
         <div class="wp-block-group is-style-layout-full">
-            <div class="wp-block-group wow animate__ animate__fadeInUp">
+            <div class="wp-block-group scroll-reveal anim__fadeInUp">
             <h1>{{ App\pl__('Archiv - Titel') }}</h1>
             @while(have_posts())
                 @php(the_post())

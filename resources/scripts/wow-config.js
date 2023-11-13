@@ -1,12 +1,12 @@
-import { WOW } from "wowjs";
+import { scroll-reveal } from "scroll-revealjs";
 
-export function setupWowAnimation() {
+export function setupscroll-revealAnimation() {
     
-    const wow = new WOW();
-    wow.init();
+    const scroll-reveal = new scroll-reveal();
+    scroll-reveal.init();
     
-    $(document).on('DOMNodeInserted','.wow', function() {
-        wow.sync();
+    $(document).on('DOMNodeInserted','.scroll-reveal', function() {
+        scroll-reveal.sync();
     });
 
 };

@@ -4,35 +4,68 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// [
+//    "anim__zoomIn",
+//    "anim__fadeIn",
+//    "anim__fadeInUp",
+//    "anim__fadeInDown",
+//    "anim__fadeInLeft",
+//    "anim__fadeInRight",
+//   ]
+
+// scroll-reveal
+// anim__fadeInUp
 
 export function setupAnimations() {
 
-    const target = "#main .wp-block-group *:not(.bilderwand__item) > figure, #main .wp-block-group .wp-block-button";
+    document.addEventListener("DOMContentLoaded", (event) => {
 
-    ScrollTrigger.batch(target, {
-        onEnter: elements => {
-            gsap.from(elements, {
-                autoAlpha: 0,
-                y: 50,
+
+        console.log("setupAnimations");
+
+        gsap.defaults({ overwrite: "auto", duration: 1, ease: "power2.inOut" });
+
+        const getAnimation = (element, animation) => {
+            switch (animation) {
+                case '.anim__zoomIn':
+                    gsap.from(element, { scale: 0.5, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+                case '.anim__fadeIn':
+                    gsap.from(element, { autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+                case ".anim__fadeInUp":
+                    gsap.from(element, { y: 50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+                case ".anim__fadeInDown":
+                    gsap.from(element, { y: -50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+                case ".anim__fadeInLeft":
+                    gsap.from(element, { x: 50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+                case ".anim__fadeInRight":
+                    gsap.from(element, { x: -50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    break;
+            }
+
+        };
+        const targets = [
+            ".anim__zoomIn",
+            ".anim__fadeIn",
+            ".anim__fadeInUp",
+            ".anim__fadeInDown",
+            ".anim__fadeInLeft",
+            ".anim__fadeInRight",
+        ];
+        // loop through all elements and create a ScrollTrigger for each.   
+        targets.forEach((target, index) => {
+            ScrollTrigger.batch(target, {
+                onEnter: element => {
+                    console.log("enter")
+                    console.log("getElement", element, target)
+                    getAnimation(element, target);
+                },
+                // once: true
             });
-        },
-        once: true
+        });
     });
-
-    // gsap.fromTo(target, {
-    //     opacity: 0,
-    //     yPercent: 10
-    // }, {
-    //     stagger: 0.3,
-    //     opacity: 1,
-    //     yPercent: 0,
-    //     duration: 0.5,
-    //     ease: Expo.easeInOut,
-    //     scrollTrigger: {
-    //         trigger: ".final__svg",
-    //         start: "top bottom",
-    //         // scrub: true,
-    //         end: "bottom top"
-    //     }
-    // })
 }

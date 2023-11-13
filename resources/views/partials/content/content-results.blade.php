@@ -3,7 +3,7 @@
 @endphp
 
 <div class="wp-block-group is-style-layout-full">
-    <div class="wp-block-group wow animate__ animate__fadeInUp is-style-layout-slim">
+    <div class="wp-block-group scroll-reveal anim__fadeInUp is-style-layout-slim">
       <h1>{{ App\pl__('Suche mit Resultate - Titel') }}</h1>
       <p class="mt-0">{{ App\pl__('Suche mit Resultate - Meldung Resultate') }} <strong>{{ get_search_query() }}</strong></p>
       <p class="mt-0 !mb-element">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
@@ -29,7 +29,7 @@
 </div>
 
 <div class="wp-block-group is-style-layout-full has-greylight-background-color has-background">
-    <div class="wp-block-group wow animate__ animate__fadeInUp is-style-layout-slim">
+    <div class="wp-block-group scroll-reveal anim__fadeInUp is-style-layout-slim">
       <p>{{ App\pl_e('Suche mit Resultate - Meldung weitere Suche') }}</p>
       @include('forms.search')
     </div>
