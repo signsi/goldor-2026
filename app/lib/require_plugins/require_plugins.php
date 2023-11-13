@@ -101,7 +101,7 @@ function rocketpacker_register_required_plugins()
 		array(
 			'name'               => 'Genesis Custom Blocks Pro',
 			'slug'               => 'genesis-custom-blocks-pro', 
-			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro.1.5.1.zip', 
+			'source'             => get_template_directory() . '/lib/genesis-custom-blocks-pro-1.6.0.zip', 
 			'required'           => false, 
 			'force_activation'   => false, 
 			'force_deactivation' => true, 
