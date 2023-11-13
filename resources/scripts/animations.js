@@ -25,22 +25,22 @@ export function setupAnimations() {
         const getAnimation = (element, animation) => {
             switch (animation) {
                 case '.anim__zoomIn':
-                    gsap.from(element, { scale: 0.5, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { scale: 0.5, autoAlpha: 0});
                     break;
                 case '.anim__fadeIn':
-                    gsap.from(element, { autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { autoAlpha: 0});
                     break;
                 case ".anim__fadeInUp":
-                    gsap.from(element, { y: 50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { y: 50, autoAlpha: 0});
                     break;
                 case ".anim__fadeInDown":
-                    gsap.from(element, { y: -50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { y: -50, autoAlpha: 0});
                     break;
                 case ".anim__fadeInLeft":
-                    gsap.from(element, { x: 50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { x: 50, autoAlpha: 0});
                     break;
                 case ".anim__fadeInRight":
-                    gsap.from(element, { x: -50, autoAlpha: 0, duration: 1, ease: 'power2.inOut' });
+                    gsap.from(element, { x: -50, autoAlpha: 0});
                     break;
             }
 
