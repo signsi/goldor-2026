@@ -4,17 +4,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// [
-//    "anim__zoomIn",
-//    "anim__fadeIn",
-//    "anim__fadeInUp",
-//    "anim__fadeInDown",
-//    "anim__fadeInLeft",
-//    "anim__fadeInRight",
-//   ]
-
-// scroll-reveal
-// anim__fadeInUp
 
 export function setupAnimations() {
 
