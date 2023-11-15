@@ -18,29 +18,32 @@ gsap.registerPlugin(ScrollTrigger);
 
 export function setupAnimations() {
 
-    document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.defaults({ overwrite: "auto", duration: 3, ease: "power2.inOut" });
+    ScrollTrigger.refresh()
+    ScrollTrigger.clearScrollMemory();
+    window.history.scrollRestoration = "manual";
 
-        gsap.defaults({ overwrite: "auto", duration: 1, ease: "power2.inOut" });
+    // document.addEventListener("DOMContentLoaded", (event) => {
 
         const getAnimation = (element, animation) => {
             switch (animation) {
                 case '.anim__zoomIn':
-                    gsap.from(element, { scale: 0.5, autoAlpha: 0});
+                    gsap.fromTo(element, { scale: 0.5, autoAlpha: 0 }, { scale: 1, autoAlpha: 1 });
                     break;
                 case '.anim__fadeIn':
-                    gsap.from(element, { autoAlpha: 0});
+                    gsap.fromTo(element, { autoAlpha: 0 }, { autoAlpha: 1 });
                     break;
                 case ".anim__fadeInUp":
-                    gsap.from(element, { y: 50, autoAlpha: 0});
+                    gsap.fromTo(element, { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1 });
                     break;
                 case ".anim__fadeInDown":
-                    gsap.from(element, { y: -50, autoAlpha: 0});
+                    gsap.fromTo(element, { y: -50, autoAlpha: 0 }, { y: 0, autoAlpha: 1 });
                     break;
                 case ".anim__fadeInLeft":
-                    gsap.from(element, { x: 50, autoAlpha: 0});
+                    gsap.fromTo(element, { x: 50, autoAlpha: 0 }, { x: 0, autoAlpha: 1 });
                     break;
                 case ".anim__fadeInRight":
-                    gsap.from(element, { x: -50, autoAlpha: 0});
+                    gsap.fromTo(element, { x: -50, autoAlpha: 0 }, { x: 0, autoAlpha: 1 });
                     break;
             }
 
@@ -62,5 +65,6 @@ export function setupAnimations() {
                 // once: true
             });
         });
-    });
+
+    // });
 }

@@ -14,3 +14,8 @@
         transform: translateY(30px);
     }
 }
+
+.anim__animated {
+    opacity: 0;
+    will-change: opacity, transform;
+}

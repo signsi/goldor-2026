@@ -111,6 +111,10 @@ add_action('genesis_custom_blocks_render_template_rocketpager-bilderwand', funct
     bundle('block.bilderwand')->enqueue();
 }, 10, 3);
 
+add_action('genesis_custom_blocks_render_template_rocketpager-fancy-team', function () {
+    bundle('block.fancy-team')->enqueue();
+}, 10, 3);
+
 add_action('genesis_custom_blocks_render_template_rocketpager-google-maps', function () {
     $API_KEY = App\getThemeOption('google_api_key');
     bundle('block.google-maps')->enqueue()->localize('google_api_key', ['google_api_key' => $API_KEY]);
