@@ -1,16 +1,13 @@
-import { gsap, Expo } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-
-
-gsap.registerPlugin(ScrollTrigger);
+import { setupGsap } from "@scripts/gsap";
+const { gsap, ScrollTrigger } = setupGsap();
 
 
 export function setupAnimations() {
 
-    gsap.defaults({ overwrite: "auto", duration: 3, ease: "power2.inOut" });
-    ScrollTrigger.refresh()
-    ScrollTrigger.clearScrollMemory();
-    window.history.scrollRestoration = "manual";
+    gsap.defaults({ overwrite: "auto", duration: 1, ease: "power2.inOut" });
+    // ScrollTrigger.refresh()
+    // ScrollTrigger.clearScrollMemory();
+    // window.history.scrollRestoration = "manual";
 
     // document.addEventListener("DOMContentLoaded", (event) => {
 

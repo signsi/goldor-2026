@@ -9,22 +9,22 @@
 
     $data = [
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/6/a/csm_6081f7a3ec09b8c0c18d67690512709ba114b3c8-fp-100-142-1-53_e01268c130.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p1.jpg',
         ],
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/3/0/csm_3c869299c8d42c38ab9453ba7e4d01699bb76487-fp-100-142-11-53_790dfaf5d3.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p2.jpg',
         ],
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/5/4/csm_ba544c7e03be568798c885ebf5752da127878e5a-fp-100-142-0-0_adfe436b9b.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p1.jpg',
         ],
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/e/b/csm_9ba2c49475920af8c280bc8d7c6ff10655ce91ae-fp-100-142-0-0_618ba071b6.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p2.jpg',
         ],
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/e/c/csm_133a41daa8625eede90dce4b608ffd7c3cf416c1-fp-100-142-0-0_5d41d00395.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p2.jpg',
         ],
         [
-            'img' => 'https://www.violetta.ch/fileadmin/_processed_/5/e/csm_87866d7ada8da0455b49aaa499ed6ea8d810d0fe-fp-100-142-0-0_d5b6791c3e.jpg',
+            'img' => 'https://rocketpager-v3.dev-rocket.ch/wp-content/uploads/2023/11/p1.jpg',
         ],
     ];
 
