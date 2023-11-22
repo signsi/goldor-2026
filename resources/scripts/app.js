@@ -4,8 +4,6 @@ import { setupNavigation } from './nav.js';
 import { setupSearchModal } from "./modal-search.js";
 import { setupLanguageswitcherModal } from "./modal-languageswitcher.js";
 import { setupBackToTop } from "./back-to-top.js";
-import { setupLightbox } from "./lightbox-config.js";
-import { setupCalculateBgColor } from "./calculate-bg-color.js";
 import { setupAnimations } from './animations.js';
 
 // import gsap and setup ScrollSmoother externally does not seem to work
@@ -42,12 +40,7 @@ domReady(async (err) => {
   // jQuery ready
   jQuery(function ($) {
 
-    // handleAnchorJump();
-
-    let fullHeight = window.innerHeight;
-    document.documentElement.style.setProperty('--full-height', `${fullHeight}px`);
-
-    // handleAnchorJump();
+    handleAnchorJump();
 
     setupNavigation({
       hasAnimatedHeader: $('#siteHeader').hasClass('siteHeaderAnimated'),
@@ -59,9 +52,6 @@ domReady(async (err) => {
     setupSearchModal();
     setupLanguageswitcherModal();
     setupBackToTop();
-    // setupLightbox();
-    // setupscroll-revealAnimation();
-    // setupCalculateBgColor();
   });
 
 
