@@ -34,6 +34,12 @@ body {
   /* Other Variables */
   --full-height: 100vh;
   --wp-admin-theme-color: var(--color-primary);
+<<<<<<< HEAD
+=======
+  // --custom-height-1: 120px;
+  // --custom-height-2: 150px;
+  // --custom-height-3: 280px;
+>>>>>>> 065e0260 (Spacing Bud)
 
   /* Default Tailwind Breakpoint Variables */
   --rp--breakpoint--sm: 640px;
@@ -53,6 +59,7 @@ body {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
+<<<<<<< HEAD
   /* Fix Spacing-Steps Variables */
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
@@ -72,3 +79,48 @@ body {
   --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
   --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
 }
+=======
+  /* Spacing-Steps Variables */
+  --wp--preset--spacing--10:	var(--spacing--rp10);
+  --wp--preset--spacing--20:	var(--spacing--rp20);
+  --wp--preset--spacing--20:	var(--spacing--rp30);
+  --wp--preset--spacing--30:	var(--spacing--rp40);
+  --wp--preset--spacing--40:	var(--spacing--rp50);
+  --wp--preset--spacing--50:	var(--spacing--rp60);
+  --wp--preset--spacing--60:	var(--spacing--rp70);
+  --wp--preset--spacing--70:	var(--spacing--rp80);
+
+}
+
+
+@media all and (max-width: var(--rp--breakpoint--sm)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+@media all and (max-width: var(--rp--breakpoint--md)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+@media all and (max-width: var(--rp--breakpoint--lg)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+@media all and (max-width: var(--rp--breakpoint--xl)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+@media all and (max-width: var(--rp--breakpoint--2xl)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+@media all and (max-width: var(--rp--breakpoint--3xl)) {
+  :root {
+    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
+  }
+}
+>>>>>>> 065e0260 (Spacing Bud)
