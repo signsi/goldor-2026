@@ -30,6 +30,7 @@
     "@rocket-gmbh/tailconf_helpers": "^1.0.0",
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.10",
+    "browserslist": "^4.22.1",
     "flowbite": "^2.0.0",
     "gsap": "npm:@gsap/business",
     "p-queue": "^7.2.0",
