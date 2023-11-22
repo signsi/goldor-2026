@@ -26,59 +26,6 @@ export default async (app) => {
             "ajax": [
                 '@scripts/ajax-loading-blocks'
             ],
-            "block.modal": [
-                '@scripts/blocks/rocketpager-modal'
-            ],
-            "block.audio-image": [
-                '@styles/rocketpager_blockstyles/rocketpager-audio-image-box'
-            ],
-            "block.hero-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-hero-slider',
-                '@styles/rocketpager_blockstyles/rocketpager-hero-slider'
-            ],
-            "block.content-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-content-slider',
-                '@styles/rocketpager_blockstyles/rocketpager-content-slider'
-            ],
-            "block.carousel-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-carousel-slider',
-            ],
-            "block.carousel-header": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-carousel-header',
-                '@styles/rocketpager_blockstyles/rocketpager-carousel-header'
-            ],
-            "block.testimonial-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-testimonial-slider'
-            ],
-            "block.google-maps": [
-                '@scripts/blocks/rocketpager-google-maps',
-                '@styles/rocketpager_blockstyles/rocketpager-google-maps'
-            ],
-            "block.videoelement": [
-                '@scripts/blocks/rocketpager-videoelement',
-                // 'https://www.youtube.com/iframe_api',
-            ],
-            "block.iconbox": [
-                '@styles/rocketpager_blockstyles/rocketpager-iconbox'
-            ],
-            "block.text-image-list": [
-                '@styles/rocketpager_blockstyles/rocketpager-text-image-list'
-            ],
-            "block.accordion": [
-                '@scripts/blocks/rocketpager-accordion',
-            ],
-            "block.bilderwand": [
-                '@scripts/blocks/rocketpager-bilderwand',
-                '@styles/rocketpager_blockstyles/rocketpager-bilderwand'
-            ],
-            "block.fancy-team": [
-                '@scripts/blocks/rocketpager-fancy-team',
-            ],
         })
 
         /**

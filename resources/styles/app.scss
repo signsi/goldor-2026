@@ -37,9 +37,10 @@
 @import './margin.scss';
 @import './padding.scss';
 
-/* Zusätzliche Stile */
-@import './rocketpager_blockstyles/image-wrapper.scss';
-@import './rocketpager_blockstyles/rocketpager-iconbox.scss';
+// /* Zusätzliche Stile */
+// TOOD: Block-Styling in app.scss?
+// @import './rocketpager_blockstyles/image-wrapper.scss';
+// @import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
