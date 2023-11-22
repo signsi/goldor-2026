@@ -39,7 +39,6 @@ domReady(async (err) => {
 
   // jQuery ready
   jQuery(function ($) {
-
     // handleAnchorJump();
 
     setupNavigation({
