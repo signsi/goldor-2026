@@ -89,8 +89,8 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
-                padding: true,
                 margin: true,
+                padding: true,
                 spacingSizes: [
                     {
                         "name": "Tiny",
