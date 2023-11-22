@@ -24,6 +24,12 @@ ScrollSmoother.create({
   // smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
 });
 
+window.animations = {
+  gsap: gsap,
+  ScrollTrigger: ScrollTrigger,
+  SplitText: SplitText,
+  ScrollSmoother: ScrollSmoother,
+};
 
 
 /**
