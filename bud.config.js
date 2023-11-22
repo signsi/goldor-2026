@@ -137,6 +137,7 @@ export default async (app) => {
                 },
             },
             spacing: {
+                blockGap: true,
                 padding: true,
                 margin: true,
                 units: ['px', '%', 'em', 'rem', 'vw', 'vh'],

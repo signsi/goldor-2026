@@ -1,5 +1,5 @@
-import { setupGsap } from "@scripts/gsap";
-const { gsap, ScrollTrigger } = setupGsap();
+// import { getGsap } from "@scripts/gsap";
+// const { gsap, ScrollTrigger } = getGsap();
 
 
 

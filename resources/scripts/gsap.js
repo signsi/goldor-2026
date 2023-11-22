@@ -2,29 +2,30 @@ import { gsap, Power3 } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger.js";
 import { SplitText } from "gsap/SplitText.js";
 import { ScrollSmoother } from "gsap/ScrollSmoother.js";
-import defaults from "tailwindcss-fluid-type/src/config/defaults";
 
+// set gsap defaults
+gsap.defaults({
+    ease: Power3.easeInOut,
+    duration: 0.6,
+    stagger: 0.3,
+});
 
-export function setupGsap() {
+gsap.registerPlugin(
+    ScrollTrigger,
+    SplitText,
+    ScrollSmoother
+);
 
-    gsap.registerPlugin(ScrollTrigger, SplitText, ScrollSmoother);
+ScrollSmoother.create({
+    smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+    effects: true, // looks for data-speed and data-lag attributes on elements
+    // smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+});
 
-    return getGsap();
-}
-
-export function getGsap() {
-
-    // set gsap defaults
-    gsap.defaults({
-        ease: Power3.easeInOut,
-        duration: 0.6,
-        stagger: 0.3,
-    });
-
-    return {
-        "gsap": gsap,
-        "ScrollTrigger": ScrollTrigger,
-        "SplitText": SplitText,
-        "ScrollSmoother": ScrollSmoother
-    }
-}
+//     return {
+//         "gsap": gsap,
+//         "ScrollTrigger": ScrollTrigger,
+//         "SplitText": SplitText,
+//         "ScrollSmoother": ScrollSmoother
+//     }
+// }

@@ -1,6 +1,6 @@
 @php
     $ctaSearchOption = App\getThemeOption('cta_search');
-    $headerSearchOption = App\getThemeOption('header_search');  
+    $headerSearchOption = App\getThemeOption('header_search');
     $isCTASearchActive = $ctaSearchOption || $headerSearchOption;
     $isLanguageActive = App\getThemeOption('header_lang_switcher');
 @endphp
@@ -14,6 +14,7 @@
 @include('sections.header.header')
 
 <main id="main" class="mx-auto main max-w-none">
+
     @yield('content')
 
     @hasSection('sidebar')
@@ -29,6 +30,7 @@
 </main>
 
 @include('sections.footer.footer')
+
 @include('sections.offcanvas.sticky-cta')
 
 @include('partials.scripts.browser-update')
