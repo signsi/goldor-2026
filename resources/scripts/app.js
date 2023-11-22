@@ -40,7 +40,7 @@ domReady(async (err) => {
   // jQuery ready
   jQuery(function ($) {
 
-    handleAnchorJump();
+    // handleAnchorJump();
 
     setupNavigation({
       hasAnimatedHeader: $('#siteHeader').hasClass('siteHeaderAnimated'),
