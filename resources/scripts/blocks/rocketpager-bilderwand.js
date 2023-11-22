@@ -1,7 +1,8 @@
-// import { getGsap } from "@scripts/gsap";
-// const { gsap, ScrollTrigger } = getGsap();
+if (!window.animations) {
+    console.error('window.animations not defined');
+}
 
-
+const { gsap, ScrollTrigger } = window.animations;
 
 const bilderwandItems = gsap.utils.toArray('.bilderwand__item');
 bilderwandItems.forEach(item => {
