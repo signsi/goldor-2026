@@ -89,46 +89,56 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
-                padding: true,
                 margin: true,
+                padding: true,
+                customSpacingSize: true,
+                spacingScale: {
+                    'steps': 0,
+                },
                 spacingSizes: [
                     {
-                        "name": "Tiny",
-                        "size": "var(--spacing-responsive--rp20)",
-                        "slug": "tiny"
+                        'name': 'Step 1 - Fixed',
+                        'size': 'var(--rp--spacing--10)',
+                        'slug': '10'
                     },
                     {
-                        "name": "Small",
-                        "size": "var(--spacing-responsive--rp30)",
-                        "slug": "small"
+                        'name': '2',
+                        'size': 'var(--rp--spacing--20)',
+                        'slug': 'rp20'
                     },
                     {
-                        "name": "Medium",
-                        "size": "var(--spacing-responsive--rp40)",
-                        "slug": "medium"
+                        'name': '3',
+                        'size': 'var(--rp--spacing--30)',
+                        'slug': 'rp30'
                     },
                     {
-                        "name": "Large",
-                        "size": "var(--spacing-responsive--rp50)",
-                        "slug": "large"
+                        'name': '4',
+                        'size': 'var(--rp--spacing--40)',
+                        'slug': 'rp40'
                     },
                     {
-                        "name": "Extra Large",
-                        "size": "var(--spacing-responsive--rp60)",
-                        "slug": "x-large"
+                        'name': '5',
+                        'size': 'var(--rp--spacing--50)',
+                        'slug': 'rp50'
                     },
                     {
-                        "name": "2xl",
-                        "size": "var(--spacing-responsive--rp70)",
-                        "slug": "xx-large"
+                        'name': '6',
+                        'size': 'var(--rp--spacing--60)',
+                        'slug': 'rp60'
                     },
                     {
-                        "name": "3xl",
-                        "size": "var(--spacing-responsive--rp80)",
-                        "slug": "xxx-large"
+                        'name': '7',
+                        'size': 'var(--rp--spacing--70)',
+                        'slug': 'rp70'
+                    },
+                    {
+                        'name': '8',
+                        'size': 'var(--rp--spacing--80)',
+                        'slug': 'rp80'
                     },
                 ],
-            },
+                units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+              },
             typography: {
                 customFontSize: false,
             },
