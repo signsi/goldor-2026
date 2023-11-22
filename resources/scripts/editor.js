@@ -159,16 +159,12 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               value={animation}
               options={[
                 { label: '-', value: '-' },
-                { label: 'ZoomIn', value: 'wow animate__animated animate__zoomIn' },
-                { label: 'FadeIn', value: 'wow animate__animated animate__fadeIn' },
-                { label: 'FadeInUp', value: 'wow animate__animated animate__fadeInUp' },
-                { label: 'FadeInDown', value: 'wow animate__animated animate__fadeInDown' },
-                { label: 'FadeInLeft', value: 'wow animate__animated animate__fadeInLeft' },
-                { label: 'FadeInRight', value: 'wow animate__animated animate__fadeInRight' },
-                { label: 'FadeInTopLeft', value: 'wow animate__animated animate__fadeInTopLeft' },
-                { label: 'FadeInTopRight', value: 'wow animate__animated animate__fadeInTopRight' },
-                { label: 'FadeInBottomLeft', value: 'wow animate__animated animate__fadeInBottomLeft' },
-                { label: 'FadeInBottomRight', value: 'wow animate__animated animate__fadeInBottomRight' },
+                { label: 'ZoomIn', value: 'scroll-reveal anim__animated anim__zoomIn' },
+                { label: 'FadeIn', value: 'scroll-reveal anim__animated anim__fadeIn' },
+                { label: 'FadeInUp', value: 'scroll-reveal anim__animated anim__fadeInUp' },
+                { label: 'FadeInDown', value: 'scroll-reveal anim__animated anim__fadeInDown' },
+                { label: 'FadeInLeft', value: 'scroll-reveal anim__animated anim__fadeInLeft' },
+                { label: 'FadeInRight', value: 'scroll-reveal anim__animated anim__fadeInRight' },
               ]}
               onChange={newAnimation => setAttributes({ "animation": newAnimation })}
               __nextHasNoMarginBottom

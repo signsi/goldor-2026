@@ -1,0 +1,13 @@
+.rocketpager-bilderwand {
+    --offset: 0;
+
+
+}
+
+.rocketpager-bilderwand .bilderwand__item {
+    overflow: hidden;
+}
+
+.rocketpager-bilderwand .bilderwand__item:after {
+    transform: translateX(var(--offset));
+}

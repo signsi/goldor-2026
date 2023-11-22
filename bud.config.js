@@ -72,6 +72,13 @@ export default async (app) => {
             "block.accordion": [
                 '@scripts/blocks/rocketpager-accordion',
             ],
+            "block.bilderwand": [
+                '@scripts/blocks/rocketpager-bilderwand',
+                '@styles/rocketpager_blockstyles/rocketpager-bilderwand'
+            ],
+            "block.fancy-team": [
+                '@scripts/blocks/rocketpager-fancy-team',
+            ],
         })
 
         /**
@@ -130,6 +137,7 @@ export default async (app) => {
                 },
             },
             spacing: {
+                blockGap: true,
                 padding: true,
                 margin: true,
                 units: ['px', '%', 'em', 'rem', 'vw', 'vh'],

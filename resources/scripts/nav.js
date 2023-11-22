@@ -1,8 +1,3 @@
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-
-gsap.registerPlugin(ScrollTrigger);
-
 const currentURL = new URL(window.location.href);
 
 const config = {};
@@ -180,7 +175,7 @@ function setupMobileNav() {
     }
 }
 
-function setupFixedNav() {
+function setupFixedNav(ScrollTrigger) {
     const headerElementClass = 'siteHeader'
     const $siteHeader = $('#siteHeader');
     const headerClasses = ` ${$siteHeader.attr('class')}`;
@@ -238,5 +233,5 @@ export function setupNavigation(configSetup) {
     if (!config.hasAnimatedHeader) return;
 
     // headroom-like top nav
-    setupFixedNav();
+    setupFixedNav(config.ScrollTrigger);
 }

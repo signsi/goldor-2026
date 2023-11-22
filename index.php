@@ -12,8 +12,13 @@
   <?php wp_body_open(); ?>
   <?php do_action('get_header'); ?>
 
+
   <div id="app">
-    <?php echo view(app('sage.view'), app('sage.data'))->render(); ?>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <?php echo view(app('sage.view'), app('sage.data'))->render(); ?>
+      </div>
+    </div>
   </div>
 
   <?php do_action('get_footer'); ?>
