@@ -104,8 +104,8 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
-                padding: true,
                 margin: true,
+<<<<<<< HEAD
                 spacingSizes: [
                     {
                         "name": "Tiny",
@@ -144,6 +144,57 @@ export default async (app) => {
                     },
                 ],
             },
+=======
+                padding: true,
+                customSpacingSize: true,
+                spacingScale: {
+                    'steps': 0,
+                },
+                spacingSizes: [
+                    {
+                        'name': 'Step 1 - Fixed',
+                        'size': 'var(--rp--spacing--10)',
+                        'slug': '10'
+                    },
+                    {
+                        'name': '2',
+                        'size': 'var(--rp--spacing--20)',
+                        'slug': 'rp20'
+                    },
+                    {
+                        'name': '3',
+                        'size': 'var(--rp--spacing--30)',
+                        'slug': 'rp30'
+                    },
+                    {
+                        'name': '4',
+                        'size': 'var(--rp--spacing--40)',
+                        'slug': 'rp40'
+                    },
+                    {
+                        'name': '5',
+                        'size': 'var(--rp--spacing--50)',
+                        'slug': 'rp50'
+                    },
+                    {
+                        'name': '6',
+                        'size': 'var(--rp--spacing--60)',
+                        'slug': 'rp60'
+                    },
+                    {
+                        'name': '7',
+                        'size': 'var(--rp--spacing--70)',
+                        'slug': 'rp70'
+                    },
+                    {
+                        'name': '8',
+                        'size': 'var(--rp--spacing--80)',
+                        'slug': 'rp80'
+                    },
+                ],
+                units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+              },
+>>>>>>> 065e0260 (Spacing Bud)
             typography: {
                 customFontSize: false,
             },
