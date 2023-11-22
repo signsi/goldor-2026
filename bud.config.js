@@ -68,6 +68,17 @@ export default async (app) => {
          */
         .wpjson.setSettings({
             appearanceTools: true,
+            // blocks: {
+            //     "core/group": {
+            //         // "__experimentalLayout": true,
+            //         "spacing": {
+            //             "blockGap": [
+            //                 "horizontal",
+            //                 "vertical"
+            //             ]
+            //         }
+            //     }
+            // },
             color: {
                 link: true,
                 custom: true,
@@ -142,3 +153,4 @@ export default async (app) => {
         .useTailwindFontSize()
         .enable();
 };
+

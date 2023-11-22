@@ -29,11 +29,17 @@
     @endif
 </main>
 
+<<<<<<< HEAD
 
 {{-- Beispiel für eine wiederverwendebare Blade-Komponente --}}
 {{-- <x-content-block>
     <h1>Test</h1>
 </x-content-block> --}}
+=======
+<x-content-block>
+    <h1>Test</h1>
+</x-content-block>
+>>>>>>> 065e0260 (Spacing Bud)
 
 @include('sections.footer.footer')
 
