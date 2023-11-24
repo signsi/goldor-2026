@@ -1,13 +1,17 @@
 {{--
     Innerhalb von "@section('content-section')" und "@endsection" kann die HTML Struktur des Block definiert werden.
-    Die HTML-Struktur wird in den div-Container (rocketpager-{element-name}) eingefügt. Falls nebst den Standard-Klassen
-    zusätzliche Klassen benötigt werden, können diese über die Variable "element_classes" mitgegeben werden. Wenn die Animation
-    nicht auf das RocketPager-xl aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
+    Die HTML-Struktur wird in den div-Container (rocketpager-{element-slug}) eingefügt. Falls nebst den Standard-Klassen
+    zusätzliche Klassen benötigt werden, können diese über die Variable "element_classes" als String mitgegeben werden. Wenn die Animation
+    nicht auf das RocketPager-Element aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
 --}}
 
-@extends('blocks.helpers.block-wrapper', ['element_classes' => '', 'ignoreAnimation' => false])
+@extends('blocks.helpers.block-wrapper', ['element_classes' => 'has-secondary-background-color has-background p-gutter', 'ignoreAnimation' => false])
 
 @section('content-section')
+    <p>Anleitungen:<br>
+    <a class="underline underline-offset-4 hover:text-primary" href="https://app.nuclino.com/Rocket-GmbH/3-Entwicklung/Genesis-Custom-Blocks-93920a4f-afa9-4c8e-a4a1-ca727bce1bd7" target="_blank">Erstellung neuer Custom Genesis Block (RocketPager Element)</a><br>
+    <a class="underline underline-offset-4 hover:text-primary" href="https://app.nuclino.com/Rocket-GmbH/3-Entwicklung/JS-und-Styling-fr-Blcke-hinterlegen-50446bf1-8763-4ec7-bd99-ee521ea873dd" target="_blank">JS und Styling für Blöcke hinterlegen</a></p>
+
     <h3>I'm a normal if-condition</h3>
         @if ( block_value('field'))
             <p>DO SOMETHING: {{ block_value('field') }}</p>
@@ -86,7 +90,7 @@
                     [
                         'name_ImageField' => 'repeater-image',
                         'thumbnail' => 'medium',
-                        'additionalClasses' => array('class' => 'mr-xl mb-xl'),
+                        'additionalClasses' => array('class' => 'mr-gutter mb-gutter'),
                         'isRepeaterElement' => true
                     ])
                 @endwhile
