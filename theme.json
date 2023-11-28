@@ -140,6 +140,14 @@
           "size": "var(--spacing-responsive--rp80)",
           "slug": "xxx-large"
         }
+      ],
+      "units": [
+        "px",
+        "%",
+        "em",
+        "rem",
+        "vw",
+        "vh"
       ]
     },
     "typography": {
