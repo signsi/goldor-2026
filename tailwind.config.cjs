@@ -11,7 +11,7 @@ module.exports = {
 
     },
     fluidType: {
-      settings:{
+      settings: {
         screenMin: 768,
         screenMax: 1280,
       },
@@ -29,8 +29,8 @@ module.exports = {
         '7xl': [64, 72, 1],
         '8xl': [72, 96, 1],
         '9xl': [96, 128, 1],
-        'icon': ['20px', {'lineHeight':'1'}],
-        'icon-big': ['32px', {'lineHeight':'1'}],
+        'icon': ['20px', { 'lineHeight': '1' }],
+        'icon-big': ['32px', { 'lineHeight': '1' }],
         '0': 0,
       }
     },
@@ -73,12 +73,17 @@ module.exports = {
         '2xlarge': '90vw',
       },
       screens: {
-        '3xl': '1680px',
+        'sm': 'var(--rp--breakpoint--sm)',
+        'md': 'var(--rp--breakpoint--md)',
+        'lg': 'var(--rp--breakpoint--lg)',
+        'xl': 'var(--rp--breakpoint--xl)',
+        '2xl': 'var(--rp--breakpoint--2xl)',
+        '3xl': 'var(--rp--breakpoint--3xl)',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
         sans: ['DM Sans', 'Helvetica', 'sans-serif'],
-        icon:  '"Font Awesome 6 Pro"',
+        icon: '"Font Awesome 6 Pro"',
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
