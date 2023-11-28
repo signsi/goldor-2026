@@ -21,10 +21,11 @@
 @import './spacing.scss';
 
 /* Layout und Struktur */
-@import './layout.scss';
+// @import './layout.scss';
 @import './header.scss';
 @import './footer.scss';
-@import './group-columns.scss';
+// @import './group-columns.scss';
+// @import './content-grid.scss';
 
 /* Block-Stile */
 @import './core-blocks.scss';
@@ -41,15 +42,6 @@
 // TOOD: Block-Styling in app.scss?
 // @import './rocketpager_blockstyles/image-wrapper.scss';
 // @import './rocketpager_blockstyles/rocketpager-iconbox.scss';
-
-/* Tailwind Components und Utilities */
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
-@import './layout.scss';
-@import './header.scss';
-@import './footer.scss';
-@import './group-columns.scss';
 
 /* Block-Stile */
 @import './news.scss';
