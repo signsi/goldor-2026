@@ -46,15 +46,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import './layout.scss';
-@import './header.scss';
-@import './footer.scss';
-@import './group-columns.scss';
-
 /* Block-Stile */
 @import './news.scss';
 @import './forminator.scss';
 
-/* Tailwind Components und Utilities */
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import './content-grid.scss';
