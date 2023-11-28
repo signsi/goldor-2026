@@ -73,19 +73,11 @@ module.exports = {
         '2xlarge': '90vw',
       },
       screens: {
-<<<<<<< HEAD
         //   'sm': 'var(--rp--breakpoint--sm)',
         //   'md': 'var(--rp--breakpoint--md)',
         //   'lg': 'var(--rp--breakpoint--lg)',
         //   'xl': 'var(--rp--breakpoint--xl)',
         //   '2xl': 'var(--rp--breakpoint--2xl)',
-=======
-        'sm':	'var(--rp--breakpoint--sm)',
-        'md':	'var(--rp--breakpoint--md)',
-        'lg':	'var(--rp--breakpoint--lg)',
-        'xl':	'var(--rp--breakpoint--xl)',
-        '2xl':	'var(--rp--breakpoint--2xl)',
->>>>>>> 065e0260 (Spacing Bud)
         '3xl': 'var(--rp--breakpoint--3xl)',
       },
       fontFamily: {
