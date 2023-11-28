@@ -1,6 +1,6 @@
-/* Base Layer */
-body {
-  /* Color Default Palettes */
+body, :root {
+  // COLORS
+  // Color - Werte: Standard Palette
   --color-white: #FFF;
   --color-black: #000;
   --color-grey: #808080;
@@ -13,13 +13,13 @@ body {
   --color-dunkelrot: #640200;
   --color-indianred: #EB5757;
 
-  /* Color Theme */
+  // Color - Werte: Theme
   --color-charcoal: #28536B;
   --color-airsuperiorityblue: #7EA8BE;
   --color-rosybrown: #C2948A;
   --color-khaki: #BBB193;
   
-  /* Color Palettes */
+  // Color - Zuweisung der Variabeln
   --color-primary: var(--color-charcoal);
   --color-secondary: var(--color-airsuperiorityblue);
   --color-tertiary: var(--color-rosybrown);
@@ -31,22 +31,35 @@ body {
   --color-error: var(--color-indianred);
   --color-font: var(--color-black);
   
-  /* Other Variables */
-  --full-height: 100vh;
-  --wp-admin-theme-color: var(--color-primary);
-  // --custom-height-1: 120px;
-  // --custom-height-2: 150px;
-  // --custom-height-3: 280px;
+  // CONTAINER
+  // Container - Werte
+  --num-cols: 12;
+  --wide-cols: 10;
+  --content-cols: 8;
 
-  /* Default Tailwind Breakpoint Variables */
-  --rp--breakpoint--sm: 640px;
-  --rp--breakpoint--md: 768px;
-  --rp--breakpoint--lg: 1024px;
-  --rp--breakpoint--xl: 1280px;
-  --rp--breakpoint--2xl: 1536px;
-  --rp--breakpoint--3xl: 1680px;
+  --num-cols-2: 2;
+  --num-cols-4: 4;
+  --num-cols-6: 6;
+  --num-cols-8: 8;
+  --num-cols-10: 10;
 
-  /* Spacing Variables */
+  // Container - Berechnungen
+  --content--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
+  --content--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw); 
+  --content--large-size: calc(var(--num-cols-6) / var(--num-cols) * 100vw);
+  --content--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
+  --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
+  
+  // Container - Zuweisung der Variabeln
+  --content--header-footer-size: var(--content--2xlarge-size);
+  --content--default-size: var(--content--large-size);
+  --content--wide-size: var(--content--2xlarge-size);
+  --wp--style--global--content-size: var(--content--default-size);
+  --wp--style--global--wide-size: var(--content--wide-size);
+
+
+  // ABSTÄNDE
+  // Abstände - Werte
   --spacing--rp10: 10px;
   --spacing--rp20: 15px;
   --spacing--rp30: 20px;
@@ -56,8 +69,7 @@ body {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-  /* Spacing-Steps Variables */
-<<<<<<< HEAD
+  // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variabeln
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -67,56 +79,16 @@ body {
   --wp--preset--spacing--70:  var(--spacing--rp70);
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
-  --spacing-responsive--rp10: var(--spacing--rp10);
-  --spacing-responsive--rp20: var(--spacing--rp20);
-  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
-  --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
-  --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
-  --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
-  --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
-  --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
-}
-=======
-  --wp--preset--spacing--10:	var(--spacing--rp10);
-  --wp--preset--spacing--20:	var(--spacing--rp20);
-  --wp--preset--spacing--20:	var(--spacing--rp30);
-  --wp--preset--spacing--30:	var(--spacing--rp40);
-  --wp--preset--spacing--40:	var(--spacing--rp50);
-  --wp--preset--spacing--50:	var(--spacing--rp60);
-  --wp--preset--spacing--60:	var(--spacing--rp70);
-  --wp--preset--spacing--70:	var(--spacing--rp80);
+  // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
+  --spacing-responsive--rp20: clamp(var(--spacing--rp10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--spacing--rp20));
+  --spacing-responsive--rp30: clamp(var(--spacing--rp20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp30));
+  --spacing-responsive--rp40: clamp(var(--spacing--rp30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp40));
+  --spacing-responsive--rp50: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--spacing--rp50));
+  --spacing-responsive--rp60: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--spacing--rp60));
+  --spacing-responsive--rp70: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--spacing--rp70));
+  --spacing-responsive--rp80: clamp(var(--spacing--rp60), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--spacing--rp80));
 
+  // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variabeln
+  --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
+  --wp--style--block-gap: var(--spacing-responsive--gutter);
 }
-
-
-@media all and (max-width: var(--rp--breakpoint--sm)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--md)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--lg)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--2xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--3xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
->>>>>>> 065e0260 (Spacing Bud)
