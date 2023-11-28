@@ -69,12 +69,7 @@ body, :root {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-<<<<<<< HEAD
   // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variabeln
-=======
-  /* Spacing-Steps Variables */
-<<<<<<< HEAD
->>>>>>> ec17b011 (Spacing Bud)
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -84,7 +79,6 @@ body, :root {
   --wp--preset--spacing--70:  var(--spacing--rp70);
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
-<<<<<<< HEAD
   // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
   --spacing-responsive--rp20: clamp(var(--spacing--rp10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--spacing--rp20));
   --spacing-responsive--rp30: clamp(var(--spacing--rp20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp30));
@@ -98,58 +92,3 @@ body, :root {
   --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
   --wp--style--block-gap: var(--spacing-responsive--gutter);
 }
-=======
-  --spacing-responsive--rp10: var(--spacing--rp10);
-  --spacing-responsive--rp20: var(--spacing--rp20);
-  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
-  --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
-  --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
-  --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
-  --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
-  --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
-}
-=======
-  --wp--preset--spacing--10:	var(--spacing--rp10);
-  --wp--preset--spacing--20:	var(--spacing--rp20);
-  --wp--preset--spacing--20:	var(--spacing--rp30);
-  --wp--preset--spacing--30:	var(--spacing--rp40);
-  --wp--preset--spacing--40:	var(--spacing--rp50);
-  --wp--preset--spacing--50:	var(--spacing--rp60);
-  --wp--preset--spacing--60:	var(--spacing--rp70);
-  --wp--preset--spacing--70:	var(--spacing--rp80);
-
-}
-
-
-@media all and (max-width: var(--rp--breakpoint--sm)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--md)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--lg)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--2xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
-@media all and (max-width: var(--rp--breakpoint--3xl)) {
-  :root {
-    /* Hier kommen deine Anpassungen für Bildschirmgrößen bis 450px */
-  }
-}
->>>>>>> 065e0260 (Spacing Bud)
->>>>>>> ec17b011 (Spacing Bud)
