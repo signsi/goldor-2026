@@ -57,14 +57,14 @@ body {
   --spacing--rp80: 110px;
 
   /* Spacing-Steps Variables */
-  --wp--preset--spacing--10:	var(--spacing--rp10);
-  --wp--preset--spacing--20:	var(--spacing--rp20);
-  --wp--preset--spacing--30:	var(--spacing--rp30);
-  --wp--preset--spacing--40:	var(--spacing--rp40);
-  --wp--preset--spacing--50:	var(--spacing--rp50);
-  --wp--preset--spacing--60:	var(--spacing--rp60);
-  --wp--preset--spacing--70:	var(--spacing--rp70);
-  --wp--preset--spacing--80:	var(--spacing--rp80);
+  --wp--preset--spacing--10:  var(--spacing--rp10);
+  --wp--preset--spacing--20:  var(--spacing--rp20);
+  --wp--preset--spacing--30:  var(--spacing--rp30);
+  --wp--preset--spacing--40:  var(--spacing--rp40);
+  --wp--preset--spacing--50:  var(--spacing--rp50);
+  --wp--preset--spacing--60:  var(--spacing--rp60);
+  --wp--preset--spacing--70:  var(--spacing--rp70);
+  --wp--preset--spacing--80:  var(--spacing--rp80);
 
   --spacing-responsive--rp10: var(--spacing--rp10);
   --spacing-responsive--rp20: var(--spacing--rp20);
@@ -73,5 +73,5 @@ body {
   --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
   --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
   --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
-  --spacing-responsive--rp80:	clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
+  --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
 }

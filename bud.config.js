@@ -122,7 +122,7 @@ export default async (app) => {
                         "name": "3xl",
                         "size": "var(--spacing-responsive--rp80)",
                         "slug": "xxx-large"
-                    },		
+                    },
                 ],
             },
             typography: {

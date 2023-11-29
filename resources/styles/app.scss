@@ -43,10 +43,12 @@
 // @import './rocketpager_blockstyles/image-wrapper.scss';
 // @import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
+/* Tailwind Components und Utilities */
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 /* Block-Stile */
 @import './news.scss';
 @import './forminator.scss';
 
-/* Tailwind Components und Utilities */
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import './content-grid.scss';
