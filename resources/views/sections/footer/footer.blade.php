@@ -1,7 +1,7 @@
 <footer id="siteFooter" aria-labelledby="footer-heading">
     <div class="has-primary-background-color has-background">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-2xlarge px-medium py-2xl mx-auto">
+        <div class="max-w-large 2xl:max-w-xlarge px-medium py-2xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-medium">
                 <!-- Footer Sidebar 1 -->
                 <div class="footerSidebar-1 flex flex-col gap-y-medium">

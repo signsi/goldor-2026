@@ -15,18 +15,6 @@ main > div > .wp-block-group {
     }
 }
 
-main > :where(.wp-block-group.has-background) {
-    @apply py-2xl px-medium;
-}
-
-main > .alignfull > * {
-    @apply max-w-full;
-}
-
-main > .alignwide > *{
-    @apply px-gutter max-w-full lg:max-w-2xlarge;
-}
-
 /* Beispiel für ein Hintergrundbild auf einer Gruppe */ 
 // .wp-block-group {
 //     &.bg1 {
