@@ -24,7 +24,7 @@
         <{{ block_field('heading') }} class="mb-xl">{{ block_field('title') }}</{{ block_field('heading') }}>
     </div>
 
-    <div class="grid{{ $row_per_col }} gap-gutter customer--wrapper grid-cols-2 md:grid-cols-3">
+    <div class="grid{{ $row_per_col }} gap-medium customer--wrapper grid-cols-2 md:grid-cols-3">
         @while (block_rows('logo'))
             @php
                 block_row('logo');

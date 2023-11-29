@@ -8,7 +8,7 @@
 @extends('blocks.helpers.block-wrapper', ['ignoreAnimation' => true])
 
 @section('content-section')
-    <div class="grid gap-gutter {{ $row_per_col }}">
+    <div class="grid gap-medium {{ $row_per_col }}">
         @while (block_rows('post'))
             @php block_row('post'); @endphp
             <div class="flex flex-col justify-start pb-medium bg-white text-font{{ App\getAnimation() }}">

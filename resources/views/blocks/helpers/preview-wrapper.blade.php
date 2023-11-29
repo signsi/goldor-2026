@@ -17,7 +17,7 @@
     @endif
     @yield('content-section-before-flex')
     @hasSection('flex-item-content')
-        <div class="grid gap-gutter {{ $flex_type }}" style="{{ $direction }}">
+        <div class="grid gap-medium {{ $flex_type }}" style="{{ $direction }}">
             @yield('flex-item-content')
         </div>
     @endif
