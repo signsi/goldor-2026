@@ -1,17 +1,6 @@
-@layer utilities {
-    /* Form */
-    form.forminator-custom-form {
-        @apply md:shadow-lg p-0 md:p-element-tablet lg:p-element-desktop #{!important};
-    }
-
-    /* Single */
-    .single form.forminator-custom-form {
-        @apply shadow-none p-0 my-element #{!important};
-    }
-
-    /* Button */
-    button.forminator-button.forminator-button-submit {
-        @include buttonStyleFont;
-        @include buttonStyleDefault;
-    }
+/* Button */
+button.forminator-button.forminator-button-submit {
+    @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid;
+    @apply text-xs #{!important};
+    @apply bg-primary text-white border-primary hover:bg-secondary hover:text-white hover:border-secondary;
 }

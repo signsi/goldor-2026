@@ -6,9 +6,9 @@
     <div class="wp-block-group scroll-reveal anim__fadeInUp is-style-layout-slim">
       <h1>{{ App\pl__('Suche mit Resultate - Titel') }}</h1>
       <p class="mt-0">{{ App\pl__('Suche mit Resultate - Meldung Resultate') }} <strong>{{ get_search_query() }}</strong></p>
-      <p class="mt-0 !mb-element">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
+      <p class="mt-0 !mb-xl">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
       @while(have_posts()) @php(the_post())
-        <article @php(post_class('py-gutter border-t border-solid border-greylight'))>
+        <article @php(post_class('py-medium border-t border-solid border-greylight'))>
           <header>
             <p class="my-0">
               <a href="{{ call_user_func( $function ) }}" class="text-primary font-bold">{!! get_the_title() !!}</a>
@@ -22,7 +22,7 @@
           </div>
         </article>
       @endwhile
-      <div class="posts_navigation pt-gutter border-t border-solid border-greylight">
+      <div class="posts_navigation pt-medium border-t border-solid border-greylight">
         @include('partials.components.postnavigation')
       </div>
   </div>

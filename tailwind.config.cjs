@@ -78,8 +78,7 @@ module.exports = {
         //   'lg': 'var(--rp--breakpoint--lg)',
         //   'xl': 'var(--rp--breakpoint--xl)',
         //   '2xl': 'var(--rp--breakpoint--2xl)',
-        //   '3xl': 'var(--rp--breakpoint--3xl)',
-        '3xl': '1680px',
+        '3xl': 'var(--rp--breakpoint--3xl)',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
@@ -88,24 +87,20 @@ module.exports = {
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
-        // Abstände zwischen den typographischen Elementen
-        'typography-tiny': '5px',
-        'typography-small': '15px',
-        'typography-mobile': '20px',
-        'typography-tablet': '25px',
-        'typography-desktop': '30px',
-        // Abstände zwischen den verschiedenen Sections
-        'section-mobile': '30px',
-        'section-tablet': '40px',
-        'section-desktop': '60px',
-        'section-full-hd': '90px',
-        // Abstände von Elementen (RocketPager, Bilder Tabellen usw.) innerhalb einer Section
-        'element-mobile': '30px',
-        'element-tablet': '40px',
-        'element-desktop': '60px',
-        // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
-        'gutter-mobile': '20px',
-        'gutter-display': '30px',
+        'rp-10': 'var(--spacing--rp10)',
+        'rp-20': 'var(--spacing--rp20)',
+        'rp-30': 'var(--spacing--rp30)',
+        'rp-40': 'var(--spacing--rp40)',
+        'rp-50': 'var(--spacing--rp50)',
+        'rp-60': 'var(--spacing--rp60)',
+        'rp-70': 'var(--spacing--rp70)',
+        'rp-80': 'var(--spacing--rp80)',
+
+        'small': 'var(--spacing-responsive--rp30)',     
+        'medium': 'var(--spacing-responsive--rp40)',
+        'xl': 'var(--spacing-responsive--rp60)',
+        '2xl': 'var(--spacing-responsive--rp70)',
+
         // oft gebrauchte Werte
         '1/10': '10%',
         '2/10': '20%',
@@ -120,11 +115,10 @@ module.exports = {
       },
       gap: {
         // Gap-Abstände
-        'tiny': '15px',
-        'mobile': '30px',
-        'tablet': '40px',
-        'desktop': '60px',
-        'full-hd': '90px',
+        'small': 'var(--spacing-responsive--rp30)',     
+        'medium': 'var(--spacing-responsive--rp40)',
+        'xl': 'var(--spacing-responsive--rp60)',
+        '2xl': 'var(--spacing-responsive--rp70)',
       },
       height: {
         'menu-items': '30px',

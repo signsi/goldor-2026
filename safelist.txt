@@ -27,54 +27,54 @@ wp-caption-text
 !mb-0
 !ml-0
 
-!pt-gutter
-!pr-gutter
-!pb-gutter
-!pl-gutter
+!pt-medium
+!pr-medium
+!pb-medium
+!pl-medium
 
-!mt-gutter
-!mr-gutter
-!mb-gutter
-!ml-gutter
+!mt-medium
+!mr-medium
+!mb-medium
+!ml-medium
 
-!pt-gutter
-!pr-gutter
-!pb-gutter
-!pl-gutter
+!pt-medium
+!pr-medium
+!pb-medium
+!pl-medium
 
-!mt-gutter
-!mr-gutter
-!mb-gutter
-!ml-gutter
+!mt-medium
+!mr-medium
+!mb-medium
+!ml-medium
 
-!pt-element
-!pr-element
-!pb-element
-!pl-element
+!pt-xl
+!pr-xl
+!pb-xl
+!pl-xl
 
-!mt-element
-!mr-element
-!mb-element
-!ml-element
+!mt-xl
+!mr-xl
+!mb-xl
+!ml-xl
 
-!pt-element
-!pr-element
-!pb-element
-!pl-element
+!pt-xl
+!pr-xl
+!pb-xl
+!pl-xl
 
-!mt-element
-!mr-element
-!mb-element
-!ml-element
+!mt-xl
+!mr-xl
+!mb-xl
+!ml-xl
 
 !pt-section
 !pr-section
 !pb-section
 !pl-section
 
-!mt-section
+!mt-2xl
 !mr-section
-!mb-section
+!mb-2xl
 !ml-section
 
 !pt-section
@@ -82,9 +82,9 @@ wp-caption-text
 !pb-section
 !pl-section
 
-!mt-section
+!mt-2xl
 !mr-section
-!mb-section
+!mb-2xl
 !ml-section
 
 pt-0
@@ -107,54 +107,54 @@ mr-0
 mb-0
 ml-0
 
-pt-gutter
-pr-gutter
-pb-gutter
-pl-gutter
+pt-medium
+pr-medium
+pb-medium
+pl-medium
 
-mt-gutter
-mr-gutter
-mb-gutter
-ml-gutter
+mt-medium
+mr-medium
+mb-medium
+ml-medium
 
-pt-gutter
-pr-gutter
-pb-gutter
-pl-gutter
+pt-medium
+pr-medium
+pb-medium
+pl-medium
 
-mt-gutter
-mr-gutter
-mb-gutter
-ml-gutter
+mt-medium
+mr-medium
+mb-medium
+ml-medium
 
-pt-element
-pr-element
-pb-element
-pl-element
+pt-xl
+pr-xl
+pb-xl
+pl-xl
 
-mt-element
-mr-element
-mb-element
-ml-element
+mt-xl
+mr-xl
+mb-xl
+ml-xl
 
-pt-element
-pr-element
-pb-element
-pl-element
+pt-xl
+pr-xl
+pb-xl
+pl-xl
 
-mt-element
-mr-element
-mb-element
-ml-element
+mt-xl
+mr-xl
+mb-xl
+ml-xl
 
 pt-section
 pr-section
 pb-section
 pl-section
 
-mt-section
+mt-2xl
 mr-section
-mb-section
+mb-2xl
 ml-section
 
 pt-section
@@ -162,9 +162,9 @@ pr-section
 pb-section
 pl-section
 
-mt-section
+mt-2xl
 mr-section
-mb-section
+mb-2xl
 ml-section
 
 text-5xl
@@ -174,10 +174,10 @@ text-8xl
 text-9xl
 
 gap-0
-gap-gutter
-gap-tiny
-gap-element
-gap-section
+gap-medium
+gap-small
+gap-xl
+gap-2xl
 
 max-w-tiny
 max-w-slim
