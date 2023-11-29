@@ -1,268 +1,268 @@
 /* Allgemeine Stilregeln */
-@mixin coreBlocks {
-  /* Textabsätze */
-  p {
-    @apply text-base my-typography max-w-prose;
-    &.has-text-align-center {
-        @apply mx-auto;
-    }
-    &.has-text-align-left {
-        @apply ml-0 mr-auto;
-    }
-    &.has-text-align-right {
-        @apply mr-0 ml-auto;
-    }
-    a {
-      @apply hover:text-secondary;
-    }
-  }
-  .has-text-align-center {
-    * {
-        @apply max-w-none;
-    }
-  }
 
-  /* Links */
-  a:not([class^=components-]) {
-    @apply transition-colors;
+/* Textabsätze */
+p {
+  @apply text-base my-small max-w-prose;
+  &.has-text-align-center {
+      @apply mx-auto;
   }
-  div[class^="wp-container-"] a {
-    @apply underline;
+  &.has-text-align-left {
+      @apply ml-0 mr-auto;
   }
-
-  /* Blockzitate und Code */
-  blockquote,
-  blockquote.wp-block-quote {
-    @apply font-medium italic text-font my-typography pl-gutter-mobile border-l-4 border-grey;
+  &.has-text-align-right {
+      @apply mr-0 ml-auto;
   }
-  code, kbd, samp, pre {
-    @apply text-sm font-semibold;
-  }
-  pre,
-  pre.wp-block-code {
-    @apply bg-black text-grey my-typography rounded p-gutter overflow-x-auto font-normal;
-    code {
-        @apply bg-transparent border-0 p-0 font-normal;
-    }
-  }
-  /* Button Styles */
-  .wp-block-button {
-    >.wp-block-button__link {
-      @include buttonStyleFont;
-      @include buttonStyleDefault;
-    }
-  }
-  .wp-block-button {
-  &.is-style-outline>.wp-block-button__link,
-  &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-    @include buttonStyleOutline;
-    }
-  }
-  .wp-block-button {
-  &.is-style-outline-white>.wp-block-button__link,
-  &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-    @include buttonStyleOutlineWhite;
-    }
-  }
-  
-  .wp-block-group .wp-block-buttons {
-    @apply mt-element;
-  }
-
-  /* Horizontale Linien */
-  hr,
-  hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
-    @apply border-t border-b-0 border-grey border-solid w-full my-element;
-  }
-
-  /* Abstand-Regelung */
-  * {
-    + h1, h2, h3, h4, h5, h6 {
-        @apply mt-section;
-    }
-  }
-  p, ul, ol, blockquote, pre, hr, .wp-block-separator {
-    + .wp-block-columns {
-        @apply mt-section;
-    }
-  }
-
-  /* Listen */
-  ul, ol {
-    @apply mb-typography;
-    li {
-        @apply pl-2 my-typography-tiny text-base;
-    }
-  }
-  ol {
-    @apply list-decimal;
-  }
-  ul {
-    @apply list-disc;
-    // Menüs
-    &[id^="menu-"], ul {
-        @apply list-none;
-        li {
-            @apply my-0 pl-0;
-        }
-    }
-  }
-
-  /* Bilder und Bildunterschriften */
-  figure.wp-block-image {
-    @apply my-element-mobile;
-  }
-  figcaption,
-  .wp-block-image figcaption {
-    @apply text-left text-xs text-font mt-typography-tiny;
-  }
-
-  /* Tabellen */
-  .wp-block-table,
-  figure.wp-block-table {
-    @apply table-auto my-element-mobile text-sm;
-    thead {
-        @apply border-b border-solid border-font;
-    }
-    th {
-        @apply first:pl-0 last:pr-0 px-3 pb-3 pt-0 font-semibold align-bottom text-left;
-    }
-    td, th {
-        @apply border-0;
-    }
-    td {
-        @apply first:pl-0 last:pr-0 p-3 align-baseline;
-    }
-    tr {
-        @apply border-b border-grey;
-    }
-  }
-
-  /* Text Media */
-  .wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
-  @apply pl-0;
-  }
-
-  figure.is-type-video {
-  @apply h-full;
-  }
-
-  /* Images */
-  .wp-block-group {
-  figure {
-    @apply overflow-hidden;
-
-    > a {
-      &:hover {
-        img {
-          @apply scale-105;
-        }
-      }
-
-      img {
-        @apply transition ease-in-out delay-150 duration-300;
-      }
-    }
-  }
-  }
-
-  /* Cover */
-  .wp-block-cover,
-  .wp-block-cover-image {
-  @apply h-full;
-  }
-
-  /* Galerie */
-  .wp-block-gallery {
-  @apply gap-x-gutter-mobile gap-y-gutter-mobile md:gap-x-gutter-mobile md:gap-y-gutter-display;
-  }
-
-  /* List-Styles */
-  ul[class*="liststyle-icon"] {
-    @apply list-none pl-0;
-    
-    > li {
-      @apply flex items-center pl-0 transition-colors hover:text-secondary;
-      
-      &::before, &::after {
-        @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
-      }
-      &, &::before, &::after, & a {
-        @apply transition-all;
-      }
-    }
-
-    /* Icons links oder rechts vom Text darstellen */
-    &[class*="-start"] > li {
-      @apply before:pr-3 after:hidden;
-    }
-    &[class*="-end"] > li {
-      @apply before:hidden after:pl-3;
-    }
-
-    /* Alle Icons */
-    &[class*="--arrow-left"] > li {
-      @apply before:content-arrow-left after:content-arrow-left;
-    }
-    &[class*="--arrow-right"] > li {
-      @apply before:content-arrow-right after:content-arrow-right;
-    }
-    &[class*="--arrow-down"] > li {
-      @apply before:content-arrow-down after:content-arrow-down;
-    }
-    &[class*="--arrow-left-long"] > li {
-      @apply before:content-arrow-left-long after:content-arrow-left-long;
-    }
-    &[class*="--arrow-right-long"] > li {
-      @apply before:content-arrow-right-long after:content-arrow-right-long;
-    }
-    &[class*="--arrow-down-long"] > li {
-      @apply before:content-arrow-down-long after:content-arrow-down-long;
-    }
-    &[class*="--circle-check"] > li {
-      @apply before:content-circle-check after:content-circle-check;
-    }
-    &[class*="--arrow-down-to-line"] > li {
-      @apply before:content-arrow-down-to-line after:content-arrow-down-to-line;
-    }
-
-    /* Animation: Icons beim Hover bewegen */
-    &[class*="--arrow-right"],
-    &[class*="--arrow-right-long"],
-    &[class*="--arrow-left"],
-    &[class*="--arrow-left-long"]{
-      > li::before,
-      > li::after {
-        @apply translate-x-0 transition-all;
-
-      }
-    }
-    &[class*="--arrow-left"],
-    &[class*="--arrow-left-long"]{
-      > li:hover::before {
-        @apply origin-center -translate-x-1.5;
-      }
-    }
-    &[class*="--arrow-right"],
-    &[class*="--arrow-right-long"]{
-      > li:hover::after {
-        @apply origin-center translate-x-1.5;
-      }
-    }
-
-    /* Spezialfall */
-    &[class*="--arrow-down-to-line--bordered"] > li {
-      @apply after:content-arrow-down-to-line after:ml-auto;
-      @apply my-0 border-t last:border-b border-solid border-y-black py-5;
-    }
-  }
-
-  /* Search */
-  input.search-input:focus + .icon-wrapper {
-    @apply opacity-0;
+  a {
+    @apply hover:text-secondary;
   }
 }
+.has-text-align-center {
+  * {
+      @apply max-w-none;
+  }
+}
+
+/* Links */
+a:not([class^=components-]) {
+  @apply transition-colors;
+}
+div[class^="wp-container-"] a {
+  @apply underline;
+}
+
+/* Blockzitate und Code */
+blockquote,
+blockquote.wp-block-quote {
+  @apply font-medium italic text-font my-small pl-medium border-l-4 border-grey;
+}
+code, kbd, samp, pre {
+  @apply text-sm font-semibold;
+}
+pre,
+pre.wp-block-code {
+  @apply bg-black text-grey my-small rounded p-medium overflow-x-auto font-normal;
+  code {
+      @apply bg-transparent border-0 p-0 font-normal;
+  }
+}
+/* Button Styles */
+.wp-block-button {
+  >.wp-block-button__link {
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+  }
+}
+.wp-block-button {
+&.is-style-outline>.wp-block-button__link,
+&.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+  @include buttonStyleFont;
+  @include buttonStyleDefault;
+  @include buttonStyleOutline;
+  }
+}
+.wp-block-button {
+&.is-style-outline-white>.wp-block-button__link,
+&.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
+  @include buttonStyleFont;
+  @include buttonStyleDefault;
+  @include buttonStyleOutlineWhite;
+  }
+}
+
+.wp-block-group .wp-block-buttons {
+  @apply mt-xl;
+}
+
+/* Horizontale Linien */
+hr,
+hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  @apply border-t border-b-0 border-grey border-solid w-full my-xl;
+}
+
+/* Abstand-Regelung */
+* {
+  + h1, h2, h3, h4, h5, h6 {
+      @apply mt-2xl;
+  }
+}
+p, ul, ol, blockquote, pre, hr, .wp-block-separator {
+  + .wp-block-columns {
+      @apply mt-2xl;
+  }
+}
+
+/* Listen */
+ul, ol {
+  @apply mb-small;
+  li {
+      @apply pl-2 my-rp-20 text-base;
+  }
+}
+ol {
+  @apply list-decimal;
+}
+ul {
+  @apply list-disc;
+  // Menüs
+  &[id^="menu-"], ul {
+      @apply list-none;
+      li {
+          @apply my-0 pl-0;
+      }
+  }
+}
+
+/* Bilder und Bildunterschriften */
+figure.wp-block-image {
+  @apply my-rp-40;
+}
+figcaption,
+.wp-block-image figcaption {
+  @apply text-left text-xs text-font mt-rp-20;
+}
+
+/* Tabellen */
+.wp-block-table,
+figure.wp-block-table {
+  @apply table-auto my-rp-40 text-sm;
+  thead {
+      @apply border-b border-solid border-font;
+  }
+  th {
+      @apply first:pl-0 last:pr-0 px-3 pb-3 pt-0 font-semibold align-bottom text-left;
+  }
+  td, th {
+      @apply border-0;
+  }
+  td {
+      @apply first:pl-0 last:pr-0 p-3 align-baseline;
+  }
+  tr {
+      @apply border-b border-grey;
+  }
+}
+
+/* Text Media */
+.wp-block-media-text.has-media-on-the-right .wp-block-media-text__content {
+@apply pl-0;
+}
+
+figure.is-type-video {
+@apply h-full;
+}
+
+/* Images */
+.wp-block-group {
+figure {
+  @apply overflow-hidden;
+
+  > a {
+    &:hover {
+      img {
+        @apply scale-105;
+      }
+    }
+
+    img {
+      @apply transition ease-in-out delay-150 duration-300;
+    }
+  }
+}
+}
+
+/* Cover */
+.wp-block-cover,
+.wp-block-cover-image {
+@apply h-full;
+}
+
+/* Galerie */
+.wp-block-gallery {
+@apply gap-medium;
+}
+
+/* List-Styles */
+ul[class*="liststyle-icon"] {
+  @apply list-none pl-0;
+  
+  > li {
+    @apply flex items-center pl-0 transition-colors hover:text-secondary;
+    
+    &::before, &::after {
+      @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
+    }
+    &, &::before, &::after, & a {
+      @apply transition-all;
+    }
+  }
+
+  /* Icons links oder rechts vom Text darstellen */
+  &[class*="-start"] > li {
+    @apply before:pr-3 after:hidden;
+  }
+  &[class*="-end"] > li {
+    @apply before:hidden after:pl-3;
+  }
+
+  /* Alle Icons */
+  &[class*="--arrow-left"] > li {
+    @apply before:content-arrow-left after:content-arrow-left;
+  }
+  &[class*="--arrow-right"] > li {
+    @apply before:content-arrow-right after:content-arrow-right;
+  }
+  &[class*="--arrow-down"] > li {
+    @apply before:content-arrow-down after:content-arrow-down;
+  }
+  &[class*="--arrow-left-long"] > li {
+    @apply before:content-arrow-left-long after:content-arrow-left-long;
+  }
+  &[class*="--arrow-right-long"] > li {
+    @apply before:content-arrow-right-long after:content-arrow-right-long;
+  }
+  &[class*="--arrow-down-long"] > li {
+    @apply before:content-arrow-down-long after:content-arrow-down-long;
+  }
+  &[class*="--circle-check"] > li {
+    @apply before:content-circle-check after:content-circle-check;
+  }
+  &[class*="--arrow-down-to-line"] > li {
+    @apply before:content-arrow-down-to-line after:content-arrow-down-to-line;
+  }
+
+  /* Animation: Icons beim Hover bewegen */
+  &[class*="--arrow-right"],
+  &[class*="--arrow-right-long"],
+  &[class*="--arrow-left"],
+  &[class*="--arrow-left-long"]{
+    > li::before,
+    > li::after {
+      @apply translate-x-0 transition-all;
+
+    }
+  }
+  &[class*="--arrow-left"],
+  &[class*="--arrow-left-long"]{
+    > li:hover::before {
+      @apply origin-center -translate-x-1.5;
+    }
+  }
+  &[class*="--arrow-right"],
+  &[class*="--arrow-right-long"]{
+    > li:hover::after {
+      @apply origin-center translate-x-1.5;
+    }
+  }
+
+  /* Spezialfall */
+  &[class*="--arrow-down-to-line--bordered"] > li {
+    @apply after:content-arrow-down-to-line after:ml-auto;
+    @apply my-0 border-t last:border-b border-solid border-y-black py-5;
+  }
+}
+
+/* Search */
+input.search-input:focus + .icon-wrapper {
+  @apply opacity-0;
+}
+

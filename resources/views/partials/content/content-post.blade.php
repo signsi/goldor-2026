@@ -3,14 +3,14 @@
         <div class="image-wrapper  overflow-hidden">
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
         </div>
-        <div class="content-wrapper p-gutter lg:py-gutter lg:px-gutter">
+        <div class="content-wrapper p-medium lg:py-medium lg:px-medium">
             <div class="date-wrapper text-sm">
                 @include('partials.meta.entry-meta-date')
             </div>
-            <div class="title-wrapper mt-1 mb-typography">
+            <div class="title-wrapper mt-1 mb-small">
                 <h4>{{ the_title() }}</h4>
             </div>
-            <div class="text-wrapper text-sm mb-typography [&_*]:text-sm">
+            <div class="text-wrapper text-sm mb-small [&_*]:text-sm">
                 {{ the_excerpt() }}
             </div>
             <span class="no-underline text-sm transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 block" href="{{ the_permalink() }}">{{ App\pl__('Weiterlesen') }} <i class="fa-light fa-arrow-right-long"></i></span>

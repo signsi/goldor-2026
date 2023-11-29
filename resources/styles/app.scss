@@ -1,9 +1,5 @@
-/* @charset 'UTF-8'; */ /* Kann weggelassen werden, da UTF-8 normalerweise standardmäßig verwendet wird */
-
 /* Tailwind Base */
 @import 'tailwindcss/base';
-
-/* Dritt-Anbieter-Stile */
 
 /* Globale Variablen und Mixins */
 @import './variables.scss';
@@ -11,44 +7,25 @@
 
 /* Typografie und Schriftarten */
 @import './typography.scss';
-@include typography;
-@import './typography-extend.scss';
-@include typographyExtended;
 @import './buttons.scss';
 
 /* Hilfsklassen und Utilities */
 @import './helpers.scss';
-@import './spacing.scss';
 
 /* Layout und Struktur */
 // @import './layout.scss';
 @import './header.scss';
-@import './footer.scss';
-// @import './group-columns.scss';
-// @import './content-grid.scss';
+// @import './footer.scss';
+@import './content-grid.scss';
 
 /* Block-Stile */
 @import './core-blocks.scss';
-@include coreBlocks;
 @import './news.scss';
 @import './forminator.scss';
 
 /* Eigene spezifische Stile */
 @import './slider.scss';
-@import './margin.scss';
-@import './padding.scss';
-
-// /* Zusätzliche Stile */
-// TOOD: Block-Styling in app.scss?
-// @import './rocketpager_blockstyles/image-wrapper.scss';
-// @import './rocketpager_blockstyles/rocketpager-iconbox.scss';
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
-/* Block-Stile */
-@import './news.scss';
-@import './forminator.scss';
-
-@import './content-grid.scss';

@@ -6,7 +6,7 @@
       </a>
     </h3>
 
-    <div class="text-sm mb-typography">
+    <div class="text-sm mb-small">
       @include('partials.meta.entry-meta')
     </div>
   </header>

@@ -90,7 +90,6 @@
   }
 }
 
-
 .videosize--4x3,
 .videosize--4-3 {
   video {
@@ -133,8 +132,4 @@
 // Zusatz-CSS Klassen
 .hasGradient {
   @apply relative after:bg-gradient after:absolute after:bottom-0 after:inset-x-0 after:h-25vh after:top-0 lg:after:top-0;
-}
-
-body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)).offsetRight {
-  @apply px-gutter ml-auto mr-auto xl:px-0 lg:ml-[calc((100vw_-_theme(maxWidth.slim))_/_2)] xl:ml-[calc((100vw_-_theme(maxWidth.slim))_/_2_+_30px)] #{!important};
 }
