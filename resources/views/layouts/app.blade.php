@@ -13,7 +13,7 @@
 
 @include('sections.header.header')
 
-<main id="main" class="mx-auto main max-w-none">
+<main id="main" class="content-grid">
 
     @yield('content')
 

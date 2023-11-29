@@ -1,3 +1,0 @@
-<a href="#start" class="flex flex-col absolute left-1/2 right-0 bottom-8 lg:bottom-[5%] w-10 md:w-16 text-xl text-center text-primary no-underline -ml-5 md:-ml-8 hover:text-font">
-    <div class="icon-scroll absolute left-1/2 w-[25px] h-[40px] -ml-[12.5px] -mt-[20px] shadow-scrolldown rounded-3xl before:absolute before:left-1/2 before:content-[''] before:w-[4px] before:h-[4px] before:bg-white before:-ml-0.5 before:top-[4px] before:rounded-sm"></div>
-</a>
