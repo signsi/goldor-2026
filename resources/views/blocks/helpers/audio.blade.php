@@ -14,7 +14,7 @@
 @endphp
 
 @if ($src)
-    <div class="mt-auto mb-0 px-gutter pb-gutter">
+    <div class="mt-auto mb-0 px-medium pb-medium">
         <audio class="h-8 w-full sepia-0 saturate-75 grayscale contrast-99 invert-0" controls="" src="{{ $src }}"></audio>
     </div>
 @endif

@@ -69,7 +69,7 @@ foreach ($cats as $cat) {
         </div>
     @endif --}}
 
-    <div class="ajax-container grid{{ $row_per_col }} gap-gutter" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container grid{{ $row_per_col }} gap-medium" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         @if ($the_query->have_posts())
             @while ($the_query->have_posts())
                 @php
@@ -85,12 +85,12 @@ foreach ($cats as $cat) {
     </div>
 
     {{-- Loading Image --}}
-    <div class="loading-image flex items-center justify-center my-gutter">
+    <div class="loading-image flex items-center justify-center my-medium">
         <img data-src="{{ asset('images/puff.svg') }}" />
     </div>
 
     {{-- Load More Button --}}
-    <div class="wp-block-button wp-block-button is-style-outline flex items-center justify-center mt-element">
+    <div class="wp-block-button wp-block-button is-style-outline flex items-center justify-center mt-xl">
         <a class="wp-block-button__link ajax-load-more">{{ App\pl__('Mehr laden') }}</a>
     </div>
 @overwrite

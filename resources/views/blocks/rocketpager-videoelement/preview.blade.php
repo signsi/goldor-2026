@@ -7,8 +7,8 @@
 @extends('blocks.helpers.preview-wrapper')
 
 @section('content-section-before-flex')
-    <div class="w-full text-xs bg-grey text-white p-gutter">
-    <strong><u>Video-Element</u></strong><br><br>
+    <div class="w-full text-xs bg-grey text-white p-medium">
+    <strong><u>Video-xl</u></strong><br><br>
     @switch($video_type)
         @case('extern-video')
             Youtube-ID : {{ block_value('youtube-url') }}
@@ -43,7 +43,7 @@
             @break
         @default
             @if($iframe_link)
-                Video mit IFrame. Um das iFrame zu sehen, klicke auf das RocketPager-Element.
+                Video mit IFrame. Um das iFrame zu sehen, klicke auf das RocketPager-xl.
             @endif
     @endswitch
         @if ( block_value( 'video-size') )

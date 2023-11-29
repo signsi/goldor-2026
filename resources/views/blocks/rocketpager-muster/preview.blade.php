@@ -26,7 +26,7 @@
 @section('flex-item-content')
         @if(block_rows('repeater'))
             @while (block_rows('repeater'))
-                @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element --}}
+                @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-xl --}}
                 <div class="mt-6">
                     <div class="image-wrapper">
                         @include('blocks.helpers.image',

@@ -2,7 +2,7 @@
     Innerhalb von "@section('content-section')" und "@endsection" kann die HTML Struktur des Block definiert werden.
     Die HTML-Struktur wird in den div-Container (rocketpager-{element-name}) eingefügt. Falls nebst den Standard-Klassen
     zusätzliche Klassen benötigt werden, können diese über die Variable "element_classes" mitgegeben werden. Wenn die Animation
-    nicht auf das RocketPager-Element aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
+    nicht auf das RocketPager-xl aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
 --}}
 
 @php

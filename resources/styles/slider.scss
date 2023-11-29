@@ -106,8 +106,8 @@
 
 /* Dots */
 .slick-dots {
-  @apply block relative mb-gutter mx-0 p-0 list-none text-center w-full;
-  @apply mt-gutter #{!important};
+  @apply block relative mb-medium mx-0 p-0 list-none text-center w-full;
+  @apply mt-medium #{!important};
   li {
     @apply relative inline-block px-0 my-0 mx-1.5 cursor-pointer text-[0px] marker:hidden #{!important};
     &.slick-active button{

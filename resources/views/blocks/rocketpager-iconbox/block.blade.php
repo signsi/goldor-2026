@@ -5,7 +5,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="grid gap-gutter {{ $row_per_col }}">
+    <div class="grid gap-medium {{ $row_per_col }}">
         @while (block_rows('icon'))
             @php
                 block_row('icon');

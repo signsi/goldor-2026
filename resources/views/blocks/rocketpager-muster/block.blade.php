@@ -2,7 +2,7 @@
     Innerhalb von "@section('content-section')" und "@endsection" kann die HTML Struktur des Block definiert werden.
     Die HTML-Struktur wird in den div-Container (rocketpager-{element-name}) eingefügt. Falls nebst den Standard-Klassen
     zusätzliche Klassen benötigt werden, können diese über die Variable "element_classes" mitgegeben werden. Wenn die Animation
-    nicht auf das RocketPager-Element aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
+    nicht auf das RocketPager-xl aktive sein soll, kann der Parameter "ignoreAnimation" auf true gesetzt werden (Default false).
 --}}
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => '', 'ignoreAnimation' => false])
@@ -50,7 +50,7 @@
             <p>Repeater does {{ block_row_count('repeater') }} loops</p>
             <ul>
                 @while (block_rows('repeater'))
-                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element --}}
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-xl --}}
                     @if ( block_sub_value( 'repeater-item'))
                         <li>{{ block_row_index() + 1 }}. Loop: DO SOMETHING with item (has value) -> {{ block_sub_value( 'repeater-item') }}</li>
                     @else
@@ -74,19 +74,19 @@
         @include('blocks.helpers.image',
         [
             'name_ImageField' => 'image',
-            'additionalClasses' => array('class' => 'ml-element')
+            'additionalClasses' => array('class' => 'ml-xl')
         ])
 
     <h3>Images in a Repeater</h3>
         @if(block_rows('repeater'))
             <div class="flex flex-wrap">
                 @while (block_rows('repeater'))
-                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element--}}
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-xl--}}
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'repeater-image',
                         'thumbnail' => 'medium',
-                        'additionalClasses' => array('class' => 'mr-element mb-element'),
+                        'additionalClasses' => array('class' => 'mr-xl mb-xl'),
                         'isRepeaterElement' => true
                     ])
                 @endwhile

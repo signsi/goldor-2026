@@ -34,9 +34,6 @@ body {
   /* Other Variables */
   --full-height: 100vh;
   --wp-admin-theme-color: var(--color-primary);
-  // --custom-height-1: 120px;
-  // --custom-height-2: 150px;
-  // --custom-height-3: 280px;
 
   /* Default Tailwind Breakpoint Variables */
   --rp--breakpoint--sm: 640px;
@@ -56,7 +53,7 @@ body {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-  /* Spacing-Steps Variables */
+  /* Fix Spacing-Steps Variables */
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -66,9 +63,9 @@ body {
   --wp--preset--spacing--70:  var(--spacing--rp70);
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
-  --spacing-responsive--rp10: var(--spacing--rp10);
-  --spacing-responsive--rp20: var(--spacing--rp20);
-  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
+  /* Dynamic Spacing-Steps Variables */
+  --spacing-responsive--rp20: clamp(var(--wp--preset--spacing--10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--wp--preset--spacing--20));
+  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
   --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
   --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
   --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));

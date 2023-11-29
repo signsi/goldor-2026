@@ -1,7 +1,7 @@
 @php
     $id_num = wp_rand(0, PHP_INT_MAX);
     $accordion_id = 'simple-accordion-' . $id_num;
-    $firstOpen = block_value('first-element-open');
+    $firstOpen = block_value('first-xl-open');
     $isFirstElement = true;
 @endphp
 
@@ -16,7 +16,7 @@
                     block_row('element');
                     $identifier = App\echoDeepLinktitle() . '-' . $id_num;
                 @endphp
-                @if (!block_sub_value('hide-element'))
+                @if (!block_sub_value('hide-xl'))
                     <div class="">
                         <h2 id="heading-{{ $identifier }}" class="text-base mb-0">
                             <button type="button"

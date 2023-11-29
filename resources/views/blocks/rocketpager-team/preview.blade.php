@@ -7,7 +7,7 @@
 @section('flex-item-content')
         @while (block_rows('team-member'))
         @php block_row('team-member') @endphp
-            <div class="team-member flex flex-col justify-between @if (block_value('isSlider')) h-full pr-gutter @else transition-all @endif group duration-300 shadow-md ease-in-out{{ App\getAnimation() }}">
+            <div class="team-member flex flex-col justify-between @if (block_value('isSlider')) h-full pr-medium @else transition-all @endif group duration-300 shadow-md ease-in-out{{ App\getAnimation() }}">
                 <div class="image-wrapper">
                     @include('blocks.helpers.image', [
                         'name_ImageField' => 'portrait-image',
@@ -17,7 +17,7 @@
                     ])
                 </div>
                 <div
-                    class="text-wrapper flex flex-col p-gutter @if (block_value('isSlider')) border-solid border-2 border-grey hover:shadow-lg transition-all @endif">
+                    class="text-wrapper flex flex-col p-medium @if (block_value('isSlider')) border-solid border-2 border-grey hover:shadow-lg transition-all @endif">
                     <div class="text-wrapper--inner">
                         @if (block_sub_value('name'))
                             <p class="my-0">

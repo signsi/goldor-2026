@@ -6,7 +6,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="flex flex-wrap md:flex-nowrap gap-gutter {{ $direction }}">
+    <div class="flex flex-wrap md:flex-nowrap gap-medium {{ $direction }}">
         <div class="flex flex-col justify-start basis-full md:basis-1/2 lg:basis-5/12 bg-white">
             @include('blocks.helpers.background-image',
             [

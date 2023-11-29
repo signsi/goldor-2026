@@ -8,7 +8,7 @@
 @extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 
-<div class="text-xs bg-grey text-white p-gutter">
+<div class="text-xs bg-grey text-white p-medium">
     <strong><u>Einstellung der Textbox</u></strong>
     <br>
     Breite der Textbox:
@@ -106,7 +106,7 @@
                     ])
                 </picture>
                 @if ( block_sub_value( 'title') )
-                    <div class="px-gutter border border-solid border-gray">
+                    <div class="px-medium border border-solid border-gray">
                         <div class="{{ block_value('box-width') }}">
                             @if ( block_sub_value( 'title') )
                                 <p class="font-bold">{{ block_sub_value('title') }}</p>
