@@ -89,6 +89,7 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
+                padding: true,
                 margin: true,
                 spacingSizes: [
                     {
@@ -125,7 +126,7 @@ export default async (app) => {
                         "name": "3xl",
                         "size": "var(--spacing-responsive--rp80)",
                         "slug": "xxx-large"
-                    },		
+                    },
                 ],
             },
             typography: {
