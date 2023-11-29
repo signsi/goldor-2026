@@ -85,6 +85,7 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
+                padding: true,
                 margin: true,
                 spacingSizes: [
                     {
@@ -133,3 +134,4 @@ export default async (app) => {
         .useTailwindFontSize()
         .enable();
 };
+
