@@ -83,6 +83,10 @@ export default async (app) => {
                     'line-height': {},
                 },
             },
+            layout: {
+                "contentSize": "var(--global--content-size--rp)",
+                "wideSize": "var(--global--wide-size--rp)",
+            },
             spacing: {
                 blockGap: true,
                 padding: true,
