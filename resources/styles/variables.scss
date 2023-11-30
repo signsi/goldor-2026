@@ -40,10 +40,21 @@ body {
   --wide-cols: 10;
   --content-cols: 8;
 
-  --global--content-size--rp: calc(var(--content-cols) / var(--num-cols) * 100vw); 
-  --global--wide-size--rp: calc(var(--wide-cols) / var(--num-cols) * 100vw);
-  --wp--style--global--content-size: var(--global--content-size--rp);
-  --wp--style--global--wide-size: var(--global--wide-size--rp);
+  --num-cols-2: 2;
+  --num-cols-4: 4;
+  --num-cols-6: 6;
+  --num-cols-8: 8;
+  --num-cols-10: 10;
+
+  --global--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
+  --global--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw); 
+  --global--large-size: calc(var(--num-cols-6) / var(--num-cols) * 100vw);
+  --global--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
+  --global--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
+
+  // Wordpress Overrides
+  --wp--style--global--content-size: var(--global--large-size);
+  --wp--style--global--wide-size: var(--global--2xlarge-size);
 
   /* Default Tailwind Breakpoint Variables */
   --rp--breakpoint--sm: 640px;

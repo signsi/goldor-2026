@@ -1,3 +1,23 @@
+// Helper-Classes für dynamische Breite von Elementen
+.max-w-container-small {
+    @apply w-full max-w-full max-w-small;
+}
+.max-w-container-medium {
+    @apply w-full max-w-full lg:max-w-medium;
+}
+.max-w-container-large {
+    @apply w-full max-w-full lg:max-w-large;
+}
+.max-w-container-xlarge {
+    @apply w-full max-w-full lg:max-w-xlarge;
+}
+.max-w-container-2xlarge {
+    @apply w-full max-w-full lg:max-w-2xlarge;
+}
+.max-w-header-footer {
+    @apply w-full max-w-full lg:max-w-2xlarge;
+}
+
 html {
     @apply scroll-smooth;
 }
@@ -9,16 +29,27 @@ body {
 main > .wp-block-group {
     @apply px-medium;
 }
+main > :where(.wp-block-group.has-background) {
+    @apply py-2xl px-medium;
+}
 main > div > .wp-block-group {
     > *{
         @apply first:mt-0 last:mb-0;
     }
 }
 
-/* Beispiel für ein Hintergrundbild auf einer Gruppe */ 
-// .wp-block-group {
-//     &.bg1 {
-//         @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
-//     }
-// }
-  
+// Default Breite für Gruppen
+body .is-layout-constrained:not(.alignwide):not(.alignfull) > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    @extend .max-w-container-large;
+}
+
+// Weite Breite für Gruppen
+main > .alignwide > *{
+    @extend .max-w-container-xlarge;
+    @apply  lg:px-medium;
+}
+
+// Volle Breite für Gruppen
+main > .alignfull > * {
+    @apply max-w-full;
+}

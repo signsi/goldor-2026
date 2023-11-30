@@ -13,9 +13,6 @@
     <br>
     Breite der Textbox:
     @switch($boxWidth)
-        @case('max-w-tiny')
-            Sehr schmale Breite des Contents
-            @break
         @case('max-w-slim')
             Schmale Breite des Contents
             @break
