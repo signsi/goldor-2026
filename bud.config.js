@@ -97,10 +97,8 @@ export default async (app) => {
                 },
             },
             layout: {
-                "contentSize": "var(--content--default-size)",
-                "wideSize": "var(--content--wide-size)",
-            },
-            typography: {
+                "contentSize": "var(--global--content-size--rp)",
+                "wideSize": "var(--global--wide-size--rp)",
             },
             spacing: {
                 blockGap: true,

@@ -31,17 +31,11 @@ body, :root {
   --color-error: var(--color-indianred);
   --color-font: var(--color-black);
   
-<<<<<<< HEAD
   // CONTAINER
   // Container - Werte
   --num-cols: 12;
   --wide-cols: 10;
   --content-cols: 8;
-=======
-  /* Other Variables */
-  --full-height: 100vh;
-  --wp-admin-theme-color: var(--color-primary);
->>>>>>> d394d3fe (content-block vorhanden)
 
   --num-cols-2: 2;
   --num-cols-4: 4;
@@ -75,11 +69,7 @@ body, :root {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-<<<<<<< HEAD
   // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variabeln
-=======
-  /* Fix Spacing-Steps Variables */
->>>>>>> d394d3fe (content-block vorhanden)
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -89,7 +79,6 @@ body, :root {
   --wp--preset--spacing--70:  var(--spacing--rp70);
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
-<<<<<<< HEAD
   // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
   --spacing-responsive--rp20: clamp(var(--spacing--rp10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--spacing--rp20));
   --spacing-responsive--rp30: clamp(var(--spacing--rp20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp30));
@@ -102,14 +91,4 @@ body, :root {
   // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variabeln
   --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
   --wp--style--block-gap: var(--spacing-responsive--gutter);
-=======
-  /* Dynamic Spacing-Steps Variables */
-  --spacing-responsive--rp20: clamp(var(--wp--preset--spacing--10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--wp--preset--spacing--20));
-  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
-  --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
-  --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
-  --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
-  --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
-  --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
->>>>>>> d394d3fe (content-block vorhanden)
 }
