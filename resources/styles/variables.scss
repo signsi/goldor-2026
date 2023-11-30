@@ -35,11 +35,19 @@ body, :root {
   --full-height: 100vh;
   --wp-admin-theme-color: var(--color-primary);
 
-  --num-cols-2: 2;
-  --num-cols-4: 4;
-  --num-cols-6: 6;
-  --num-cols-8: 8;
-  --num-cols-10: 10;
+  // Layout Presets
+  --global--content-size--rp: 620px;
+  --global--wide-size--rp: 1280px;
+  --wp--style--global--content-size: var(--global--content-size--rp);
+  --wp--style--global--wide-size: var(--global--wide-size--rp);
+
+  /* Default Tailwind Breakpoint Variables */
+  --rp--breakpoint--sm: 640px;
+  --rp--breakpoint--md: 768px;
+  --rp--breakpoint--lg: 1024px;
+  --rp--breakpoint--xl: 1280px;
+  --rp--breakpoint--2xl: 1536px;
+  --rp--breakpoint--3xl: 1680px;
 
   // Container - Berechnungen
   --content--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
