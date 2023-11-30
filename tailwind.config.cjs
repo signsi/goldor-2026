@@ -66,10 +66,10 @@ module.exports = {
       maxWidth: {
         tiny: '37.5rem', //600px
         slim: '45rem', //720px
-        default: '71.25rem', //1140px
+        default: 'var(--wp--style--global--content-size)', // 8 von 12 Spalten
         medium: '80rem', //1280px
         large: '90rem', //1440px
-        xlarge: '71.875vw',
+        xlarge: 'var(--wp--style--global--wide-size)', // 10 von 12 Spalten
         '2xlarge': '90vw',
       },
       screens: {
