@@ -179,7 +179,6 @@ gap-small
 gap-xl
 gap-2xl
 
-max-w-tiny
 max-w-slim
 max-w-default
 max-w-medium
