@@ -35,6 +35,12 @@ body {
   --full-height: 100vh;
   --wp-admin-theme-color: var(--color-primary);
 
+  // Layout Presets
+  --global--content-size--rp: 620px;
+  --global--wide-size--rp: 1280px;
+  --wp--style--global--content-size: var(--global--content-size--rp);
+  --wp--style--global--wide-size: var(--global--wide-size--rp);
+
   /* Default Tailwind Breakpoint Variables */
   --rp--breakpoint--sm: 640px;
   --rp--breakpoint--md: 768px;
