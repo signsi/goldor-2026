@@ -104,50 +104,6 @@ export default async (app) => {
             },
             spacing: {
                 blockGap: true,
-<<<<<<< HEAD
-                margin: true,
-<<<<<<< HEAD
-                spacingSizes: [
-                    {
-                        "name": "Tiny",
-                        "size": "var(--spacing-responsive--rp20)",
-                        "slug": "tiny"
-                    },
-                    {
-                        "name": "Small",
-                        "size": "var(--spacing-responsive--rp30)",
-                        "slug": "small"
-                    },
-                    {
-                        "name": "Medium",
-                        "size": "var(--spacing-responsive--rp40)",
-                        "slug": "medium"
-                    },
-                    {
-                        "name": "Large",
-                        "size": "var(--spacing-responsive--rp50)",
-                        "slug": "large"
-                    },
-                    {
-                        "name": "Extra Large",
-                        "size": "var(--spacing-responsive--rp60)",
-                        "slug": "x-large"
-                    },
-                    {
-                        "name": "2xl",
-                        "size": "var(--spacing-responsive--rp70)",
-                        "slug": "xx-large"
-                    },
-                    {
-                        "name": "3xl",
-                        "size": "var(--spacing-responsive--rp80)",
-                        "slug": "xxx-large"
-                    },
-                ],
-            },
-=======
-=======
->>>>>>> 1b4836be (content-block vorhanden)
                 padding: true,
                 margin: true,
                 spacingSizes: [
@@ -185,15 +141,9 @@ export default async (app) => {
                         "name": "3xl",
                         "size": "var(--spacing-responsive--rp80)",
                         "slug": "xxx-large"
-                    },		
+                    },
                 ],
-<<<<<<< HEAD
-                units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
-              },
->>>>>>> 065e0260 (Spacing Bud)
-=======
             },
->>>>>>> 1b4836be (content-block vorhanden)
             typography: {
                 customFontSize: false,
             },

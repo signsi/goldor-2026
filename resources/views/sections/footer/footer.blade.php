@@ -4,7 +4,7 @@
         <div class="max-w-content-hf px-gutter py-2xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
                 <!-- Footer Sidebar 1 -->
-                <div class="footerSidebar-1 flex flex-col gap-y-medium">
+                <div class="footerSidebar-1 flex flex-col gap-y-gutter">
                     @if(is_active_sidebar('sidebar-footer-1'))
                         @php (dynamic_sidebar('sidebar-footer-1'))
                     @else
@@ -13,7 +13,7 @@
                     @endif
                 </div>
                 <!-- Footer Sidebar 2 -->
-                <div class="footerSidebar-2 flex flex-col gap-y-medium">
+                <div class="footerSidebar-2 flex flex-col gap-y-gutter">
                     @if(is_active_sidebar('sidebar-footer-2'))
                         @php (dynamic_sidebar('sidebar-footer-2'))
                     @else
@@ -21,7 +21,7 @@
                     @endif
                 </div>
                 <!-- Footer Sidebar 3 -->
-                <div class="footerSidebar-3 flex flex-col gap-y-medium">
+                <div class="footerSidebar-3 flex flex-col gap-y-gutter">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php (dynamic_sidebar('sidebar-footer-3'))
                     @else
@@ -29,7 +29,7 @@
                     @endif
                 </div>
                 <!-- Footer Sidebar 4 -->
-                <div class="footerSidebar-4 flex flex-col gap-y-medium">
+                <div class="footerSidebar-4 flex flex-col gap-y-gutter">
                     @if(is_active_sidebar('sidebar-footer-4'))
                         @php (dynamic_sidebar('sidebar-footer-4'))
                     @else
