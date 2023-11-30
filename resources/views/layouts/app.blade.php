@@ -13,7 +13,7 @@
 
 @include('sections.header.header')
 
-<main id="main" class="content-grid">
+<main id="main" class="">
 
     @yield('content')
 
@@ -29,9 +29,11 @@
     @endif
 </main>
 
-<x-content-block>
+
+{{-- Beispiel für eine wiederverwendebare Blade-Komponente --}}
+{{-- <x-content-block>
     <h1>Test</h1>
-</x-content-block>
+</x-content-block> --}}
 
 @include('sections.footer.footer')
 
