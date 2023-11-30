@@ -64,13 +64,12 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-        tiny: '37.5rem', //600px
-        slim: '45rem', //720px
-        default: '71.25rem', //1140px
-        medium: '80rem', //1280px
-        large: '90rem', //1440px
-        xlarge: '71.875vw',
-        '2xlarge': '90vw',
+        small: 'var(--global--small-size)',
+        medium: 'var(--global--medium-size)',
+        large: 'var(--global--large-size)',
+        xlarge: 'var(--global--xlarge-size)',
+        '2xlarge': 'var(--global--2xlarge-size)',
+        
       },
       screens: {
         //   'sm': 'var(--rp--breakpoint--sm)',
