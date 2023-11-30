@@ -204,3 +204,7 @@ require_once 'setup/customization.php';
 require_once 'setup/default_block_templates.php';
 require_once 'setup/multilanguage_setup.php';
 // require_once 'setup/custom_post_types.php';
+
+// custom blocks
+require_once __DIR__ . '/../resources/blocks/rocket-wrapper/rocket-wrapper.php';
+require_once __DIR__ . '/../resources/blocks/rocket-element/rocket-element.php';

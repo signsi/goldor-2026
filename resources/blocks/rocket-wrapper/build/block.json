@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/rocket-wrapper",
+  "version": "0.1.0",
+  "title": "Rocket Wrapper",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "rocket-wrapper",
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:./tailwind.css",
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./tailwind.css",
+    "file:./style-index.css"
+  ],
+  "viewScript": "file:./view.js"
+}
