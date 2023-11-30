@@ -36,8 +36,12 @@ body, :root {
   --wp-admin-theme-color: var(--color-primary);
 
   // Layout Presets
-  --global--content-size--rp: 620px;
-  --global--wide-size--rp: 1280px;
+  --num-cols: 12;
+  --wide-cols: 10;
+  --content-cols: 8;
+
+  --global--content-size--rp: calc(var(--content-cols) / var(--num-cols) * 100vw); 
+  --global--wide-size--rp: calc(var(--wide-cols) / var(--num-cols) * 100vw);
   --wp--style--global--content-size: var(--global--content-size--rp);
   --wp--style--global--wide-size: var(--global--wide-size--rp);
 
