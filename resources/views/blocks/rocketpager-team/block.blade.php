@@ -20,7 +20,7 @@
 
 @section('content-section')
     <div
-        class="relative @if (!block_value('isSlider')) grid gap-small lg:gap-medium{{ $row_per_col }} @else slider-wrapper @endif">
+        class="relative @if (!block_value('isSlider')) grid gap-gutter{{ $row_per_col }} @else slider-wrapper @endif">
         @while (block_rows('team-member'))
             @php
                 block_row('team-member');
