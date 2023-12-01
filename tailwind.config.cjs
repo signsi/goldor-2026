@@ -63,12 +63,17 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-        small: 'var(--global--small-size)',
-        medium: 'var(--global--medium-size)',
-        large: 'var(--global--large-size)',
-        xlarge: 'var(--global--xlarge-size)',
-        '2xlarge': 'var(--global--2xlarge-size)',
+        // Generelle Max-Widths
+        small: 'var(--content--small-size)',
+        medium: 'var(--content--medium-size)',
+        large: 'var(--content--large-size)',
+        xlarge: 'var(--content--xlarge-size)',
+        '2xlarge': 'var(--content--2xlarge-size)',
         
+        // Max-Widths für die verschiedenen Layout-Bestandteile
+        'header-footer': 'var(--content--header-footer-size)',
+        'default': 'var(--content--default-size)',
+        'wide': 'var(--content--wide-size)',
       },
       screens: {
         '3xl': '1680px',
@@ -98,6 +103,9 @@ module.exports = {
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
         '3xl': 'var(--spacing-responsive--rp80)',
+
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
 
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
