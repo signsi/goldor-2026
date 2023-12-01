@@ -63,7 +63,6 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-<<<<<<< HEAD
         // Generelle Max-Widths
         small: 'var(--content--small-size)',
         medium: 'var(--content--medium-size)',
@@ -75,15 +74,6 @@ module.exports = {
         'header-footer': 'var(--content--header-footer-size)',
         'default': 'var(--content--default-size)',
         'wide': 'var(--content--wide-size)',
-=======
-        tiny: '37.5rem', //600px
-        slim: '45rem', //720px
-        default: 'var(--wp--style--global--content-size)', // 8 von 12 Spalten
-        medium: '80rem', //1280px
-        large: '90rem', //1440px
-        xlarge: 'var(--wp--style--global--wide-size)', // 10 von 12 Spalten
-        '2xlarge': '90vw',
->>>>>>> 546e8602 (Layout Presets mit vw und grid)
       },
       screens: {
         '3xl': '1680px',

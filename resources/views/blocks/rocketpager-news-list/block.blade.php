@@ -69,7 +69,7 @@ foreach ($cats as $cat) {
         </div>
     @endif --}}
 
-    <div class="ajax-container grid{{ $row_per_col }} gap-medium" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
+    <div class="ajax-container grid{{ $row_per_col }} gap-gutter" data-query-args="{{ $json_query_args }}" data-block-args="{{ $json_block_args }}">
         @if ($the_query->have_posts())
             @while ($the_query->have_posts())
                 @php

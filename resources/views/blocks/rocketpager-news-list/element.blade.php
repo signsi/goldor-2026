@@ -5,7 +5,7 @@
         </div>
     </a>
     @if ( !$disable_meta )
-        <div class="meta-wrapper flex flex-wrap py-3 px-medium bg-gradient-to-l from-slate-100 text-font">
+        <div class="meta-wrapper flex flex-wrap py-3 px-gutter bg-gradient-to-l from-slate-100 text-font">
             @if ( !$disable_meta_date )
                 @include('partials.meta.entry-meta-date', ['use_icon' => true])
             @endif
@@ -28,7 +28,7 @@
         @endif
         <h3 class="text-2xl mt-0 font-bold">{{ the_title() }}</h3>
     </div>
-    <div class="text-wrapper px-medium text-font">{{ the_excerpt() }}</div>
+    <div class="text-wrapper px-gutter text-font">{{ the_excerpt() }}</div>
 
     <div class="linklist-wrapper px-gutter pb-medium mt-auto mb-0">
         <ul class="list-none">
