@@ -1,6 +1,6 @@
-/* Base Layer */
 body {
-  /* Color Default Palettes */
+  // COLORS
+  // Color - Werte: Standard Palette
   --color-white: #FFF;
   --color-black: #000;
   --color-grey: #808080;
@@ -13,13 +13,13 @@ body {
   --color-dunkelrot: #640200;
   --color-indianred: #EB5757;
 
-  /* Color Theme */
+  // Color - Werte: Theme
   --color-charcoal: #28536B;
   --color-airsuperiorityblue: #7EA8BE;
   --color-rosybrown: #C2948A;
   --color-khaki: #BBB193;
   
-  /* Color Palettes */
+  // Color - Zuweisung der Variablen
   --color-primary: var(--color-charcoal);
   --color-secondary: var(--color-airsuperiorityblue);
   --color-tertiary: var(--color-rosybrown);
@@ -31,11 +31,8 @@ body {
   --color-error: var(--color-indianred);
   --color-font: var(--color-black);
   
-  /* Other Variables */
-  --full-height: 100vh;
-  --wp-admin-theme-color: var(--color-primary);
-
-  // Layout Presets
+  // CONTAINER
+  // Container - Werte
   --num-cols: 12;
   --wide-cols: 10;
   --content-cols: 8;
@@ -46,25 +43,23 @@ body {
   --num-cols-8: 8;
   --num-cols-10: 10;
 
-  --global--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
-  --global--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw); 
-  --global--large-size: calc(var(--num-cols-6) / var(--num-cols) * 100vw);
-  --global--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
-  --global--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
+  // Container - Berechnungen
+  --content--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
+  --content--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw); 
+  --content--large-size: calc(var(--num-cols-6) / var(--num-cols) * 100vw);
+  --content--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
+  --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
+  
+  // Container - Zuweisung der Variablen
+  --content--header-footer-size: var(--content--2xlarge-size);
+  --content--default-size: var(--content--large-size);
+  --content--wide-size: var(--content--2xlarge-size);
+  --wp--style--global--content-size: var(--content--default-size);
+  --wp--style--global--wide-size: var(--content--wide-size);
 
-  // Wordpress Overrides
-  --wp--style--global--content-size: var(--global--large-size);
-  --wp--style--global--wide-size: var(--global--2xlarge-size);
 
-  /* Default Tailwind Breakpoint Variables */
-  --rp--breakpoint--sm: 640px;
-  --rp--breakpoint--md: 768px;
-  --rp--breakpoint--lg: 1024px;
-  --rp--breakpoint--xl: 1280px;
-  --rp--breakpoint--2xl: 1536px;
-  --rp--breakpoint--3xl: 1680px;
-
-  /* Spacing Variables */
+  // ABSTÄNDE
+  // Abstände - Werte
   --spacing--rp10: 10px;
   --spacing--rp20: 15px;
   --spacing--rp30: 20px;
@@ -74,7 +69,7 @@ body {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-  /* Fix Spacing-Steps Variables */
+  // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variablen
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -84,7 +79,7 @@ body {
   --wp--preset--spacing--70:  var(--spacing--rp70);
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
-  /* Dynamic Spacing-Steps Variables */
+  // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
   --spacing-responsive--rp20: clamp(var(--wp--preset--spacing--10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--wp--preset--spacing--20));
   --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
   --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
@@ -92,4 +87,8 @@ body {
   --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
   --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
   --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
+
+  // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variablen
+  --wp--style--block-gap: var(--spacing-responsive--rp30);
+  --spacing-responsive--gutter: var(--spacing-responsive--rp40); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
 }
