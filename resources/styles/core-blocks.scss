@@ -68,7 +68,7 @@
     @include buttonStyleOutlineWhite;
     }
   }
-  
+
   .wp-block-group .wp-block-buttons {
     @apply mt-element;
   }
@@ -93,7 +93,7 @@
 
   /* Listen */
   ul, ol {
-    @apply mb-typography;
+    @apply mb-typography pl-gutter;
     li {
         @apply pl-2 my-typography-tiny text-base;
     }
@@ -118,7 +118,7 @@
   }
   figcaption,
   .wp-block-image figcaption {
-    @apply text-left text-xs text-font mt-typography-tiny;
+    @apply text-left text-xs text-font mt-typography-small;
   }
 
   /* Tabellen */
@@ -184,10 +184,10 @@
   /* List-Styles */
   ul[class*="liststyle-icon"] {
     @apply list-none pl-0;
-    
+
     > li {
       @apply flex items-center pl-0 transition-colors hover:text-secondary;
-      
+
       &::before, &::after {
         @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
       }
