@@ -3,7 +3,6 @@ const tailconf = require('@rocket-gmbh/tailconf_helpers');
 
 // https://tailwindcss.com/docs/configuration
 module.exports = {
-  important: true,
   content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/flowbite/**/*.js'
   ],
   theme: {
@@ -64,20 +63,21 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-        small: 'var(--global--small-size)',
-        medium: 'var(--global--medium-size)',
-        large: 'var(--global--large-size)',
-        xlarge: 'var(--global--xlarge-size)',
-        '2xlarge': 'var(--global--2xlarge-size)',
+        // Generelle Max-Widths
+        small: 'var(--content--small-size)',
+        medium: 'var(--content--medium-size)',
+        large: 'var(--content--large-size)',
+        xlarge: 'var(--content--xlarge-size)',
+        '2xlarge': 'var(--content--2xlarge-size)',
         
+        // Max-Widths für die verschiedenen Layout-Bestandteile
+        'header-footer': 'var(--content--header-footer-size)',
+        'default': 'var(--content--default-size)',
+        'wide': 'var(--content--wide-size)',
       },
       screens: {
-        //   'sm': 'var(--rp--breakpoint--sm)',
-        //   'md': 'var(--rp--breakpoint--md)',
-        //   'lg': 'var(--rp--breakpoint--lg)',
-        //   'xl': 'var(--rp--breakpoint--xl)',
-        //   '2xl': 'var(--rp--breakpoint--2xl)',
-        '3xl': 'var(--rp--breakpoint--3xl)',
+        '3xl': '1680px',
+        '4xl': '1920px',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
@@ -86,6 +86,7 @@ module.exports = {
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
+        // Fixe Abstände
         'rp-10': 'var(--spacing--rp10)',
         'rp-20': 'var(--spacing--rp20)',
         'rp-30': 'var(--spacing--rp30)',
@@ -95,10 +96,15 @@ module.exports = {
         'rp-70': 'var(--spacing--rp70)',
         'rp-80': 'var(--spacing--rp80)',
 
+        // dynamische Abstände
         'small': 'var(--spacing-responsive--rp30)',     
         'medium': 'var(--spacing-responsive--rp40)',
+        'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
+
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
 
         // oft gebrauchte Werte
         '1/10': '10%',
@@ -113,11 +119,16 @@ module.exports = {
         '12/10': '120%',
       },
       gap: {
-        // Gap-Abstände
+        // dynamische Abstände
         'small': 'var(--spacing-responsive--rp30)',     
         'medium': 'var(--spacing-responsive--rp40)',
+        'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
+        
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
+
       },
       height: {
         'menu-items': '30px',

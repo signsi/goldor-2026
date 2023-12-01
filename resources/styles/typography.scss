@@ -3,7 +3,10 @@
         .wp-block-heading {
             @apply + * mt-0;
         }
-        h1, .heading-1 {
+        .wp-block-group.has-background + .wp-block-heading {
+            @apply mt-2xl;
+        }
+        h1, .heading-1 { 
             @apply text-4xl #{!important};
             @apply font-bold text-primary;
         }

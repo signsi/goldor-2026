@@ -1,55 +1,65 @@
-// Helper-Classes für dynamische Breite von Elementen
-.max-w-container-small {
-    @apply w-full max-w-full max-w-small;
-}
-.max-w-container-medium {
-    @apply w-full max-w-full lg:max-w-medium;
-}
-.max-w-container-large {
-    @apply w-full max-w-full lg:max-w-large;
-}
-.max-w-container-xlarge {
-    @apply w-full max-w-full lg:max-w-xlarge;
-}
-.max-w-container-2xlarge {
-    @apply w-full max-w-full lg:max-w-2xlarge;
-}
-.max-w-header-footer {
-    @apply w-full max-w-full lg:max-w-2xlarge;
-}
+/* =======================
+   INHALTSVERZEICHNIS
+   =======================
+   1. Allgemeine Stile
+   2. Container-Breite - Helpers
+   3. Template-Breite - Helpers
+   4. Gruppen-Eigenschaften
+*/
 
+/* 1. Allgemeine Stile */
 html {
     @apply scroll-smooth;
 }
-
 body {
     @apply overflow-x-hidden;
 }
-  
-main > .wp-block-group {
-    @apply px-medium;
+
+
+/* 2. Container-Breite - Helpers */
+.max-w-content-small {
+    @apply w-full max-w-full max-w-small 4xl:max-w-screen-xl;
 }
-main > :where(.wp-block-group.has-background) {
-    @apply py-2xl px-medium;
+.max-w-content-medium {
+    @apply w-full max-w-full lg:max-w-medium 4xl:max-w-screen-xl;
 }
-main > div > .wp-block-group {
-    > *{
-        @apply first:mt-0 last:mb-0;
+.max-w-content-large {
+    @apply w-full max-w-full lg:max-w-large 4xl:max-w-screen-xl;
+}
+.max-w-content-xlarge {
+    @apply w-full max-w-full lg:max-w-xlarge 4xl:max-w-screen-xl;
+}
+.max-w-content-2xlarge {
+    @apply w-full max-w-full lg:max-w-2xlarge 4xl:max-w-screen-xl;
+}
+
+
+/* 3. Template-Breite - Helpers */
+.max-w-content-default {
+    @apply w-full max-w-full lg:max-w-default 4xl:max-w-screen-xl;
+}
+.max-w-content-wide {
+    @apply w-full max-w-full lg:max-w-wide 4xl:max-w-screen-xl;
+}
+.max-w-content-hf {
+    @apply w-full max-w-full lg:max-w-header-footer 4xl:max-w-screen-xl;
+}
+
+
+/* 4. Gruppen-Breite */
+body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    @extend .max-w-content-default;
+}
+body .is-layout-constrained > .alignwide {
+    @extend .max-w-content-wide;
+}
+main > .wp-block-group,
+:where(.wp-block-group.has-background) {
+    @apply px-gutter;
+}
+main,
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container {
+    > :where(.wp-block-group.has-background) {
+        @apply py-2xl;
     }
-}
-
-// Default Breite für Gruppen
-body .is-layout-constrained:not(.alignwide):not(.alignfull) > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
-    @extend .max-w-container-large;
-}
-
-// Weite Breite für Gruppen
-main > .alignwide > *{
-    @extend .max-w-container-xlarge;
-    @apply  lg:px-medium;
-}
-
-// Volle Breite für Gruppen
-main > .alignfull > * {
-    @apply max-w-full;
 }

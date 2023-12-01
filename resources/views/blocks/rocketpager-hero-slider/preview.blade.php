@@ -103,7 +103,7 @@
                     ])
                 </picture>
                 @if ( block_sub_value( 'title') )
-                    <div class="px-medium border border-solid border-gray">
+                    <div class="px-gutter border border-solid border-gray">
                         <div class="{{ block_value('box-width') }}">
                             @if ( block_sub_value( 'title') )
                                 <p class="font-bold">{{ block_sub_value('title') }}</p>

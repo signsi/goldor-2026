@@ -3,7 +3,7 @@
         <div class="image-wrapper  overflow-hidden">
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
         </div>
-        <div class="content-wrapper p-medium lg:py-medium lg:px-medium">
+        <div class="content-wrapper p-medium">
             <div class="date-wrapper text-sm">
                 @include('partials.meta.entry-meta-date')
             </div>
