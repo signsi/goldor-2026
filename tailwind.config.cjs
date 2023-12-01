@@ -83,7 +83,8 @@ module.exports = {
       },
       spacing: {
         // Abstände zwischen den typographischen Elementen
-        'typography-tiny': '15px',
+        'typography-tiny': '5px',
+        'typography-small': '15px',
         'typography-mobile': '20px',
         'typography-tablet': '25px',
         'typography-desktop': '30px',

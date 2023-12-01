@@ -4,7 +4,7 @@
         .wp-block-heading {
             @apply + * mt-0;
         }
-        h1, .heading-1 { 
+        h1, .heading-1 {
             @apply text-4xl #{!important};
             @apply font-bold text-primary;
         }
@@ -22,7 +22,7 @@
         h3, h4, h5, h6 {
             @apply font-semibold;
             @apply mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)];
-            @apply mb-typography-tiny;
+            @apply mb-typography-small;
         }
         h3, .has-xl-font-size  {
             @apply text-xl #{!important};
