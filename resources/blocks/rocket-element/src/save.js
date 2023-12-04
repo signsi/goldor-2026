@@ -6,7 +6,7 @@
  */
 import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
-import { className, getClassNames } from './config';
+import { getClassNames } from './config';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -18,13 +18,21 @@ import { className, getClassNames } from './config';
  * @return {Element} Element to render.
  */
 export default function save({ attributes }) {
-	
+
+	const className = getClassNames(attributes);
+
 	const blockProps = useBlockProps.save({
-		className: getClassNames(attributes),
+		className: className,
 	});
 
+	console.log('save: attributes', attributes);
+	console.log('save: className', className);
+	console.log('save: blockProps', blockProps);
+
 	return (
-		<div {...blockProps}>
+		<div
+			{...blockProps}
+		>
 			<InnerBlocks.Content />
 		</div>
 	);

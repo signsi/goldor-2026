@@ -1,5 +1,3 @@
-export const className = "row-start-5";
-
 export const getClassNames = (attributes) => {
     const {
         gridColumnStartDesktop,
