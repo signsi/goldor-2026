@@ -25,8 +25,9 @@ import { useEffect } from 'react';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import metadata from './block.json';
 
-import { className, getClassNames } from './config';
+import { getClassNames } from './config';
 
 const SpacingControl = ({
 	value,
@@ -120,7 +121,8 @@ const MyTabPanel = () => (
  */
 export default function Edit({
 	attributes,
-	setAttributes
+	setAttributes,
+	isSelected
 }) {
 
 	const {
@@ -155,11 +157,34 @@ export default function Edit({
 		marginLeftMobile
 	} = attributes;
 
+	const className = getClassNames(attributes)
+
 	const blockProps = useBlockProps({
-		className: getClassNames(attributes),
+		className: className,
 	});
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
+
+	console.log('edit: attributes', attributes);
+	console.log('edit: className', className);
+	console.log('edit: blockProps', blockProps);
+	console.log('edit: innerBlocksProps', innerBlocksProps);
+
+	// loop through all attributes and set them as default using the method setAttributes
+	// check if metadata.attributes does exist
+	// the attribute objects looks like the following: 
+	// {key: {type: "number", default: 1}}
+	// if (metadata.attributes) {
+	// 	Object.keys(metadata.attributes).forEach((key) => {
+	// 		// check if corresponding attribute is already set
+	// 		if (attributes[key]) {
+	// 			return
+	// 		}
+	// 		if (metadata.attributes[key].default) {
+	// 			setAttributes({ [key]: metadata.attributes[key].default })
+	// 		}
+	// 	})
+	// }
 
 	return (
 		<>
@@ -224,9 +249,7 @@ export default function Edit({
 					/> */}
 				</PanelBody>
 			</InspectorControls>
-			{/* <div {...blockProps}> */}
-				<div {...innerBlocksProps} />
-			{/* </div> */}
+			<div {...innerBlocksProps} />
 		</>
 	);
 }
