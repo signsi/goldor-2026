@@ -157,6 +157,8 @@ export default function Edit({
 		marginLeftMobile
 	} = attributes;
 
+	console.log("attributes", attributes);
+
 	const className = getClassNames(attributes)
 
 	const blockProps = useBlockProps({
