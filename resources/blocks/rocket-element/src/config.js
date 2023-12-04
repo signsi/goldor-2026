@@ -30,5 +30,6 @@ export const getClassNames = (attributes) => {
         marginBottomMobile,
         marginLeftMobile
     } = attributes;
+    console.log(`col-start-${gridColumnStartDesktop} col-end-${gridColumnEndDesktop}`)
     return `col-start-${gridColumnStartDesktop} col-end-${gridColumnEndDesktop}`;
 }
