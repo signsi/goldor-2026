@@ -55,9 +55,9 @@ $grid-gap-size: 4px;
 
 
 	// TODO: scss interprets the expression / as division
-	$background-properties: append($background-properties,
-			linear-gradient($grid-gap-color, $grid-gap-color) $position 20px/20px,
-			comma);
+	// $background-properties: append($background-properties,
+	// 		linear-gradient($grid-gap-color, $grid-gap-color) $position 20px/20px,
+	// 		comma);
 
 	// $background-properties: append($background-properties,
 	// 		linear-gradient($grid-gap-color, $grid-gap-color) $center-position $grid-gap-size 1px,
