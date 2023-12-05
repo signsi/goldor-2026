@@ -67,21 +67,12 @@ export default async (app) => {
          * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/}
          */
         .wpjson.setSettings({
-            // blocks: {
-            //     "core/group": {
-            //         // "__experimentalLayout": true,
-            //         "spacing": {
-            //             "blockGap": [
-            //                 "horizontal",
-            //                 "vertical"
-            //             ]
-            //         }
-            //     }
-            // },
+            appearanceTools: true,
             color: {
-                custom: false,
+                link: true,
+                custom: true,
                 customDuotone: false,
-                customGradient: false,
+                customGradient: true,
                 defaultDuotone: false,
                 defaultGradients: false,
                 defaultPalette: false,
@@ -94,31 +85,11 @@ export default async (app) => {
                     'line-height': {},
                 },
             },
-            color: {
-                "link": true
-            },
             layout: {
                 "contentSize": "var(--content--default-size)",
                 "wideSize": "var(--content--wide-size)",
             },
             typography: {
-                "fontFamilies": [
-                    {
-                        "name": "Noto Sans",
-                        "slug": "noto-sans",
-                        "fontFamily": "Noto Sans"
-                    },
-                    {
-                        "name": "Poppins",
-                        "slug": "poppins",
-                        "fontFamily": "Poppins"
-                    },
-                    {
-                        "name": "Roboto Serif",
-                        "slug": "roboto-serif",
-                        "fontFamily": "Roboto Serif"
-                    }
-                ]
             },
             spacing: {
                 blockGap: true,
