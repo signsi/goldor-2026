@@ -40,6 +40,9 @@ export default function Edit() {
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
 
+	console.log("blockProps", blockProps);
+	console.log("innerBlocksProps", innerBlocksProps);
+
 	return (
 		<div className='show-grid !px-0'>
 			<div {...blockProps}>

@@ -67,6 +67,17 @@ export default async (app) => {
          * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/}
          */
         .wpjson.setSettings({
+            // blocks: {
+            //     "core/group": {
+            //         // "__experimentalLayout": true,
+            //         "spacing": {
+            //             "blockGap": [
+            //                 "horizontal",
+            //                 "vertical"
+            //             ]
+            //         }
+            //     }
+            // },
             color: {
                 custom: false,
                 customDuotone: false,
