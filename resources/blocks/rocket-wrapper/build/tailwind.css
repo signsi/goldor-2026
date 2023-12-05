@@ -530,11 +530,6 @@ video {
   position: relative;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .block {
   display: block;
 }
@@ -555,16 +550,7 @@ video {
   grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 
-.gap-medium {
-  gap: 2rem;
-}
-
 .\!px-0 {
   padding-left: 0px !important;
   padding-right: 0px !important;
-}
-
-.px-medium {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }

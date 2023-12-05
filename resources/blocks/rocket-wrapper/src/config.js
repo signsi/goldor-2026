@@ -1,4 +1,4 @@
-export const className = "relative grid grid-flow-col grid-cols-12 mx-auto max-w-large 2xl:max-w-xlarge w-full gap-medium px-medium";
+export const className = "relative grid grid-flow-col grid-cols-12 w-full px-gutter";
 
 // TODO: define global max-width and gutter max-w-7xl, px-gutter
 // TODO: px-guttter --> aber einstellbar über Editor

@@ -9,7 +9,20 @@
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"anchor": true,
+		"customClassName": true,
+		"reusable": true,
+		"color": {
+			"background": true,
+			"gradient": true,
+			"text": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true,
+			"blockGap": true
+		}
 	},
 	"textdomain": "rocket-wrapper",
 	"editorScript": "file:./index.js",
