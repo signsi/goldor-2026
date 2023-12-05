@@ -25,9 +25,6 @@ export default function save() {
 		className: className,
 	});
 
-
-	console.log("save blockProps", blockProps);
-
 	return (
 		<div {...blockProps}>
 			<InnerBlocks.Content />
