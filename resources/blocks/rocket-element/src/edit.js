@@ -50,8 +50,8 @@ const SpacingControl = ({
 							value={parseInt(value)}
 							onInput={e => {
 								const val = e.target.value
-								const stringVal = val.toString()
-								onChange(stringVal)
+								const intVal = parseInt(val)
+								onChange(intVal)
 							}}
 							className="slider w-full"
 							id="myRange"
@@ -167,27 +167,6 @@ export default function Edit({
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
 
-	console.log('edit: attributes', attributes);
-	console.log('edit: className', className);
-	console.log('edit: blockProps', blockProps);
-	console.log('edit: innerBlocksProps', innerBlocksProps);
-
-	// loop through all attributes and set them as default using the method setAttributes
-	// check if metadata.attributes does exist
-	// the attribute objects looks like the following: 
-	// {key: {type: "number", default: 1}}
-	// if (metadata.attributes) {
-	// 	Object.keys(metadata.attributes).forEach((key) => {
-	// 		// check if corresponding attribute is already set
-	// 		if (attributes[key]) {
-	// 			return
-	// 		}
-	// 		if (metadata.attributes[key].default) {
-	// 			setAttributes({ [key]: metadata.attributes[key].default })
-	// 		}
-	// 	})
-	// }
-
 	return (
 		<>
 			<InspectorControls>
@@ -197,58 +176,18 @@ export default function Edit({
 						<SpacingControl
 							value={gridColumnStartDesktop}
 							onChange={v => {
-								setAttributes({ gridColumnStartDesktop: v })
+								setAttributes({ gridColumnStartDesktop: parseInt(v) })
 							}}
 							label="Grid Column Start"
 						/>
 						<SpacingControl
 							value={gridColumnEndDesktop}
 							onChange={v => {
-								setAttributes({ gridColumnEndDesktop: v })
+								setAttributes({ gridColumnEndDesktop: parseInt(v) })
 							}}
 							label="Grid Column End"
 						/>
 					</div>
-					{/* <NumberControl
-						label={__(
-							'Column end',
-							'column-end'
-						)}
-						value={gridColumnEndDesktop}
-						onChange={(value) =>
-							setAttributes({ gridColumnEndDesktop: value })
-						}
-					/> */}
-					{/* <ToggleControl
-						checked={showStartingYear}
-						label={__(
-							'Show starting year',
-							'copyright-date-block'
-						)}
-						onChange={() =>
-							setAttributes({
-								showStartingYear: !showStartingYear,
-							})
-						}
-					/>
-					<TextControl
-						label={__(
-							'Starting year',
-							'copyright-date-block'
-						)}
-						value={h1}
-						onChange={(value) =>
-							setAttributes({ h1: value })
-						}
-					/>
-					<TextareaControl
-						label="Text"
-						help="Enter some text"
-						value={desc}
-						onChange={(value) =>
-							setAttributes({ desc: value })
-						}
-					/> */}
 				</PanelBody>
 			</InspectorControls>
 			<div {...innerBlocksProps} />

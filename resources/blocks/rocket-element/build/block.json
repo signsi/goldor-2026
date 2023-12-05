@@ -14,100 +14,11 @@
   "attributes": {
     "gridColumnStartDesktop": {
       "type": "number",
-      "default": "1"
+      "default": 1
     },
     "gridColumnEndDesktop": {
       "type": "number",
-      "default": "7"
-    },
-    "gridColumnStartTablet": {
-      "type": "number",
-      "default": "1"
-    },
-    "gridColumnEndTablet": {
-      "type": "number",
-      "default": "13"
-    },
-    "gridColumnStartMobile": {
-      "type": "number",
-      "default": "1"
-    },
-    "gridColumnEndMobile": {
-      "type": "number",
-      "default": "13"
-    },
-    "alignItem": {
-      "type": "string"
-    },
-    "alignItemTablet": {
-      "type": "string"
-    },
-    "alignItemMobile": {
-      "type": "string"
-    },
-    "justifyItem": {
-      "type": "string"
-    },
-    "justifyItemTablet": {
-      "type": "string"
-    },
-    "justifyItemMobile": {
-      "type": "string"
-    },
-    "stackOrder": {
-      "type": "number"
-    },
-    "stacking": {
-      "type": "boolean",
-      "default": false
-    },
-    "gutter": {
-      "type": "boolean",
-      "default": true
-    },
-    "overlapLeft": {
-      "type": "boolean",
-      "default": false
-    },
-    "overlapRight": {
-      "type": "boolean",
-      "default": false
-    },
-    "marginTopDesktop": {
-      "type": "number"
-    },
-    "marginRightDesktop": {
-      "type": "number"
-    },
-    "marginBottomDesktop": {
-      "type": "number"
-    },
-    "marginLeftDesktop": {
-      "type": "number"
-    },
-    "marginTopTablet": {
-      "type": "number"
-    },
-    "marginRightTablet": {
-      "type": "number"
-    },
-    "marginBottomTablet": {
-      "type": "number"
-    },
-    "marginLeftTablet": {
-      "type": "number"
-    },
-    "marginTopMobile": {
-      "type": "number"
-    },
-    "marginRightMobile": {
-      "type": "number"
-    },
-    "marginBottomMobile": {
-      "type": "number"
-    },
-    "marginLeftMobile": {
-      "type": "number"
+      "default": 7
     }
   },
   "textdomain": "rocket-element",
