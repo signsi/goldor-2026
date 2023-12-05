@@ -542,12 +542,20 @@ video {
   width: 100%;
 }
 
+.\!max-w-full {
+  max-width: 100% !important;
+}
+
+.max-w-full {
+  max-width: 100%;
+}
+
 .grid-flow-col {
   grid-auto-flow: column;
 }
 
-.grid-cols-12 {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+.\!grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
 }
 
 .\!px-0 {

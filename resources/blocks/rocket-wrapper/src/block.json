@@ -12,6 +12,7 @@
 		"html": false,
 		"anchor": true,
 		"customClassName": true,
+		"__experimentalLayout": true,
 		"reusable": true,
 		"color": {
 			"background": true,
@@ -21,7 +22,25 @@
 		"spacing": {
 			"padding": true,
 			"margin": true,
-			"blockGap": true
+			"blockGap": {
+				"sides": [
+					"horizontal",
+					"vertical"
+				]
+			},
+			"__experimentalDefaultControls": {
+				"padding": true,
+				"blockGap": true
+			}
+		},
+		"layout": {
+			"allowSwitching": false,
+			"allowInheriting": false,
+			"allowEditing": false,
+			"default": {
+				"type": "grid",
+				"flexWrap": "nowrap"
+			}
 		}
 	},
 	"textdomain": "rocket-wrapper",
