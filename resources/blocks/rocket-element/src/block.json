@@ -1,0 +1,35 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "rocket/element",
+	"version": "0.1.0",
+	"title": "Rocket Element",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"gridColumnStartDesktop": {
+			"type": "number",
+			"default": 1
+		},
+		"gridColumnEndDesktop": {
+			"type": "number",
+			"default": 7
+		}
+	},
+	"textdomain": "rocket-element",
+	"editorScript": "file:./index.js",
+	"editorStyle": [
+		"file:./tailwind.css",
+		"file:./index.css"
+	],
+	"style": [
+		"file:./tailwind.css",
+		"file:./style-index.css"
+	],
+	"viewScript": "file:./view.js"
+}
