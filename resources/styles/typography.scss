@@ -1,50 +1,51 @@
-    /* Überschriften */
-    @layer components {
-        .wp-block-heading {
-            @apply + * mt-0;
-        }
-        .wp-block-group.has-background + .wp-block-heading {
-            @apply mt-2xl;
-        }
-        h1, .heading-1 { 
-            @apply text-4xl #{!important};
-            @apply font-bold text-primary;
-        }
-        .has-4xl-font-size {
-            @apply text-4xl #{!important};
-            @apply font-bold text-primary;
-        }
-        h2, .has-3xl-font-size{
-            @apply text-3xl #{!important};
-            @apply font-bold;
-        }
-        h1, h2 {
-            @apply mt-[calc((theme(spacing.small))*2)] mb-small;
-        }
-        h3, h4, h5, h6 {
-            @apply font-semibold;
-            @apply mt-[calc((theme(spacing.small))*1.5)];
-            @apply mb-rp-20;
-        }
-        h3, .has-xl-font-size  {
-            @apply text-xl #{!important};
-        }
-        h4, .has-lg-font-size {
-            @apply text-lg #{!important};
-        }
-        h5, .has-base-font-size {
-            @apply text-base #{!important};
-        }
-        h6, .has-xs-font-size {
-            @apply text-xs #{!important};
-        }
+/* Überschriften */
+.wp-block-heading {
+    + * {
+        @apply mt-0;
     }
+}
+.wp-block-group.has-background + .wp-block-heading {
+    @apply mt-2xl;
+}
+h1, .heading-1, h1.wp-block-post-title { 
+    @apply text-4xl;
+    @apply font-bold text-primary;
+}
+.has-4xl-font-size {
+    @apply text-4xl;
+    @apply font-bold text-primary;
+}
+h2, .has-3xl-font-size{
+    @apply text-3xl;
+    @apply font-bold;
+}
+h1, h2 {
+    @apply mt-[calc((theme(spacing.small))*2)] mb-small;
+}
+h3, h4, h5, h6 {
+    @apply font-semibold;
+    @apply mt-[calc((theme(spacing.small))*1.5)];
+    @apply mb-rp-20;
+}
+h3, .has-xl-font-size  {
+    @apply text-xl;
+}
+h4, .has-lg-font-size {
+    @apply text-lg;
+}
+h5, .has-base-font-size {
+    @apply text-base;
+}
+h6, .has-xs-font-size {
+    @apply text-xs;
+}
 
-    /* Textgrößen */
-    @layer utilities {
-        @for $i from 1 to 10 {
-            .has-#{$i}xl-font-size {
-                @apply text-#{$i}xl #{!important};
-            }
+
+/* Textgrößen */
+@layer utilities {
+    @for $i from 1 to 10 {
+        .has-#{$i}xl-font-size {
+            @apply text-#{$i}xl #{!important};
         }
     }
+}

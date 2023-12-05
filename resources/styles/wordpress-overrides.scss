@@ -25,6 +25,10 @@
     @apply gap-gutter
 }
 
+:where(.wp-block-group.has-background) {
+    @apply px-gutter;
+}
+
 body .is-layout-flow > .alignleft {
     @apply me-gutter;
 }

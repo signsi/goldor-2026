@@ -4,7 +4,8 @@
    1. Allgemeine Stile
    2. Container-Breite - Helpers
    3. Template-Breite - Helpers
-   4. Gruppen-Eigenschaften
+    3.1. Breite - Header/Footer
+   4. Breite der Gruppen
 */
 
 /* 1. Allgemeine Stile */
@@ -41,12 +42,13 @@ body {
 .max-w-content-wide {
     @apply w-full max-w-full lg:max-w-wide 4xl:max-w-screen-xl;
 }
+/* 3.1. Breite - Header/Footer */
 .max-w-content-hf {
     @apply w-full max-w-full lg:max-w-header-footer 4xl:max-w-screen-xl;
 }
 
 
-/* 4. Gruppen-Breite */
+/* 4. Breite der Gruppen */
 body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     @extend .max-w-content-default;
 }
@@ -58,7 +60,7 @@ main > .wp-block-group,
     @apply px-gutter;
 }
 main,
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container {
+.is-root-container {
     > :where(.wp-block-group.has-background) {
         @apply py-2xl;
     }

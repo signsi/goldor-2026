@@ -5,7 +5,7 @@
 @endphp
 
 <div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-white !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden h-vh">
-    <div class="flex flex-col gap-10 px-4 py-10 bg-theme text-font">
+    <div class="flex flex-col gap-10 px-gutter py-10 bg-theme text-font">
         <nav>
             @if (has_nav_menu('primary_navigation'))
                 @php(wp_nav_menu([
