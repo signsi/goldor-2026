@@ -164,5 +164,28 @@ const main = async (err) => {
   );
 }
 
+
+// wp.blocks.registerBlockVariation(
+//   'core/columns',
+//   {
+//     name: 'Wrapper',
+//     title: 'Wrapper',
+//     isActive: (blockAttributes, vAttributes) =>
+//       blockAttributes.className
+//         .includes(vAttributes.className),
+//     attributes: {
+//       className: 'relative grid grid-flow-col grid-cols-12 w-full px-gutter',
+//       layout: {
+//         inherit: true,
+//       },
+//       style: {
+//         spacing: {
+//           // padding: { top: '25px', bottom: '55px' }
+//         }
+//       }
+//     },
+//   }
+// );
+
 domReady(main);
 import.meta.webpackHot?.accept(main);

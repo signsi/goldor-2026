@@ -24,6 +24,10 @@ export default function save() {
 		// TODO: add padding, width, margin
 		className: className,
 	});
+
+
+	console.log("save blockProps", blockProps);
+
 	return (
 		<div {...blockProps}>
 			<InnerBlocks.Content />

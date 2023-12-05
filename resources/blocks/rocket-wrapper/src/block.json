@@ -12,6 +12,7 @@
 		"html": false,
 		"anchor": true,
 		"customClassName": true,
+		"__experimentalLayout": true,
 		"reusable": true,
 		"color": {
 			"background": true,
@@ -21,7 +22,10 @@
 		"spacing": {
 			"padding": true,
 			"margin": true,
-			"blockGap": true
+			"blockGap": [
+				"horizontal",
+				"vertical"
+			]
 		}
 	},
 	"textdomain": "rocket-wrapper",

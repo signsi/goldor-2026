@@ -61,6 +61,7 @@ add_action('after_setup_theme', function () {
         'nav-walker',
         'nice-search',
         'relative-urls',
+        'custom-spacing'
     ]);
 
     /**
