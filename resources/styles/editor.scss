@@ -3,33 +3,12 @@
 @import './variables.scss';
 
 .is-root-container{
-    /* Globale Variablen und Mixins */
-    @import './typography.scss';
-
-    @import './animation.scss';
-
-    /* Typografie und Schriftarten */
-    @import './buttons.scss';
-
-    /* Hilfsklassen und Utilities */
-    @import './helpers.scss';
-
-    /* Layout und Struktur */
-    @import './wordpress-overrides.scss';
-    @import './layout.scss';
-    @import './header.scss';
-    @import './content-grid.scss';
-
-    /* Block-Stile */
-    @import './core-blocks.scss';
-    @import './news.scss';
-    @import './forminator.scss';
-
-    /* Eigene spezifische Stile */
-    @import './slider.scss';
+    /* Main Styles nur innerhalb von .is-root-container */
+    @import './main.scss';
 }
-h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
-    @apply text-center mb-2xl;
+
+h1.wp-block-post-title {
+    @apply text-4xl text-primary font-bold text-center mb-2xl;
 }
 
 /* Tailwind Components und Utilities */
