@@ -19,17 +19,11 @@ import { getClassNames } from './config';
  */
 export default function save({ attributes }) {
 
-	console.log("attributes", attributes);
-
 	const className = getClassNames(attributes);
 
 	const blockProps = useBlockProps.save({
 		className: className,
 	});
-
-	console.log('save: attributes', attributes);
-	console.log('save: className', className);
-	console.log('save: blockProps', blockProps);
 
 	return (
 		<div
