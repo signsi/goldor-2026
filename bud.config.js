@@ -83,9 +83,31 @@ export default async (app) => {
                     'line-height': {},
                 },
             },
+            color: {
+                "link": true
+            },
             layout: {
                 "contentSize": "var(--content--default-size)",
                 "wideSize": "var(--content--wide-size)",
+            },
+            typography: {
+                "fontFamilies": [
+                    {
+                        "name": "Noto Sans",
+                        "slug": "noto-sans",
+                        "fontFamily": "Noto Sans"
+                    },
+                    {
+                        "name": "Poppins",
+                        "slug": "poppins",
+                        "fontFamily": "Poppins"
+                    },
+                    {
+                        "name": "Roboto Serif",
+                        "slug": "roboto-serif",
+                        "fontFamily": "Roboto Serif"
+                    }
+                ]
             },
             spacing: {
                 blockGap: true,

@@ -1,37 +1,38 @@
 /* Tailwind Base */
 @import 'tailwindcss/base';
-
-/* Globale Variablen und Mixins */
 @import './variables.scss';
-@import './animation.scss';
 
-/* Typografie und Schriftarten */
-@import './typography.scss';
-@import './buttons.scss';
+.is-root-container{
+    /* Globale Variablen und Mixins */
+    @import './typography.scss';
 
-/* Hilfsklassen und Utilities */
-@import './helpers.scss';
+    @import './animation.scss';
 
-/* Layout und Struktur */
-@import './wordpress-overrides.scss';
-@import './layout.scss';
-@import './header.scss';
-// @import './footer.scss';
-@import './content-grid.scss';
+    /* Typografie und Schriftarten */
+    @import './buttons.scss';
 
-/* Block-Stile */
-@import './core-blocks.scss';
-@import './news.scss';
-@import './forminator.scss';
+    /* Hilfsklassen und Utilities */
+    @import './helpers.scss';
 
-/* Eigene spezifische Stile */
-@import './slider.scss';
+    /* Layout und Struktur */
+    @import './wordpress-overrides.scss';
+    @import './layout.scss';
+    @import './header.scss';
+    @import './content-grid.scss';
+
+    /* Block-Stile */
+    @import './core-blocks.scss';
+    @import './news.scss';
+    @import './forminator.scss';
+
+    /* Eigene spezifische Stile */
+    @import './slider.scss';
+}
+h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
+    @apply text-center mb-2xl;
+}
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-// Custom Editor Styles
-h1.wp-block.wp-block-post-title.block-editor-block-list__block.editor-post-title.editor-post-title__input.rich-text {
-    @apply text-center mb-2xl;
-}

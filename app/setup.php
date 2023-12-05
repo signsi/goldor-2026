@@ -30,6 +30,8 @@ function enqueue_fonts()
 {
     wp_enqueue_script('bootstrap', 'https://kit.fontawesome.com/9b15eeda8b.js', array(), '1.0.0', true);
     wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap', false);
+    // wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;700&display=swap', false);
+    wp_enqueue_style('google-font', 'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&family=Roboto+Serif:opsz,wght@8..144,300;8..144,400;8..144,700&display=swap', false);
 }
 
 // lädt fontawesome für den Editor, oft brauchen wir dort auch Icons

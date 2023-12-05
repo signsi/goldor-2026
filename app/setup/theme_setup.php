@@ -2,39 +2,6 @@
 
 // EXTEND BACKEND STYLES
 add_action('init', function () {
-    // Columns
-    register_block_style('core/columns', [
-        'name' => 'columns-tiny',
-        'label' => __('Tiny', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'columns-slim',
-        'label' => __('Slim', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'columns-default',
-        'label' => __('Default', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'columns-large',
-        'label' => __('Large', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'columns-xlarge',
-        'label' => __('xLarge', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-    register_block_style('core/columns', [
-        'name' => 'offset-top',
-        'label' => __('nach oben versetzt', 'rocketpager'),
-        'style_handle' => 'awp-block-styles',
-    ]);
-
-
     // Button-Styles
     register_block_style('core/button', [
         'name' => 'outline-white',

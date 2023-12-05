@@ -1,4 +1,4 @@
-body {
+body, :root {
   // COLORS
   // Color - Werte: Standard Palette
   --color-white: #FFF;
@@ -19,7 +19,7 @@ body {
   --color-rosybrown: #C2948A;
   --color-khaki: #BBB193;
   
-  // Color - Zuweisung der Variablen
+  // Color - Zuweisung der Variabeln
   --color-primary: var(--color-charcoal);
   --color-secondary: var(--color-airsuperiorityblue);
   --color-tertiary: var(--color-rosybrown);
@@ -50,7 +50,7 @@ body {
   --content--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
   --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
   
-  // Container - Zuweisung der Variablen
+  // Container - Zuweisung der Variabeln
   --content--header-footer-size: var(--content--2xlarge-size);
   --content--default-size: var(--content--large-size);
   --content--wide-size: var(--content--2xlarge-size);
@@ -69,7 +69,7 @@ body {
   --spacing--rp70: 90px;
   --spacing--rp80: 110px;
 
-  // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variablen
+  // Abstände - Fixe Spacing-Steps Variables - Zuweisung der Variabeln
   --wp--preset--spacing--10:  var(--spacing--rp10);
   --wp--preset--spacing--20:  var(--spacing--rp20);
   --wp--preset--spacing--30:  var(--spacing--rp30);
@@ -80,15 +80,15 @@ body {
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
   // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
-  --spacing-responsive--rp20: clamp(var(--wp--preset--spacing--10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--wp--preset--spacing--20));
-  --spacing-responsive--rp30: clamp(var(--wp--preset--spacing--20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--30));
-  --spacing-responsive--rp40: clamp(var(--wp--preset--spacing--30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--wp--preset--spacing--40));
-  --spacing-responsive--rp50: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--wp--preset--spacing--50));
-  --spacing-responsive--rp60: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--wp--preset--spacing--60));
-  --spacing-responsive--rp70: clamp(var(--wp--preset--spacing--40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--70));
-  --spacing-responsive--rp80: clamp(var(--wp--preset--spacing--50), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--wp--preset--spacing--80));
+  --spacing-responsive--rp20: clamp(var(--spacing--rp10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--spacing--rp20));
+  --spacing-responsive--rp30: clamp(var(--spacing--rp20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp30));
+  --spacing-responsive--rp40: clamp(var(--spacing--rp30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp40));
+  --spacing-responsive--rp50: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 3.125)), var(--spacing--rp50));
+  --spacing-responsive--rp60: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 6.25)), var(--spacing--rp60));
+  --spacing-responsive--rp70: clamp(var(--spacing--rp40), calc(2rem + ((1vw - 7.68px) * 9.375)), var(--spacing--rp70));
+  --spacing-responsive--rp80: clamp(var(--spacing--rp60), calc(3rem + ((1vw - 7.68px) * 9.375)), var(--spacing--rp80));
 
-  // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variablen
-  --wp--style--block-gap: var(--spacing-responsive--rp30);
-  --spacing-responsive--gutter: var(--spacing-responsive--rp40); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
+  // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variabeln
+  --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
+  --wp--style--block-gap: var(--spacing-responsive--gutter);
 }

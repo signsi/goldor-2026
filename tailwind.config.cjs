@@ -102,6 +102,7 @@ module.exports = {
         'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
+        '3xl': 'var(--spacing-responsive--rp80)',
 
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
@@ -125,6 +126,7 @@ module.exports = {
         'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
+        '3xl': 'var(--spacing-responsive--rp80)',
         
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
