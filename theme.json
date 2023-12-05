@@ -3,8 +3,16 @@
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 2,
   "settings": {
+    "appearanceTools": true,
     "color": {
       "link": true,
+      "custom": true,
+      "customDuotone": false,
+      "customGradient": true,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
       "palette": [
         {
           "color": "var(--color-primary)",
