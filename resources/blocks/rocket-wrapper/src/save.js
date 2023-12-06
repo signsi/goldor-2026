@@ -21,7 +21,6 @@ import { className } from './config';
 
 export default function save() {
 	const blockProps = useBlockProps.save({
-		// TODO: add padding, width, margin
 		className: className,
 	});
 
