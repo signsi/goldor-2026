@@ -11,59 +11,22 @@
 	// padding: 2px;
 }
 
-// $grid-color: rgba(239, 68, 68, 1); // #ef4444 in rgba format
-// $grid-line-count: 12;
-// $grid-gap-color: rgba(52, 144, 220, 0.5); // #3490dc in rgba format
-// $grid-gap-size: 4px;
-// $grid-line-width: 1px;
+$grid-color: rgba(239, 68, 68, 1); // #ef4444 in rgba format
+$grid-line-count: 12;
+$grid-gap-color: rgba(52, 144, 220, 0.5); // #3490dc in rgba format
 
 // .show-grid {
 // 	$background-properties: (
 // 	);
 
 // @for $i from 1 through $grid-line-count {
-// 	$position: percentage($i / $grid-line-count); // Use percentage() directly
-// 	$center-position: round($position - ($grid-gap-size / 2 / 100) - ($grid-line-width / 2 / 100));
+// 	$position: percentage($i / $grid-line-count);
+
 // 	$background-properties: append($background-properties,
-// 			linear-gradient($grid-color, $grid-color) $position $grid-line-width/1px,
-// 			comma);
-// 	$background-properties: append($background-properties,
-// 			linear-gradient($grid-gap-color, $grid-gap-color) $center-position round($grid-gap-size / 2) round($grid-gap-size / 2),
+// 			linear-gradient($grid-color, $grid-color) $position 1px/1px,
 // 			comma);
 // }
 
 // background: $background-properties;
 // background-repeat: no-repeat;
 // }
-
-$grid-color: rgba(239, 68, 68, 1); // #ef4444 in rgba format
-$grid-line-count: 12;
-$grid-gap-color: rgba(52, 144, 220, 0.5); // #3490dc in rgba format
-$grid-gap-size: 4px;
-
-.show-grid {
-	$background-properties: (
-	);
-
-@for $i from 1 through $grid-line-count {
-	$position: percentage($i / $grid-line-count);
-	// $center-position: round($position - ($grid-gap-size / 2 / 100));
-
-	$background-properties: append($background-properties,
-			linear-gradient($grid-color, $grid-color) $position 1px/1px,
-			comma);
-
-
-	// TODO: scss interprets the expression / as division
-	// $background-properties: append($background-properties,
-	// 		linear-gradient($grid-gap-color, $grid-gap-color) $position 20px/20px,
-	// 		comma);
-
-	// $background-properties: append($background-properties,
-	// 		linear-gradient($grid-gap-color, $grid-gap-color) $center-position $grid-gap-size 1px,
-	// 		comma);
-}
-
-background: $background-properties;
-background-repeat: no-repeat;
-}

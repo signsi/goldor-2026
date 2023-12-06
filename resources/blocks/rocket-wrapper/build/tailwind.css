@@ -530,6 +530,10 @@ video {
   position: relative;
 }
 
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
 .block {
   display: block;
 }
@@ -556,6 +560,20 @@ video {
 
 .\!grid-cols-12 {
   grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.bg-blue-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
+}
+
+.bg-red-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 
 .\!px-0 {
