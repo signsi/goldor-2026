@@ -5,11 +5,35 @@
   "version": "0.1.0",
   "title": "Rocket Element",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "text-page",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
   "supports": {
-    "html": false
+    "html": false,
+    "anchor": true,
+    "customClassName": true,
+    "__experimentalLayout": true,
+    "reusable": true,
+    "color": {
+      "background": true,
+      "gradient": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": false
+    },
+    "layout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowEditing": false,
+      "allowSizingOnChildren": false,
+      "default": {
+        "type": "grid",
+        "flexWrap": "nowrap"
+      }
+    }
   },
   "attributes": {
     "gridColumnStartDesktop": {
