@@ -14,8 +14,7 @@ import { __ } from '@wordpress/i18n';
 import {
 	InspectorControls, useBlockProps, useInnerBlocksProps, RichText,
 } from '@wordpress/block-editor';
-import { PanelBody, Button, TextControl, TextareaControl, ToggleControl, ResponsiveWrapper, TabPanel } from '@wordpress/components';
-import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
+import { PanelBody, Button, TextControl, TextareaControl, ToggleControl, ResponsiveWrapper } from '@wordpress/components';
 import { useEffect } from 'react';
 
 /**
@@ -28,88 +27,8 @@ import './editor.scss';
 import metadata from './block.json';
 
 import { getClassNames } from './config';
-
-const SpacingControl = ({
-	value,
-	onChange,
-	label,
-	min = 1,
-	max = 13,
-}) => {
-
-	return (
-		<div class="control-wrapper py-8">
-			<label className="flex-1 relative pb-2">{label}</label>
-			<div className="spacing-control relative flex gap-2">
-				<div className="flex-1 relative">
-					<div className="spacing-control__slider flex h-full items-center justify-center">
-						<input
-							type="range"
-							min={min}
-							max={max}
-							value={parseInt(value)}
-							onInput={e => {
-								const val = e.target.value
-								const intVal = parseInt(val)
-								onChange(intVal)
-							}}
-							className="slider w-full"
-							id="myRange"
-						/>
-					</div>
-				</div>
-				<div className="flex-1 relative">
-					<div className='spacing-control__inputs flex h-full items-center justify-center [&>div]:!mb-0'>
-						<NumberControl
-							className="w-full"
-							min={min}
-							max={max}
-							value={value}
-							onChange={onChange}
-						/>
-					</div>
-				</div>
-				<div className="flex-1 relative">
-					<div className='spacing-control__reset flex h-full items-center justify-center'>
-						<button className='w-full'>Zurücksetzen</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	)
-
-}
-
-const onSelect = (tabName) => {
-	console.log('Selecting tab', tabName);
-};
-
-const MyTabPanel = () => (
-	<TabPanel
-		className="my-tab-panel"
-		activeClass="active-tab"
-		onSelect={onSelect}
-		tabs={[
-			{
-				name: 'tab-desktop',
-				title: 'Desktop',
-				className: 'tab-desktop',
-			},
-			{
-				name: 'tab-tablet',
-				title: 'Tablet',
-				className: 'tab-tablet',
-			},
-			{
-				name: 'tab-mobile',
-				title: 'Mobile',
-				className: 'tab-mobile',
-			},
-		]}
-	>
-		{(tab) => <p>{tab.title}</p>}
-	</TabPanel>
-);
+import SpacingControl from './components/SpacingControl';
+import CustomTabPanel from './components/TabPanel';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -132,31 +51,31 @@ export default function Edit({
 		gridColumnEndTablet,
 		gridColumnStartMobile,
 		gridColumnEndMobile,
-		alignItem,
-		alignItemTablet,
-		alignItemMobile,
-		justifyItem,
-		justifyItemTablet,
-		justifyItemMobile,
-		stackOrder,
-		stacking,
-		gutter,
-		overlapLeft,
-		overlapRight,
-		marginTopDesktop,
-		marginRightDesktop,
-		marginBottomDesktop,
-		marginLeftDesktop,
-		marginTopTablet,
-		marginRightTablet,
-		marginBottomTablet,
-		marginLeftTablet,
-		marginTopMobile,
-		marginRightMobile,
-		marginBottomMobile,
-		marginLeftMobile
+		// alignItem,
+		// alignItemTablet,
+		// alignItemMobile,
+		// justifyItem,
+		// justifyItemTablet,
+		// justifyItemMobile,
+		// stackOrder,
+		// stacking,
+		// gutter,
+		// overlapLeft,
+		// overlapRight,
+		// marginTopDesktop,
+		// marginRightDesktop,
+		// marginBottomDesktop,
+		// marginLeftDesktop,
+		// marginTopTablet,
+		// marginRightTablet,
+		// marginBottomTablet,
+		// marginLeftTablet,
+		// marginTopMobile,
+		// marginRightMobile,
+		// marginBottomMobile,
+		// marginLeftMobile
 	} = attributes;
-	
+
 	const className = getClassNames(attributes)
 
 	const blockProps = useBlockProps({
@@ -164,12 +83,14 @@ export default function Edit({
 	});
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
-
-	return (
-		<>
-			<InspectorControls>
-				<PanelBody title={__('Settings', 'copyright-date-block')}>
-					{/* <MyTabPanel /> */}
+	const tabs = [
+		{
+			name: 'tab-desktop',
+			title: 'Desktop',
+			className: 'tab-desktop',
+			content: (
+				<div>
+					<h3>Desktop</h3>
 					<div class="spacing-desktop">
 						<SpacingControl
 							value={gridColumnStartDesktop}
@@ -186,6 +107,68 @@ export default function Edit({
 							label="Grid Column End"
 						/>
 					</div>
+				</div>
+			)
+		},
+		{
+			name: 'tab-tablet',
+			title: 'Tablet',
+			className: 'tab-tablet',
+			content: (
+				<div>
+					<h3>Tablet</h3>
+					<div class="spacing-tablet">
+						<SpacingControl
+							value={gridColumnStartTablet}
+							onChange={v => {
+								setAttributes({ gridColumnStartTablet: parseInt(v) })
+							}}
+							label="Grid Column Start"
+						/>
+						<SpacingControl
+							value={gridColumnEndTablet}
+							onChange={v => {
+								setAttributes({ gridColumnEndTablet: parseInt(v) })
+							}}
+							label="Grid Column End"
+						/>
+					</div>
+				</div>
+			)
+		},
+		{
+			name: 'tab-mobile',
+			title: 'Mobile',
+			className: 'tab-mobile',
+			content: (
+				<div>
+					<h3>Mobile</h3>
+					<div class="spacing-mobile">
+						<SpacingControl
+							value={gridColumnStartMobile}
+							onChange={v => {
+								setAttributes({ gridColumnStartMobile: parseInt(v) })
+							}}
+							label="Grid Column Start"
+						/>
+						<SpacingControl
+							value={gridColumnEndMobile}
+							onChange={v => {
+								setAttributes({ gridColumnEndMobile: parseInt(v) })
+							}}
+							label="Grid Column End"
+						/>
+					</div>
+				</div>
+			)
+		},
+	]
+
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody title={__('Settings', 'copyright-date-block')}>
+					<CustomTabPanel tabs={tabs} />
 				</PanelBody>
 			</InspectorControls>
 			<div {...innerBlocksProps} />
