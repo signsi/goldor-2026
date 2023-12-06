@@ -27,10 +27,6 @@
 					"horizontal",
 					"vertical"
 				]
-			},
-			"__experimentalDefaultControls": {
-				"padding": true,
-				"blockGap": true
 			}
 		},
 		"layout": {
