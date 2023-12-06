@@ -41,7 +41,7 @@ export default function Edit() {
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
 
 	return (
-		<div className='show-grid !max-w-full !px-0'>
+		<div className='relative show-grid !max-w-full !px-0'>
 			<div className='grid grid-cols-12 gap-gutter px-gutter bg-red-200'>
 				{[...Array(12)].map((x, i) =>
 					<div className='col-span-1 bg-blue-200' key={i}>
