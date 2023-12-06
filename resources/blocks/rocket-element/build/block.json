@@ -25,10 +25,14 @@
       "blockGap": false
     },
     "layout": {
-      "allowSwitching": false,
-      "allowInheriting": false,
-      "allowEditing": false,
-      "allowSizingOnChildren": false
+      "allowSwitching": true,
+      "allowInheriting": true,
+      "allowEditing": true,
+      "allowSizingOnChildren": true,
+      "default": {
+        "type": "flex",
+        "flexWrap": "nowrap"
+      }
     }
   },
   "attributes": {
