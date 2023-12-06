@@ -33,6 +33,7 @@
       "allowSwitching": false,
       "allowInheriting": false,
       "allowEditing": false,
+      "allowSizingOnChildren": false,
       "default": {
         "type": "grid",
         "flexWrap": "nowrap"

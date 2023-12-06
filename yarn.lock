@@ -3971,9 +3971,9 @@
   "version" "1.3.0"
 
 "gsap@npm:@gsap/business":
-  "integrity" "sha512-AkkhzjaOOJ5Jk9Qyo5PB4C0sL+uUj3SsAN+F+HvM71QVs/jISXgwAyrap2CjK8CzTXrC3T74sHkoOVlqU0Fbfg=="
-  "resolved" "https://npm.greensock.com/@gsap%2fbusiness/-/business-3.12.2.tgz"
-  "version" "3.12.2"
+  version "3.12.3"
+  resolved "https://npm.greensock.com/@gsap%2fbusiness/-/business-3.12.3.tgz#4aaaed9da6e517d8729bf50a3d8b644d7d4ca3bd"
+  integrity sha512-q4/V+uAg8FgRhZNlzNopL0EOHKh1sN9qER7kwQ/FNSoZ/R6aU45LX0zgiNAYI0lWvq+dDAbF6zqGhZKgc9JT9w==
 
 "hard-rejection@^2.1.0":
   "integrity" "sha512-VIZB+ibDhx7ObhAe7OVtoEbuP4h/MuOTHJ+J8h/eBXotJYl0fBgR72xDFCKgIh22OJZIOVNxBMWuhAr10r8HdA=="
