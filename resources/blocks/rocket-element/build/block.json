@@ -28,11 +28,7 @@
       "allowSwitching": false,
       "allowInheriting": false,
       "allowEditing": false,
-      "allowSizingOnChildren": false,
-      "default": {
-        "type": "grid",
-        "flexWrap": "nowrap"
-      }
+      "allowSizingOnChildren": false
     }
   },
   "attributes": {
@@ -41,6 +37,22 @@
       "default": 1
     },
     "gridColumnEndDesktop": {
+      "type": "number",
+      "default": 7
+    },
+    "gridColumnStartTablet": {
+      "type": "number",
+      "default": 1
+    },
+    "gridColumnEndTablet": {
+      "type": "number",
+      "default": 7
+    },
+    "gridColumnStartMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "gridColumnEndMobile": {
       "type": "number",
       "default": 7
     }

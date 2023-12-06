@@ -51,29 +51,29 @@ export default function Edit({
 		gridColumnEndTablet,
 		gridColumnStartMobile,
 		gridColumnEndMobile,
-		alignItem,
-		alignItemTablet,
-		alignItemMobile,
-		justifyItem,
-		justifyItemTablet,
-		justifyItemMobile,
-		stackOrder,
-		stacking,
-		gutter,
-		overlapLeft,
-		overlapRight,
-		marginTopDesktop,
-		marginRightDesktop,
-		marginBottomDesktop,
-		marginLeftDesktop,
-		marginTopTablet,
-		marginRightTablet,
-		marginBottomTablet,
-		marginLeftTablet,
-		marginTopMobile,
-		marginRightMobile,
-		marginBottomMobile,
-		marginLeftMobile
+		// alignItem,
+		// alignItemTablet,
+		// alignItemMobile,
+		// justifyItem,
+		// justifyItemTablet,
+		// justifyItemMobile,
+		// stackOrder,
+		// stacking,
+		// gutter,
+		// overlapLeft,
+		// overlapRight,
+		// marginTopDesktop,
+		// marginRightDesktop,
+		// marginBottomDesktop,
+		// marginLeftDesktop,
+		// marginTopTablet,
+		// marginRightTablet,
+		// marginBottomTablet,
+		// marginLeftTablet,
+		// marginTopMobile,
+		// marginRightMobile,
+		// marginBottomMobile,
+		// marginLeftMobile
 	} = attributes;
 
 	const className = getClassNames(attributes)
@@ -83,12 +83,14 @@ export default function Edit({
 	});
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {});
-
-	return (
-		<>
-			<InspectorControls>
-				<PanelBody title={__('Settings', 'copyright-date-block')}>
-					{/* <MyTabPanel /> */}
+	const tabs = [
+		{
+			name: 'tab-desktop',
+			title: 'Desktop',
+			className: 'tab-desktop',
+			content: (
+				<div>
+					<h3>Desktop</h3>
 					<div class="spacing-desktop">
 						<SpacingControl
 							value={gridColumnStartDesktop}
@@ -105,6 +107,68 @@ export default function Edit({
 							label="Grid Column End"
 						/>
 					</div>
+				</div>
+			)
+		},
+		{
+			name: 'tab-tablet',
+			title: 'Tablet',
+			className: 'tab-tablet',
+			content: (
+				<div>
+					<h3>Tablet</h3>
+					<div class="spacing-tablet">
+						<SpacingControl
+							value={gridColumnStartTablet}
+							onChange={v => {
+								setAttributes({ gridColumnStartTablet: parseInt(v) })
+							}}
+							label="Grid Column Start"
+						/>
+						<SpacingControl
+							value={gridColumnEndTablet}
+							onChange={v => {
+								setAttributes({ gridColumnEndTablet: parseInt(v) })
+							}}
+							label="Grid Column End"
+						/>
+					</div>
+				</div>
+			)
+		},
+		{
+			name: 'tab-mobile',
+			title: 'Mobile',
+			className: 'tab-mobile',
+			content: (
+				<div>
+					<h3>Mobile</h3>
+					<div class="spacing-mobile">
+						<SpacingControl
+							value={gridColumnStartMobile}
+							onChange={v => {
+								setAttributes({ gridColumnStartMobile: parseInt(v) })
+							}}
+							label="Grid Column Start"
+						/>
+						<SpacingControl
+							value={gridColumnEndMobile}
+							onChange={v => {
+								setAttributes({ gridColumnEndMobile: parseInt(v) })
+							}}
+							label="Grid Column End"
+						/>
+					</div>
+				</div>
+			)
+		},
+	]
+
+	return (
+		<>
+			<InspectorControls>
+				<PanelBody title={__('Settings', 'copyright-date-block')}>
+					<CustomTabPanel tabs={tabs} />
 				</PanelBody>
 			</InspectorControls>
 			<div {...innerBlocksProps} />
