@@ -51,6 +51,11 @@ pr-2xl
 pb-2xl
 pl-2xl
 
+pt-3xl
+pr-3xl
+pb-3xl
+pl-3xl
+
 pt-gutter
 pr-gutter
 pb-gutter
@@ -125,6 +130,11 @@ mt-2xl
 mr-2xl
 mb-2xl
 ml-2xl
+
+mt-3xl
+mr-3xl
+mb-3xl
+ml-3xl
 
 mt-gutter
 mr-gutter

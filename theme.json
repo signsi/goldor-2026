@@ -201,6 +201,7 @@
     },
     "spacing": {
       "blockGap": true,
+      "padding": true,
       "margin": true,
       "spacingSizes": [
         {

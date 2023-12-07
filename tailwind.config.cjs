@@ -107,9 +107,6 @@ module.exports = {
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
 
-        // Abstände für das Grid
-        'gutter': 'var(--spacing-responsive--gutter)',
-
         // oft gebrauchte Werte
         '1/10': '10%',
         '2/10': '20%',

@@ -2,7 +2,7 @@
 @import 'tailwindcss/base';
 @import './variables.scss';
 
-.is-root-container {
+.is-root-container{
     /* Main Styles nur innerhalb von .is-root-container */
     @import './main.scss';
 }
