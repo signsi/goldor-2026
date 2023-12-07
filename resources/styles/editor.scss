@@ -2,7 +2,7 @@
 @import 'tailwindcss/base';
 @import './variables.scss';
 
-.is-root-container{
+.is-root-container {
     /* Main Styles nur innerhalb von .is-root-container */
     @import './main.scss';
 }
@@ -14,4 +14,3 @@ h1.wp-block-post-title {
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-
