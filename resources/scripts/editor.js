@@ -1,4 +1,3 @@
-
 import { domReady } from '@roots/sage/client';
 import './backend/custom-styles.js';
 const { __ } = wp.i18n;
@@ -6,7 +5,6 @@ const { createHigherOrderComponent } = wp.compose;
 const { Fragment, useState } = wp.element;
 import { CheckboxControl } from '@wordpress/components';
 import classnames from 'classnames'
-import Spacings from './components/Spacings.js';
 const { InspectorControls } = wp.blockEditor;
 const { PanelBody, SelectControl } = wp.components;
 
@@ -46,44 +44,11 @@ const setToolbarButtonAttribute = (settings, name) => {
 
   return Object.assign({}, settings, {
     attributes: Object.assign({}, settings.attributes, {
-      spacings: {
-        type: 'object',
-        default: {
-          p: {
-            t: "",
-            r: "",
-            b: "",
-            l: ""
-          },
-          m: {
-            t: "",
-            r: "",
-            b: "",
-            l: ""
-          }
-        }
-      },
       hideElement: {
         type: 'boolean',
         default: false
       },
-      hoverGroup: {
-        type: 'boolean',
-        default: false
-      },
       animation: {
-        type: 'string',
-        default: '-'
-      },
-      layoutWidth: {
-        type: 'string',
-        default: 'is-style-layout-default'
-      },
-      isLayoutOffset: {
-        type: 'string',
-        default: '-'
-      },
-      gap: {
         type: 'string',
         default: '-'
       }
@@ -106,7 +71,7 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
     }
 
     const { attributes, setAttributes } = props;
-    const { spacings, gap, hideElement, hoverGroup, isLayoutOffset, animation, layoutWidth } = attributes;
+    const { hideElement, animation } = attributes;
 
     return (
       <Fragment>
@@ -119,41 +84,6 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               checked={hideElement}
               onChange={isHideElement => setAttributes({ "hideElement": isHideElement })}
             />
-            <CheckboxControl
-              label="Hover-Group?"
-              checked={hoverGroup}
-              onChange={isHoverGroup => setAttributes({ "hoverGroup": isHoverGroup })}
-            />
-            {
-              (props.name.includes("group")) &&
-              <>
-                <SelectControl
-                  label="Layout-Breite"
-                  value={layoutWidth}
-                  options={[
-                    { label: 'Tiny', value: 'is-style-layout-tiny' },
-                    { label: 'Slim', value: 'is-style-layout-slim' },
-                    { label: 'Default', value: 'is-style-layout-default' },
-                    { label: 'Large', value: 'is-style-layout-large' },
-                    { label: 'xLarge', value: 'is-style-layout-xlarge' },
-                    { label: 'Full', value: 'is-style-layout-full' },
-                  ]}
-                  onChange={newLayoutWidth => setAttributes({ "layoutWidth": newLayoutWidth })}
-                  __nextHasNoMarginBottom
-                />
-                <SelectControl
-                  label="Gruppe randabfallend darstellen"
-                  value={isLayoutOffset}
-                  options={[
-                    { label: '-', value: '-' },
-                    { label: 'Gruppe links am Rand ausrichten', value: 'is-offset is-offset-left' },
-                    { label: 'Gruppe rechts am Rand ausrichten', value: 'is-offset is-offset-right' },
-                  ]}
-                  onChange={newisLayoutOffset => setAttributes({ "isLayoutOffset": newisLayoutOffset })}
-                  __nextHasNoMarginBottom
-                />
-              </>
-            }
             <SelectControl
               label="Animation"
               value={animation}
@@ -169,41 +99,8 @@ const withToolbarButton = createHigherOrderComponent((BlockEdit) => {
               onChange={newAnimation => setAttributes({ "animation": newAnimation })}
               __nextHasNoMarginBottom
             />
-            {
-              props.name.includes("columns") &&
-              <SelectControl
-                label="Spaltenabstand"
-                value={gap}
-                options={[
-                  { label: '-', value: '-' },
-                  { label: '0', value: 'is-style-gap-0' },
-                  { label: 'tiny', value: 'is-style-gap-tiny' },
-                  { label: 'gutter', value: 'is-style-gap-gutter' },
-                  { label: 'element', value: 'is-style-gap-element' },
-                  { label: 'section', value: 'is-style-gap-section' },
-                ]}
-                onChange={gap => setAttributes({ "gap": gap })}
-                __nextHasNoMarginBottom
-              />
-            }
           </PanelBody>
         </InspectorControls>
-        <Spacings
-          spacings={spacings}
-          onChange={(id, value) => {
-            const [k1, k2] = id.split(".");
-            const newsSizes = {
-              ...spacings,
-              [k1]: {
-                ...spacings[k1],
-                [k2]: {
-                  "class": value
-                }
-              }
-            };
-            setAttributes({ "spacings": newsSizes })
-          }}
-        />
       </Fragment>
     );
   };
@@ -244,20 +141,11 @@ const main = async (err) => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
-      const { spacings, animation, gap, hideElement, hoverGroup, layoutWidth, isLayoutOffset } = attributes;
-      const flat_m = getFlattened(spacings, 'm')
-      const flat_p = getFlattened(spacings, 'p');
-      const classes_m = mapToClass(flat_m);
-      const classes_p = mapToClass(flat_p);
-      // TODO: looks strange, but is used to conditionally add data to the array 🪄
+      const { animation, hideElement } = attributes;
+      // TODO: looks strange, but is used to conditionally add data to the array :magic_wand:
       const classes = [
-        ...classes_m, ...classes_p,
         ...(animation === "-" ? [] : [animation]),
-        ...(gap === "-" ? [] : [gap]),
-        ...(layoutWidth === "is-style-layout-default" ? [] : [layoutWidth]),
         ...(hideElement ? ['hidden'] : []),
-        ...(hoverGroup ? ['group'] : []),
-        ...(isLayoutOffset === "-" ? [] : [isLayoutOffset]),
       ];
 
       if (classes.length > 0) {
@@ -275,6 +163,29 @@ const main = async (err) => {
     saveToolbarButtonAttribute
   );
 }
+
+
+// wp.blocks.registerBlockVariation(
+//   'core/columns',
+//   {
+//     name: 'Wrapper',
+//     title: 'Wrapper',
+//     isActive: (blockAttributes, vAttributes) =>
+//       blockAttributes.className
+//         .includes(vAttributes.className),
+//     attributes: {
+//       className: 'relative grid grid-flow-col grid-cols-12 w-full px-gutter',
+//       layout: {
+//         inherit: true,
+//       },
+//       style: {
+//         spacing: {
+//           // padding: { top: '25px', bottom: '55px' }
+//         }
+//       }
+//     },
+//   }
+// );
 
 domReady(main);
 import.meta.webpackHot?.accept(main);

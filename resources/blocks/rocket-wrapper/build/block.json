@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "rocket/wrapper",
+  "version": "0.1.0",
+  "title": "Rocket Wrapper",
+  "category": "widgets",
+  "icon": "grid-view",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "customClassName": true,
+    "__experimentalLayout": true,
+    "reusable": true,
+    "color": {
+      "background": true,
+      "gradient": true,
+      "text": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true,
+      "blockGap": {
+        "sides": [
+          "horizontal",
+          "vertical"
+        ]
+      }
+    },
+    "layout": {
+      "allowSwitching": false,
+      "allowInheriting": false,
+      "allowEditing": false,
+      "allowSizingOnChildren": false,
+      "default": {
+        "type": "grid",
+        "flexWrap": "nowrap"
+      }
+    }
+  },
+  "textdomain": "rocket-wrapper",
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:./tailwind.css",
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./tailwind.css",
+    "file:./style-index.css"
+  ],
+  "viewScript": "file:./view.js"
+}

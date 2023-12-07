@@ -4,9 +4,9 @@
     @while ( block_rows('carousel-item') )
         @php
             block_row('carousel-item');
-            $preview_type = block_sub_value('preview-element');
+            $preview_type = block_sub_value('preview-xl');
         @endphp
-        <div class="carousel-element" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
+        <div class="carousel-xl" data-carousel-id="{{ wp_rand(0, PHP_INT_MAX) }}">
             <div class="mr-4 @if(block_sub_value('title')) bg-white shadow-lg @endif ">
                 @if ( $preview_type == 'post-image' )
                     <div class="image-wrapper ">
@@ -60,12 +60,12 @@
                         @endswitch
                     </div>
                 @endif
-                <div class="relative group text-wrapper p-gutter [&_*]:text-font [&_*]:text-sm">
+                <div class="relative group text-wrapper p-medium [&_*]:text-font [&_*]:text-sm">
                     @if ( block_sub_value( 'title') )
                         <p class="font-bold my-0">{{ block_sub_value('title') }}</p>
                     @endif
                     @if ( block_sub_value('text') )
-                        <div class="mb-gutter [&_p]:mt-0">
+                        <div class="mb-medium [&_p]:mt-0">
                             {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
                         </div>
                     @endif

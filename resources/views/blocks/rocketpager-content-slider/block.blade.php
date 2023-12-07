@@ -1,7 +1,7 @@
 @php
     $idLightbox = App\getLightboxIdentifier();
     $isCroppedSlider = block_value( 'cropped-stil');
-    $additional_classes = block_value( 'cropped-stil') ? '  cropped-stil my-element pb-element' : ' my-element pb-element';
+    $additional_classes = block_value( 'cropped-stil') ? '  cropped-stil my-xl pb-xl' : ' my-xl pb-xl';
 @endphp
 
 @extends('blocks.helpers.block-wrapper', ['element_classes' => $additional_classes])

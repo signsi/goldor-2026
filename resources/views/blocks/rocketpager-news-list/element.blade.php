@@ -14,7 +14,7 @@
             @endif
         </div>
     @endif
-    <div class="title-wrapper pt-gutter px-gutter text-font">
+    <div class="title-wrapper pt-medium px-gutter text-font">
         @if ( !$disable_meta )
             @if ( !$disable_meta_category )
                 <span class="entry-category block pb-4">
@@ -30,7 +30,7 @@
     </div>
     <div class="text-wrapper px-gutter text-font">{{ the_excerpt() }}</div>
 
-    <div class="linklist-wrapper px-gutter pb-gutter mt-auto mb-0">
+    <div class="linklist-wrapper px-gutter pb-medium mt-auto mb-0">
         <ul class="list-none">
             <li class="relative m-0 pl-0"><a class="no-underline transition-colors duration-300 before:absolute before:font-icon before:content-arrow-right-long before:font-light before:-left-6 hover:text-font" href="{{ the_permalink() }}">{{ App\pl__('Weiterlesen') }}</a></li>
         </ul>

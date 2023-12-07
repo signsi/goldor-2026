@@ -8,14 +8,11 @@
 @extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
 
 
-<div class="text-xs bg-grey text-white p-gutter">
+<div class="text-xs bg-grey text-white p-medium">
     <strong><u>Einstellung der Textbox</u></strong>
     <br>
     Breite der Textbox:
     @switch($boxWidth)
-        @case('max-w-tiny')
-            Sehr schmale Breite des Contents
-            @break
         @case('max-w-slim')
             Schmale Breite des Contents
             @break

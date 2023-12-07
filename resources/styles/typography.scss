@@ -1,49 +1,70 @@
-@mixin typography {
-    /* Überschriften */
-    @layer components {
-        .wp-block-heading {
-            @apply + * mt-0;
-        }
-        h1, .heading-1 {
-            @apply text-4xl #{!important};
-            @apply font-bold text-primary;
-        }
-        .has-4xl-font-size {
-            @apply text-4xl #{!important};
-            @apply font-bold text-primary;
-        }
-        h2, .has-3xl-font-size{
-            @apply text-3xl #{!important};
-            @apply font-bold;
-        }
-        h1, h2 {
-            @apply mt-[calc((theme(spacing.typography-mobile))*2)] md:mt-[calc((theme(spacing.typography-tablet))*2)] lg:mt-[calc((theme(spacing.typography-desktop))*2)] mb-typography-mobile md:mb-typography-tablet lg:mb-typography-desktop;
-        }
-        h3, h4, h5, h6 {
-            @apply font-semibold;
-            @apply mt-[calc((theme(spacing.typography-mobile))*1.5)] md:mt-[calc((theme(spacing.typography-tablet))*1.5)] lg:mt-[calc((theme(spacing.typography-desktop))*1.5)];
-            @apply mb-typography-small;
-        }
-        h3, .has-xl-font-size  {
-            @apply text-xl #{!important};
-        }
-        h4, .has-lg-font-size {
-            @apply text-lg #{!important};
-        }
-        h5, .has-base-font-size {
-            @apply text-base #{!important};
-        }
-        h6, .has-xs-font-size {
-            @apply text-xs #{!important};
-        }
+/* Überschriften Abstände und Schrifteigenschaften */
+.wp-block-heading {
+    + * {
+        @apply mt-0;
     }
+}
+.wp-block-group.has-background + .wp-block-heading {
+    @apply mt-2xl;
+}
+h1 { 
+    @apply font-bold text-primary;
+}
 
-    /* Textgrößen */
-    @layer utilities {
-        @for $i from 1 to 10 {
-            .has-#{$i}xl-font-size {
-                @apply text-#{$i}xl #{!important};
-            }
+h2{
+    @apply font-bold;
+}
+h1, h2 {
+    @apply mt-[calc((theme(spacing.small))*2)] mb-small;
+}
+h3, h4, h5, h6 {
+    @apply font-semibold;
+    @apply mt-[calc((theme(spacing.small))*1.5)];
+    @apply mb-rp-20;
+}
+
+/* Überschriften - Grössen */
+h1{
+    @apply text-4xl;
+}
+h2 {
+    @apply text-3xl;
+}
+h3  {
+    @apply text-xl;
+}
+h4 {
+    @apply text-lg;
+}
+h5 {
+    @apply text-base;
+}
+h6 {
+    @apply text-xs;
+}
+
+/* Wordpress-Overrides */
+.has-xs-font-size {
+    @apply text-xs #{!important};
+}
+.has-sm-font-size {
+    @apply text-sm #{!important};
+}
+.has-base-font-size {
+    @apply text-base #{!important};
+}
+.has-lg-font-size {
+    @apply text-lg #{!important};
+}
+.has-xl-font-size {
+    @apply text-xl #{!important};
+}
+
+/* Textgrössen */
+@layer utilities {
+    @for $i from 1 to 10 {
+        .has-#{$i}xl-font-size {
+            @apply text-#{$i}xl #{!important};
         }
     }
 }

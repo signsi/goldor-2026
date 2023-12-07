@@ -4,10 +4,10 @@
     <div class="hero-slider">
         @while (block_rows('slide'))
             @php block_row('slide') @endphp
-            <div class="slides bg-object-wrapper px-gutter {{ block_value('slider-height') }} @if ( block_value( 'hasGradient') ) hasGradient @endif ">
+            <div class="slides bg-object-wrapper px-medium {{ block_value('slider-height') }} @if ( block_value( 'hasGradient') ) hasGradient @endif ">
                 @if ( block_sub_value( 'title') )
-                    <div class="relative z-30 flex h-full {{ block_value('box-alignment') }} {{ block_value('text-alignment') }} max-w-default mx-auto py-section">
-                        <div class="{{ block_value('box-width') }} @if ( block_value( 'box-bg') ) bg-white shadow-lg text-primary p-element @else [&_*]:text-white @endif">
+                    <div class="relative z-30 flex h-full {{ block_value('box-alignment') }} {{ block_value('text-alignment') }} max-w-default mx-auto py-2xl">
+                        <div class="{{ block_value('box-width') }} @if ( block_value( 'box-bg') ) bg-white shadow-lg text-primary p-xl @else [&_*]:text-white @endif">
                             @if ( block_sub_value( 'title') )
                                 <span class="heading-1 !my-0">{{ block_sub_value('title') }}</h3>
                             @endif

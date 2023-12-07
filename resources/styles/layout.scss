@@ -1,41 +1,67 @@
-/* Allgemein */
+/* =======================
+   INHALTSVERZEICHNIS
+   =======================
+   1. Allgemeine Stile
+   2. Container-Breite - Helpers
+   3. Template-Breite - Helpers
+    3.1. Breite - Header/Footer
+   4. Breite der Gruppen
+*/
+
+/* 1. Allgemeine Stile */
 html {
     @apply scroll-smooth;
 }
-  
 body {
     @apply overflow-x-hidden;
-    &.blog main p {
-        @apply mx-auto;
-    }
 }
-  
+
+
+/* 2. Container-Breite - Helpers */
+.max-w-content-small {
+    @apply w-full max-w-full max-w-small 4xl:max-w-screen-xl;
+}
+.max-w-content-medium {
+    @apply w-full max-w-full lg:max-w-medium 4xl:max-w-screen-xl;
+}
+.max-w-content-large {
+    @apply w-full max-w-full lg:max-w-large 4xl:max-w-screen-xl;
+}
+.max-w-content-xlarge {
+    @apply w-full max-w-full lg:max-w-xlarge 4xl:max-w-screen-xl;
+}
+.max-w-content-2xlarge {
+    @apply w-full max-w-full lg:max-w-2xlarge 4xl:max-w-screen-xl;
+}
+
+
+/* 3. Template-Breite - Helpers */
+.max-w-content-default {
+    @apply w-full max-w-full lg:max-w-default 4xl:max-w-screen-xl;
+}
+.max-w-content-wide {
+    @apply w-full max-w-full lg:max-w-wide 4xl:max-w-screen-xl;
+}
+/* 3.1. Breite - Header/Footer */
+.max-w-content-hf {
+    @apply w-full max-w-full lg:max-w-header-footer 4xl:max-w-screen-xl;
+}
+
+
+/* 4. Breite der Gruppen */
+body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    @extend .max-w-content-default;
+}
+body .is-layout-constrained > .alignwide {
+    @extend .max-w-content-wide;
+}
+main > .wp-block-group,
+:where(.wp-block-group.has-background) {
+    @apply px-gutter;
+}
 main,
-body.single main > article {
-    > .wp-block-group {
-        /* Abstände für Gruppe auf der 1. Ebene */
-        @apply py-section;
+.is-root-container {
+    > :where(.wp-block-group.has-background) {
+        @apply py-2xl;
     }
 }
-  
-/* Gruppen-Styling generell */
-div,
-section {
-    > * {
-        &:first-child {
-            @apply mt-0;
-        }
-
-        &:last-child {
-            @apply mb-0;
-        }
-    }
-}
-
-/* Beispiel für ein Hintergrundbild auf einer Gruppe */ 
-// .wp-block-group {
-//     &.bg1 {
-//         @apply relative before:hidden md:before:block md:before:opacity-30 lg:before:opacity-100 before:bg-left-bottom before:absolute before:bg-hero-pattern-1 before:left-0 md:before:right-1/4 lg:before:right-1/2 before:-bottom-section-mobile md:before:-bottom-section-tablet lg:before:-bottom-section-desktop 2xl:before:-bottom-section-full-hd before:top-section before:bg-contain before:bg-no-repeat;
-//     }
-// }
-  

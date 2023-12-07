@@ -1,10 +1,10 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <div class="testimonial my-element-tablet md:my-element-desktop">
+    <div class="testimonial my-xl">
         @while (block_rows('testimonial'))
             @php block_row('testimonial') @endphp
-            <div class="testimonial-itemwrapper !block relative w-full md:w-[80%] max-w-slim mx-auto text-center mb-element">
+            <div class="testimonial-itemwrapper !block relative w-full md:w-[80%] max-w-slim mx-auto text-center mb-xl">
                 @if ( block_sub_value('testimonial-link') )
                     <a href="{{ block_sub_value('testimonial-link') }}" target="_blank">
                 @endif

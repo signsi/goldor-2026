@@ -13,7 +13,7 @@
 
 @include('sections.header.header')
 
-<main id="main" class="mx-auto main max-w-none">
+<main id="main" class="">
 
     @yield('content')
 
@@ -28,6 +28,12 @@
         @includeWhen($isLanguageActive, 'sections.offcanvas.modal-language')
     @endif
 </main>
+
+
+{{-- Beispiel für eine wiederverwendebare Blade-Komponente --}}
+{{-- <x-content-block>
+    <h1>Test</h1>
+</x-content-block> --}}
 
 @include('sections.footer.footer')
 

@@ -7,7 +7,7 @@
             @endwhile
         </div>
     </div>
-    <div class="wp-block-group mt-element">
+    <div class="wp-block-group mt-xl">
         @include('partials.components.postnavigation')
     </div>
 </div>

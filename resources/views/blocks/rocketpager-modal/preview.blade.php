@@ -4,7 +4,7 @@
 
     <div class="wp-block-buttons @if ( !block_value( 'add-open-modal')) hidden @endif">
         <div class="wp-block-button">
-            <a class="wp-block-button__link show-modal mb-element">{{ block_value('add-open-buttontext') }}</a>
+            <a class="wp-block-button__link show-modal mb-xl">{{ block_value('add-open-buttontext') }}</a>
         </div>
     </div>
 

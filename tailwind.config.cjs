@@ -3,7 +3,6 @@ const tailconf = require('@rocket-gmbh/tailconf_helpers');
 
 // https://tailwindcss.com/docs/configuration
 module.exports = {
-  important: true,
   content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/flowbite/**/*.js'
   ],
   theme: {
@@ -11,7 +10,7 @@ module.exports = {
 
     },
     fluidType: {
-      settings:{
+      settings: {
         screenMin: 768,
         screenMax: 1280,
       },
@@ -29,8 +28,8 @@ module.exports = {
         '7xl': [64, 72, 1],
         '8xl': [72, 96, 1],
         '9xl': [96, 128, 1],
-        'icon': ['20px', {'lineHeight':'1'}],
-        'icon-big': ['32px', {'lineHeight':'1'}],
+        'icon': ['20px', { 'lineHeight': '1' }],
+        'icon-big': ['32px', { 'lineHeight': '1' }],
         '0': 0,
       }
     },
@@ -64,42 +63,50 @@ module.exports = {
         'not-active': '0.25',
       },
       maxWidth: {
-        tiny: '37.5rem', //600px
-        slim: '45rem', //720px
-        default: '71.25rem', //1140px
-        medium: '80rem', //1280px
-        large: '90rem', //1440px
-        xlarge: '71.875vw',
-        '2xlarge': '90vw',
+        // Generelle Max-Widths
+        small: 'var(--content--small-size)',
+        medium: 'var(--content--medium-size)',
+        large: 'var(--content--large-size)',
+        xlarge: 'var(--content--xlarge-size)',
+        '2xlarge': 'var(--content--2xlarge-size)',
+        
+        // Max-Widths für die verschiedenen Layout-Bestandteile
+        'header-footer': 'var(--content--header-footer-size)',
+        'default': 'var(--content--default-size)',
+        'wide': 'var(--content--wide-size)',
       },
       screens: {
         '3xl': '1680px',
+        '4xl': '1920px',
       },
       fontFamily: {
         serif: ['Crete Round', 'serif'],
         sans: ['DM Sans', 'Helvetica', 'sans-serif'],
-        icon:  '"Font Awesome 6 Pro"',
+        icon: '"Font Awesome 6 Pro"',
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },
       spacing: {
-        // Abstände zwischen den typographischen Elementen
-        'typography-tiny': '5px',
-        'typography-small': '15px',
-        'typography-mobile': '20px',
-        'typography-tablet': '25px',
-        'typography-desktop': '30px',
-        // Abstände zwischen den verschiedenen Sections
-        'section-mobile': '30px',
-        'section-tablet': '40px',
-        'section-desktop': '60px',
-        'section-full-hd': '90px',
-        // Abstände von Elementen (RocketPager, Bilder Tabellen usw.) innerhalb einer Section
-        'element-mobile': '30px',
-        'element-tablet': '40px',
-        'element-desktop': '60px',
-        // Gutter Abstände z.b. Links und Rechts von Alignwide Blöcken oder Abstand zwischen Kinderelementen
-        'gutter-mobile': '20px',
-        'gutter-display': '30px',
+        // Fixe Abstände
+        'rp-10': 'var(--spacing--rp10)',
+        'rp-20': 'var(--spacing--rp20)',
+        'rp-30': 'var(--spacing--rp30)',
+        'rp-40': 'var(--spacing--rp40)',
+        'rp-50': 'var(--spacing--rp50)',
+        'rp-60': 'var(--spacing--rp60)',
+        'rp-70': 'var(--spacing--rp70)',
+        'rp-80': 'var(--spacing--rp80)',
+
+        // dynamische Abstände
+        'small': 'var(--spacing-responsive--rp30)',     
+        'medium': 'var(--spacing-responsive--rp40)',
+        'large': 'var(--spacing-responsive--rp50)',
+        'xl': 'var(--spacing-responsive--rp60)',
+        '2xl': 'var(--spacing-responsive--rp70)',
+        '3xl': 'var(--spacing-responsive--rp80)',
+
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
+
         // oft gebrauchte Werte
         '1/10': '10%',
         '2/10': '20%',
@@ -113,12 +120,17 @@ module.exports = {
         '12/10': '120%',
       },
       gap: {
-        // Gap-Abstände
-        'tiny': '15px',
-        'mobile': '30px',
-        'tablet': '40px',
-        'desktop': '60px',
-        'full-hd': '90px',
+        // dynamische Abstände
+        'small': 'var(--spacing-responsive--rp30)',     
+        'medium': 'var(--spacing-responsive--rp40)',
+        'large': 'var(--spacing-responsive--rp50)',
+        'xl': 'var(--spacing-responsive--rp60)',
+        '2xl': 'var(--spacing-responsive--rp70)',
+        '3xl': 'var(--spacing-responsive--rp80)',
+        
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
+
       },
       height: {
         'menu-items': '30px',

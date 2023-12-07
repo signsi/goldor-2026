@@ -54,7 +54,7 @@
             <p>Repeater does {{ block_row_count('repeater') }} loops</p>
             <ul>
                 @while (block_rows('repeater'))
-                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element --}}
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-xl --}}
                     @if ( block_sub_value( 'repeater-item'))
                         <li>{{ block_row_index() + 1 }}. Loop: DO SOMETHING with item (has value) -> {{ block_sub_value( 'repeater-item') }}</li>
                     @else
@@ -78,14 +78,14 @@
         @include('blocks.helpers.image',
         [
             'name_ImageField' => 'image',
-            'additionalClasses' => array('class' => 'ml-element')
+            'additionalClasses' => array('class' => 'ml-xl')
         ])
 
     <h3>Images in a Repeater</h3>
         @if(block_rows('repeater'))
             <div class="flex flex-wrap">
                 @while (block_rows('repeater'))
-                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-Element--}}
+                    @php block_row('repeater') @endphp {{-- Next Loop with new Repeater-xl--}}
                     @include('blocks.helpers.image',
                     [
                         'name_ImageField' => 'repeater-image',

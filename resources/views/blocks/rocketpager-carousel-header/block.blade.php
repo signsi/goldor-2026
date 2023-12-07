@@ -15,7 +15,7 @@
                             'isRepeaterElement' => true
                         ])
                         @if ( block_sub_value( 'text') )
-                            <div class="absolute inset-x-0 md:bottom-0 p-gutter translate-y-11/10 transition-all transition-300 ease-in text-white bg-black/[.8] group-hover:translate-y-0">
+                            <div class="absolute inset-x-0 md:bottom-0 p-medium translate-y-11/10 transition-all transition-300 ease-in text-white bg-black/[.8] group-hover:translate-y-0">
                                 <h3 class="m-0">{{ block_sub_value('title') }}</h3>
                                 @if ( block_sub_value( 'text') )
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
@@ -36,12 +36,12 @@
         @endif
     </section>
     @if ( block_value( 'title') )
-        <div class="absolute top-0 left-0 right-0 hidden md:block max-w-default mx-auto px-gutter pt-section">
+        <div class="absolute top-0 left-0 right-0 hidden md:block max-w-default mx-auto px-gutter pt-2xl">
             <div class="flex gap-gutter">
                 <div class="basis-5/12 lg:bassis-4/14 relative hidden md:block">
                     <div class="relative h-full after:content[''] after:absolute after:inset-0 after:mix-blend-multiply after:bg-primary">
                     </div>
-                    <div class="absolute inset-gutter-mobile md:inset-gutter-desktop">
+                    <div class="absolute inset-medium">
                         <a href="{{App\get_home_url()}}" rel="home">
                             <div class="logo">
                                 @include('blocks.helpers.image',
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="basis-auto">
-                    <div class="relative p-gutter text-primary bg-white/[.8]">
+                    <div class="relative p-medium text-primary bg-white/[.8]">
                         @if ( block_value( 'title') )
                             <h1 class="mt-0">{{ block_value('title') }}</h1>
                         @endif

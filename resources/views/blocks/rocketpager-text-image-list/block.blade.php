@@ -11,8 +11,8 @@
     <div class="grid gap-gutter {{ $row_per_col }}">
         @while (block_rows('post'))
             @php block_row('post'); @endphp
-            <div class="flex flex-col justify-start pb-gutter bg-white text-font{{ App\getAnimation() }}">
-                <div class="mb-gutter">
+            <div class="flex flex-col justify-start pb-medium bg-white text-font{{ App\getAnimation() }}">
+                <div class="mb-medium">
                     @switch( $col )
                         @case(1)
                             @include('blocks.helpers.image',
@@ -61,17 +61,17 @@
                     @endswitch
                 </div>
                 @if ( block_sub_value('title') )
-                    <div class="title-wrapper px-gutter">
+                    <div class="title-wrapper px-medium">
                         <h3 class="font-black text-3xl">{{ block_sub_value('title') }}</h3>
                     </div>
                 @endif
                 @if ( block_sub_value('Text') )
-                    <div class="text-wrapper px-gutter">
+                    <div class="text-wrapper px-medium">
                         {!! App\sanitize_out(block_sub_value('Text'), 'text_area') !!}
                     </div>
                 @endif
                 @if ( block_sub_value('linklist') )
-                    <div class="linklist-wrapper px-gutter mt-auto mb-0">
+                    <div class="linklist-wrapper px-medium mt-auto mb-0">
                         {!! App\sanitize_out(block_sub_value('linklist'), 'text_area') !!}
                     </div>
                 @endif

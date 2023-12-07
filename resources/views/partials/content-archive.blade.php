@@ -8,7 +8,7 @@
             @endwhile
         </div>
     </div>
-    <div class="wp-block-group mt-element">
+    <div class="wp-block-group mt-xl">
         {{-- Lade die Post-Navigation --}}
         @include('partials.components.postnavigation')
     </div>

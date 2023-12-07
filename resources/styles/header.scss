@@ -74,7 +74,7 @@ header#siteHeader {
                         @apply mt-0 #{!important};
 
                         > ul.menu-primary_subnavigation {
-                            @apply bg-transparent py-gutter-mobile px-0 #{!important};
+                            @apply bg-transparent py-medium px-0 #{!important};
 
                             > li {
                                 @apply mb-1 py-1 border-b-gray-300 font-semibold first:pt-0 last:pb-0 #{!important};

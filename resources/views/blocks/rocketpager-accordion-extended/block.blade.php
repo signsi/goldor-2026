@@ -1,7 +1,7 @@
 @php
     $id_num = wp_rand(0, PHP_INT_MAX);
     $accordion_id = 'extended-accordion-' . $id_num;
-    $isOpen = block_value('all-elements-open');
+    $isOpen = block_value('all-xls-open');
 @endphp
 
 @extends('blocks.helpers.block-wrapper')

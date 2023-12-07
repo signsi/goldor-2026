@@ -26,59 +26,6 @@ export default async (app) => {
             "ajax": [
                 '@scripts/ajax-loading-blocks'
             ],
-            "block.modal": [
-                '@scripts/blocks/rocketpager-modal'
-            ],
-            "block.audio-image": [
-                '@styles/rocketpager_blockstyles/rocketpager-audio-image-box'
-            ],
-            "block.hero-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-hero-slider',
-                '@styles/rocketpager_blockstyles/rocketpager-hero-slider'
-            ],
-            "block.content-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-content-slider',
-                '@styles/rocketpager_blockstyles/rocketpager-content-slider'
-            ],
-            "block.carousel-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-carousel-slider',
-            ],
-            "block.carousel-header": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-carousel-header',
-                '@styles/rocketpager_blockstyles/rocketpager-carousel-header'
-            ],
-            "block.testimonial-slider": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-testimonial-slider'
-            ],
-            "block.google-maps": [
-                '@scripts/blocks/rocketpager-google-maps',
-                '@styles/rocketpager_blockstyles/rocketpager-google-maps'
-            ],
-            "block.videoelement": [
-                '@scripts/blocks/rocketpager-videoelement',
-                // 'https://www.youtube.com/iframe_api',
-            ],
-            "block.iconbox": [
-                '@styles/rocketpager_blockstyles/rocketpager-iconbox'
-            ],
-            "block.text-image-list": [
-                '@styles/rocketpager_blockstyles/rocketpager-text-image-list'
-            ],
-            "block.accordion": [
-                '@scripts/blocks/rocketpager-accordion',
-            ],
-            "block.bilderwand": [
-                '@scripts/blocks/rocketpager-bilderwand',
-                '@styles/rocketpager_blockstyles/rocketpager-bilderwand'
-            ],
-            "block.fancy-team": [
-                '@scripts/blocks/rocketpager-fancy-team',
-            ],
         })
 
         /**
@@ -119,11 +66,24 @@ export default async (app) => {
          * @see {@link https://bud.js.org/extensions/sage/theme.json/}
          * @see {@link https://developer.wordpress.org/block-editor/how-to-guides/themes/theme-json/}
          */
-        .wpjson.settings({
+        .wpjson.setSettings({
+            appearanceTools: true,
+            // blocks: {
+            //     "core/group": {
+            //         // "__experimentalLayout": true,
+            //         "spacing": {
+            //             "blockGap": [
+            //                 "horizontal",
+            //                 "vertical"
+            //             ]
+            //         }
+            //     }
+            // },
             color: {
-                custom: false,
+                link: true,
+                custom: true,
                 customDuotone: false,
-                customGradient: false,
+                customGradient: true,
                 defaultDuotone: false,
                 defaultGradients: false,
                 defaultPalette: false,
@@ -136,11 +96,53 @@ export default async (app) => {
                     'line-height': {},
                 },
             },
+            layout: {
+                "contentSize": "var(--content--default-size)",
+                "wideSize": "var(--content--wide-size)",
+            },
+            typography: {
+            },
             spacing: {
                 blockGap: true,
                 padding: true,
                 margin: true,
-                units: ['px', '%', 'em', 'rem', 'vw', 'vh'],
+                spacingSizes: [
+                    {
+                        "name": "Tiny",
+                        "size": "var(--spacing-responsive--rp20)",
+                        "slug": "tiny"
+                    },
+                    {
+                        "name": "Small",
+                        "size": "var(--spacing-responsive--rp30)",
+                        "slug": "small"
+                    },
+                    {
+                        "name": "Medium",
+                        "size": "var(--spacing-responsive--rp40)",
+                        "slug": "medium"
+                    },
+                    {
+                        "name": "Large",
+                        "size": "var(--spacing-responsive--rp50)",
+                        "slug": "large"
+                    },
+                    {
+                        "name": "Extra Large",
+                        "size": "var(--spacing-responsive--rp60)",
+                        "slug": "x-large"
+                    },
+                    {
+                        "name": "2xl",
+                        "size": "var(--spacing-responsive--rp70)",
+                        "slug": "xx-large"
+                    },
+                    {
+                        "name": "3xl",
+                        "size": "var(--spacing-responsive--rp80)",
+                        "slug": "xxx-large"
+                    },
+                ],
             },
             typography: {
                 customFontSize: false,

@@ -21,7 +21,7 @@
 @section('content-section')
 
     <div class="title-wrapper text-center">
-        <{{ block_field('heading') }} class="mb-element">{{ block_field('title') }}</{{ block_field('heading') }}>
+        <{{ block_field('heading') }} class="mb-xl">{{ block_field('title') }}</{{ block_field('heading') }}>
     </div>
 
     <div class="grid{{ $row_per_col }} gap-gutter customer--wrapper grid-cols-2 md:grid-cols-3">

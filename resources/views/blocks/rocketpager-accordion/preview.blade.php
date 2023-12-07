@@ -11,7 +11,7 @@
                 block_row('element');
             @endphp
             <div class="relative accordion-item">
-                @if(block_sub_value('hide-element') && !$hidden)
+                @if(block_sub_value('hide-xl') && !$hidden)
                     <div class="absolute w-full h-full grid place-items-center inset-0 bg-[rgba(255,0,0,0.5)] z-10">
                         <h2 class="text-red-600 text-center">Element wird Live nicht angezeigt.</h2>
                     </div>
