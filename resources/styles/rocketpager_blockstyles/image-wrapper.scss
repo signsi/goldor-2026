@@ -1,0 +1,16 @@
+@layer components {
+    .bg-object-container {
+        @apply absolute inset-0 w-full h-full transition-opacity duration-200 ease-out;
+    }
+}
+
+.bg-object-wrapper {
+    @apply relative w-full;
+
+    picture {
+        @apply absolute inset-0 w-full h-full;
+        img {
+            @extend .bg-object-container;
+        }
+    }
+}

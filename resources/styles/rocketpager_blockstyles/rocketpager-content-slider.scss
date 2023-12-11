@@ -1,0 +1,12 @@
+.rocketpager-content-slider {
+    @apply relative;
+    &.cropped-stil figure{
+        @apply pr-4;
+    }
+    .slick-track > .slick-slide {
+        @apply leading-0;
+    }
+    figcaption {
+        @apply text-left ;
+    }
+}
