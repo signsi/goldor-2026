@@ -11,6 +11,13 @@ h1.wp-block-post-title {
     @apply text-4xl text-primary font-bold text-center mb-2xl;
 }
 
+.editor-styles-wrapper {
+    &,
+    * {
+        @apply font-sans;
+    }
+  }
+
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
