@@ -4,7 +4,7 @@
         'name_UrlField' => 'preview-videourl',                        -> Name des Feldes mit der Video-Url,
         'name_PosterField' => 'poster',                               -> Name des Feldes mit dem Video-Vorschau-Bild,
         'video_size' => '16x9',                                       -> (optional) Grösse des Videos -> Opionen: small, medium, vh, 16x9(Default)
-        'default_Features' => 'playsinline controls'                  -> (optional) könnt ihr aktuell ignorieren) Über default_Features können alle Funktionen definiert werden, welche das Video enthalten soll. Wird dies nicht gmacht, werden nur die Funktionalitäten verwendet, welche über das RocketPager-xl definiert wurden.
+        'default_Features' => 'playsinline controls'                  -> (optional) könnt ihr aktuell ignorieren) Über default_Features können alle Funktionen definiert werden, welche das Video enthalten soll. Wird dies nicht gmacht, werden nur die Funktionalitäten verwendet, welche über das RocketPager-Element definiert wurden.
         'useCustomPlayBtn' =>  false,                                 -> (optional) wenn true wird ein Customize Button angezeigt (Optionen autoplay und controls werden ignoriert)
         'isRepeaterElement' => false                                  -> (optional) Ist Bild in einem Repeater: true => sub_value, false => value (default)
     ])
