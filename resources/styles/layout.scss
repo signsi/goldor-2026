@@ -19,32 +19,32 @@ body {
 
 /* 2. Container-Breite - Helpers */
 .max-w-content-small {
-    @apply w-full max-w-full max-w-small 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-small;
 }
 .max-w-content-medium {
-    @apply w-full max-w-full lg:max-w-medium 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-medium;
 }
 .max-w-content-large {
-    @apply w-full max-w-full lg:max-w-large 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-large;
 }
 .max-w-content-xlarge {
-    @apply w-full max-w-full lg:max-w-xlarge 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-xlarge;
 }
 .max-w-content-2xlarge {
-    @apply w-full max-w-full lg:max-w-2xlarge 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-2xlarge;
 }
 
 
 /* 3. Template-Breite - Helpers */
 .max-w-content-default {
-    @apply w-full max-w-full lg:max-w-default 4xl:max-w-screen-xl;
+    @apply w-full max-w-full md:max-w-2xlarge lg:max-w-xlarge 2xl:max-w-large 4xl:max-w-default;
 }
 .max-w-content-wide {
-    @apply w-full max-w-full lg:max-w-wide 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge 2xl:max-w-xlarge 4xl:max-w-wide;
 }
 /* 3.1. Breite - Header/Footer */
 .max-w-content-hf {
-    @apply w-full max-w-full lg:max-w-header-footer 4xl:max-w-screen-xl;
+    @apply w-full max-w-full lg:max-w-2xlarge 2xl:max-w-xlarge 4xl:max-w-header-footer;
 }
 
 
@@ -52,10 +52,14 @@ body {
 body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
     @extend .max-w-content-default;
 }
+body.single .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    @extend .max-w-content-default;
+}
 body .is-layout-constrained > .alignwide {
     @extend .max-w-content-wide;
 }
 main > .wp-block-group,
+main > article > .wp-block-group,
 :where(.wp-block-group.has-background) {
     @apply px-gutter;
 }

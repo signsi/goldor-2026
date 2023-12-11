@@ -51,12 +51,11 @@ body, :root {
   --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
   
   // Container - Zuweisung der Variabeln
-  --content--header-footer-size: var(--content--2xlarge-size);
-  --content--default-size: var(--content--large-size);
-  --content--wide-size: var(--content--2xlarge-size);
+  --content--header-footer-size: var(--content--large-size);
+  --content--default-size: var(--content--medium-size);
+  --content--wide-size: var(--content--large-size);
   --wp--style--global--content-size: var(--content--default-size);
   --wp--style--global--wide-size: var(--content--wide-size);
-
 
   // ABSTÄNDE
   // Abstände - Werte
