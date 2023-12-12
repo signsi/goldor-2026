@@ -79,8 +79,6 @@ add_action('after_setup_theme', function () {
         pll_register_string('Suche nach:', 'Suche nach:', $group, false);
         pll_register_string('Aktuelle Beiträge', 'Aktuelle &post', $group, false);
         pll_register_string('Weitere Beiträge', 'Weitere &post', $group, false);
-        pll_register_string('Aktuelle Stellen', 'Aktuelle &jobs', $group, false);
-        pll_register_string('Weitere Stellen', 'Weitere &jobs', $group, false);
         pll_register_string('Link zum Profil', 'Link zum Profil', $group, false);
         pll_register_string('Cookie Info - Darstellung Inhalt', 'Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.', $group, false);
         pll_register_string('Lightbox - Video', 'Video in Lightbox anschauen', $group, false);

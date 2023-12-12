@@ -4,16 +4,20 @@
     @unless(have_posts())
         @include('partials.content.content-none')
     @else
-        <div class="wp-block-group is-style-layout-full">
-            <div class="wp-block-group scroll-reveal anim__fadeInUp">
+        
+        <x-container w="default">
+
             <h1>{{ App\pl__('Archiv - Titel') }}</h1>
             @while(have_posts())
                 @php(the_post())
                 @include('partials.content.content')
             @endwhile
-            <div class="wp-block-group mt-xl">
+            
+            {{-- // hide pagination if there is no postnavigation --}}
+            @if (get_next_posts_link() || get_previous_posts_link())
                 @include('partials.components.postnavigation')
-            </div>
-        </div>
+            @endif
+
+        </x-container>
     @endif
 @endsection

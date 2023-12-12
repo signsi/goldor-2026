@@ -1,6 +1,5 @@
-@extends('wrapper.containter-xl')
+<x-container w="xl">
 
-@section('container')
     <h1>{{ single_cat_title('', false) }}</h1>
 
     <div class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
@@ -9,9 +8,9 @@
         @endwhile
     </div>
     
-	{{-- // hide pagination if there is no postnavigation --}}
-	@if (get_next_posts_link() || get_previous_posts_link())
-		@include('partials.components.postnavigation')
-	@endif
-
-@endsection
+    {{-- // hide pagination if there is no postnavigation --}}
+    @if (get_next_posts_link() || get_previous_posts_link())
+        @include('partials.components.postnavigation')
+    @endif
+    
+</x-container>

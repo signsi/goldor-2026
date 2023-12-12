@@ -2,12 +2,12 @@
   $function = function_exists( 'relevanssi_get_permalink' ) ? 'relevanssi_get_permalink' : 'get_permalink';
 @endphp
 
-@extends('wrapper.containter-default')
+<x-container w="default">
 
-@section('container')
-	<h1>{{ App\pl__('Suche mit Resultate - Titel') }}</h1>
-	<p class="mt-0">{{ App\pl__('Suche mit Resultate - Meldung Resultate') }} <strong>{{ get_search_query() }}</strong></p>
-	<p class="mt-0 !mb-xl">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
+	<h2>{{ App\pl__('Suche') }}</h2>
+	<h1 class="mt-0">{{ App\pl__('Suche mit Resultate - Titel') }}</h1>
+	<p>{{ App\pl__('Suche mit Resultate - Meldung Resultate') }} <strong>{{ get_search_query() }}</strong></p>
+	<p class="mb-xl">{{ App\pl_e('Suche mit Resultate - Meldung') }}</p>
 	
 	@while(have_posts()) @php(the_post())
 		<article @php(post_class('py-medium mt-0 border-t border-solid border-greylight'))>
@@ -35,7 +35,7 @@
 		@include('forms.search')
 	</div>
 
-@endsection
+</x-container>
 
 
 
