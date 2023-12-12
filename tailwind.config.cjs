@@ -130,7 +130,18 @@ module.exports = {
         
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
-
+      },
+      space: {
+        // dynamische Abstände
+        'small': 'var(--spacing-responsive--rp30)',     
+        'medium': 'var(--spacing-responsive--rp40)',
+        'large': 'var(--spacing-responsive--rp50)',
+        'xl': 'var(--spacing-responsive--rp60)',
+        '2xl': 'var(--spacing-responsive--rp70)',
+        '3xl': 'var(--spacing-responsive--rp80)',
+        
+        // Abstände für das Grid
+        'gutter': 'var(--spacing-responsive--gutter)',
       },
       height: {
         'menu-items': '30px',

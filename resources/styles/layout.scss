@@ -6,6 +6,7 @@
    3. Template-Breite - Helpers
     3.1. Breite - Header/Footer
    4. Breite der Gruppen
+    4.1. Standard-Abstände der Gruppen auf der 1. Ebene
 */
 
 /* 1. Allgemeine Stile */
@@ -58,14 +59,12 @@ body.single .is-layout-constrained > :where(:not(.alignleft):not(.alignright):no
 body .is-layout-constrained > .alignwide {
     @extend .max-w-content-wide;
 }
-main > .wp-block-group,
-main > article > .wp-block-group,
-:where(.wp-block-group.has-background) {
-    @apply px-gutter;
-}
+
+/* 4.1. Standard-Abstände der Gruppen auf der 1. Ebene*/
 main,
 .is-root-container {
-    > :where(.wp-block-group.has-background) {
-        @apply py-2xl;
+    > .wp-block-group,
+    > article > .wp-block-group {
+        @apply py-2xl px-gutter;
     }
 }

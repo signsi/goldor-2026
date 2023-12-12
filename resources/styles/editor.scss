@@ -12,11 +12,10 @@ h1.wp-block-post-title {
 }
 
 .editor-styles-wrapper {
-    &,
-    * {
+    &, * {
         @apply font-sans;
     }
-  }
+}
 
 /* Tailwind Components und Utilities */
 @import 'tailwindcss/components';
