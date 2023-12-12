@@ -165,24 +165,6 @@ add_action('widgets_init', function () {
     ] + $config);
 
     register_sidebar([
-        'name' => __('404-Header (Cover-Bild oder Hero-Slider)', 'rocketpager'),
-        'id' => 'sidebar-header-404',
-        'description' => __('Hinzufügen eines Header-Bildes für das Template: 404', 'rocketpager'),
-    ] + $config);
-
-    register_sidebar([
-        'name' => __('Suchen-Header (Cover-Bild oder Hero-Slider)', 'rocketpager'),
-        'id' => 'sidebar-header-search',
-        'description' => __('Hinzufügen eines Header-Bildes für das Template: Suchen', 'rocketpager'),
-    ] + $config);
-
-    register_sidebar([
-        'name' => __('Archiv-Header (Cover-Bild oder Hero-Slider)', 'rocketpager'),
-        'id' => 'sidebar-header-archive',
-        'description' => __('Hinzufügen eines Header-Bildes für das Template: Archiv', 'rocketpager'),
-    ] + $config);
-
-    register_sidebar([
         'name' => __('Footer Spalte 1', 'rocketpager'),
         'id' => 'sidebar-footer-1',
         'description' => __('Überschreiben der ersten Spalte (Logo & Adresse). Das Widget "Footer Adresse" wird dabei auch überschrieben.', 'rocketpager'),

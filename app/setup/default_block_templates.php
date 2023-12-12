@@ -5,14 +5,6 @@ function slug_post_type_template()
     $page_type_object = get_post_type_object('page');
     $page_type_object->template = [
         ['core/group', [
-            // 'style' => [
-            //     'spacing' => [
-            //         'padding' => [
-            //             'top' => 'var:preset|spacing|xxx-large',
-            //             'bottom' => 'var:preset|spacing|xxx-large',
-            //         ],
-            //     ],
-            // ],
             'layout' => ['type' => 'constrained'],
             'animation' => 'scroll-reveal anim__animated anim__fadeInUp'
         ], [
@@ -46,14 +38,14 @@ function slug_post_type_template()
         ]],
 
         ['core/group', [
-            'style' => [
-                'spacing' => [
-                    'padding' => [
-                        'top' => 'var:preset|spacing|xxx-large',
-                        'bottom' => 'var:preset|spacing|xxx-large',
-                    ],
-                ],
-            ],
+            // 'style' => [
+            //     'spacing' => [
+            //         'padding' => [
+            //             'top' => 'var:preset|spacing|xxx-large',
+            //             'bottom' => 'var:preset|spacing|xxx-large',
+            //         ],
+            //     ],
+            // ],
             'lock' => ['move' => true, 'remove' => true],
             'layout' => ['type' => 'constrained'],
             'animation' => 'scroll-reveal anim__animated anim__fadeInUp'

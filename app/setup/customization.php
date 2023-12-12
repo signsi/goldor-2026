@@ -330,29 +330,6 @@ function crb_attach_theme_options()
         ],
     ];
 
-    $header_image_options = [
-        [
-            'type' => 'image',
-            'key' => 'header_image_default',
-            'label' => 'Header-Bild (alle Templates)',
-        ],
-        [
-            'type' => 'image',
-            'key' => 'header_image_404',
-            'label' => 'Header-Bild (Template 404)',
-        ],
-        [
-            'type' => 'image',
-            'key' => 'header_image_search',
-            'label' => 'Header-Bild (Template Suche)',
-        ],
-        [
-            'type' => 'image',
-            'key' => 'header_image_archive',
-            'label' => 'Header-Bild (Template Archiv)',
-        ],
-    ];
-
     $other_options = [
         [
             'type' => 'text',
@@ -396,10 +373,6 @@ function crb_attach_theme_options()
         ->add_tab(
             __('Logos'),
             get_mapped_fields($logo_options)
-        )
-        ->add_tab(
-            __('Header-Bilder'),
-            get_mapped_fields($header_image_options)
         )
         ->add_tab(
             __('CTA'),
