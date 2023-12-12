@@ -1,7 +1,7 @@
 <footer id="siteFooter" aria-labelledby="footer-heading">
-    <div class="has-primary-background-color has-background">
+    <div class="has-primary-background-color has-background px-gutter">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-content-hf px-gutter py-2xl mx-auto">
+        <div class="max-w-content-hf py-2xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
                 <!-- Footer Sidebar 1 -->
                 <div class="footerSidebar-1 flex flex-col gap-y-gutter">
@@ -45,9 +45,9 @@
         </div>
     </div>
     <!-- Footer Bottom Section -->
-    <div class="has-secondary-background-color has-background" aria-labelledby="footer-bottom">
+    <div class="has-secondary-background-color has-background px-gutter" aria-labelledby="footer-bottom">
         <h2 id="footer-bottom" class="sr-only">Footer bottom</h2>
-        <div class="footerDisclaimer max-w-content-hf px-gutter py-2.5 mx-auto">
+        <div class="footerDisclaimer max-w-content-hf py-2.5 mx-auto">
             <nav>
                 @relativeInclude('elements.disclaimer')
             </nav>
