@@ -37,7 +37,7 @@ add_action('after_setup_theme', function () {
         pll_register_string('Erfahren Sie mehr', 'Erfahren Sie mehr', $group, false);
         pll_register_string('E-Mail', 'E-Mail', $group, false);
         pll_register_string('E-Mail senden', 'E-Mail senden', $group, false);
-        pll_register_string('Teilen', 'Teilen', $group, false);
+        pll_register_string('Teilen auf', 'Teilen auf', $group, false);
 
         // RocketPager Core --> Wenn diese nicht gesetzt werden, werden die Default-Werte von den {local}.po Files genommen.
         // !!! Hier keine Strings hinzufügen/entfernen oder bearbeiten !!!

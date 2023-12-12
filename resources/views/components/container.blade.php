@@ -24,9 +24,7 @@ $width_classes = $widths[$w];
 
 @endphp
 
-
-
-<div class="{{$width_classes['outter']}}">
+<div class="{{$width_classes['outter']}} {{ $class }} ">
     <div class="{{$width_classes['inner']}}">
          {{ $slot }}
     </div>

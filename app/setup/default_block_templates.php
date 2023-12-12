@@ -48,7 +48,7 @@ function slug_post_type_template()
         ['core/group', [
             'style' => [
                 'spacing' => [
-                    'margin' => [
+                    'padding' => [
                         'top' => 'var:preset|spacing|xxx-large',
                         'bottom' => 'var:preset|spacing|xxx-large',
                     ],

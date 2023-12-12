@@ -29,12 +29,6 @@
     @endif
 </main>
 
-
-{{-- Beispiel für eine wiederverwendebare Blade-Komponente --}}
-{{-- <x-content-block>
-    <h1>Test</h1>
-</x-content-block> --}}
-
 @include('sections.footer.footer')
 
 @include('sections.offcanvas.sticky-cta')

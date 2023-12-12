@@ -1,3 +1,9 @@
+@php
+    $header_image_archive = App\getThemeOption('header_image_archive');
+    $header_image_default = App\getThemeOption('header_image_default');
+    $header_src = $header_image_archive ? $header_image_archive : $header_image_default;
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -6,8 +12,14 @@
         $post_type = get_post_type();
     @endphp
 
-    @if (is_active_sidebar('sidebar-header-archive'))
-        @php dynamic_sidebar('sidebar-header-archive') @endphp
+    @if ($header_src)
+        <div class="wp-block-cover is-light" style="min-height:300px">
+            <img alt="Header-Bild - Archiv" class="wp-block-cover__image-background"  src="{{ $header_src }}" data-object-fit="cover">
+        </div>
+    @else
+        <div class="wp-block-cover is-light" style="min-height:300px">
+            <img alt="Header-Bild - Archiv" class="wp-block-cover__image-background"  src="https://placehold.co/1920x1080?text=Platzhalter+Archiv" data-object-fit="cover">
+        </div>
     @endif
 
     {{-- Überprüft, ob Beiträge vorhanden sind --}}
