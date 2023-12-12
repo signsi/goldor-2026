@@ -5,7 +5,11 @@
     @php
         $post_type = get_post_type();
     @endphp
-    
+
+    @if (is_active_sidebar('sidebar-header-archive'))
+        @php dynamic_sidebar('sidebar-header-archive') @endphp
+    @endif
+
     {{-- Überprüft, ob Beiträge vorhanden sind --}}
     @if (! have_posts())
         @include('partials.content.content-none')
