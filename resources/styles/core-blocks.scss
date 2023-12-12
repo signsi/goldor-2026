@@ -81,8 +81,9 @@ hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
 
 /* Abstand-Regelung */
 * {
+  // nicht wenn es das erste Element ist und + h1, h2, h3, h4, h5, h6
   + h1, h2, h3, h4, h5, h6 {
-      @apply mt-2xl;
+    @apply first:mt-0 mt-2xl;
   }
 }
 p, ul, ol, blockquote, pre, hr, .wp-block-separator {
@@ -182,14 +183,21 @@ figure {
 }
 
 /* List-Styles */
+ul.is-style-default {
+  > li {
+    @apply text-base;
+  }
+}
 ul[class*="liststyle-icon"] {
   @apply list-none pl-0;
   
   > li {
-    @apply flex items-center pl-0 transition-colors hover:text-secondary;
-    
+    a {
+      @apply text-inherit;
+    }
+    @apply flex items-center pl-0 transition-all text-primary hover:text-secondary;
     &::before, &::after {
-      @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-transform;
+      @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-all;
     }
     &, &::before, &::after, & a {
       @apply transition-all;
@@ -221,7 +229,7 @@ ul[class*="liststyle-icon"] {
     @apply before:content-arrow-right-long after:content-arrow-right-long;
   }
   &[class*="--arrow-down-long"] > li {
-    @apply before:content-arrow-down-long after:content-arrow-down-long;
+    @apply before:content-arrow-down-long after:content-arrow-down-long border-b border-solid pb-rp-10;
   }
   &[class*="--circle-check"] > li {
     @apply before:content-circle-check after:content-circle-check;
@@ -239,6 +247,17 @@ ul[class*="liststyle-icon"] {
     > li::after {
       @apply translate-x-0 transition-all;
 
+    }
+  }
+  &[class*="--arrow-right"],
+  &[class*="--arrow-right-long"]{
+    > li {
+      > a {
+        @apply translate-x-0 transition-all;
+      }
+      &:hover > a {
+        @apply origin-center translate-x-1.5;
+      } 
     }
   }
   &[class*="--arrow-left"],

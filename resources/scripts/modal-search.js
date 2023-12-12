@@ -12,4 +12,11 @@ export function setupSearchModal() {
   $closeModal.on('click', function () {
     $modal.addClass('hidden');
   });
+
+  // Event-Handler für die Escape-Taste hinzufügen
+  $(document).on('keydown', function (event) {
+    if (event.key === 'Escape') {
+      $modal.addClass('hidden');
+    }
+  });
 }

@@ -37,7 +37,7 @@ add_action('after_setup_theme', function () {
         pll_register_string('Erfahren Sie mehr', 'Erfahren Sie mehr', $group, false);
         pll_register_string('E-Mail', 'E-Mail', $group, false);
         pll_register_string('E-Mail senden', 'E-Mail senden', $group, false);
-        pll_register_string('Teilen', 'Teilen', $group, false);
+        pll_register_string('Teilen auf', 'Teilen auf', $group, false);
 
         // RocketPager Core --> Wenn diese nicht gesetzt werden, werden die Default-Werte von den {local}.po Files genommen.
         // !!! Hier keine Strings hinzufügen/entfernen oder bearbeiten !!!
@@ -79,8 +79,6 @@ add_action('after_setup_theme', function () {
         pll_register_string('Suche nach:', 'Suche nach:', $group, false);
         pll_register_string('Aktuelle Beiträge', 'Aktuelle &post', $group, false);
         pll_register_string('Weitere Beiträge', 'Weitere &post', $group, false);
-        pll_register_string('Aktuelle Stellen', 'Aktuelle &jobs', $group, false);
-        pll_register_string('Weitere Stellen', 'Weitere &jobs', $group, false);
         pll_register_string('Link zum Profil', 'Link zum Profil', $group, false);
         pll_register_string('Cookie Info - Darstellung Inhalt', 'Akzeptieren Sie die funktionalen Cookies, um den Inhalt anzuzeigen.', $group, false);
         pll_register_string('Lightbox - Video', 'Video in Lightbox anschauen', $group, false);

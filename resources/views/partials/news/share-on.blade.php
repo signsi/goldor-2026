@@ -5,16 +5,14 @@
     $aClasses = 'text-primary hover:text-font transition duration-300 ease-out'
 @endphp
 
-<div class="wp-block-group has-grey-background-color has-background is-style-layout-full">
-  <div class="wp-block-group is-style-layout-small">
-        <h3>Share on</h3>
-        @include('partials.social.social-share', [
-            'list_classes' => 'menu nav-icons icon-left',
-            'useSquare' => true,
-            'icon_classes' => 'fa-2x',
-            'list_classes' => $ulClasses,
-            'listitem_classes' => $liClasses,
-            'achnor_classes' => $aClasses
-        ])
-    </div>
-</div>
+<x-container w="wide">
+    <h3>{{ App\pl__('Teilen auf') }}</h3>
+    @include('partials.social.social-share', [
+        'list_classes' => 'menu nav-icons icon-left',
+        'useSquare' => true,
+        'icon_classes' => 'fa-2x',
+        'list_classes' => $ulClasses,
+        'listitem_classes' => $liClasses,
+        'achnor_classes' => $aClasses
+    ])
+</x-container>
