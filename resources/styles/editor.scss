@@ -2,18 +2,18 @@
 @import 'tailwindcss/base';
 @import './variables.scss';
 
-.is-root-container{
-    /* Main Styles nur innerhalb von .is-root-container */
-    @import './main.scss';
-}
-
-.edit-post-visual-editor__post-title-wrapper h1.wp-block-post-title {
-    @apply text-4xl text-primary font-bold text-center mb-2xl;
-}
-
 .editor-styles-wrapper {
+    @import './main.scss';
     &, * {
         @apply font-sans;
+    }
+    .is-root-container {
+        > .alignfull {
+            @apply py-2xl px-gutter;
+        }
+    }
+    .edit-post-visual-editor__post-title-wrapper h1.wp-block-post-title {
+        @apply text-4xl text-primary font-bold text-center mb-2xl;
     }
 }
 

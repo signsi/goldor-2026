@@ -61,8 +61,7 @@ body .is-layout-constrained > .alignwide {
 }
 
 /* 4.1. Standard-Abstände der Gruppen auf der 1. Ebene*/
-main,
-.is-root-container {
+main {
     > .wp-block-group,
     > article > .wp-block-group {
         @apply py-2xl px-gutter;

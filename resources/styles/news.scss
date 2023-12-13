@@ -11,6 +11,13 @@ body.single {
             }
         }
     }
+    // Wenn die Gruppe keine Hintergrundfarbe hat, dann die nächste Gruppe transparent machen
+    .wp-block-group:not(.has-background) + .wp-block-group {
+        @apply bg-transparent;
+    } 
+    .wp-block-group:not(.has-background) + .wp-block-group + .wp-block-group {
+        @apply bg-greylight;
+    }   
 }
 
 /* Filter */
