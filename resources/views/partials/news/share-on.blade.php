@@ -5,12 +5,13 @@
     $aClasses = 'text-primary hover:text-font transition duration-300 ease-out'
 @endphp
 
-<x-container w="wide">
-    <h3>{{ App\pl__('Teilen auf') }}</h3>
+<x-container w="default" class="bg-quaternary !pt-0">
+    <hr>
+    <h4>{{ App\pl__('Teilen auf') }}</h4>
     @include('partials.social.social-share', [
         'list_classes' => 'menu nav-icons icon-left',
         'useSquare' => true,
-        'icon_classes' => 'fa-2x',
+        'icon_classes' => 'fa-lg',
         'list_classes' => $ulClasses,
         'listitem_classes' => $liClasses,
         'achnor_classes' => $aClasses

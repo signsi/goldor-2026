@@ -42,6 +42,7 @@
                     @endif
                 </div>
             </div>
+            @relativeInclude('elements.copyright')
         </div>
     </div>
     <!-- Footer Bottom Section -->

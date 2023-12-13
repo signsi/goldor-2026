@@ -3,7 +3,7 @@
 $w = $w ?? "default";
 
 $outer_default = "wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained py-2xl";
-$inner_default = "wp-block-group is-layout-flow wp-block-group-is-layout-flow";
+$inner_default = "wp-block-group is-layout-flow wp-block-group-is-layout-flow scroll-reveal anim__animated anim__fadeInUp";
 
 $widths = [
     "default" => [
@@ -24,7 +24,7 @@ $width_classes = $widths[$w];
 
 @endphp
 
-<div class="{{$width_classes['outter']}} {{ $class }} ">
+<div class="{{ $class }} {{$width_classes['outter']}}">
     <div class="{{$width_classes['inner']}}">
          {{ $slot }}
     </div>

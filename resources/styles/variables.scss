@@ -9,21 +9,19 @@ body, :root {
   --color-pigmentgreen: #27AE60;
   --color-azure: #2F80ED;
   --color-gold: #E2B93B;
-  --color-hellgelb: #fce5a0;
-  --color-dunkelrot: #640200;
   --color-indianred: #EB5757;
 
   // Color - Werte: Theme
   --color-charcoal: #28536B;
   --color-airsuperiorityblue: #7EA8BE;
   --color-rosybrown: #C2948A;
-  --color-khaki: #BBB193;
+  --color-dutch-white: #f5eac1;
   
   // Color - Zuweisung der Variabeln
   --color-primary: var(--color-charcoal);
   --color-secondary: var(--color-airsuperiorityblue);
   --color-tertiary: var(--color-rosybrown);
-  --color-quaternary: var(--color-khaki);
+  --color-quaternary: var(--color-dutch-white);
 
   --color-info: var(--color-azure);
   --color-success: var(--color-pigmentgreen);
