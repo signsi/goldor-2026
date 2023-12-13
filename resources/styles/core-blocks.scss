@@ -83,12 +83,12 @@ hr.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
 * {
   // nicht wenn es das erste Element ist und + h1, h2, h3, h4, h5, h6
   + h1, h2, h3, h4, h5, h6 {
-    @apply first:mt-0 mt-2xl;
+    @apply first:mt-0 mt-xl;
   }
 }
 p, ul, ol, blockquote, pre, hr, .wp-block-separator {
   + .wp-block-columns {
-      @apply mt-2xl;
+      @apply mt-xl;
   }
 }
 

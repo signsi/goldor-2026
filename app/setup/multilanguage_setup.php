@@ -86,5 +86,6 @@ add_action('after_setup_theme', function () {
         pll_register_string('Autor', 'Autor', $group, false);
         pll_register_string('Newsletter abonnieren', 'Newsletter abonnieren', $group, false);
         pll_register_string('Hier abonnieren', 'Hier abonnieren', $group, false);
+        pll_register_string('Alle Rechte vorbehalten.', 'Alle Rechte vorbehalten.', $group, false);
     }
 });

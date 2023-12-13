@@ -35,16 +35,6 @@
           "slug": "quaternary"
         },
         {
-          "color": "var(--color-hellgelb)",
-          "name": "Hellgelb",
-          "slug": "hellgelb"
-        },
-        {
-          "color": "var(--color-dunkelrot)",
-          "name": "Dunkelrot",
-          "slug": "dunkelrot"
-        },
-        {
           "color": "var(--color-font)",
           "name": "Font",
           "slug": "font"
