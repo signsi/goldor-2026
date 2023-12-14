@@ -3,8 +3,7 @@ const tailconf = require('@rocket-gmbh/tailconf_helpers');
 
 // https://tailwindcss.com/docs/configuration
 module.exports = {
-  content: ['./index.php', './app/**/*.php', './resources/**/*.{php,vue,js}', './safelist.txt', './node_modules/flowbite/**/*.js'
-  ],
+  content: ['./index.php', './app/**/*.php', './resources/views/**/*.{php,vue,js}', './resources/styles/**/*.{php,vue,js}', './resources/scripts/**/*.{php,vue,js}', './safelist.txt', './node_modules/flowbite/**/*.js'],
   theme: {
     fluidTypeSettings: {
 
