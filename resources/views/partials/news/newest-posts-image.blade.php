@@ -33,8 +33,11 @@
                         @endif
                     </div>
                     <div class="w-full md:w-1/2 lg:w-3/4 mt-small md:mt-0 md:ml-small">
-                        <h5 class="mb-2">{{ the_title() }}</h5>
-                        <p class="text-sm mt-0">{!! wp_trim_words( get_the_excerpt(), 15, '...' ) !!}</p>
+                        <h5 class="mb-0">{{ the_title() }}</h5>
+                        <div class="text-xs mt-0">
+                            @include('partials.meta.entry-meta-date')
+                        </div>
+                        <p class="text-sm">{!! wp_trim_words( get_the_excerpt(), 15, '...' ) !!}</p>
                         <span class="no-underline text-xs transition-transform hover:no-underline group-hover:origin-center group-hover:text-primary group-hover:translate-x-2 block">{{ App\pl__('Weiterlesen') }} <i class="fa-light fa-arrow-right-long"></i></span>
                     </div>
                 </a>
