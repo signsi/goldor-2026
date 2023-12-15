@@ -1,26 +1,30 @@
 @php
+    $containerWidth = block_value('container-width');
     $boxWidth = block_value('box-width');
     $boxAlignment = block_value('box-alignment');
     $textAlignment = block_value('text-alignment');
 @endphp
 
 
-@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-3'])
+@extends('blocks.helpers.preview-wrapper', ['flex_type' => 'grid-cols-1'])
 
 
 <div class="text-xs bg-grey text-white p-medium">
     <strong><u>Einstellung der Textbox</u></strong>
     <br>
     Breite der Textbox:
-    @switch($boxWidth)
-        @case('max-w-slim')
-            Schmale Breite des Contents
+    @switch($containerWidth)
+        @case('max-w-content-small')
+            Schmale Containerbreite
             @break
-        @case('max-w-default')
-            Standardbreite des Contents
+        @case('max-w-content-default')
+            Standardbreite Container
+            @break
+        @case('max-w-content-wide')
+            Weite Containerbreite
             @break
         @default
-            Schmale Breite des Contents
+            Standardbreite Container
     @endswitch
     <br>
     Ausrichtung der Textbox:
@@ -103,16 +107,21 @@
                     ])
                 </picture>
                 @if ( block_sub_value( 'title') )
-                    <div class="px-gutter border border-solid border-gray">
+                    <div class="p-gutter border border-solid border-gray">
                         <div class="{{ block_value('box-width') }}">
-                            @if ( block_sub_value( 'title') )
-                                <p class="font-bold">{{ block_sub_value('title') }}</p>
-                            @endif
-                            <div class="[&_*]:text-sm [&_*]:font-normal">
-                                @if ( block_sub_value( 'text') )
+                            <span class="heading-1 !my-0">{{ block_sub_value('title') }}</span>
+                            @if (block_sub_value('text'))
+                                <div class="[&_*]:text-lg [&_*]:font-normal">
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
-                                @endif
-                            </div>
+                                </div>
+                            @endif
+                            @if (block_sub_value('button-text'))
+                                <div class="wp-block-buttons mt-large">
+                                    <div class="wp-block-button">
+                                        <a class="wp-block-button__link wp-element-button">{{ block_sub_value('button-text') }}</a>
+                                    </div>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 @endif

@@ -6,7 +6,6 @@
     "appearanceTools": true,
     "color": {
       "link": true,
-      "linkHover": true,
       "custom": true,
       "customDuotone": false,
       "customGradient": true,
