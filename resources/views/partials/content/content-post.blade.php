@@ -1,6 +1,10 @@
 <a href="{{ the_permalink() }}" class="group bg-secondary">
     <div class="image-wrapper overflow-hidden">
-        {{ the_post_thumbnail( '4-3-thumb', ['class' => 'transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
+        @if (has_post_thumbnail())
+            {{ the_post_thumbnail( '4-3-thumb', ['class' => 'object-cover transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
+        @else
+            <img src="https://placehold.co/800x600?text=Platzhalter" alt="Platzhalterbild" class="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110">
+        @endif
     </div>
     <div class="content-wrapper p-medium flex flex-col space-y-small">
 
