@@ -135,7 +135,6 @@ export default async (app) => {
             // },
             color: {
                 link: true,
-                linkHover: true,
                 custom: true,
                 customDuotone: false,
                 customGradient: true,

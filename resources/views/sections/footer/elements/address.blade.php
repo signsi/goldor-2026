@@ -12,7 +12,7 @@
     $phone_link = str_replace(' ', '', $company_phone);
 @endphp
 
-<div class="footer-address flex flex-col gap-small">
+<div class="footer-address flex flex-col gap-y-medium">
     @if(is_active_sidebar('sidebar-footer-address'))
         @php dynamic_sidebar('sidebar-footer-address') @endphp
     @else
