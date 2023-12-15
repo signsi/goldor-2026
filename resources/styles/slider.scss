@@ -15,11 +15,6 @@
   @apply opacity-100;
 }
 
-// Zeigt an, dass man den Slide nach links oder rechts ziehen kann
-.slick-list.draggable {
-  @apply hover:cursor-grabbing;
-}
-
 /* Arrows */
 .slick-arrow {
   @apply bg-secondary hover:bg-primary transition-colors;

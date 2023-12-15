@@ -195,7 +195,7 @@ ul[class*="liststyle-icon"] {
     a {
       @apply text-inherit;
     }
-    @apply flex items-center pl-0 transition-all text-primary hover:text-secondary;
+    @apply flex items-center pl-0 transition-all;
     &::before, &::after {
       @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-all;
     }

@@ -40,7 +40,8 @@ module.exports = {
         tertiary: 'var(--color-tertiary)',
         quaternary: 'var(--color-quaternary)',
 
-        font: 'var(--color-font)',
+        font: 'var(--color-font)',        
+
         grey: 'var(--color-grey)',
         greylight: 'var(--color-greylight)',
         greydark: 'var(--color-greydark)',
