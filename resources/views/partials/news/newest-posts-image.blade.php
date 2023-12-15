@@ -27,9 +27,9 @@
                 <a href="{{ the_permalink() }}" class="group flex flex-col md:flex-row border-b border-dotted border-b-primary pb-medium mt-0 mb-medium">
                     <div class="w-full md:w-1/2 lg:w-1/4 overflow-hidden">
                         @if (has_post_thumbnail())
-                            {{ the_post_thumbnail( '4-3-thumb', ['class' => 'object-cover transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
+                            {{ the_post_thumbnail( '4-3-thumb', ['class' => 'object-cover']) }}
                         @else
-                            <img src="https://placehold.co/800x600?text=Platzhalter" alt="Platzhalterbild" class="object-cover transition-transform duration-300 ease-in-out group-hover:scale-110">
+                            <img src="https://placehold.co/800x600?text=Platzhalter" alt="Platzhalterbild" class="object-cover">
                         @endif
                     </div>
                     <div class="w-full md:w-1/2 lg:w-3/4 mt-small md:mt-0 md:ml-small">
