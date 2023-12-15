@@ -2,14 +2,13 @@
     <div class="bg-primary text-white px-gutter">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-content-hf py-2xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter [&_*]:my-0 [&_a:hover]:text-secondary">
                 <!-- Footer Sidebar 1 -->
                 <div class="footerSidebar-1 flex flex-col gap-y-gutter">
                     @if(is_active_sidebar('sidebar-footer-1'))
                         @php (dynamic_sidebar('sidebar-footer-1'))
                     @else
                         @relativeInclude('elements.logo')
-                        @relativeInclude('elements.address')
                     @endif
                 </div>
                 <!-- Footer Sidebar 2 -->
@@ -17,7 +16,11 @@
                     @if(is_active_sidebar('sidebar-footer-2'))
                         @php (dynamic_sidebar('sidebar-footer-2'))
                     @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1'])
+                        @if (has_nav_menu('footer_navigation_1'))
+                            @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1'])
+                        @else
+                            @relativeInclude('elements.address')
+                        @endif
                     @endif
                 </div>
                 <!-- Footer Sidebar 3 -->

@@ -27,8 +27,14 @@ body, :root {
   --color-success: var(--color-pigmentgreen);
   --color-warning: var(--color-gold);
   --color-error: var(--color-indianred);
+
+  // Color - Zuweisung der Variabeln - Typografie
   --color-font: var(--color-black);
-  
+  --color-link: var(--color-secondary);
+  --color-link-hover: var(--color-primary);
+  --color-link--dark: var(--color-white);
+  --color-link-hover--dark: var(--color-secondary);
+
   // CONTAINER
   // Container - Werte
   --num-cols: 12;

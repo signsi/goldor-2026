@@ -51,3 +51,21 @@ const anchorJump = () => {
 export function handleAnchorJump() {
     $(window).on('load hashchange', anchorJump );
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Finde das Scroll-Down-Element
+    var scrollDownElement = document.getElementById("scrollDown");
+
+    // Füge einen Klick-Event-Listener hinzu
+    scrollDownElement.addEventListener("click", function() {
+        // Finde das nächste Element mit der CSS-Klasse ".alignfull"
+        var nextElement = document.querySelector(".alignfull");
+
+        // Überprüfe, ob ein Element gefunden wurde
+        if (nextElement) {
+            // Scrolle zum nächsten Element
+            nextElement.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+});
+

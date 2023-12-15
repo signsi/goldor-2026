@@ -3,20 +3,25 @@ bg-secondary
 bg-tertiary
 bg-quaternary
 
+text-primary
+text-secondary
+text-tertiary
+text-quaternary
+
 alignfull
 alignwide
 alignnone
 aligncenter
 alignright
 
-max-w-small
-max-w-medium
-max-w-large
-max-w-xlarge
-max-w-2xlarge
-max-w-header-footer
-max-w-default
-max-w-wide
+max-w-content-small
+max-w-content-medium
+max-w-content-large
+max-w-content-xlarge
+max-w-content-2xlarge
+max-w-content-header-footer
+max-w-content-default
+max-w-content-wide
 
 text-left
 text-center
