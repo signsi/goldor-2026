@@ -7,8 +7,8 @@
             <div class="slides bg-object-wrapper px-medium {{ block_value('slider-height') }} @if (block_value('hasGradient')) hasGradient @endif">
                 @if (block_sub_value('title'))
                     <div class="relative z-30 flex h-full {{ block_value('container-width') }} {{ block_value('box-alignment') }} {{ block_value('text-alignment') }} mx-auto py-2xl">
-                        <div class="w-full {{ block_value('box-width') }} @if (block_value('box-bg')) bg-white shadow-lg text-primary p-xl @else [&_*]:text-white @endif">
-                            <span class="heading-1 !my-0">{{ block_sub_value('title') }}</span>
+                        <div class="w-full {{ block_value('box-width') }} @if (block_value('box-bg')) bg-white shadow-lg text-primary p-xl @else [&_*]:text-white @endif @if (block_value('enable-stoerer')) stoerer @endif anim__animated anim__fadeInUp">
+                            <span class="heading-1 !my-0">{!! App\sanitize_out(block_sub_value('title'), 'text_area') !!}</span>
                             @if (block_sub_value('text'))
                                 <div class="[&_*]:text-lg [&_*]:font-normal">
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}
