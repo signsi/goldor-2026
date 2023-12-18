@@ -91,6 +91,10 @@
         <br>
         Textbox farblich hinterlegt
     @endif
+    @if ( block_value('enable-stoerer') )
+        <br>
+        Textbox als Störer
+    @endif
 </div>
 
 @section('flex-item-content')
@@ -109,7 +113,7 @@
                 @if ( block_sub_value( 'title') )
                     <div class="p-gutter border border-solid border-gray">
                         <div class="{{ block_value('box-width') }}">
-                            <span class="heading-1 !my-0">{{ block_sub_value('title') }}</span>
+                            <span class="heading-1 !my-0">{!! App\sanitize_out(block_sub_value('title'), 'text_area') !!}</span>
                             @if (block_sub_value('text'))
                                 <div class="[&_*]:text-lg [&_*]:font-normal">
                                     {!! App\sanitize_out(block_sub_value('text'), 'text_area') !!}

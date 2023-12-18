@@ -43,6 +43,15 @@
                             @php (dynamic_sidebar('sidebar-footer-cta'))
                         @endif
                     @endif
+                    <nav>
+                        @if (has_nav_menu('primary_navigation'))
+                            @php(wp_nav_menu([
+                                'theme_location' => 'primary_navigation',
+                                'menu_class' => 'is-style-liststyle-icon-start--arrow-right-long',
+                                'walker' => new SubmenuWrap(),
+                            ]))
+                        @endif
+                    </nav>
                 </div>
             </div>
             @relativeInclude('elements.copyright')
