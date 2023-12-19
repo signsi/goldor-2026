@@ -36,7 +36,7 @@
         @endif
     </section>
     @if ( block_value( 'title') )
-        <div class="absolute top-0 left-0 right-0 hidden md:block max-w-default mx-auto px-gutter pt-2xl">
+        <div class="absolute top-0 left-0 right-0 hidden md:block max-w-default mx-auto px-gutter pt-3xl">
             <div class="flex gap-gutter">
                 <div class="basis-5/12 lg:bassis-4/14 relative hidden md:block">
                     <div class="relative h-full after:content[''] after:absolute after:inset-0 after:mix-blend-multiply after:bg-primary">

@@ -1,7 +1,7 @@
 /* Footer */
 footer {
-  ul li, p {
-    @apply text-sm;
+  ul li, p, address {
+    @apply text-xs;
   }
   .widget_nav_menu ul {
     @extend .is-style-liststyle-icon-start--arrow-down-to-line !optional;
