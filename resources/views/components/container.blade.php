@@ -2,7 +2,7 @@
 
 $w = $w ?? "default";
 
-$outer_default = "wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained py-2xl";
+$outer_default = "wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained py-3xl";
 $inner_default = "wp-block-group is-layout-flow wp-block-group-is-layout-flow scroll-reveal anim__animated anim__fadeInUp";
 
 $widths = [
@@ -15,7 +15,7 @@ $widths = [
         "inner" => $inner_default . " alignwide"
     ],
     "xl" => [
-        "outter" => "wp-block-group w-full py-2xl",
+        "outter" => "wp-block-group w-full py-3xl",
         "inner" => "max-w-content-xlarge mx-auto"
     ]
 ];

@@ -1,7 +1,7 @@
 <footer id="siteFooter" aria-labelledby="footer-heading">
     <div class="bg-primary text-white px-gutter">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-content-hf py-2xl mx-auto">
+        <div class="max-w-content-hf py-3xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter [&_*]:my-0 [&_a:hover]:text-secondary">
                 <!-- Footer Sidebar 1 -->
                 <div class="footerSidebar-1 flex flex-col gap-y-medium">

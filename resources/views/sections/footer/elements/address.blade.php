@@ -16,12 +16,12 @@
     @if(is_active_sidebar('sidebar-footer-address'))
         @php dynamic_sidebar('sidebar-footer-address') @endphp
     @else
-        <address class="text-sm not-italic">
+        <address class="not-italic">
             {{ $company_name }}<br>
             {{ $company_division }}<br>
             {{ $company_street }}<br>{{ $company_plz }} {{ $company_city }}
         </address>
-        <p class="text-sm">
+        <p>
             <a href="tel:{{ $phone_link }}" aria-label="Telefonnummer">{{ $company_phone }}</a><br>
             <a href="mailto:{{ $company_email }}" aria-label="E-Mail-Adresse">{{ $company_email }}</a><br>
             <a href="https://{{ $company_page }}" aria-label="Website">{{ $company_page }}</a><br>
