@@ -15,11 +15,17 @@
                                 </div>
                             @endif
                             @if (block_sub_value('button-text'))
-                                <div class="wp-block-buttons mt-large">
-                                    <div class="wp-block-button">
-                                        <a class="wp-block-button__link wp-element-button">{{ block_sub_value('button-text') }}</a>
+                                @if (block_value('enable-stoerer'))
+                                    <ul class="is-style-liststyle-icon-start--arrow-right-long hidden xl:block">
+                                        <li><a href="{{ block_sub_value('button-link') }}">{{ block_sub_value('button-text') }}</a></li>
+                                    </ul>
+                                @else
+                                    <div class="wp-block-buttons mt-large">
+                                        <div class="wp-block-button">
+                                            <a href="{{ block_sub_value('button-link') }}" class="wp-block-button__link wp-element-button">{{ block_sub_value('button-text') }}</a>
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
                             @endif
                         </div>
                     </div>
