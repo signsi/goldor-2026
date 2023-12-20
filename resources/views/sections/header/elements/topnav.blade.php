@@ -21,7 +21,7 @@
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'menu-primary_navigation flex space-x-6 xl:space-x-10 2xl:space-x-12 items-center my-0',
                             'container_class' => 'menu-primary_navigation-container',
-                            'add_li_class' => 'relative group text-base text-primary hover:text-font w-min-content before:w-0 before:h-px before:absolute before:-bottom-[3px] before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-font',
+                            'add_li_class' => 'relative group text-base text-primary hover:text-tertiary w-min-content before:w-0 before:h-1 before:absolute before:-bottom-2 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
                             'add_sub_li_class' => 'before:content-none',
                             'walker' => new SubmenuWrap()
                         ])

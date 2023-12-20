@@ -4,17 +4,20 @@
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
 @endphp
 
-<div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-white !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden h-vh">
-    <div class="flex flex-col gap-10 px-gutter py-10 bg-theme text-font">
+<div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-secondary !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden h-vh">
+    <div class="flex flex-col gap-gutter px-gutter py-3xl text-font">
         <nav>
             @if (has_nav_menu('primary_navigation'))
-                @php(wp_nav_menu([
-                    'theme_location' => 'primary_navigation',
-                    'menu_class' => 'menu-primary_navigation-mobile flex flex-col items-baseline justify-between linkGrowing',
-                    'container_class' => 'menu-primary_navigation-container',
-                    'add_li_class' => 'z-10 py-3 w-full text-lg font-bold group last:border-b-0',
-                    'walker' => new SubmenuWrap(),
-                ]))
+                @php
+                    wp_nav_menu([
+                        'theme_location' => 'primary_navigation',
+                        'menu_class' => 'menu-primary_navigation flex flex-col space-y-6 items-start my-0 px-0',
+                        'container_class' => 'menu-primary_navigation-container',
+                        'add_li_class' => 'relative group text-xl text-white hover:text-tertiary w-min-content before:w-0 before:h-1 before:absolute before:-bottom-2 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
+                        'add_sub_li_class' => 'before:content-none',
+                        'walker' => new SubmenuWrap()
+                    ])
+                @endphp
             @endif
         </nav>
         @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList')

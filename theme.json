@@ -96,13 +96,13 @@
       "customFontSize": false,
       "fontFamilies": [
         {
-          "fontFamily": "DM Sans,Helvetica,sans-serif",
+          "fontFamily": "DM Sans,sans-serif",
           "name": "DM Sans",
           "slug": "sans"
         },
         {
-          "fontFamily": "Crete Round,serif",
-          "name": "Crete Round",
+          "fontFamily": "Libre Baskerville,serif",
+          "name": "Libre Baskerville",
           "slug": "serif"
         },
         {

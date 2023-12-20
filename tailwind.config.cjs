@@ -77,8 +77,8 @@ module.exports = {
         '4xl': '1920px',
       },
       fontFamily: {
-        serif: ['Crete Round', 'serif'],
-        sans: ['DM Sans', 'Helvetica', 'sans-serif'],
+        serif: ['Libre Baskerville', 'serif'],
+        sans: ['DM Sans', 'sans-serif'],
         icon: '"Font Awesome 6 Pro"',
         'icon-sharp': 'var(--fa-style-family-sharp)'
       },

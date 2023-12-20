@@ -26,6 +26,9 @@ p {
 a:not([class^=components-]) {
   @apply transition-colors;
 }
+.wp-block-group p a {
+  @apply text-secondary hover:text-tertiary;
+}
 div[class^="wp-container-"] a {
   @apply underline;
 }

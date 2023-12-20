@@ -12,16 +12,16 @@ body, :root {
   --color-indianred: #EB5757;
 
   // Color - Werte: Theme
-  --color-charcoal: #28536B;
-  --color-airsuperiorityblue: #7EA8BE;
-  --color-rosybrown: #C2948A;
-  --color-dutch-white: #f5eac1;
+  --color-pakistangreen: #283618;
+  --color-darkmossgreen: #606c38;
+  --color-tigereye: #BC6C25;
+  --color-cornsilk: #fefae0;
   
   // Color - Zuweisung der Variabeln
-  --color-primary: var(--color-charcoal);
-  --color-secondary: var(--color-airsuperiorityblue);
-  --color-tertiary: var(--color-rosybrown);
-  --color-quaternary: var(--color-dutch-white);
+  --color-primary: var(--color-pakistangreen);
+  --color-secondary: var(--color-darkmossgreen);
+  --color-tertiary: var(--color-tigereye);
+  --color-quaternary: var(--color-cornsilk);
 
   --color-info: var(--color-azure);
   --color-success: var(--color-pigmentgreen);

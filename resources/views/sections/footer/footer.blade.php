@@ -24,7 +24,7 @@
                     @endif
                 </div>
                 <!-- Footer Sidebar 3 -->
-                <div class="footerSidebar-3 flex flex-col gap-y-medium">
+                <div class="footerSidebar-3 hidden md:flex flex-col gap-y-medium ">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php (dynamic_sidebar('sidebar-footer-3'))
                     @else
