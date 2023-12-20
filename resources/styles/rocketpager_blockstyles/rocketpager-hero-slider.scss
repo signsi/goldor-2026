@@ -2,7 +2,4 @@
     .slick-slide {
         @apply leading-0;
     }
-    .stoerer {
-        @apply rotate-6 flex flex-col justify-center items-center p-rp-20 bg-primary shadow-lg hover:bg-secondary border-4 border-secondary border-solid transition-colors max-w-none w-44 h-44 md:w-64 md:h-64 xl:w-80 xl:h-80 rounded-full lg:mb-[calc(0px_-_(1.5_*_var(--spacing-responsive--rp70)))];
-    }
 }
