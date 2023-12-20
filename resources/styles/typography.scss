@@ -70,7 +70,7 @@ h6,
 /* Textgrössen */
 @layer utilities {
     @for $i from 1 to 10 {
-        .has-#{$i}xl-font-size {
+        .has-#{$i}-xl-font-size {
             @apply text-#{$i}xl #{!important};
         }
     }

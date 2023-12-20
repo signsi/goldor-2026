@@ -127,7 +127,7 @@ figcaption,
 figure.wp-block-table {
   @apply table-auto my-rp-40 text-sm;
   thead {
-      @apply border-b border-solid border-font;
+      @apply border-b border-solid;
   }
   th {
       @apply first:pl-0 last:pr-0 px-3 pb-3 pt-0 font-semibold align-bottom text-left;
@@ -139,7 +139,7 @@ figure.wp-block-table {
       @apply first:pl-0 last:pr-0 p-3 align-baseline;
   }
   tr {
-      @apply border-b border-grey;
+      @apply border-b;
   }
 }
 
@@ -283,5 +283,13 @@ ul[class*="liststyle-icon"] {
 /* Search */
 input.search-input:focus + .icon-wrapper {
   @apply opacity-0;
+}
+
+/* Theme Setup */
+.is-style-regular * {
+  @apply text-font border-font;
+}
+.is-style-white * {
+  @apply text-white border-white;
 }
 
