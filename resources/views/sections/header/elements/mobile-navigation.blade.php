@@ -11,10 +11,10 @@
                 @php
                     wp_nav_menu([
                         'theme_location' => 'primary_navigation',
-                        'menu_class' => 'menu-primary_navigation flex flex-col space-y-6 items-start my-0 px-0',
+                        'menu_class' => 'menu-primary_navigation flex flex-col space-y-8 items-start my-0 px-0',
                         'container_class' => 'menu-primary_navigation-container',
-                        'add_li_class' => 'relative group text-xl text-white hover:text-tertiary w-min-content before:w-0 before:h-1 before:absolute before:-bottom-2 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
-                        'add_sub_li_class' => 'before:content-none',
+                        'add_li_class' => 'relative w-full group text-xl text-white hover:text-font w-min-content',
+                        'add_sub_li_class' => 'text-font',
                         'walker' => new SubmenuWrap()
                     ])
                 @endphp

@@ -130,7 +130,7 @@ if (!class_exists('SubmenuWrap')) {
         function start_lvl(&$output, $depth = 0, $args = [])
         {
             $indent = str_repeat("\t", $depth);
-            $output .= "\n$indent<div class='submenuContainer hideSubMenu relative left-0 top-0 lg:absolute mt-[calc(-1px-theme(spacing.medium)+theme(height.menu-items)+(2*theme(spacing.medium)))] w-full z-10 transform transition-all duration-700 ease-in-out'><ul class='z-20 flex flex-col menu-primary_subnavigation bg-greylight p-gutter my-0 lg:min-w-max'>\n";
+            $output .= "\n$indent<div class='submenuContainer hideSubMenu relative left-0 top-0 lg:absolute mt-2 lg:mt-[calc(-1px-theme(spacing.medium)+theme(height.menu-items)+(2*theme(spacing.medium)))] w-full z-10 transform transition-all duration-700 ease-in-out'><ul class='z-20 flex flex-col menu-primary_subnavigation space-y-3 lg:space-y-0 bg-greylight p-gutter my-0 lg:min-w-max'>\n";
         }
         function end_lvl(&$output, $depth = 0, $args = [])
         {
@@ -150,7 +150,7 @@ add_filter('walker_nav_menu_start_el', function ($output, $item, $depth, $args) 
                 $classes = explode(" ", $subMenuParentClasses);
                 $item->classes = $classes;
                 $output = "<div class='relative flex items-center justify-between'>" . $output;
-                $output .= '<span class="sr-only">Open submenu</span><svg class="submenuToggle hover:cursor-pointer bg-transparent rounded-md lg:p-0 ml-0 lg:ml-1 xl:ml-2 lg:border-0 inline-flex items-center justify-center h-10 w-10 lg:w-5 lg:h-5 p-1.5 text-primary lg:text-primary group-hover:text-font lg:group-hover:text-primary group-hover:bg-primary lg:group-hover:bg-transparent lg:group-hover:border-0 lg:group-hover:border-transparent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></div>';
+                $output .= '<span class="sr-only">Open submenu</span><svg class="submenuToggle hover:cursor-pointer bg-transparent rounded-md lg:p-0 ml-0 lg:ml-1 xl:ml-2 lg:border-0 inline-flex items-center justify-center h-10 w-10 lg:w-5 lg:h-5 p-1.5 text-white lg:text-primary lg:group-hover:text-tertiary group-hover:bg-primary lg:group-hover:bg-transparent lg:group-hover:border-0 lg:group-hover:border-transparent transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg></div>';
             }
         }
     }

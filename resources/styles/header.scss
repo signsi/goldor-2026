@@ -23,7 +23,7 @@ header#siteHeader {
                     }
                 }
                 .menu-primary_subnavigation a {
-                    @apply text-font hover:text-white;
+                    @apply text-font hover:text-tertiary;
                 }
             }
         }
@@ -61,38 +61,11 @@ header#siteHeader {
         }
 
         .menu-primary_navigation-container {
-            > ul {
-                li {
-                    @apply hover:text-font before:bg-font hover:before:bg-font;
-                    &.current_page_parent, &.current-menu-item {
-                        @apply before:w-full;
-                        a {
-                            @apply text-font;
-                        }
-                    }
-                    .submenuContainer {
-                        @apply mt-0 #{!important};
-                        > ul.menu-primary_subnavigation {
-                            @apply bg-transparent py-medium px-0 #{!important};
-                            > li {
-                                @apply mb-1 py-1 border-b-gray-300 font-semibold first:pt-0 last:pb-0 #{!important};
-                                a {
-                                    @apply text-font hover:text-primary pl-0 flex text-sm font-semibold #{!important};
-                                }
-                                &.current-menu-item:not(.not-active-menu-item-same-page) {
-                                    > a {
-                                        @apply text-primary #{!important};
-                                    }
-                                }
-                                .submenuContainer {
-                                    > ul.menu-primary_subnavigation {
-                                        @apply mb-0 border-t-0 #{!important};
-                                        > li {
-                                            @apply pl-2 text-sm py-2 first:border-t font-light last:pb-0 #{!important};
-                                        }
-                                    }
-                                }
-                            }
+             ul {
+                > li {
+                    &.current-menu-item {
+                        > a {
+                            @apply font-bold;
                         }
                     }
                 }
