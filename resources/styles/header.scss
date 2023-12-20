@@ -63,9 +63,11 @@ header#siteHeader {
         .menu-primary_navigation-container {
             > ul {
                 li {
+                    @apply hover:text-font before:bg-font hover:before:bg-font;
                     &.current_page_parent, &.current-menu-item {
+                        @apply before:w-full;
                         a {
-                            @apply text-tertiary #{!important};
+                            @apply text-font;
                         }
                     }
                     .submenuContainer {
