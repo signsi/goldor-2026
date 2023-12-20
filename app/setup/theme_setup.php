@@ -8,6 +8,12 @@ add_action('init', function () {
         'label' => __('Outline weiss', 'rocketpager'),
     ]);
 
+    // Button-Styles
+    register_block_style('core/table', [
+        'name' => 'white',
+        'label' => __('Tabelle weiss', 'rocketpager'),
+    ]);
+
     // List-Styles
     register_block_style('core/list', [
         'name' => 'liststyle-icon-start--arrow-left',
