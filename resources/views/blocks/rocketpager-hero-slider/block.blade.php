@@ -1,7 +1,7 @@
 @php
     $isboxBgClasses = block_value('box-bg');
     $boxBgClasses = $isboxBgClasses ? 'bg-white shadow-lg text-primary p-xl' : '';
-    $enableStoererClass = block_value('enable-stoerer') ? 'rotate-6 hover:shadow-2xl flex flex-col justify-center items-center p-rp-20 bg-primary shadow-lg hover:bg-secondary border-4 border-secondary border-solid transition-all max-w-none w-44 h-44 md:w-64 md:h-64 xl:w-80 xl:h-80 rounded-full lg:mb-[calc(0px_-_(1.5_*_var(--spacing-responsive--rp70)))] [&_*]:text-white' : '';
+    $enableStoererClass = block_value('enable-stoerer') ? 'rotate-6 hover:shadow-2xl flex flex-col justify-center items-center p-rp-20 bg-primary shadow-lg hover:bg-secondary border-4 border-secondary border-dotted transition-all max-w-none w-44 h-44 md:w-64 md:h-64 xl:w-80 xl:h-80 rounded-full lg:mb-[calc(0px_-_(1.5_*_var(--spacing-responsive--rp70)))] [&_*]:text-white' : '';
     
     // Wenn 'enable-stoerer' aktiv ist, setze $boxBgClasses auf leer
     $boxBgClasses = block_value('enable-stoerer') ? '' : $boxBgClasses;
