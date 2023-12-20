@@ -19,7 +19,7 @@
             <div class="slides bg-object-wrapper px-medium {{ block_value('slider-height') }} {{ $hasGradientClass }}">
                 @if (block_sub_value('title'))
                     <div class="relative z-30 flex h-full {{ block_value('container-width') }} {{ block_value('box-alignment') }} {{ block_value('text-alignment') }} mx-auto py-2xl">
-                        @if (block_sub_value('button-text') && block_value('enable-stoerer')) <a href="{{ block_sub_value('button-link') }}" @else <div @endif class="w-full anim__animated anim__fadeInUp {{ block_value('box-width') }} {{ $enableStoererClass }} {{ $boxBgClasses }}">
+                        @if (block_sub_value('button-text') && block_value('enable-stoerer')) <a href="{{ block_sub_value('button-link') }}" @else <div @endif class="anim__animated anim__fadeInUp {{ block_value('box-width') }} {{ $enableStoererClass }} {{ $boxBgClasses }}">
                             <span class="heading-1 !my-0">{!! App\sanitize_out(block_sub_value('title'), 'text_area') !!}</span>
                             @if (block_sub_value('text'))
                                 <div class="[&_*]:text-lg [&_*]:font-normal">
