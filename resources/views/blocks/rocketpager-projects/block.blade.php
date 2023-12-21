@@ -5,7 +5,7 @@
 @extends('blocks.helpers.block-wrapper')
 
 @section('content-section')
-    <ul class="list-projects relative list-none grid {{ $row_per_col }} m-0 p-0 z-[200] transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]">
+    <ul class="list-projects relative list-none grid {{ $row_per_col }} m-0 p-0 z-40 transition-transform duration-700 ease-[cubic-bezier(0.7,0,0.3,1)]">
         @while (block_rows('projekt'))
             @php block_row('projekt') @endphp
             <li class="project-item pl-0 my-0 before:hidden" style="transform: matrix(1, 0, 0, 1, 0, 0);">
