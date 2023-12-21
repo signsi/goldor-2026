@@ -14,7 +14,7 @@
 @endphp
 
 @if ($fixed_cta_active)
-    <div class="sticky-cta -translate-y-1/2 w-auto fixed z-20 transition-all top-1/2 bottom-auto hidden md:block anim__animated anim__fadeIn">
+    <div class="sticky-cta -translate-y-1/2 w-auto fixed z-40 transition-all top-1/2 bottom-auto hidden md:block anim__animated anim__fadeIn">
         @foreach ($cta_elements as $cta => $options)
             @if ($options === true)
                 @if ($cta === 'phone')
