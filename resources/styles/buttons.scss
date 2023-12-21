@@ -1,7 +1,6 @@
 /* Mixin for button styles */
 @mixin buttonStyleFont {
   @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid;
-  @apply text-xs #{!important};
   // Kopiere diese Zeile in die Datei: wp-content/themes/rocketpager-v3.2/resources/styles/forminator.scss unter die CSS-Klasse: button.forminator-button.forminator-button-submit
 }
 

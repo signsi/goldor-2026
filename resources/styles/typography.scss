@@ -67,11 +67,9 @@ h6,
     @apply text-xl #{!important};
 }
 
-/* Textgrössen */
-@layer utilities {
-    @for $i from 1 to 10 {
-        .has-#{$i}-xl-font-size {
-            @apply text-#{$i}xl #{!important};
-        }
+/* Textgrössen - Wordpress-Overrides */
+@for $i from 2 through 9 {
+    .has-#{$i}-xl-font-size {
+      @apply text-#{$i}xl #{!important};
     }
 }
