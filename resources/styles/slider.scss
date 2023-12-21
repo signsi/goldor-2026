@@ -15,10 +15,6 @@
   @apply opacity-100;
 }
 
-.slick-list {
-  @apply overflow-visible;
-}
-
 /* Arrows */
 .slick-arrow {
   @apply bg-secondary hover:bg-primary transition-colors;
