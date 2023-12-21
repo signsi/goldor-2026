@@ -14,5 +14,5 @@
 }
 
 @mixin buttonStyleOutlineWhite {
-  @apply bg-transparent text-white border-white hover:bg-secondary hover:text-white hover:border-secondary;
+  @apply bg-transparent text-white border-white hover:bg-primary hover:text-white hover:border-primary;
 }
