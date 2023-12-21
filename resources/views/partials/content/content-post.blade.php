@@ -1,4 +1,4 @@
-<a href="{{ the_permalink() }}" class="group bg-secondary">
+<a href="{{ the_permalink() }}" class="group bg-quaternary">
     <div class="image-wrapper overflow-hidden">
         @if (has_post_thumbnail())
             {{ the_post_thumbnail( '4-3-thumb', ['class' => 'object-cover transition-transform duration-300 ease-in-out group-hover:scale-110']) }}
@@ -11,6 +11,8 @@
         <div class="title-wrapper">
             <div class="text-xs">
                 @include('partials.meta.entry-meta-date')
+                {{-- @include('partials.meta.entry-meta') --}}
+                {{-- @include('partials.meta.entry-meta-short') --}}
             </div>
             <h4 class="my-0">{{ the_title() }}</h4>
         </div>

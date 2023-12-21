@@ -15,6 +15,9 @@
     .edit-post-visual-editor__post-title-wrapper h1.wp-block-post-title {
         @apply text-4xl text-primary font-bold text-center mb-3xl;
     }
+    a:where(:not(.wp-element-button)) {
+        @apply no-underline #{!important};
+    }
 }
 
 /* Tailwind Components und Utilities */

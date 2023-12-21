@@ -10,11 +10,5 @@
     @else
         <span>{{ App\pl__('Autor') }}</span>
     @endif
-    @if($has_link)
-        <a href="{{ get_author_posts_url(get_the_author_meta('ID')) }}" rel="author">
-            {{ $author }}
-        </a>
-    @else
-        {{ $author }}
-    @endif
+    {{ $author }}
 </div>
