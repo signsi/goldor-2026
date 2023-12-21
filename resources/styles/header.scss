@@ -6,9 +6,9 @@ header#siteHeader {
             > ul {
                 > li {
                     &.current_page_parent, &.current-menu-item {
-                        @apply text-secondary before:w-full before:left-0 before:bg-secondary #{!important};
+                        @apply text-secondary before:w-full before:left-0 before:bg-secondary;
                         .submenuToggle {
-                            @apply text-primary #{!important};
+                            @apply text-primary;
                         }
                     }
                     .submenuContainer {
@@ -89,7 +89,7 @@ header#siteHeader {
         }
 
         &.hideSubMenu {
-            @apply opacity-0 translate-y-1 hidden #{!important};
+            @apply opacity-0 translate-y-1 hidden;
         }
     }
 }
@@ -105,7 +105,7 @@ ul.lang-switcher-nav {
 #modal-languageswitcher ul.lang-switcher-nav {
     li {
         &.current-lang {
-            @apply after:content-circle-check after:font-bold after:text-primary #{!important};
+            @apply after:content-circle-check after:font-bold after:text-primary;
         }
     }
     a {

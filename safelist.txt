@@ -8,6 +8,12 @@ text-secondary
 text-tertiary
 text-quaternary
 
+has-xs-font-size
+has-sm-font-size
+has-base-font-size
+has-lg-font-size
+has-xl-font-size
+
 alignfull
 alignwide
 alignnone
