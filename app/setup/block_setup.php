@@ -91,6 +91,7 @@ add_action('genesis_custom_blocks_render_template_rocketpager-news-list', functi
         'ajaxurl' => esc_url($ajax_url),
         'theme_directory_uri' => get_template_directory_uri()
     ]);
+    bundle('block.news-list')->enqueue();
 }, 10, 3);
 
 if (!function_exists('rocket_ajax_load_more')):

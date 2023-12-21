@@ -175,6 +175,7 @@ module.exports = {
         'circle-small': '"\\e122"',
         'arrow-down-to-line': '"\\f33d"',
         'square-checked': '"\\f14a"',
+        'square': '"\\f0c8"',
         'pdf': '"\\f1c1"',
 
       },

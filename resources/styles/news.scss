@@ -21,8 +21,14 @@ body.single {
 }
 
 /* Filter */
-a.is-checked > li {
-    @apply text-primary before:content-square-checked #{!important};
+/* Filter */
+.filter-button-group {
+    a.more-link > li {
+        @apply relative before:font-icon before:content-square before:font-normal before:absolute before:-ml-5 before:-mt-px;
+    }
+    a.is-checked > li {
+        @apply relative bg-secondary border-secondary before:font-bold before:content-square-checked;
+    }
 }
 
 /* Posts Navigation Prev & Next */

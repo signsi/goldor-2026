@@ -29,6 +29,9 @@ export default async (app) => {
             "block.modal": [
                 '@scripts/blocks/rocketpager-modal'
             ],
+            "block.news-list": [
+                '@scripts/blocks/rocketpager-news-list',
+            ],
             "block.audio-image": [
                 '@styles/rocketpager_blockstyles/rocketpager-audio-image-box'
             ],
