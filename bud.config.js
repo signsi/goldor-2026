@@ -26,14 +26,8 @@ export default async (app) => {
             "ajax": [
                 '@scripts/ajax-loading-blocks'
             ],
-            "block.modal": [
-                '@scripts/blocks/rocketpager-modal'
-            ],
             "block.news-list": [
                 '@scripts/blocks/rocketpager-news-list',
-            ],
-            "block.audio-image": [
-                '@styles/rocketpager_blockstyles/rocketpager-audio-image-box'
             ],
             "block.hero-slider": [
                 'slick-carousel',
@@ -49,11 +43,6 @@ export default async (app) => {
                 'slick-carousel',
                 '@scripts/blocks/rocketpager-carousel-slider',
             ],
-            "block.carousel-header": [
-                'slick-carousel',
-                '@scripts/blocks/rocketpager-carousel-header',
-                '@styles/rocketpager_blockstyles/rocketpager-carousel-header'
-            ],
             "block.testimonial-slider": [
                 'slick-carousel',
                 '@scripts/blocks/rocketpager-testimonial-slider'
@@ -68,9 +57,6 @@ export default async (app) => {
             ],
             "block.iconbox": [
                 '@styles/rocketpager_blockstyles/rocketpager-iconbox'
-            ],
-            "block.text-image-list": [
-                '@styles/rocketpager_blockstyles/rocketpager-text-image-list'
             ],
             "block.accordion": [
                 '@scripts/blocks/rocketpager-accordion',
