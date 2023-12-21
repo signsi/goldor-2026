@@ -5,8 +5,6 @@
     $block_config = block_config();
 
     $div_class = $block_config['name'];
-    $div_class .= block_value('hoverGroup') ? ' group' : '';
-    $div_class .= App\getSpacings();
     $div_class .= App\getAnimation($ignoreAnimation);
     $div_class .= App\mapToKeyString(['className']);
     $div_class .= $element_classes ? ' ' . $element_classes : '';

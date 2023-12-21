@@ -116,41 +116,6 @@ if (!function_exists('getAnimation')) {
 }
 
 /*
-    Gibt die Klassen für die verschiedenen Abstände zurück, welche beim RocketPager-Element gewählt wurden.
- */
-if (!function_exists('getSpacings')) {
-    function getSpacings()
-    {
-        $spacings = block_value('spacings');
-        $classes = _mapToSpacingClass(_getFlattenedSpacingType($spacings, 'm'));
-        $classes .= _mapToSpacingClass(_getFlattenedSpacingType($spacings, 'p'));
-
-        return $classes;
-    }
-
-    function _getFlattenedSpacingType($data, $identifier){
-        $arr = array();
-        foreach ($data[$identifier] as $k => $v) {
-            $bezeichnung = $identifier . $k;
-            $arr[$bezeichnung] = $v;
-        }
-        return $arr;
-    }
-
-    function _mapToSpacingClass($arr){
-        $classes = '';
-        foreach ($arr as $k => $v) {
-            if(is_array($v)){
-                if(array_key_exists('class', $v)){
-                    $classes .= $v['class'] !== "" ? ' ' . $k . '-' . $v['class'] : '';
-                }
-            }
-        }
-        return $classes;
-    }
-}
-
-/*
     Gibt die Klassen zurück, welche gebraucht werden, um die Anzahl reihen darzustellen.
     Optional kann der Parameter isFlexType gesetzt werden. Ist dieser true, so werden die Klassen für
     die Flex-Box ausgegeben und sonst die Klassen für das XY-Grid
