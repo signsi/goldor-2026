@@ -32,7 +32,7 @@ header#siteHeader {
     /* Mobile Navigation */
     #mobileNav {
         &.mobileMenuShow{
-            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-20;
+            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-50;
         }
         &,&.menuSlideFromTop{
             &.mobileMenuHide{
