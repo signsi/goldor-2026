@@ -45,7 +45,7 @@ body {
 }
 /* 3.1. Breite - Header/Footer: Entweder nimmt man die Grössen Header und Footer zusammen (max-w-content-hf) oder einzeln (max-w-content-header, max-w-content-footer). Kommentiere die gewünschte Variante ein. */
 .max-w-content-hf {
-    @apply w-full max-w-full lg:max-w-2xlarge 2xl:max-w-xlarge;
+    @apply w-full max-w-full lg:max-w-2xlarge ;
 }
 header .max-w-content-hf {
     @extend .max-w-content-hf;
@@ -54,7 +54,7 @@ header .max-w-content-hf {
 }
 footer .max-w-content-hf {
     @extend .max-w-content-hf;
-    @apply 4xl:max-w-footer;
+    @apply 4xl:max-w-footer 2xl:max-w-xlarge;
     // @apply 4xl:max-w-header-footer;
 }
 
