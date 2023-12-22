@@ -1,6 +1,6 @@
 /* Button */
 button.forminator-button.forminator-button-submit {
-    @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid;
+    @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid #{!important};
     @apply text-xs #{!important};
-    @apply bg-primary text-white border-primary hover:bg-secondary hover:text-white hover:border-secondary;
+    @apply bg-primary text-white border-primary hover:bg-secondary hover:text-white hover:border-secondary #{!important};
 }
