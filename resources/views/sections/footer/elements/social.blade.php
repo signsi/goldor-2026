@@ -19,7 +19,7 @@
         @php dynamic_sidebar('sidebar-footer-social') @endphp
     @else
         <div class="flex flex-col">
-            <p class="mb-2 lg:mb-4 font-bold text-sm">{{ App\pl__('Folge uns') }}</p>
+            <p class="!mb-rp-10 text-xs font-bold">{{ App\pl__('Folge uns') }}</p>
             <div class="grid grid-cols-[repeat(auto-fill,1em)] gap-2 max-w-xs w-full text-icon-big">
                 @foreach ($socialMedia as $mediaName => $mediaLink)
                     @include('partials.social.social-link', [
