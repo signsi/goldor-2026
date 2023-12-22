@@ -11,7 +11,7 @@
                 @php
                     wp_nav_menu([
                         'theme_location' => 'primary_navigation',
-                        'menu_class' => 'menu-primary_navigation flex flex-col space-y-8 items-start my-0 px-0',
+                        'menu_class' => 'menu-primary_navigation flex flex-col space-y-4 items-start my-0 px-0',
                         'container_class' => 'menu-primary_navigation-container',
                         'add_li_class' => 'relative w-full group text-xl text-white hover:text-font w-min-content',
                         'add_sub_li_class' => 'text-font',

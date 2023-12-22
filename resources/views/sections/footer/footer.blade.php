@@ -17,7 +17,7 @@
                         @php dynamic_sidebar('sidebar-footer-2') @endphp
                     @else
                         @if (has_nav_menu('footer_navigation_1'))
-                            @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1'])
+                            @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => '[&_svg]:hidden'])
                         @else
                             @relativeInclude('elements.address')
                         @endif
@@ -28,7 +28,7 @@
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php dynamic_sidebar('sidebar-footer-3') @endphp
                     @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2'])
+                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2s', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => '[&_svg]:hidden'])
                     @endif
                 </div>
                 <!-- Footer Sidebar 4 -->
@@ -36,7 +36,7 @@
                     @if(is_active_sidebar('sidebar-footer-4'))
                         @php dynamic_sidebar('sidebar-footer-4') @endphp
                     @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_3', 'list_style' => 'is-style-liststyle-icon--download'])
+                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_3', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => '[&_svg]:hidden'])
                         @relativeInclude('elements.socialmedia-nav')
                         @relativeInclude('elements.mailchimp')
                         @if(is_active_sidebar('sidebar-footer-cta'))
@@ -44,15 +44,7 @@
                         @endif
                     @endif
                     <nav>
-                        @if (has_nav_menu('primary_navigation'))
-                            @php
-                                wp_nav_menu([
-                                    'theme_location' => 'primary_navigation',
-                                    'menu_class' => 'is-style-liststyle-icon-start--arrow-right-long',
-                                    'depth' => 1,
-                                ])
-                            @endphp
-                        @endif
+                        @relativeInclude('elements.navigation', ['menu_location' => 'primary_navigation', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => '[&_svg]:hidden'])
                     </nav>
                 </div>
             </div>
