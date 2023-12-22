@@ -51,7 +51,11 @@ body, :root {
   --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
   
   // Container - Zuweisung der Variabeln
-  --content--header-footer-size: var(--content--large-size);
+  // Weise die korrekten Werte im File: RocketPager-v3.2/resources/styles/layout.scss unter dem Punkt "Breite - Header/Footer" zu und entscheide dich, ob Header und Footer separate oder die gleiche Breite hat. */
+  --content--header-size: var(--content--xlarge-size);
+  --content--footer-size: var(--content--large-size);
+  --content--header-footer-size: var(--content--xlarge-size);
+  
   --content--default-size: var(--content--medium-size);
   --content--wide-size: var(--content--large-size);
   --wp--style--global--content-size: var(--content--default-size);

@@ -69,6 +69,8 @@ module.exports = {
         
         // Max-Widths für die verschiedenen Layout-Bestandteile
         'header-footer': 'var(--content--header-footer-size)',
+        'header': 'var(--content--header-size)',
+        'footer': 'var(--content--footer-size)',
         'default': 'var(--content--default-size)',
         'wide': 'var(--content--wide-size)',
       },
