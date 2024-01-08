@@ -46,7 +46,7 @@
                         @relativeInclude('elements.socialmedia-nav')
                 </div>
             </div>
-            @relativeInclude('elements.copyright')
+            {{-- @relativeInclude('elements.copyright') --}}
         </div>
     </div>
     <!-- Footer Bottom Section -->
