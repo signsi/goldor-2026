@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var scrollDownElement = document.getElementById("scrollDown");
 
     // Füge einen Klick-Event-Listener hinzu
-    scrollDown && scrollDownElement.addEventListener("click", function() {
+    scrollDownElement && scrollDownElement.addEventListener("click", function() {
         // Finde das nächste Element mit der CSS-Klasse ".alignfull"
         var nextElement = document.querySelector(".alignfull");
 
