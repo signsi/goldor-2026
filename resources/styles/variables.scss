@@ -99,6 +99,6 @@ body, :root {
 
 
 
-
-  --full-mobile-menu-height-dyn: var(--js-mobile-menu-height-dyn, 100vh);
+  --full-mobile-height: var(--js-mobile-height, 100vh);
+  --full-mobile-menu-height-dyn: var(--js-mobile-menu-height-dyn, var(--full-mobile-height));
 }

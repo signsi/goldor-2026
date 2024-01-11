@@ -50,7 +50,7 @@
         </div>
     </div>
     <!-- Footer Bottom Section -->
-    <div class="bg-secondary text-white px-gutter" aria-labelledby="footer-bottom">
+    <div class="bg-secondary text-white px-gutter h-full-mobile-height h-screen" aria-labelledby="footer-bottom">
         <h2 id="footer-bottom" class="sr-only">Footer bottom</h2>
         <div class="footerDisclaimer max-w-content-hf py-2.5 mx-auto">
             <nav>

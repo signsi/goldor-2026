@@ -39,7 +39,7 @@ module.exports = {
         tertiary: 'var(--color-tertiary)',
         quaternary: 'var(--color-quaternary)',
 
-        font: 'var(--color-font)',        
+        font: 'var(--color-font)',
 
         grey: 'var(--color-grey)',
         greylight: 'var(--color-greylight)',
@@ -66,7 +66,7 @@ module.exports = {
         large: 'var(--content--large-size)',
         xlarge: 'var(--content--xlarge-size)',
         '2xlarge': 'var(--content--2xlarge-size)',
-        
+
         // Max-Widths für die verschiedenen Layout-Bestandteile
         'header-footer': 'var(--content--header-footer-size)',
         'header': 'var(--content--header-size)',
@@ -96,7 +96,7 @@ module.exports = {
         'rp-80': 'var(--spacing--rp80)',
 
         // dynamische Abstände
-        'small': 'var(--spacing-responsive--rp30)',     
+        'small': 'var(--spacing-responsive--rp30)',
         'medium': 'var(--spacing-responsive--rp40)',
         'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
@@ -120,25 +120,25 @@ module.exports = {
       },
       gap: {
         // dynamische Abstände
-        'small': 'var(--spacing-responsive--rp30)',     
+        'small': 'var(--spacing-responsive--rp30)',
         'medium': 'var(--spacing-responsive--rp40)',
         'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
         '3xl': 'var(--spacing-responsive--rp80)',
-        
+
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
       },
       space: {
         // dynamische Abstände
-        'small': 'var(--spacing-responsive--rp30)',     
+        'small': 'var(--spacing-responsive--rp30)',
         'medium': 'var(--spacing-responsive--rp40)',
         'large': 'var(--spacing-responsive--rp50)',
         'xl': 'var(--spacing-responsive--rp60)',
         '2xl': 'var(--spacing-responsive--rp70)',
         '3xl': 'var(--spacing-responsive--rp80)',
-        
+
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
       },
@@ -150,6 +150,7 @@ module.exports = {
         '50vh': '50vh',
         '60vh': '60vh',
         '75vh': '75vh',
+        'full-mobile-height': 'var(--full-mobile-height)',
       },
       content: {
         default: '""',

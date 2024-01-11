@@ -41,6 +41,9 @@ domReady(async (err) => {
     console.error(err);
   }
 
+  let fullHeight = window.innerHeight;
+  document.documentElement.style.setProperty('--js-mobile-height', `${fullHeight}px`);
+
   setupAnimations(gsap, ScrollTrigger, SplitText);
 
   // jQuery ready
