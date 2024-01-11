@@ -16,7 +16,7 @@ body, :root {
   --color-darkmossgreen: #606c38;
   --color-tigereye: #BC6C25;
   --color-cornsilk: #fefae0;
-  
+
   // Color - Zuweisung der Variabeln
   --color-primary: var(--color-pakistangreen);
   --color-secondary: var(--color-darkmossgreen);
@@ -45,17 +45,17 @@ body, :root {
 
   // Container - Berechnungen
   --content--small-size: calc(var(--num-cols-2) / var(--num-cols) * 100vw);
-  --content--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw); 
+  --content--medium-size: calc(var(--num-cols-4) / var(--num-cols) * 100vw);
   --content--large-size: calc(var(--num-cols-6) / var(--num-cols) * 100vw);
   --content--xlarge-size: calc(var(--num-cols-8) / var(--num-cols) * 100vw);
   --content--2xlarge-size: calc(var(--num-cols-10) / var(--num-cols) * 100vw);
-  
+
   // Container - Zuweisung der Variabeln
   // Weise die korrekten Werte im File: RocketPager-v3.2/resources/styles/layout.scss unter dem Punkt "Breite - Header/Footer" zu und entscheide dich, ob Header und Footer separate oder die gleiche Breite hat. */
   --content--header-size: var(--content--xlarge-size);
   --content--footer-size: var(--content--large-size);
   --content--header-footer-size: var(--content--xlarge-size);
-  
+
   --content--default-size: var(--content--medium-size);
   --content--wide-size: var(--content--large-size);
   --wp--style--global--content-size: var(--content--default-size);
@@ -95,4 +95,10 @@ body, :root {
   // Abstände - Wordpress Overrides und allgemeine Zuweisung der Variabeln
   --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
   --wp--style--block-gap: var(--spacing-responsive--gutter);
+
+
+
+
+
+  --full-height: 100vh;
 }
