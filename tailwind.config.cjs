@@ -151,6 +151,7 @@ module.exports = {
         '60vh': '60vh',
         '75vh': '75vh',
         'full-mobile-height': 'var(--full-mobile-height)',
+        'full-mobile-height-dyn': 'var(--full-mobile-height-dyn)',
       },
       content: {
         default: '""',

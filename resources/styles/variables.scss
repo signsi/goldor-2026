@@ -96,9 +96,8 @@ body, :root {
   --spacing-responsive--gutter: var(--spacing-responsive--rp50); // Regelt den Abstand zwischen den Spalten und den Rändern des Containers
   --wp--style--block-gap: var(--spacing-responsive--gutter);
 
-
-
-
-  --full-mobile-height: var(--js-mobile-height, 100vh);
-  --full-mobile-menu-height-dyn: var(--js-mobile-menu-height-dyn, var(--full-mobile-height));
+  // Volle Höhe für mobile Geräte mit URL-Leiste, Tab-Leiste usw.
+  --full-mobile-height: var(--js-mobile-height, 100vh);   // wird nur initial berechnet, wenn einer der Leisten zusätzlich hinzu weggeht, ändert sich der Wert nicht -> h-full-mobile-height
+  --full-mobile-height-dyn: var(--js-mobile-height-dyn, var(--full-mobile-height)); // diese Höhe ändert sich mit jedem resize des Windows -> h-full-mobile-height-dyn
+  --full-mobile-menu-height-dyn: var(--js-mobile-menu-height-dyn, var(--full-mobile-height)); // nur für mobiles Menü; wenn dieses geöffnet wird, wird die Höhe neu berechnet
 }

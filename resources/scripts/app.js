@@ -5,6 +5,7 @@ import { setupSearchModal } from "./modal-search.js";
 import { setupLanguageswitcherModal } from "./modal-languageswitcher.js";
 import { setupBackToTop } from "./back-to-top.js";
 import { setupAnimations } from './animations.js';
+import { debounce } from './helpers.js';
 
 // import gsap and setup ScrollSmoother externally does not seem to work
 import { gsap } from "gsap";
@@ -49,6 +50,12 @@ domReady(async (err) => {
   // jQuery ready
   jQuery(function ($) {
     // handleAnchorJump();
+
+    $(window).resize(debounce(function() {
+      let fullHeight = window.innerHeight;
+      document.documentElement.style.setProperty('--js-mobile-height-dyn', `${fullHeight}px`);
+    }, 100, false));
+
 
     setupNavigation({
       hasAnimatedHeader: $('#siteHeader').hasClass('siteHeaderAnimated'),
