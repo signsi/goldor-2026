@@ -29,6 +29,9 @@ const toggleMobileMenuButton = () => {
 }
 
 const openMobileMenu = ($mobileMenu) => {
+    let fullHeight = window.innerHeight;
+    document.documentElement.style.setProperty('--js-mobile-menu-height-dyn', `${fullHeight}px`);
+
     toggleMobileMenuButton();
     $mobileMenu.addClass('mobileMenuShow');
     $mobileMenu.removeClass('mobileMenuHide');

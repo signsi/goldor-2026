@@ -100,5 +100,5 @@ body, :root {
 
 
 
-  --full-height: 100vh;
+  --full-mobile-menu-height-dyn: var(--js-mobile-menu-height-dyn, 100vh);
 }
