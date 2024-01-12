@@ -11,6 +11,7 @@
         'scroll' => App\getThemeOption('cta_scroll_top'),
     ];
     $tel = App\getThemeOption('tel');
+    $tel_link = str_replace(' ', '', $tel);
 @endphp
 
 @if ($fixed_cta_active)
@@ -19,7 +20,7 @@
             @if ($options === true)
                 @if ($cta === 'phone')
                     <div class="group transition-transform translate-x-[calc(-100%_+_32px)] lg:translate-x-[calc(-100%_+_52px)] hover:translate-x-0 mb-1">
-                        <a class="flex flex-row-reverse items-center transition-colors bg-secondary text-white group-hover:bg-white group-hover:text-secondary" href="tel:{{ $tel }}">
+                        <a class="flex flex-row-reverse items-center transition-colors bg-secondary text-white group-hover:bg-white group-hover:text-secondary" href="tel:{{ $tel_link }}">
                             <i class="fal fa-phone-alt flex justify-center p-2 lg:p-4 font-light text-[16px] lg:text-[20px]"></i>
                             <div class="flex items-center pr-1 pl-2 lg:pr-2 lg:pl-4">
                                 <p class="text-sm my-0">{{ $tel }}</p>

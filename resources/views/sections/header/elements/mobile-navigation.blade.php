@@ -4,11 +4,13 @@
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
 
     $cta_active = App\getThemeOption('cta');
-    $tel = App\getThemeOption('cta_phone');
-    $link = [
-        'active' => App\getThemeOption('cta_link'),
-        'url' => App\getThemeOption('cta_link_url'),
-    ]
+
+    $tel_active = App\getThemeOption('cta_phone');
+    $tel = App\getThemeOption('tel');
+    $tel_link = str_replace(' ', '', $tel);
+
+    $link_active = App\getThemeOption('cta_link');
+    $link = App\getThemeOption('cta_link_url');
 @endphp
 
 
@@ -35,18 +37,18 @@
         @if($cta_active)
             <div class="fixed-bottom">
                 <ul class="flex justify-between w-full p-0 m-0 list-none border-t border-primarylight divide-x divide-primarylight">
-                    @if($tel)
+                    @if($tel_active)
                         <li class="flex-auto w-full p-0 m-0">
-                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" href="tel:{{ $tel }}">
+                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" href="tel:{{ $tel_link }}">
                                 <svg class="w-5 h-full" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="fill-white group-hover:fill-secondarylight" d="M0 1.5L6.75 0L10.5 6.75L6.57187 9.89062C8.26406 13.0969 10.8984 15.7312 14.1094 17.4281L17.25 13.5L24 17.25L22.5 24H21C9.40313 24 0 14.5969 0 3V1.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </a>
                         </li>
                     @endif
-                    @if($link['active'])
+                    @if($link_active)
                         <li class="flex-auto w-full p-0 m-0">
-                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" target="blank" href="{{ $link['url'] }}">
+                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" target="blank" href="{{ $link }}">
                                 <svg class="w-5 h-full" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="fill-white group-hover:fill-secondarylight" d="M0 0H24V3.75L12 12L0 3.75V0ZM0 18V5.56875L11.1516 13.2375L12 13.8187L12.8484 13.2328L24 5.56875V18H0Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
