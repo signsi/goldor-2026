@@ -159,7 +159,7 @@ function crb_attach_theme_options()
             'type' => 'text',
             'key' => 'twitter',
             'default' => '#',
-            'label' => 'Twitter Profil',
+            'label' => 'X Profil (ehemals Twitter)',
         ],
         [
             'type' => 'text',
