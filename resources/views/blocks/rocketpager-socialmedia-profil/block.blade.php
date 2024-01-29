@@ -12,7 +12,7 @@
 @section('content-section')
     <ul class="flex flex-row gap-3 list-none ml-0 pl-0">
         @include('partials.social.social-link',['media_name' => 'LinkedIn', 'media_link' => $social_media_linkedin, 'icon_classes' => 'fab fa-linkedin', 'anchor_classes' => 'text-primary hover:text-font'])
-        @include('partials.social.social-link',['media_name' => 'Twitter', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-twitter', 'anchor_classes' => 'text-primary hover:text-font'])
+        @include('partials.social.social-link',['media_name' => 'X (ehemals Twitter)', 'media_link' => $social_media_twitter, 'icon_classes' => 'fab fa-x-twitter', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('partials.social.social-link',['media_name' => 'Xing', 'media_link' => $social_media_xing, 'icon_classes' => 'fab fa-xing', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('partials.social.social-link',['media_name' => 'Facebook', 'media_link' => $social_media_facebook, 'icon_classes' => 'fab fa-facebook-f', 'anchor_classes' => 'text-primary hover:text-font'])
         @include('partials.social.social-link',['media_name' => 'Youtube', 'media_link' => $social_media_youtube, 'icon_classes' => 'fab fa-youtube', 'anchor_classes' => 'text-primary hover:text-font'])
