@@ -44,7 +44,6 @@
                     @endif
                         @relativeInclude('elements.navigation', ['menu_location' => 'primary_navigation', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
                         @relativeInclude('elements.socialmedia-nav')
-                        @relativeInclude('elements.social')
                 </div>
             </div>
             {{-- @relativeInclude('elements.copyright') --}}
