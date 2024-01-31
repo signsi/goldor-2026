@@ -142,6 +142,12 @@ module.exports = {
         // Abstände für das Grid
         'gutter': 'var(--spacing-responsive--gutter)',
       },
+      outlineWidth: {
+        // Abstände für das Grid
+        'medium': 'var(--spacing-responsive--rp40)',
+        'gutter': 'var(--spacing-responsive--gutter)',
+      },
+
       height: {
         'menu-items': '30px',
         'menu-items-mobile': '30px',
@@ -195,8 +201,9 @@ module.exports = {
         '0_100': '0% 100%',
       },
       backgroundImage: {
-        'hero-pattern-1': "url('../images/logo-rocket-pink.svg')",
+        // 'hero-pattern-1': "url('../images/logo-rocket-pink.svg')",
         'gradient': 'linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%)',
+        'gradient-1': 'linear-gradient(90deg, var(--color-tertiary), var(--color-primary))',
       },
       backgroundSize: {
         '25%': '25%',

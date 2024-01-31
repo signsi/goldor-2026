@@ -14,9 +14,9 @@
 @endphp
 
 
-<div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-secondary !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-y-auto overflow-x-hidden">
-    <div class="h-[calc(var(--full-mobile-menu-height-dyn)-theme(height.menu-items-mobile)-(2*theme(spacing.small)))] bg-theme text-font">
-        <div class="{{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} flex flex-col gap-14 px-gutter pt-10 pb-14 overflow-y-scroll">
+<div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-secondary !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top xl:hidden ease-in-out overflow-y-auto overflow-x-hidden">
+    <div class="max-w-content-hf mx-auto h-[calc(var(--full-mobile-menu-height-dyn)-theme(height.menu-items-mobile)-(2*theme(spacing.small)))] bg-theme text-font">
+        <div class="{{ $cta_active ? 'h-[calc(100%-80px)]' : 'h-full' }} flex flex-col gap-14 px-gutter lg:px-0 py-3xl overflow-y-scroll">
             @includeWhen($search_active, 'forms.search')
             <nav>
                 @if (has_nav_menu('primary_navigation'))
