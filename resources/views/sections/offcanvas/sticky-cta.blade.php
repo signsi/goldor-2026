@@ -15,7 +15,7 @@
 @endphp
 
 @if ($fixed_cta_active)
-    <div class="sticky-cta -translate-y-1/2 w-auto fixed z-40 transition-all top-1/2 bottom-auto hidden md:block anim__animated anim__fadeIn">
+    <div class="sticky-cta -translate-y-1/2 w-auto fixed z-20 transition-all top-1/2 bottom-auto hidden md:block anim__animated anim__fadeIn">
         @foreach ($cta_elements as $cta => $options)
             @if ($options === true)
                 @if ($cta === 'phone')
@@ -35,7 +35,7 @@
                                 <form class="searchform" role="search" method="get" action="{{ App\get_home_url() }}">
                                     <label for="search" class="sr-only">{{ App\pl__('Suche') }}</label>
                                     <div class="relative">
-                                        <input id="search" name="s" class="placeholder-secondary shadow-none block w-full border-0 bg-transparent py-3 pl-6 leading-5 focus:outline-none ring-0 focus:ring-0 text-sm" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">
+                                        <input id="search" name="s" class="placeholder-secondary shadow-none block w-full border-0 bg-transparent py-0 lg:py-3 pl-6 leading-5 focus:outline-none ring-0 focus:ring-0 text-sm" placeholder="{{ App\pl__('Suchfeld - Suche') }}" type="search">
                                     </div>
                                 </form>
                             </div>

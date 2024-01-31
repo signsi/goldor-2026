@@ -36,12 +36,14 @@ const openMobileMenu = ($mobileMenu) => {
     $mobileMenu.addClass('mobileMenuShow');
     $mobileMenu.removeClass('mobileMenuHide');
     $('body').addClass('overflow-y-hidden');
+    $('#nav-icon2').toggleClass('open');
 }
 const closeMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
     $mobileMenu.removeClass('mobileMenuShow');
     $mobileMenu.addClass('mobileMenuHide');
     $('body').removeClass('overflow-y-hidden');
+    $('#nav-icon2').toggleClass('open');
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {

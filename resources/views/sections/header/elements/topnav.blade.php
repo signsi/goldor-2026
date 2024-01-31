@@ -4,15 +4,15 @@
     $hide_ul = !($search_active || (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher')) || is_active_sidebar('sidebar-cta'));
 @endphp
 
-<div id="topNav" class="relative max-w-content-hf mx-auto z-50">
-    <div class="flex justify-between md:space-x-12 items-center py-small">
+<div id="topNav" class="relative z-50 bg-white px-gutter py-small">
+    <div class="max-w-content-hf mx-auto flex justify-between md:space-x-12 items-center">
         
         {{-- Logo --}}
         @include('sections.header.elements.logo')
         {{-- Logo --}}
         
         {{-- Primary Navigation --}}
-        <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile md:h-menu-items items-center">
+        <div class="hidden xl:flex xl:flex-row justify-end h-menu-items-mobile md:h-menu-items items-center">
 
             <nav>
                 @if (has_nav_menu('primary_navigation'))
@@ -39,7 +39,7 @@
 
         {{-- column next to primary navigation --}}
         @if (!$hide_ul)
-            <ul class="hidden lg:flex lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0">
+            <ul class="hidden xl:flex xl:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0">
                 @if ($search_active)
                     <li class="">
                         <svg id="show-modal-search" class="hover:cursor-pointer fill-primary hover:fill-font h-5 w-5 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -68,22 +68,29 @@
         @endif
         {{-- column next to primary navigation END --}}
 
-        {{-- Mobile Navigation --}}
-        <button type="button" id="mobileToggle" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-theme hover:text-white hover:bg-primary lg:hidden" aria-expanded="false">
+        {{-- Hamburger Icons --}}
+        <button type="button" id="mobileToggle"
+            class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-font xl:hidden"
+            aria-expanded="false">
             <span class="sr-only">Toggle menu</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path id="open-icon" class="" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16 M4 12h16 M4 18h16" />
-                <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6 M6 6l12 12" />
-            </svg>
+
+            <div id="nav-icon2">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </button>
 
-        <button type="button" id="mobileClose" class="bg-white rounded-md p-2 hidden items-center justify-center text-font hover:text-white hover:bg-primary lg:hidden">
+        <button type="button" id="mobileClose"
+            class="bg-transparent rounded-md p-2 hidden items-center justify-center text-font xl:hidden">
             <span class="sr-only">Close menu</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+                <line x1="4" y1="12" x2="20" y2="12" />
             </svg>
         </button>
-        {{-- Mobile Navigation END --}}
+        {{-- Hamburger Icons END --}}
     </div>
 </div>

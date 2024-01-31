@@ -32,9 +32,9 @@ header#siteHeader {
     /* Mobile Navigation */
     #mobileNav {
         &.mobileMenuShow{
-            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-50;
+            @apply translate-x-0 translate-y-0 scale-x-100 scale-y-100 z-40;
         }
-        &,&.menuSlideFromTop{
+        &.menuSlideFromTop{
             &.mobileMenuHide{
                 @apply translate-x-0 -translate-y-full scale-x-100 scale-y-0 -z-10;
             }
@@ -60,12 +60,69 @@ header#siteHeader {
             }
         }
 
+        // Menu-Style: Standard
         .menu-primary_navigation-container {
              ul {
                 > li {
                     &.current-menu-item {
                         > a {
                             @apply font-bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Menu-Style: Grid ählich wie bei onlinegeschaeftsbericht.ch
+        .gridStyle {
+            >ul {
+                li {
+                    @apply m-0 grid items-center place-content-start;
+                    a {
+                        @apply overflow-hidden transition-all ease-in-out duration-300 text-transparent;
+                        text-shadow: 0 0 var(--color-font), 0 -5em var(--color-white);
+                        &:hover {
+                            text-shadow: 0 5em var(--color-font), 0 0 var(--color-white);
+                        }
+                    }
+
+                    &:hover,
+                    .submenuToggle {
+                        @apply text-primary #{!important};
+
+                        .submenuToggle {
+                            @apply text-white border-primary #{!important};
+                        }
+                    }
+                    .submenuContainer {
+                        @apply mt-0 #{!important};
+
+                        >ul.menu-primary_subnavigation {
+                            @apply bg-transparent py-medium px-0 #{!important};
+
+                            >li {
+                                @apply mb-1 py-1 border-b-gray-300 font-bold first:pt-0 last:pb-0 #{!important};
+
+                                a {
+                                    @apply text-font hover:text-primary pl-0 flex text-sm font-bold #{!important};
+                                }
+
+                                &.current-menu-item:not(.not-active-menu-item-same-page) {
+                                    >a {
+                                        @apply text-primary #{!important};
+                                    }
+                                }
+
+                                .submenuContainer {
+                                    >ul.menu-primary_subnavigation {
+                                        @apply mb-0 border-t-0 #{!important};
+
+                                        >li {
+                                            @apply pl-2 text-sm py-2 first:border-t font-light last:pb-0 #{!important};
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -121,6 +178,78 @@ ul.lang-switcher-nav {
 .siteHeader--unpinned,
 .siteHeader--bottom,
 .activeAnchorScroll {
-    transform: translateY(-100%);
+    @apply -translate-y-full;
+}
+
+/* Hamburger Icons */
+#nav-icon2 {
+    @apply w-[30px] h-6 relative cursor-pointer rotate-0 transition-transform ease-in-out duration-500 ;
+}
+
+#nav-icon2 span {
+    @apply block absolute h-[3px] w-1/2 bg-primary opacity-100 rotate-0;
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+}
+
+#nav-icon2 span:nth-child(even) {
+    @apply left-1/2;
+}
+
+#nav-icon2 span:nth-child(odd) {
+    @apply left-0;
+}
+
+#nav-icon2 span:nth-child(1),
+#nav-icon2 span:nth-child(2) {
+    @apply top-0;
+}
+
+#nav-icon2 span:nth-child(3),
+#nav-icon2 span:nth-child(4) {
+    @apply top-2.5;
+}
+
+#nav-icon2 span:nth-child(5),
+#nav-icon2 span:nth-child(6) {
+    @apply top-[21px];
+}
+
+#nav-icon2.open span:nth-child(1),
+#nav-icon2.open span:nth-child(6) {
+    @apply rotate-45;
+}
+
+#nav-icon2.open span:nth-child(2),
+#nav-icon2.open span:nth-child(5) {
+    @apply -rotate-45;
+}
+
+#nav-icon2.open span:nth-child(1) {
+    @apply top-[7px] left-[5px];
+}
+
+#nav-icon2.open span:nth-child(2) {
+    left: calc(50% - 5px);
+    @apply top-[7px];
+}
+
+#nav-icon2.open span:nth-child(3) {
+    @apply opacity-0 -left-1/2;
+}
+
+#nav-icon2.open span:nth-child(4) {
+    @apply opacity-0 left-full;
+}
+
+#nav-icon2.open span:nth-child(5) {
+    @apply top-[12px] left-[5px];
+}
+
+#nav-icon2.open span:nth-child(6) {
+    left: calc(50% - 5px);
+    @apply top-3;
 }
 
