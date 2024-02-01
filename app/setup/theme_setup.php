@@ -4,6 +4,10 @@
 add_action('init', function () {
     // Button-Styles
     register_block_style('core/button', [
+        'name' => 'default-animated',
+        'label' => __('Füllen (animiert)', 'rocketpager'),
+    ]);
+    register_block_style('core/button', [
         'name' => 'outline-white',
         'label' => __('Outline weiss', 'rocketpager'),
     ]);
