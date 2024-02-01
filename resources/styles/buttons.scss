@@ -10,7 +10,7 @@
 }
 
 @mixin buttonStyleArrowAnimation {
-  @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8 hover:bg-black hover:text-white hover:border-black;
+  @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8;
   &:before, &:after {
     @apply absolute font-icon font-bold antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
   }
@@ -27,7 +27,6 @@
     @apply left-8;
   }
 }
-
 
 @mixin buttonStyleOutline {
   @apply bg-transparent text-primary border-primary hover:bg-primary hover:text-white hover:border-primary;
