@@ -10,7 +10,7 @@
 }
 
 @mixin buttonStyleArrowAnimation {
-  @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8;
+  @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8 overflow-hidden;
   &:before, &:after {
     @apply absolute font-icon font-bold antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
   }
