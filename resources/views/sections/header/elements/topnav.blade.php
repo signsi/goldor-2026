@@ -13,7 +13,6 @@
 
         {{-- Primary Navigation --}}
         <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile lg:h-menu-items items-center">
-
             <nav>
                 @if (has_nav_menu('primary_navigation'))
                     @php
@@ -75,12 +74,12 @@
             <span class="sr-only">Toggle menu</span>
 
             <div class="w-[30px] h-6 relative cursor-pointer rotate-0 transition-transform ease-in-out duration-500">
-                <span class="block absolute h-[3px] top-0 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
-                <span class="block absolute h-[3px] top-0 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
-                <span class="block absolute h-[3px] top-2.5 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
-                <span class="block absolute h-[3px] top-2.5 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
-                <span class="block absolute h-[3px] top-[21px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
-                <span class="block absolute h-[3px] top-[21px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </button>
         {{-- Hamburger Icons END --}}

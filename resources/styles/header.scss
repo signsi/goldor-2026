@@ -183,10 +183,11 @@ ul.lang-switcher-nav {
 
 /* Hamburger Icons */
 #mobileToggle span{
-    @apply even:left-1/2 odd:left-0
-    [&:nth-child(1)]:top-0 [&:nth-child(2)]:top-0
-    [&:nth-child(3)]:top-2.5 [&:nth-child(4)]:top-2.5
-    [&:nth-child(5)]:top-[21px] [&:nth-child(6)]:top-[21px];
+    @apply block absolute h-[3px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out
+            even:left-1/2 odd:left-0
+            [&:nth-child(1)]:top-0 [&:nth-child(2)]:top-0
+            [&:nth-child(3)]:top-2.5 [&:nth-child(4)]:top-2.5
+            [&:nth-child(5)]:top-[21px] [&:nth-child(6)]:top-[21px];
 }
 
 #mobileToggle.mobileMenuOpen span:nth-child(1),
