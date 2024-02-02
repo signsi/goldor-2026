@@ -104,6 +104,15 @@ pre.wp-block-code {
   }
 }
 .wp-block-button {
+  &.is-style-outline-animated>.wp-block-button__link,
+  &.is-style-outline-animated>.wp-block-button__link:not(.has-text-color) {
+      @include buttonStyleFont;
+      @include buttonStyleDefault;
+      @include buttonStyleOutline;
+      @include buttonStyleArrowAnimation;
+    }
+  }
+.wp-block-button {
 &.is-style-outline-white>.wp-block-button__link,
 &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
     @include buttonStyleFont;
