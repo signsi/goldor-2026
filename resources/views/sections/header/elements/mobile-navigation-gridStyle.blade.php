@@ -2,6 +2,8 @@
     $menuSlideFrom = App\getThemeOption('header_mobile_slide_from');
     $search_active = App\getThemeOption('header_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
+
+
     $company_phone = App\getThemeOption('tel');
     $company_email = App\getThemeOption('email');
 @endphp
@@ -29,7 +31,7 @@
         @includeWhen($search_active, 'forms.search')
 
         @if (is_active_sidebar('sidebar-cta'))
-            <div class="hidden md:block max-w-content-hf mx-auto pt-0 lg:pt-0 4xl:pt-2xl [&_figure]:my-0">
+            <div class="max-w-content-hf mx-auto pt-0 lg:pt-0 4xl:pt-2xl [&_figure]:my-0">
                 @php dynamic_sidebar('sidebar-cta') @endphp
             </div>
         @endif

@@ -1,6 +1,6 @@
 @php
     $menuSlideFrom = App\getThemeOption('header_mobile_slide_from');
-    $search_active = App\getThemeOption('header_search');
+    $search_active = App\getThemeOption('header_search') || App\getThemeOption('cta_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
 
     $cta_active = App\getThemeOption('cta');
@@ -16,8 +16,7 @@
 
 <div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-secondary !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-x-hidden">
     <div class="h-[calc(var(--full-mobile-menu-height-dyn)-theme(height.menu-items-mobile)-(2*theme(spacing.small)))] bg-theme text-font">
-        <div class="{{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} flex flex-col gap-14 px-gutter pt-10 pb-14 overflow-y-auto">
-            @includeWhen($search_active, 'forms.search')
+        <div class="{{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} flex flex-col gap-gutter px-gutter py-14 overflow-y-auto">
             <nav>
                 @if (has_nav_menu('primary_navigation'))
                     @php
@@ -33,6 +32,13 @@
                 @endif
             </nav>
             @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList', ['color' => 'white'])
+            @includeWhen($search_active, 'forms.search')
+
+            @if (is_active_sidebar('sidebar-cta'))
+                <div class="max-w-content-hf mx-auto [&_figure]:my-0">
+                    @php dynamic_sidebar('sidebar-cta') @endphp
+                </div>
+            @endif
         </div>
         @if($cta_active)
             <div class="fixed-bottom">
