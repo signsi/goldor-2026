@@ -8,6 +8,10 @@ add_action('init', function () {
         'label' => __('Füllen (animiert)', 'rocketpager'),
     ]);
     register_block_style('core/button', [
+        'name' => 'outline-animated',
+        'label' => __('Kontur (animiert)', 'rocketpager'),
+    ]);
+    register_block_style('core/button', [
         'name' => 'outline-white',
         'label' => __('Outline weiss', 'rocketpager'),
     ]);
