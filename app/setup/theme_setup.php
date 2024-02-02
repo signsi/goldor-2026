@@ -11,8 +11,12 @@ add_action('init', function () {
         'name' => 'outline-white',
         'label' => __('Outline weiss', 'rocketpager'),
     ]);
+    register_block_style('core/button', [
+        'name' => 'outline-white-animated',
+        'label' => __('Outline weiss (animiert)', 'rocketpager'),
+    ]);
     register_block_style('core/buttons', [
-        'name' => 'offsetY',
+        'name' => 'offsetY-Button',
         'label' => __('Button nach unten versetzt', 'rocketpager'),
     ]);
 
@@ -31,7 +35,10 @@ add_action('init', function () {
         'name' => 'hasHoverEffect-1',
         'label' => __('Outline-Effekt', 'rocketpager'),
     ]);
-
+    register_block_style('core/columns', [
+        'name' => 'offsetY-Column',
+        'label' => __('Spalte 50% nach unten versetzt', 'rocketpager'),
+    ]);
 
     // List-Styles
     register_block_style('core/list', [
