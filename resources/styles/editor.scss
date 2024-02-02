@@ -21,6 +21,9 @@
     :not(html) > .is-style-offsetY-Column {
         @apply relative;
     }
+    .bg-1-bottom:after {
+        @apply hidden;
+    }
 }
 
 /* Tailwind Components und Utilities */
