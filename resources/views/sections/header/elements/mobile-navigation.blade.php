@@ -9,8 +9,8 @@
     $tel = App\getThemeOption('tel');
     $tel_link = str_replace(' ', '', $tel);
 
-    $link_active = App\getThemeOption('cta_link');
-    $link = App\getThemeOption('cta_link_url');
+    $contact_link_active = App\getThemeOption('cta_link');
+    $contact_link = App\getThemeOption('cta_link_url');
 @endphp
 
 
@@ -52,9 +52,9 @@
                             </a>
                         </li>
                     @endif
-                    @if($link_active)
+                    @if($contact_link_active)
                         <li class="flex-auto w-full p-0 m-0">
-                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" target="blank" href="{{ $link }}">
+                            <a class="flex items-center justify-center w-full h-full p-5 font-base group hover:bg-primary-hover" target="blank" href="{{ $contact_link }}">
                                 <svg class="w-5 h-full" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path class="fill-white group-hover:fill-secondarylight" d="M0 0H24V3.75L12 12L0 3.75V0ZM0 18V5.56875L11.1516 13.2375L12 13.8187L12.8484 13.2328L24 5.56875V18H0Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>

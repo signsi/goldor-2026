@@ -16,6 +16,7 @@ function get_mapped_fields($fields)
         $placeholder = $n['placeholder'] ?? null;
         $default = $n['default'] ?? null;
         $translateable = $n['translateable'] ?? false;
+        $condition = $n['condition'] ?? false;
 
         if ($type == 'text') {
             $helptext = $translateable ? __('Das Textfeld muss pro Sprache einzeln definiert werden.') : null;
@@ -68,6 +69,8 @@ function get_mapped_fields($fields)
         } else {
             return "Feldtyp ist nicht implementiert.";
         }
+
+        if($condition) $field->set_conditional_logic($condition);
 
         return $field;
     }, $fields);
@@ -255,51 +258,90 @@ function crb_attach_theme_options()
         [
             'type' => 'checkbox',
             'key' => 'cta',
-            'label' => 'CTA aktiviert?',
+            'label' => 'CTA aktivieren?',
         ],
         // TODO: language-switcher - funktioniert nicht
         // [
         //     'type' => 'checkbox',
         //     'key' => 'cta_lang_switcher',
-        //     'label' => 'Sprach-Umschalter aktiviert? (Polylang Plugin muss installiert sein)',
+        //     'label' => 'Sprach-Umschalter aktivieren? (Polylang Plugin muss installiert sein)',
         // ],
         [
             'type' => 'checkbox',
             'key' => 'cta_search',
-            'label' => 'Suche aktiviert?',
+            'label' => 'Suche aktivieren?',
+            'condition' =>  array( array(
+                                'field' => 'rocket_cta',
+                                'value' => true,
+                            ))
+
         ],
         [
             'type' => 'checkbox',
             'key' => 'cta_phone',
-            'label' => 'Telefon aktiviert?',
+            'label' => 'Telefon aktivieren?',
+            'condition' =>  array( array(
+                                'field' => 'rocket_cta',
+                                'value' => true,
+                            ))
         ],
         // TODO: social share - funktioniert nicht
         // [
         //     'type' => 'checkbox',
         //     'key' => 'cta_social_share',
-        //     'label' => 'Social Media aktiviert?',
+        //     'label' => 'Social Media aktivieren?',
         // ],
         [
             'type' => 'checkbox',
             'key' => 'cta_link',
-            'label' => 'Zusätzlicher Link aktiviert?',
+            'label' => 'Kontakt-Link aktivieren?',
+            'condition' =>  array( array(
+                                'field' => 'rocket_cta',
+                                'value' => true,
+                            ))
         ],
         [
             'type' => 'text',
             'key' => 'cta_link_text',
-            'label' => 'Link-Text',
+            'label' => 'Link-Text (bsp. Kontakformular oder E-Mail-Adresse)',
             'translateable' => true,
+            'condition' =>  array(
+                                'relation' => 'AND',
+                                array(
+                                    'field' => 'rocket_cta',
+                                    'value' => true,
+                                ),
+                                array(
+                                    'field' => 'rocket_cta_link',
+                                    'value' => true,
+                                )
+                            )
         ],
         [
             'type' => 'text',
             'key' => 'cta_link_url',
             'label' => 'Link-URL',
             'translateable' => true,
+            'condition' =>  array(
+                                'relation' => 'AND',
+                                array(
+                                    'field' => 'rocket_cta',
+                                    'value' => true,
+                                ),
+                                array(
+                                    'field' => 'rocket_cta_link',
+                                    'value' => true,
+                                )
+                            )
         ],
         [
             'type' => 'checkbox',
             'key' => 'cta_scroll_top',
-            'label' => 'Scroll To Top Button aktiviert?',
+            'label' => 'Scroll To Top Button aktivieren?',
+            'condition' =>  array( array(
+                                'field' => 'rocket_cta',
+                                'value' => true,
+                            ))
         ],
     ];
 

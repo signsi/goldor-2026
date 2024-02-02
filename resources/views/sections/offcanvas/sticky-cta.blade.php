@@ -3,7 +3,7 @@
     $cta_elements = [
         'phone' => App\getThemeOption('cta_phone'),
         'search' => App\getThemeOption('cta_search'),
-        'link' => [
+        'contact_link' => [
             'active' => App\getThemeOption('cta_link'),
             'url' => App\getThemeOption('cta_link_url'),
             'text' => App\getThemeOption('cta_link_text'),
@@ -43,7 +43,7 @@
                     </div>
                 @endif
             @elseif (is_array($options) && $options['active'])
-                @if ($cta === 'link')
+                @if ($cta === 'contact_link')
                     <div class="group transition-transform translate-x-[calc(-100%_+_32px)] lg:translate-x-[calc(-100%_+_52px)] hover:translate-x-0 mb-1">
                         <a href="{!! $options['url'] !!}" class="flex flex-row-reverse items-center transition-colors bg-secondary text-white group-hover:bg-white group-hover:text-secondary">
                             <i class="fal fa-envelope flex justify-center p-2 lg:p-4 font-light text-[16px] lg:text-[20px]"></i>
