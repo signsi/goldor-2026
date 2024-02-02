@@ -18,6 +18,9 @@
     a:where(:not(.wp-element-button)) {
         @apply no-underline #{!important};
     }
+    :not(html) > .is-style-offsetY-Column {
+        @apply relative;
+    }
 }
 
 /* Tailwind Components und Utilities */

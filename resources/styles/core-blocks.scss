@@ -2,7 +2,7 @@
 
 /* Textabsätze */
 p {
-  @apply text-base my-small max-w-prose;
+  @apply text-base my-small;
   &.has-text-align-center {
       @apply mx-auto;
   }
@@ -98,19 +98,28 @@ pre.wp-block-code {
 .wp-block-button {
 &.is-style-outline>.wp-block-button__link,
 &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
-  @include buttonStyleFont;
-  @include buttonStyleDefault;
-  @include buttonStyleOutline;
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+    @include buttonStyleOutline;
   }
 }
 .wp-block-button {
 &.is-style-outline-white>.wp-block-button__link,
 &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
-  @include buttonStyleFont;
-  @include buttonStyleDefault;
-  @include buttonStyleOutlineWhite;
+    @include buttonStyleFont;
+    @include buttonStyleDefault;
+    @include buttonStyleOutlineWhite;
   }
 }
+.wp-block-button {
+  &.is-style-outline-white-animated>.wp-block-button__link,
+  &.is-style-outline-white-animated>.wp-block-button__link:not(.has-text-color) {
+      @include buttonStyleFont;
+      @include buttonStyleDefault;
+      @include buttonStyleOutlineWhite;
+      @include buttonStyleArrowAnimation;
+    }
+  }
 
 .wp-block-group .wp-block-buttons {
   @apply gap-small;
@@ -217,7 +226,7 @@ figure {
 /* Cover */
 .wp-block-cover,
 .wp-block-cover-image {
-  @apply h-full p-gutter;
+  @apply h-full p-gutter overflow-visible;
 }
 
 /* Galerie */
@@ -394,11 +403,21 @@ figure.wp-block-table.is-style-finzanz {
 .is-style-tableWhite * {
   @apply text-white border-white;
 }
-.is-style-offsetY {
+.is-style-offsetY-Button {
   @apply lg:translate-y-[90px] lg:opacity-0 lg:mt-0 transition-all duration-500;
 }
-:not(html):hover > .is-style-offsetY {
-  @apply lg:translate-y-[calc(50%_+_30px)] lg:opacity-100;
+.is-style-offsetY-Column{
+  @apply md:absolute md:left-0 md:right-gutter md:bottom-0 md:translate-y-1/2 md:mt-0 overflow-hidden;
+  .wp-block-column.has-background {
+      @apply transition-colors hover:shadow-2xl;
+      @apply hover:bg-black #{!important};
+  }
+}
+[class*="wp-block"]:has(.is-style-offsetY-Column) + .wp-block-group{
+  @apply pt-2xl;
+}
+:not(html):hover > .is-style-offsetY-Button {
+  @apply lg:translate-y-[calc(50%_+_var(--spacing--rp40))] lg:opacity-100;
 }
 .is-style-hasHoverEffect-1 {
   @apply outline outline-1 outline-white transition-all duration-150 ease-out transition-all shadow-[0_0_0_0_rgba(40,40,40,0.4)] md:hover:shadow-[0_0_70px_0_rgba(40,40,40,0.4)] md:hover:bg-greylight md:hover:outline-greylight md:hover:outline-medium;
