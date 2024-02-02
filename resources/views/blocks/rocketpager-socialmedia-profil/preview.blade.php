@@ -18,7 +18,7 @@
         @endif
         @if ( $social_media_twitter )
             <li>
-                Twitter: {{ $social_media_twitter }}
+                X (ehemals Twitter): {{ $social_media_twitter }}
             </li>
         @endif
         @if ( $social_media_xing )

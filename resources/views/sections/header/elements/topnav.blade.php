@@ -4,8 +4,8 @@
     $hide_ul = !($search_active || (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher')) || is_active_sidebar('sidebar-cta'));
 @endphp
 
-<div id="topNav" class="relative max-w-content-hf mx-auto z-50">
-    <div class="flex justify-between md:space-x-8 xl:space-x-12 items-center py-small">
+<div id="topNav" class="relative max-w-content-hf mx-auto px-gutter py-small z-50">
+    <div class="flex h-menu-items-mobile lg:h-menu-items justify-between md:space-x-8 xl:space-x-12 items-center">
 
         {{-- Logo --}}
         @include('sections.header.elements.logo')
@@ -69,21 +69,20 @@
         {{-- column next to primary navigation END --}}
 
         {{-- Mobile Navigation --}}
-        <button type="button" id="mobileToggle" class="bg-white rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-theme hover:text-white hover:bg-primary lg:hidden" aria-expanded="false">
+        <button type="button" id="mobileToggle"
+            class="bg-transparent rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-font lg:hidden"
+            aria-expanded="false">
             <span class="sr-only">Toggle menu</span>
-            <svg class="h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path id="open-icon" class="" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16 M4 12h16 M4 18h16" />
-                <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6 M6 6l12 12" />
-            </svg>
-        </button>
 
-        <button type="button" id="mobileClose" class="bg-white rounded-md h-menu-items-mobile p-2 hidden items-center justify-center text-font hover:text-white hover:bg-primary lg:hidden">
-            <span class="sr-only">Close menu</span>
-            <svg class="h-full" xmlns="http://www.w3.org/2000/svg" fill="none"
-                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <div class="w-[30px] h-6 relative cursor-pointer rotate-0 transition-transform ease-in-out duration-500">
+                <span class="block absolute h-[3px] top-0 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span class="block absolute h-[3px] top-0 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span class="block absolute h-[3px] top-2.5 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span class="block absolute h-[3px] top-2.5 w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span class="block absolute h-[3px] top-[21px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+                <span class="block absolute h-[3px] top-[21px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out"></span>
+            </div>
         </button>
-        {{-- Mobile Navigation END --}}
+        {{-- Hamburger Icons END --}}
     </div>
 </div>

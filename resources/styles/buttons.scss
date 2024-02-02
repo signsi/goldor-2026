@@ -9,6 +9,25 @@
   // Kopiere diese Zeile in die Datei: wp-content/themes/rocketpager-v3.2/resources/styles/forminator.scss unter die CSS-Klasse: button.forminator-button.forminator-button-submit
 }
 
+@mixin buttonStyleArrowAnimation {
+  @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8 overflow-hidden;
+  &:before, &:after {
+    @apply absolute font-icon font-bold antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
+  }
+  &:after {
+    @apply right-6;
+  }
+  &:before {
+    @apply -left-6;
+  }
+  &:hover:after {
+    @apply -right-[12%];
+  }
+  &:hover:before {
+    @apply left-8;
+  }
+}
+
 @mixin buttonStyleOutline {
   @apply bg-transparent text-primary border-primary hover:bg-primary hover:text-white hover:border-primary;
 }

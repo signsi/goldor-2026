@@ -25,7 +25,6 @@ const closeSubMenu = ($menuContainer) => {
 
 const toggleMobileMenuButton = () => {
     $('#mobileToggle').toggleClass('mobileMenuOpen');
-    $('#mobileToggle svg path').toggleClass('hidden');
 }
 
 const openMobileMenu = ($mobileMenu) => {
@@ -121,7 +120,6 @@ function setupDesktopNav() {
 function setupMobileNav() {
     const $mobileNav = $("#mobileNav");
     const $mobileNavButton = $("#mobileToggle");
-    const $mobileNavClose = $("#mobileClose");
     const $mobileNavCloseLinks = $mobileNav.find(".menu-primary_navigation-container > ul > li a");
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");

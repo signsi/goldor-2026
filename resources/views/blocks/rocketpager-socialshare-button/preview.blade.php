@@ -9,7 +9,7 @@
         @endif
         @if ( block_value('social-share-twitter') )
             <li>
-                Twitter
+                X (ehemals Twitter)
             </li>
         @endif
         @if ( block_value('social-share-facebook') )

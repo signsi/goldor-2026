@@ -14,13 +14,13 @@ $icon_classes = $icon_classes ?? '';
 
 if ($useSquare) {
     $linkedinIcon = 'fab fa-linkedin';
-    $twitterIcon = 'fab fa-twitter-square';
-    $whatsappIcon = 'fab fa-whatsapp-square';
-    $facebookIcon = 'fab fa-facebook-square';
-    $emailIcon = 'fas fa-envelope-square';
+    $twitterIcon = 'fab fa-square-x-twitter';
+    $whatsappIcon = 'fab fa-square-whatsapp';
+    $facebookIcon = 'fab fa-square-facebook';
+    $emailIcon = 'fas fa-square-envelope';
 } else {
     $linkedinIcon = 'fab fa-linkedin';
-    $twitterIcon = 'fab fa-twitter';
+    $twitterIcon = 'fab fa-x-twitter';
     $whatsappIcon = 'fab fa-whatsapp';
     $facebookIcon = 'fab fa-facebook-f';
     $emailIcon = 'fas fa-envelope';
@@ -42,7 +42,7 @@ if ($useSquare) {
             <a  class="{{ $achnor_classes }}" href="https://twitter.com/intent/tweet?url={{ $postUrl }}&text={{ the_title() }}"
                 title="{{ App\pl__('Social Share - Twitter') }}" alt="{{ App\pl__('Social Share - Twitter') }}"
                 rel="noreferrer" target="_blank">
-                <i class="{{ $twitterIcon }} {{ $icon_classes }}" title="Twitter"></i>
+                <i class="{{ $twitterIcon }} {{ $icon_classes }}" title="X (ehemals Twitter)"></i>
             </a>
         </li>
     @endif

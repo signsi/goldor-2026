@@ -3,7 +3,7 @@
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="max-w-content-hf py-3xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter [&_*]:my-0 [&_a:hover]:text-secondary">
-                <!-- Footer Sidebar 1 -->
+                {{-- Footer Sidebar 1 --}}
                 <div class="footerSidebar-1 flex flex-col gap-y-medium">
                     @if(is_active_sidebar('sidebar-footer-1'))
                         @php dynamic_sidebar('sidebar-footer-1') @endphp
@@ -11,7 +11,7 @@
                         @relativeInclude('elements.logo')
                     @endif
                 </div>
-                <!-- Footer Sidebar 2 -->
+                {{-- Footer Sidebar 2 --}}
                 <div class="footerSidebar-2 flex flex-col gap-y-medium">
                     @if(is_active_sidebar('sidebar-footer-2'))
                         @php dynamic_sidebar('sidebar-footer-2') @endphp
@@ -23,7 +23,7 @@
                         @endif
                     @endif
                 </div>
-                <!-- Footer Sidebar 3 -->
+                {{-- Footer Sidebar 3 --}}
                 <div class="footerSidebar-3 hidden md:flex flex-col gap-y-medium ">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php dynamic_sidebar('sidebar-footer-3') @endphp
@@ -31,7 +31,7 @@
                         @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2s', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
                     @endif
                 </div>
-                <!-- Footer Sidebar 4 -->
+                {{-- Footer Sidebar 4 --}}
                 <div class="footerSidebar-4 flex flex-col gap-y-gutter md:gap-y-medium">
                     @if(is_active_sidebar('sidebar-footer-4'))
                         @php dynamic_sidebar('sidebar-footer-4') @endphp
@@ -49,7 +49,7 @@
             {{-- @relativeInclude('elements.copyright') --}}
         </div>
     </div>
-    <!-- Footer Bottom Section -->
+    {{-- Footer Bottom --}}
     <div class="bg-secondary text-white px-gutter" aria-labelledby="footer-bottom">
         <h2 id="footer-bottom" class="sr-only">Footer bottom</h2>
         <div class="footerDisclaimer max-w-content-hf py-2.5 mx-auto">

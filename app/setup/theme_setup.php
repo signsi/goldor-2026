@@ -4,14 +4,40 @@
 add_action('init', function () {
     // Button-Styles
     register_block_style('core/button', [
+        'name' => 'default-animated',
+        'label' => __('Füllen (animiert)', 'rocketpager'),
+    ]);
+    register_block_style('core/button', [
         'name' => 'outline-white',
         'label' => __('Outline weiss', 'rocketpager'),
     ]);
+    register_block_style('core/button', [
+        'name' => 'outline-white-animated',
+        'label' => __('Outline weiss (animiert)', 'rocketpager'),
+    ]);
+    register_block_style('core/buttons', [
+        'name' => 'offsetY-Button',
+        'label' => __('Button nach unten versetzt', 'rocketpager'),
+    ]);
 
-    // Button-Styles
+    // Table-Styles
     register_block_style('core/table', [
-        'name' => 'white',
+        'name' => 'tableWhite',
         'label' => __('Tabelle weiss', 'rocketpager'),
+    ]);
+    register_block_style('core/table', [
+        'name' => 'finzanz-4-col',
+        'label' => __('Finanz (4 Spalten', 'rocketpager'),
+    ]);
+
+    // Columns
+    register_block_style('core/columns', [
+        'name' => 'hasHoverEffect-1',
+        'label' => __('Outline-Effekt', 'rocketpager'),
+    ]);
+    register_block_style('core/columns', [
+        'name' => 'offsetY-Column',
+        'label' => __('Spalte 50% nach unten versetzt', 'rocketpager'),
     ]);
 
     // List-Styles
