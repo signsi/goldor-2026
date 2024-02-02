@@ -208,18 +208,23 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'checkbox',
+            'key' => 'megamenu',
+            'label' => 'Mega-Menü aktivieren?',
+        ],
+        [
+            'type' => 'checkbox',
             'key' => 'header_lang_switcher',
-            'label' => 'Sprach-Umschalter aktiviert? (Polylang Plugin muss installiert sein)',
+            'label' => 'Sprach-Umschalter aktivieren? (Polylang Plugin muss installiert sein)',
         ],
         [
             'type' => 'checkbox',
             'key' => 'header_search',
-            'label' => 'Suche aktiviert?',
+            'label' => 'Suche aktivieren?',
         ],
         [
             'type' => 'radio',
             'key' => 'header_mobile_slide_from',
-            'label' => 'Von welcher Seite soll das MobileMenü hereinfahren?',
+            'label' => 'Von welcher Seite soll das MobileMenü / MegaMenü hereinfahren?',
             'options' => [
                 'menuSlideFromTop' => 'oben',
                 'menuSlideFromBottom' => 'unten',

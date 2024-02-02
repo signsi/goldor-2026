@@ -2,6 +2,8 @@
     $search_active = App\getThemeOption('header_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
     $hide_ul = !($search_active || (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher')) || is_active_sidebar('sidebar-cta'));
+
+    $megamenu_active = App\getThemeOption('megamenu');
 @endphp
 
 <div id="topNav" class="relative max-w-content-hf mx-auto px-gutter py-small z-50">
@@ -12,6 +14,7 @@
         {{-- Logo --}}
 
         {{-- Primary Navigation --}}
+        @if(!$megamenu_active)
         <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile lg:h-menu-items items-center">
             <nav>
                 @if (has_nav_menu('primary_navigation'))
@@ -34,11 +37,12 @@
                 @endif
             </nav>
         </div>
+        @endif
         {{-- Primary Navigation END --}}
 
         {{-- column next to primary navigation --}}
         @if (!$hide_ul)
-            <ul class="hidden lg:flex lg:h-menu-items lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0">
+            <ul class="hidden lg:flex lg:h-menu-items lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0 {{ $megamenu_active ? '!ml-auto' : '' }}">
                 @if ($search_active)
                     <li class="">
                         <svg id="show-modal-search" class="hover:cursor-pointer fill-primary hover:fill-font h-5 w-5 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -69,7 +73,7 @@
 
         {{-- Mobile Navigation --}}
         <button type="button" id="mobileToggle"
-            class="bg-transparent rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-font lg:hidden"
+            class="bg-transparent rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-font {{ $megamenu_active ? '' : 'lg:hidden' }}"
             aria-expanded="false">
             <span class="sr-only">Toggle menu</span>
 
