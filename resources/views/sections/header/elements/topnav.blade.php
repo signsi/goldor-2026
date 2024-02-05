@@ -2,18 +2,20 @@
     $search_active = App\getThemeOption('header_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
     $hide_ul = !($search_active || (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher')) || is_active_sidebar('sidebar-cta'));
+
+    $megamenu_active = App\getThemeOption('megamenu');
 @endphp
 
-<div id="topNav" class="relative z-50 bg-white px-gutter py-small">
-    <div class="max-w-content-hf mx-auto flex justify-between md:space-x-12 items-center">
-        
+<div id="topNav" class="relative max-w-content-hf mx-auto px-gutter py-small z-50">
+    <div class="flex h-menu-items-mobile lg:h-menu-items justify-between md:space-x-8 xl:space-x-12 items-center">
+
         {{-- Logo --}}
         @include('sections.header.elements.logo')
         {{-- Logo --}}
-        
-        {{-- Primary Navigation --}}
-        <div class="hidden xl:flex xl:flex-row justify-end h-menu-items-mobile md:h-menu-items items-center">
 
+        {{-- Primary Navigation --}}
+        @if(!$megamenu_active)
+        <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile lg:h-menu-items items-center">
             <nav>
                 @if (has_nav_menu('primary_navigation'))
                     @php
@@ -21,7 +23,7 @@
                             'theme_location' => 'primary_navigation',
                             'menu_class' => 'menu-primary_navigation flex space-x-6 xl:space-x-10 2xl:space-x-12 items-center my-0',
                             'container_class' => 'menu-primary_navigation-container',
-                            'add_li_class' => 'relative group text-base text-primary hover:text-tertiary w-min-content before:w-0 before:h-1 before:absolute before:-bottom-2 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
+                            'add_li_class' => 'relative group text-base text-primary hover:text-tertiary w-min-content whitespace-nowrap  lg:h-menu-items lg:flex lg:items-center before:w-0 before:h-1 before:absolute before:bottom-0 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
                             'add_sub_li_class' => 'before:content-none',
                             'walker' => new SubmenuWrap()
                         ])
@@ -35,11 +37,12 @@
                 @endif
             </nav>
         </div>
+        @endif
         {{-- Primary Navigation END --}}
 
         {{-- column next to primary navigation --}}
         @if (!$hide_ul)
-            <ul class="hidden xl:flex xl:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0">
+            <ul class="hidden lg:flex lg:h-menu-items lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0 {{ $megamenu_active ? '!ml-auto' : '' }}">
                 @if ($search_active)
                     <li class="">
                         <svg id="show-modal-search" class="hover:cursor-pointer fill-primary hover:fill-font h-5 w-5 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -68,13 +71,13 @@
         @endif
         {{-- column next to primary navigation END --}}
 
-        {{-- Hamburger Icons --}}
+        {{-- Mobile Navigation --}}
         <button type="button" id="mobileToggle"
-            class="bg-transparent rounded-md p-2 inline-flex items-center justify-center text-font xl:hidden"
+            class="bg-transparent rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-font {{ $megamenu_active ? '' : 'lg:hidden' }}"
             aria-expanded="false">
             <span class="sr-only">Toggle menu</span>
 
-            <div id="nav-icon2">
+            <div class="w-[30px] h-6 relative cursor-pointer rotate-0 transition-transform ease-in-out duration-500">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -82,14 +85,6 @@
                 <span></span>
                 <span></span>
             </div>
-        </button>
-
-        <button type="button" id="mobileClose"
-            class="bg-transparent rounded-md p-2 hidden items-center justify-center text-font xl:hidden">
-            <span class="sr-only">Close menu</span>
-            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
-                <line x1="4" y1="12" x2="20" y2="12" />
-            </svg>
         </button>
         {{-- Hamburger Icons END --}}
     </div>

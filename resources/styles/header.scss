@@ -182,74 +182,46 @@ ul.lang-switcher-nav {
 }
 
 /* Hamburger Icons */
-#nav-icon2 {
-    @apply w-[30px] h-6 relative cursor-pointer rotate-0 transition-transform ease-in-out duration-500 ;
+#mobileToggle span{
+    @apply block absolute h-[3px] w-1/2 bg-primary opacity-100 rotate-0 duration-[0.25s] ease-in-out
+            even:left-1/2 odd:left-0
+            [&:nth-child(1)]:top-0 [&:nth-child(2)]:top-0
+            [&:nth-child(3)]:top-2.5 [&:nth-child(4)]:top-2.5
+            [&:nth-child(5)]:top-[21px] [&:nth-child(6)]:top-[21px];
 }
 
-#nav-icon2 span {
-    @apply block absolute h-[3px] w-1/2 bg-primary opacity-100 rotate-0;
-    -webkit-transition: .25s ease-in-out;
-    -moz-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out;
-}
-
-#nav-icon2 span:nth-child(even) {
-    @apply left-1/2;
-}
-
-#nav-icon2 span:nth-child(odd) {
-    @apply left-0;
-}
-
-#nav-icon2 span:nth-child(1),
-#nav-icon2 span:nth-child(2) {
-    @apply top-0;
-}
-
-#nav-icon2 span:nth-child(3),
-#nav-icon2 span:nth-child(4) {
-    @apply top-2.5;
-}
-
-#nav-icon2 span:nth-child(5),
-#nav-icon2 span:nth-child(6) {
-    @apply top-[21px];
-}
-
-#nav-icon2.open span:nth-child(1),
-#nav-icon2.open span:nth-child(6) {
+#mobileToggle.mobileMenuOpen span:nth-child(1),
+#mobileToggle.mobileMenuOpen span:nth-child(6) {
     @apply rotate-45;
 }
 
-#nav-icon2.open span:nth-child(2),
-#nav-icon2.open span:nth-child(5) {
+#mobileToggle.mobileMenuOpen span:nth-child(2),
+#mobileToggle.mobileMenuOpen span:nth-child(5) {
     @apply -rotate-45;
 }
 
-#nav-icon2.open span:nth-child(1) {
+#mobileToggle.mobileMenuOpen span:nth-child(1) {
     @apply top-[7px] left-[5px];
 }
 
-#nav-icon2.open span:nth-child(2) {
+#mobileToggle.mobileMenuOpen span:nth-child(2) {
     left: calc(50% - 5px);
     @apply top-[7px];
 }
 
-#nav-icon2.open span:nth-child(3) {
+#mobileToggle.mobileMenuOpen span:nth-child(3) {
     @apply opacity-0 -left-1/2;
 }
 
-#nav-icon2.open span:nth-child(4) {
+#mobileToggle.mobileMenuOpen span:nth-child(4) {
     @apply opacity-0 left-full;
 }
 
-#nav-icon2.open span:nth-child(5) {
+#mobileToggle.mobileMenuOpen span:nth-child(5) {
     @apply top-[12px] left-[5px];
 }
 
-#nav-icon2.open span:nth-child(6) {
+#mobileToggle.mobileMenuOpen span:nth-child(6) {
     left: calc(50% - 5px);
     @apply top-3;
 }
-

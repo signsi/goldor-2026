@@ -14,35 +14,41 @@
 @endphp
 
 
-<div id="mobileNav" class="mobileMenuHide {{ $menuSlideFrom }} bg-secondary !ml-0 absolute left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top lg:hidden ease-in-out overflow-x-hidden">
-    <div class="h-[calc(var(--full-mobile-menu-height-dyn)-theme(height.menu-items-mobile)-(2*theme(spacing.small)))] bg-theme text-font">
-        <div class="{{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} flex flex-col gap-gutter px-gutter py-14 overflow-y-auto">
+<div id="mobileNav" class="bg-secondary !ml-0 top-0 fixed left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top ease-in-out overflow-x-hidden mobileMenuHide {{ $menuSlideFrom }} ">
+    <div class="h-[var(--full-mobile-menu-height-dyn)] bg-theme text-font">
+        <div class="max-w-content-hf mx-auto flex flex-col gap-gutter lg:gap-2xl px-gutter pt-[calc(40px+theme(height.menu-items-mobile)+(2*theme(spacing.small)))] lg:pt-[calc(90px+theme(height.menu-items)+(2*theme(spacing.small)))] pb-14 4xl:pb-2xl text-font relative {{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} lg:h-auto overflow-y-auto">
             <nav>
                 @if (has_nav_menu('primary_navigation'))
                     @php
-                        wp_nav_menu([
-                            'theme_location' => 'primary_navigation',
-                            'menu_class' => 'menu-primary_navigation flex flex-col space-y-4 items-start my-0 px-0',
-                            'container_class' => 'menu-primary_navigation-container',
-                            'add_li_class' => 'relative w-full group text-xl text-white hover:text-font w-min-content',
-                            'add_sub_li_class' => 'text-font',
-                            'walker' => new SubmenuWrap()
-                        ])
+                    wp_nav_menu([
+                        'theme_location' => 'primary_navigation',
+                        'menu_class' => 'menu-primary_navigation-mobile pt-gutter lg:pt-0 grid gap-gutter w-full flex flex-col lg:grid lg:grid-cols-3 flex-wrap items-baseline pl-0 mb-0',
+                        'container_class' => 'menu-primary_navigation-container gridStyle',
+                        'add_li_class' => 'z-10 lg:basis-2/6 4xl:py-3 w-full text-2xl group [&_svg]:hidden',
+                        'depth' => 1, // Hier setzen wir die Tiefe auf 1, um nur Hauptseiten zu zeigen
+                        'walker' => new SubmenuWrap(),
+                    ])
                     @endphp
                 @endif
             </nav>
-            @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList', ['color' => 'white'])
-            @includeWhen($search_active, 'forms.search')
+
+            <div class="lg:hidden">
+                @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList', ['color' => 'white'])
+            </div>
+            <div class="lg:hidden">
+                @includeWhen($search_active, 'forms.search')
+            </div>
+
 
             @if (is_active_sidebar('sidebar-cta'))
-                <div class="max-w-content-hf mx-auto [&_figure]:my-0">
+                <div class="max-w-content-hf mx-auto pt-0 lg:hidden [&_figure]:my-0">
                     @php dynamic_sidebar('sidebar-cta') @endphp
                 </div>
             @endif
         </div>
 
         @if($cta_active)
-            <div class="fixed-bottom">
+            <div class="fixed-bottom lg:hidden">
                 <ul class="flex justify-between w-full p-0 m-0 list-none border-t border-primarylight divide-x divide-primarylight">
                     @if($tel_active)
                         <li class="flex-auto w-full p-0 m-0">

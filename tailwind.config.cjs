@@ -150,8 +150,8 @@ module.exports = {
       },
 
       height: {
-        'menu-items': '30px',
-        'menu-items-mobile': '30px',
+        'menu-items': '40px',
+        'menu-items-mobile': '35px',
         '25vh': '25vh',
         '33vh': '33.33vh',
         '50vh': '50vh',

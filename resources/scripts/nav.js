@@ -25,7 +25,6 @@ const closeSubMenu = ($menuContainer) => {
 
 const toggleMobileMenuButton = () => {
     $('#mobileToggle').toggleClass('mobileMenuOpen');
-    $('#mobileToggle svg path').toggleClass('hidden');
 }
 
 const openMobileMenu = ($mobileMenu) => {
@@ -36,14 +35,12 @@ const openMobileMenu = ($mobileMenu) => {
     $mobileMenu.addClass('mobileMenuShow');
     $mobileMenu.removeClass('mobileMenuHide');
     $('body').addClass('overflow-y-hidden');
-    $('#nav-icon2').toggleClass('open');
 }
 const closeMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
     $mobileMenu.removeClass('mobileMenuShow');
     $mobileMenu.addClass('mobileMenuHide');
     $('body').removeClass('overflow-y-hidden');
-    $('#nav-icon2').toggleClass('open');
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {
@@ -123,7 +120,6 @@ function setupDesktopNav() {
 function setupMobileNav() {
     const $mobileNav = $("#mobileNav");
     const $mobileNavButton = $("#mobileToggle");
-    const $mobileNavClose = $("#mobileClose");
     const $mobileNavCloseLinks = $mobileNav.find(".menu-primary_navigation-container > ul > li a");
     const $menuParents = $mobileNav.find(".menu-primary_navigation-container > ul > li.menu-item-has-children");
     const $submMenuParentSvg = $mobileNav.find(".menu-primary_navigation-container > ul > li .submenuToggle");
