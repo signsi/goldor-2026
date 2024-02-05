@@ -14,7 +14,7 @@
 @endphp
 
 
-<div id="mobileNav" class="bg-secondary !ml-0 top-0 fixed left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top ease-in-out overflow-x-hidden mobileMenuHide {{ $menuSlideFrom }} ">
+<div id="mobileNav" class="bg-secondary !ml-0 top-0 fixed left-0 right-0 inset-x-0 transition-all duration-500 transform origin-top ease-in-out mobileMenuHide {{ $menuSlideFrom }} ">
     <div class="h-[var(--full-mobile-menu-height-dyn)] bg-theme text-font">
         <div class="max-w-content-hf mx-auto flex flex-col gap-gutter lg:gap-2xl px-gutter pt-[calc(40px+theme(height.menu-items-mobile)+(2*theme(spacing.small)))] lg:pt-[calc(90px+theme(height.menu-items)+(2*theme(spacing.small)))] pb-14 4xl:pb-2xl text-font relative {{ $cta_active ? 'h-[calc(100%-60px)]' : 'h-full' }} lg:h-auto overflow-y-auto">
             <nav>
