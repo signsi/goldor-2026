@@ -40,6 +40,7 @@
                 </div>
             @endif
         </div>
+
         @if($cta_active)
             <div class="fixed-bottom">
                 <ul class="flex justify-between w-full p-0 m-0 list-none border-t border-primarylight divide-x divide-primarylight">
