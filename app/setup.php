@@ -128,6 +128,8 @@ add_action('after_setup_theme', function () {
         'style',
     ]);
 
+    add_theme_support('author-thumbnails');
+
     /**
      * Enable selective refresh for widgets in customizer.
      *
