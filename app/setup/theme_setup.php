@@ -209,7 +209,6 @@ add_filter('nav_menu_css_class', function ($classes, $item, $args, $depth) {
     return $classes;
 }, 1, 4);
 
-
 // Entfernt -wp-container-{id}
 // remove_filter( 'render_block', 'wp_render_layout_support_flag', 10, 2 );
 // remove_filter( 'render_block', 'gutenberg_render_layout_support_flag', 10, 2 );

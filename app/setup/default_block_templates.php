@@ -57,15 +57,19 @@ function slug_post_type_template()
                 'layout' => ['type' => 'constrained'],
                 'animation' => 'scroll-reveal anim__animated anim__fadeInUp'
             ], [
-                ['core/post-featured-image'],
-                ['core/post-title', [
-                    'level' => 1,
-                    'lock' => ['move' => false, 'remove' => true]
-                ]],
+                // ['core/post-featured-image'],
+                // ['core/post-title', [
+                //     'level' => 1,
+                //     'lock' => ['move' => false, 'remove' => true]
+                // ]],
                 ['core/paragraph', [
                     'fontSize' => 'lg',
                     'content' => 'Ich bin ein gewöhnlicher Absatz mit einer Schriftgrösse von \'lg\' und eigne mich perfekt als Einführungstext. Ich bin ein gewöhnlicher Absatz mit einer Schriftgrösse von \'lg\' und eigne mich perfekt als Einführungstext.'
                 ], []],
+                ['core/image', [
+                    'url' => 'https://placehold.co/1920x800?text=Platzhalter',
+                    'sizeSlug' => 'full',
+                ]],
                 ['core/paragraph', [
                     'content' => 'Ich bin ein regulärer Absatz und diene als Fliesstext auf einer Webseite. Ich bin ein regulärer Absatz und diene als Fliesstext auf einer Webseite. Ich bin ein regulärer Absatz und diene als Fliesstext auf einer Webseite.'
                 ], []],
