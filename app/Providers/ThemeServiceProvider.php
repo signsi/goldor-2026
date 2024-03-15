@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Roots\Acorn\Sage\SageServiceProvider;
 use Illuminate\Support\Facades\Blade;
-use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 
 class ThemeServiceProvider extends SageServiceProvider
@@ -30,7 +30,7 @@ class ThemeServiceProvider extends SageServiceProvider
 // Ermöglicht relative Import von Blade-Files
             // Quelle: https://stackoverflow.com/questions/49894221/laravel-blade-include-files-with-relative-path
             $this->enableRelativeBladeIncludes();
-        
+
     }
 
     private function enableRelativeBladeIncludes() {
