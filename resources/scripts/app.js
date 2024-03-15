@@ -36,11 +36,7 @@ window.animations = {
 /**
  * Application entrypoint
  */
-domReady(async (err) => {
-  if (err) {
-    // handle hmr errors
-    console.error(err);
-  }
+domReady(async () => {
 
   let fullHeight = window.innerHeight;
   document.documentElement.style.setProperty('--js-mobile-height', `${fullHeight}px`);
@@ -75,4 +71,4 @@ domReady(async (err) => {
 /**
  * @see {@link https://webpack.js.org/api/hot-module-replacement/}
  */
-import.meta.webpackHot?.accept(console.error);
+if (import.meta.webpackHot) import.meta.webpackHot.accept(console.error);

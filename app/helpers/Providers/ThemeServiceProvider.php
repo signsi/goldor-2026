@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\Facades\Blade;
-use Roots\Acorn\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class ThemeServiceProvider extends ServiceProvider
 {
@@ -23,9 +23,9 @@ class ThemeServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {   
+    {
         parent::boot();
-        
+
         Blade::directive('relInclude', function ($args) {
             $args = Blade::stripParentheses($args);
 

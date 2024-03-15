@@ -133,11 +133,7 @@ wp.hooks.addFilter(
   withToolbarButtonProp
 );
 
-const main = async (err) => {
-  if (err) {
-    // handle hmr errors
-    console.error(err);
-  }
+domReady(async () => {
 
   const saveToolbarButtonAttribute = (extraProps, blockType, attributes) => {
     if (blockType.name.includes("core")) {
@@ -162,30 +158,10 @@ const main = async (err) => {
     'custom-attributes/save-toolbar-button-attribute',
     saveToolbarButtonAttribute
   );
-}
+});
 
 
-// wp.blocks.registerBlockVariation(
-//   'core/columns',
-//   {
-//     name: 'Wrapper',
-//     title: 'Wrapper',
-//     isActive: (blockAttributes, vAttributes) =>
-//       blockAttributes.className
-//         .includes(vAttributes.className),
-//     attributes: {
-//       className: 'relative grid grid-flow-col grid-cols-12 w-full px-gutter',
-//       layout: {
-//         inherit: true,
-//       },
-//       style: {
-//         spacing: {
-//           // padding: { top: '25px', bottom: '55px' }
-//         }
-//       }
-//     },
-//   }
-// );
-
-domReady(main);
-import.meta.webpackHot?.accept(main);
+/**
+ * @see {@link https://webpack.js.org/api/hot-module-replacement/}
+ */
+if (import.meta.webpackHot) import.meta.webpackHot.accept(console.error);

@@ -30,7 +30,7 @@ class Post extends Composer
     }
 
     /**
-     * Returns the post title.
+     * Retrieve the post title.
      *
      * @return string
      */
