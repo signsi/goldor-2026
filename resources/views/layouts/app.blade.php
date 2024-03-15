@@ -5,34 +5,61 @@
     $isLanguageActive = App\getThemeOption('header_lang_switcher');
 @endphp
 
-@stack('header_scripts')
+<!doctype html>
+<html <?php language_attributes(); ?>>
 
-<a class="sr-only focus:not-sr-only" href="#main">
-    {{ __('Skip to content') }}
-</a>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  @php(do_action('get_header'))
+  @php(wp_head())
+  @stack('header_scripts')
+  <meta name="theme-color" content="#FFF" />
+</head>
 
-@include('sections.header.header')
+<body @php(body_class())>
+  @php(wp_body_open())
+  <?php do_action('get_header'); ?>
 
-<main id="main" class="">
 
-    @yield('content')
+  <div id="app">
+    <a class="sr-only focus:not-sr-only" href="#main">
+        {{ __('Skip to content') }}
+    </a>
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
 
-    @hasSection('sidebar')
-        <aside class="sidebar">
-            @yield('sidebar')
-        </aside>
-    @endif
+            @include('sections.header.header')
 
-    @includeWhen($isCTASearchActive, 'sections.offcanvas.modal-search')
-    @if (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher'))
-        @includeWhen($isLanguageActive, 'sections.offcanvas.modal-language')
-    @endif
-</main>
+            <main id="main" class="">
 
-@include('sections.footer.footer')
+                @yield('content')
 
-@include('sections.offcanvas.sticky-cta')
+                @hasSection('sidebar')
+                    <aside class="sidebar">
+                        @yield('sidebar')
+                    </aside>
+                @endif
 
-@include('partials.scripts.browser-update')
-@include('partials.scripts.nootiz')
-@stack('footer_scripts')
+                @includeWhen($isCTASearchActive, 'sections.offcanvas.modal-search')
+                @if (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher'))
+                    @includeWhen($isLanguageActive, 'sections.offcanvas.modal-language')
+                @endif
+            </main>
+
+            @include('sections.footer.footer')
+
+            @include('sections.offcanvas.sticky-cta')
+
+            @include('partials.scripts.browser-update')
+            @include('partials.scripts.nootiz')
+        </div>
+    </div>
+  </div>
+
+  @php(do_action('get_footer'))
+  @php(wp_footer())
+  @stack('footer_scripts')
+</body>
+
+</html>
