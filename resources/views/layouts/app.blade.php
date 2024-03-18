@@ -6,7 +6,7 @@
 @endphp
 
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html @php(language_attributes())>
 
 <head>
   <meta charset="utf-8">
@@ -19,8 +19,6 @@
 
 <body @php(body_class())>
   @php(wp_body_open())
-  <?php do_action('get_header'); ?>
-
 
   <div id="app">
     <a class="sr-only focus:not-sr-only" href="#main">
