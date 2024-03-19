@@ -84,6 +84,9 @@ body, :root {
   --wp--preset--spacing--80:  var(--spacing--rp80);
 
   // Abstände - Dynamic Spacing-Steps Variables - Berechnungen
+  // Diese Funktion wirft beim Builden aktuelle eine Warnung (Parse Error bzw. Lexical Error) und kann ignoriert werden
+  // Das Problem kann höchstwahrscheindlich auf dieses Issue zurückgeführt werden:
+  // https://github.com/postcss/postcss-calc/issues/104
   --spacing-responsive--rp20: clamp(var(--spacing--rp10), calc(1.5rem + ((1vw - 7.68px) * 1.025)), var(--spacing--rp20));
   --spacing-responsive--rp30: clamp(var(--spacing--rp20), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp30));
   --spacing-responsive--rp40: clamp(var(--spacing--rp30), calc(1.5rem + ((1vw - 7.68px) * 1.5625)), var(--spacing--rp40));
