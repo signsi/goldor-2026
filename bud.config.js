@@ -13,8 +13,6 @@ export default async (app) => {
             jquery: ["jQuery", "$"],
         })
 
-        .devtool('eval')
-
         /**
          * Application assets & entrypoints
          *
