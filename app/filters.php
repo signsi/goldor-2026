@@ -43,49 +43,44 @@ add_filter('the_content', function ($content) {
     return $new_content;
 }, 999);
 
+// Defer JS that aren't needed at the beginning
+add_filter('script_loader_tag', function($tag, $handle) {
+    if (is_admin()) return $tag;
 
-// Füge den adjust_text_color-Filter hinzu
-// add_filter('the_content', function ($content) {
-//     // Verwende reguläre Ausdrücke, um alle Elemente mit Klassen zu finden, die mit 'has-' beginnen und mit '-background-color' enden
-//     $pattern = '/<[^>]*\sclass=["\'][^"\']*has-[^"\']*-background-color[^"\']*["\'][^>]*>.*?<\/[^>]*>/i';
+    $exclude_handles = [
+        'heartbeat',
+        'wp-hooks',
+        'wp-auth-check',
+        'jquery',
+        'jquery-core',
+        'jquery-ui-core',
+        'wp-i18n'
+    ];
 
-//     // Ersetze die Hintergrundfarbe und Textfarbe basierend auf der Helligkeit
-//     $content = preg_replace_callback($pattern, function($match) {
-//         $element = $match[0];
-//         $computed_style = get_computed_style($element);
+    if (!in_array($handle, $exclude_handles)) {
+        $tag = str_replace('></script>', ' defer></script>', $tag);
+    }
 
-//         // Extrahiere die Hintergrundfarbe aus dem berechneten Stil
-//         preg_match('/background-color:\s*([^;]+);/', $computed_style, $matches);
-//         if (isset($matches[1])) {
-//             $background_color = $matches[1];
+    return $tag;
+}, 10, 2);
 
-//             // Funktion zur Berechnung der Helligkeit
-//             function get_brightness($hex_color) {
-//                 $r = hexdec(substr($hex_color, 1, 2));
-//                 $g = hexdec(substr($hex_color, 3, 2));
-//                 $b = hexdec(substr($hex_color, 5, 2));
+// Preload CSS that aren't needed at the beginning
+add_filter( 'style_loader_tag', function( $tag, $handle ){
 
-//                 // Vereinfachte Berechnung der Helligkeit
-//                 return ($r + $g + $b) / 3;
-//             }
+    $preload_handles = [
+        'app/0',
+        'wp-block-library',
+        'buttons',
+        'google-font',
+        'google-font-serif',
+        'intlTelInput-forminator-css'
+    ];
 
-//             $brightness = get_brightness($background_color);
+    if (in_array($handle, $preload_handles) || str_starts_with($handle, 'block') || str_starts_with($handle, 'forminator')) {
+        $fallback = '<noscript>' . $tag . '</noscript>';
+        $preload = str_replace("rel='stylesheet'", "rel='preload' as='style' onload='this.rel=\"stylesheet\"'", $tag);
+        $tag = $preload . $fallback;
+    }
 
-//             if ($brightness < 128) {
-//                 // Dunkler Hintergrund, weiße Textfarbe
-//                 $element = str_replace('class="', 'class="text-white ', $element);
-//             } else {
-//                 // Heller Hintergrund, schwarze Textfarbe
-//                 $element = str_replace('class="', 'class="text-black ', $element);
-//             }
-//         }
-
-//         return $element;
-//     }, $content);
-
-//     return $content;
-// });
-
-
-
-
+    return $tag;
+}, 10, 2 );
