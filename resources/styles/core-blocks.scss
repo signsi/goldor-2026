@@ -246,19 +246,19 @@ figure {
 /* List-Styles */
 ul.is-style-default {
   > li {
-    @apply text-base;
+    @apply text-2xl;
   }
 }
 ul[class*="liststyle-icon"] {
   @apply list-none pl-0;
-  
+
   > li {
+    @apply relative w-max max-w-fit transition-all;
     a {
       @apply text-inherit;
     }
-    @apply flex items-center pl-0 transition-all;
     &::before, &::after {
-      @apply font-icon font-light antialiased inline-block normal-nums leading-none transition-all;
+      @apply absolute top-1/2 -translate-y-1/2 font-icon font-light antialiased inline-block normal-nums leading-none transition-all;
     }
     &, &::before, &::after, & a {
       @apply transition-all;
@@ -267,10 +267,10 @@ ul[class*="liststyle-icon"] {
 
   /* Icons links oder rechts vom Text darstellen */
   &[class*="-start"] > li {
-    @apply before:pr-3 after:hidden;
+    @apply pl-9 pr-0 before:left-0 after:hidden;
   }
   &[class*="-end"] > li {
-    @apply before:hidden after:pl-3;
+    @apply pl-0 pr-9 before:hidden after:right-0;
   }
 
   /* Alle Icons */
@@ -289,14 +289,14 @@ ul[class*="liststyle-icon"] {
   &[class*="--arrow-right-long"] > li {
     @apply before:content-arrow-right-long after:content-arrow-right-long;
   }
-  &[class*="--arrow-down-long"] > li {
-    @apply before:content-arrow-down-long after:content-arrow-down-long border-b border-solid pb-rp-10;
-  }
   &[class*="--circle-check"] > li {
-    @apply before:content-circle-check after:content-circle-check;
+    @apply before:content-circle-check before:font-bold after:content-circle-check after:font-bold;
+  }
+  &[class*="--arrow-down-long"] > li {
+    @apply w-full max-w-full before:content-arrow-down-long after:content-arrow-down-long border-b border-solid pb-rp-10;
   }
   &[class*="--arrow-down-to-line"] > li {
-    @apply before:content-arrow-down-to-line after:content-arrow-down-to-line;
+    @apply w-full max-w-full before:content-arrow-down-to-line after:content-arrow-down-to-line;
   }
 
   /* Animation: Icons beim Hover bewegen */
@@ -318,7 +318,7 @@ ul[class*="liststyle-icon"] {
       }
       &:hover > a {
         @apply origin-center translate-x-1.5;
-      } 
+      }
     }
   }
   &[class*="--arrow-left"],
