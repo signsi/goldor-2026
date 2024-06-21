@@ -34,13 +34,13 @@ const openMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
     $mobileMenu.addClass('mobileMenuShow');
     $mobileMenu.removeClass('mobileMenuHide');
-    $('body').addClass('overflow-y-hidden');
+    $('body').addClass('overflow-y-hidden menuOpen');
 }
 const closeMobileMenu = ($mobileMenu) => {
     toggleMobileMenuButton();
     $mobileMenu.removeClass('mobileMenuShow');
     $mobileMenu.addClass('mobileMenuHide');
-    $('body').removeClass('overflow-y-hidden');
+    $('body').removeClass('overflow-y-hidden menuOpen');
 }
 
 const setSubMenuClassesOfSamePage = ($subMenuParents) => {

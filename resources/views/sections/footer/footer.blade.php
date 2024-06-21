@@ -1,61 +1,49 @@
+@php
+    $generalColStyles = 'flex flex-col gap-y-medium';
+@endphp
+
+{{-- verfügbare Komponenten:
+@relativeInclude('elements.logo')
+@relativeInclude('elements.address')
+@relativeInclude('elements.copyright')
+@relativeInclude('elements.mailchimp')
+@relativeInclude('elements.socialmedia-nav')
+@if (has_nav_menu('footer_navigation_1'))
+    @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
+@endif
+@if(is_active_sidebar('sidebar-footer-1'))
+    @php dynamic_sidebar('sidebar-footer-1') @endphp
+@endif --}}
+
 <footer id="siteFooter" aria-labelledby="footer-heading">
-    <div class="bg-primary text-white px-gutter">
+    <div class="bg-primary text-white px-gutter [&_p]:text-xs [&_address]:text-xs [&_li]:text-xs [&_a:hover]:text-secondary">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="max-w-content-hf py-3xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter [&_*]:my-0 [&_a:hover]:text-secondary">
-                {{-- Footer Sidebar 1 --}}
-                <div class="footerSidebar-1 flex flex-col gap-y-medium">
-                    @if(is_active_sidebar('sidebar-footer-1'))
-                        @php dynamic_sidebar('sidebar-footer-1') @endphp
-                    @else
-                        @relativeInclude('elements.logo')
-                    @endif
+        <div class="max-w-content-footer py-3xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter [&_*]:my-0">
+                <div class="{{ $generalColStyles }}">
+                    @relativeInclude('elements.logo')
                 </div>
-                {{-- Footer Sidebar 2 --}}
-                <div class="footerSidebar-2 flex flex-col gap-y-medium">
-                    @if(is_active_sidebar('sidebar-footer-2'))
-                        @php dynamic_sidebar('sidebar-footer-2') @endphp
-                    @else
-                        @if (has_nav_menu('footer_navigation_1'))
-                            @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_1', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
-                        @else
-                            @relativeInclude('elements.address')
-                        @endif
-                    @endif
+                <div class="{{ $generalColStyles }}">
+                    @relativeInclude('elements.address')
                 </div>
-                {{-- Footer Sidebar 3 --}}
-                <div class="footerSidebar-3 hidden md:flex flex-col gap-y-medium ">
+                <div class="{{ $generalColStyles }}">
                     @if(is_active_sidebar('sidebar-footer-3'))
                         @php dynamic_sidebar('sidebar-footer-3') @endphp
-                    @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_2s', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
                     @endif
                 </div>
-                {{-- Footer Sidebar 4 --}}
-                <div class="footerSidebar-4 flex flex-col gap-y-gutter md:gap-y-medium">
-                    @if(is_active_sidebar('sidebar-footer-4'))
-                        @php dynamic_sidebar('sidebar-footer-4') @endphp
-                    @else
-                        @relativeInclude('elements.navigation', ['menu_location' => 'footer_navigation_3', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
-                        @relativeInclude('elements.mailchimp')
-                        @if(is_active_sidebar('sidebar-footer-cta'))
-                            @php dynamic_sidebar('sidebar-footer-cta') @endphp
-                        @endif
-                    @endif
+                <div class="{{ $generalColStyles }}">
+                    @if (has_nav_menu('primary_navigation'))
                         @relativeInclude('elements.navigation', ['menu_location' => 'primary_navigation', 'list_style' => 'is-style-liststyle-icon-start--arrow-right-long', 'listItem_style' => 'translate-x-0 transition-all origin-center hover:translate-x-1.5 [&_svg]:hidden'])
-                        @relativeInclude('elements.socialmedia-nav')
+                    @endif
+                    @relativeInclude('elements.socialmedia-nav')
                 </div>
             </div>
-            {{-- @relativeInclude('elements.copyright') --}}
         </div>
     </div>
-    {{-- Footer Bottom --}}
     <div class="bg-secondary text-white px-gutter" aria-labelledby="footer-bottom">
         <h2 id="footer-bottom" class="sr-only">Footer bottom</h2>
-        <div class="footerDisclaimer max-w-content-hf py-2.5 mx-auto">
-            <nav>
-                @relativeInclude('elements.disclaimer')
-            </nav>
+        <div class="footerDisclaimer max-w-content-footer py-2.5 mx-auto">
+            @relativeInclude('elements.disclaimer')
         </div>
     </div>
 </footer>

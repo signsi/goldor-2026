@@ -5,9 +5,13 @@
     $company_plz = App\getThemeOption('plz');
     $company_city = App\getThemeOption('ort');
 
+    $company_contactperson = App\getThemeOption('kontaktperson');
+    $company_contactperson_function = App\getThemeOption('kontaktperson_funktion');
+
     $company_email = App\getThemeOption('email');
     $company_phone = App\getThemeOption('tel');
     $company_page = App\getThemeOption('website');
+    $company_googlemap = App\getThemeOption('google_link');
 
     $phone_link = str_replace(' ', '', $company_phone);
 @endphp
@@ -16,33 +20,43 @@
     @if(is_active_sidebar('sidebar-footer-address'))
         @php dynamic_sidebar('sidebar-footer-address') @endphp
     @else
-        <p>
-            @if ($company_name)
-                <strong>{{ $company_name }}</strong><br>
-            @endif
-            @if ($company_division)
-                {{ $company_division }}<br>
-            @endif
-        </p>
         <address class="not-italic">
-            <a href="https://www.google.com/maps/place/MAZ+-+Institut+f%C3%BCr+Journalismus+und+Kommunikation/@47.0484625,8.308936,17z/data=!3m1!4b1!4m6!3m5!1s0x478ffba269e470af:0xb62dd81d89e7604e!8m2!3d47.0484625!4d8.308936!16s%2Fg%2F120n2ybv" target="black" title="{{ $company_street }}, {{ $company_plz }} {{ $company_city }}">
+            @if ($company_googlemap)
+                <a href="{{ $company_googlemap }}" target="black" title="{{ $company_street }}, {{ $company_plz }} {{ $company_city }}">
+            @endif
+                @if ($company_name)
+                    <strong>{{ $company_name }}</strong><br>
+                @endif
+                @if ($company_division)
+                    {{ $company_division }}<br>
+                @endif
                 @if ($company_street)
                     {{ $company_street }}<br>
                 @endif
                 @if ($company_plz)
                     {{ $company_plz }} {{ $company_city }}
                 @endif
-            </a>
+            @if ($company_googlemap)
+                </a>
+            @endif
         </address>
         <p>
+            @if ($company_contactperson)
+                {{ $company_contactperson }}<br>
+            @endif
+            @if ($company_contactperson_function)
+                {{ $company_contactperson_function }}<br>
+            @endif
+        </p>
+        <p class="mb-0">
             @if ($company_phone)
                 <a href="tel:{{ $phone_link }}" aria-label="Telefonnummer">{{ $company_phone }}</a><br>
             @endif
             @if ($company_email)
-                <a class="is-style-hasGradient" href="mailto:{{ $company_email }}" aria-label="E-Mail-Adresse">{{ $company_email }}</a><br>
+                <a href="mailto:{{ $company_email }}" aria-label="E-Mail-Adresse">{{ $company_email }}</a><br>
             @endif
             @if ($company_page)
-                <a href="https://{{ $company_page }}" aria-label="Website">{{ $company_page }}</a><br>
+                <a href="https://{{ $company_page }}" aria-label="Website">{{ $company_page }}</a>
             @endif
         </p>
     @endif

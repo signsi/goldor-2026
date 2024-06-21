@@ -40,6 +40,7 @@ module.exports = {
         quaternary: 'var(--color-quaternary)',
 
         font: 'var(--color-font)',
+        link: 'var(--color-link)',
 
         grey: 'var(--color-grey)',
         greylight: 'var(--color-greylight)',
@@ -150,8 +151,8 @@ module.exports = {
       },
 
       height: {
-        'menu-items': '40px',
-        'menu-items-mobile': '35px',
+        'menu-items': '35px',
+        'menu-items-mobile': '30px',
         '25vh': '25vh',
         '33vh': '33.33vh',
         '50vh': '50vh',

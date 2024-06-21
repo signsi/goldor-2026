@@ -62,10 +62,8 @@ add_action('after_setup_theme', function () {
      */
     register_nav_menus([
         'primary_navigation' => __('Main Navigation', 'rocketpager'),
-        'top_navigation' => __('Top Navigation', 'rocketpager'),
         'footer_navigation_1' => __('Footer Navigation 1', 'rocketpager'),
         'footer_navigation_2' => __('Footer Navigation 2', 'rocketpager'),
-        'footer_navigation_3' => __('Footer Navigation 3', 'rocketpager'),
         'disclaimer_navigation' => __('Disclaimer Navigation', 'rocketpager'),
         'language_switcher' => __('Language Navigation', 'rocketpager')
     ]);
@@ -174,11 +172,6 @@ add_action('widgets_init', function () {
         'name' => __('Footer Adresse', 'rocketpager'),
         'id' => 'sidebar-footer-address',
         'description' => __('Überschreiben der Adresse. Logo ist nicht betroffen', 'rocketpager'),
-    ] + $config);
-    register_sidebar([
-        'name' => __('Footer CTA', 'rocketpager'),
-        'id' => 'sidebar-footer-cta',
-        'description' => __('Hinzufügen zusätzlicher Elemente im Footer (Bsp. Buttons)', 'rocketpager'),
     ] + $config);
 });
 

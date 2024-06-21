@@ -40,6 +40,11 @@
           "slug": "font"
         },
         {
+          "color": "var(--color-link)",
+          "name": "Link",
+          "slug": "link"
+        },
+        {
           "color": "var(--color-grey)",
           "name": "Grey",
           "slug": "grey"

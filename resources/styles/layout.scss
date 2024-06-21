@@ -35,29 +35,23 @@ body {
     @apply w-full max-w-full lg:max-w-2xlarge xl:max-w-xlarge 4xl:max-w-2xlarge;
 }
 
-
 /* 3. Template-Breite - Helpers */
 .max-w-content-default {
-    @apply w-full max-w-full md:max-w-2xlarge lg:max-w-xlarge 2xl:max-w-large 4xl:max-w-default;
+    @apply w-full max-w-full lg:max-w-default;
 }
 .max-w-content-wide {
-    @apply w-full max-w-full lg:max-w-2xlarge 2xl:max-w-xlarge 4xl:max-w-wide;
+    @apply w-full max-w-full lg:max-w-wide;
 }
-/* 3.1. Breite - Header/Footer: Entweder nimmt man die Grössen Header und Footer zusammen (max-w-content-hf) oder einzeln (max-w-content-header, max-w-content-footer). Kommentiere die gewünschte Variante ein. */
+/* 3.1. Breite - Header/Footer: Entweder nimmt man die Grössen Header und Footer zusammen (max-w-content-header) oder einzeln (max-w-content-header, max-w-content-footer). Kommentiere die gewünschte Variante ein. */
+.max-w-content-header {
+    @apply w-full max-w-full lg:max-w-header;
+}
+.max-w-content-footer {
+    @apply w-full max-w-full lg:max-w-footer;
+}
 .max-w-content-hf {
-    @apply w-full max-w-full 2xl:max-w-2xlarge ;
+    @apply w-full max-w-full lg:max-w-header-footer;
 }
-header .max-w-content-hf {
-    @extend .max-w-content-hf;
-    @apply 4xl:max-w-header;
-    // @apply 4xl:max-w-header-footer;
-}
-footer .max-w-content-hf {
-    @extend .max-w-content-hf;
-    @apply 4xl:max-w-footer 2xl:max-w-xlarge;
-    // @apply 4xl:max-w-header-footer;
-}
-
 
 /* 4. Breite der Gruppen */
 body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {

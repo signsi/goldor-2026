@@ -1,23 +1,9 @@
-/* Button */
+/* Forminator Button */
 button.forminator-button.forminator-button-submit {
-    @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid #{!important};
-    @apply bg-primary text-white border-primary shadow-none hover:bg-secondary hover:border-secondary #{!important};
-    @apply relative w-auto pr-16 flex items-center hover:pl-16 hover:pr-8 overflow-hidden #{!important};
-    &:before, &:after {
-      @apply absolute font-icon font-bold antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
-    }
-    &:after {
-      @apply right-6;
-    }
-    &:before {
-      @apply -left-6;
-    }
-    &:hover:after {
-      @apply -right-[12%];
-    }
-    &:hover:before {
-      @apply left-8;
-    }
+    @apply transition-all rounded-none py-4 px-6 text-xs font-bold border lg:border-2 border-solid #{!important};
+    @apply bg-primary text-white border-primary hover:bg-secondary hover:text-font hover:border-secondary #{!important};
+    @apply relative pr-12 flex items-center hover:pl-12 hover:pr-6 overflow-hidden #{!important};
+    @include buttonStyleArrowAnimation;
 }
 
 .grecaptcha-badge {
