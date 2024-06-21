@@ -1,56 +1,56 @@
 @php
     $search_active = App\getThemeOption('header_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
-    $hide_ul = !($search_active || (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher')) || is_active_sidebar('sidebar-cta'));
-
+    $hide_ul = !($search_active || $lang_switch_active || is_active_sidebar('sidebar-cta'));
     $megamenu_active = App\getThemeOption('megamenu');
+    $flexItemsCenter = 'flex items-center space-x-gutter';
 @endphp
 
-<div id="topNav" class="relative max-w-content-hf mx-auto px-gutter py-small z-50">
-    <div class="flex h-menu-items-mobile lg:h-menu-items justify-between md:space-x-8 xl:space-x-12 items-center">
+<div id="topNav" class="relative max-w-content-hf mx-auto py-small z-50">
+    <div class="{{ $flexItemsCenter }} justify-between">
 
         {{-- Logo --}}
         @include('sections.header.elements.logo')
         {{-- Logo --}}
 
-        {{-- Primary Navigation --}}
-        @if(!$megamenu_active)
-        <div class="hidden lg:flex lg:flex-row justify-end h-menu-items-mobile lg:h-menu-items items-center">
-            <nav>
-                @if (has_nav_menu('primary_navigation'))
-                    @php
-                        wp_nav_menu([
-                            'theme_location' => 'primary_navigation',
-                            'menu_class' => 'menu-primary_navigation flex space-x-6 xl:space-x-10 2xl:space-x-12 items-center my-0',
-                            'container_class' => 'menu-primary_navigation-container',
-                            'add_li_class' => 'relative group text-base text-primary hover:text-tertiary w-min-content whitespace-nowrap  lg:h-menu-items lg:flex lg:items-center before:w-0 before:h-1 before:absolute before:bottom-0 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-tertiary',
-                            'add_sub_li_class' => 'before:content-none',
-                            'walker' => new SubmenuWrap()
-                        ])
-                    @endphp
-                @else
-                    <a href='/wp-admin/nav-menus.php'>
-                        <div class="p-3 border border-solid border-font text-xs text-font bg-white hover:bg-primary hover:text-white transition-colors">
-                            Erstelle eine Navigation und verlinke diese mit der "Main Navigation".
-                        </div>
-                    </a>
-                @endif
-            </nav>
-        </div>
-        @endif
-        {{-- Primary Navigation END --}}
+        <div class="{{ $flexItemsCenter }}">
+            @if(!$megamenu_active)
+                <div class="hidden lg:{{ $flexItemsCenter }} lg:flex-row justify-end">
+                    {{-- Primary Navigation --}}
+                    @if (has_nav_menu('primary_navigation'))
+                        <nav>
+                            @php
+                                wp_nav_menu([
+                                    'theme_location' => 'primary_navigation',
+                                    'menu_class' => 'menu-primary_navigation my-0 pl-0 ' . $flexItemsCenter,
+                                    'container_class' => 'menu-primary_navigation-container',
+                                    'add_li_class' => 'relative group text-base text-font hover:text-link [&.current-menu-item]:text-link [&.current-page-parent]:text-link w-min-content whitespace-nowrap lg:flex lg:items-center lg:h-menu-items before:w-0 before:h-0.5 before:absolute before:-bottom-0 before:right-0 before:bg-white before:transition-all before:duration-500 hover:before:w-full hover:before:left-0 hover:before:bg-link [&.current-page-parent]:before:w-full [&.current-menu-item]:before:w-full [&.current-page-parent]:before:bg-link [&.current-menu-item]:before:bg-link [&.current-page-parent_svg]:text-link',
+                                    'add_sub_li_class' => 'py-1 text-sm text-font hover:text-link before:content-none [&.current-menu-item]:text-link',
+                                    'walker' => new SubmenuWrap()
+                                ])
+                            @endphp
+                        @else
+                            <a href='/wp-admin/nav-menus.php'>
+                                <div class="p-3 border border-solid border-font text-xs text-font bg-white hover:bg-primary hover:text-white transition-colors">
+                                    Erstelle eine Navigation und verlinke diese mit der "Main Navigation".
+                                </div>
+                            </a>
+                        </nav>
+                    @endif
+                    {{-- Primary Navigation END --}}
+                </div>
+            @endif
 
-        {{-- column next to primary navigation --}}
-        @if (!$hide_ul)
-            <ul class="hidden lg:flex lg:h-menu-items lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0 {{ $megamenu_active ? '!ml-auto' : '' }}">
-                @if ($search_active)
-                    <li class="">
-                        <svg id="show-modal-search" class="hover:cursor-pointer fill-primary hover:fill-font h-5 w-5 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <path d="M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z"/>
-                        </svg>
-                    </li>
-                @endif
-                @if (App\is_plugin_active_and_available('polylang/polylang.php') && has_nav_menu('language_switcher'))
+            {{-- column next to primary navigation --}}
+            @if (!$hide_ul)
+                <ul class="hidden lg:flex lg:h-menu-items lg:space-x-6 2xl:space-x-8 items-center my-0 list-none [&_li]:my-0 [&_li]:pl-0 {{ $megamenu_active ? '!ml-auto' : '' }}">
+                    @if ($search_active)
+                        <li class="">
+                            <svg id="show-modal-search" class="hover:cursor-pointer fill-primary hover:fill-font h-5 w-5 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path d="M504.1 471l-134-134C399.1 301.5 415.1 256.8 415.1 208c0-114.9-93.13-208-208-208S-.0002 93.13-.0002 208S93.12 416 207.1 416c48.79 0 93.55-16.91 129-45.04l134 134C475.7 509.7 481.9 512 488 512s12.28-2.344 16.97-7.031C514.3 495.6 514.3 480.4 504.1 471zM48 208c0-88.22 71.78-160 160-160s160 71.78 160 160s-71.78 160-160 160S48 296.2 48 208z"/>
+                            </svg>
+                        </li>
+                    @endif
                     @if ($lang_switch_active)
                         <li>
                             {{-- Als Modal --}}
@@ -61,17 +61,17 @@
                             {{-- @includeWhen($lang_switch_active, 'partials.language.langswitcher-horizontalList') --}}
                         </li>
                     @endif
-                @endif
-                @if (is_active_sidebar('sidebar-cta'))
-                    <li class="flex lg:space-x-6 items-center">
-                        @php dynamic_sidebar('sidebar-cta') @endphp
-                    </li>
-                @endif
-            </ul>
-        @endif
-        {{-- column next to primary navigation END --}}
+                    @if (is_active_sidebar('sidebar-cta'))
+                        <li class="flex lg:space-x-gutter items-center">
+                            @php dynamic_sidebar('sidebar-cta') @endphp
+                        </li>
+                    @endif
+                </ul>
+            @endif
+            {{-- column next to primary navigation END --}}
+        </div>
 
-        {{-- Mobile Navigation --}}
+        {{-- Hamburger Icons --}}
         <button type="button" id="mobileToggle"
             class="bg-transparent rounded-md h-menu-items-mobile p-2 inline-flex items-center justify-center text-font {{ $megamenu_active ? '' : 'lg:hidden' }}"
             aria-expanded="false">

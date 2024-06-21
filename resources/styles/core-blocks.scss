@@ -12,6 +12,9 @@ p {
   &.has-text-align-right {
       @apply mr-0 ml-auto;
   }
+  &.is-style-lead {
+    @apply text-xl;
+  }
   a {
     @apply hover:text-secondary;
   }
@@ -37,7 +40,7 @@ a:not([class^=components-]) {
   @apply transition-colors;
 }
 .wp-block-group p a {
-  @apply text-secondary hover:text-font;
+  @apply text-link hover:text-font;
 }
 div[class^="wp-container-"] a {
   @apply underline;
@@ -74,6 +77,10 @@ details>summary::-webkit-details-marker {
   @apply content-none;
 }
 
+/* Buttons */
+.wp-block-group .wp-block-buttons {
+  @apply gap-small;
+}
 
 /* Blockzitate und Code */
 blockquote,
@@ -90,69 +97,6 @@ pre.wp-block-code {
       @apply bg-transparent border-0 p-0 font-normal;
   }
 }
-
-/* Button Styles */
-.wp-block-button {
-  >.wp-block-button__link {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-  }
-}
-.wp-block-button {
-  &.is-style-default-animated>.wp-block-button__link,
-  &.is-style-default-animated>.wp-block-button__link:not(.has-text-color) {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-    @include buttonStyleArrowAnimation;
-  }
-}
-.wp-block-button {
-&.is-style-white>.wp-block-button__link,
-&.is-style-white>.wp-block-button__link:not(.has-text-color) {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-    @include buttonStyleWhite;
-  }
-}
-.wp-block-button {
-  &.is-style-outline>.wp-block-button__link,
-  &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
-      @include buttonStyleFont;
-      @include buttonStyleDefault;
-      @include buttonStyleOutline;
-    }
-}
-.wp-block-button {
-  &.is-style-outline-animated>.wp-block-button__link,
-  &.is-style-outline-animated>.wp-block-button__link:not(.has-text-color) {
-      @include buttonStyleFont;
-      @include buttonStyleDefault;
-      @include buttonStyleOutline;
-      @include buttonStyleArrowAnimation;
-    }
-}
-.wp-block-button {
-&.is-style-outline-white>.wp-block-button__link,
-&.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
-    @include buttonStyleFont;
-    @include buttonStyleDefault;
-    @include buttonStyleOutlineWhite;
-  }
-}
-.wp-block-button {
-  &.is-style-outline-white-animated>.wp-block-button__link,
-  &.is-style-outline-white-animated>.wp-block-button__link:not(.has-text-color) {
-      @include buttonStyleFont;
-      @include buttonStyleDefault;
-      @include buttonStyleOutlineWhite;
-      @include buttonStyleArrowAnimation;
-    }
-  }
-
-.wp-block-group .wp-block-buttons {
-  @apply gap-small;
-}
-
 
 /* Horizontale Linien */
 hr,

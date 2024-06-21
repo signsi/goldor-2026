@@ -104,6 +104,20 @@ function crb_attach_theme_options()
         ],
         [
             'type' => 'text',
+            'key' => 'kontaktperson',
+            'label' => 'Kontaktperson',
+            'default' => 'Mathias Schürmann',
+            'translateable' => true,
+        ],
+        [
+            'type' => 'text',
+            'key' => 'kontaktperson_funktion',
+            'label' => 'Funktion der Kontaktperson',
+            'default' => 'Geschäftsführer',
+            'translateable' => true,
+        ],
+        [
+            'type' => 'text',
             'key' => 'strasse',
             'label' => 'Strasse',
             'default' => 'Neuweg 10',
@@ -140,6 +154,12 @@ function crb_attach_theme_options()
             'key' => 'website',
             'label' => 'Website',
             'default' => 'rocket.ch'
+        ],
+        [
+            'type' => 'text',
+            'key' => 'google_link',
+            'label' => 'Link zu Google',
+            'default' => 'https://maps.app.goo.gl/RaynMTqJoLss797D8'
         ],
         [
             'type' => 'separator',
@@ -214,7 +234,7 @@ function crb_attach_theme_options()
         [
             'type' => 'checkbox',
             'key' => 'header_lang_switcher',
-            'label' => 'Sprach-Umschalter aktivieren? (Polylang Plugin muss installiert sein)',
+            'label' => 'Sprach-Umschalter aktivieren?',
         ],
         [
             'type' => 'checkbox',

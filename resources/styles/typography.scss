@@ -19,19 +19,23 @@ h3, h4 {
 h5, h6 {
     @apply mt-rp-40 mb-rp-10;
 }
+h1, h2,
+.heading-1, .heading-2 {
+    @apply font-bold;
+}
 h3, h4, h5, h6,
 .heading-3, .heading-4, .heading-5, .heading-6 {
-    @apply font-semibold;
+    @apply font-bold;
 }
 
 /* Überschriften - Grössen */
 h1,
 .heading-1 {
-    @apply text-4xl font-bold text-secondary;
+    @apply text-4xl;
 }
 h2,
 .heading-2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl;
 }
 h3,
 .heading-3   {

@@ -2,13 +2,10 @@
     $menuSlideFrom = App\getThemeOption('header_mobile_slide_from');
     $search_active = App\getThemeOption('header_search') || App\getThemeOption('cta_search');
     $lang_switch_active = App\getThemeOption('header_lang_switcher');
-
     $cta_active = App\getThemeOption('cta');
-
     $tel_active = App\getThemeOption('cta_phone');
     $tel = App\getThemeOption('tel');
     $tel_link = str_replace(' ', '', $tel);
-
     $contact_link_active = App\getThemeOption('cta_link');
     $contact_link = App\getThemeOption('cta_link_url');
 @endphp
@@ -25,7 +22,7 @@
                             'menu_class' => 'menu-primary_navigation flex flex-col space-y-4 items-start my-0 px-0',
                             'container_class' => 'menu-primary_navigation-container',
                             'add_li_class' => 'relative w-full group text-xl text-white hover:text-font w-min-content',
-                            'add_sub_li_class' => 'text-font',
+                            'add_sub_li_class' => 'text-font [&.current-menu-item]:text-link',
                             'walker' => new SubmenuWrap()
                         ])
                     @endphp
