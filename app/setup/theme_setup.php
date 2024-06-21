@@ -8,20 +8,20 @@ add_action('init', function () {
         'label' => __('Füllen (animiert)', 'rocketpager'),
     ]);
     register_block_style('core/button', [
+        'name' => 'white',
+        'label' => __('Füllen (weiss)', 'rocketpager'),
+    ]);
+    register_block_style('core/button', [
         'name' => 'outline-animated',
         'label' => __('Kontur (animiert)', 'rocketpager'),
     ]);
     register_block_style('core/button', [
         'name' => 'outline-white',
-        'label' => __('Outline weiss', 'rocketpager'),
+        'label' => __('Kontur (weiss) ', 'rocketpager'),
     ]);
     register_block_style('core/button', [
         'name' => 'outline-white-animated',
-        'label' => __('Outline weiss (animiert)', 'rocketpager'),
-    ]);
-    register_block_style('core/buttons', [
-        'name' => 'offsetY-Button',
-        'label' => __('Button nach unten versetzt', 'rocketpager'),
+        'label' => __('Kontur (weiss + animiert)', 'rocketpager'),
     ]);
 
     // Table-Styles

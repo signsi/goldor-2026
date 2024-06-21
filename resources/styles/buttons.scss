@@ -1,18 +1,18 @@
 /* Mixin for button styles */
 @mixin buttonStyleFont {
-  @apply transition-all rounded-none py-3 px-8 text-xs font-bold tracking-wider border-2 border-solid;
+  @apply transition-all rounded-none py-4 px-6 text-xs font-bold border lg:border-2 border-solid;
   // Kopiere diese Zeile in die Datei: wp-content/themes/rocketpager-v3.2/resources/styles/forminator.scss unter die CSS-Klasse: button.forminator-button.forminator-button-submit
 }
 
 @mixin buttonStyleDefault {
-  @apply bg-primary text-white border-primary hover:bg-secondary hover:text-white hover:border-secondary;
+  @apply bg-primary text-white border-primary hover:bg-secondary hover:text-font hover:border-secondary;
   // Kopiere diese Zeile in die Datei: wp-content/themes/rocketpager-v3.2/resources/styles/forminator.scss unter die CSS-Klasse: button.forminator-button.forminator-button-submit
 }
 
 @mixin buttonStyleArrowAnimation {
   @apply relative pr-16 flex items-center hover:pl-16 hover:pr-8 overflow-hidden;
   &:before, &:after {
-    @apply absolute font-icon font-bold antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
+    @apply absolute font-icon font-light antialiased inline-block normal-nums leading-none duration-300 transition-all ease-out content-arrow-right-long;
   }
   &:after {
     @apply right-6;
@@ -29,9 +29,13 @@
 }
 
 @mixin buttonStyleOutline {
-  @apply bg-transparent text-primary border-primary hover:bg-primary hover:text-white hover:border-primary;
+  @apply bg-transparent text-primary border-primary;
 }
 
 @mixin buttonStyleOutlineWhite {
-  @apply bg-transparent text-white border-white hover:bg-white hover:text-primary hover:border-white;
+  @apply bg-transparent text-white border-white hover:bg-white hover:text-font hover:border-white;
+}
+
+@mixin buttonStyleWhite {
+  @apply bg-white text-font border-white hover:bg-secondary hover:text-font;
 }
