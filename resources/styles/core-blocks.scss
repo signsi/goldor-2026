@@ -2,7 +2,7 @@
 
 /* Textabsätze */
 p {
-  @apply text-base my-small;
+  @apply text-base my-small font-normal;
   &.has-text-align-center {
       @apply mx-auto;
   }
@@ -15,6 +15,11 @@ p {
   a {
     @apply hover:text-secondary;
   }
+  & + ul[class*="liststyle-icon"],
+  & + .wp-block-buttons {
+    @apply mt-xl;
+  }
+
 }
 .has-text-align-center {
   * {
@@ -22,12 +27,17 @@ p {
   }
 }
 
+/* Bold */
+b, strong {
+  @apply font-bold;
+}
+
 /* Links */
 a:not([class^=components-]) {
   @apply transition-colors;
 }
 .wp-block-group p a {
-  @apply text-secondary hover:text-tertiary;
+  @apply text-secondary hover:text-font;
 }
 div[class^="wp-container-"] a {
   @apply underline;
@@ -80,6 +90,7 @@ pre.wp-block-code {
       @apply bg-transparent border-0 p-0 font-normal;
   }
 }
+
 /* Button Styles */
 .wp-block-button {
   >.wp-block-button__link {
@@ -96,12 +107,20 @@ pre.wp-block-code {
   }
 }
 .wp-block-button {
-&.is-style-outline>.wp-block-button__link,
-&.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+&.is-style-white>.wp-block-button__link,
+&.is-style-white>.wp-block-button__link:not(.has-text-color) {
     @include buttonStyleFont;
     @include buttonStyleDefault;
-    @include buttonStyleOutline;
+    @include buttonStyleWhite;
   }
+}
+.wp-block-button {
+  &.is-style-outline>.wp-block-button__link,
+  &.is-style-outline>.wp-block-button__link:not(.has-text-color) {
+      @include buttonStyleFont;
+      @include buttonStyleDefault;
+      @include buttonStyleOutline;
+    }
 }
 .wp-block-button {
   &.is-style-outline-animated>.wp-block-button__link,
@@ -111,7 +130,7 @@ pre.wp-block-code {
       @include buttonStyleOutline;
       @include buttonStyleArrowAnimation;
     }
-  }
+}
 .wp-block-button {
 &.is-style-outline-white>.wp-block-button__link,
 &.is-style-outline-white>.wp-block-button__link:not(.has-text-color) {
@@ -133,6 +152,7 @@ pre.wp-block-code {
 .wp-block-group .wp-block-buttons {
   @apply gap-small;
 }
+
 
 /* Horizontale Linien */
 hr,
