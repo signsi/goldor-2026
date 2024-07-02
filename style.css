@@ -289,6 +289,7 @@ footer {
 header#masthead,
 header#masthead a {
 	color: black;
+	font-weight: 300;
 }
 
 .main-navigation a {
@@ -404,6 +405,7 @@ h1.entry-title {
 
 .top-story-title h1 a {
 	text-decoration: none;
+	color: black;
 	box-shadow: 8px 0 0 white, -8px 0 0 white;
 	background-color: white;
 	padding: 2px 0;
@@ -897,7 +899,7 @@ main {
 .site-branding .site-title {
 	position: relative;
 	float: left;
-	margin: 0 0 0 25px;
+	margin: 0;
 	height: 70px;
 	font-size: 0;
 	-webkit-transition: all 0.25s;
@@ -1142,7 +1144,7 @@ a:hover #svg-social-youtube {
 	height: 600px;
 	top: 20px !important;
 	right: 0;
-	left: calc(50% - 470px + 1200px + 20px);
+	left: calc(50% - 470px + 1070px + 20px);
 	/* linker Spacer (50%-470px) + Content-Breite + Abstand */
 }
 
@@ -1658,7 +1660,7 @@ a h2 {
 	float: right;
 	height: 70px;
 	line-height: 70px;
-	margin-right: 25px;
+	margin-right: 0;
 	-webkit-transition: all 0.25s;
 	-moz-transition: all 0.25s;
 	-ms-transition: all 0.25s;

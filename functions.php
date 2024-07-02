@@ -652,12 +652,12 @@ function cc_hide_admin_bar() {
 	/*************************/
  /*** Search Bar to Nav ***/
 /*************************/
-add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
-function add_search_box( $items, $args ) {
-	if( $args->theme_location == 'primary' )
-    $items .= '<li>' . get_search_form( false ) . '</li>';
-	return $items;
-}
+// add_filter( 'wp_nav_menu_items','add_search_box', 10, 2 );
+// function add_search_box( $items, $args ) {
+// 	if( $args->theme_location == 'primary' )
+//     $items .= '<li>' . get_search_form( false ) . '</li>';
+// 	return $items;
+// }
 
   /****************************/
  /*** Login Bar to Sub Nav ***/
