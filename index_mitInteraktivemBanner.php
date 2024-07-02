@@ -133,10 +133,27 @@ get_header(); ?>
 						$thumb_url = wp_get_attachment_image_src( $thumb_id, 'full' );
 						$link = get_post_meta( get_the_ID(), 'url', true); ?>
 						<div class="grid-item">
+
+							<!--
+							STANDARD REMOVED
 							<a href="<?php echo str_replace('http://http://','http://','http://'.$link); ?>" target="_blank"><img class="ad-stellen" width="300" height="250" class="ad" src="<?php echo $thumb_url[0]; ?>" title="<?php the_title(); ?>" class="item-image"></a>
+							-->
+
+							<!--
+							FROM CLIENT
+							-->
+
+									<iframe id="skyscraperAd" src="https://www.goldor.ch/wp-content/themes/goldor/index_ad/2021_ODays_Banner_300x250.html" width="300" height="250" frameborder="0"></iframe>
+							
+							<!--
+							END FROM CLIENT
+							-->
+
+
 						</div>
 					<?php endwhile;
 				endif; ?>
+
 
 				<div class="grid-item">
 					<h2><?php _e('Marktplatz','goldor'); ?></h2>

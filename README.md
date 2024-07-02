@@ -1,54 +1,45 @@
-<p align="center">
-  <a href="https://roots.io/sage/">
-    <img alt="Sage" src="https://cdn.roots.io/app/uploads/logo-sage.svg" height="100">
-  </a>
-</p>
+[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/sage">
-    <img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/sage?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
+_s
+===
 
-  <a href="https://github.com/roots/sage/actions/workflows/main.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/sage/main.yml?branch=main&logo=github&label=CI&style=flat-square">
-  </a>
+Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/badge/follow%20@rootswp-1da1f2?logo=twitter&logoColor=ffffff&message=&style=flat-square">
-  </a>
-</p>
+My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
 
-<p align="center">Advanced WordPress starter theme with Tailwind CSS and Laravel Blade</p>
+* A just right amount of lean, well-commented, modern, HTML5 templates.
+* A helpful 404 template.
+* A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
+* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
+* Some small tweaks in `inc/extras.php` that can improve your theming experience.
+* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
+* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
+* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
+* Licensed under GPLv2 or later. :) Use it to make something cool.
 
-<p align="center">
-  <a href="https://roots.io/sage/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/sage/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/sage/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/">Community</a>
-</p>
+Getting Started
+---------------
 
-## Sponsors
+If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
 
-Sage is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, please consider [sponsoring Roots](https://github.com/sponsors/roots).
+If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium`), and then you'll need to do a five-step find and replace on the name in all the templates.
 
-<div align="center">
-<a href="https://k-m.com/"><img src="https://cdn.roots.io/app/uploads/km-digital.svg" alt="KM Digital" width="120" height="90"></a> <a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://www.copiadigital.com/"><img src="https://cdn.roots.io/app/uploads/copia-digital.svg" alt="Copia Digital" width="120" height="90"></a> <a href="https://www.freave.com/"><img src="https://cdn.roots.io/app/uploads/freave.svg" alt="Freave" width="120" height="90"></a> <a href="https://40q.agency/"><img src="https://cdn.roots.io/app/uploads/40q.svg" alt="40Q" width="120" height="90"></a>
-</div>
+1. Search for `'_s'` (inside single quotations) to capture the text domain.
+2. Search for `_s_` to capture all the function names.
+3. Search for `Text Domain: _s` in style.css.
+4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
+5. Search for `_s-` to capture prefixed handles.
 
-## Overview
+OR
 
-Sage is a WordPress starter theme with block editor support.
+* Search for: `'_s'` and replace with: `'megatherium'`
+* Search for: `_s_` and replace with: `megatherium_`
+* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium` in style.css.
+* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium</code>
+* Search for: `_s-` and replace with: `megatherium-`
 
-- Harness the power of [Laravel](https://laravel.com) and its available packages thanks to [Acorn](https://github.com/roots/acorn)
-- Clean, efficient theme templating utilizing [Laravel Blade](https://laravel.com/docs/master/blade)
-- Modern frontend development workflow powered by [Bud](https://bud.js.org/)
-- Out of the box support for [Tailwind CSS](https://tailwindcss.com/)
+Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
 
-## Getting Started
+Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
-See the [Sage installation documentation](https://roots.io/sage/docs/installation/).
-
-## Stay Connected
-
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
+Good luck!
