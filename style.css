@@ -1051,6 +1051,37 @@ a:hover #svg-social-youtube {
 	margin-right: 10px;
 }
 
+/*****
+Home Grid 
+
+****/
+
+.grid {
+	display: grid;
+	background-color: #CCC;
+	width: 100%;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-rows: repeat(2, minmax(0, 1fr));
+	gap: 2rem;
+}
+
+.grid .story--top {
+	background-color: #33aaff;
+	grid-row: span 2 / span 2;
+	grid-column: span 2 / span 2;
+	aspect-ratio: 1 / 1;
+}
+
+.grid .story--2 {
+	background-color: #ff0;
+	aspect-ratio: 1 / 1;
+}
+
+.grid .story--3 {
+	background-color: #fff9c0;
+	aspect-ratio: 1 / 1;
+}
+
 .grid-container {
 	display: -webkit-box;
 	/* OLD - iOS 6-, Safari 3.1-6 */
