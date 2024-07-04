@@ -47,16 +47,16 @@
 	</div>
 	<a href="<?php echo $link; ?>"><h2><?php the_title(); ?></h2></a>
 	<?php
-			if( array_key_exists('posttype', $GLOBALS) && $GLOBALS['posttype'] === 'lieferant'  ) {
-					if( has_excerpt() ) {
-							echo( get_the_excerpt() );
-					} else {
-							$content = get_the_excerpt();
-							$content = wp_trim_words( $content , 10 );
-							echo( $content );
-					}
-			} else {
-					the_excerpt();
-			}
+			// if( array_key_exists('posttype', $GLOBALS) && $GLOBALS['posttype'] === 'lieferant'  ) {
+			// 		if( has_excerpt() ) {
+			// 				echo( get_the_excerpt() );
+			// 		} else {
+			// 				$content = get_the_excerpt();
+			// 				$content = wp_trim_words( $content , 10 );
+			// 				echo( $content );
+			// 		}
+			// } else {
+			// 		the_excerpt();
+			// }
 	?>
 </div>

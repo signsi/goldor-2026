@@ -20,8 +20,17 @@ while ($loop->have_posts()):
     $categories = get_the_category();
     $link = get_post_permalink();
     ?>
-    <div class="top-story" style="background-image:url(<?php echo $thumb_url[0]; ?>)"
-        onclick="location.href='<?php echo $link; ?>'">
+    <!-- style="background-image:url(<?php echo $thumb_url[0]; ?>)" -->
+    <div class="top-story" onclick="location.href='<?php echo $link; ?>'">
+        <div class="top-story-img">
+            <?php
+            if (has_post_thumbnail()) {
+                the_post_thumbnail('large');
+            } else {
+                echo '<img src="' . get_template_directory_uri() . '/img/placeholder.png" />';
+            }
+            ?>
+        </div>
         <div class="top-story-text">
             <div class="top-story-title">
                 <h1><a href="<?php echo $link ?>"><?php the_title(); ?></a></h1>

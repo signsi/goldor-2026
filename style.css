@@ -1030,7 +1030,7 @@ a:hover #svg-social-youtube {
 	clear: left;
 	margin-top: 20px;
 }
-
+/* 
 .top-story {
 	height: 525px;
 	top: -70px;
@@ -1049,7 +1049,7 @@ a:hover #svg-social-youtube {
 .magazine-coverstory p {
 	display: inline;
 	margin-right: 10px;
-}
+} */
 
 /*****
 Home Grid 
@@ -1058,28 +1058,32 @@ Home Grid
 
 .grid {
 	display: grid;
-	background-color: #CCC;
 	width: 100%;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
 	grid-template-rows: repeat(2, minmax(0, 1fr));
 	gap: 2rem;
 }
 
+.grid .grid-item {
+	width: 100%;
+	min-width: none;
+	padding: 0;
+	margin: 0;
+	overflow: visible;
+}
+
 .grid .story--top {
-	background-color: #33aaff;
 	grid-row: span 2 / span 2;
 	grid-column: span 2 / span 2;
-	aspect-ratio: 1 / 1;
+	/* aspect-ratio: 1 / 1; */
 }
 
 .grid .story--2 {
-	background-color: #ff0;
-	aspect-ratio: 1 / 1;
+	/* aspect-ratio: 1 / 1; */
 }
 
 .grid .story--3 {
-	background-color: #fff9c0;
-	aspect-ratio: 1 / 1;
+	/* aspect-ratio: 1 / 1; */
 }
 
 .grid-container {
