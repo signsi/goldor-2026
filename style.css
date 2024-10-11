@@ -824,7 +824,7 @@ main {
 
 .single .entry-content p,
 .single .entry-header-sub,
-.single .entry-content div,
+.single .entry-content > div,
 .single .entry-content hr,
 .single .entry-content code,
 .no-results,
@@ -2850,4 +2850,9 @@ http://nicolasgallagher.com/micro-clearfix-hack/
 	#masthead.shrink svg {
 		height: 25px;
 	}
+}
+
+.slick-arrow {
+	border-radius: 0;
+	box-shadow: none;
 }
