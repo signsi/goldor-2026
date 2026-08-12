@@ -57,8 +57,8 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-social">
+			<a href="https://www.instagram.com/goldormagazin/" title="Goldor auf Instagram" target="_blank"><?php include("img/Social-Instagram.svg"); ?></a>
 			<a href="https://www.facebook.com/goldormagazin/" title="Goldor auf Facebook" target="_blank"><?php include("img/Social-Facebook.svg"); ?></a>
-			<a href="https://twitter.com/Goldormagazin" title="Goldor auf Twitter" target="_blank"><?php include("img/Social-Twitter.svg"); ?></a>
 			<a href="https://www.youtube.com/channel/UCtsUXjKW0L8_onO5TuBnUvg" title="Goldor auf Youtube" target="_blank"><?php include("img/Social-Youtube.svg"); ?></a>
 		</div>
 
