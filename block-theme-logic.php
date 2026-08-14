@@ -184,16 +184,18 @@ function goldor_block_register_meta() {
 	);
 
 	foreach ( $meta_fields as $meta_key => $args ) {
-		register_post_meta(
-			$args['object_type'],
-			$meta_key,
-			array(
-				'type' => $args['type'],
-				'single' => $args['single'],
-				'show_in_rest' => $args['show_in_rest'],
-				'sanitize_callback' => 'sanitize_text_field',
-			)
-		);
+		foreach ( (array) $args['object_type'] as $object_type ) {
+			register_post_meta(
+				$object_type,
+				$meta_key,
+				array(
+					'type' => $args['type'],
+					'single' => $args['single'],
+					'show_in_rest' => $args['show_in_rest'],
+					'sanitize_callback' => 'sanitize_text_field',
+				)
+			);
+		}
 	}
 }
 add_action( 'init', 'goldor_block_register_meta', 20 );
