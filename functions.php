@@ -135,6 +135,14 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+<<<<<<< HEAD
+=======
+ * New block-theme backend migration logic.
+ */
+require get_template_directory() . '/block-theme-logic.php';
+
+/**
+>>>>>>> 87120d4e (No code changes detected.)
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
