@@ -7,14 +7,9 @@ if ( ! function_exists( 'goldor_block_setup' ) ) {
 	function goldor_block_setup() {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
-		add_theme_support( 'responsive-embeds' );
-		add_theme_support( 'editor-styles' );
-		add_theme_support( 'wp-block-styles' );
-		add_theme_support( 'align-wide' );
 
 		register_nav_menus(
 			array(
-				'primary'   => __( 'Primary Menu', 'goldor' ),
 				'secondary' => __( 'Secondary Menu', 'goldor' ),
 			)
 		);
