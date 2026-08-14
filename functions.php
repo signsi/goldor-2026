@@ -41,6 +41,10 @@ function goldor_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'editor-styles' );
+	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'align-wide' );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
@@ -135,14 +139,11 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
-<<<<<<< HEAD
-=======
  * New block-theme backend migration logic.
  */
 require get_template_directory() . '/block-theme-logic.php';
 
 /**
->>>>>>> 87120d4e (No code changes detected.)
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
@@ -171,15 +172,6 @@ function filter_orderby( $query ){
 }
 
 
-  /*******************************/
- /*** Second Nav Registration ***/
-/*******************************/
-register_nav_menus( array(
-  'primary' => __( 'Primary Navigation', 'goldor' ),
-  'secondary' => __('Secondary Navigation', 'goldor')
-) );
-
-
   /*************************************/
  /*** CPT in Author/Tags/Categories ***/
 /*************************************/
@@ -205,449 +197,27 @@ add_filter( 'pre_get_posts', 'add_custom_types_to_tax' );
 
 
   /*************************/
- /*** Custom Post Types ***/
+ /*** Legacy cleanup *******/
 /*************************/
-
-/** Custom Post Type Artikel */
-
 /*
-function my_custom_post_type() {
-    register_post_type('artikel', array(
-       'label' => 'Artikel','description' => '',
-       'public' => true,
-       'show_ui' => true,
-       'show_in_menu' => true,
-       'capability_type' => 'post',
-       'hierarchical' => false,
-       'publicly_queryable' => true,
-       'rewrite' => false,
-       'query_var' => true,
-       'has_archive' => true,
-       'supports' => array('title','editor','excerpt' ,'revisions','thumbnail','author','page-attributes'),
-       'taxonomies' => array('post_tag'),
-       // there are a lot more available arguments, but the above is plenty for now
-    ));
-}
+ * Custom post types and taxonomies are registered centrally in block-theme-logic.php.
+ * Legacy duplicate registration blocks have been removed to avoid drift and double-registration.
+ */
 
-add_action('init', 'my_custom_post_type');
 
-// rewrites custom post type name
-global $wp_rewrite;
-$artikel_structure = '/text/%artikel%/';
-$wp_rewrite->add_rewrite_tag("%artikel%", '([^/]+)', "artikel=");
-$wp_rewrite->add_permastruct('artikel', $artikel_structure, false);*/
 
-/* Adding Separator to Menu */
-add_action( 'admin_init', 'add_admin_menu_separator' );
 
-function add_admin_menu_separator( $position ) {
 
-	global $menu;
 
-	$menu[ $position ] = array(
-		0	=>	'',
-		1	=>	'read',
-		2	=>	'separator' . $position,
-		3	=>	'',
-		4	=>	'wp-menu-separator'
-	);
 
-}
 
-add_action( 'admin_menu', 'set_admin_menu_separator' );
-function set_admin_menu_separator() {
-	do_action( 'admin_init', 26 );
-}
 
-/*************************/
-/*** Custom Post Types ***/
-/*************************/
 
-/** Custom Post Type Artikel */
 
 
-function my_custom_post_artikel() {
-	$args = array(
-    'label' => 'Artikel','description' => '',
-    'description'   => 'Holds our Magazin data',
-    'public'        => true,
-		/*'rewrite' => false,*/
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-media-document',
-		'supports'      => array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt', 'page-attributes'),
-		'taxonomies' => array('post_tag'),
-    'has_archive'   => true,
-  );
-  register_post_type( 'artikel', $args );
-}
-add_action( 'init', 'my_custom_post_artikel' );
 
 
-/** Add Taxonomy Artikel-Kategorie **/
-
-add_action( 'init', 'create_artikel_taxonomies', 0 );
-
-// create two taxonomies, genres and writers for the post type "book"
-function create_artikel_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Artikel-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'artikel-kategorie' ),
-	);
-
-	register_taxonomy( 'artikel-kategorie', array( 'artikel' ), $args );
-
-};
-
-
-/** Custom Post Type Print */
-
-function my_custom_post_print() {
-	$args = array(
-	  'label' => 'Print','description' => '',
-	  'description'   => 'Holds our Magazin data',
-	  'public'        => true,
-		/*'rewrite' => false,*/
-	  'menu_position' => 27,
-		'menu_icon'   => 'dashicons-media-document',
-		'supports'      => array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt', 'page-attributes'),
-		'taxonomies' => array('post_tag'),
-	  'has_archive'   => true,
-	);
-	register_post_type( 'print', $args );
-}
-add_action( 'init', 'my_custom_post_print' );
-
-// exclude from search
-add_action( 'init', 'update_my_custom_type_print', 99 );
-function update_my_custom_type_print() {
-    global $wp_post_types;
-
-    if ( post_type_exists( 'print' ) ) {
-        // exclude from search results
-        $wp_post_types['print']->exclude_from_search = true;
-    }
-}
-
-/** Add Taxonomy Print-Kategorie **/
-
-add_action( 'init', 'create_print_taxonomies', 0 );
-
-// create two taxonomies, genres and writers for the post type "book"
-function create_print_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Print-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'print-kategorie' ),
-	);
-
-	register_taxonomy( 'print-kategorie', array( 'print' ), $args );
-
-};
-
-
-/** Custom Post Type VSGU News */
-
-function my_custom_post_vsgunews() {
-	$args = array(
-    'label' => 'Personen','description' => '',
-    'description'   => 'Holds our Personen data',
-    'public'        => true,
-		'show_in_rest'	=> true,
-		/*'rewrite' => false,*/
-    'menu_position' => 28,
-		'menu_icon'   => 'dashicons-admin-post',
-		'supports'      => array( 'title', 'editor', 'author', 'revisions', 'thumbnail', 'excerpt', 'page-attributes'),
-		'taxonomies' => array('post_tag'),
-    'has_archive'   => true,
-		'rewrite' => array('slug' => 'personen')
-  );
-  register_post_type( 'vsgu-news', $args );
-}
-add_action( 'init', 'my_custom_post_vsgunews' );
-
-// VSGU News Categories
-
-add_action( 'init', 'create_vsgunews_taxonomies', 0 );
-
-function create_vsgunews_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Personen-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'vsgu-news-kategorie' ),
-	);
-
-	register_taxonomy( 'vsgu-news-kategorie', array( 'vsgu-news' ), $args );
-
-	};
-
-
-/* Custom Post Type Magazin */
-
-function my_custom_post_magazin() {
-  $args = array(
-    'label' => 'Magazin','description' => '',
-    'description'   => 'Holds our Magazin data',
-    'public'        => true,
-		'slug'					=> 'magazin',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-book',
-		'supports'      => array( 'title', 'editor', 'excerpt', 'author', 'revisions', 'thumbnail'),
-    'has_archive'   => true,
-  );
-  register_post_type( 'Magazin', $args );
-}
-add_action( 'init', 'my_custom_post_magazin' );
-
-/** Custom Post Type Events */
-
-function my_custom_post_kalender() {
-  $args = array(
-    'label' => 'Kalender','description' => '',
-    'public'        => true,
-		'slug'					=> 'event',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-calendar-alt',
-		'supports'      => array( 'title', 'editor', 'excerpt', 'author', 'revisions', 'thumbnail'),
-		'taxonomies' => array('post_tag'),
-		'exclude_from_search' => true,
-    'has_archive'   => true, //'branche/kalender',
-  );
-  register_post_type( 'kalender', $args );
-}
-add_action( 'init', 'my_custom_post_kalender' );
-
-/** Add Taxonomy Event-Kategorie **/
-
-add_action( 'init', 'create_kalender_taxonomies', 0 );
-
-// create two taxonomies, genres and writers for the post type "book"
-function create_kalender_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Kalender-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'event-kategorie' ),
-	);
-
-	register_taxonomy( 'kalender-kategorie', array( 'kalender' ), $args );
-
-	};
-
-
-/** Custom Post Type Job */
-
-function my_custom_post_job() {
-  $args = array(
-    'label' 				=> 'Job','description' => '',
-    'public'        => true,
-		'slug' 					=> 'job',
-    'menu_position' => 27,
-		'menu_icon'   	=> 'dashicons-businessman',
-		'supports'      => array( 'title', 'editor', 'excerpt', 'revisions', 'thumbnail'),
-		'taxonomies' => array('post_tag'),
-		'exclude_from_search' => true,
-    'has_archive'   => true, //'jobs/stelleninserate',
-  );
-  register_post_type( 'job', $args );
-}
-add_action( 'init', 'my_custom_post_job' );
-
-/** Add Taxonomy Job-Kategorie **/
-
-add_action( 'init', 'create_job_taxonomies', 0 );
-
-function create_job_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Job-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'job-kategorie' ),
-	);
-
-	register_taxonomy( 'job-kategorie', array( 'job' ), $args );
-
-	};
-
-
-/** Custom Post Type Anzeige (Markplatz) */
-
-function my_custom_post_kleinanzeige() {
-  $args = array(
-    'label' => 'Kleinanzeigen','description' => '',
-    'public'        => true,
-		'slug'					=> 'marktplatz',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-store',
-		'supports'      => array( 'title', 'editor', 'excerpt', 'revisions', 'thumbnail'),
-		'taxonomies' => array('post_tag'),
-		'exclude_from_search' => true,
-    'has_archive'   => true, //'marktplatz/anzeigen',
-  );
-  register_post_type( 'kleinanzeige', $args );
-}
-
-add_action( 'init', 'my_custom_post_kleinanzeige' );
-
-/** Add Taxonomy Marktplatz-Kategorie **/
-
-add_action( 'init', 'create_kleinanzeige_taxonomies', 0 );
-
-function create_kleinanzeige_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Kleinanzeige-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'anzeige-kategorie' ),
-	);
-
-	register_taxonomy( 'kleinanzeige-kategorie', array( 'kleinanzeige' ), $args );
-
-	};
-
-
-/** Custom Post Type Lieferantenverzeichnis */
-
-function my_custom_post_lieferant() {
-  $args = array(
-    'label' => 'Lieferanten','description' => '',
-    'public'        => true,
-		'slug'					=> 'lieferant',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-groups',
-		'supports'      => array( 'title', 'editor', 'excerpt', 'revisions', 'thumbnail'),
-		'exclude_from_search' => true,
-    'has_archive'   => true, //'branche/lieferanten',
-  );
-  register_post_type( 'lieferant', $args );
-}
-add_action( 'init', 'my_custom_post_lieferant' );
-
-/** Add Taxonomy Lieferant-Kategorie **/
-
-add_action( 'init', 'create_lieferant_taxonomies', 0 );
-
-function create_lieferant_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Lieferant-Kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'lieferant-kategorie' ),
-	);
-
-	register_taxonomy( 'lieferant-kategorie', array( 'lieferant' ), $args );
-
-	};
-
-/** Custom Post Type Wiki */
-
-function my_custom_post_wiki() {
-  $args = array(
-    'label' => 'Wiki','description' => '',
-    'public'        => true,
-		'slug'					=> 'wiki',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-lightbulb',
-		'supports'      => array( 'title', 'editor', 'revisions', 'thumbnail'),
-		/*'exclude_from_search' => true,*/
-		'taxonomies' => array('post_tag'),
-    'has_archive'   => true, //'branche/branchenwiki',
-  );
-  register_post_type( 'Wiki', $args );
-}
-add_action( 'init', 'my_custom_post_wiki' );
-
-/** Add Taxonomy Wiki-Kategorie **/
-
-add_action( 'init', 'create_wiki_taxonomies', 0 );
-
-function create_wiki_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Wiki-Kategorie','description' => 'test',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'wiki-kategorie' ),
-	);
-
-	register_taxonomy( 'wiki-kategorie', array( 'wiki' ), $args );
-
-	};
-
-
-/** Custom Post Type Link */
-
-function my_custom_post_link() {
-  $args = array(
-    'label' => 'Links','description' => '',
-    'public'        => true,
-		'slug'					=> 'link',
-    'menu_position' => 27,
-		'menu_icon'   => 'dashicons-admin-links',
-		'supports'      => array( 'title', 'revisions'),
-		'exclude_from_search' => true,
-    'has_archive'   => true, //'branche/links',
-  );
-  register_post_type( 'link', $args );
-}
-add_action( 'init', 'my_custom_post_link' );
-
-/** Add Taxonomy Link-Kategorie **/
-
-add_action( 'init', 'create_link_taxonomies', 0 );
-
-function create_link_taxonomies() {
-	$args = array(
-		'hierarchical'      => true,
-		'label' => 'Link-kategorie','description' => '',
-		'show_ui'           => true,
-		'show_admin_column' => true,
-		'query_var'         => true,
-		'rewrite'           => array( 'slug' => 'link-kategorie' ),
-	);
-
-	register_taxonomy( 'link-kategorie', array( 'link' ), $args );
-
-	};
-
-	/** Custom Post Type Werbung */
-
-	function my_custom_post_werbung() {
-	  $args = array(
-	    'label' => 'Werbung','description' => '',
-	    'public'        => true,
-			'slug'					=> 'werbung',
-	    'menu_position' => 27,
-			'menu_icon'   => 'dashicons-visibility',
-			'supports'      => array( 'title', 'revisions'),
-			'exclude_from_search' => true,
-	    'has_archive'   => true,
-	  );
-	  register_post_type( 'werbung', $args );
-	}
-	add_action( 'init', 'my_custom_post_werbung' );
-
-
-
-	/**************************************/
+/**************************************/
  /*** Hide Admin Bar for Subscribers ***/
 /**************************************/
 add_action('set_current_user', 'cc_hide_admin_bar');
