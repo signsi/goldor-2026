@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/top-story",
+	"title": "Top Story",
+	"category": "goldor",
+	"icon": "star-filled",
+	"description": "The homepage spotlight: the News/Artikel post flagged as top story.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-top-story-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

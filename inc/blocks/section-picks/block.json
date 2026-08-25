@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/section-picks",
+	"title": "Section Picks",
+	"category": "goldor",
+	"icon": "grid-view",
+	"description": "A homepage section listing posts of one type, as cards or a date list, with an optional taxonomy filter and an ad override.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-section-picks-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"heading": { "type": "string", "default": "" },
+		"postType": { "type": "string", "default": "post" },
+		"postsPerPage": { "type": "number", "default": 3 },
+		"excludeTopstory": { "type": "boolean", "default": false },
+		"layout": { "type": "string", "default": "grid" },
+		"taxonomy": { "type": "string", "default": "" },
+		"term": { "type": "string", "default": "" },
+		"archiveLink": { "type": "string", "default": "" },
+		"adOverride": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false
+	}
+}

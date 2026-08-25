@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/paywall-content",
+	"title": "Paywalled Content",
+	"category": "goldor",
+	"icon": "lock",
+	"description": "Full article content for subscribers, or a teaser and login form behind the paywall.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-paywall-content-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false,
+		"multiple": false
+	}
+}

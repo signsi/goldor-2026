@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/event-details",
+	"title": "Event Details",
+	"category": "goldor",
+	"icon": "calendar-alt",
+	"description": "Date range, location and an 'add to calendar' link for a kalender event.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-event-details-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

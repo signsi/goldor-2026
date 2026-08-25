@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/ad-slot",
+	"title": "Ad Slot",
+	"category": "goldor",
+	"icon": "megaphone",
+	"description": "Shows one active 'werbung' ad of the given placement type.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-ad-slot-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"type": {
+			"type": "string",
+			"default": "Skyscraper"
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

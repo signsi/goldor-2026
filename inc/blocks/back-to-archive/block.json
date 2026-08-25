@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/back-to-archive",
+	"title": "Back to Archive",
+	"category": "goldor",
+	"icon": "undo",
+	"description": "On single views only: a browser-back link plus a link to the post type's archive.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-back-to-archive-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

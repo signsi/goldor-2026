@@ -2,13 +2,22 @@
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
-  <!-- wp:query {"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
-  <div class="wp-block-query">
-    <!-- wp:post-template -->
-      <!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->
-    <!-- /wp:post-template -->
-  </div>
-  <!-- /wp:query -->
+	<!-- wp:query {"query":{"inherit":true},"layout":{"type":"default"}} -->
+	<div class="wp-block-query">
+		<!-- wp:group {"className":"grid-container","layout":{"type":"default"}} -->
+		<div class="wp-block-group grid-container">
+			<!-- wp:post-template -->
+				<!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->
+			<!-- /wp:post-template -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:query-pagination -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+	</div>
+	<!-- /wp:query -->
 </div>
 <!-- /wp:group -->
 

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/wiki-index",
+	"title": "Category Index List",
+	"category": "goldor",
+	"icon": "list-view",
+	"description": "All entries of a post type, grouped alphabetically by taxonomy term (used for Wiki and Links).",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-wiki-index-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"postType": {
+			"type": "string",
+			"default": "wiki"
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

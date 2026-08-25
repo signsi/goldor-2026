@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/branche-spotlight",
+	"title": "Branche Spotlight",
+	"category": "goldor",
+	"icon": "megaphone",
+	"description": "Homepage 'Branche' spotlight: the featured Personen (vsgu-news) entry, or two featured Lieferanten/Kalender entries if none is set.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-branche-spotlight-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

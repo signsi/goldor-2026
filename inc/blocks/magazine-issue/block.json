@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/magazine-issue",
+	"title": "Magazine Issue",
+	"category": "goldor",
+	"icon": "book",
+	"description": "Cover story, Focus, per-category sections and gated e-paper for a magazin issue.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-magazine-issue-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

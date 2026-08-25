@@ -1,0 +1,81 @@
+<!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
+
+<!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group">
+
+	<!-- wp:group {"className":"grid"} -->
+	<div class="wp-block-group grid">
+		<!-- wp:group {"className":"story--top"} -->
+		<div class="wp-block-group story--top">
+			<!-- wp:goldor/top-story /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"story--2"} -->
+		<div class="wp-block-group story--2">
+			<!-- wp:goldor/section-picks {"postType":"post","postsPerPage":2,"excludeTopstory":true} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"grid-container"} -->
+	<div class="wp-block-group grid-container">
+		<!-- wp:goldor/ad-slot {"type":"MediumRectangle News"} /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:goldor/section-picks {"heading":"Magazin","postType":"artikel","postsPerPage":3,"excludeTopstory":true} /-->
+
+	<!-- wp:group {"className":"grid-container"} -->
+	<div class="wp-block-group grid-container">
+		<!-- wp:group {"className":"grid-item"} -->
+		<div class="wp-block-group grid-item">
+			<!-- wp:heading -->
+			<h2>Stellenangebote</h2>
+			<!-- /wp:heading -->
+			<!-- wp:goldor/section-picks {"postType":"job","layout":"list","taxonomy":"job-kategorie","term":"stellenangebot","postsPerPage":6} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"grid-item"} -->
+		<div class="wp-block-group grid-item">
+			<!-- wp:heading -->
+			<h2>Stellengesuche</h2>
+			<!-- /wp:heading -->
+			<!-- wp:goldor/section-picks {"postType":"job","layout":"list","taxonomy":"job-kategorie","term":"stellengesuch","postsPerPage":6,"adOverride":"MediumRectangle Stellengesuche"} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"grid-item"} -->
+		<div class="wp-block-group grid-item">
+			<!-- wp:heading -->
+			<h2>Marktplatz</h2>
+			<!-- /wp:heading -->
+			<!-- wp:goldor/section-picks {"postType":"kleinanzeige","layout":"list","postsPerPage":6} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:heading {"className":"divide"} -->
+	<h1 class="divide">Branche</h1>
+	<!-- /wp:heading -->
+	<!-- wp:group {"className":"grid-container"} -->
+	<div class="wp-block-group grid-container">
+		<!-- wp:goldor/branche-spotlight /-->
+
+		<!-- wp:group {"className":"grid-item"} -->
+		<div class="wp-block-group grid-item">
+			<!-- wp:heading -->
+			<h2>Kalender</h2>
+			<!-- /wp:heading -->
+			<!-- wp:goldor/kalender-preview {"postsPerPage":3} /-->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"goldor-2026"} /-->

@@ -6,9 +6,9 @@
     "color": {
       "defaultPalette": false,
       "palette": [
-        { "slug": "base", "color": "#f6f2ea", "name": "Base" },
-        { "slug": "contrast", "color": "#1c1c1c", "name": "Contrast" },
-        { "slug": "primary", "color": "#b98c52", "name": "Primary" },
+        { "slug": "base", "color": "#ffffff", "name": "Base" },
+        { "slug": "contrast", "color": "#000000", "name": "Contrast" },
+        { "slug": "primary", "color": "#e6007e", "name": "Primary" },
         { "slug": "muted", "color": "#5a5a5a", "name": "Muted" },
         { "slug": "surface", "color": "#ffffff", "name": "Surface" }
       ]
@@ -31,7 +31,9 @@
         { "slug": "xx-large", "size": "3rem", "name": "Huge" }
       ],
       "fontFamilies": [
-        { "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "name": "System Sans", "slug": "system-sans" }
+        { "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif", "name": "System Sans", "slug": "system-sans" },
+        { "fontFamily": "'Work Sans', sans-serif", "name": "Work Sans", "slug": "work-sans" },
+        { "fontFamily": "'Playfair Display', serif", "name": "Playfair Display", "slug": "playfair-display" }
       ]
     }
   },
@@ -41,19 +43,34 @@
       "text": "var:preset|color|contrast"
     },
     "typography": {
-      "fontFamily": "var:preset|font-family|system-sans",
+      "fontFamily": "var:preset|font-family|work-sans",
       "lineHeight": "1.6",
       "fontSize": "var:preset|font-size|medium"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|playfair-display",
+          "fontWeight": "200"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var:preset|color|primary"
+        }
+      }
     },
     "blocks": {
       "core/site-title": {
         "typography": {
+          "fontFamily": "var:preset|font-family|playfair-display",
           "fontSize": "var:preset|font-size|x-large",
           "fontWeight": "700"
         }
       },
       "core/post-title": {
         "typography": {
+          "fontFamily": "var:preset|font-family|playfair-display",
           "fontSize": "var:preset|font-size|xx-large",
           "fontWeight": "700",
           "lineHeight": "1.2"
