@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/account-link",
+	"title": "Account Link",
+	"category": "goldor",
+	"icon": "admin-users",
+	"description": "Login link for guests, or logout + change-password links for logged-in users.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-account-link-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

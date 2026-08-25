@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/related-posts",
+	"title": "Related Posts",
+	"category": "goldor",
+	"icon": "admin-links",
+	"description": "Other News/Artikel posts sharing a tag with the current post.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-related-posts-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

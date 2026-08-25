@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/event-filter",
+	"title": "Event Filter & Grid",
+	"category": "goldor",
+	"icon": "filter",
+	"description": "Date and category filter for the kalender archive, with a paginated grid of matching events.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-event-filter-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

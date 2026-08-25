@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/reading-time-share",
+	"title": "Reading Time & Share",
+	"category": "goldor",
+	"icon": "clock",
+	"description": "Estimated reading time (artikel only) plus Facebook/X share links for the current post.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-reading-time-share-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

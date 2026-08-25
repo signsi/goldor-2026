@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/lieferant-contact",
+	"title": "Lieferant Contact",
+	"category": "goldor",
+	"icon": "phone",
+	"description": "Website, email and phone meta for a Lieferant (supplier) entry.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-lieferant-contact-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/post-media",
+	"title": "Post Media",
+	"category": "goldor",
+	"icon": "format-image",
+	"description": "Featured image (with fallback) plus the category badge and artikel paywall badge, for use inside a Query Loop post template.",
+	"textdomain": "goldor",
+	"usesContext": [ "postId", "postType" ],
+	"editorScript": "goldor-block-post-media-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

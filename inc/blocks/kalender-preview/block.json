@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/kalender-preview",
+	"title": "Kalender Preview",
+	"category": "goldor",
+	"icon": "calendar",
+	"description": "Homepage list of upcoming kalender events, ordered by start date.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-kalender-preview-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"postsPerPage": { "type": "number", "default": 3 }
+	},
+	"supports": {
+		"html": false
+	}
+}

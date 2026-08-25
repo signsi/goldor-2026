@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/newsletter-form",
+	"title": "Newsletter Form",
+	"category": "goldor",
+	"icon": "email",
+	"description": "The DE or FR Ninja Forms newsletter signup, chosen by the current language.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-newsletter-form-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"formIdDe": { "type": "number", "default": 10 },
+		"formIdFr": { "type": "number", "default": 11 }
+	},
+	"supports": {
+		"html": false
+	}
+}
