@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/entry-lead",
+	"title": "Entry Lead",
+	"category": "goldor",
+	"icon": "editor-paragraph",
+	"description": "The article's opening emphasised paragraph, set as a dek above the hero image.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-entry-lead-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

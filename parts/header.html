@@ -1,15 +1,43 @@
-<!-- wp:group {"tagName":"header","anchor":"masthead","className":"site-header","layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"header","anchor":"masthead","className":"site-header","layout":{"type":"default"}} -->
 <header id="masthead" class="wp-block-group site-header">
-	<!-- wp:group {"className":"site-branding","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"nowrap"}} -->
-	<div class="wp-block-group site-branding">
-		<!-- wp:site-logo {"width":140,"shouldSyncIcon":false} /-->
 
-		<!-- wp:navigation {"className":"main-navigation","overlayMenu":"mobile","layout":{"type":"flex","orientation":"horizontal"}} /-->
+	<!-- wp:group {"className":"site-header__bar","layout":{"type":"default"}} -->
+	<div class="wp-block-group site-header__bar">
 
-		<!-- wp:search {"label":"Suche","showLabel":false,"placeholder":"Suche","buttonUseIcon":true,"buttonPosition":"no-button"} /-->
+		<!-- wp:group {"className":"site-header__start","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-header__start">
+			<!-- wp:search {"label":"Suche","showLabel":false,"placeholder":"Suche","buttonText":"Suche","buttonUseIcon":true,"buttonPosition":"button-inside","className":"site-search"} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"site-header__brand","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-header__brand">
+			<!-- wp:site-logo {"width":170,"shouldSyncIcon":false} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:group {"className":"site-header__end","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-header__end">
+			<!-- wp:buttons {"className":"site-header__cta","layout":{"type":"flex"}} -->
+			<div class="wp-block-buttons site-header__cta">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/goldor-bestellen/">Abonnieren</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+
+			<!-- wp:goldor/account-link /-->
+		</div>
+		<!-- /wp:group -->
+
 	</div>
 	<!-- /wp:group -->
+
+	<!-- wp:group {"className":"site-header__nav","layout":{"type":"default"}} -->
+	<div class="wp-block-group site-header__nav">
+		<!-- wp:navigation {"className":"main-navigation","overlayMenu":"mobile","layout":{"type":"flex","orientation":"horizontal","justifyContent":"center"}} /-->
+	</div>
+	<!-- /wp:group -->
+
 </header>
 <!-- /wp:group -->
-
-<!-- wp:goldor/back-to-archive /-->

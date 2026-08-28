@@ -1,8 +1,13 @@
-<!-- wp:group {"className":"grid-item","layout":{"type":"constrained"}} -->
-<div class="wp-block-group grid-item">
+<!-- wp:group {"className":"story-card story-card--card grid-item","layout":{"type":"default"}} -->
+<div class="wp-block-group story-card story-card--card grid-item">
 	<!-- wp:goldor/post-media /-->
-	<!-- wp:post-title {"isLink":true} /-->
-	<!-- wp:post-excerpt {"excerptLength":20} /-->
-	<!-- wp:post-date /-->
+
+	<!-- wp:group {"className":"story-card__body","layout":{"type":"default"}} -->
+	<div class="wp-block-group story-card__body">
+		<!-- wp:post-title {"level":3,"isLink":true,"className":"story-card__title"} /-->
+		<!-- wp:post-excerpt {"excerptLength":20,"showMoreOnNewLine":false,"className":"story-card__excerpt"} /-->
+		<!-- wp:goldor/post-meta-line /-->
+	</div>
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->

@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/entry-byline",
+	"title": "Entry Byline",
+	"category": "goldor",
+	"icon": "admin-users",
+	"description": "Author, date and the share/print actions for a single entry.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-entry-byline-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

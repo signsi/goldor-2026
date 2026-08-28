@@ -49,12 +49,17 @@ require get_template_directory() . '/block-theme-logic.php';
 function goldor_scripts() {
 	wp_enqueue_style( 'goldor-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
 
-	wp_enqueue_style(
-		'goldor-fonts',
-		'https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Work+Sans:ital,wght@0,300;1,300&display=swap',
-		array(),
-		null
-	);
+	wp_enqueue_style( 'goldor-fonts', goldor_fonts_url(), array(), null );
+
+	if ( is_singular( array( 'post', 'artikel', 'vsgu-news' ) ) ) {
+		wp_enqueue_script(
+			'goldor-article',
+			get_template_directory_uri() . '/assets/article.js',
+			array(),
+			'1.0',
+			true
+		);
+	}
 
 	wp_enqueue_script(
 		'goldor-header-shrink',
@@ -65,6 +70,54 @@ function goldor_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'goldor_scripts' );
+
+/**
+ * The three faces the design is built on: Arvo for headings, Source Serif 4
+ * for reading text, Inter for UI chrome (nav, buttons, meta, labels).
+ */
+function goldor_fonts_url() {
+	return 'https://fonts.googleapis.com/css2'
+		. '?family=Arvo:ital,wght@0,400;0,700;1,400;1,700'
+		. '&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700'
+		. '&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700'
+		. '&display=swap';
+}
+
+/**
+ * The block editor needs the same faces so the canvas matches the front end;
+ * wp_enqueue_scripts never runs there.
+ */
+function goldor_editor_fonts() {
+	if ( is_admin() ) {
+		wp_enqueue_style( 'goldor-fonts', goldor_fonts_url(), array(), null );
+	}
+}
+add_action( 'enqueue_block_assets', 'goldor_editor_fonts' );
+
+/**
+ * The Gold'Or wordmark is part of the design, not editorial content — so when
+ * no custom logo has been uploaded, the Site Logo block falls back to the
+ * theme's own SVG instead of rendering nothing at all.
+ */
+function goldor_site_logo_fallback( $block_content, $block ) {
+	if ( false !== strpos( $block_content, '<img' ) ) {
+		return $block_content;
+	}
+
+	$width   = isset( $block['attrs']['width'] ) ? (int) $block['attrs']['width'] : 170;
+	$classes = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	$file    = false !== strpos( $classes, 'site-logo--magenta' ) ? 'Logo-Goldor-Magenta.svg' : 'Logo-Goldor.svg';
+
+	return sprintf(
+		'<div class="wp-block-site-logo %5$s"><a href="%1$s" class="custom-logo-link" rel="home"><img class="custom-logo" src="%2$s" alt="%3$s" width="%4$d" style="width:%4$dpx"></a></div>',
+		esc_url( home_url( '/' ) ),
+		esc_url( get_template_directory_uri() . '/img/' . $file ),
+		esc_attr( get_bloginfo( 'name' ) ),
+		$width,
+		esc_attr( $classes )
+	);
+}
+add_filter( 'render_block_core/site-logo', 'goldor_site_logo_fallback', 10, 2 );
 
 function goldor_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {
@@ -119,6 +172,38 @@ function goldor_excerpt_read_more_link( $output ) {
 	return $output . '<a href="' . esc_url( get_permalink() ) . '" class="article-more">' . esc_html__( 'mehr', 'goldor' ) . '</a>';
 }
 add_filter( 'the_excerpt', 'goldor_excerpt_read_more_link' );
+
+/**
+ * The sand "note" panel used for company facts and background asides, offered
+ * as a block style so editors can reach it from the inspector.
+ */
+function goldor_register_block_styles() {
+	foreach ( array( 'core/group', 'core/paragraph' ) as $block ) {
+		register_block_style(
+			$block,
+			array(
+				'name'  => 'goldor-note',
+				'label' => __( 'Infobox', 'goldor' ),
+			)
+		);
+	}
+}
+add_action( 'init', 'goldor_register_block_styles' );
+
+/*
+ * Classic-content cleanup
+ *
+ * wpautop leaves empty paragraphs around caption shortcodes, which open large
+ * unexplained gaps in the article measure; and [caption] hard-codes the
+ * original upload width inline, pinning inline figures to 500px inside a
+ * 780px column. Both are stripped so images fill the measure.
+ */
+function goldor_strip_empty_paragraphs( $content ) {
+	return preg_replace( '#<p>(?:\s|&nbsp;|<br\s*/?>)*</p>#i', '', $content );
+}
+add_filter( 'the_content', 'goldor_strip_empty_paragraphs', 20 );
+
+add_filter( 'img_caption_shortcode_width', '__return_zero' );
 
 /*
  * Query tweaks

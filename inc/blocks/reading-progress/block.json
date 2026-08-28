@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/reading-progress",
+	"title": "Reading Progress",
+	"category": "goldor",
+	"icon": "minus",
+	"description": "Thin scroll-progress bar pinned to the top of the viewport.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-reading-progress-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

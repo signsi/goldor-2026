@@ -30,6 +30,13 @@
 							onChange: function ( type ) {
 								setAttributes( { type: type } );
 							},
+						} ),
+						el( components.ToggleControl, {
+							label: __( 'Show "Anzeige" label', 'goldor' ),
+							checked: attributes.showLabel,
+							onChange: function ( showLabel ) {
+								setAttributes( { showLabel: showLabel } );
+							},
 						} )
 					)
 				),

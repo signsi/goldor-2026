@@ -10,7 +10,9 @@
 	"editorScript": "goldor-block-kalender-preview-edit",
 	"render": "file:./render.php",
 	"attributes": {
-		"postsPerPage": { "type": "number", "default": 3 }
+		"postsPerPage": { "type": "number", "default": 3 },
+		"heading": { "type": "string", "default": "" },
+		"linkLabel": { "type": "string", "default": "" }
 	},
 	"supports": {
 		"html": false

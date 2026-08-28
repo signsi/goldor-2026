@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/featured-media",
+	"title": "Featured Media",
+	"category": "goldor",
+	"icon": "format-image",
+	"description": "Full-bleed featured image with its caption held to the reading measure.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-featured-media-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

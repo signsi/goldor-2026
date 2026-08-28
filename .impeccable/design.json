@@ -1,0 +1,423 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-28T00:00:00Z",
+  "title": "Design System: Gold'Or",
+  "extensions": {
+    "colorMeta": {
+      "press-magenta": {
+        "role": "primary",
+        "displayName": "Press Magenta",
+        "canonical": "#e6007e",
+        "tonalRamp": [
+          "#2d0019",
+          "#4d002a",
+          "#73003f",
+          "#9a0054",
+          "#c30069",
+          "#e6007e",
+          "#ff4dab",
+          "#ffc2e2"
+        ]
+      },
+      "press-magenta-deep": {
+        "role": "primary",
+        "displayName": "Press Magenta Deep",
+        "canonical": "#c30069",
+        "tonalRamp": [
+          "#260014",
+          "#420023",
+          "#620034",
+          "#830045",
+          "#a30056",
+          "#c30069",
+          "#e64d9d",
+          "#f7bcd9"
+        ]
+      },
+      "deep-slate-teal": {
+        "role": "secondary",
+        "displayName": "Deep Slate Teal",
+        "canonical": "#0e3742",
+        "tonalRamp": [
+          "#03151a",
+          "#072430",
+          "#0e3742",
+          "#164e5e",
+          "#23697d",
+          "#3c8ba1",
+          "#77b6c7",
+          "#c3e0e8"
+        ]
+      },
+      "ink-black": {
+        "role": "neutral",
+        "displayName": "Ink Black",
+        "canonical": "#16181d",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#16181d",
+          "#25282f",
+          "#3a3e47",
+          "#5a5f66",
+          "#686e74",
+          "#c3c7cb",
+          "#eceef0"
+        ]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#2b2a28",
+          "#4a4844",
+          "#6b6862",
+          "#918d85",
+          "#bab5ac",
+          "#dcd8d1",
+          "#f6f4f0",
+          "#ffffff"
+        ]
+      },
+      "paper-sand": {
+        "role": "neutral",
+        "displayName": "Paper Sand",
+        "canonical": "#f6f4f0",
+        "tonalRamp": [
+          "#2a2823",
+          "#47443c",
+          "#666157",
+          "#8b8578",
+          "#b3ac9d",
+          "#d6d0c4",
+          "#efece6",
+          "#f6f4f0"
+        ]
+      },
+      "paper-sand-deep": {
+        "role": "neutral",
+        "displayName": "Paper Sand Deep",
+        "canonical": "#efece6",
+        "tonalRamp": [
+          "#26241f",
+          "#413e37",
+          "#5f5b51",
+          "#847f72",
+          "#aca697",
+          "#d0cabd",
+          "#efece6",
+          "#f9f7f4"
+        ]
+      },
+      "column-grey": {
+        "role": "neutral",
+        "displayName": "Column Grey",
+        "canonical": "#5a5f66",
+        "tonalRamp": [
+          "#101215",
+          "#1d2024",
+          "#2e3237",
+          "#43484e",
+          "#5a5f66",
+          "#7d838b",
+          "#a9aeb4",
+          "#dcdfe2"
+        ]
+      },
+      "meta-grey": {
+        "role": "neutral",
+        "displayName": "Meta Grey",
+        "canonical": "#686e74",
+        "tonalRamp": [
+          "#121417",
+          "#1f2225",
+          "#2f3337",
+          "#43484d",
+          "#565c62",
+          "#686e74",
+          "#9aa0a6",
+          "#d5d9dc"
+        ]
+      },
+      "hairline-grey": {
+        "role": "neutral",
+        "displayName": "Hairline Grey",
+        "canonical": "#e5e2dc",
+        "tonalRamp": [
+          "#232219",
+          "#3d3b32",
+          "#59564b",
+          "#7a7668",
+          "#a19c8c",
+          "#c6c2b7",
+          "#e5e2dc",
+          "#f4f2ee"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The lead story headline. One per page at most."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Article and single-entry titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card headlines across every grid."
+      },
+      "eyebrow": {
+        "displayName": "Section Eyebrow",
+        "purpose": "Uppercase band headers in Column Grey. The one place a large size carries a light weight."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Article text, held to a 780px measure."
+      },
+      "body-small": {
+        "displayName": "Body Small",
+        "purpose": "Card excerpts and list descriptions, line-clamped so meta rows share a baseline."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Category tags and the paywall badge, in Press Magenta caps."
+      },
+      "meta": {
+        "displayName": "Meta",
+        "purpose": "Bylines, dates, ad labels, footer legal. The quietest text in the system."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Action labels only."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-overlay",
+        "value": "0 12px 30px rgba(0, 0, 0, 0.08)",
+        "purpose": "The only shadow in the system. Transient overlays that genuinely leave the page plane — navigation submenus, dropdowns, popovers. Never on cards, images, buttons, chips, inputs or ads."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-shift",
+        "value": "0.2s ease",
+        "purpose": "Colour and border transitions on buttons, chips and links. No movement, no scale."
+      },
+      {
+        "name": "media-zoom",
+        "value": "0.5s ease",
+        "purpose": "The card image scales to 1.04 on card hover. The only transform in the system."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "single-column",
+        "value": "640px"
+      },
+      {
+        "name": "header-rearrange",
+        "value": "782px"
+      },
+      {
+        "name": "two-column",
+        "value": "980px"
+      },
+      {
+        "name": "skyscraper-fits",
+        "value": "1560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The only button in the system. Subscribe, read-on, submit.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Jetzt abonnieren</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #e6007e; border: 1px solid #e6007e; border-radius: 999px; color: #fff; font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1.2; padding: 0.7rem 1.6rem; text-decoration: none; white-space: nowrap; transition: background-color 0.2s ease, border-color 0.2s ease; } .ds-btn-primary:hover { background: #c30069; border-color: #c30069; } .ds-btn-primary:focus-visible { outline: 2px solid #e6007e; outline-offset: 2px; }"
+    },
+    {
+      "name": "Arrow Link",
+      "kind": "custom",
+      "description": "Stands in for the secondary button this system deliberately does not have. Opens every section header's right side.",
+      "html": "<a class=\"ds-arrow-link\" href=\"#\">Alle News</a>",
+      "css": ".ds-arrow-link { font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.8125rem; color: #e6007e; text-decoration: none; white-space: nowrap; } .ds-arrow-link::before { content: '\\2192'; margin-right: 0.45em; } .ds-arrow-link:hover { text-decoration: underline; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "chip-filter",
+      "description": "Category filter row. Exactly one chip in a row is ever selected.",
+      "html": "<ul class=\"ds-chips\"><li><a class=\"ds-chip is-active\" href=\"#\">Alle</a></li><li><a class=\"ds-chip\" href=\"#\">Trade</a></li><li><a class=\"ds-chip\" href=\"#\">Jewellery</a></li><li><a class=\"ds-chip\" href=\"#\">Watches</a></li></ul>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; } .ds-chip { display: inline-block; font-family: Inter, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 0.8125rem; line-height: 1.5; padding: 0.42rem 1.15rem; border: 1px solid #e5e2dc; border-radius: 999px; background: #fff; color: #5a5f66; text-decoration: none; transition: border-color 0.2s ease, color 0.2s ease; } .ds-chip:hover { border-color: #e6007e; color: #e6007e; } .ds-chip.is-active { background: #e6007e; border-color: #e6007e; color: #fff; }"
+    },
+    {
+      "name": "Story Card",
+      "kind": "card",
+      "refersTo": "card-story",
+      "description": "The system's workhorse. No background, no border, no shadow, no padding box — a 16/9 crop over a flex column with the meta row pinned to the bottom.",
+      "html": "<article class=\"ds-card\"><a class=\"ds-card__media\" href=\"#\" tabindex=\"-1\" aria-hidden=\"true\"><span class=\"ds-card__paywall\">Abo</span></a><div class=\"ds-card__body\"><h3 class=\"ds-card__title\"><a href=\"#\">Mehr Formen, mehr Möglichkeiten</a></h3><p class=\"ds-card__excerpt\">Die Diamond Group stellt ihr neues Sortiment vor. Zu den Schwerpunkten gehören Oval- und Kissenschliff und 18-karätiges Gold.</p><p class=\"ds-card__meta\"><span class=\"ds-card__byline\">Carina Andres<span class=\"ds-card__date\">18.08.2026</span></span><a class=\"ds-card__cat\" href=\"#\">Focus</a></p></div></article>",
+      "css": ".ds-card { display: flex; flex-direction: column; min-width: 0; max-width: 360px; } .ds-card__media { display: block; position: relative; overflow: hidden; aspect-ratio: 16 / 9; background: #efece6; line-height: 0; } .ds-card__paywall { position: absolute; top: 0; right: 0; background: #e6007e; color: #fff; font-family: Inter, -apple-system, sans-serif; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.1em; line-height: 1; text-transform: uppercase; padding: 7px 10px; } .ds-card__body { display: flex; flex: 1 1 auto; flex-direction: column; padding-top: 18px; } .ds-card__title { font-family: Arvo, Rockwell, 'Roboto Slab', Georgia, serif; font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; margin: 0 0 10px; } .ds-card__title a { color: #16181d; text-decoration: none; } .ds-card__title a:hover { color: #e6007e; } .ds-card__excerpt { font-family: 'Source Serif 4', Georgia, serif; font-size: 0.875rem; line-height: 1.65; color: #5a5f66; margin: 0 0 18px; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; } .ds-card__meta { display: flex; font-family: Inter, -apple-system, sans-serif; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; margin: auto 0 0; font-size: 0.75rem; color: #686e74; } .ds-card__byline { display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; } .ds-card__cat { color: #e6007e; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }"
+    },
+    {
+      "name": "Section Header",
+      "kind": "nav",
+      "description": "Opens every band: uppercase Inter eyebrow left, optional arrow link right, baseline-aligned.",
+      "html": "<div class=\"ds-sechead\"><h2 class=\"ds-sechead__title\">News aus der Schmuck- und Uhrenbranche</h2><a class=\"ds-sechead__link\" href=\"#\">Alle News</a></div>",
+      "css": ".ds-sechead { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; } .ds-sechead__title { font-family: Inter, -apple-system, sans-serif; font-size: clamp(1.0625rem, 1.9vw, 1.5rem); font-weight: 400; letter-spacing: 0.1em; line-height: 1.25; text-transform: uppercase; color: #5a5f66; margin: 0; } .ds-sechead__link { font-family: Inter, -apple-system, sans-serif; font-size: 0.8125rem; color: #e6007e; text-decoration: none; white-space: nowrap; } .ds-sechead__link::before { content: '\\2192'; margin-right: 0.45em; } .ds-sechead__link:hover { text-decoration: underline; }"
+    },
+    {
+      "name": "Entry List",
+      "kind": "custom",
+      "description": "The compact alternative to cards, for jobs, classifieds and calendar dates. Hairline-separated rows, no fills, no zebra striping.",
+      "html": "<ul class=\"ds-list\"><li class=\"ds-list__item\"><a class=\"ds-list__title\" href=\"#\">Schmucktalent mit Verkaufsflair – 80-100%</a><p class=\"ds-list__meta\"><time>21.08.26</time><span>Wipf Goldschmiede</span></p></li><li class=\"ds-list__item\"><a class=\"ds-list__title\" href=\"#\">Vicenzaoro, Vicenza</a><p class=\"ds-list__meta ds-list__meta--event\">04.09.2026 – 08.09.2026 (Vicenza)</p><p class=\"ds-list__excerpt\">Nach dem Auftakt im Januar wird die Vicenzaoro September traditionsgemäss auch im Herbst zum Treffpunkt.</p></li></ul>",
+      "css": ".ds-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid #e5e2dc; max-width: 360px; } .ds-list__item { padding: 14px 0 16px; border-bottom: 1px solid #e5e2dc; } .ds-list__title { display: block; font-family: Arvo, Rockwell, 'Roboto Slab', Georgia, serif; font-size: 0.9375rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.35; color: #16181d; text-decoration: none; } .ds-list__title:hover { color: #e6007e; } .ds-list__meta { display: flex; font-family: Inter, -apple-system, sans-serif; flex-wrap: wrap; gap: 12px; margin: 6px 0 0; font-size: 0.75rem; color: #686e74; } .ds-list__meta--event { color: #e6007e; letter-spacing: 0.03em; } .ds-list__excerpt { margin: 6px 0 0; font-family: 'Source Serif 4', Georgia, serif; font-size: 0.8125rem; line-height: 1.6; color: #5a5f66; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "The header search: chromeless, icon-first, placeholder set in Ink Black so it reads as a label rather than ghost text.",
+      "html": "<form class=\"ds-search\"><div class=\"ds-search__wrap\"><input class=\"ds-search__input\" type=\"search\" placeholder=\"Suche\" aria-label=\"Suche\"><button class=\"ds-search__btn\" type=\"submit\" aria-label=\"Suchen\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m20 20-3.5-3.5\"/></svg></button></div></form>",
+      "css": ".ds-search { max-width: 220px; } .ds-search__wrap { display: flex; flex-direction: row-reverse; align-items: center; gap: 6px; border: 0; padding: 0; } .ds-search__input { border: 0; background: transparent; padding: 4px 0; font-family: Inter, -apple-system, sans-serif; font-size: 0.875rem; color: #16181d; min-width: 0; } .ds-search__input::placeholder { color: #16181d; opacity: 1; } .ds-search__input:focus { outline: 0; border-bottom: 1px solid #e5e2dc; } .ds-search__btn { background: transparent; border: 0; padding: 0; color: #e6007e; cursor: pointer; display: inline-flex; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Standard form control for filters, contact and login forms.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Ihre E-Mail-Adresse\">",
+      "css": ".ds-input { font-family: Inter, -apple-system, sans-serif; font-size: 0.9375rem; color: #16181d; background: #fff; border: 1px solid #e5e2dc; border-radius: 2px; padding: 0.6rem 0.9rem; max-width: 100%; } .ds-input:focus { outline: 2px solid #e6007e; outline-offset: 1px; }"
+    },
+    {
+      "name": "Primary Navigation",
+      "kind": "nav",
+      "description": "Centred beneath a centred wordmark on a sticky Paper White bar. Active state is magenta over a 2px magenta underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__item is-active\" href=\"#\">News</a><a class=\"ds-nav__item\" href=\"#\">Magazin</a><a class=\"ds-nav__item\" href=\"#\">Marktplatz</a><a class=\"ds-nav__item\" href=\"#\">Kalender</a><a class=\"ds-nav__item\" href=\"#\">Branche</a></nav>",
+      "css": ".ds-nav { display: flex; justify-content: center; gap: 34px; font-family: Inter, -apple-system, sans-serif; font-size: 0.9375rem; border-bottom: 1px solid #e5e2dc; padding-bottom: 12px; } .ds-nav__item { color: #16181d; text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; } .ds-nav__item:hover { color: #e6007e; } .ds-nav__item.is-active { color: #e6007e; border-bottom-color: #e6007e; }"
+    },
+    {
+      "name": "Conversion Band",
+      "kind": "custom",
+      "description": "The single Deep Slate Teal field per page. Its scarcity is what makes it read as a deliberate interruption.",
+      "html": "<div class=\"ds-band\"><div class=\"ds-band__text\"><h2 class=\"ds-band__title\">Gold’Or — Das Schweizer Fachmagazin für Schmuck und Uhren</h2><p class=\"ds-band__lead\">Alle Inhalte, Marktplatz und Stellenangebote — direkt ins Postfach als Newsletter.</p></div><a class=\"ds-band__cta\" href=\"#\">Jetzt abonnieren</a></div>",
+      "css": ".ds-band { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 32px; background: #0e3742; padding: 34px 40px; } .ds-band__text { flex: 1 1 380px; min-width: 0; } .ds-band__title { font-family: Arvo, Rockwell, 'Roboto Slab', Georgia, serif; font-size: clamp(1rem, 1.8vw, 1.3rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; color: #fff; margin: 0; } .ds-band__lead { font-family: 'Source Serif 4', Georgia, serif; font-size: 0.875rem; color: rgba(255,255,255,0.68); margin: 8px 0 0; } .ds-band__cta { flex: none; display: inline-block; background: #e6007e; border: 1px solid #e6007e; border-radius: 999px; color: #fff; font-family: Inter, -apple-system, sans-serif; font-size: 0.875rem; font-weight: 500; padding: 0.7rem 1.6rem; text-decoration: none; white-space: nowrap; transition: background-color 0.2s ease; } .ds-band__cta:hover { background: #c30069; border-color: #c30069; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Workbench Broadsheet",
+    "overview": "Gold'Or is trade press for people who work with their hands at a bench. The system is set like a broadsheet and behaves like ink on paper: full-width bands of stock, hairline rules, square corners, columns that hold their measure. Nothing is rendered as a floating object, because nothing on a printed sheet floats. Depth is a change of paper, not a change of altitude.\n\nThe philosophy is restrained and exact. Authority here comes from precision and consistency, never from decoration — the design's job is to get out of the way of trade information and then be impeccable about how that information is set. Three typefaces do three jobs and never trade places: Arvo names things, Source Serif 4 tells you about them, Inter labels and operates. Press Magenta is the single raised voice in an otherwise achromatic system, and it earns that by being rare.\n\nTwo rejections are binding. This is not a SaaS product site: no gradients, no drop-shadowed rounded cards, no illustrated spot graphics. And it is not a generic news portal: no boxed modules, no teaser grids without hierarchy, no ad clutter competing with editorial. Advertising is house-sold and set like the rest of the page.",
+    "keyCharacteristics": [
+      "Full-bleed alternating bands (Paper White / Paper Sand) as the only sectioning device",
+      "Square corners everywhere; fully-round pills reserved exclusively for actions",
+      "Zero shadows on the page plane — depth is tonal, structure is hairline",
+      "Slab-serif headings over serif reading text with a sans UI layer, strictly separated",
+      "One accent colour, used sparingly enough that it always means something"
+    ],
+    "rules": [
+      {
+        "name": "The One Raised Voice Rule",
+        "body": "Press Magenta appears on no more than ~5% of any viewport. If a screen has more than one magenta fill competing for attention, one of them is wrong. Rarity is the mechanism; dilute it and the subscribe button stops meaning anything.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Paper Rule",
+        "body": "Sections are separated by alternating full-bleed stock — Paper White against Paper Sand — and by nothing else. Never wrap a section in a box, a border, or a card to signal that it is a section.",
+        "section": "colors"
+      },
+      {
+        "name": "The Achromatic Default Rule",
+        "body": "Any element whose colour has not been decided is Ink Black on paper. Colour is opt-in and must be justified by a defined role.",
+        "section": "colors"
+      },
+      {
+        "name": "The Three Voices Rule",
+        "body": "Arvo names, Source Serif 4 tells, Inter labels and operates. Every string on the page must be one of those three things. If you cannot say which, the element is not designed yet.",
+        "section": "typography"
+      },
+      {
+        "name": "The Slab Restraint Rule",
+        "body": "Arvo ships only 400 and 700 — never request another weight, or the browser synthesises a faux bold. Arvo is never uppercased and never given positive tracking; uppercase and tracking belong to Inter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Serif Reads, Sans Operates Rule",
+        "body": "Anything a person reads for meaning is Source Serif 4. Anything a person acts on or scans for orientation — buttons, nav, dates, tags, form fields — is Inter. A byline is not reading; it is Inter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Full-Bleed Band Rule",
+        "body": "Every section is full width and paints its own background; content is centred at 1180px inside it. Never build a section as a floating 1180px block on a shared page background.",
+        "section": "layout"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Structural separation is drawn with 1px Hairline Grey rules and nothing else — no double rules, no thicker weights, no coloured dividers.",
+        "section": "layout"
+      },
+      {
+        "name": "The Reading Measure Rule",
+        "body": "Body copy never exceeds 780px, regardless of how wide the grid around it is.",
+        "section": "layout"
+      },
+      {
+        "name": "The Page-Plane Rule",
+        "body": "If it does not disappear when you look away, it does not get a shadow. Cards, images, buttons, chips, inputs and ads are printed on the sheet, not resting on it.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Square Corner Rule",
+        "body": "0px or 999px. There is no 8px, no 12px, no 'slightly rounded'. A mid-range radius anywhere in this system is a bug.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Pill Means Press Rule",
+        "body": "Round shapes are reserved for interactive controls. Never set a static container, badge or image in a pill.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Two Interval Rule",
+        "body": "Bands take one of exactly two vertical intervals: --gd-section-y for editorial bands and --gd-section-y-tight for the newsletter and advertisement bands. A third hand-picked value is how rhythm turns arbitrary.",
+        "section": "layout"
+      },
+      {
+        "name": "The One Module Rule",
+        "body": "Every column on the page is a span of the same three-track grid at the same gutter. A layout that needs its own proportion is expressed as a span (2 + 1), never as a second grid with a different gutter.",
+        "section": "layout"
+      },
+      {
+        "name": "The Single Source Split Rule",
+        "body": "The article dek and the article body are two renderings of one split. Any block that shows part of the content calls goldor_content_lead_and_body(); none of them pass state to another. Two blocks reading the same source cannot drift; two blocks trusting each other will.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do build every new section as a full-bleed band with its own stock, alternating Paper White and Paper Sand, and centre its content at 1180px.",
+      "Do keep the three typefaces in their lanes: Arvo names, Source Serif 4 tells, Inter labels and operates.",
+      "Do use 0px or 999px and nothing between.",
+      "Do separate things with 1px Hairline Grey rules and generous gutters.",
+      "Do pin card meta rows to the bottom with margin-top: auto so a row of cards shares one meta baseline.",
+      "Do clamp card excerpts (4 lines) and list descriptions (2 lines) so grids stay even against real editorial copy of unpredictable length.",
+      "Do treat advertising as typeset page furniture — a Meta Grey 'ANZEIGE' label above the creative, sitting in the grid like everything else.",
+      "Do hold body copy to a 780px measure even inside the 1180px column.",
+      "Do keep German and French equal: never design a layout that only survives the shorter of two translations.",
+      "Do set the article dek upright, not italic — the house <em> wrapper is stripped so the lead reads as a dek rather than a quotation."
+    ],
+    "donts": [
+      "Don't add a shadow to anything that stays on the page. Cards, images, buttons, chips, inputs and ads are printed, not floating.",
+      "Don't introduce a mid-range border radius. There is no 8px in this system.",
+      "Don't let Press Magenta exceed roughly 5% of a viewport, and never use it as a section background or a heading colour.",
+      "Don't request an Arvo weight other than 400 or 700 — anything else renders as a synthesised faux bold.",
+      "Don't uppercase or positively track Arvo; that register belongs to Inter.",
+      "Don't wrap a group of items in a box, panel or card to show they belong together. Change the stock or add a hairline.",
+      "Don't reach for gradients, illustrated spot graphics or rounded shadowed cards — that is the SaaS register this system rejects.",
+      "Don't build boxed teaser modules or undifferentiated grids of equal-weight stories; every band states its hierarchy before its content.",
+      "Don't put reading text in Inter or interface text in Source Serif 4.",
+      "Don't let an inline figure keep the upload's pixel width; images fill the 780px measure or go full bleed, never 500px adrift in a 780px column."
+    ]
+  }
+}

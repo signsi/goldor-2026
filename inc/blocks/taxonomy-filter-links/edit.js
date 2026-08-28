@@ -24,6 +24,22 @@
 							onChange: function ( postType ) {
 								setAttributes( { postType: postType } );
 							},
+						} ),
+						el( components.TextControl, {
+							label: __( 'Max. categories shown', 'goldor' ),
+							help: __( '0 shows every category, alphabetically.', 'goldor' ),
+							type: 'number',
+							value: attributes.limit,
+							onChange: function ( limit ) {
+								setAttributes( { limit: parseInt( limit, 10 ) || 0 } );
+							},
+						} ),
+						el( components.TextControl, {
+							label: __( '"All" label', 'goldor' ),
+							value: attributes.allLabel,
+							onChange: function ( allLabel ) {
+								setAttributes( { allLabel: allLabel } );
+							},
 						} )
 					)
 				),

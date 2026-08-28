@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/author-box",
+	"title": "Author Box",
+	"category": "goldor",
+	"icon": "id",
+	"description": "The about-the-author panel at the end of an article.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-author-box-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

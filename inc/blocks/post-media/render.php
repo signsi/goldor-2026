@@ -1,7 +1,8 @@
 <?php
 /**
- * Featured image (with fallback), category badge and artikel paywall badge
- * for the post currently being rendered by a Query Loop.
+ * Featured image (with fallback) and artikel paywall badge for the post
+ * currently being rendered by a Query Loop — the Query Loop counterpart of
+ * goldor_render_card_media().
  *
  * @package goldor
  */
@@ -11,15 +12,19 @@ if ( ! $post_id ) {
 	return;
 }
 
-$link       = get_permalink( $post_id );
-$thumb      = goldor_post_thumbnail_url( $post_id );
-$categories = goldor_post_terms( $post_id );
+$thumb_id = get_post_thumbnail_id( $post_id );
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'item-image' ) ); // phpcs:ignore ?> style="background-image:url(<?php echo esc_url( $thumb ); ?>)" onclick="location.href='<?php echo esc_js( $link ); ?>'">
-	<?php if ( ! empty( $categories ) && ! is_wp_error( $categories ) ) : ?>
-		<span class="item-category"><?php echo esc_html( $categories[0]->name ); ?></span>
-	<?php endif; ?>
+<a <?php echo get_block_wrapper_attributes( array( 'class' => 'story-card__media' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?> href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" tabindex="-1" aria-hidden="true">
+	<?php
+	if ( $thumb_id ) {
+		echo wp_get_attachment_image( $thumb_id, 'medium_large', false, array( 'alt' => '', 'loading' => 'lazy' ) );
+	} else {
+		?>
+		<img src="<?php echo esc_url( goldor_post_thumbnail_url( $post_id ) ); ?>" alt="" loading="lazy">
+		<?php
+	}
+	?>
 	<?php if ( 'artikel' === get_post_type( $post_id ) && get_post_meta( $post_id, 'paywall', true ) ) : ?>
-		<div class="item-paywall">&nbsp;</div>
+		<span class="story-card__paywall"><?php esc_html_e( 'Abo', 'goldor' ); ?></span>
 	<?php endif; ?>
-</div>
+</a>

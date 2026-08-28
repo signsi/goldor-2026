@@ -1,40 +1,64 @@
 <!-- wp:goldor/ad-slot {"type":"Skyscraper"} /-->
-<!-- wp:goldor/ad-slot {"type":"Leaderboard"} /-->
 
-<!-- wp:group {"tagName":"footer","className":"site-footer","layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"footer","className":"site-footer","layout":{"type":"default"}} -->
 <footer class="wp-block-group site-footer">
-	<!-- wp:group {"className":"site-social","layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-group site-social">
-		<!-- wp:social-links {"iconColor":"muted","size":"has-normal-icon-size"} -->
-		<ul class="wp-block-social-links has-normal-icon-size">
-			<!-- wp:social-link {"url":"https://www.instagram.com/goldormagazin/","service":"instagram"} /-->
-			<!-- wp:social-link {"url":"https://www.facebook.com/goldormagazin/","service":"facebook"} /-->
-			<!-- wp:social-link {"url":"https://www.youtube.com/channel/UCtsUXjKW0L8_onO5TuBnUvg","service":"youtube"} /-->
-		</ul>
-		<!-- /wp:social-links -->
+
+	<!-- wp:group {"className":"site-footer__main","layout":{"type":"default"}} -->
+	<div class="wp-block-group site-footer__main">
+
+		<!-- wp:group {"className":"site-footer__brand","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-footer__brand">
+			<!-- wp:site-logo {"width":150,"shouldSyncIcon":false,"className":"site-logo--magenta"} /-->
+
+			<!-- wp:social-links {"iconColor":"muted","iconColorValue":"#5a5f66","size":"has-small-icon-size","className":"is-style-logos-only site-social"} -->
+			<ul class="wp-block-social-links has-small-icon-size has-icon-color is-style-logos-only site-social">
+				<!-- wp:social-link {"url":"https://www.facebook.com/goldormagazin/","service":"facebook"} /-->
+				<!-- wp:social-link {"url":"https://www.youtube.com/channel/UCtsUXjKW0L8_onO5TuBnUvg","service":"youtube"} /-->
+				<!-- wp:social-link {"url":"https://www.instagram.com/goldormagazin/","service":"instagram"} /-->
+			</ul>
+			<!-- /wp:social-links -->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:navigation {"className":"site-footer__nav","overlayMenu":"never","layout":{"type":"flex","orientation":"horizontal","justifyContent":"center"}} -->
+			<!-- wp:navigation-link {"label":"Über uns","url":"/ueber-uns/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Werbung","url":"/werbeformate-und-preise/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Links","url":"/links/","kind":"custom"} /-->
+			<!-- wp:navigation-link {"label":"Kontakt","url":"/kontakt/","kind":"custom"} /-->
+		<!-- /wp:navigation -->
+
+		<!-- wp:group {"className":"site-footer__end","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-footer__end">
+			<!-- wp:buttons {"className":"site-footer__cta","layout":{"type":"flex"}} -->
+			<div class="wp-block-buttons site-footer__cta">
+				<!-- wp:button -->
+				<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/goldor-bestellen/">Abonnieren</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
+
+			<!-- wp:goldor/account-link /-->
+		</div>
+		<!-- /wp:group -->
+
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"site-info","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-	<div class="wp-block-group site-info">
-		<!-- wp:group {"className":"newsletter","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group newsletter">
-			<!-- wp:paragraph -->
-			<p><strong>Newsletter abonnieren</strong></p>
+	<!-- wp:group {"className":"site-footer__legal","layout":{"type":"default"}} -->
+	<div class="wp-block-group site-footer__legal">
+		<!-- wp:group {"className":"site-footer__legal-inner","layout":{"type":"default"}} -->
+		<div class="wp-block-group site-footer__legal-inner">
+			<!-- wp:paragraph {"className":"site-footer__copyright"} -->
+			<p class="site-footer__copyright">© 2026 Gold’Or – Alle Rechte vorbehalten</p>
 			<!-- /wp:paragraph -->
-			<!-- wp:goldor/newsletter-form /-->
-		</div>
-		<!-- /wp:group -->
 
-		<!-- wp:navigation {"className":"sub-navigation","layout":{"type":"flex","orientation":"vertical"}} /-->
-		<!-- wp:goldor/account-link {"className":"sub-navigation"} /-->
-
-		<!-- wp:group {"className":"footer-logo","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group footer-logo">
-			<!-- wp:site-title {"level":0} /-->
+			<!-- wp:paragraph {"className":"site-footer__legal-links"} -->
+			<p class="site-footer__legal-links"><a href="/datenschutz/">Datenschutz</a><a href="/impressum/">Impressum</a></p>
+			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
+
 </footer>
 <!-- /wp:group -->

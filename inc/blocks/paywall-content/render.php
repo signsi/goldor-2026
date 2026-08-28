@@ -16,20 +16,23 @@ $post_id = get_the_ID();
 	<?php if ( goldor_block_should_show_article_full_content( $post_id ) ) : ?>
 
 		<div class="entry-content-full">
-			<?php the_content(); ?>
-		</div>
-
-		<div class="entry-author">
-			<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>">
-				<?php echo get_avatar( get_the_author_meta( 'ID' ), 60 ); ?>
-				<p><?php the_author(); ?></p>
-			</a>
+			<?php
+			// goldor/entry-lead sets the opening paragraph above the hero image,
+			// so the body picks up from the same split.
+			list( $lead, $body ) = goldor_content_lead_and_body( $post_id );
+			echo $lead
+				? apply_filters( 'the_content', $body ) // phpcs:ignore WordPress.Security.EscapeOutput
+				: apply_filters( 'the_content', get_the_content() ); // phpcs:ignore WordPress.Security.EscapeOutput
+			?>
 		</div>
 
 	<?php else : ?>
 
 		<p class="entry-cut">
-			<?php echo esc_html( substr( wp_strip_all_tags( get_the_content() ), 0, 700 ) ); ?>&#8239;.&#8239;.&#8239;.
+			<?php
+			list( , $teaser_body ) = goldor_content_lead_and_body( $post_id );
+			echo esc_html( mb_substr( trim( wp_strip_all_tags( $teaser_body ) ), 0, 700 ) );
+			?>&#8239;.&#8239;.&#8239;.
 			<span class="entry-cut-info">
 				<a href="<?php echo esc_url( home_url( '/goldor-bestellen' ) ); ?>">
 					<?php esc_html_e( 'werden Sie Abonnent, um weiterzulesen.', 'goldor' ); ?>

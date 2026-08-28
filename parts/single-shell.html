@@ -1,15 +1,39 @@
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-	<!-- wp:post-featured-image /-->
-	<!-- wp:post-title /-->
-	<!-- wp:group {"className":"entry-meta","layout":{"type":"flex"}} -->
-	<div class="wp-block-group entry-meta">
-		<!-- wp:post-author /-->
-		<!-- wp:post-date /-->
+<!-- wp:goldor/reading-progress /-->
+
+<!-- wp:group {"align":"full","className":"section section--entry","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--entry">
+	<!-- wp:group {"className":"entry-head","layout":{"type":"default"}} -->
+	<div class="wp-block-group entry-head">
+		<!-- wp:goldor/entry-breadcrumb /-->
+		<!-- wp:post-title {"level":1} /-->
+		<!-- wp:goldor/entry-lead /-->
+		<!-- wp:goldor/entry-byline /-->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:goldor/reading-time-share /-->
-	<!-- wp:post-content /-->
-	<!-- wp:goldor/related-posts /-->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:goldor/featured-media /-->
+
+<!-- wp:group {"align":"full","className":"section section--entry-body","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--entry-body">
+	<!-- wp:group {"className":"entry-body","layout":{"type":"default"}} -->
+	<div class="wp-block-group entry-body">
+		<!-- wp:goldor/entry-content /-->
+		<!-- wp:goldor/author-box /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--soft">
+	<!-- wp:group {"className":"entry-body","layout":{"type":"default"}} -->
+	<div class="wp-block-group entry-body">
+		<!-- wp:goldor/related-posts /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"newsletter-band","theme":"goldor-2026"} /-->

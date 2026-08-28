@@ -5,8 +5,9 @@
  * @package goldor
  */
 
-$type = isset( $attributes['type'] ) ? $attributes['type'] : 'Skyscraper';
-$ad   = goldor_block_get_active_ad( $type );
+$type       = isset( $attributes['type'] ) ? $attributes['type'] : 'Skyscraper';
+$show_label = ! empty( $attributes['showLabel'] );
+$ad         = goldor_block_get_active_ad( $type );
 
 if ( ! $ad || empty( $ad['image'] ) ) {
 	return;
@@ -20,7 +21,10 @@ $sizes = array(
 );
 $size = isset( $sizes[ $type ] ) ? $sizes[ $type ] : array( 'class' => 'ad', 'width' => 300, 'height' => 250 );
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => $size['class'] ) ); // phpcs:ignore ?>>
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'ad-slot ' . $size['class'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+	<?php if ( $show_label ) : ?>
+		<p class="ad-slot__label"><?php esc_html_e( 'Anzeige', 'goldor' ); ?></p>
+	<?php endif; ?>
 	<a href="<?php echo esc_url( $ad['url'] ); ?>" target="_blank" rel="noopener sponsored">
 		<img
 			class="ad"
@@ -28,6 +32,7 @@ $size = isset( $sizes[ $type ] ) ? $sizes[ $type ] : array( 'class' => 'ad', 'wi
 			height="<?php echo esc_attr( $size['height'] ); ?>"
 			src="<?php echo esc_url( $ad['image'] ); ?>"
 			alt="<?php echo esc_attr( $ad['title'] ); ?>"
+			loading="lazy"
 		>
 	</a>
 </div>

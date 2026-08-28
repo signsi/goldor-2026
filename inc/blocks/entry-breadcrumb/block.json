@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/entry-breadcrumb",
+	"title": "Entry Breadcrumb",
+	"category": "goldor",
+	"icon": "category",
+	"description": "Primary category and section label above an article title.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-entry-breadcrumb-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": { "html": false }
+}

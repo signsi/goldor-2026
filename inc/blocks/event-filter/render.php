@@ -70,33 +70,13 @@ $terms = get_terms( array( 'taxonomy' => 'kalender-kategorie', 'hide_empty' => t
 		<?php
 		while ( $query->have_posts() ) :
 			$query->the_post();
-
-			$ort        = get_post_meta( get_the_ID(), 'ort', true );
-			$start_date = DateTime::createFromFormat( 'Ymd', get_post_meta( get_the_ID(), 'startdatum', true ) );
-			$end_date   = DateTime::createFromFormat( 'Ymd', get_post_meta( get_the_ID(), 'enddatum', true ) );
-			?>
-			<div class="grid-item">
-				<div class="item-image" style="background-image:url(<?php echo esc_url( goldor_post_thumbnail_url( get_the_ID() ) ); ?>)" onclick="location.href='<?php echo esc_js( get_permalink() ); ?>'"></div>
-				<a href="<?php echo esc_url( get_permalink() ); ?>"><h2><?php the_title(); ?></h2></a>
-				<p class="cal-item-meta">
-					<?php
-					if ( $start_date ) {
-						echo esc_html( $start_date->format( 'd.m.Y' ) );
-					}
-					if ( $end_date ) {
-						echo ' – ' . esc_html( $end_date->format( 'd.m.Y' ) );
-					}
-					if ( $ort ) {
-						echo ' (' . esc_html( $ort ) . ')';
-					}
-					?>
-				</p>
-				<p>
-					<?php echo esc_html( substr( get_the_excerpt(), 0, 75 ) ); ?>&#8239;.&#8239;.&#8239;.
-					<a class="article-more" href="<?php echo esc_url( get_permalink() ); ?>"><?php esc_html_e( 'mehr', 'goldor' ); ?></a>
-				</p>
-			</div>
-			<?php
+			echo goldor_render_story_card( // phpcs:ignore WordPress.Security.EscapeOutput
+				get_the_ID(),
+				array(
+					'subline'   => goldor_event_dateline( get_the_ID() ),
+					'meta_left' => get_post_meta( get_the_ID(), 'ort', true ),
+				)
+			);
 		endwhile;
 		?>
 	</div>

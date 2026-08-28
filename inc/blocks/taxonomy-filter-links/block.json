@@ -12,7 +12,15 @@
 	"attributes": {
 		"postType": {
 			"type": "string",
-			"default": "job"
+			"default": ""
+		},
+		"limit": {
+			"type": "number",
+			"default": 0
+		},
+		"allLabel": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

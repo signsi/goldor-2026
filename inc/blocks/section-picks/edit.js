@@ -30,6 +30,15 @@
 							value: attributes.heading,
 							onChange: set( 'heading' ),
 						} ),
+						el( components.SelectControl, {
+							label: __( 'Heading style', 'goldor' ),
+							value: attributes.headingStyle,
+							options: [
+								{ label: __( 'Section (uppercase)', 'goldor' ), value: 'section' },
+								{ label: __( 'Column (serif)', 'goldor' ), value: 'column' },
+							],
+							onChange: set( 'headingStyle' ),
+						} ),
 						el( components.TextControl, {
 							label: __( 'Post type', 'goldor' ),
 							value: attributes.postType,
@@ -43,6 +52,14 @@
 								setAttributes( { postsPerPage: parseInt( value, 10 ) || 0 } );
 							},
 						} ),
+						el( components.TextControl, {
+							label: __( 'Skip newest entries (offset)', 'goldor' ),
+							type: 'number',
+							value: attributes.offset,
+							onChange: function ( value ) {
+								setAttributes( { offset: parseInt( value, 10 ) || 0 } );
+							},
+						} ),
 						el( components.SelectControl, {
 							label: __( 'Layout', 'goldor' ),
 							value: attributes.layout,
@@ -51,6 +68,16 @@
 								{ label: __( 'List (date + title)', 'goldor' ), value: 'list' },
 							],
 							onChange: set( 'layout' ),
+						} ),
+						el( components.SelectControl, {
+							label: __( 'Card variant', 'goldor' ),
+							help: __( 'Only used by the grid layout.', 'goldor' ),
+							value: attributes.variant,
+							options: [
+								{ label: __( 'Standard card', 'goldor' ), value: 'card' },
+								{ label: __( 'Compact (hero sidebar)', 'goldor' ), value: 'compact' },
+							],
+							onChange: set( 'variant' ),
 						} ),
 						el( components.ToggleControl, {
 							label: __( 'Exclude posts flagged "topstory"', 'goldor' ),
@@ -70,9 +97,15 @@
 							onChange: set( 'term' ),
 						} ),
 						el( components.TextControl, {
-							label: __( '"All entries" link (optional override)', 'goldor' ),
+							label: __( 'Archive link (optional override)', 'goldor' ),
 							value: attributes.archiveLink,
 							onChange: set( 'archiveLink' ),
+						} ),
+						el( components.TextControl, {
+							label: __( 'Archive link label', 'goldor' ),
+							help: __( 'e.g. Alle News — shown next to the heading.', 'goldor' ),
+							value: attributes.linkLabel,
+							onChange: set( 'linkLabel' ),
 						} ),
 						el( components.TextControl, {
 							label: __( 'Ad override type (optional)', 'goldor' ),

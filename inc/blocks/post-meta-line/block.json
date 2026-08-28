@@ -1,0 +1,16 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/post-meta-line",
+	"title": "Post Meta Line",
+	"category": "goldor",
+	"icon": "info-outline",
+	"description": "Author, date and primary category for the post currently being rendered by a Query Loop — the card footer used across the site.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-post-meta-line-edit",
+	"render": "file:./render.php",
+	"usesContext": ["postId"],
+	"supports": {
+		"html": false
+	}
+}

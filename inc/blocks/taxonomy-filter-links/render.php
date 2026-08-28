@@ -7,14 +7,24 @@
  * @package goldor
  */
 
-$post_type = isset( $attributes['postType'] ) ? $attributes['postType'] : get_query_var( 'post_type' );
+$post_type = ! empty( $attributes['postType'] ) ? $attributes['postType'] : goldor_queried_post_type();
+$limit     = isset( $attributes['limit'] ) ? (int) $attributes['limit'] : 0;
+$all_label = ! empty( $attributes['allLabel'] ) ? $attributes['allLabel'] : __( 'Alle', 'goldor' );
 $taxonomy  = $post_type . '-kategorie';
 
 if ( ! taxonomy_exists( $taxonomy ) ) {
 	return;
 }
 
-$terms = get_terms( array( 'taxonomy' => $taxonomy, 'hide_empty' => true ) );
+$terms = get_terms(
+	array(
+		'taxonomy'   => $taxonomy,
+		'hide_empty' => true,
+		'number'     => $limit > 0 ? $limit : 0,
+		'orderby'    => $limit > 0 ? 'count' : 'name',
+		'order'      => $limit > 0 ? 'DESC' : 'ASC',
+	)
+);
 if ( empty( $terms ) || is_wp_error( $terms ) ) {
 	return;
 }
@@ -24,7 +34,7 @@ $current_term  = is_tax( $taxonomy ) ? get_queried_object() : null;
 ?>
 <ul <?php echo get_block_wrapper_attributes( array( 'class' => 'taxonomy-filter-links' ) ); // phpcs:ignore ?>>
 	<li class="<?php echo esc_attr( ! $current_term ? 'is-active' : '' ); ?>">
-		<a href="<?php echo esc_url( $archive_link ); ?>"><?php esc_html_e( 'All', 'goldor' ); ?></a>
+		<a href="<?php echo esc_url( $archive_link ); ?>"><?php echo esc_html( $all_label ); ?></a>
 	</li>
 	<?php foreach ( $terms as $term ) : ?>
 		<li class="<?php echo esc_attr( $current_term && $current_term->term_id === $term->term_id ? 'is-active' : '' ); ?>">
