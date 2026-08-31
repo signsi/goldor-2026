@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//var/www/html/**)",
+      "Bash(wp --allow-root option get stylesheet --allow-root)",
+      "Bash(wp --allow-root option get home)",
+      "Bash(wp --allow-root option get show_on_front)",
+      "Bash(wp --allow-root plugin list --format=csv)",
+      "Bash(curl -s -H \"Host: goldor.wporbit\" http://localhost/ -o /tmp/claude-0/-var-www-html-wp-content-themes-goldor-2026/7e908cb5-0f7c-4065-8738-791113e0d89c/scratchpad/home.html -w \"%{http_code} %{size_download}\\\\n\")",
+      "Bash(wp --allow-root post list --post_type=page --fields=post_title,post_name --format=csv)",
+      "Read(//usr/bin/**)",
+      "Bash(python3 -c \"import playwright\")",
+      "Bash(timeout 8 curl -sI https://registry.npmjs.org/ -o /dev/null -w \"npm:%{http_code}\\\\n\")"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f '/root/.claude/skills/impeccable/scripts/hook.mjs' ] || node '/root/.claude/skills/impeccable/scripts/hook.mjs'",
+            "timeout": 5,
+            "statusMessage": "Checking UI changes"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ ! -f '/root/.claude/skills/impeccable/scripts/hook.mjs' ] || node '/root/.claude/skills/impeccable/scripts/hook.mjs'",
+            "timeout": 30,
+            "statusMessage": "Design deep pass"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Impeccable design detector: immediate-tier checks after Edit/Write on UI files, full-rule deep pass on Stop."
+}
