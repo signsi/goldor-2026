@@ -9,6 +9,15 @@
 	"textdomain": "goldor",
 	"editorScript": "goldor-block-magazine-issue-edit",
 	"render": "file:./render.php",
+	"usesContext": [
+		"postId"
+	],
+	"attributes": {
+		"source": {
+			"type": "string",
+			"default": "post"
+		}
+	},
 	"supports": {
 		"html": false
 	}

@@ -9,6 +9,7 @@
 	"textdomain": "goldor",
 	"editorScript": "goldor-block-lieferant-contact-edit",
 	"render": "file:./render.php",
+	"usesContext": [ "postId" ],
 	"supports": {
 		"html": false
 	}

@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/entry-link",
+	"title": "Entry Link",
+	"category": "goldor",
+	"icon": "external",
+	"description": "The entry's external `url` meta as a button plus its host — used by Kleinanzeigen and Links.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-entry-link-edit",
+	"render": "file:./render.php",
+	"usesContext": [ "postId" ],
+	"attributes": {
+		"label": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

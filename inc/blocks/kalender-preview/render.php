@@ -9,12 +9,19 @@ $per_page   = isset( $attributes['postsPerPage'] ) ? (int) $attributes['postsPer
 $heading    = isset( $attributes['heading'] ) ? $attributes['heading'] : '';
 $link_label = isset( $attributes['linkLabel'] ) ? $attributes['linkLabel'] : '';
 
+// Beneath a single event the block reads as "further dates", so the event
+// being read is never one of them.
+$exclude = goldor_rendered_post_ids();
+if ( is_singular( 'kalender' ) && get_the_ID() ) {
+	$exclude[] = get_the_ID();
+}
+
 $query = new WP_Query(
 	array(
 		'post_type'      => 'kalender',
 		'posts_per_page' => $per_page,
 		'no_found_rows'  => true,
-		'post__not_in'   => goldor_rendered_post_ids(),
+		'post__not_in'   => $exclude,
 		'meta_key'       => 'startdatum',
 		'orderby'        => 'meta_value',
 		'order'          => 'ASC',

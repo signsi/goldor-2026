@@ -1,0 +1,29 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/archive-head",
+	"title": "Archive Head",
+	"category": "goldor",
+	"icon": "heading",
+	"description": "The head of an archive: section eyebrow, title, and a lead paragraph — the term's own description on a taxonomy view, the text set here otherwise.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-archive-head-edit",
+	"render": "file:./render.php",
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"lead": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false
+	}
+}

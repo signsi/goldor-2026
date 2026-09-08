@@ -1,31 +1,38 @@
 <!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-	<!-- wp:query-title {"type":"search"} /-->
-	<!-- wp:search {"label":"","showLabel":false,"placeholder":"Suche"} /-->
+<!-- wp:group {"align":"full","className":"section section--archive","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--archive">
+	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/archive-head /-->
 
-	<!-- wp:query {"query":{"inherit":true},"layout":{"type":"default"}} -->
-	<div class="wp-block-query">
-		<!-- wp:group {"className":"grid-container","layout":{"type":"default"}} -->
-		<div class="wp-block-group grid-container">
-			<!-- wp:post-template -->
-				<!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->
-			<!-- /wp:post-template -->
+		<!-- wp:search {"label":"Suche","showLabel":false,"placeholder":"Suche","buttonText":"Suche","buttonUseIcon":true,"buttonPosition":"button-inside","className":"archive-search"} /-->
+
+		<!-- wp:query {"query":{"inherit":true},"layout":{"type":"default"}} -->
+		<div class="wp-block-query">
+			<!-- wp:group {"className":"grid-container","layout":{"type":"default"}} -->
+			<div class="wp-block-group grid-container">
+				<!-- wp:post-template -->
+					<!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->
+				<!-- /wp:post-template -->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:query-pagination -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph {"className":"archive-empty"} -->
+				<p class="archive-empty">Zu diesem Suchbegriff wurde nichts gefunden. Versuchen Sie es mit einem anderen Wort.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
 		</div>
-		<!-- /wp:group -->
-		<!-- wp:query-pagination -->
-			<!-- wp:query-pagination-previous /-->
-			<!-- wp:query-pagination-numbers /-->
-			<!-- wp:query-pagination-next /-->
-		<!-- /wp:query-pagination -->
-		<!-- wp:query-no-results -->
-			<!-- wp:paragraph -->
-			<p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
-			<!-- /wp:paragraph -->
-		<!-- /wp:query-no-results -->
+		<!-- /wp:query -->
 	</div>
-	<!-- /wp:query -->
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
 

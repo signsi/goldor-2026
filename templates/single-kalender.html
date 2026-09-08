@@ -1,12 +1,40 @@
 <!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-	<!-- wp:post-title /-->
-	<!-- wp:post-featured-image /-->
-	<!-- wp:goldor/event-details /-->
-	<!-- wp:post-content /-->
+<!-- wp:group {"align":"full","className":"section section--entry","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--entry">
+	<!-- wp:group {"className":"entry-head","layout":{"type":"default"}} -->
+	<div class="wp-block-group entry-head">
+		<!-- wp:goldor/entry-breadcrumb /-->
+		<!-- wp:post-title {"level":1} /-->
+		<!-- wp:goldor/entry-lead /-->
+		<!-- wp:goldor/event-details /-->
+	</div>
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:goldor/featured-media /-->
+
+<!-- wp:group {"align":"full","className":"section section--entry-body","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--entry-body">
+	<!-- wp:group {"className":"entry-body","layout":{"type":"default"}} -->
+	<div class="wp-block-group entry-body">
+		<!-- wp:goldor/entry-content /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--soft">
+	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/kalender-preview {"postsPerPage":4,"heading":"Weitere Termine","linkLabel":"Alle Termine anzeigen"} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"newsletter-band","theme":"goldor-2026"} /-->
 
 <!-- wp:template-part {"slug":"footer","theme":"goldor-2026"} /-->

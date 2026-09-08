@@ -9,6 +9,7 @@
 	"textdomain": "goldor",
 	"editorScript": "goldor-block-event-details-edit",
 	"render": "file:./render.php",
+	"usesContext": [ "postId" ],
 	"supports": {
 		"html": false
 	}

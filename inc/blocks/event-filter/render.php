@@ -10,6 +10,15 @@ $paged      = max( 1, (int) get_query_var( 'paged' ) ?: ( isset( $_GET['paged'] 
 $date_input = isset( $_GET['event_date'] ) ? sanitize_text_field( wp_unslash( $_GET['event_date'] ) ) : '';
 $cat_id     = isset( $_GET['event_cat'] ) ? absint( $_GET['event_cat'] ) : 0;
 
+// The block runs its own query, so on a kalender-kategorie archive it would
+// otherwise ignore the term the visitor actually asked for.
+if ( ! $cat_id && is_tax( 'kalender-kategorie' ) ) {
+	$queried_term = get_queried_object();
+	if ( $queried_term instanceof WP_Term ) {
+		$cat_id = $queried_term->term_id;
+	}
+}
+
 $date_ymd = '';
 if ( $date_input ) {
 	$parsed = DateTime::createFromFormat( 'Y-m-d', $date_input );
@@ -61,25 +70,44 @@ $terms = get_terms( array( 'taxonomy' => 'kalender-kategorie', 'hide_empty' => t
 		<?php endif; ?>
 
 		<button type="submit" class="button-filter"><?php esc_html_e( 'Filter', 'goldor' ); ?></button>
-		<a class="button-filter" href="<?php echo esc_url( remove_query_arg( array( 'event_date', 'event_cat', 'paged' ) ) ); ?>">
-			<?php esc_html_e( 'All', 'goldor' ); ?>
+		<?php
+		// "All" has to leave a category archive entirely, not just drop the
+		// query args that the term in the URL would immediately reapply.
+		$reset_url = is_tax( 'kalender-kategorie' )
+			? get_post_type_archive_link( 'kalender' )
+			: remove_query_arg( array( 'event_date', 'event_cat', 'paged' ) );
+		?>
+		<a class="button-filter" href="<?php echo esc_url( $reset_url ); ?>">
+			<?php esc_html_e( 'Alle Termine', 'goldor' ); ?>
 		</a>
 	</form>
 
-	<div class="grid-container">
-		<?php
-		while ( $query->have_posts() ) :
-			$query->the_post();
-			echo goldor_render_story_card( // phpcs:ignore WordPress.Security.EscapeOutput
-				get_the_ID(),
-				array(
-					'subline'   => goldor_event_dateline( get_the_ID() ),
-					'meta_left' => get_post_meta( get_the_ID(), 'ort', true ),
-				)
-			);
-		endwhile;
-		?>
-	</div>
+	<?php if ( $query->have_posts() ) : ?>
+		<div class="grid-container">
+			<?php
+			while ( $query->have_posts() ) :
+				$query->the_post();
+				echo goldor_render_story_card( // phpcs:ignore WordPress.Security.EscapeOutput
+					get_the_ID(),
+					array(
+						'subline'   => goldor_event_dateline( get_the_ID() ),
+						'meta_left' => get_post_meta( get_the_ID(), 'ort', true ),
+					)
+				);
+			endwhile;
+			?>
+		</div>
+	<?php else : ?>
+		<p class="archive-empty">
+			<?php
+			// The default view is "from today on", so an empty calendar is
+			// almost always "nothing coming up" rather than "nothing at all".
+			echo $date_ymd || $cat_id
+				? esc_html__( 'Zu dieser Auswahl sind keine Termine vorhanden.', 'goldor' )
+				: esc_html__( 'Zurzeit sind keine kommenden Termine erfasst.', 'goldor' );
+			?>
+		</p>
+	<?php endif; ?>
 
 	<div class="prev-next-posts">
 		<?php

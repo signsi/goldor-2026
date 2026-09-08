@@ -586,21 +586,32 @@ function goldor_content_lead_and_body( $post_id = null ) {
 }
 
 /**
- * The section an entry belongs to, named the way the navigation names it.
+ * A post type named the way the navigation names it — the registered label is
+ * the editor's word for it ("Kleinanzeigen"), which is not always the reader's
+ * ("Marktplatz").
  */
-function goldor_entry_section_label( $post_id ) {
+function goldor_post_type_section_label( $post_type ) {
 	$labels = array(
 		'post'         => __( 'News', 'goldor' ),
 		'artikel'      => __( 'Magazin', 'goldor' ),
+		'print'        => __( 'Print', 'goldor' ),
+		'magazin'      => __( 'Ausgaben', 'goldor' ),
 		'vsgu-news'    => __( 'Personen', 'goldor' ),
 		'kalender'     => __( 'Kalender', 'goldor' ),
 		'job'          => __( 'Jobs', 'goldor' ),
 		'kleinanzeige' => __( 'Marktplatz', 'goldor' ),
 		'lieferant'    => __( 'Lieferanten', 'goldor' ),
 		'wiki'         => __( 'Branchen-Lexikon', 'goldor' ),
+		'link'         => __( 'Links', 'goldor' ),
 	);
-	$type = get_post_type( $post_id );
-	return isset( $labels[ $type ] ) ? $labels[ $type ] : '';
+	return isset( $labels[ $post_type ] ) ? $labels[ $post_type ] : '';
+}
+
+/**
+ * The section an entry belongs to, named the way the navigation names it.
+ */
+function goldor_entry_section_label( $post_id ) {
+	return goldor_post_type_section_label( get_post_type( $post_id ) );
 }
 
 /**

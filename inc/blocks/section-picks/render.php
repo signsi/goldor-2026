@@ -49,11 +49,18 @@ if ( ! $archive_link ) {
 	$archive_link = get_post_type_archive_link( $post_type );
 }
 
+// On a detail page the block is a "more of these" list, so the entry being
+// read is never one of them.
+$exclude = goldor_rendered_post_ids();
+if ( is_singular() && get_the_ID() ) {
+	$exclude[] = get_the_ID();
+}
+
 $query_args = array(
 	'post_type'      => $post_type,
 	'posts_per_page' => $per_page,
 	'no_found_rows'  => true,
-	'post__not_in'   => goldor_rendered_post_ids(),
+	'post__not_in'   => $exclude,
 );
 if ( $offset > 0 ) {
 	$query_args['offset'] = $offset;

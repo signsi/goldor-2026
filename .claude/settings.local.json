@@ -2,15 +2,30 @@
   "permissions": {
     "allow": [
       "Read(//var/www/html/**)",
-      "Bash(wp --allow-root option get stylesheet --allow-root)",
-      "Bash(wp --allow-root option get home)",
-      "Bash(wp --allow-root option get show_on_front)",
-      "Bash(wp --allow-root plugin list --format=csv)",
-      "Bash(curl -s -H \"Host: goldor.wporbit\" http://localhost/ -o /tmp/claude-0/-var-www-html-wp-content-themes-goldor-2026/7e908cb5-0f7c-4065-8738-791113e0d89c/scratchpad/home.html -w \"%{http_code} %{size_download}\\\\n\")",
-      "Bash(wp --allow-root post list --post_type=page --fields=post_title,post_name --format=csv)",
       "Read(//usr/bin/**)",
-      "Bash(python3 -c \"import playwright\")",
-      "Bash(timeout 8 curl -sI https://registry.npmjs.org/ -o /dev/null -w \"npm:%{http_code}\\\\n\")"
+      "Bash(cd:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(stat:*)",
+      "Bash(wc:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(echo:*)",
+      "Bash(printf:*)",
+      "Bash(mkdir:*)",
+      "Bash(python3:*)",
+      "Bash(php:*)",
+      "Bash(wp:*)",
+      "Bash(curl:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(timeout 8 curl -sI https://registry.npmjs.org/ -o /dev/null -w \"npm:%{http_code}\\\\n\")",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ]
   },
   "hooks": {

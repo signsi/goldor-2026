@@ -222,6 +222,113 @@ function goldor_filter_orderby( $query ) {
 }
 add_action( 'pre_get_posts', 'goldor_filter_orderby' );
 
+/**
+ * The `job` and `magazin` entries publish under /jobs/ and /magazin/, which
+ * are also page trees carried over from the classic site — /jobs/anleitung-
+ * tarife/, /magazin/archiv/ and friends. A post type's single-entry rewrite
+ * rule is matched before the page rules, so those pages 404 although they
+ * exist and are linked from the main navigation.
+ *
+ * A request the post type itself cannot answer is handed back to the page of
+ * the same path. Entry permalinks are matched first and so stay untouched.
+ */
+function goldor_page_beats_cpt_permalink( $wp ) {
+	if ( empty( $wp->request ) ) {
+		return;
+	}
+
+	$slug = '';
+	foreach ( $wp->query_vars as $var => $value ) {
+		if ( ! is_string( $value ) || '' === $value ) {
+			continue;
+		}
+		$post_type = get_post_type_object( $var );
+		if ( $post_type && $post_type->public && $post_type->rewrite ) {
+			$slug = $value;
+			break;
+		}
+	}
+
+	if ( '' === $slug ) {
+		return;
+	}
+
+	// Drafts and private entries count too, so an editor's preview of an
+	// unpublished entry is never diverted to a page.
+	$entry = get_posts(
+		array(
+			'post_type'      => $post_type->name,
+			'name'           => $slug,
+			'post_status'    => 'any',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	);
+	if ( $entry ) {
+		return;
+	}
+
+	$page = get_page_by_path( $wp->request );
+	if ( ! $page || 'publish' !== $page->post_status ) {
+		return;
+	}
+
+	$wp->query_vars = array( 'pagename' => $wp->request );
+}
+add_action( 'parse_request', 'goldor_page_beats_cpt_permalink' );
+
+/**
+ * A translated page carries its own slug — /branche/calendrier for
+ * /branche/kalender, /emplois for /jobs — so a `page-{slug}.html` template
+ * written for the original is never found for it.
+ *
+ * Every translation is offered its original's template as a candidate, which
+ * keeps one template per layout instead of one per language, and covers pages
+ * added later without touching the theme.
+ */
+function goldor_translated_page_template_hierarchy( $templates ) {
+	if ( ! has_filter( 'wpml_object_id' ) ) {
+		return $templates;
+	}
+
+	$page = get_queried_object();
+	if ( ! $page instanceof WP_Post ) {
+		return $templates;
+	}
+
+	$default_language = apply_filters( 'wpml_default_language', null );
+	if ( ! $default_language ) {
+		return $templates;
+	}
+
+	$original_id = apply_filters( 'wpml_object_id', $page->ID, 'page', true, $default_language );
+	if ( ! $original_id || (int) $original_id === $page->ID ) {
+		return $templates;
+	}
+
+	$original = get_post( $original_id );
+	if ( ! $original || $original->post_name === $page->post_name ) {
+		return $templates;
+	}
+
+	$candidate = 'page-' . $original->post_name . '.php';
+	if ( in_array( $candidate, $templates, true ) ) {
+		return $templates;
+	}
+
+	// Ahead of the generic page.php, behind everything more specific.
+	$position = array_search( 'page.php', $templates, true );
+	if ( false === $position ) {
+		$templates[] = $candidate;
+	} else {
+		array_splice( $templates, $position, 0, array( $candidate ) );
+	}
+
+	return $templates;
+}
+add_filter( 'page_template_hierarchy', 'goldor_translated_page_template_hierarchy' );
+
 function goldor_body_classes( $classes ) {
 	if ( is_post_type_archive( 'lieferant' ) || is_tax( 'lieferant-kategorie' ) ) {
 		$classes[] = 'lieferanten';

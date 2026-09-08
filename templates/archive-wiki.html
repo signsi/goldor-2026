@@ -1,10 +1,16 @@
 <!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained"}} -->
-<div class="wp-block-group">
-	<!-- wp:query-title {"type":"archive"} /-->
-	<!-- wp:goldor/wiki-index {"postType":"wiki"} /-->
+<!-- wp:group {"align":"full","className":"section section--archive","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--archive">
+	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/archive-head {"lead":"Fachbegriffe der Schmuck- und Uhrenbranche, von Aventurin bis Zifferblatt erklärt."} /-->
+		<!-- wp:goldor/wiki-index {"postType":"wiki"} /-->
+	</div>
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"newsletter-band","theme":"goldor-2026"} /-->
 
 <!-- wp:template-part {"slug":"footer","theme":"goldor-2026"} /-->

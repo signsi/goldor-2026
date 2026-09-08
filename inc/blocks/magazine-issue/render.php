@@ -7,12 +7,27 @@
  * @package goldor
  */
 
-if ( ! in_the_loop() ) {
-	the_post();
+$source = isset( $attributes['source'] ) ? $attributes['source'] : 'post';
+
+if ( 'latest' === $source ) {
+	// The "Aktuelle Ausgabe" page is a plain Page, so the issue it shows has
+	// to be looked up rather than read off the current post. get_posts()
+	// suppresses filters by default, which would hand the German page the
+	// newest issue in either language — WPML has to see this query.
+	$latest = get_posts(
+		array(
+			'post_type'        => 'magazin',
+			'posts_per_page'   => 1,
+			'fields'           => 'ids',
+			'suppress_filters' => false,
+		)
+	);
+	$magazine_id = $latest ? $latest[0] : 0;
+} else {
+	$magazine_id = isset( $block->context['postId'] ) ? $block->context['postId'] : get_the_ID();
 }
 
-$magazine_id = get_the_ID();
-if ( 'magazin' !== get_post_type( $magazine_id ) ) {
+if ( ! $magazine_id || 'magazin' !== get_post_type( $magazine_id ) ) {
 	return;
 }
 
@@ -31,7 +46,7 @@ $issue_articles = get_posts(
 	)
 );
 ?>
-<div <?php echo get_block_wrapper_attributes(); // phpcs:ignore ?> class="magazine-content">
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'magazine-content' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 
 	<?php if ( $cover_term ) : ?>
 		<?php

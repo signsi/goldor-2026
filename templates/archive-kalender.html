@@ -1,10 +1,16 @@
 <!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"layout":{"type":"constrained"},"className":"kalender"} -->
-<div class="wp-block-group kalender">
-	<!-- wp:query-title {"type":"archive"} /-->
-	<!-- wp:goldor/event-filter /-->
+<!-- wp:group {"align":"full","className":"section section--archive kalender","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--archive kalender">
+	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/archive-head {"lead":"Messen, Ausstellungen und Branchentermine im In- und Ausland."} /-->
+		<!-- wp:goldor/event-filter /-->
+	</div>
+	<!-- /wp:group -->
 </div>
 <!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"newsletter-band","theme":"goldor-2026"} /-->
 
 <!-- wp:template-part {"slug":"footer","theme":"goldor-2026"} /-->
