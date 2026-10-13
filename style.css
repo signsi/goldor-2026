@@ -2108,8 +2108,8 @@ ul.wp-block-post-template.entry-list {
 	padding-block: clamp(28px, 3.5vw, 44px) var(--gd-section-y);
 }
 
-/* Text and form pages open with an introduction, set like an article's dek. */
-.page-content--text > p:first-child,
+/* A form page opens with an introduction, set like an article's dek. Text
+   pages do not: their first paragraph is as often an imprint or legal text. */
 .page-content--form > p:first-child {
 	font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
 	line-height: 1.6;
@@ -2421,7 +2421,8 @@ ul.wp-block-post-template.entry-list {
 	color: var(--gd-primary-dark);
 }
 
-.nf-form-cont .nf-error .ninja-forms-field:not([type="radio"], [type="checkbox"], [type="submit"], button) {
+.nf-form-cont .nf-error .ninja-forms-field:not([type="radio"], [type="checkbox"], [type="submit"], button),
+.nf-form-cont .ninja-forms-field.nf-error:not([type="radio"], [type="checkbox"], [type="submit"], button) {
 	border-color: var(--gd-primary-dark);
 }
 
@@ -2464,6 +2465,12 @@ ul.wp-block-post-template.entry-list {
 .hero-grid--aside-only {
 	grid-template-columns: minmax(0, 1fr);
 	max-width: var(--gd-measure);
+}
+
+/* Without a cover story the contents list is the first child; the hero's
+   two-track span would open a phantom second column. */
+.hero-grid--aside-only > :first-child {
+	grid-column: auto;
 }
 
 /* Table of contents: a compact entry list, section name left, count right. */

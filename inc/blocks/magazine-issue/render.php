@@ -48,40 +48,45 @@ if ( 'latest' === $source ) {
 $epaper       = trim( strtok( (string) get_post_meta( $magazine_id, 'epaper', true ), '"' ) );
 $epaper_thumb = get_post_thumbnail_id( $magazine_id );
 
+// `ausgabe` is a serialized array of ID strings; matching the quoted value
+// keeps issue 6195 from also catching articles of issue 86195.
 $issue_query = array(
 	'post_type'      => 'artikel',
 	'posts_per_page' => -1,
-	'meta_query'     => array( array( 'key' => 'ausgabe', 'value' => $magazine_id, 'compare' => 'LIKE' ) ),
+	'meta_query'     => array( array( 'key' => 'ausgabe', 'value' => '"' . $magazine_id . '"', 'compare' => 'LIKE' ) ),
 );
 
+// The first cover story leads the issue; an issue with several keeps the
+// others as the first section rather than dropping them.
 $cover_term = get_term_by( 'name', 'Cover Story', 'artikel-kategorie' );
 $cover      = null;
 if ( $cover_term ) {
 	$found = get_posts(
 		array(
-			'posts_per_page' => 1,
-			'fields'         => 'ids',
-			'tax_query'      => array( array( 'taxonomy' => 'artikel-kategorie', 'field' => 'term_id', 'terms' => $cover_term->term_id ) ),
+			'fields'    => 'ids',
+			'tax_query' => array( array( 'taxonomy' => 'artikel-kategorie', 'field' => 'term_id', 'terms' => $cover_term->term_id ) ),
 		) + $issue_query
 	);
 	$cover = $found ? $found[0] : null;
 }
 
-// Focus leads the sections; every other category follows in term order.
+// Further cover stories, then Focus, then every other category in term order.
 $terms = get_terms( array( 'taxonomy' => 'artikel-kategorie', 'hide_empty' => false ) );
 $terms = is_wp_error( $terms ) ? array() : $terms;
+$rank  = function ( $term ) {
+	$order = array( 'Cover Story', 'Focus' );
+	$index = array_search( $term->name, $order, true );
+	return false === $index ? count( $order ) : $index;
+};
 usort(
 	$terms,
-	function ( $a, $b ) {
-		return (int) ( 'Focus' !== $a->name ) - (int) ( 'Focus' !== $b->name );
+	function ( $a, $b ) use ( $rank ) {
+		return $rank( $a ) - $rank( $b );
 	}
 );
 
 $sections = array();
 foreach ( $terms as $term ) {
-	if ( 'Cover Story' === $term->name ) {
-		continue;
-	}
 	$ids = get_posts(
 		array(
 			'fields'       => 'ids',
