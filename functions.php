@@ -39,6 +39,15 @@ endif;
 add_action( 'after_setup_theme', 'goldor_setup' );
 
 /**
+ * Originals are capped at 2560px and `large` is 1800px, so core's 2048px
+ * sub-size only duplicates them in every srcset (CLEANUP.md, U8).
+ */
+function goldor_image_sizes() {
+	remove_image_size( '2048x2048' );
+}
+add_action( 'after_setup_theme', 'goldor_image_sizes' );
+
+/**
  * Block-theme backend logic: CPTs, taxonomies, meta, dynamic blocks, iCal endpoint.
  */
 require get_template_directory() . '/block-theme-logic.php';
