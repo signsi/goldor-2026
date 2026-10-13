@@ -99,7 +99,47 @@ U1–U3 is much lower, because many "originals" and "backups" are still used by 
 - After the restore, no file referenced by the media library or linked in content is missing. The 1,333
   "missing" entries the audit still reports were already missing before the cleanup.
 - 183 oversized images (U6) were downscaled to 2560 px.
-- Backup of this run: `/var/www/cleanup-backup/` (DB dump + uploads tar, inside the container).
+- Backup of this run: `/var/www/cleanup-backup/` (DB dump + uploads tar, inside the container). **Lost** in a later
+  container rebuild — see Step 0 for a location that survives.
+
+### Staging run 2026-10-13 (U5, U7, U8, U9 done — uploads cleanup complete)
+
+| Step | Result | Saved |
+|---|---|---:|
+| U5 TIFF → JPEG | 83 TIFFs → sRGB JPEG ≤ 2560 px, 146 attachments (DE/FR share one file) | 1.06 GB |
+| U6 (rest) | Nothing left: the 6 remaining > 2560 px entries have no file on disk | – |
+| U8 `2048x2048` | Size removed in `functions.php`; 646 files deleted, 1 shared file kept | 255 MB |
+| U7 JPEG (2,368 files > 300 KB) | 2,220 recompressed to quality ≤ 82, 148 already small enough; EXIF dropped, IPTC/XMP/ICC/Adobe kept | 2.03 GB |
+| U7 PNG (314 files > 300 KB) | lossless `optipng -o2`; 5 files skipped by optipng, unchanged and intact | 32 MB |
+| U9 Ninja Forms uploads | 493 files with an upload record older than 2 years (cut-off 2024-10-13) | 307 MB |
+| **`uploads`** | **9.40 GB → 5.72 GB**, 53,881 files (12.51 GB / 67,162 files before 2026-09-25) | **3.68 GB** |
+
+Decisions taken for this run: keep IPTC/XMP in U7, drop only `2048x2048` in U8, 2-year retention in U9.
+Backup: `/var/www/html/.cleanup-backup-2026-10-13/` (`db.sql.gz` 52 MB, `uploads.tar` 9.2 GB with 54,656
+files, web access denied). Delete it once the site has run cleanly for a few weeks; never deploy it.
+
+What went wrong and how it was fixed (the scripts in this document are corrected):
+- **U5, first pass with the old script:** CMYK TIFFs stayed CMYK and carried a 1.8 MB ICC profile into
+  every sub-size (295 of 793 new files CMYK, 170 MB of profile data), and WPML copies got their own
+  `-tif.jpg` / `-tif-tif.jpg` duplicates. Redone from the backup TIFFs with the revised script: 26 CMYK
+  and 47 other profiled images converted to sRGB, 708 + 346 faulty files of the first pass removed.
+  Checked afterwards: 0 CMYK, 0 large profiles, no missing file, no content link to a `-tif` file.
+  One content link to a TIFF (post 8604) now points to the JPEG.
+- **U8:** `wp media regenerate --delete-unknown` would have deleted a 2048 file shared with another size;
+  replaced by `drop-2048.php`.
+- **U7:** the parallel `xargs` run was killed (out of memory) on a 7,723 px JPEG and stopped silently;
+  the run is now sequential.
+- **U9:** file dates are from the 2024 migration, so the run used the upload table instead. It still
+  deleted two 2016 GyrNews PDFs that are also media attachments; restored from the backup, the script now
+  skips media attachments.
+- **Final check:** of 101,034 file references in the media library and 2,553 upload links in content,
+  none points to a file that existed before the run and is gone now (2,406 references were already
+  missing before).
+
+Left as they are: two unreadable logo TIFFs (`2018/06/LOGO-ABOUCHAR-Copie(-1).tif`, 57 KB each), the
+TIFF attachment `Rauchquarz-Ohrhänger.tif` (#27291/#39359) whose file was already missing, and the
+`uploads-quarantine` from U4 (1.2 GB, delete after a few weeks). Not done: the PDF shrink with
+Ghostscript mentioned under U7, and everything under "Also look at".
 
 ---
 
@@ -119,6 +159,16 @@ U1–U3 is much lower, because many "originals" and "backups" are still used by 
    ```
 4. Keep both backups until the site has run cleanly for a few weeks.
 5. Optionally turn on maintenance mode during the heavy steps: `wp maintenance-mode activate`.
+
+> **Where to put the backup in the WPorbit container.** Only `/var/www/html` survives a container rebuild;
+> `~`, `/tmp` and `/var/www/cleanup-backup` do not. The backup of the 2026-09-25 run was lost that way.
+> Use a directory under `/var/www/html` but *outside* `wp-content`, and lock it against the web server:
+> ```bash
+> B=/var/www/html/.cleanup-backup-$(date +%F); mkdir -p $B
+> printf 'Require all denied\nDeny from all\n' > $B/.htaccess   # check: curl …/.cleanup-backup-…/ → 403
+> ```
+> It still sits in the web root, so exclude it from any deploy/sync to production and delete it once the
+> site has run cleanly. On production, keep backups off the server.
 
 ### Conventions used below
 
@@ -265,67 +315,106 @@ Options:
 - **b) Delete twins only**: 11 TIFFs (275 MB) already have a JPEG with the same name next to them
   (e.g. `2021/02/Stones_Jaime-les-inclusions_01-Portrait.tif/.jpg`).
 
-`convert-tiff.php` (option a):
+`convert-tiff.php` (option a). **Revised 2026-10-13.** The first version had three faults that showed up on
+staging: CMYK TIFFs stayed CMYK and carried their 1.8 MB ICC profile into every sub-size (a 300 × 170
+thumbnail weighed 1.85 MB), each WPML copy got its own JPEG (`…-tif.jpg`, sometimes `…-tif-tif.jpg`)
+instead of sharing one file, and the twin check fired on JPEGs the script had just written itself.
+This version converts via ICC profiles to sRGB, drops the large profile but keeps IPTC/XMP, writes one
+JPEG per TIFF and gives every language copy the same file and metadata:
 ```php
 <?php
 require_once ABSPATH . 'wp-admin/includes/image.php';
 global $wpdb;
 $apply = in_array( 'apply', $args, true );
-$done  = [];
+$srgb  = file_get_contents( '/usr/share/color/icc/ghostscript/srgb.icc' );        // ships with Ghostscript
+$cmyk  = file_get_contents( '/usr/share/color/icc/ghostscript/default_cmyk.icc' );
+
+// Group attachments by file: WPML copies share one TIFF and must share one JPEG.
+$groups = [];
 foreach ( $wpdb->get_col( "SELECT ID FROM $wpdb->posts WHERE post_type = 'attachment' AND post_mime_type = 'image/tiff'" ) as $id ) {
-	$tif = get_attached_file( $id );
-	if ( ! file_exists( $tif ) && ! isset( $done[ $tif ] ) ) {
-		WP_CLI::warning( "#$id missing file $tif" );
+	$groups[ get_attached_file( $id ) ][] = (int) $id;
+}
+foreach ( $groups as $tif => $ids ) {
+	if ( ! file_exists( $tif ) ) {
+		WP_CLI::warning( 'missing ' . basename( $tif ) . ' (#' . implode( ', #', $ids ) . ')' );
 		continue;
 	}
 	$jpg = preg_replace( '/\.tiff?$/i', '.jpg', $tif );
-	if ( file_exists( $jpg ) && ! isset( $done[ $tif ] ) ) {
-		$jpg = preg_replace( '/\.jpg$/', '-tif.jpg', $jpg ); // don't overwrite an existing twin
+	if ( file_exists( $jpg ) ) {
+		$jpg = preg_replace( '/\.jpg$/', '-tif.jpg', $jpg ); // a twin existed before: keep it
 	}
-	WP_CLI::log( "#$id " . basename( $tif ) . ' -> ' . basename( $jpg ) );
+	WP_CLI::log( basename( $tif ) . ' -> ' . basename( $jpg ) . ' (#' . implode( ', #', $ids ) . ')' );
 	if ( ! $apply ) {
 		continue;
 	}
-	if ( ! isset( $done[ $tif ] ) ) { // WPML copies share the file: convert only once
-		$editor = wp_get_image_editor( $tif );
-		if ( is_wp_error( $editor ) ) {
-			WP_CLI::warning( $editor->get_error_message() );
-			continue;
+	try {
+		$im       = new Imagick( $tif . '[0]' );
+		$profiles = $im->getImageProfiles( '*', true );
+		if ( Imagick::COLORSPACE_CMYK === $im->getImageColorspace() ) {
+			if ( empty( $profiles['icc'] ) ) {
+				$im->profileImage( 'icc', $cmyk );
+			}
+			$im->profileImage( 'icc', $srgb );
+		} elseif ( ! empty( $profiles['icc'] ) && Imagick::COLORSPACE_GRAY !== $im->getImageColorspace() ) {
+			$im->profileImage( 'icc', $srgb ); // Adobe RGB & co.
 		}
-		$editor->resize( 2560, 2560, false );
-		$editor->set_quality( 82 );
-		$saved = $editor->save( $jpg, 'image/jpeg' );
-		if ( is_wp_error( $saved ) ) {
-			WP_CLI::warning( $saved->get_error_message() );
-			continue;
+		$keep = [];
+		foreach ( [ 'iptc', 'xmp', '8bim' ] as $k ) { // credits/copyright, if small
+			if ( ! empty( $profiles[ $k ] ) && strlen( $profiles[ $k ] ) < 65536 ) {
+				$keep[ $k ] = $profiles[ $k ];
+			}
 		}
-		$done[ $tif ] = $saved['path'];
+		$im->stripImage(); // untagged JPEG = sRGB
+		foreach ( $keep as $k => $v ) {
+			$im->profileImage( $k, $v );
+		}
+		$im->setImageBackgroundColor( 'white' );
+		$im = $im->mergeImageLayers( Imagick::LAYERMETHOD_FLATTEN );
+		$im->setImageDepth( 8 );
+		if ( max( $im->getImageWidth(), $im->getImageHeight() ) > 2560 ) {
+			$im->resizeImage( 2560, 2560, Imagick::FILTER_LANCZOS, 1, true );
+		}
+		$im->setImageFormat( 'jpeg' );
+		$im->setImageCompressionQuality( 82 );
+		$im->setInterlaceScheme( Imagick::INTERLACE_PLANE );
+		$im->writeImage( $jpg );
+	} catch ( Exception $e ) {
+		WP_CLI::warning( basename( $tif ) . ': ' . $e->getMessage() );
+		continue;
 	}
-	$old = wp_get_attachment_metadata( $id );
-	update_attached_file( $id, $done[ $tif ] );
-	wp_update_post( [ 'ID' => $id, 'post_mime_type' => 'image/jpeg' ] );
-	$new = wp_generate_attachment_metadata( $id, $done[ $tif ] );
-	wp_update_attachment_metadata( $id, $new );
-	// Remove old sub-sizes, unless the new JPEG sizes got the same file name
-	$new_files = wp_list_pluck( $new['sizes'] ?? [], 'file' );
-	foreach ( $old['sizes'] ?? [] as $size ) {
-		$f = path_join( dirname( $tif ), $size['file'] );
-		if ( ! in_array( $size['file'], $new_files, true ) && file_exists( $f ) ) {
+	// Old TIFF sub-sizes, collected before the metadata is replaced.
+	$old = [];
+	foreach ( $ids as $id ) {
+		foreach ( wp_get_attachment_metadata( $id )['sizes'] ?? [] as $size ) {
+			$old[] = path_join( dirname( $tif ), $size['file'] );
+		}
+	}
+	$meta = null;
+	foreach ( $ids as $id ) {
+		update_attached_file( $id, $jpg );
+		wp_update_post( [ 'ID' => $id, 'post_mime_type' => 'image/jpeg' ] );
+		$meta = $meta ?? wp_generate_attachment_metadata( $id, $jpg ); // generate once, share
+		wp_update_attachment_metadata( $id, $meta );
+	}
+	$new = wp_list_pluck( $meta['sizes'] ?? [], 'file' );
+	foreach ( array_unique( $old ) as $f ) {
+		if ( ! in_array( basename( $f ), $new, true ) && file_exists( $f ) ) {
 			wp_delete_file( $f );
 		}
 	}
-}
-if ( $apply ) {
-	foreach ( array_keys( $done ) as $tif ) {
-		wp_delete_file( $tif );
-	}
+	wp_delete_file( $tif );
 }
 ```
+- `DOMDocument::loadXML()` warnings during the run are harmless: WordPress parses the (often broken) XMP
+  of the print files while building the metadata.
+- Two identical logo TIFFs (`2018/06/LOGO-ABOUCHAR-Copie(-1).tif`, 57 KB) can't be read at all (corrupt
+  `ResolutionUnit` tag) and stay as they are.
 Afterwards:
 - Find the one content link to a TIFF and fix it in the editor:
   `wp post list --post_type=any --s=".tif" --fields=ID,post_title`
-- Spot-check colours: print TIFFs are often **CMYK**, and Imagick does not convert them to sRGB, so colours
-  can look off. Re-export problem images from the master as sRGB JPEG and use "Replace media".
+- Spot-check colours. The revised script converts CMYK and Adobe RGB through their ICC profiles; a TIFF
+  without an embedded profile gets Ghostscript's default CMYK profile, which can be slightly off. Re-export
+  such images from the master as sRGB JPEG and use "Replace media".
 
 ### U6 🔴 Downscale oversized originals (~0.2 GB)
 
@@ -380,19 +469,26 @@ Many originals are print exports at quality 95–100 (e.g. 42 MB JPEGs). Lossy r
 ```bash
 apt-get update && apt-get install -y jpegoptim optipng
 cd /var/www/html/wp-content/uploads
-# 🟢 dry run: shows what would be saved
-find 20?? -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -size +300k -print0 \
-  | xargs -0 jpegoptim --max=82 --noaction --quiet --totals
-# 🔴 apply: keeps timestamps, strips metadata except the colour profile
-find 20?? -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -size +300k -print0 \
-  | xargs -0 jpegoptim --max=82 --strip-all --keep-icc --preserve --all-progressive --totals
+find 20?? -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -size +300k > /tmp/u7-files.txt
+# 🔴 one file at a time: a failure is logged instead of stopping the run
+while IFS= read -r f; do
+  jpegoptim --max=82 --strip-all --keep-iptc --keep-xmp --keep-icc --keep-adobe \
+    --preserve --all-progressive "$f" >> /tmp/u7.log 2>&1 || echo "$f" >> /tmp/u7-fail.txt
+done < /tmp/u7-files.txt
 # 🔴 PNG is lossless, slow but safe
-find 20?? -type f -iname '*.png' -size +300k -print0 | xargs -0 -P4 -n20 optipng -o2 -quiet -preserve
+find 20?? -type f -iname '*.png' -size +300k | while IFS= read -r f; do
+  optipng -o2 -quiet -preserve "$f" || echo "$f" >> /tmp/u7-fail.txt
+done
+# 🟢 savings: grep -o '[0-9]* --> [0-9]* bytes' /tmp/u7.log | awk '{a+=$1;b+=$3} END{print (a-b)/1048576 " MB"}'
 ```
-- `--strip-all` also removes IPTC/EXIF (photographer credit, copyright). If those must stay, use
-  `--strip-com --strip-exif` instead. The exact `--keep-*` flags depend on the jpegoptim version, so
-  check `jpegoptim --help`.
-- The `filesize` stored in the metadata will be out of date afterwards. That's harmless.
+- **Metadata (decided 2026-10-13): keep IPTC, XMP, ICC and Adobe, drop EXIF.** Credits and copyright
+  sit in IPTC and, in newer files, in XMP. The Adobe (APP14) marker must stay: without it, CMYK/YCCK JPEGs
+  from the print workflow decode with inverted colours. Only the EXIF camera data is removed.
+- **Don't run jpegoptim in parallel or through `xargs`.** The container has ~1.6 GB free RAM and no swap;
+  four parallel processes on the 7,000+ px print JPEGs got killed (signal 9), and `xargs` then aborts the
+  whole run. One file at a time is slower (about 20 min for the dry run alone) but safe. Because jpegoptim
+  only rewrites a file that got smaller, the dry run (`--noaction`) is optional once the backup exists.
+- `--quiet` also suppresses `--totals`, so sum the per-file lines instead (last command above).
 - PDFs (1.1 GB) can be shrunk the same way with Ghostscript (installed): `gs -sDEVICE=pdfwrite
   -dPDFSETTINGS=/ebook -o out.pdf in.pdf`. Only replace the file if it actually got smaller and still looks fine.
 
@@ -403,33 +499,125 @@ The theme only references `full`, `medium` and `large` (theme.json, templates). 
 is capped at 2560 px and `large` is already 1800 px, **`2048x2048` is redundant**. `1536x1536` is
 optional to drop (the browser then picks 1800 instead of 1536).
 
-1. Add to `functions.php`:
+1. Remove the size in the theme. **Done on 2026-10-13** — `goldor_image_sizes()` in `functions.php`
+   (only `2048x2048`; `1536x1536` stays). New uploads no longer get the size once this is deployed.
+2. Delete the existing files with `drop-2048.php`. **Don't use `wp media regenerate --delete-unknown`**:
+   it deletes *every* size that is not registered and unlinks the file without checking whether another
+   size of the same attachment uses it. On staging one 2048 file was shared that way and would have broken
+   an image. The script below only touches `2048x2048`, keeps shared files and files linked in content,
+   and runs in seconds (content is scanned once, not one `LIKE` per attachment):
    ```php
-   add_action( 'after_setup_theme', function () {
-   	remove_image_size( '2048x2048' );
-   	// remove_image_size( '1536x1536' );
-   } );
+   <?php
+   // U8: delete the 2048x2048 sub-size files. Dry run unless `apply`.
+   // Unlike `wp media regenerate --delete-unknown`, keeps a file that another
+   // size or the main file also uses, or that post content links to.
+   global $wpdb;
+   $apply = in_array( 'apply', $args, true );
+   $n = $bytes = $kept = 0;
+   $gone = array();
+   // Content that could link a 2048 file at all, loaded once instead of one
+   // full-table LIKE per attachment.
+   $haystack = implode( "\n", $wpdb->get_col( "SELECT post_content FROM $wpdb->posts WHERE post_type <> 'revision' AND post_content LIKE '%2048%'" ) );
+   foreach ( $wpdb->get_col( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attachment_metadata'" ) as $id ) {
+   	$meta = wp_get_attachment_metadata( $id );
+   	if ( empty( $meta['sizes']['2048x2048'] ) ) {
+   		continue;
+   	}
+   	$file = $meta['sizes']['2048x2048']['file'];
+   	$path = dirname( get_attached_file( $id ) ) . '/' . $file;
+   	$used = basename( $meta['file'] ?? '' ) === $file;
+   	foreach ( $meta['sizes'] as $name => $size ) {
+   		$used = $used || ( '2048x2048' !== $name && $size['file'] === $file );
+   	}
+   	$used = $used || false !== strpos( $haystack, $file );
+   	if ( $used ) {
+   		$kept++;
+   	} elseif ( file_exists( $path ) && ! isset( $gone[ $path ] ) ) {
+   		$n++;
+   		$bytes += filesize( $path );
+   		$gone[ $path ] = true;
+   		if ( $apply ) {
+   			unlink( $path );
+   		}
+   	}
+   	if ( $apply && ! $used ) {
+   		unset( $meta['sizes']['2048x2048'] );
+   		wp_update_attachment_metadata( $id, $meta );
+   	}
+   }
+   WP_CLI::log( sprintf( '%s %d files (%.0f MB), kept %d shared', $apply ? 'Deleted' : 'Would delete', $n, $bytes / 1048576, $kept ) );
    ```
-2. Delete the files of sizes that are no longer registered (wp-cli ≥ 2.x):
-   ```bash
-   wp media regenerate --delete-unknown --yes   # only deletes, creates nothing
-   ```
-3. Undo: remove the code and run `wp media regenerate --only-missing --yes`.
+3. Undo: remove `goldor_image_sizes()` and run `wp media regenerate --only-missing --yes`.
 
 Don't remove `medium_large`/`thumbnail`. Old article content refers to them via `size-medium_large`
 classes and the admin uses them.
 
 ### U9 🔴 Ninja Forms uploads (up to 331 MB)
 
-502 of the 557 upload records are older than 2 years. Decide on a retention period (also a
-data-protection matter under the Swiss FADP/nDSG, since these are files sent in by users), e.g.
-**2 years**. Delete the submissions (D4). Check in Ninja Forms › Settings › File Uploads whether the
-installed version removes files together with the submission. If not, delete old files in
-`uploads/ninja-forms/<form-id>/` by date:
-```bash
-find /var/www/html/wp-content/uploads/ninja-forms -type f -mtime +730 -print   # 🟢
-find /var/www/html/wp-content/uploads/ninja-forms -type f -mtime +730 -delete  # 🔴
+Decide on a retention period (also a data-protection matter under the Swiss FADP/nDSG, since these are
+files sent in by users). **Decided: 2 years.** This deletes the files only; the submissions themselves
+are D4.
+
+**Don't go by file dates.** The files were copied during the 2024 migration, so every file older than two
+years has an mtime from 2024, whatever its real age: `find -mtime +730` would pick 511 files by the
+wrong criterion. The upload date lives in `wp_ninja_forms_uploads.date_updated` (557 records,
+2016–2026). `nf-retention.php` deletes by that date and keeps a file if a newer record still uses it or
+if it is also a media-library attachment. The first staging run lacked that last check and deleted two
+GyrNews PDFs from 2016 (4 attachments, DE/FR) that sit in `ninja-forms/4` and `/5`; they were restored
+from the backup:
+```php
+<?php
+// U9: delete Ninja Forms upload files whose upload record is older than two
+// years. Dates come from the uploads table — file mtimes were reset by the
+// 2024 migration. Records stay (D4). Dry run unless `apply`.
+global $wpdb;
+$apply  = in_array( 'apply', $args, true );
+$base   = wp_get_upload_dir()['basedir'];
+$cutoff = gmdate( 'Y-m-d H:i:s', strtotime( '-2 years' ) );
+$t      = $wpdb->prefix . 'ninja_forms_uploads';
+
+$local = function ( $data ) use ( $base ) {
+	$d = maybe_unserialize( $data );
+	$p = is_array( $d ) ? ( $d['file_path'] ?? '' ) : '';
+	$i = strpos( $p, '/uploads/ninja-forms/' );
+	return false === $i ? '' : $base . substr( $p, $i + strlen( '/uploads' ) );
+};
+
+// Files that are also media-library attachments (e.g. PDFs once added via
+// Media › Add New into this folder) are content, not form data.
+$keep = array();
+foreach ( $wpdb->get_col( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_key = '_wp_attached_file' AND meta_value LIKE 'ninja-forms/%'" ) as $rel ) {
+	$keep[ "$base/$rel" ] = true;
+}
+foreach ( $wpdb->get_col( $wpdb->prepare( "SELECT data FROM $t WHERE date_updated >= %s", $cutoff ) ) as $data ) {
+	$keep[ $local( $data ) ] = true;
+}
+
+$n = $bytes = $missing = $shared = 0;
+$seen = array();
+foreach ( $wpdb->get_col( $wpdb->prepare( "SELECT data FROM $t WHERE date_updated < %s", $cutoff ) ) as $data ) {
+	$path = $local( $data );
+	if ( ! $path || isset( $seen[ $path ] ) ) {
+		continue;
+	}
+	$seen[ $path ] = true;
+	if ( isset( $keep[ $path ] ) ) {
+		$shared++;
+		continue;
+	}
+	if ( ! file_exists( $path ) ) {
+		$missing++;
+		continue;
+	}
+	$n++;
+	$bytes += filesize( $path );
+	if ( $apply ) {
+		unlink( $path );
+	}
+}
+WP_CLI::log( sprintf( 'Cutoff %s: %s %d files (%.0f MB), %d already missing, %d kept (newer record or media library uses them)', $cutoff, $apply ? 'deleted' : 'would delete', $n, $bytes / 1048576, $missing, $shared ) );
 ```
+Files in `uploads/ninja-forms` without a record (and `tmp/`) are left alone.
 
 ### Also look at (no automatic cleanup)
 
