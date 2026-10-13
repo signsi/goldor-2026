@@ -1,6 +1,10 @@
 {
   "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
+  "customTemplates": [
+    { "name": "template-text", "title": "Text Seite", "postTypes": ["page"] },
+    { "name": "template-form", "title": "Formular Seite", "postTypes": ["page"] }
+  ],
   "settings": {
     "appearanceTools": true,
     "color": {
