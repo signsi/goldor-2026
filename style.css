@@ -1753,12 +1753,6 @@ p.is-style-goldor-note,
 	font-size: 0.8125rem;
 }
 
-.magazine-coverstory,
-.magazine-content,
-.magazine-index {
-	margin-bottom: 2.5rem;
-}
-
 /*--------------------------------------------------------------
 # Forms, filters, pagination
 --------------------------------------------------------------*/
@@ -1767,6 +1761,9 @@ input[type="email"],
 input[type="search"],
 input[type="date"],
 input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
 textarea,
 select {
 	font-family: var(--gd-ui);
@@ -2090,6 +2087,448 @@ ul.wp-block-post-template.entry-list {
 }
 
 /*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+/* A page has no byline, so its head closes on a hairline of its own and the
+   body follows at the article's reading measure. */
+.section--page {
+	padding-block-end: 0;
+}
+
+.section--page .entry-head {
+	padding-block-end: clamp(18px, 2.4vw, 28px);
+	border-bottom: 1px solid var(--gd-line);
+}
+
+.section--page .entry-head .wp-block-post-title {
+	margin: 0;
+}
+
+.section--page-body {
+	padding-block: clamp(28px, 3.5vw, 44px) var(--gd-section-y);
+}
+
+/* Text and form pages open with an introduction, set like an article's dek. */
+.page-content--text > p:first-child,
+.page-content--form > p:first-child {
+	font-size: clamp(1.0625rem, 1.5vw, 1.1875rem);
+	line-height: 1.6;
+	color: var(--gd-muted);
+}
+
+/* Rate cards and other content tables, still carrying TinyMCE's inline pixel
+   widths — those have to lose, or the table ignores the measure. */
+.wp-block-post-content table {
+	width: 100% !important;
+	height: auto !important;
+	margin: clamp(28px, 3.5vw, 40px) 0;
+	border-collapse: collapse;
+	border-top: 1px solid var(--gd-line);
+	font-family: var(--gd-ui);
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
+}
+
+.wp-block-post-content table.aligncenter {
+	display: table;
+}
+
+.wp-block-post-content tr {
+	height: auto !important;
+}
+
+.wp-block-post-content th,
+.wp-block-post-content td {
+	width: auto !important;
+	height: auto !important;
+	padding: 12px 20px 12px 0;
+	border-bottom: 1px solid var(--gd-line);
+	text-align: left;
+	vertical-align: top;
+}
+
+.wp-block-post-content th:last-child,
+.wp-block-post-content td:last-child {
+	padding-right: 0;
+}
+
+/* Classic tables mark their header row with <strong> instead of <th>. */
+.wp-block-post-content th,
+.wp-block-post-content tr:first-child > td:has(> strong) {
+	font-size: 0.6875rem;
+	font-weight: 500;
+	letter-spacing: 0.11em;
+	text-transform: uppercase;
+	color: var(--gd-meta);
+}
+
+.wp-block-post-content tr:first-child > td > strong {
+	font-weight: inherit;
+}
+
+/*--------------------------------------------------------------
+# Forms (Ninja Forms)
+--------------------------------------------------------------*/
+/* Ninja Forms runs without its opinionated styles — only its structural sheet
+   loads — so every visible decision is made here, with the same fields, pills
+   and hairlines as the rest of the system. */
+.page-content > p ~ .nf-form-cont {
+	margin-top: clamp(28px, 3.5vw, 44px);
+	padding-top: clamp(28px, 3.5vw, 44px);
+	border-top: 1px solid var(--gd-line);
+}
+
+/* A remark after the form is a footnote to it, not more reading. */
+.page-content > .nf-form-cont ~ p {
+	margin: clamp(28px, 3.5vw, 44px) 0 0;
+	padding-top: 18px;
+	border-top: 1px solid var(--gd-line);
+	font-family: var(--gd-ui);
+	font-size: 0.875rem;
+	line-height: 1.6;
+	color: var(--gd-muted);
+}
+
+.page-content > .nf-form-cont ~ p ~ p {
+	margin-top: 0.5em;
+	padding-top: 0;
+	border-top: 0;
+}
+
+.nf-form-cont {
+	font-family: var(--gd-ui);
+}
+
+.nf-form-fields-required {
+	margin: 0 0 clamp(20px, 2.5vw, 28px);
+	font-size: 0.75rem;
+	color: var(--gd-meta);
+}
+
+/* Six narrow tracks let short fields pair up — first and last name, postcode
+   and town — while everything else runs the full measure. */
+.nf-form-content nf-fields-wrap {
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	gap: clamp(18px, 2.2vw, 24px) 20px;
+}
+
+.nf-form-content nf-field {
+	grid-column: 1 / -1;
+	min-width: 0;
+}
+
+.nf-form-content nf-field:has(> [data-testid="nf-field-vorname"], > .firstname-container),
+.nf-form-content nf-field:has(> [data-testid="nf-field-vorname"], > .firstname-container) + nf-field:has(> [data-testid="nf-field-nachname"], > .lastname-container) {
+	grid-column: span 3;
+}
+
+.nf-form-content nf-field:has(> [data-testid^="nf-field-plz"]) {
+	grid-column: span 2;
+}
+
+.nf-form-content nf-field:has(> [data-testid^="nf-field-plz"]) + nf-field:has(> [data-testid^="nf-field-ort"]) {
+	grid-column: span 4;
+}
+
+.nf-form-cont .nf-field-container {
+	margin: 0;
+}
+
+.nf-form-cont .nf-field-label {
+	margin: 0 0 6px;
+}
+
+.nf-form-cont .nf-field-label label,
+.nf-form-cont .nf-field-label .nf-label-span {
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--gd-ink);
+}
+
+.nf-form-cont .ninja-forms-req-symbol {
+	color: var(--gd-primary);
+}
+
+.nf-form-cont .nf-field-element input:not([type="radio"], [type="checkbox"], [type="submit"], [type="button"], [type="file"]),
+.nf-form-cont .nf-field-element select,
+.nf-form-cont .nf-field-element textarea {
+	display: block;
+	width: 100%;
+}
+
+.nf-form-cont .nf-field-element textarea {
+	height: 160px;
+	min-height: 96px;
+	line-height: 1.6;
+	resize: vertical;
+}
+
+.nf-form-cont .nf-field-element select {
+	appearance: none;
+	padding-right: 2.6rem;
+	background: var(--gd-base) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23686e74' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 0.9rem center;
+}
+
+.nf-form-cont .nf-field-description {
+	margin-top: 6px;
+	font-size: 0.75rem;
+	color: var(--gd-meta);
+}
+
+/* Radio lists: the article's dash bullets must not reach the options. */
+.wp-block-post-content .nf-form-cont ul {
+	margin: 0;
+}
+
+.wp-block-post-content .nf-form-cont li {
+	padding-left: 0;
+}
+
+.wp-block-post-content .nf-form-cont li::before {
+	content: none;
+}
+
+.nf-form-cont .list-radio-wrap .nf-field-element ul,
+.nf-form-cont .list-checkbox-wrap .nf-field-element ul {
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 8px 28px;
+}
+
+.nf-form-cont .list-radio-wrap .nf-field-element li,
+.nf-form-cont .list-checkbox-wrap .nf-field-element li {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0 !important;
+	padding: 0;
+}
+
+.nf-form-cont .list-radio-wrap .nf-field-element li input,
+.nf-form-cont .list-checkbox-wrap .nf-field-element li input {
+	width: 18px;
+	height: 18px;
+	margin: 0;
+	accent-color: var(--gd-primary);
+}
+
+.nf-form-cont .list-radio-wrap .nf-field-element li label,
+.nf-form-cont .list-checkbox-wrap .nf-field-element li label {
+	margin: 0;
+	font-size: 0.9375rem;
+	color: var(--gd-ink);
+}
+
+/* File upload: choosing a file is an action, so it takes the chip pill. */
+.nf-form-cont .nf-fu-fileinput-button {
+	margin: 0;
+	padding: 0.5rem 1.2rem;
+	background: var(--gd-base);
+	border: 1px solid var(--gd-line);
+	border-radius: var(--gd-radius-pill);
+	font-family: var(--gd-ui);
+	font-size: 0.8125rem;
+	line-height: 1.2;
+	color: var(--gd-muted);
+	cursor: pointer;
+	transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nf-form-cont .nf-fu-fileinput-button:hover,
+.nf-form-cont .nf-fu-fileinput-button:focus {
+	background: var(--gd-base);
+	border-color: var(--gd-primary);
+	color: var(--gd-primary);
+}
+
+.nf-form-cont .nf-fu-button-cancel {
+	margin: 0 0 0 12px;
+	padding: 0;
+	background: none;
+	border: 0;
+	font-family: var(--gd-ui);
+	font-size: 0.8125rem;
+	color: var(--gd-primary);
+	cursor: pointer;
+}
+
+.nf-form-cont .nf-fu-progress {
+	height: 2px;
+	margin: 10px 0 0;
+	background: transparent;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.nf-form-cont .nf-fu-progress-bar {
+	background: var(--gd-primary);
+	box-shadow: none;
+}
+
+.nf-form-cont .files_uploaded p {
+	margin: 8px 0 0;
+	font-size: 0.8125rem;
+	color: var(--gd-ink);
+}
+
+.nf-form-cont .files_uploaded .delete {
+	margin-left: 0.75em;
+}
+
+/* Submit is the primary pill. */
+.nf-form-cont .submit-container {
+	margin-top: clamp(8px, 1.2vw, 14px);
+}
+
+.nf-form-cont input[type="submit"],
+.nf-form-cont input[type="button"] {
+	display: inline-block;
+	width: auto;
+	padding: 0.7rem 1.6rem;
+	background: var(--gd-primary);
+	border: 1px solid var(--gd-primary);
+	border-radius: var(--gd-radius-pill);
+	font-family: var(--gd-ui);
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.2;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.nf-form-cont input[type="submit"]:hover,
+.nf-form-cont input[type="submit"]:focus,
+.nf-form-cont input[type="button"]:hover {
+	background: var(--gd-primary-dark);
+	border-color: var(--gd-primary-dark);
+}
+
+.nf-form-cont input[type="submit"]:disabled,
+.nf-form-cont input[type="submit"][aria-disabled="true"] {
+	opacity: 0.5;
+	cursor: default;
+}
+
+/* Errors speak in the accent's deep state — the system has no red. */
+.nf-form-cont .nf-error-msg {
+	margin-top: 6px;
+	font-size: 0.75rem;
+	line-height: 1.4;
+	color: var(--gd-primary-dark);
+}
+
+.nf-form-cont .nf-error .ninja-forms-field:not([type="radio"], [type="checkbox"], [type="submit"], button) {
+	border-color: var(--gd-primary-dark);
+}
+
+.nf-form-cont .nf-after-form-content .nf-error-msg {
+	margin-top: 16px;
+	font-size: 0.8125rem;
+}
+
+/* The thank-you note replaces the form, set as the system's note box. */
+.nf-form-cont .nf-response-msg {
+	padding: clamp(20px, 2.6vw, 30px);
+	background: var(--gd-sand);
+	font-family: var(--gd-body);
+	font-size: 1rem;
+	line-height: 1.7;
+}
+
+.nf-form-cont .nf-response-msg > *:last-child {
+	margin-bottom: 0;
+}
+
+/*--------------------------------------------------------------
+# Magazine issue
+--------------------------------------------------------------*/
+/* The issue runs as its own stack of bands; jump targets clear the sticky
+   header instead of sliding under it. */
+.magazine-issue__band {
+	scroll-margin-top: 96px;
+}
+
+.archive-head__eyebrow a {
+	color: inherit;
+}
+
+.archive-head__eyebrow a:hover {
+	color: var(--gd-primary);
+	text-decoration: none;
+}
+
+.hero-grid--aside-only {
+	grid-template-columns: minmax(0, 1fr);
+	max-width: var(--gd-measure);
+}
+
+/* Table of contents: a compact entry list, section name left, count right. */
+.entry-list--toc .entry-list__item {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 16px;
+	min-height: 0;
+	padding: 12px 0;
+}
+
+.entry-list--toc .entry-list__meta {
+	flex: none;
+	margin: 0;
+}
+
+/* E-paper: the printed cover on the first track, the call to read beside it. */
+.magazine-epaper {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--gd-gap);
+	align-items: start;
+}
+
+.magazine-epaper__cover {
+	position: relative;
+	border: 1px solid var(--gd-line);
+}
+
+.magazine-epaper__cover img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.magazine-epaper__body {
+	grid-column: span 2;
+	max-width: 62ch;
+}
+
+.magazine-epaper__title {
+	font-size: clamp(1.25rem, 2vw, 1.5rem);
+	margin: 0 0 12px;
+}
+
+.magazine-epaper__text {
+	font-size: 0.9375rem;
+	line-height: 1.65;
+	color: var(--gd-muted);
+	margin: 0 0 24px;
+}
+
+.magazine-epaper__actions {
+	margin: 0;
+}
+
+.magazine-epaper__embed iframe {
+	display: block;
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	border: 0;
+}
+
+/*--------------------------------------------------------------
 # Accessibility & utilities
 --------------------------------------------------------------*/
 .screen-reader-text {
@@ -2340,5 +2779,23 @@ a.no-link {
 	/* The label stops being a column and becomes a caption above its value. */
 	.entry-facts__label {
 		flex-basis: 100%;
+	}
+
+	/* Names stack; postcode and town still share a row. */
+	.nf-form-content nf-field:has(> [data-testid="nf-field-vorname"], > .firstname-container),
+	.nf-form-content nf-field:has(> [data-testid="nf-field-vorname"], > .firstname-container) + nf-field:has(> [data-testid="nf-field-nachname"], > .lastname-container) {
+		grid-column: 1 / -1;
+	}
+
+	.magazine-epaper {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.magazine-epaper__cover {
+		max-width: 240px;
+	}
+
+	.magazine-epaper__body {
+		grid-column: auto;
 	}
 }
