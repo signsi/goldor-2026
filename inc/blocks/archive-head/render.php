@@ -15,6 +15,8 @@ $eyebrow = isset( $attributes['eyebrow'] ) ? $attributes['eyebrow'] : '';
 $title   = isset( $attributes['title'] ) ? $attributes['title'] : '';
 $lead    = isset( $attributes['lead'] ) ? $attributes['lead'] : '';
 $section = goldor_post_type_section_label( goldor_queried_post_type() );
+$avatar  = '';
+$eyebrow_url = '';
 
 if ( is_tax() || is_category() || is_tag() ) {
 	$term = get_queried_object();
@@ -42,6 +44,17 @@ if ( is_tax() || is_category() || is_tag() ) {
 	if ( ! $eyebrow ) {
 		$eyebrow = __( 'Autorin / Autor', 'goldor' );
 	}
+	// The eyebrow leads back to everyone else, once that overview exists.
+	$index       = get_page_by_path( 'autorinnen' );
+	$eyebrow_url = $index ? get_permalink( apply_filters( 'wpml_object_id', $index->ID, 'page', true ) ) : '';
+	// The profile is the person, so their portrait and the bio from their
+	// user profile lead the page; the posts below are the evidence.
+	$author_id = (int) get_query_var( 'author' );
+	$avatar    = get_avatar( $author_id, 320, '', '', array( 'loading' => 'eager' ) );
+	$bio       = trim( wp_strip_all_tags( get_the_author_meta( 'description', $author_id ) ) );
+	if ( $bio ) {
+		$lead = $bio;
+	}
 } elseif ( is_search() ) {
 	if ( ! $title ) {
 		/* translators: %s: the search term. */
@@ -63,9 +76,20 @@ if ( ! $title && ! $eyebrow && ! $lead ) {
 	return;
 }
 ?>
-<header <?php echo get_block_wrapper_attributes( array( 'class' => 'archive-head' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+<header <?php echo get_block_wrapper_attributes( array( 'class' => $avatar ? 'archive-head archive-head--author' : 'archive-head' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+	<?php if ( $avatar ) : ?>
+		<div class="archive-head__avatar"><?php echo $avatar; // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+		<div class="archive-head__body">
+	<?php endif; ?>
+
 	<?php if ( $eyebrow ) : ?>
-		<p class="archive-head__eyebrow"><?php echo esc_html( $eyebrow ); ?></p>
+		<p class="archive-head__eyebrow">
+			<?php if ( $eyebrow_url ) : ?>
+				<a href="<?php echo esc_url( $eyebrow_url ); ?>"><?php echo esc_html( $eyebrow ); ?></a>
+			<?php else : ?>
+				<?php echo esc_html( $eyebrow ); ?>
+			<?php endif; ?>
+		</p>
 	<?php endif; ?>
 
 	<?php if ( $title ) : ?>
@@ -74,5 +98,9 @@ if ( ! $title && ! $eyebrow && ! $lead ) {
 
 	<?php if ( $lead ) : ?>
 		<p class="archive-head__lead"><?php echo esc_html( $lead ); ?></p>
+	<?php endif; ?>
+
+	<?php if ( $avatar ) : ?>
+		</div>
 	<?php endif; ?>
 </header>

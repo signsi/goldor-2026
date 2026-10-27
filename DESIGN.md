@@ -235,7 +235,7 @@ Everything that holds content is **square** (0px): cards, images, the paywall ba
 
 Everything that is an **action** is fully round (999px): buttons, filter chips, the filter-form controls. The pill is the system's only soft shape, which is precisely why a pill reads unambiguously as "you can press this."
 
-Form fields take a token 2px — enough to signal an editable field by platform convention, small enough to stay in the square family. The floating navigation submenu shares that same 2px, being the only other element allowed to soften a corner at all.
+Form fields take a token 2px — enough to signal an editable field by platform convention, small enough to stay in the square family. They are the only element allowed to soften a corner at all; the navigation submenu band stays square.
 
 Borders are always 1px Hairline Grey, and images are never masked, feathered or given aspect-ratio tricks beyond a straight `16/9` crop (`3/2` for the hero's sidebar teaser).
 
@@ -275,7 +275,7 @@ Borders are always 1px Hairline Grey, and images are never masked, feathered or 
 ### Navigation
 - **Style:** Inter 0.9375rem in Ink Black on a sticky Paper White bar, centred beneath a centred wordmark, with the search left and subscribe plus account right.
 - **Active:** Press Magenta text over a 2px Press Magenta bottom border. Hover is a colour shift only.
-- **Submenu:** Paper White, 1px Hairline Grey border, 2px radius, and the system's single floating-overlay shadow.
+- **Submenu (≥600px):** a full-bleed Paper White band that drops flush from the header rule, square, framed by Hairline Grey rules top and bottom, carrying the system's single floating-overlay shadow. Children sit in one centred row in Inter 0.875rem with the same gap as the main nav; the current child takes the 2px Press Magenta underline. The parent turns magenta and its chevron flips while the band is open. It opens at once and closes after a short beat, so a diagonal pass to a child does not drop it.
 - **Mobile (≤782px):** Wordmark moves left, search and account go right, the navigation collapses to a hamburger on its own row. Below 640px the subscribe button steps aside so the search keeps a usable width.
 
 ### Section Header

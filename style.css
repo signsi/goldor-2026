@@ -569,18 +569,146 @@ ul.taxonomy-filter-links li.is-active a {
 	display: none;
 }
 
-.wp-block-navigation .wp-block-navigation__submenu-container {
-	background: var(--gd-base);
-	border: 1px solid var(--gd-line);
-	border-radius: var(--gd-radius-input);
-	padding-block: 6px;
-	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
-
 .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
 	font-size: 0.875rem;
 	padding: 8px 18px;
 	border-bottom: 0;
+}
+
+/*
+ * Submenus open as a full-bleed band directly beneath the header rule rather
+ * than as a floating box: the parent item and every wrapper up to the header
+ * give up their positioning, so the band spans the sticky header edge to edge.
+ * Top-level items carry the header's bottom padding themselves, so the pointer
+ * never crosses a gap between the item and its band.
+ */
+@media (min-width: 600px) {
+	.site-header__nav,
+	.site-header.shrink .site-header__nav {
+		padding-bottom: 0;
+	}
+
+	.site-header .main-navigation,
+	.site-header .main-navigation .wp-block-navigation__responsive-container:not(.is-menu-open),
+	.site-header .main-navigation .wp-block-navigation__responsive-dialog,
+	.site-header .main-navigation .wp-block-navigation__container > .has-child {
+		position: static;
+	}
+
+	.site-header .main-navigation .wp-block-navigation__container > .wp-block-navigation-item {
+		padding-bottom: clamp(8px, 1vw, 14px);
+		transition: padding 0.2s ease;
+	}
+
+	.site-header.shrink .main-navigation .wp-block-navigation__container > .wp-block-navigation-item {
+		padding-bottom: 6px;
+	}
+
+	/* The band: closed state. Closing waits a beat so a diagonal pass does not drop it. */
+	.site-header .main-navigation .has-child > .wp-block-navigation__submenu-container {
+		top: 100%;
+		left: 0;
+		right: 0;
+		z-index: 2;
+		width: auto;
+		height: auto;
+		min-width: 0;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0 clamp(16px, 2.4vw, 34px);
+		padding: 10px var(--gd-gutter);
+		background: var(--gd-base);
+		border: 0;
+		border-top: 1px solid var(--gd-line);
+		border-bottom: 1px solid var(--gd-line);
+		border-radius: var(--gd-radius-square);
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+		transition: opacity 0.12s linear 0.12s, visibility 0s linear 0.24s;
+	}
+
+	/* Open state: immediate, and above a band that is still closing. */
+	.site-header .main-navigation .has-child:not(.open-on-click):hover > .wp-block-navigation__submenu-container,
+	.site-header .main-navigation .has-child .wp-block-navigation-submenu__toggle[aria-expanded="true"] ~ .wp-block-navigation__submenu-container {
+		z-index: 3;
+		min-width: 0;
+		transition: opacity 0.12s linear, visibility 0s;
+	}
+
+	/*
+	 * Inside a section (a child page is current) that section's band stays open
+	 * and joins the header: the header grows by the band's height, the band sits
+	 * in that room, flat on the page plane. Bands opened by hover drop into the
+	 * same slot and cover it, then hand it back.
+	 */
+	.site-header:has(.current-menu-ancestor > .wp-block-navigation__submenu-container) {
+		--gd-subnav-h: 46px;
+		padding-bottom: var(--gd-subnav-h);
+		transition: padding 0.2s ease;
+	}
+
+	.site-header.shrink:has(.current-menu-ancestor > .wp-block-navigation__submenu-container) {
+		--gd-subnav-h: 38px;
+	}
+
+	.site-header:has(.current-menu-ancestor > .wp-block-navigation__submenu-container) .main-navigation .has-child > .wp-block-navigation__submenu-container {
+		top: auto;
+		bottom: 0;
+		height: var(--gd-subnav-h);
+		flex-wrap: nowrap;
+		align-items: center;
+		padding-block: 0;
+		border-bottom: 0;
+	}
+
+	.site-header .main-navigation .current-menu-ancestor > .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container {
+		z-index: 1;
+		visibility: visible;
+		overflow: visible;
+		opacity: 1;
+		box-shadow: none;
+	}
+
+	.site-header .main-navigation .has-child > .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+		flex-grow: 0;
+		padding: 4px 0;
+		font-size: 0.875rem;
+		color: var(--gd-ink);
+		border-bottom: 2px solid transparent;
+	}
+
+	.site-header .main-navigation .has-child > .wp-block-navigation__submenu-container > .wp-block-navigation-item > .wp-block-navigation-item__content:hover {
+		color: var(--gd-primary);
+	}
+
+	.site-header .main-navigation .has-child > .wp-block-navigation__submenu-container > .current-menu-item > .wp-block-navigation-item__content {
+		color: var(--gd-primary);
+		border-bottom-color: var(--gd-primary);
+	}
+
+	/* The parent stays marked while its band is open. */
+	.site-header .main-navigation .has-child:hover > .wp-block-navigation-item__content,
+	.site-header .main-navigation .has-child:has(> [aria-expanded="true"]) > .wp-block-navigation-item__content {
+		color: var(--gd-primary);
+	}
+
+	.site-header .main-navigation .wp-block-navigation__submenu-icon {
+		color: var(--gd-muted);
+	}
+
+	.site-header .main-navigation .wp-block-navigation__submenu-icon svg {
+		transition: transform 0.2s ease;
+	}
+
+	.site-header .main-navigation .has-child:hover > .wp-block-navigation__submenu-icon,
+	.site-header .main-navigation .wp-block-navigation__submenu-icon[aria-expanded="true"] {
+		color: var(--gd-primary);
+	}
+
+	.site-header .main-navigation .has-child:hover > .wp-block-navigation__submenu-icon svg,
+	.site-header .main-navigation .wp-block-navigation__submenu-icon[aria-expanded="true"] svg {
+		transform: rotate(180deg);
+	}
 }
 
 /*--------------------------------------------------------------
@@ -601,6 +729,8 @@ ul.taxonomy-filter-links li.is-active a {
 
 .site-header .site-search .wp-block-search__input {
 	border: 0;
+	border-bottom: 1px solid var(--gd-line);
+	border-radius: 0;
 	background: transparent;
 	padding: 4px 0;
 	font-family: var(--gd-ui);
@@ -609,14 +739,15 @@ ul.taxonomy-filter-links li.is-active a {
 	min-width: 0;
 }
 
+/* A grey placeholder on a hairline reads as a field, not as another nav label. */
 .site-header .site-search .wp-block-search__input::placeholder {
-	color: var(--gd-ink);
+	color: var(--gd-meta);
 	opacity: 1;
 }
 
 .site-header .site-search .wp-block-search__input:focus {
 	outline: 0;
-	border-bottom: 1px solid var(--gd-line);
+	border-bottom-color: var(--gd-ink);
 }
 
 .site-header .site-search .wp-block-search__button {
@@ -1878,6 +2009,38 @@ button.button-filter:hover {
 	margin: 14px 0 0;
 }
 
+/* Author profile: a large portrait beside name and bio. */
+.archive-head--author {
+	display: flex;
+	align-items: center;
+	gap: clamp(24px, 4vw, 48px);
+	max-width: none;
+}
+
+.archive-head__avatar {
+	flex: 0 0 auto;
+}
+
+.archive-head__avatar img {
+	display: block;
+	width: clamp(120px, 18vw, 200px);
+	height: clamp(120px, 18vw, 200px);
+	object-fit: cover;
+	border-radius: var(--gd-radius-pill);
+}
+
+.archive-head__body {
+	min-width: 0;
+	max-width: var(--gd-measure);
+}
+
+@media (max-width: 600px) {
+	.archive-head--author {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+}
+
 /* On the legacy listing Pages the head is the page's own title and intro, so
    both languages keep their own words instead of a text fixed in the theme. */
 .archive-head > * {
@@ -2031,6 +2194,74 @@ ul.wp-block-post-template.entry-list {
 	font-size: 0.75rem;
 	color: var(--gd-meta);
 	overflow-wrap: anywhere;
+}
+
+/*--------------------------------------------------------------
+# Author index
+--------------------------------------------------------------*/
+.author-index {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+	gap: clamp(28px, 3.5vw, 44px) var(--gd-gap);
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.author-index__item {
+	display: flex;
+	align-items: flex-start;
+	gap: clamp(16px, 2vw, 22px);
+	padding-top: clamp(20px, 2.4vw, 26px);
+	border-top: 1px solid var(--gd-line);
+}
+
+.author-index__avatar {
+	flex: 0 0 auto;
+}
+
+.author-index__avatar img {
+	display: block;
+	width: 96px;
+	height: 96px;
+	object-fit: cover;
+	border-radius: var(--gd-radius-pill);
+}
+
+.author-index__body {
+	min-width: 0;
+}
+
+.author-index__name {
+	margin: 0 0 4px;
+	font-family: var(--gd-heading);
+	font-size: 1.125rem;
+	font-weight: 700;
+	letter-spacing: -0.01em;
+	line-height: 1.3;
+}
+
+.author-index__name a {
+	color: var(--gd-ink);
+}
+
+.author-index__name a:hover {
+	color: var(--gd-primary);
+	text-decoration: none;
+}
+
+.author-index__count {
+	margin: 0 0 10px;
+	font-family: var(--gd-ui);
+	font-size: 0.75rem;
+	color: var(--gd-meta);
+}
+
+.author-index__bio {
+	margin: 0;
+	font-size: 0.9375rem;
+	line-height: 1.6;
+	color: var(--gd-muted);
 }
 
 /*--------------------------------------------------------------

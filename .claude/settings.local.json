@@ -25,7 +25,19 @@
       "Bash(git log:*)",
       "Bash(timeout 8 curl -sI https://registry.npmjs.org/ -o /dev/null -w \"npm:%{http_code}\\\\n\")",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "Bash(cd /var/www/html && du -sh . wp-content/* 2>/dev/null | sort -h | tail -15; echo ---; du -sh wp-content/uploads/* 2>/dev/null | sort -h | tail -15)",
+      "Read(//var/www/html/wp-content/**)",
+      "Read(//tmp/claude-0/**)",
+      "Bash(awk '{printf \"%.1f MB %s\\\\n\",$1/1e6,$2}')",
+      "Bash(awk '{n=split\\($2,a,\".\"\\); e=tolower\\(a[n]\\); s[e]+=$1; c[e]++} END {for\\(e in s\\) printf \"%.2f GB %d %s\\\\n\",s[e]/1e9,c[e],e}')",
+      "Bash(python3 -)",
+      "Bash(wp --allow-root db query \"SELECT COUNT\\(*\\) FROM wp_postmeta WHERE meta_key='_wp_attached_file'\")",
+      "Bash(wp option *)",
+      "Bash(wp menu *)",
+      "Bash(wp post *)",
+      "Bash(wp --allow-root post get 63220 --field=post_content)",
+      "Bash(curl -sk https://goldor.wporbit/)"
     ]
   },
   "hooks": {

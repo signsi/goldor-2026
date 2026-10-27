@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/author-index",
+	"title": "Author Index",
+	"category": "goldor",
+	"icon": "groups",
+	"description": "Everyone who has published articles, with portrait, short bio and a link to their profile.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-author-index-edit",
+	"render": "file:./render.php",
+	"supports": { "html": false }
+}

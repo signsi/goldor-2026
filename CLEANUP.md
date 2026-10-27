@@ -136,6 +136,35 @@ What went wrong and how it was fixed (the scripts in this document are corrected
   none points to a file that existed before the run and is gone now (2,406 references were already
   missing before).
 
+### Full local run 2026-10-27 (fresh copy of production, U1–U9, D1–D6, P1)
+
+| Step | Result |
+|---|---|
+| U1 | 254 originals, 975 MB (the old dry run counted WPML copies twice: 453) |
+| U2 + U3 | 10,654 backups, 1.99 GB; 7 backups linked in content/ACF kept; U3 found 1 leftover `.bak` |
+| U4 | 3,175 orphans, 1.23 GB → `uploads-quarantine` (the one from 2026-09-25 renamed to `uploads-quarantine-2026-09-25`) |
+| U5 / U6 | 85 TIFFs converted (same exceptions as below); 163 oversized images downscaled |
+| U8 / U9 | 643 files, 253 MB / 494 files, 307 MB |
+| U7 | **jpegoptim not available** (no root, no apt): done with Imagick (`recompress-jpeg.php` below): 1,154 JPEGs, 1.67 GB; PNG skipped |
+| **`uploads`** | **13 GB / 67,944 files → 6.0 GB / 53,365 files** (+ 1.3 GB quarantine) |
+| D1–D6 | DB **901 MB → 273 MB**: 28,578 revisions, 1,757 submissions, 64 trashed posts, 17,711 Smush meta rows, 835 orphan term relationships deleted; `WP_POST_REVISIONS` = 5 |
+| P1 | 11 inactive plugins and `twentytwentythree`/`-four` deleted; plugins 387 → 261 MB |
+
+Final check as in the 13 October run: 0 references (media library, content, meta, options) to a file that existed
+before and is gone now; 163 random image URLs return 200. Backup: `/var/www/html/.cleanup-backup-2026-10-27/`
+(`db.sql.gz` before, `db-after-uploads.sql.gz` before D1–D6, `uploads.tar`).
+
+Production differs from what section 1 assumes:
+- **Yoast SEO, LiteSpeed Cache, TinyMCE Advanced and Duplicate Post are active** on production. Their plugins and
+  tables (`wp_yoast_*`, `wp_litespeed_*`) were kept; D3 only dropped Defender, Smart Slider, Smush and FileBird.
+- Right after the pull, `stylesheet`/`template` read `original` (production's theme, not in the local copy) and the
+  local frontend rendered empty pages; later the same day `goldor-2026` was active again.
+- The pull also replaced local-only data: the author bios and the `autorinnen` page were restored from the
+  2026-10-20 session. Production only has 5 authors with articles; the other bios had no matching user.
+- `wp` can't reach the DB in the WPorbit container: the wrapper runs WP-CLI via `sudo -u www-data`, which drops the
+  `WORDPRESS_DB_*` variables. Workaround used: a temporary `--require` file that `putenv()`s them.
+- `dev` can't write to `/var/www/html`; file operations there ran as www-data through `wp eval`.
+
 Left as they are: two unreadable logo TIFFs (`2018/06/LOGO-ABOUCHAR-Copie(-1).tif`, 57 KB each), the
 TIFF attachment `Rauchquarz-Ohrhänger.tif` (#27291/#39359) whose file was already missing, and the
 `uploads-quarantine` from U4 (1.2 GB, delete after a few weeks). Not done: the PDF shrink with
@@ -212,7 +241,8 @@ foreach ( $ids as $id ) {
 	if ( isset( $mains[ ltrim( substr( $original, strlen( $upload ) ), '/' ) ] ) ) {
 		continue; // still in use, leave file and metadata alone
 	}
-	if ( file_exists( $original ) ) {
+	if ( file_exists( $original ) && ! isset( $seen[ $original ] ) ) { // WPML copies share one original
+		$seen[ $original ] = true;
 		$n++;
 		$bytes += filesize( $original );
 		if ( $apply ) {
@@ -254,13 +284,21 @@ foreach ( $wpdb->get_col( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = 
 		$in_use[ "$dir/{$meta['original_image']}" ] = true;
 	}
 }
-$n = 0; $bytes = 0;
+// Some backups are linked directly in content, ACF fields or options (old posts embed the pre-edit file)
+$haystack  = implode( "\n", $wpdb->get_col( "SELECT post_content FROM $wpdb->posts WHERE post_type NOT IN ('revision','attachment')" ) );
+$haystack .= implode( "\n", $wpdb->get_col( "SELECT meta_value FROM $wpdb->postmeta WHERE meta_value LIKE '%uploads/%'" ) );
+$haystack .= implode( "\n", $wpdb->get_col( "SELECT option_value FROM $wpdb->options WHERE option_value LIKE '%uploads/%'" ) );
+$n = 0; $bytes = 0; $linked = 0;
 foreach ( $wpdb->get_col( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_wp_attachment_backup_sizes'" ) as $id ) {
 	$dir = dirname( get_post_meta( $id, '_wp_attached_file', true ) );
 	foreach ( (array) get_post_meta( $id, '_wp_attachment_backup_sizes', true ) as $size ) {
 		$rel = $dir . '/' . ( $size['file'] ?? '' );
 		// Never delete a file that any attachment still uses
 		if ( empty( $size['file'] ) || isset( $in_use[ $rel ] ) || ! file_exists( "$upload/$rel" ) ) {
+			continue;
+		}
+		if ( false !== strpos( $haystack, $rel ) ) {
+			$linked++;
 			continue;
 		}
 		$n++;
@@ -273,7 +311,7 @@ foreach ( $wpdb->get_col( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = 
 		delete_post_meta( $id, '_wp_attachment_backup_sizes' );
 	}
 }
-WP_CLI::success( sprintf( '%s %d backup files, %.0f MB', $apply ? 'Deleted' : 'Would delete', $n, $bytes / 1048576 ) );
+WP_CLI::success( sprintf( '%s %d backup files, %.0f MB, kept %d linked in content', $apply ? 'Deleted' : 'Would delete', $n, $bytes / 1048576, $linked ) );
 ```
 
 ### U3 🔴 Delete Smush backups (1.9 GB)
@@ -489,6 +527,80 @@ done
   whole run. One file at a time is slower (about 20 min for the dry run alone) but safe. Because jpegoptim
   only rewrites a file that got smaller, the dry run (`--noaction`) is optional once the backup exists.
 - `--quiet` also suppresses `--totals`, so sum the per-file lines instead (last command above).
+- **Without jpegoptim** (no root in the container, as on 2026-10-27): `recompress-jpeg.php` does the same with
+  Imagick. It only re-encodes files above quality 82 (no lossless pass for the rest), bakes the EXIF orientation
+  into the pixels before dropping EXIF, and keeps a file only if it got smaller. Samples: PSNR 40–54 dB.
+  ```php
+  <?php
+  // U7 without jpegoptim: recompress JPEGs > 300 KB to quality 82 with Imagick.
+  // Keeps IPTC/XMP/ICC (and APP14 for CMYK, which libjpeg writes itself), drops
+  // EXIF, replaces a file only if it got smaller. One file at a time. Dry run unless `apply`.
+  $apply = in_array( 'apply', $args, true );
+  $base  = wp_get_upload_dir()['basedir'];
+  Imagick::setResourceLimit( Imagick::RESOURCETYPE_MEMORY, 512 * 1048576 );
+  $files = array();
+  foreach ( new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $base, FilesystemIterator::SKIP_DOTS ) ) as $f ) {
+  	$rel = substr( $f->getPathname(), strlen( $base ) + 1 );
+  	if ( preg_match( '#^20\d\d/.*\.jpe?g$#i', $rel ) && $f->getSize() > 300 * 1024 ) {
+  		$files[] = $f->getPathname();
+  	}
+  }
+  $n = $low = $bigger = $fail = 0;
+  $saved = 0;
+  foreach ( $files as $i => $path ) {
+  	try {
+  		$im = new Imagick();
+  		$im->pingImage( $path );
+  		$q = $im->getImageCompressionQuality();
+  		$im->clear();
+  		if ( $q && $q <= 82 ) {
+  			$low++;
+  			continue;
+  		}
+  		if ( ! $apply ) {
+  			$n++;
+  			continue;
+  		}
+  		$im = new Imagick( $path );
+  		$keep = array();
+  		foreach ( $im->getImageProfiles( '*', true ) as $k => $v ) {
+  			if ( in_array( $k, array( 'icc', 'iptc', 'xmp', '8bim' ), true ) ) {
+  				$keep[ $k ] = $v;
+  			}
+  		}
+  		if ( $im->getImageOrientation() > Imagick::ORIENTATION_TOPLEFT ) {
+  			$im->autoOrient(); // the EXIF orientation tag goes with EXIF, so bake it in
+  			$im->setImageOrientation( Imagick::ORIENTATION_TOPLEFT );
+  		}
+  		$im->stripImage();
+  		foreach ( $keep as $k => $v ) {
+  			$im->profileImage( $k, $v );
+  		}
+  		$im->setImageCompressionQuality( 82 );
+  		$im->setInterlaceScheme( Imagick::INTERLACE_PLANE );
+  		$blob = $im->getImagesBlob();
+  		$im->clear();
+  		$old = filesize( $path );
+  		if ( strlen( $blob ) >= $old ) {
+  			$bigger++;
+  			continue;
+  		}
+  		$mtime = filemtime( $path );
+  		file_put_contents( "$path.u7tmp", $blob );
+  		rename( "$path.u7tmp", $path );
+  		touch( $path, $mtime );
+  		$n++;
+  		$saved += $old - strlen( $blob );
+  	} catch ( Exception $e ) {
+  		$fail++;
+  		WP_CLI::warning( substr( $path, strlen( $base ) + 1 ) . ': ' . $e->getMessage() );
+  	}
+  	if ( 0 === $i % 250 ) {
+  		WP_CLI::log( sprintf( '%d/%d, saved %.0f MB', $i, count( $files ), $saved / 1048576 ) );
+  	}
+  }
+  WP_CLI::log( sprintf( '%d files > 300 KB: %s %d (%.0f MB saved), %d already <= q82, %d not smaller, %d failed', count( $files ), $apply ? 'recompressed' : 'would recompress', $n, $saved / 1048576, $low, $bigger, $fail ) );
+  ```
 - PDFs (1.1 GB) can be shrunk the same way with Ghostscript (installed): `gs -sDEVICE=pdfwrite
   -dPDFSETTINGS=/ebook -o out.pdf in.pdf`. Only replace the file if it actually got smaller and still looks fine.
 
