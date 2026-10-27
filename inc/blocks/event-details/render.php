@@ -48,7 +48,7 @@ if ( ! $dates && ! $ort ) {
 
 	<?php if ( $start ) : ?>
 		<p class="entry-cta">
-			<a class="goldor-button" href="<?php echo esc_url( add_query_arg( 'goldor_ical', $post_id, home_url( '/' ) ) ); ?>">
+			<a class="goldor-button goldor-button--secondary" href="<?php echo esc_url( add_query_arg( 'goldor_ical', $post_id, home_url( '/' ) ) ); ?>">
 				<?php esc_html_e( 'Termin übernehmen', 'goldor' ); ?>
 			</a>
 			<span class="entry-cta__host"><?php esc_html_e( 'iCal / Outlook', 'goldor' ); ?></span>

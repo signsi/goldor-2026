@@ -100,7 +100,7 @@ $section_link_label = $link_label ? $link_label : __( 'Alle Einträge', 'goldor'
 				// List rows are not story cards, so they must register themselves
 				// for the later blocks that skip what the page already showed.
 				goldor_track_rendered_post( get_the_ID() );
-				$author = get_the_author();
+				$author = goldor_shows_author( get_the_ID() ) ? get_the_author() : '';
 				?>
 				<li class="entry-list__item list-item">
 					<a class="entry-list__title" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>

@@ -81,14 +81,13 @@ function goldor_scripts() {
 add_action( 'wp_enqueue_scripts', 'goldor_scripts' );
 
 /**
- * The three faces the design is built on: Arvo for headings, Source Serif 4
- * for reading text, Inter for UI chrome (nav, buttons, meta, labels).
+ * The two faces the design is built on, as in print and the newsletter: Arvo
+ * Bold for headlines, Inter for reading text and everything functional.
  */
 function goldor_fonts_url() {
 	return 'https://fonts.googleapis.com/css2'
-		. '?family=Arvo:ital,wght@0,400;0,700;1,400;1,700'
+		. '?family=Arvo:wght@700'
 		. '&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,300..700'
-		. '&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700'
 		. '&display=swap';
 }
 
@@ -127,6 +126,17 @@ function goldor_site_logo_fallback( $block_content, $block ) {
 	);
 }
 add_filter( 'render_block_core/site-logo', 'goldor_site_logo_fallback', 10, 2 );
+
+/**
+ * Menu items imported from the old classic menu carry internal notes in their
+ * description field ("Holds our Magazin data"). Core prints them as hidden
+ * spans that still reach screen readers and search snippets, so they go.
+ */
+function goldor_strip_nav_descriptions( $block_content ) {
+	return preg_replace( '#<span class="wp-block-navigation-item__description">.*?</span>#s', '', $block_content );
+}
+add_filter( 'render_block_core/navigation-link', 'goldor_strip_nav_descriptions' );
+add_filter( 'render_block_core/navigation-submenu', 'goldor_strip_nav_descriptions' );
 
 function goldor_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {
@@ -196,6 +206,15 @@ function goldor_register_block_styles() {
 			)
 		);
 	}
+
+	// The pill is for the one main action per view; everything else is square.
+	register_block_style(
+		'core/button',
+		array(
+			'name'  => 'secondary',
+			'label' => __( 'Nebenaktion', 'goldor' ),
+		)
+	);
 }
 add_action( 'init', 'goldor_register_block_styles' );
 

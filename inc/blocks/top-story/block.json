@@ -10,7 +10,7 @@
 	"editorScript": "goldor-block-top-story-edit",
 	"render": "file:./render.php",
 	"attributes": {
-		"cta": { "type": "string", "default": "Jetzt lesen" }
+		"cta": { "type": "string", "default": "" }
 	},
 	"supports": {
 		"html": false
