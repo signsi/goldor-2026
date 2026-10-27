@@ -236,6 +236,7 @@ One exception exists, and it is defined by behaviour rather than style: elements
 
 ### Shadow Vocabulary
 - **Floating overlay** (`box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08)`): The only shadow in the system. Applies exclusively to transient overlays that appear above the page and disappear again.
+- **Printed cover** (`rotate(-3deg)`, `box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.6)`): The one object on the page, and the only one allowed to tilt: the newest issue's cover in the subscription band (`goldor/issue-cover`). It is the physical magazine lying on the petrol band, which is what tells the reader the Abo is a printed magazine and not just a newsletter. It is hidden on narrow screens and used nowhere else.
 
 ### Named Rules
 

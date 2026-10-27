@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/issue-cover",
+	"title": "Issue Cover",
+	"category": "goldor",
+	"icon": "book",
+	"description": "Small tilted cover of the newest magazin issue, linking to it.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-issue-cover-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}
