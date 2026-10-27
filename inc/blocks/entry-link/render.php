@@ -22,7 +22,7 @@ $host  = wp_parse_url( $url, PHP_URL_HOST );
 $host  = $host ? preg_replace( '/^www\./', '', $host ) : '';
 ?>
 <p <?php echo get_block_wrapper_attributes( array( 'class' => 'entry-cta' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-	<a class="goldor-button" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
+	<a class="goldor-button goldor-button--secondary" href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
 		<?php echo esc_html( $label ); ?>
 	</a>
 	<?php if ( $host ) : ?>

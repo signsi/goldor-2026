@@ -6,7 +6,8 @@
  * @package goldor
  */
 
-$cta = isset( $attributes['cta'] ) ? $attributes['cta'] : __( 'Jetzt lesen', 'goldor' );
+// The whole card is the link; a separate button is only shown when set.
+$cta = isset( $attributes['cta'] ) ? $attributes['cta'] : '';
 
 $base_args = array(
 	'post_type'      => array( 'post', 'artikel' ),

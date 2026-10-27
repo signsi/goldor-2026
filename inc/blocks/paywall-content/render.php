@@ -50,7 +50,7 @@ $post_id = get_the_ID();
 				</p>
 			<?php else : ?>
 				<p class="text-small">
-					Si vous n'avez pas d'abonnement Gold'Or, <br>vous pouvez vous
+					Si vous n'avez pas d'abonnement Gold’Or, <br>vous pouvez vous
 					<a href="<?php echo esc_url( home_url( '/goldor-bestellen' ) ); ?>">abonner ici</a>.
 				</p>
 			<?php endif; ?>

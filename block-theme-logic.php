@@ -398,31 +398,81 @@ function goldor_rendered_post_ids() {
 }
 
 /**
- * The card's cover image, wrapped in a link to the post. Falls back to the
- * theme's placeholder when a post has no featured image, and flags paywalled
- * artikel entries.
+ * Cut-out product shots are shown whole on white instead of cropped. The
+ * editors already name those files "…-freigestellt", so the file name is the
+ * signal.
  */
-function goldor_render_card_media( $post_id, $size = 'medium_large' ) {
+function goldor_is_cutout_image( $attachment_id ) {
+	$file = get_post_meta( $attachment_id, '_wp_attached_file', true );
+	return $file && preg_match( '/freigestellt|freisteller/i', wp_basename( $file ) );
+}
+
+/**
+ * Classes for a card's media frame.
+ */
+function goldor_card_media_classes( $post_id ) {
 	$thumb_id = get_post_thumbnail_id( $post_id );
+	return 'story-card__media' . ( $thumb_id && goldor_is_cutout_image( $thumb_id ) ? ' is-cutout' : '' );
+}
+
+/**
+ * What sits inside a card's media frame: the featured image, or a typographic
+ * panel with the category when there is none, plus the paywall badge. The
+ * hero passes $eager so the largest image on the page is not lazy-loaded.
+ */
+function goldor_card_media_inner( $post_id, $size = 'medium_large', $eager = false ) {
+	$thumb_id = get_post_thumbnail_id( $post_id );
+	// LiteSpeed Cache swaps every src for a placeholder unless told not to; on
+	// the hero that left an empty frame until its script caught up.
+	$load     = $eager
+		? array( 'loading' => 'eager', 'fetchpriority' => 'high', 'data-no-lazy' => '1', 'data-skip-lazy' => '1' )
+		: array( 'loading' => 'lazy' );
 
 	ob_start();
-	?>
-	<a class="story-card__media" href="<?php echo esc_url( get_permalink( $post_id ) ); ?>" tabindex="-1" aria-hidden="true">
-		<?php
-		if ( $thumb_id ) {
-			echo wp_get_attachment_image( $thumb_id, $size, false, array( 'alt' => '', 'loading' => 'lazy' ) );
+	if ( $thumb_id ) {
+		echo wp_get_attachment_image( $thumb_id, $size, false, array( 'alt' => '' ) + $load );
+	} else {
+		$terms = goldor_post_terms( $post_id );
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			$label = $terms[0]->name;
 		} else {
-			?>
-			<img src="<?php echo esc_url( goldor_post_thumbnail_url( $post_id, $size ) ); ?>" alt="" loading="lazy">
-			<?php
+			$type  = get_post_type_object( get_post_type( $post_id ) );
+			$label = $type ? $type->labels->singular_name : '';
 		}
 		?>
-		<?php if ( 'artikel' === get_post_type( $post_id ) && get_post_meta( $post_id, 'paywall', true ) ) : ?>
-			<span class="story-card__paywall"><?php esc_html_e( 'Abo', 'goldor' ); ?></span>
-		<?php endif; ?>
-	</a>
-	<?php
+		<span class="story-card__fallback">
+			<span class="story-card__fallback-term"><?php echo esc_html( $label ); ?></span>
+			<img class="story-card__fallback-logo" src="<?php echo esc_url( get_template_directory_uri() . '/img/Logo-Goldor-Magenta.svg' ); ?>" alt="" width="84" height="22">
+		</span>
+		<?php
+	}
+	if ( 'artikel' === get_post_type( $post_id ) && get_post_meta( $post_id, 'paywall', true ) ) :
+		?>
+		<span class="story-card__paywall"><?php esc_html_e( 'Abo', 'goldor' ); ?></span>
+		<?php
+	endif;
 	return ob_get_clean();
+}
+
+/**
+ * The card's cover image, wrapped in a link to the post.
+ */
+function goldor_render_card_media( $post_id, $size = 'medium_large', $eager = false ) {
+	return sprintf(
+		'<a class="%1$s" href="%2$s" tabindex="-1" aria-hidden="true">%3$s</a>',
+		esc_attr( goldor_card_media_classes( $post_id ) ),
+		esc_url( get_permalink( $post_id ) ),
+		goldor_card_media_inner( $post_id, $size, $eager )
+	);
+}
+
+/**
+ * Whether a byline means anything for this post. Jobs, classifieds and the
+ * directories are entered by the office account ("Goldor Admin"); readers
+ * scan those by date and place, not by who typed them in.
+ */
+function goldor_shows_author( $post_id ) {
+	return in_array( get_post_type( $post_id ), array( 'post', 'artikel', 'vsgu-news' ), true );
 }
 
 /**
@@ -432,7 +482,7 @@ function goldor_render_card_media( $post_id, $size = 'medium_large' ) {
 function goldor_render_card_meta( $post_id, $left = '' ) {
 	$terms  = goldor_post_terms( $post_id );
 	$term   = ( ! empty( $terms ) && ! is_wp_error( $terms ) ) ? $terms[0] : null;
-	$author = (int) get_post_field( 'post_author', $post_id );
+	$author = goldor_shows_author( $post_id ) ? (int) get_post_field( 'post_author', $post_id ) : 0;
 
 	ob_start();
 	?>
@@ -489,7 +539,7 @@ function goldor_render_story_card( $post_id, $args = array() ) {
 	ob_start();
 	?>
 	<article class="story-card story-card--<?php echo esc_attr( $args['variant'] ); ?> grid-item">
-		<?php echo goldor_render_card_media( $post_id, $args['image_size'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		<?php echo goldor_render_card_media( $post_id, $args['image_size'], 'hero' === $args['variant'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<div class="story-card__body">
 			<<?php echo esc_attr( $tag ); ?> class="story-card__title">
 				<a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( get_the_title( $post_id ) ); ?></a>
