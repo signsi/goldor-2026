@@ -31,6 +31,17 @@
 </div>
 <!-- /wp:group -->
 
+<!-- Variante 3a (Gestaltungsvorschläge): Aufmacher und Liste, zum Vergleich mit der Sektion darüber. Ersetzt später diese Sektion und die Hero-Sidebar. -->
+<!-- wp:group {"align":"full","className":"section section--variant","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--variant">
+	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/section-picks {"heading":"News","linkLabel":"Alle News","postType":"post","postsPerPage":6,"excludeTopstory":true,"ignoreRendered":true,"layout":"lead-list","archiveLink":"/news/"} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
 <!-- wp:group {"align":"full","className":"section","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section">
 	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
@@ -70,11 +81,11 @@
 
 		<!-- wp:group {"className":"column-grid column-grid--listings","layout":{"type":"default"}} -->
 		<div class="wp-block-group column-grid column-grid--listings">
-			<!-- wp:goldor/section-picks {"heading":"Jobs","headingStyle":"column","linkLabel":"Alle offenen Stellen","postType":"job","layout":"list","taxonomy":"job-kategorie","term":"stellenangebot","postsPerPage":3} /-->
+			<!-- wp:goldor/section-picks {"heading":"Jobs","headingStyle":"column","linkLabel":"Alle offenen Stellen","postType":"job","layout":"table","taxonomy":"job-kategorie","term":"stellenangebot","postsPerPage":3,"actionLabel":"Inserat aufgeben","actionLink":"/jobs/stellenangebot-gesuch-aufgeben/"} /-->
 
 			<!-- wp:goldor/ad-slot {"type":"MediumRectangle News","showLabel":true} /-->
 
-			<!-- wp:goldor/section-picks {"heading":"Marktplatz","headingStyle":"column","linkLabel":"Zum Marktplatz","postType":"kleinanzeige","layout":"list","postsPerPage":3} /-->
+			<!-- wp:goldor/section-picks {"heading":"Marktplatz","headingStyle":"column","linkLabel":"Zum Marktplatz","postType":"kleinanzeige","layout":"table","postsPerPage":3,"actionLabel":"Anzeige aufgeben","actionLink":"/marktplatz/anzeige-aufgeben/"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>

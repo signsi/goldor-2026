@@ -138,6 +138,31 @@ function goldor_strip_nav_descriptions( $block_content ) {
 add_filter( 'render_block_core/navigation-link', 'goldor_strip_nav_descriptions' );
 add_filter( 'render_block_core/navigation-submenu', 'goldor_strip_nav_descriptions' );
 
+/**
+ * On phones the service bar is hidden; its shortcuts open the main menu
+ * instead, as the last items of the overlay. The last </ul> of the navigation
+ * closes its top-level list, so they land after the regular items.
+ */
+function goldor_nav_service_links( $block_content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	$close = strrpos( $block_content, '</ul>' );
+	if ( false === strpos( $class, 'main-navigation' ) || false === $close ) {
+		return $block_content;
+	}
+
+	$items = '';
+	foreach ( goldor_service_links() as $link ) {
+		$items .= sprintf(
+			'<li class="wp-block-navigation-item service-nav-item"><a class="wp-block-navigation-item__content" href="%1$s"><span class="wp-block-navigation-item__label">%2$s</span></a></li>',
+			esc_url( $link['url'] ),
+			esc_html( $link['label'] )
+		);
+	}
+
+	return substr_replace( $block_content, $items, $close, 0 );
+}
+add_filter( 'render_block_core/navigation', 'goldor_nav_service_links', 10, 2 );
+
 function goldor_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {
 		$urls[] = array( 'href' => 'https://fonts.googleapis.com' );

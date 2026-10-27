@@ -161,7 +161,7 @@ An achromatic press palette — warm off-white paper, near-black ink, three grey
 - **Press Magenta Deep** (#c30069): Magenta as *text*: categories, inline links, hover on titles and links, and the hover fill of the pill. 5.4:1 on Paper Sand, so small type stays legible on both stocks.
 
 ### Secondary
-- **Deep Slate Teal** (#0e3742): Petrol means *service*, as in the newsletter's "Inserieren" and "Stellenanzeiger" blocks: the subscription band, and later a service bar. Never editorial content. Magenta on Petrol is 2.8:1 — never put magenta text on it.
+- **Deep Slate Teal** (#0e3742): Petrol means *service*, as in the newsletter's "Inserieren" and "Stellenanzeiger" blocks: the subscription band and the service bar above the header. Never editorial content. Magenta on Petrol is 2.8:1 — never put magenta text on it.
 
 ### Neutral
 - **Ink Black** (#16181d): All headings and primary reading text. A near-black, not a true black — it sits on warm paper without vibrating.
@@ -290,6 +290,7 @@ Borders are always 1px Hairline Grey, and images are never masked or feathered. 
 - **Style:** Inter 0.9375rem in Ink Black on a sticky Paper White bar, centred beneath a centred wordmark, with the search left and subscribe plus account right.
 - **Active:** Press Magenta text over a 2px Press Magenta bottom border. Hover is a colour shift only.
 - **Submenu (≥600px):** a full-bleed Paper White band that drops flush from the header rule, square, framed by Hairline Grey rules top and bottom, carrying the system's single floating-overlay shadow. Children sit in one centred row in Inter 0.875rem with the same gap as the main nav; the current child takes the 2px Press Magenta underline. The parent turns magenta and its chevron flips while the band is open. It opens at once and closes after a short beat, so a diagonal pass to a child does not drop it.
+- **Service bar:** a 36px Deep Slate Teal strip above the header with the newsletter's three shortcuts (Aktuelle Ausgabe, Stelleninserate, Inserat aufgeben) left and the account link right, Inter 0.8125rem in white, underlined on hover. It scrolls away; only the header sticks. Below 600px it is hidden and the three links close the opened main menu instead, under a hairline.
 - **Mobile (≤782px):** Wordmark moves left, search and account go right, the navigation collapses to a hamburger on its own row. Below 640px the subscribe button steps aside so the search keeps a usable width.
 
 ### Section Header
@@ -307,7 +308,16 @@ The reading surface narrows to a **680px measure** (`--gd-measure`) inside the 1
 - **Reading progress:** a 3px Press Magenta bar fixed to the top of the viewport, scaled by scroll position and removed entirely under `prefers-reduced-motion`.
 
 ### Entry List
-The compact alternative to cards, used for jobs, classifieds and calendar dates: a hairline-topped list where each row carries an Arvo 700 title at 1.125rem, a meta line of date (plus author, for editorial posts only) in Inter 0.8125rem, and — for events — a Press Magenta Deep date range instead of grey. Rows are separated by hairlines, never by background fills or zebra striping.
+The compact alternative to cards: a hairline-topped list where each row carries an Arvo 700 title at 1.125rem and a meta line of date (plus author, for editorial posts only) in Inter 0.8125rem. Rows are separated by hairlines, never by background fills or zebra striping. With thumbnails (the News list beside a lead story) each row leads with a 64px square; a post without a picture shows its category's initial in Arvo, Press Magenta Deep on Paper Sand Deep, never an empty square.
+
+### Rubric Formats
+The grid stays; sections whose content is different get a format that fits it.
+
+- **News (lead + list):** one lead story across two tracks (16/10 image, title at the h2 size), the following headlines as a thumbnail entry list in the third track.
+- **Jobs and Marktplatz (table):** scanned, not read. Columns Stelle / Ort / Pensum / Datum and Anzeige / Art / Datum; Arvo 1.125rem titles, Inter 0.875rem cells, a 1px ink rule under the head row and hairlines between rows. No author. Below 520px of column width (a container query, so it also applies in a narrow track) the rows become blocks: title first, then the filled cells on one line. Underneath, the follow-on link left and the secondary "Inserat aufgeben" button right.
+- **Kalender (big dates):** the date range is the largest thing in the row (Arvo, card size); title and place in Inter 600 below. An event that is on today turns its date Press Magenta Deep and says "Läuft gerade" next to a small magenta dot.
+- **Personen (portrait):** the card image stands upright at 3/4.
+- **Other language:** a card whose post is in the other language than the page (WPML fallback) carries a small outlined language code ("FR") before its title.
 
 ## Do's and Don'ts
 
