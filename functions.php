@@ -103,6 +103,33 @@ function goldor_editor_fonts() {
 add_action( 'enqueue_block_assets', 'goldor_editor_fonts' );
 
 /**
+ * "Copy for Word" in the post editor's top bar: puts title and body on the
+ * clipboard as formatted HTML so editors can keep working on it in Word.
+ */
+function goldor_editor_copy_button() {
+	$screen = get_current_screen();
+	if ( ! $screen || 'post' !== $screen->base ) {
+		return;
+	}
+
+	$file = get_template_directory() . '/assets/editor-copy.js';
+	wp_enqueue_script(
+		'goldor-editor-copy',
+		get_template_directory_uri() . '/assets/editor-copy.js',
+		array( 'wp-data', 'wp-editor', 'wp-autop', 'wp-i18n', 'wp-dom-ready', 'wp-notices' ),
+		filemtime( $file ),
+		true
+	);
+	wp_set_script_translations( 'goldor-editor-copy', 'goldor', get_template_directory() . '/languages' );
+
+	wp_add_inline_style(
+		'wp-edit-post',
+		'.goldor-copy-word .dashicons { margin-right: 4px; font-size: 18px; width: 18px; height: 18px; }'
+	);
+}
+add_action( 'enqueue_block_editor_assets', 'goldor_editor_copy_button' );
+
+/**
  * The Gold'Or wordmark is part of the design, not editorial content — so when
  * no custom logo has been uploaded, the Site Logo block falls back to the
  * theme's own SVG instead of rendering nothing at all.
