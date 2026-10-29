@@ -1,0 +1,14 @@
+{
+	"translation-revision-date": "2026-10-29 12:00+0100",
+	"generator": "manual",
+	"source": "assets/editor-copy.js",
+	"domain": "messages",
+	"locale_data": {
+		"messages": {
+			"": { "domain": "messages", "lang": "de-CH", "plural-forms": "nplurals=2; plural=(n != 1);" },
+			"Copy for Word": [ "Für Word kopieren" ],
+			"Content copied — paste it into Word.": [ "Inhalt kopiert – jetzt in Word einfügen." ],
+			"Copying failed. Please try again.": [ "Kopieren fehlgeschlagen. Bitte erneut versuchen." ]
+		}
+	}
+}
