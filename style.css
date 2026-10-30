@@ -153,6 +153,29 @@ hr {
 	margin: 2.5rem 0;
 }
 
+/* The optional page background (inc/hintergrund.php): the page becomes a box
+   with its usual stocks, and the image shows only beyond it. Fixed on its own
+   layer, because background-attachment: fixed fails on phones. */
+body.has-page-background {
+	--gd-box: calc(var(--gd-content) + 2 * var(--gd-gutter));
+	background: transparent;
+}
+
+body.has-page-background .wp-site-blocks {
+	max-width: var(--gd-box);
+	min-height: 100vh;
+	margin-inline: auto;
+	background: var(--gd-base);
+}
+
+body.has-page-background::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: var(--gd-page-background) center / cover no-repeat;
+}
+
 /*--------------------------------------------------------------
 # Layout: sections and grids
 --------------------------------------------------------------*/
@@ -612,6 +635,11 @@ ul.taxonomy-filter-links li.is-active a {
 	margin-inline: auto;
 }
 
+/* The flow layout's block gap would push the account link 24px down. */
+.service-bar .service-bar__inner > * {
+	margin-block: 0;
+}
+
 .service-links__list {
 	display: flex;
 	flex-wrap: wrap;
@@ -641,7 +669,7 @@ ul.taxonomy-filter-links li.is-active a {
 
 /* With the bar showing, the header itself no longer needs the account link. */
 @media (min-width: 600px) {
-	.site-header__end .account-link {
+	.has-service-bar .site-header__end .account-link {
 		display: none;
 	}
 }
@@ -1572,6 +1600,21 @@ a.story-card__category {
 	margin-inline: auto;
 }
 
+/* Capped on the slot, not the image, so the label lines up with the ad. */
+.ad-slot.billboard {
+	max-width: 970px;
+	margin-inline: auto;
+}
+
+.ad-slot.is-skyscraper-fallback {
+	max-width: 300px;
+}
+
+/* An empty placement leaves no gap between the sections around it. */
+.section--ad:not(:has(.ad-slot)) {
+	display: none;
+}
+
 .ad-slot.ad-news img.ad,
 .ad-slot.ad-stellen img.ad {
 	width: auto;
@@ -1579,12 +1622,26 @@ a.story-card__category {
 	margin-inline: auto;
 }
 
+/* Starts below the service bar and the full header, and scrolls away with the page. */
 .ad-slot.skyscraper {
-	position: fixed;
-	top: 120px;
+	position: absolute;
+	top: 200px;
 	right: 20px;
 	width: 160px;
 	z-index: 5;
+}
+
+.admin-bar .ad-slot.skyscraper {
+	top: 232px;
+}
+
+/* Follows the page below the header, whose lower edge header-shrink.js tracks.
+   On short screens the ad wouldn't fit, so it stays in place to stay readable. */
+@media (min-height: 760px) {
+	.ad-slot.skyscraper:not(.is-static) {
+		position: fixed;
+		top: calc(var(--gd-header-bottom, 180px) + 20px);
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1711,6 +1768,10 @@ a.story-card__category {
 	z-index: 60;
 	height: 3px;
 	pointer-events: none;
+}
+
+body.has-page-background .reading-progress {
+	inset-inline: max(0px, calc((100% - var(--gd-box)) / 2));
 }
 
 .reading-progress__bar {
@@ -2029,10 +2090,15 @@ p.is-style-goldor-note,
 	background: var(--gd-primary);
 }
 
+.author-box__avatar {
+	flex: none;
+}
+
 .author-box__avatar img {
 	display: block;
 	width: 64px;
 	height: 64px;
+	object-fit: cover;
 	border-radius: var(--gd-radius-pill);
 }
 
@@ -3311,6 +3377,19 @@ a.no-link {
 @media (max-width: 1560px) {
 	.ad-slot.skyscraper {
 		display: none;
+	}
+}
+
+/* From there on the skyscraper shows itself, so its stand-in steps back. */
+@media (min-width: 1561px) {
+	.section--ad:has(.is-skyscraper-fallback) {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.ad-slot.billboard:has(source) {
+		max-width: 300px;
 	}
 }
 

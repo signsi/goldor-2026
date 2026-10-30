@@ -18,6 +18,7 @@ if ( ! function_exists( 'goldor_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'custom-logo', array( 'height' => 40, 'flex-height' => true, 'flex-width' => true ) );
 		add_theme_support( 'editor-styles' );
+		add_editor_style( array( 'style.css', 'assets/editor.css' ) );
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'align-wide' );
@@ -52,6 +53,14 @@ add_action( 'after_setup_theme', 'goldor_image_sizes' );
  */
 require get_template_directory() . '/block-theme-logic.php';
 
+/**
+ * Ad management: run dates, cache purging, admin list, format check.
+ */
+require get_template_directory() . '/inc/werbung.php';
+require get_template_directory() . '/inc/autoren.php';
+require get_template_directory() . '/inc/hintergrund.php';
+require get_template_directory() . '/inc/stil-sperre.php';
+
 /*
  * Assets
  */
@@ -74,7 +83,7 @@ function goldor_scripts() {
 		'goldor-header-shrink',
 		get_template_directory_uri() . '/assets/header-shrink.js',
 		array(),
-		'1.0',
+		'1.1',
 		true
 	);
 }
@@ -116,13 +125,16 @@ function goldor_site_logo_fallback( $block_content, $block ) {
 	$classes = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
 	$file    = false !== strpos( $classes, 'site-logo--magenta' ) ? 'Logo-Goldor-Magenta.svg' : 'Logo-Goldor.svg';
 
+	// The height reserves the header's space, and the logo never waits for a
+	// lazy-load script: both logo files are 512×139.
 	return sprintf(
-		'<div class="wp-block-site-logo %5$s"><a href="%1$s" class="custom-logo-link" rel="home"><img class="custom-logo" src="%2$s" alt="%3$s" width="%4$d" style="width:%4$dpx"></a></div>',
+		'<div class="wp-block-site-logo %5$s"><a href="%1$s" class="custom-logo-link" rel="home"><img class="custom-logo" src="%2$s" alt="%3$s" width="%4$d" height="%6$d" style="width:%4$dpx" data-no-lazy="1" data-skip-lazy="1"></a></div>',
 		esc_url( home_url( '/' ) ),
 		esc_url( get_template_directory_uri() . '/img/' . $file ),
 		esc_attr( get_bloginfo( 'name' ) ),
 		$width,
-		esc_attr( $classes )
+		esc_attr( $classes ),
+		round( $width * 139 / 512 )
 	);
 }
 add_filter( 'render_block_core/site-logo', 'goldor_site_logo_fallback', 10, 2 );
@@ -146,7 +158,7 @@ add_filter( 'render_block_core/navigation-submenu', 'goldor_strip_nav_descriptio
 function goldor_nav_service_links( $block_content, $block ) {
 	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
 	$close = strrpos( $block_content, '</ul>' );
-	if ( false === strpos( $class, 'main-navigation' ) || false === $close ) {
+	if ( ! goldor_service_bar_enabled() || false === strpos( $class, 'main-navigation' ) || false === $close ) {
 		return $block_content;
 	}
 
@@ -162,6 +174,62 @@ function goldor_nav_service_links( $block_content, $block ) {
 	return substr_replace( $block_content, $items, $close, 0 );
 }
 add_filter( 'render_block_core/navigation', 'goldor_nav_service_links', 10, 2 );
+
+/**
+ * The service bar can be switched off under Settings → Reading; it is on
+ * until someone unticks it.
+ */
+function goldor_service_bar_enabled() {
+	return (bool) get_option( 'goldor_service_bar', true );
+}
+
+function goldor_service_bar_setting() {
+	register_setting(
+		'reading',
+		'goldor_service_bar',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+
+	add_settings_field(
+		'goldor_service_bar',
+		__( 'Service-Leiste', 'goldor' ),
+		function () {
+			printf(
+				'<input type="hidden" name="goldor_service_bar" value="0"><label><input type="checkbox" name="goldor_service_bar" value="1" %1$s> %2$s</label><p class="description">%3$s</p>',
+				checked( goldor_service_bar_enabled(), true, false ),
+				esc_html__( 'Service-Leiste über dem Header anzeigen', 'goldor' ),
+				esc_html__( 'Die Leiste mit Aktueller Ausgabe, Stelleninseraten und Inserat aufgeben. Auf dem Handy stehen diese Links im Menü.', 'goldor' )
+			);
+		},
+		'reading'
+	);
+}
+add_action( 'admin_init', 'goldor_service_bar_setting' );
+
+/**
+ * Switched off, the bar's group renders nothing, and the header's own
+ * account link (otherwise hidden behind the bar's) comes back.
+ */
+function goldor_hide_service_bar( $block_content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	if ( ! goldor_service_bar_enabled() && preg_match( '/(^|\s)service-bar(\s|$)/', $class ) ) {
+		return '';
+	}
+	return $block_content;
+}
+add_filter( 'render_block_core/group', 'goldor_hide_service_bar', 10, 2 );
+
+function goldor_service_bar_body_class( $classes ) {
+	if ( goldor_service_bar_enabled() ) {
+		$classes[] = 'has-service-bar';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'goldor_service_bar_body_class' );
 
 function goldor_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {

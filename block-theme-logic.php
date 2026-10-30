@@ -107,10 +107,13 @@ function goldor_block_register_post_types() {
 			'supports'    => array( 'title', 'revisions' ),
 			'taxonomies'  => array( 'link-kategorie' ),
 		),
+		// Ads only exist inside their slots: no single pages, no sitemap entry.
 		'werbung'      => array(
 			'label'       => __( 'Werbung', 'goldor' ),
 			'menu_icon'   => 'dashicons-visibility',
-			'public'      => true,
+			'public'      => false,
+			'rewrite'     => false,
+			'query_var'   => false,
 			'show_in_rest' => true,
 			'show_ui'     => true,
 			'supports'    => array( 'title', 'revisions' ),
@@ -160,6 +163,8 @@ function goldor_block_register_meta() {
 		'Typ'        => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
 		'aktiv'      => array( 'object_type' => array( 'werbung' ), 'type' => 'boolean' ),
 		'werbemittel' => array( 'object_type' => array( 'werbung' ), 'type' => 'integer' ),
+		'werbung_start' => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
+		'werbung_ende'  => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
 		'url'        => array( 'object_type' => array( 'werbung', 'kleinanzeige', 'link' ), 'type' => 'string' ),
 		'topentry'   => array( 'object_type' => array( 'artikel', 'kalender', 'vsgu-news' ), 'type' => 'boolean' ),
 		'topstory'   => array( 'object_type' => array( 'post', 'artikel' ), 'type' => 'boolean' ),
@@ -269,9 +274,12 @@ function goldor_block_should_show_article_full_content( $post_id = null ) {
 }
 
 /**
- * Fetch one active `werbung` (ad) entry of the given type.
+ * Fetch one active `werbung` (ad) entry of the given type that is within its
+ * run dates today (see inc/werbung.php). Dates are stored as Ymd, so they
+ * compare as plain strings; an empty date means no limit on that side.
  */
 function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
+	$today    = wp_date( 'Ymd' );
 	$ad_query = new WP_Query(
 		array(
 			'post_type'      => 'werbung',
@@ -281,6 +289,18 @@ function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
 			'meta_query'     => array(
 				array( 'key' => 'Typ', 'value' => $type, 'compare' => '=' ),
 				array( 'key' => 'aktiv', 'value' => '1', 'compare' => '=' ),
+				array(
+					'relation' => 'OR',
+					array( 'key' => 'werbung_start', 'compare' => 'NOT EXISTS' ),
+					array( 'key' => 'werbung_start', 'value' => '' ),
+					array( 'key' => 'werbung_start', 'value' => $today, 'compare' => '<=' ),
+				),
+				array(
+					'relation' => 'OR',
+					array( 'key' => 'werbung_ende', 'compare' => 'NOT EXISTS' ),
+					array( 'key' => 'werbung_ende', 'value' => '' ),
+					array( 'key' => 'werbung_ende', 'value' => $today, 'compare' => '>=' ),
+				),
 			),
 		)
 	);
@@ -292,13 +312,17 @@ function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
 	$ad_query->the_post();
 	$thumb_id = get_post_meta( get_the_ID(), 'werbemittel', true );
 	$image    = $thumb_id ? wp_get_attachment_image_src( $thumb_id, 'full' ) : false;
+	$mobile   = wp_get_attachment_image_src( (int) get_post_meta( get_the_ID(), 'werbemittel_mobil', true ), 'full' );
 	$url      = get_post_meta( get_the_ID(), 'url', true );
 
 	$ad = array(
 		'id'    => get_the_ID(),
-		'title' => get_the_title(),
-		'url'   => $url ? goldor_normalize_url( $url ) : '',
-		'image' => $image ? $image[0] : '',
+		'title'  => get_the_title(),
+		'url'    => $url ? goldor_normalize_url( $url ) : '',
+		'image'  => $image ? $image[0] : '',
+		'mobile' => $mobile ? $mobile[0] : '',
+		// Ads saved before the switch existed have no value and keep following.
+		'sticky' => '0' !== (string) get_post_meta( get_the_ID(), 'werbung_sticky', true ),
 	);
 	wp_reset_postdata();
 

@@ -6,9 +6,24 @@
     { "name": "template-form", "title": "Formular Seite", "postTypes": ["page"] }
   ],
   "settings": {
-    "appearanceTools": true,
+    "appearanceTools": false,
+    "background": { "backgroundImage": false, "backgroundSize": false },
+    "border": { "color": false, "radius": false, "style": false, "width": false },
+    "dimensions": { "aspectRatio": false, "minHeight": false },
+    "position": { "fixed": false, "sticky": false },
+    "shadow": { "defaultPresets": false, "presets": [] },
     "color": {
+      "background": false,
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
       "defaultPalette": false,
+      "heading": false,
+      "button": false,
+      "link": false,
+      "text": false,
       "palette": [
         { "slug": "base", "color": "#ffffff", "name": "Base" },
         { "slug": "contrast", "color": "#16181d", "name": "Contrast" },
@@ -21,10 +36,16 @@
       ]
     },
     "layout": {
+      "allowCustomContentAndWideSize": false,
+      "allowEditing": false,
       "contentSize": "1180px",
       "wideSize": "1440px"
     },
     "spacing": {
+      "blockGap": false,
+      "customSpacingSize": false,
+      "margin": false,
+      "padding": false,
       "units": ["px", "%", "em", "rem", "vh", "vw"],
       "spacingSizes": [
         { "slug": "10", "size": "0.5rem", "name": "1" },
@@ -35,7 +56,18 @@
       ]
     },
     "typography": {
+      "customFontSize": false,
       "defaultFontSizes": false,
+      "dropCap": false,
+      "fontStyle": false,
+      "fontWeight": false,
+      "letterSpacing": false,
+      "lineHeight": false,
+      "textAlign": false,
+      "textColumns": false,
+      "textDecoration": false,
+      "textTransform": false,
+      "writingMode": false,
       "fluid": true,
       "fontSizes": [
         { "slug": "tiny", "size": "0.75rem", "name": "Tiny" },
