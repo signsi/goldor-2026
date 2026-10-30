@@ -12,7 +12,7 @@
 
 <!-- wp:query {"query":{"postType":"lieferant","inherit":false,"perPage":16,"pages":0,"offset":0,"order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
-	<!-- wp:group {"className":"grid-container lieferanten","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Raster: Lieferanten"},"className":"grid-container lieferanten","layout":{"type":"default"}} -->
 	<div class="wp-block-group grid-container lieferanten">
 		<!-- wp:post-template -->
 			<!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->
