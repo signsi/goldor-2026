@@ -216,13 +216,15 @@ Inside the column there is exactly one grid module: **three equal tracks with a 
 
 Density is deliberately low. Vertical air between bands is generous, cards are separated by real gutters rather than borders, and long-form text is pulled back to a 680px measure even though the grid is 1180px wide.
 
-Responsive behaviour collapses in three steps: at **980px** the hero stacks and both grids drop to two columns; at **782px** the header rearranges (wordmark left, search and account right, navigation on its own row) and the footer stacks left-aligned; at **640px** every grid becomes a single column and the header's subscribe button steps aside so the search field keeps a usable width. A fourth breakpoint at **1560px** governs only the skyscraper advertisement, which appears solely when it fits beside the content column without crowding it.
+Responsive behaviour collapses in three steps: at **980px** the hero stacks and both grids drop to two columns; at **782px** the header rearranges (wordmark left, search and account right, navigation on its own row) and the footer stacks left-aligned; at **640px** every grid becomes a single column and the header's subscribe button steps aside so the search field keeps a usable width. A fourth breakpoint at **1560px** governs only the skyscraper advertisement, which appears solely when it fits beside the content column without crowding it. Below it, a skyscraper with a mobile image stands in on the billboard slot of the home page. Detail pages carry no skyscraper, because their image runs the full width beneath it.
 
 ### Named Rules
 
 **The One Module Rule.** Every column on the page is a span of the same three-track grid at the same gutter. A layout that needs its own proportion is expressed as a span (2 + 1), never as a second grid with a different gutter — two column rhythms on one page is the defect this system exists to prevent.
 
-**The Full-Bleed Band Rule. Every section is full width and paints its own background; content is centred at 1180px inside it. Never build a section as a floating 1180px block on a shared page background.
+**The Full-Bleed Band Rule.** Every section is full width and paints its own background; content is centred at 1180px inside it. Never build a section as a floating 1180px block on a shared page background.
+
+**The Boxed Page Exception.** With the page background on (Settings → Reading), the whole page sits in one box of the content width plus gutters, and bands run to the edge of that box instead of the viewport. Nothing beyond the box belongs to the page: only the background image shows there, so no text ever sits on it. Switched off, the bands are full-bleed again.
 
 **The Hairline Rule.** Structural separation is drawn with 1px Hairline Grey rules. The one heavier weight is the 2px Ink Black rule under a section title, which opens a section the way it does in the newsletter. No double rules, no coloured dividers.
 
@@ -329,6 +331,7 @@ The grid stays; sections whose content is different get a format that fits it.
 - **Do** pin card meta rows to the bottom with `margin-top: auto` so a row of cards shares one meta baseline.
 - **Do** clamp card excerpts (3 lines) and list descriptions (2 lines) so grids stay even against real editorial copy of unpredictable length.
 - **Do** treat advertising as typeset page furniture — a Meta Grey "Anzeige" label above the creative, sitting in the grid like everything else. When no ad is booked, the slot disappears and its neighbours close the gap.
+- **Do** keep the design in code: `theme.json` and `style.css` are the only source of styling. The editor arranges and fills blocks, it does not restyle them.
 - **Do** hold body copy to a 680px measure even inside the 1180px column.
 - **Do** keep German and French equal: never design a layout that only survives the shorter of two translations.
 
