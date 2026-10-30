@@ -10,7 +10,7 @@
 ?>
 <!-- wp:query {"query":{"postType":"post","inherit":false,"perPage":10,"pages":0,"offset":0,"order":"desc","orderBy":"date"},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
-	<!-- wp:group {"className":"grid-container","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Raster"},"className":"grid-container","layout":{"type":"default"}} -->
 	<div class="wp-block-group grid-container">
 		<!-- wp:post-template -->
 			<!-- wp:template-part {"slug":"post-card","theme":"goldor-2026"} /-->

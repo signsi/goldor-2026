@@ -107,10 +107,13 @@ function goldor_block_register_post_types() {
 			'supports'    => array( 'title', 'revisions' ),
 			'taxonomies'  => array( 'link-kategorie' ),
 		),
+		// Ads only exist inside their slots: no single pages, no sitemap entry.
 		'werbung'      => array(
 			'label'       => __( 'Werbung', 'goldor' ),
 			'menu_icon'   => 'dashicons-visibility',
-			'public'      => true,
+			'public'      => false,
+			'rewrite'     => false,
+			'query_var'   => false,
 			'show_in_rest' => true,
 			'show_ui'     => true,
 			'supports'    => array( 'title', 'revisions' ),
@@ -160,13 +163,16 @@ function goldor_block_register_meta() {
 		'Typ'        => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
 		'aktiv'      => array( 'object_type' => array( 'werbung' ), 'type' => 'boolean' ),
 		'werbemittel' => array( 'object_type' => array( 'werbung' ), 'type' => 'integer' ),
+		'werbung_start' => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
+		'werbung_ende'  => array( 'object_type' => array( 'werbung' ), 'type' => 'string' ),
 		'url'        => array( 'object_type' => array( 'werbung', 'kleinanzeige', 'link' ), 'type' => 'string' ),
 		'topentry'   => array( 'object_type' => array( 'artikel', 'kalender', 'vsgu-news' ), 'type' => 'boolean' ),
 		'topstory'   => array( 'object_type' => array( 'post', 'artikel' ), 'type' => 'boolean' ),
 		'ausgabe'    => array( 'object_type' => array( 'artikel', 'print' ), 'type' => 'string' ),
 		'startdatum' => array( 'object_type' => array( 'kalender' ), 'type' => 'string' ),
 		'enddatum'   => array( 'object_type' => array( 'kalender' ), 'type' => 'string' ),
-		'ort'        => array( 'object_type' => array( 'kalender' ), 'type' => 'string' ),
+		'ort'        => array( 'object_type' => array( 'kalender', 'job' ), 'type' => 'string' ),
+		'pensum'     => array( 'object_type' => array( 'job' ), 'type' => 'string' ),
 		'website'    => array( 'object_type' => array( 'lieferant' ), 'type' => 'string' ),
 		'email'      => array( 'object_type' => array( 'lieferant' ), 'type' => 'string' ),
 		'phone'      => array( 'object_type' => array( 'lieferant' ), 'type' => 'string' ),
@@ -268,9 +274,12 @@ function goldor_block_should_show_article_full_content( $post_id = null ) {
 }
 
 /**
- * Fetch one active `werbung` (ad) entry of the given type.
+ * Fetch one active `werbung` (ad) entry of the given type that is within its
+ * run dates today (see inc/werbung.php). Dates are stored as Ymd, so they
+ * compare as plain strings; an empty date means no limit on that side.
  */
 function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
+	$today    = wp_date( 'Ymd' );
 	$ad_query = new WP_Query(
 		array(
 			'post_type'      => 'werbung',
@@ -280,6 +289,18 @@ function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
 			'meta_query'     => array(
 				array( 'key' => 'Typ', 'value' => $type, 'compare' => '=' ),
 				array( 'key' => 'aktiv', 'value' => '1', 'compare' => '=' ),
+				array(
+					'relation' => 'OR',
+					array( 'key' => 'werbung_start', 'compare' => 'NOT EXISTS' ),
+					array( 'key' => 'werbung_start', 'value' => '' ),
+					array( 'key' => 'werbung_start', 'value' => $today, 'compare' => '<=' ),
+				),
+				array(
+					'relation' => 'OR',
+					array( 'key' => 'werbung_ende', 'compare' => 'NOT EXISTS' ),
+					array( 'key' => 'werbung_ende', 'value' => '' ),
+					array( 'key' => 'werbung_ende', 'value' => $today, 'compare' => '>=' ),
+				),
 			),
 		)
 	);
@@ -291,13 +312,17 @@ function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
 	$ad_query->the_post();
 	$thumb_id = get_post_meta( get_the_ID(), 'werbemittel', true );
 	$image    = $thumb_id ? wp_get_attachment_image_src( $thumb_id, 'full' ) : false;
+	$mobile   = wp_get_attachment_image_src( (int) get_post_meta( get_the_ID(), 'werbemittel_mobil', true ), 'full' );
 	$url      = get_post_meta( get_the_ID(), 'url', true );
 
 	$ad = array(
 		'id'    => get_the_ID(),
-		'title' => get_the_title(),
-		'url'   => $url ? goldor_normalize_url( $url ) : '',
-		'image' => $image ? $image[0] : '',
+		'title'  => get_the_title(),
+		'url'    => $url ? goldor_normalize_url( $url ) : '',
+		'image'  => $image ? $image[0] : '',
+		'mobile' => $mobile ? $mobile[0] : '',
+		// Ads saved before the switch existed have no value and keep following.
+		'sticky' => '0' !== (string) get_post_meta( get_the_ID(), 'werbung_sticky', true ),
 	);
 	wp_reset_postdata();
 
@@ -542,6 +567,7 @@ function goldor_render_story_card( $post_id, $args = array() ) {
 		<?php echo goldor_render_card_media( $post_id, $args['image_size'], 'hero' === $args['variant'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<div class="story-card__body">
 			<<?php echo esc_attr( $tag ); ?> class="story-card__title">
+				<?php echo goldor_language_hint( $post_id ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( get_the_title( $post_id ) ); ?></a>
 			</<?php echo esc_attr( $tag ); ?>>
 
@@ -687,6 +713,169 @@ function goldor_event_dateline( $post_id ) {
 	}
 
 	return $line;
+}
+
+/**
+ * "22.–25. Oktober 2026" — the event dates as one compact range, naming the
+ * month and year only once where start and end share them.
+ */
+function goldor_event_daterange( $post_id ) {
+	$utc   = new DateTimeZone( 'UTC' );
+	$start = DateTime::createFromFormat( '!Ymd', (string) get_post_meta( $post_id, 'startdatum', true ), $utc );
+	$end   = DateTime::createFromFormat( '!Ymd', (string) get_post_meta( $post_id, 'enddatum', true ), $utc );
+
+	if ( ! $start ) {
+		return '';
+	}
+
+	$full = _x( 'j. F Y', 'event date', 'goldor' );
+	if ( ! $end || $end->format( 'Ymd' ) === $start->format( 'Ymd' ) ) {
+		return wp_date( $full, $start->getTimestamp(), $utc );
+	}
+
+	if ( $end->format( 'Ym' ) === $start->format( 'Ym' ) ) {
+		$from = _x( 'j.', 'event date range start, same month', 'goldor' );
+	} elseif ( $end->format( 'Y' ) === $start->format( 'Y' ) ) {
+		$from = _x( 'j. F', 'event date range start, same year', 'goldor' );
+	} else {
+		$from = $full;
+	}
+
+	$from = wp_date( $from, $start->getTimestamp(), $utc );
+	$to   = wp_date( $full, $end->getTimestamp(), $utc );
+
+	// A bare day number hugs the dash; anything longer gets spaces around it.
+	return ctype_digit( rtrim( $from, '.' ) ) ? $from . '–' . $to : $from . ' – ' . $to;
+}
+
+/**
+ * Whether the event is on today: start on or before, end on or after.
+ */
+function goldor_event_is_running( $post_id ) {
+	$today = current_time( 'Ymd' );
+	$start = (string) get_post_meta( $post_id, 'startdatum', true );
+	$end   = (string) get_post_meta( $post_id, 'enddatum', true );
+
+	return $start && $start <= $today && ( $end ? $end : $start ) >= $today;
+}
+
+/**
+ * "FR" on a card whose post is in another language than the page — WPML
+ * falls back to untranslated entries, so a French portrait can sit on the
+ * German home page.
+ */
+function goldor_language_hint( $post_id ) {
+	$details = apply_filters( 'wpml_post_language_details', null, $post_id );
+	if ( ! is_array( $details ) || empty( $details['language_code'] ) ) {
+		return '';
+	}
+
+	$code = $details['language_code'];
+	if ( $code === goldor_current_language() ) {
+		return '';
+	}
+
+	return sprintf(
+		'<span class="lang-hint" lang="%1$s" title="%2$s">%3$s</span> ',
+		esc_attr( $code ),
+		esc_attr( isset( $details['display_name'] ) ? $details['display_name'] : $code ),
+		esc_html( strtoupper( $code ) )
+	);
+}
+
+/**
+ * Plain text of a post for the listing heuristics below.
+ */
+function goldor_listing_text( $post_id ) {
+	return html_entity_decode( wp_strip_all_tags( get_post_field( 'post_content', $post_id ) ), ENT_QUOTES, 'UTF-8' );
+}
+
+/**
+ * Where a job is. The `ort` field wins; imported ads have none, so the place
+ * is read from the title ("… in Horgen gesucht") or a place with its canton
+ * in the text ("à Baar (ZG)"). Empty when neither is certain.
+ */
+function goldor_job_location( $post_id ) {
+	$ort = trim( (string) get_post_meta( $post_id, 'ort', true ) );
+	if ( $ort ) {
+		return $ort;
+	}
+
+	$text     = goldor_listing_text( $post_id );
+	$patterns = array(
+		array( get_post_field( 'post_title', $post_id ), '/\b(?:in|à)\s+([A-ZÄÖÜ][\p{L}-]+(?:\s\([A-Z]{2}\))?)(?=\s+(?:gesucht|sucht)|\s*[!,.]|\s*$)/u' ),
+		array( $text, '/\b(?:in|à)\s+([A-ZÄÖÜ][\p{L}-]+(?:\s[A-ZÄÖÜ][\p{L}-]+)?\s\([A-Z]{2}\))/u' ),
+	);
+
+	foreach ( $patterns as $pattern ) {
+		if ( preg_match( $pattern[1], $pattern[0], $match ) ) {
+			return trim( $match[1] );
+		}
+	}
+
+	return '';
+}
+
+/**
+ * A job's workload, "80–100 %". The `pensum` field wins, then the first
+ * percentage in the title or the ad text.
+ */
+function goldor_job_workload( $post_id ) {
+	$pensum = trim( (string) get_post_meta( $post_id, 'pensum', true ) );
+	if ( $pensum ) {
+		return $pensum;
+	}
+
+	if ( preg_match( '/\bVollzeit\b|\bplein temps\b/iu', get_post_field( 'post_title', $post_id ) ) ) {
+		return '100 %';
+	}
+
+	$pattern = '/(\d{2,3})\s*(?:[–-]\s*(\d{2,3})\s*)?%/u';
+	foreach ( array( get_post_field( 'post_title', $post_id ), goldor_listing_text( $post_id ) ) as $text ) {
+		if ( preg_match( $pattern, $text, $match ) ) {
+			return $match[1] . ( ! empty( $match[2] ) ? '–' . $match[2] : '' ) . ' %';
+		}
+	}
+
+	return '';
+}
+
+/**
+ * What kind of Marktplatz ad it is ("Zu vermieten", "Nachfolge gesucht") —
+ * the editors already tag ads that way.
+ */
+function goldor_listing_kind( $post_id ) {
+	$tags = get_the_terms( $post_id, 'post_tag' );
+
+	return ( $tags && ! is_wp_error( $tags ) ) ? $tags[0]->name : '';
+}
+
+/**
+ * The newsletter's three shortcuts, in the page's language: newest issue,
+ * job ads, placing an ad.
+ */
+function goldor_service_links() {
+	$pages = array(
+		433 => __( 'Aktuelle Ausgabe', 'goldor' ),
+		31  => __( 'Stelleninserate', 'goldor' ),
+		35  => __( 'Inserat aufgeben', 'goldor' ),
+	);
+
+	$links = array();
+	foreach ( $pages as $page_id => $fallback ) {
+		// WPML rewrites links to the German page onto its translation, so an
+		// unpublished translation means the link is left out, not redirected.
+		$id = apply_filters( 'wpml_object_id', $page_id, 'page', true );
+		if ( 'publish' !== get_post_status( $id ) ) {
+			continue;
+		}
+		$links[] = array(
+			'label' => $id === $page_id ? $fallback : get_the_title( $id ),
+			'url'   => get_permalink( $id ),
+		);
+	}
+
+	return $links;
 }
 
 /**

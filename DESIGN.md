@@ -161,7 +161,7 @@ An achromatic press palette — warm off-white paper, near-black ink, three grey
 - **Press Magenta Deep** (#c30069): Magenta as *text*: categories, inline links, hover on titles and links, and the hover fill of the pill. 5.4:1 on Paper Sand, so small type stays legible on both stocks.
 
 ### Secondary
-- **Deep Slate Teal** (#0e3742): Petrol means *service*, as in the newsletter's "Inserieren" and "Stellenanzeiger" blocks: the subscription band, and later a service bar. Never editorial content. Magenta on Petrol is 2.8:1 — never put magenta text on it.
+- **Deep Slate Teal** (#0e3742): Petrol means *service*, as in the newsletter's "Inserieren" and "Stellenanzeiger" blocks: the subscription band and the service bar above the header. Never editorial content. Magenta on Petrol is 2.8:1 — never put magenta text on it.
 
 ### Neutral
 - **Ink Black** (#16181d): All headings and primary reading text. A near-black, not a true black — it sits on warm paper without vibrating.
@@ -216,13 +216,15 @@ Inside the column there is exactly one grid module: **three equal tracks with a 
 
 Density is deliberately low. Vertical air between bands is generous, cards are separated by real gutters rather than borders, and long-form text is pulled back to a 680px measure even though the grid is 1180px wide.
 
-Responsive behaviour collapses in three steps: at **980px** the hero stacks and both grids drop to two columns; at **782px** the header rearranges (wordmark left, search and account right, navigation on its own row) and the footer stacks left-aligned; at **640px** every grid becomes a single column and the header's subscribe button steps aside so the search field keeps a usable width. A fourth breakpoint at **1560px** governs only the skyscraper advertisement, which appears solely when it fits beside the content column without crowding it.
+Responsive behaviour collapses in three steps: at **980px** the hero stacks and both grids drop to two columns; at **782px** the header rearranges (wordmark left, search and account right, navigation on its own row) and the footer stacks left-aligned; at **640px** every grid becomes a single column and the header's subscribe button steps aside so the search field keeps a usable width. A fourth breakpoint at **1560px** governs only the skyscraper advertisement, which appears solely when it fits beside the content column without crowding it. Below it, a skyscraper with a mobile image stands in on the billboard slot of the home page. Detail pages carry no skyscraper, because their image runs the full width beneath it.
 
 ### Named Rules
 
 **The One Module Rule.** Every column on the page is a span of the same three-track grid at the same gutter. A layout that needs its own proportion is expressed as a span (2 + 1), never as a second grid with a different gutter — two column rhythms on one page is the defect this system exists to prevent.
 
-**The Full-Bleed Band Rule. Every section is full width and paints its own background; content is centred at 1180px inside it. Never build a section as a floating 1180px block on a shared page background.
+**The Full-Bleed Band Rule.** Every section is full width and paints its own background; content is centred at 1180px inside it. Never build a section as a floating 1180px block on a shared page background.
+
+**The Boxed Page Exception.** With the page background on (Settings → Reading), the whole page sits in one box of the content width plus gutters, and bands run to the edge of that box instead of the viewport. Nothing beyond the box belongs to the page: only the background image shows there, so no text ever sits on it. Switched off, the bands are full-bleed again.
 
 **The Hairline Rule.** Structural separation is drawn with 1px Hairline Grey rules. The one heavier weight is the 2px Ink Black rule under a section title, which opens a section the way it does in the newsletter. No double rules, no coloured dividers.
 
@@ -236,6 +238,7 @@ One exception exists, and it is defined by behaviour rather than style: elements
 
 ### Shadow Vocabulary
 - **Floating overlay** (`box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08)`): The only shadow in the system. Applies exclusively to transient overlays that appear above the page and disappear again.
+- **Printed cover** (`rotate(-3deg)`, `box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.6)`): The one object on the page, and the only one allowed to tilt: the newest issue's cover in the subscription band (`goldor/issue-cover`). It is the physical magazine lying on the petrol band, large in the first track and breaking out over the band's top edge, which is what tells the reader the Abo is a printed magazine and not just a newsletter. The offer spans the other two tracks: an Arvo headline, three benefits over hairlines, the main-action pill. The cover is hidden on narrow screens and used nowhere else.
 
 ### Named Rules
 
@@ -289,6 +292,7 @@ Borders are always 1px Hairline Grey, and images are never masked or feathered. 
 - **Style:** Inter 0.9375rem in Ink Black on a sticky Paper White bar, centred beneath a centred wordmark, with the search left and subscribe plus account right.
 - **Active:** Press Magenta text over a 2px Press Magenta bottom border. Hover is a colour shift only.
 - **Submenu (≥600px):** a full-bleed Paper White band that drops flush from the header rule, square, framed by Hairline Grey rules top and bottom, carrying the system's single floating-overlay shadow. Children sit in one centred row in Inter 0.875rem with the same gap as the main nav; the current child takes the 2px Press Magenta underline. The parent turns magenta and its chevron flips while the band is open. It opens at once and closes after a short beat, so a diagonal pass to a child does not drop it.
+- **Service bar:** a 36px Deep Slate Teal strip above the header with the newsletter's three shortcuts (Aktuelle Ausgabe, Stelleninserate, Inserat aufgeben) left and the account link right, Inter 0.8125rem in white, underlined on hover. It scrolls away; only the header sticks. Below 600px it is hidden and the three links close the opened main menu instead, under a hairline.
 - **Mobile (≤782px):** Wordmark moves left, search and account go right, the navigation collapses to a hamburger on its own row. Below 640px the subscribe button steps aside so the search keeps a usable width.
 
 ### Section Header
@@ -306,7 +310,16 @@ The reading surface narrows to a **680px measure** (`--gd-measure`) inside the 1
 - **Reading progress:** a 3px Press Magenta bar fixed to the top of the viewport, scaled by scroll position and removed entirely under `prefers-reduced-motion`.
 
 ### Entry List
-The compact alternative to cards, used for jobs, classifieds and calendar dates: a hairline-topped list where each row carries an Arvo 700 title at 1.125rem, a meta line of date (plus author, for editorial posts only) in Inter 0.8125rem, and — for events — a Press Magenta Deep date range instead of grey. Rows are separated by hairlines, never by background fills or zebra striping.
+The compact alternative to cards: a hairline-topped list where each row carries an Arvo 700 title at 1.125rem and a meta line of date (plus author, for editorial posts only) in Inter 0.8125rem. Rows are separated by hairlines, never by background fills or zebra striping. With thumbnails (the News list beside a lead story) each row leads with a 64px square; a post without a picture shows its category's initial in Arvo, Press Magenta Deep on Paper Sand Deep, never an empty square.
+
+### Rubric Formats
+The grid stays; sections whose content is different get a format that fits it.
+
+- **News (lead + list):** one lead story across two tracks (16/10 image, title at the h2 size), the following headlines as a thumbnail entry list in the third track.
+- **Jobs and Marktplatz (table):** scanned, not read. Columns Stelle / Ort / Pensum / Datum and Anzeige / Art / Datum; Arvo 1.125rem titles, Inter 0.875rem cells, a 1px ink rule under the head row and hairlines between rows. No author. Below 520px of column width (a container query, so it also applies in a narrow track) the rows become blocks: title first, then the filled cells on one line. Underneath, the follow-on link left and the secondary "Inserat aufgeben" button right.
+- **Kalender (big dates):** the date range is the largest thing in the row (Arvo, card size); title and place in Inter 600 below. An event that is on today turns its date Press Magenta Deep and says "Läuft gerade" next to a small magenta dot.
+- **Personen (portrait):** the card image stands upright at 3/4.
+- **Other language:** a card whose post is in the other language than the page (WPML fallback) carries a small outlined language code ("FR") before its title.
 
 ## Do's and Don'ts
 
@@ -318,6 +331,7 @@ The compact alternative to cards, used for jobs, classifieds and calendar dates:
 - **Do** pin card meta rows to the bottom with `margin-top: auto` so a row of cards shares one meta baseline.
 - **Do** clamp card excerpts (3 lines) and list descriptions (2 lines) so grids stay even against real editorial copy of unpredictable length.
 - **Do** treat advertising as typeset page furniture — a Meta Grey "Anzeige" label above the creative, sitting in the grid like everything else. When no ad is booked, the slot disappears and its neighbours close the gap.
+- **Do** keep the design in code: `theme.json` and `style.css` are the only source of styling. The editor arranges and fills blocks, it does not restyle them.
 - **Do** hold body copy to a 680px measure even inside the 1180px column.
 - **Do** keep German and French equal: never design a layout that only survives the shorter of two translations.
 

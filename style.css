@@ -153,6 +153,29 @@ hr {
 	margin: 2.5rem 0;
 }
 
+/* The optional page background (inc/hintergrund.php): the page becomes a box
+   with its usual stocks, and the image shows only beyond it. Fixed on its own
+   layer, because background-attachment: fixed fails on phones. */
+body.has-page-background {
+	--gd-box: calc(var(--gd-content) + 2 * var(--gd-gutter));
+	background: transparent;
+}
+
+body.has-page-background .wp-site-blocks {
+	max-width: var(--gd-box);
+	min-height: 100vh;
+	margin-inline: auto;
+	background: var(--gd-base);
+}
+
+body.has-page-background::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: var(--gd-page-background) center / cover no-repeat;
+}
+
 /*--------------------------------------------------------------
 # Layout: sections and grids
 --------------------------------------------------------------*/
@@ -583,6 +606,93 @@ ul.taxonomy-filter-links li.is-active a {
 
 .account-link__item:hover .account-link__icon {
 	color: var(--gd-primary-dark);
+}
+
+/* The header template part's wrapper is exactly as tall as the header, which
+   would leave position: sticky nothing to stick within; dissolving it lets
+   the header stick to the page while the service bar above scrolls away. */
+.wp-block-template-part:has(> .site-header) {
+	display: contents;
+}
+
+/* Service bar (Kapitel 7): Petrol = service. The newsletter's three
+   shortcuts plus the account link, above the header. */
+.service-bar {
+	background: var(--gd-deep);
+	color: #fff;
+	padding-inline: var(--gd-gutter);
+	font-family: var(--gd-ui);
+	font-size: 0.8125rem;
+}
+
+.service-bar__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	max-width: var(--gd-content);
+	min-height: 36px;
+	margin-inline: auto;
+}
+
+/* The flow layout's block gap would push the account link 24px down. */
+.service-bar .service-bar__inner > * {
+	margin-block: 0;
+}
+
+.service-links__list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px 24px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.service-bar a,
+.service-bar .account-link__item,
+.service-bar .account-link__icon {
+	color: #fff;
+}
+
+.service-bar .account-link__item {
+	font-size: 0.8125rem;
+}
+
+.service-bar a:hover,
+.service-bar .account-link__item:hover,
+.service-bar .account-link__item:hover .account-link__icon {
+	color: #fff;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+/* With the bar showing, the header itself no longer needs the account link. */
+@media (min-width: 600px) {
+	.has-service-bar .site-header__end .account-link {
+		display: none;
+	}
+}
+
+@media (max-width: 599px) {
+	.service-bar {
+		display: none;
+	}
+}
+
+/* On phones the shortcuts close the opened main menu instead. */
+.main-navigation .service-nav-item {
+	display: none;
+}
+
+.main-navigation .is-menu-open .service-nav-item {
+	display: block;
+}
+
+.main-navigation .is-menu-open .service-nav-item:first-of-type {
+	margin-top: 12px;
+	padding-top: 16px;
+	border-top: 1px solid var(--gd-line);
 }
 
 /*--------------------------------------------------------------
@@ -1153,37 +1263,324 @@ a.story-card__category {
 }
 
 /*--------------------------------------------------------------
-# Promo band
+# Rubric formats (Kapitel 3)
 --------------------------------------------------------------*/
-.promo {
+/* 3a News: one lead story over two tracks, the rest as a headline list with
+   small thumbnails in the third. */
+.lead-list {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--gd-gap);
+	align-items: start;
+}
+
+.lead-list > .story-card {
+	grid-column: span 2;
+}
+
+.story-card--lead .story-card__media {
+	aspect-ratio: 16 / 10;
+}
+
+.story-card--lead .story-card__title {
+	font-size: var(--gd-fs-h2);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+
+.entry-list--thumbs .entry-list__item {
+	display: flex;
+	gap: 14px;
+	min-height: 0;
+	padding: 14px 0;
+}
+
+.entry-list__thumb {
+	flex: none;
+	width: 64px;
+	height: 64px;
+	overflow: hidden;
+	background: var(--gd-sand-deep);
+	line-height: 0;
+}
+
+.entry-list__thumb img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+/* No picture: a quiet initial instead of an empty square. */
+.entry-list__initial {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	font-family: var(--gd-heading);
+	font-size: 1.75rem;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--gd-primary-dark);
+}
+
+.entry-list__text {
+	min-width: 0;
+}
+
+/* 3c Jobs and Marktplatz: scanned, not read — a table like the job pages in
+   print. In a narrow column the rows turn into blocks. */
+.section-picks:has(> .listing-table) {
+	container-type: inline-size;
+}
+
+.listing-table {
+	width: 100%;
+	margin: 0;
+	border-collapse: collapse;
+	font-family: var(--gd-ui);
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+
+.listing-table thead th {
+	padding: 0 16px 8px 0;
+	border-bottom: 1px solid var(--gd-ink);
+	color: var(--gd-meta);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.listing-table tbody th,
+.listing-table tbody td {
+	padding: 14px 16px 14px 0;
+	border-bottom: 1px solid var(--gd-line);
+	text-align: left;
+	vertical-align: baseline;
+}
+
+.listing-table tbody td {
+	color: var(--gd-muted);
+	white-space: nowrap;
+}
+
+.listing-table tbody td.is-empty {
+	color: var(--gd-meta);
+}
+
+.listing-table th:last-child,
+.listing-table td:last-child {
+	padding-right: 0;
+}
+
+.listing-table__title {
+	font-weight: 400;
+}
+
+.listing-table__title a {
+	font-family: var(--gd-heading);
+	font-size: var(--gd-fs-list);
+	font-weight: 700;
+	line-height: 1.25;
+	color: var(--gd-ink);
+	hyphens: manual;
+}
+
+.listing-table__title a:hover {
+	color: var(--gd-primary-dark);
+	text-decoration: none;
+}
+
+.listing-actions {
+	display: flex;
 	flex-wrap: wrap;
-	gap: clamp(20px, 3vw, 40px);
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px 24px;
+	margin: 20px 0 0;
+}
+
+.section-picks .listing-actions .list-more {
+	margin: 0;
+}
+
+@container (max-width: 520px) {
+	.listing-table thead {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+	}
+
+	.listing-table,
+	.listing-table tbody {
+		display: block;
+	}
+
+	.listing-table tbody {
+		border-top: 1px solid var(--gd-line);
+	}
+
+	.listing-table tbody tr {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 4px 14px;
+		padding: 14px 0;
+		border-bottom: 1px solid var(--gd-line);
+	}
+
+	.listing-table tbody th,
+	.listing-table tbody td {
+		padding: 0;
+		border: 0;
+		font-size: 0.8125rem;
+	}
+
+	.listing-table tbody th {
+		flex-basis: 100%;
+	}
+
+	.listing-table tbody td.is-empty {
+		display: none;
+	}
+}
+
+/* 3d Kalender: the date is what a reader looks for, so it is set largest. */
+.event-item__date {
+	margin: 0 0 4px;
+	font-family: var(--gd-heading);
+	font-size: var(--gd-fs-card);
+	font-weight: 700;
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	color: var(--gd-ink);
+}
+
+.event-item.is-running .event-item__date {
+	color: var(--gd-primary-dark);
+}
+
+.event-item .entry-list__title {
+	font-family: var(--gd-ui);
+	font-size: 1rem;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+.event-item__status {
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	margin: 8px 0 0;
+	font-family: var(--gd-ui);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	color: var(--gd-primary-dark);
+}
+
+.event-item__status::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--gd-primary);
+}
+
+/* 3e Personen: portraits stand upright. */
+.story-card--portrait .story-card__media {
+	aspect-ratio: 3 / 4;
+}
+
+/* A post in the other language than the page, e.g. a French portrait on the
+   German home page. */
+.lang-hint {
+	display: inline-block;
+	margin-right: 4px;
+	padding: 1px 5px;
+	border: 1px solid currentColor;
+	border-radius: var(--gd-radius-input);
+	font-family: var(--gd-ui);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	line-height: 1.3;
+	color: var(--gd-meta);
+	vertical-align: 0.25em;
+}
+
+/*--------------------------------------------------------------
+# Promo band
+--------------------------------------------------------------*/
+/* The magazine lies on the band: a large print in the first track that breaks
+   out over the top edge, the offer across the other two. */
+.promo {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--gd-gap);
+	align-items: center;
+}
+
+.issue-cover {
+	position: relative;
+	z-index: 1;
+	display: block;
+	justify-self: center;
+	width: clamp(170px, 19vw, 240px);
+	aspect-ratio: 210 / 280;
+	margin-block-start: calc(-1 * var(--gd-section-y-tight) - 28px);
+	background: #333;
+	overflow: hidden;
+	transform: rotate(-3deg);
+	box-shadow: 0 10px 18px -8px rgba(0, 0, 0, 0.6);
+	transition: transform 0.2s ease;
+}
+
+.issue-cover:hover {
+	transform: rotate(0deg);
+}
+
+.issue-cover__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .promo__text {
+	grid-column: span 2;
 	min-width: 0;
-	flex: 1 1 420px;
 }
 
 .promo__title {
-	font-size: clamp(1rem, 1.8vw, 1.3rem);
-	line-height: 1.25;
+	font-size: var(--gd-fs-h1);
+	line-height: 1.06;
+	letter-spacing: -0.015em;
 	color: #fff;
 	margin: 0;
 }
 
-.promo__lead {
-	font-size: 0.875rem;
-	color: rgba(255, 255, 255, 0.68);
-	margin: 8px 0 0;
+.promo__benefits {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px var(--gd-gap);
+	margin: clamp(20px, 2.4vw, 28px) 0;
+	padding: 0;
+	list-style: none;
+}
+
+.promo__benefits li {
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.24);
+	font-size: 0.9375rem;
+	line-height: 1.45;
+	color: rgba(255, 255, 255, 0.86);
 }
 
 .promo__cta.wp-block-buttons {
 	margin: 0;
-	flex: none;
 }
 
 .section--invert a {
@@ -1218,6 +1615,21 @@ a.story-card__category {
 	margin-inline: auto;
 }
 
+/* Capped on the slot, not the image, so the label lines up with the ad. */
+.ad-slot.billboard {
+	max-width: 970px;
+	margin-inline: auto;
+}
+
+.ad-slot.is-skyscraper-fallback {
+	max-width: 300px;
+}
+
+/* An empty placement leaves no gap between the sections around it. */
+.section--ad:not(:has(.ad-slot)) {
+	display: none;
+}
+
 .ad-slot.ad-news img.ad,
 .ad-slot.ad-stellen img.ad {
 	width: auto;
@@ -1225,12 +1637,26 @@ a.story-card__category {
 	margin-inline: auto;
 }
 
+/* Starts below the service bar and the full header, and scrolls away with the page. */
 .ad-slot.skyscraper {
-	position: fixed;
-	top: 120px;
+	position: absolute;
+	top: 200px;
 	right: 20px;
 	width: 160px;
 	z-index: 5;
+}
+
+.admin-bar .ad-slot.skyscraper {
+	top: 232px;
+}
+
+/* Follows the page below the header, whose lower edge header-shrink.js tracks.
+   On short screens the ad wouldn't fit, so it stays in place to stay readable. */
+@media (min-height: 760px) {
+	.ad-slot.skyscraper:not(.is-static) {
+		position: fixed;
+		top: calc(var(--gd-header-bottom, 180px) + 20px);
+	}
 }
 
 /*--------------------------------------------------------------
@@ -1357,6 +1783,10 @@ a.story-card__category {
 	z-index: 60;
 	height: 3px;
 	pointer-events: none;
+}
+
+body.has-page-background .reading-progress {
+	inset-inline: max(0px, calc((100% - var(--gd-box)) / 2));
 }
 
 .reading-progress__bar {
@@ -1675,10 +2105,15 @@ p.is-style-goldor-note,
 	background: var(--gd-primary);
 }
 
+.author-box__avatar {
+	flex: none;
+}
+
 .author-box__avatar img {
 	display: block;
 	width: 64px;
 	height: 64px;
+	object-fit: cover;
 	border-radius: var(--gd-radius-pill);
 }
 
@@ -2960,9 +3395,27 @@ a.no-link {
 	}
 }
 
+/* From there on the skyscraper shows itself, so its stand-in steps back. */
+@media (min-width: 1561px) {
+	.section--ad:has(.is-skyscraper-fallback) {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.ad-slot.billboard:has(source) {
+		max-width: 300px;
+	}
+}
+
 @media (max-width: 980px) {
-	.hero-grid {
+	.hero-grid,
+	.lead-list {
 		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.lead-list > .story-card {
+		grid-column: auto;
 	}
 
 	.hero-grid > :first-child {
@@ -3080,7 +3533,19 @@ a.no-link {
 	}
 
 	.promo {
-		align-items: flex-start;
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.promo__text {
+		grid-column: auto;
+	}
+
+	.promo__benefits {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.issue-cover {
+		display: none;
 	}
 
 	.grid-container {

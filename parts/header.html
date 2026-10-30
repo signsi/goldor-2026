@@ -1,22 +1,34 @@
-<!-- wp:group {"tagName":"header","anchor":"masthead","className":"site-header","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Service-Leiste"},"className":"service-bar","layout":{"type":"default"}} -->
+<div class="wp-block-group service-bar">
+	<!-- wp:group {"metadata":{"name":"Service-Leiste: Inhalt"},"className":"service-bar__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group service-bar__inner">
+		<!-- wp:goldor/service-links /-->
+
+		<!-- wp:goldor/account-link /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Header"},"tagName":"header","anchor":"masthead","className":"site-header","layout":{"type":"default"}} -->
 <header id="masthead" class="wp-block-group site-header">
 
-	<!-- wp:group {"className":"site-header__bar","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Header: Zeile"},"className":"site-header__bar","layout":{"type":"default"}} -->
 	<div class="wp-block-group site-header__bar">
 
-		<!-- wp:group {"className":"site-header__start","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Header: Suche"},"className":"site-header__start","layout":{"type":"default"}} -->
 		<div class="wp-block-group site-header__start">
 			<!-- wp:search {"label":"Suche","showLabel":false,"placeholder":"Suche","buttonText":"Suche","buttonUseIcon":true,"buttonPosition":"button-inside","className":"site-search"} /-->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"className":"site-header__brand","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Header: Logo"},"className":"site-header__brand","layout":{"type":"default"}} -->
 		<div class="wp-block-group site-header__brand">
 			<!-- wp:site-logo {"width":170,"shouldSyncIcon":false,"className":"site-logo--magenta"} /-->
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"className":"site-header__end","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Header: Abo und Konto"},"className":"site-header__end","layout":{"type":"default"}} -->
 		<div class="wp-block-group site-header__end">
 			<!-- wp:buttons {"className":"site-header__cta","layout":{"type":"flex"}} -->
 			<div class="wp-block-buttons site-header__cta">
@@ -33,7 +45,7 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"className":"site-header__nav","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Header: Navigation"},"className":"site-header__nav","layout":{"type":"default"}} -->
 	<div class="wp-block-group site-header__nav">
 		<!-- wp:navigation {"className":"main-navigation","overlayMenu":"mobile","layout":{"type":"flex","orientation":"horizontal","justifyContent":"center"}} /-->
 	</div>

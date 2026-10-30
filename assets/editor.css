@@ -1,0 +1,19 @@
+/*
+ * Corrections for the block editor canvas, loaded after style.css. WordPress
+ * scopes both files to the canvas, so nothing here reaches the live site.
+ * What sticks, floats or is fixed on the page would cover the blocks here.
+ */
+.site-header {
+	position: static;
+}
+
+.reading-progress {
+	position: static;
+}
+
+.ad-slot.skyscraper,
+.ad-slot.skyscraper:not(.is-static) {
+	position: static;
+	display: block;
+	margin: 24px auto;
+}

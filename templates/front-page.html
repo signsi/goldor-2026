@@ -1,14 +1,14 @@
 <!-- wp:template-part {"slug":"header","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"align":"full","className":"section section--hero","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: Top-Story und News"},"align":"full","className":"section section--hero","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section section--hero">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
-		<!-- wp:group {"className":"hero-grid","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Raster: Aufmacher und Spalte"},"className":"hero-grid","layout":{"type":"default"}} -->
 		<div class="wp-block-group hero-grid">
 			<!-- wp:goldor/top-story /-->
 
-			<!-- wp:group {"className":"hero-aside","layout":{"type":"default"}} -->
+			<!-- wp:group {"metadata":{"name":"Spalte: News"},"className":"hero-aside","layout":{"type":"default"}} -->
 			<div class="wp-block-group hero-aside">
 				<!-- wp:goldor/section-picks {"postType":"post","postsPerPage":1,"excludeTopstory":true,"variant":"compact"} /-->
 				<!-- wp:goldor/section-picks {"postType":"post","postsPerPage":2,"excludeTopstory":true,"layout":"list","linkLabel":"Alle News","archiveLink":"/news/"} /-->
@@ -21,9 +21,9 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"section","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: News"},"align":"full","className":"section","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
 		<!-- wp:goldor/section-picks {"heading":"News aus der Schmuck- und Uhrenbranche","linkLabel":"Alle News","postType":"post","postsPerPage":3,"excludeTopstory":true,"archiveLink":"/news/"} /-->
 	</div>
@@ -31,11 +31,32 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"section","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull section">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: Billboard"},"align":"full","className":"section section--band section--ad","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--band section--ad">
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
-		<!-- wp:group {"className":"section-head section-head--section","layout":{"type":"default"}} -->
+		<!-- wp:goldor/ad-slot {"type":"Billboard"} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- Variante 3a (Gestaltungsvorschläge): Aufmacher und Liste, zum Vergleich mit der Sektion darüber. Ersetzt später diese Sektion und die Hero-Sidebar. -->
+<!-- wp:group {"metadata":{"name":"Band: News als Aufmacher (Variante)"},"align":"full","className":"section section--variant","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--variant">
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/section-picks {"heading":"News","linkLabel":"Alle News","postType":"post","postsPerPage":6,"excludeTopstory":true,"ignoreRendered":true,"layout":"lead-list","archiveLink":"/news/"} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Band: Aus dem Fachmagazin"},"align":"full","className":"section","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section">
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:group {"metadata":{"name":"Abschnittstitel"},"className":"section-head section-head--section","layout":{"type":"default"}} -->
 		<div class="wp-block-group section-head section-head--section">
 			<!-- wp:heading {"level":2,"className":"section-head__title"} -->
 			<h2 class="wp-block-heading section-head__title">Aus dem Fachmagazin</h2>
@@ -56,11 +77,11 @@
 
 <!-- wp:template-part {"slug":"newsletter-band","theme":"goldor-2026"} /-->
 
-<!-- wp:group {"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: Stellen- und Kleinanzeigen"},"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section section--soft">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
-		<!-- wp:group {"className":"section-head section-head--section","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Abschnittstitel"},"className":"section-head section-head--section","layout":{"type":"default"}} -->
 		<div class="wp-block-group section-head section-head--section">
 			<!-- wp:heading {"level":2,"className":"section-head__title"} -->
 			<h2 class="wp-block-heading section-head__title">Stellen- und Kleinanzeigen</h2>
@@ -68,13 +89,13 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"className":"column-grid column-grid--listings","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Spalten: Jobs, Werbung, Marktplatz"},"className":"column-grid column-grid--listings","layout":{"type":"default"}} -->
 		<div class="wp-block-group column-grid column-grid--listings">
-			<!-- wp:goldor/section-picks {"heading":"Jobs","headingStyle":"column","linkLabel":"Alle offenen Stellen","postType":"job","layout":"list","taxonomy":"job-kategorie","term":"stellenangebot","postsPerPage":3} /-->
+			<!-- wp:goldor/section-picks {"heading":"Jobs","headingStyle":"column","linkLabel":"Alle offenen Stellen","postType":"job","layout":"table","taxonomy":"job-kategorie","term":"stellenangebot","postsPerPage":3,"actionLabel":"Inserat aufgeben","actionLink":"/jobs/stellenangebot-gesuch-aufgeben/"} /-->
 
 			<!-- wp:goldor/ad-slot {"type":"MediumRectangle News","showLabel":true} /-->
 
-			<!-- wp:goldor/section-picks {"heading":"Marktplatz","headingStyle":"column","linkLabel":"Zum Marktplatz","postType":"kleinanzeige","layout":"list","postsPerPage":3} /-->
+			<!-- wp:goldor/section-picks {"heading":"Marktplatz","headingStyle":"column","linkLabel":"Zum Marktplatz","postType":"kleinanzeige","layout":"table","postsPerPage":3,"actionLabel":"Anzeige aufgeben","actionLink":"/marktplatz/anzeige-aufgeben/"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
@@ -82,9 +103,9 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"section section--band","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: Leaderboard"},"align":"full","className":"section section--band","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section section--band">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
 		<!-- wp:goldor/ad-slot {"type":"Leaderboard","showLabel":true} /-->
 	</div>
@@ -92,11 +113,11 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
+<!-- wp:group {"metadata":{"name":"Band: Personen und Messen"},"align":"full","className":"section section--soft","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section section--soft">
-	<!-- wp:group {"className":"section__inner","layout":{"type":"default"}} -->
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
-		<!-- wp:group {"className":"section-head section-head--section","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Abschnittstitel"},"className":"section-head section-head--section","layout":{"type":"default"}} -->
 		<div class="wp-block-group section-head section-head--section">
 			<!-- wp:heading {"level":2,"className":"section-head__title"} -->
 			<h2 class="wp-block-heading section-head__title">Personen &amp; Messen</h2>
@@ -108,7 +129,7 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"className":"column-grid","layout":{"type":"default"}} -->
+		<!-- wp:group {"metadata":{"name":"Spalten: Personen und Kalender"},"className":"column-grid","layout":{"type":"default"}} -->
 		<div class="wp-block-group column-grid">
 			<!-- wp:goldor/branche-spotlight /-->
 			<!-- wp:goldor/kalender-preview {"postsPerPage":3,"heading":"Kalender","linkLabel":"Alle Termine anzeigen"} /-->
