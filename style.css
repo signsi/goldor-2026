@@ -1514,19 +1514,23 @@ a.story-card__category {
 /*--------------------------------------------------------------
 # Promo band
 --------------------------------------------------------------*/
+/* The magazine lies on the band: a large print in the first track that breaks
+   out over the top edge, the offer across the other two. */
 .promo {
-	display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: var(--gd-gap);
 	align-items: center;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	gap: clamp(20px, 3vw, 40px);
 }
 
 .issue-cover {
-	flex: none;
+	position: relative;
+	z-index: 1;
 	display: block;
-	width: 92px;
+	justify-self: center;
+	width: clamp(170px, 19vw, 240px);
 	aspect-ratio: 210 / 280;
+	margin-block-start: calc(-1 * var(--gd-section-y-tight) - 28px);
 	background: #333;
 	overflow: hidden;
 	transform: rotate(-3deg);
@@ -1546,26 +1550,37 @@ a.story-card__category {
 }
 
 .promo__text {
+	grid-column: span 2;
 	min-width: 0;
-	flex: 1 1 420px;
 }
 
 .promo__title {
-	font-size: clamp(1.25rem, 2.2vw, 1.5rem);
-	line-height: 1.15;
+	font-size: var(--gd-fs-h1);
+	line-height: 1.06;
+	letter-spacing: -0.015em;
 	color: #fff;
 	margin: 0;
 }
 
-.promo__lead {
+.promo__benefits {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px var(--gd-gap);
+	margin: clamp(20px, 2.4vw, 28px) 0;
+	padding: 0;
+	list-style: none;
+}
+
+.promo__benefits li {
+	padding-top: 12px;
+	border-top: 1px solid rgba(255, 255, 255, 0.24);
 	font-size: 0.9375rem;
-	color: rgba(255, 255, 255, 0.78);
-	margin: 6px 0 0;
+	line-height: 1.45;
+	color: rgba(255, 255, 255, 0.86);
 }
 
 .promo__cta.wp-block-buttons {
 	margin: 0;
-	flex: none;
 }
 
 .section--invert a {
@@ -3518,7 +3533,15 @@ a.no-link {
 	}
 
 	.promo {
-		align-items: flex-start;
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.promo__text {
+		grid-column: auto;
+	}
+
+	.promo__benefits {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.issue-cover {
