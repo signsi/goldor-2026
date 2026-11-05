@@ -330,6 +330,32 @@ function goldor_block_get_active_ad( $type = 'Skyscraper' ) {
 }
 
 /**
+ * The News/Artikel post flagged `topstory`, falling back to the most recent
+ * entry so the hero slot is never empty.
+ */
+function goldor_top_story_id() {
+	$base_args = array(
+		'post_type'           => array( 'post', 'artikel' ),
+		'posts_per_page'      => 1,
+		'fields'              => 'ids',
+		'no_found_rows'       => true,
+		'ignore_sticky_posts' => true,
+	);
+
+	$query = new WP_Query(
+		$base_args + array(
+			'meta_query' => array( array( 'key' => 'topstory', 'value' => '1', 'compare' => '=' ) ),
+		)
+	);
+
+	if ( ! $query->have_posts() ) {
+		$query = new WP_Query( $base_args );
+	}
+
+	return $query->posts ? (int) $query->posts[0] : 0;
+}
+
+/**
  * Legacy ad/link meta stores bare domains (e.g. "example.com"); make sure we
  * always link to a real absolute URL.
  */
@@ -437,7 +463,15 @@ function goldor_is_cutout_image( $attachment_id ) {
  */
 function goldor_card_media_classes( $post_id ) {
 	$thumb_id = get_post_thumbnail_id( $post_id );
-	return 'story-card__media' . ( $thumb_id && goldor_is_cutout_image( $thumb_id ) ? ' is-cutout' : '' );
+	$classes  = 'story-card__media';
+	if ( $thumb_id && goldor_is_cutout_image( $thumb_id ) ) {
+		$classes .= ' is-cutout';
+	}
+	// An issue's image is its cover, so its frame keeps the cover's format.
+	if ( 'magazin' === get_post_type( $post_id ) ) {
+		$classes .= ' is-cover';
+	}
+	return $classes;
 }
 
 /**
@@ -671,7 +705,7 @@ function goldor_post_type_section_label( $post_type ) {
 		'post'         => __( 'News', 'goldor' ),
 		'artikel'      => __( 'Magazin', 'goldor' ),
 		'print'        => __( 'Print', 'goldor' ),
-		'magazin'      => __( 'Ausgaben', 'goldor' ),
+		'magazin'      => __( 'Alle Ausgaben', 'goldor' ),
 		'vsgu-news'    => __( 'Personen', 'goldor' ),
 		'kalender'     => __( 'Kalender', 'goldor' ),
 		'job'          => __( 'Jobs', 'goldor' ),

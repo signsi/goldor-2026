@@ -22,17 +22,19 @@ function goldor_ad_formats() {
 		'Skyscraper'                     => array( 'class' => 'skyscraper', 'width' => 160, 'height' => 600 ),
 		'Leaderboard'                    => array( 'class' => 'leaderboard', 'width' => 728, 'height' => 90 ),
 		'Billboard'                      => array( 'class' => 'billboard', 'width' => 970, 'height' => 250 ),
+		'Halfpage'                       => array( 'class' => 'halfpage', 'width' => 300, 'height' => 600 ),
 		'MediumRectangle News'           => array( 'class' => 'ad-news', 'width' => 300, 'height' => 250 ),
 		'MediumRectangle Stellengesuche' => array( 'class' => 'ad-stellen', 'width' => 300, 'height' => 250 ),
 	);
 }
 
 /**
- * The Typ field itself lives in the database; the newer placement ships with
+ * The Typ field itself lives in the database; the newer placements ship with
  * the theme instead.
  */
 function goldor_ad_type_choices( $field ) {
 	$field['choices']['Billboard'] = 'Billboard (970 x 250/JPEG/60KB)';
+	$field['choices']['Halfpage']  = 'Halfpage (300 x 600/JPEG/60KB)';
 	return $field;
 }
 add_filter( 'acf/load_field/key=field_58627ee4c932c', 'goldor_ad_type_choices' );

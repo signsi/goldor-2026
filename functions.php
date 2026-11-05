@@ -60,6 +60,7 @@ require get_template_directory() . '/inc/werbung.php';
 require get_template_directory() . '/inc/autoren.php';
 require get_template_directory() . '/inc/hintergrund.php';
 require get_template_directory() . '/inc/stil-sperre.php';
+require get_template_directory() . '/inc/startseite.php';
 
 /*
  * Assets
@@ -79,6 +80,16 @@ function goldor_scripts() {
 		);
 	}
 
+	if ( is_singular() && goldor_has_lightbox_images( get_queried_object_id() ) ) {
+		wp_enqueue_script(
+			'goldor-lightbox',
+			get_template_directory_uri() . '/assets/lightbox.js',
+			array(),
+			filemtime( get_template_directory() . '/assets/lightbox.js' ),
+			true
+		);
+	}
+
 	wp_enqueue_script(
 		'goldor-header-shrink',
 		get_template_directory_uri() . '/assets/header-shrink.js',
@@ -88,6 +99,52 @@ function goldor_scripts() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'goldor_scripts' );
+
+/**
+ * Whether the entry has images for assets/lightbox.js: a gallery (shortcode or
+ * block), or an image linked to its file.
+ */
+function goldor_has_lightbox_images( $post_id ) {
+	$content = (string) get_post_field( 'post_content', $post_id );
+	return has_shortcode( $content, 'gallery' )
+		|| has_block( 'core/gallery', $content )
+		|| preg_match( '/<a\s[^>]*href=["\'][^"\']+\.(?:jpe?g|png|gif|webp|avif)["\'][^>]*>\s*<img/i', $content );
+}
+
+/*
+ * Galleries open in the lightbox, so their thumbnails link to the image, not
+ * to an attachment page. "large" rather than the original keeps a camera file
+ * of several megabytes off the reader's phone.
+ */
+function goldor_gallery_link_to_file( $out ) {
+	$out['link'] = 'file';
+	return $out;
+}
+add_filter( 'shortcode_atts_gallery', 'goldor_gallery_link_to_file' );
+
+function goldor_gallery_link_large( $html, $post, $size, $permalink ) {
+	if ( $permalink ) {
+		return $html;
+	}
+
+	$large = wp_get_attachment_image_url( is_object( $post ) ? $post->ID : (int) $post, 'large' );
+	return $large ? preg_replace( '/href=([\'"])[^\'"]*\1/', 'href=$1' . esc_url( $large ) . '$1', $html, 1 ) : $html;
+}
+add_filter( 'wp_get_attachment_link', 'goldor_gallery_link_large', 10, 4 );
+
+/*
+ * YouTube videos play from youtube-nocookie.com: YouTube sets no cookies until
+ * the reader starts the video, so an embed needs no cookie consent up front.
+ * The oEmbed cache keeps the original URL, so this runs on every output.
+ */
+function goldor_youtube_nocookie( $html ) {
+	return str_replace(
+		array( 'https://www.youtube.com/embed/', 'https://youtube.com/embed/' ),
+		'https://www.youtube-nocookie.com/embed/',
+		$html
+	);
+}
+add_filter( 'embed_oembed_html', 'goldor_youtube_nocookie' );
 
 /**
  * The two faces the design is built on, as in print and the newsletter: Arvo
@@ -299,6 +356,15 @@ function goldor_register_block_styles() {
 			)
 		);
 	}
+
+	// One image at a time, swiped or paged, instead of the grid.
+	register_block_style(
+		'core/gallery',
+		array(
+			'name'  => 'slider',
+			'label' => __( 'Slider', 'goldor' ),
+		)
+	);
 
 	// The pill is for the one main action per view; everything else is square.
 	register_block_style(

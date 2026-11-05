@@ -123,10 +123,10 @@ $section_link_label = $link_label ? $link_label : __( 'Alle Einträge', 'goldor'
 						<div class="entry-list__text">
 							<a class="entry-list__title" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 							<p class="entry-list__meta list-item-date">
-								<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'd.m.Y' ) ); ?></time>
 								<?php if ( $author ) : ?>
 									<span class="entry-list__source"><?php echo esc_html( $author ); ?></span>
 								<?php endif; ?>
+								<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'd.m.Y' ) ); ?></time>
 							</p>
 						</div>
 					</li>
@@ -190,10 +190,10 @@ $section_link_label = $link_label ? $link_label : __( 'Alle Einträge', 'goldor'
 				<li class="entry-list__item list-item">
 					<a class="entry-list__title" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
 					<p class="entry-list__meta list-item-date">
-						<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'd.m.y' ) ); ?></time>
 						<?php if ( $author ) : ?>
 							<span class="entry-list__source"><?php echo esc_html( $author ); ?></span>
 						<?php endif; ?>
+						<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'd.m.y' ) ); ?></time>
 					</p>
 				</li>
 				<?php

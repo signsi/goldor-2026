@@ -10,8 +10,7 @@
 
 			<!-- wp:group {"metadata":{"name":"Spalte: News"},"className":"hero-aside","layout":{"type":"default"}} -->
 			<div class="wp-block-group hero-aside">
-				<!-- wp:goldor/section-picks {"postType":"post","postsPerPage":1,"excludeTopstory":true,"variant":"compact"} /-->
-				<!-- wp:goldor/section-picks {"postType":"post","postsPerPage":2,"excludeTopstory":true,"layout":"list","linkLabel":"Alle News","archiveLink":"/news/"} /-->
+				<!-- wp:goldor/hero-column /-->
 			</div>
 			<!-- /wp:group -->
 		</div>
@@ -41,17 +40,6 @@
 </div>
 <!-- /wp:group -->
 
-<!-- Variante 3a (Gestaltungsvorschläge): Aufmacher und Liste, zum Vergleich mit der Sektion darüber. Ersetzt später diese Sektion und die Hero-Sidebar. -->
-<!-- wp:group {"metadata":{"name":"Band: News als Aufmacher (Variante)"},"align":"full","className":"section section--variant","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull section section--variant">
-	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
-	<div class="wp-block-group section__inner">
-		<!-- wp:goldor/section-picks {"heading":"News","linkLabel":"Alle News","postType":"post","postsPerPage":6,"excludeTopstory":true,"ignoreRendered":true,"layout":"lead-list","archiveLink":"/news/"} /-->
-	</div>
-	<!-- /wp:group -->
-</div>
-<!-- /wp:group -->
-
 <!-- wp:group {"metadata":{"name":"Band: Aus dem Fachmagazin"},"align":"full","className":"section","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull section">
 	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
@@ -69,7 +57,7 @@
 		<!-- /wp:group -->
 
 		<!-- wp:goldor/taxonomy-filter-links {"postType":"artikel","limit":3,"allLabel":"Alle","className":"filter-pills"} /-->
-		<!-- wp:goldor/section-picks {"postType":"artikel","postsPerPage":3} /-->
+		<!-- wp:goldor/section-picks {"postType":"artikel","postsPerPage":6,"layout":"lead-list"} /-->
 	</div>
 	<!-- /wp:group -->
 </div>
@@ -135,6 +123,16 @@
 			<!-- wp:goldor/kalender-preview {"postsPerPage":3,"heading":"Kalender","linkLabel":"Alle Termine anzeigen"} /-->
 		</div>
 		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"metadata":{"name":"Band: Von der Redaktion empfohlen"},"align":"full","className":"section section--editor-picks","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--editor-picks">
+	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
+	<div class="wp-block-group section__inner">
+		<!-- wp:goldor/editor-picks /-->
 	</div>
 	<!-- /wp:group -->
 </div>

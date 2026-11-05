@@ -5,6 +5,7 @@
 		{ label: 'Skyscraper (160×600)', value: 'Skyscraper' },
 		{ label: 'Leaderboard (728×90)', value: 'Leaderboard' },
 		{ label: 'Billboard (970×250)', value: 'Billboard' },
+		{ label: 'Halfpage (300×600)', value: 'Halfpage' },
 		{ label: 'Medium Rectangle – News (300×250)', value: 'MediumRectangle News' },
 		{ label: 'Medium Rectangle – Stellengesuche (300×250)', value: 'MediumRectangle Stellengesuche' },
 	];

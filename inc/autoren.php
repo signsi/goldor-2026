@@ -1,11 +1,27 @@
 <?php
 /**
- * Author photos: an image from the media library on the user profile. It
- * replaces Gravatar everywhere get_avatar() is used; without one, Gravatar
- * stays the fallback.
+ * The author box fields on the user profile. The photo is an image from the
+ * media library; it replaces Gravatar everywhere get_avatar() is used, and
+ * without one Gravatar stays the fallback. The heading reads "Über den Autor"
+ * or "Über die Autorin".
  *
  * @package goldor
  */
+
+// The author box heading, chosen per person: German genders it, and
+// WordPress has no field to derive it from.
+const GOLDOR_AUTHOR_LABELS = array(
+	'autor'   => 'Über den Autor',
+	'autorin' => 'Über die Autorin',
+);
+
+/**
+ * The author box heading for a user, or '' while none is chosen.
+ */
+function goldor_author_label( $user_id ) {
+	$choice = get_user_meta( $user_id, 'autor_anrede', true );
+	return isset( GOLDOR_AUTHOR_LABELS[ $choice ] ) ? GOLDOR_AUTHOR_LABELS[ $choice ] : '';
+}
 
 function goldor_author_photo_field() {
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
@@ -15,7 +31,7 @@ function goldor_author_photo_field() {
 	acf_add_local_field_group(
 		array(
 			'key'      => 'group_goldor_autor_foto',
-			'title'    => 'Autorenbild',
+			'title'    => 'Autorenbox',
 			'fields'   => array(
 				array(
 					'key'           => 'field_goldor_autor_foto',
@@ -25,6 +41,15 @@ function goldor_author_photo_field() {
 					'instructions'  => 'Quadratisch, mindestens 400×400 px. Erscheint in der Autorenbox, in der Übersicht und auf der Profilseite.',
 					'return_format' => 'id',
 					'preview_size'  => 'thumbnail',
+				),
+				array(
+					'key'           => 'field_goldor_autor_anrede',
+					'label'         => 'Überschrift der Autorenbox',
+					'name'          => 'autor_anrede',
+					'type'          => 'button_group',
+					'instructions'  => 'Steht unter jedem Beitrag über dem Namen.',
+					'choices'       => GOLDOR_AUTHOR_LABELS,
+					'allow_null'    => 1,
 				),
 			),
 			'location' => array(
