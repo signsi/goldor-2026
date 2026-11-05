@@ -2,11 +2,13 @@
 
 Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Vergleich zum alten klassischen Theme (Basis „_s“, heute im Ordner `legacy/`) geändert hat: für die Redaktion, für den Anzeigenverkauf und für alle, die die Website betreuen.
 
-**Stand:** 30. Oktober 2026
+**Stand:** 5. November 2026
 
 **Legende**
-- ohne Markierung: bereits live auf `main`
-- **(neu, in Prüfung)**: auf dem Branch `feature/rubriken-service`, noch nicht auf `main`
+- ohne Markierung: von Gold'Or bereits gesehen
+- **(neu, in Prüfung)**: seit dem 5. November 2026 auf `main` (aus `feature/rubriken-service`), von Gold'Or noch abzunehmen
+
+Wie das Theme nach einem Import der Live-Datenbank eingerichtet wird, steht in **`EINRICHTUNG.md`**.
 
 ---
 
@@ -51,10 +53,15 @@ Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Ver
 
 - **Top-Story:** Der als „Top-Story“ markierte Beitrag, sonst der neueste. Das Bild lädt zuerst, damit die Seite schneller wirkt.
 - **Daneben:** eine News-Karte und eine kurze Liste „Alle News“.
-- **Abschnitte:** News, „Aus dem Fachmagazin“ mit Rubrik-Reitern, Abo-Band, Stellen- und Kleinanzeigen, Leaderboard, Personen und Messen.
+- **(neu, in Prüfung) Rechte Spalte selbst bestimmen:** Im Backend-Menü **Startseite** wählt die Redaktion ohne Hilfe, was neben der Top-Story steht.
+  - **Beiträge:** Pro Platz lässt sich eine News oder ein Fachartikel suchen und wählen. Leere Plätze zeigen automatisch die neuesten News.
+  - **Werbung:** Eine Halfpage-Anzeige ersetzt die drei Beiträge. Läuft keine, erscheinen wieder die Beiträge, es bleibt also nie eine Lücke.
+  - Die News-Sektion darunter überspringt gewählte Beiträge. Speichern reicht, die Änderung ist danach sofort sichtbar.
+- **Abschnitte:** News, „Aus dem Fachmagazin“ mit Rubrik-Reitern, Abo-Band, Stellen- und Kleinanzeigen, Leaderboard, Personen und Messen, „Von der Redaktion empfohlen“.
 - Leere Rubriken (kein Inserat gebucht) hinterlassen keine Lücke.
 - **(neu, in Prüfung)**
-  - **News als Aufmacher mit Liste:** Wird zum Vergleich zusätzlich zur bisherigen News-Reihe gezeigt und soll diese später ersetzen.
+  - **Fachmagazin als Aufmacher mit Liste:** Links ein grosser Artikel, rechts fünf weitere mit kleinem Bild. Der Probe-Abschnitt „News“ im selben Layout ist wieder entfernt.
+  - **Von der Redaktion empfohlen:** Ganz unten zeigt die Startseite drei Beiträge, die die Redaktion unter **Startseite** wählt, auch ältere. News und Fachartikel lassen sich suchen und per Ziehen ordnen. Ohne Auswahl erscheint der Bereich nicht.
   - **Jobs und Marktplatz als Tabelle:**
     - Jobs mit Stelle, Ort, Pensum und Datum; Marktplatz mit Anzeige, Art und Datum.
     - Ort und Pensum stammen aus neuen Feldern oder werden aus Titel und Text gelesen.
@@ -71,7 +78,12 @@ Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Ver
   - Auf dem Computer kopiert „Teilen“ den Link.
   - Vorher gab es feste Facebook- und Twitter-Links.
 - **Lesefortschritt:** schmaler Magenta-Balken oben. Er entfällt, wenn im Gerät „Bewegung reduzieren“ eingestellt ist.
-- **Autorenbox** am Artikelende mit Bild, Kurzbio und „Alle Beiträge von …“. Die Überschrift ist pro Person einstellbar.
+- **Autorenbox** am Artikelende mit Bild, Kurzbio und „Alle Beiträge von …“.
+  - **(neu, in Prüfung)** Überschrift „Über den Autor“ oder „Über die Autorin“, gewählt im Benutzerprofil. Ohne Wahl steht nur der Name.
+- **(neu, in Prüfung) Bildergalerien öffnen gross:** Ein Klick auf ein Galeriebild zeigt es in einer Lightbox. Blättern mit Pfeilen, Tastatur oder Wischen, schliessen mit Esc oder Klick daneben. Vorher führten die Bilder auf eine eigene Anhangseite.
+  - Gilt für alte Galerien und für den Block „Galerie“. Ein einzelnes Bild öffnet gross, wenn sein Link auf „Mediendatei“ steht.
+- **(neu, in Prüfung) Galerie als Slider:** Stil „Slider“ am Block „Galerie“: ein Bild nach dem anderen mit Bildunterschrift, Pfeile und Wischen.
+- **(neu, in Prüfung) Videos:** YouTube- und Vimeo-Videos füllen die Textbreite, auch die alten mit fester Breite. YouTube läuft über youtube-nocookie.com und setzt erst beim Abspielen Cookies.
 - **„Weitere Artikel“:**
   - Berücksichtigt News und Fachartikel und zeigt Vorschaubilder.
   - Lässt Beiträge aus, die schon auf der Seite stehen.
@@ -105,7 +117,7 @@ Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Ver
   - Neue Ausgabenseite: Kopf, Titelgeschichte mit Inhaltsverzeichnis, ein Band pro Rubrik (Focus zuerst).
   - Alle Titelgeschichten werden gezeigt, nicht nur eine.
   - E-Paper für eingeloggte Leser, Login-Button für Gäste. Vorher erschien bei Gästen nur eine Hinweis-Box.
-  - Neue Archivseite.
+  - Neue Archivseite, **(neu, in Prüfung)** heisst jetzt „Alle Ausgaben“. Die Cover stehen im Hochformat wie das Heft.
 - **Autorinnen und Autoren:**
   - Neue Übersichtsseite unter `/autorinnen/`: alle Personen mit veröffentlichten Beiträgen, mit Bild, Anzahl Beiträge und Kurzbio, nach Nachnamen sortiert.
   - Profilseite pro Person: Bild, Name und Kurzbio stehen oben, darunter alle News und Fachartikel mit Seitennummern. Ein Link führt zurück zur Übersicht.
@@ -128,11 +140,12 @@ Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Ver
   - Petrolfarbene Leiste über dem Header mit „Aktuelle Ausgabe“, „Stelleninserate“, „Inserat aufgeben“ und Anmelden.
   - Auf dem Handy stehen die drei Links am Ende des Menüs.
   - **Ein- und ausschaltbar** unter *Einstellungen → Lesen → Service-Leiste*. Ist sie aus, erscheint das Anmelden wieder im Header.
-- **Footer:** Logo, Social Media (Facebook, YouTube, Instagram), Über uns, Werbung, Links, Kontakt, Abonnieren, Datenschutz und Impressum.
+- **Footer:** Logo, Social Media (Instagram, Facebook, LinkedIn), Über uns, Werbung, Links, FAQ, Kontakt, Abonnieren, Datenschutz und Impressum.
+  - **(neu, in Prüfung)** Seite **FAQ** mit aufklappbaren Fragen zu Abo, Online-Zugang, Inseraten und Redaktion. Neue Fragen fügt die Redaktion mit dem Block „Details“ hinzu.
 
 ## 6. Werbung
 
-> Neu in dieser Version (in Prüfung). Gilt für alle Platzierungen: Skyscraper, Leaderboard, Billboard, Medium Rectangle News und Stellengesuche.
+> Neu in dieser Version (in Prüfung). Gilt für alle Platzierungen: Skyscraper, Leaderboard, Billboard, Halfpage, Medium Rectangle News und Stellengesuche.
 
 | Vorher | Jetzt |
 |---|---|
@@ -144,6 +157,7 @@ Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Ver
 | Der Skyscraper lief immer mit und wurde oben vom Header verdeckt | Pro Anzeige wählbar: Schalter **„Beim Scrollen mitlaufen“** (Box „Laufzeit und Darstellung“, nur beim Skyscraper). Ist er aus, bleibt die Anzeige oben auf der Seite stehen. Der Skyscraper sitzt immer ganz unter dem Header. Auf Detailseiten (Artikel, News, Kalender, Jobs usw.) erscheint er nicht, weil er dort das Bild verdecken würde. Auf niedrigen Bildschirmen läuft er nicht mit, damit er vollständig lesbar bleibt. |
 | Zwischen den News-Sektionen der Startseite gab es keinen Werbeplatz | Neue Platzierung **Billboard** (970×250 px) mit eigenem **Mobil-Bild** (300×250 px) für Handys |
 | Auf Handys und schmaleren Bildschirmen war der Skyscraper nicht zu sehen | Hat die laufende Skyscraper-Anzeige ein **Mobil-Bild**, erscheint es dort auf dem Billboard-Platz. Eine eigene Billboard-Buchung hat Vorrang. |
+| Neben der Top-Story gab es keinen Werbeplatz | Neue Platzierung **Halfpage** (300×600 px). Sie läuft dort, wenn die Redaktion unter **Startseite** auf „Werbung“ stellt. |
 | Keine Prüfung des Bildes | Am Bildfeld steht das richtige Format (z.B. 160×600 px, ideal doppelt so gross). Passt das Seitenverhältnis nicht, erscheint eine Warnung, auch in der Liste. |
 
 **So geht's für den Anzeigenverkauf:**
@@ -231,11 +245,18 @@ Diese Punkte gab es im alten Theme, sie fehlen im neuen noch oder sind unvollst�
 
 ## Beim Go-live beachten
 
-Diese Punkte kommen nicht mit dem Theme mit oder gelten nur für die Live-Site:
+Diese Punkte kommen nicht mit dem Theme mit oder gelten nur für die Live-Site. Die Schritt-für-Schritt-Anleitung mit Befehlen steht in `EINRICHTUNG.md`, die gesicherten lokalen Inhalte (FAQ, Autor:innen, Navigation, Autorenbilder) liegen in `docs/einrichtung/`.
 
 - **Menü:** Der Menüpunkt „Anleitung & Tarife“ war in der Datenbank kaputt gespeichert und wurde nur lokal repariert. Live bei Bedarf im Website-Editor korrigieren oder über WPorbit übertragen.
 - **LiteSpeed:** Live aktiv lassen, wegen des Seiten-Caches, aber „Lazy Load Images“ ausschalten. Sonst stehen Bilder zuerst als graue Flächen da. Das Theme lädt Bilder bereits verzögert über den Browser.
 - **Autorenbilder:** Sie liegen in der Datenbank und der Mediathek, nicht im Theme.
+- **Autorenbox:** Die Überschrift („Über den Autor“ / „Über die Autorin“) live in jedem Autorenprofil wählen. Den Autor „Publireportage“ live als Benutzer (Rolle Autor) anlegen.
+- **„Alle Ausgaben“:** Menüpunkt, Seite „Archiv“ und Yoast-Titel des Magazin-Archivs wurden nur lokal umbenannt. Live gleich ändern, auch die französische Navigation.
+- **Startseite:** Die Auswahl für die rechte Spalte und „Von der Redaktion empfohlen“ liegt in der Datenbank und wird live neu gesetzt.
+- **FAQ:** Die Seite /faq/ gibt es nur lokal, mit Beispielinhalten. Live anlegen oder übertragen und die Antworten von Gold'Or prüfen lassen.
+- **LinkedIn:** Der Link im Footer zeigt noch auf linkedin.com. Die Adresse der Gold'Or-Seite in `parts/footer.html` eintragen.
+- **Footer-Links:** „Über uns“ und „Werbung“ sind Entwürfe und führen deshalb ins Leere. Vor dem Go-live veröffentlichen.
+- **Demo-Seite:** „Demo: Bilder und Videos“ (/demo-medien/) gibt es nur lokal, für die Abstimmung mit Gold'Or. Nicht übertragen, nach der Entscheidung löschen.
 - **Seitenhintergrund:** Ist standardmässig an. Ein- und ausschalten unter *Einstellungen → Lesen*.
 - **Werbung:** Der Skyscraper läuft nicht mehr auf Detailseiten. Laufende Kampagnen vorher mit dem Verkauf klären.
 - **Website-Editor:** Gespeicherte Vorlagen liegen in der Datenbank und überschreiben ab dann die Theme-Dateien. Dauerhafte Änderungen gehören in die Datei, die Vorlage danach zurücksetzen.
@@ -252,10 +273,12 @@ Diese Punkte kommen nicht mit dem Theme mit oder gelten nur für die Live-Site:
 - `functions.php`: Theme-Setup, Assets, Hooks, Editor-Button, Service-Leisten-Einstellung
 - `block-theme-logic.php`: Inhaltstypen, Taxonomien, Felder, Render-Helfer, iCal
 - `inc/werbung.php`: Werbe-Laufzeit, Cache-Leerung, Admin-Spalten, Formatprüfung
-- `inc/autoren.php`: Autorenbilder aus der Mediathek
+- `inc/autoren.php`: Autorenbild und Überschrift der Autorenbox
 - `inc/hintergrund.php`: Seitenhintergrund und seine Einstellung
+- `inc/startseite.php`: Einstellungen der rechten Spalte und von „Von der Redaktion empfohlen“ im Menü „Startseite“
 - `inc/stil-sperre.php`: sperrt Stil-Einstellungen im Editor, zusammen mit `theme.json`
-- `assets/`: `article.js` (Teilen, Lesefortschritt), `header-shrink.js`, `editor-copy.js`, `editor.css` (Korrekturen für die Editor-Fläche), `page-background-admin.js`
+- `assets/`: `article.js` (Teilen, Lesefortschritt), `lightbox.js` (Galerien), `header-shrink.js`, `editor-copy.js`, `editor.css` (Korrekturen für die Editor-Fläche), `page-background-admin.js`
+- `EINRICHTUNG.md` und `docs/einrichtung/`: Einrichtung nach einem Live-Import, gesicherte lokale Inhalte
 - `legacy/`: altes Theme, nicht aktiv. Die alte `functions.php` ist nur im Git-Verlauf erhalten (`git show 75d0b1a2:functions.php`).
 
 **Werbung – Details**
@@ -267,9 +290,13 @@ Diese Punkte kommen nicht mit dem Theme mit oder gelten nur für die Live-Site:
 
 **Seitenhintergrund:** `inc/hintergrund.php`, Optionen `goldor_page_background` (Standard: an) und `goldor_page_background_image` (Attachment-ID, 0 = `img/seiten-hintergrund.jpg`).
 
+**Rechte Spalte der Startseite:** Block `goldor/hero-column`. Die Einstellungen liegen in einem einzigen versteckten Beitrag vom Typ `goldor_startseite` (ID in der Option `goldor_home_settings`), weil ACF Free keine Optionsseiten hat und Redakteure den Website-Editor nicht öffnen dürfen. Der Beitrag entsteht beim ersten Backend-Aufruf eines Redakteurs oder Admins. Meta: `spalte_modus`, `spalte_beitrag_1` bis `_3`.
+
+**Von der Redaktion empfohlen:** Block `goldor/editor-picks`, liest das Relationship-Feld `redaktion_empfohlen` desselben Beitrags (höchstens 3, News und Artikel). Gewählte Beiträge erscheinen auch dann, wenn ein Abschnitt darüber sie schon zeigt.
+
 **Editor:** `add_editor_style()` lädt `style.css` und `assets/editor.css` in die Editor-Fläche. Gruppen tragen in den Vorlagen Namen (`metadata.name`). `inc/stil-sperre.php` ignoriert gespeicherte globale Stile, lehnt Schreibzugriffe auf `/wp/v2/global-styles` ab und entzieht `edit_css`.
 
-**Autorenbilder:** `inc/autoren.php`, Benutzer-Meta `autor_foto` (Attachment-ID). Der Filter `pre_get_avatar_data` ersetzt Gravatar bei `get_avatar()`.
+**Autorenbilder:** `inc/autoren.php`, Benutzer-Meta `autor_foto` (Attachment-ID) und `autor_anrede` (`autor` / `autorin`). Der Filter `pre_get_avatar_data` ersetzt Gravatar bei `get_avatar()`.
 
 **Service-Leiste:** Option `goldor_service_bar`, Standard: an. Die Link-Ziele sind die Seiten-IDs 433, 31 und 35 in `goldor_service_links()`.
 
