@@ -3,7 +3,7 @@
  * Homepage "Branche" spotlight: the featured Personen (vsgu-news) entry plus
  * the featured Messe (kalender) entry. Entries flagged `topentry` win; the
  * slots are otherwise filled with the most recent entries so the section is
- * never half empty.
+ * never half empty. Personen run as an upright portrait.
  *
  * @package goldor
  */
@@ -55,7 +55,7 @@ if ( ! $post_ids ) {
 					'subline'   => goldor_event_dateline( $post_id ),
 					'meta_left' => get_post_meta( $post_id, 'ort', true ),
 				)
-				: array()
+				: array( 'variant' => 'portrait' )
 		);
 	}
 	?>

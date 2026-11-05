@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/hero-column",
+	"title": "Spalte neben Top-Story",
+	"category": "goldor",
+	"icon": "columns",
+	"description": "Three posts or a Halfpage ad, chosen by the editors under Startseite.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-hero-column-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

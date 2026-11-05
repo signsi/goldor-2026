@@ -9,30 +9,10 @@
 // The whole card is the link; a separate button is only shown when set.
 $cta = isset( $attributes['cta'] ) ? $attributes['cta'] : '';
 
-$base_args = array(
-	'post_type'      => array( 'post', 'artikel' ),
-	'posts_per_page' => 1,
-	'no_found_rows'  => true,
-	'ignore_sticky_posts' => true,
-);
-
-$query = new WP_Query(
-	$base_args + array(
-		'meta_query' => array( array( 'key' => 'topstory', 'value' => '1', 'compare' => '=' ) ),
-	)
-);
-
-if ( ! $query->have_posts() ) {
-	$query = new WP_Query( $base_args );
-}
-
-if ( ! $query->have_posts() ) {
+$post_id = goldor_top_story_id();
+if ( ! $post_id ) {
 	return;
 }
-
-$query->the_post();
-$post_id = get_the_ID();
-wp_reset_postdata();
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'top-story' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<?php

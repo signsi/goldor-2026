@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/service-links",
+	"title": "Service Links",
+	"category": "goldor",
+	"icon": "admin-links",
+	"description": "The newsletter's three shortcuts: newest issue, job ads, placing an ad.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-service-links-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

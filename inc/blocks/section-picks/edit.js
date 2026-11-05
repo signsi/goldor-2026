@@ -66,8 +66,25 @@
 							options: [
 								{ label: __( 'Grid (cards)', 'goldor' ), value: 'grid' },
 								{ label: __( 'List (date + title)', 'goldor' ), value: 'list' },
+								{ label: __( 'Lead + list', 'goldor' ), value: 'lead-list' },
+								{ label: __( 'Table (Jobs, Marktplatz)', 'goldor' ), value: 'table' },
 							],
 							onChange: set( 'layout' ),
+						} ),
+						el( components.ToggleControl, {
+							label: __( 'Repeat posts already on the page', 'goldor' ),
+							checked: !! attributes.ignoreRendered,
+							onChange: set( 'ignoreRendered' ),
+						} ),
+						el( components.TextControl, {
+							label: __( 'Action label (table)', 'goldor' ),
+							value: attributes.actionLabel,
+							onChange: set( 'actionLabel' ),
+						} ),
+						el( components.TextControl, {
+							label: __( 'Action link (table)', 'goldor' ),
+							value: attributes.actionLink,
+							onChange: set( 'actionLink' ),
 						} ),
 						el( components.SelectControl, {
 							label: __( 'Card variant', 'goldor' ),

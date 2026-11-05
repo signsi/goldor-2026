@@ -18,6 +18,7 @@ if ( ! function_exists( 'goldor_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'custom-logo', array( 'height' => 40, 'flex-height' => true, 'flex-width' => true ) );
 		add_theme_support( 'editor-styles' );
+		add_editor_style( array( 'style.css', 'assets/editor.css' ) );
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'responsive-embeds' );
 		add_theme_support( 'align-wide' );
@@ -52,6 +53,15 @@ add_action( 'after_setup_theme', 'goldor_image_sizes' );
  */
 require get_template_directory() . '/block-theme-logic.php';
 
+/**
+ * Ad management: run dates, cache purging, admin list, format check.
+ */
+require get_template_directory() . '/inc/werbung.php';
+require get_template_directory() . '/inc/autoren.php';
+require get_template_directory() . '/inc/hintergrund.php';
+require get_template_directory() . '/inc/stil-sperre.php';
+require get_template_directory() . '/inc/startseite.php';
+
 /*
  * Assets
  */
@@ -70,15 +80,71 @@ function goldor_scripts() {
 		);
 	}
 
+	if ( is_singular() && goldor_has_lightbox_images( get_queried_object_id() ) ) {
+		wp_enqueue_script(
+			'goldor-lightbox',
+			get_template_directory_uri() . '/assets/lightbox.js',
+			array(),
+			filemtime( get_template_directory() . '/assets/lightbox.js' ),
+			true
+		);
+	}
+
 	wp_enqueue_script(
 		'goldor-header-shrink',
 		get_template_directory_uri() . '/assets/header-shrink.js',
 		array(),
-		'1.0',
+		'1.1',
 		true
 	);
 }
 add_action( 'wp_enqueue_scripts', 'goldor_scripts' );
+
+/**
+ * Whether the entry has images for assets/lightbox.js: a gallery (shortcode or
+ * block), or an image linked to its file.
+ */
+function goldor_has_lightbox_images( $post_id ) {
+	$content = (string) get_post_field( 'post_content', $post_id );
+	return has_shortcode( $content, 'gallery' )
+		|| has_block( 'core/gallery', $content )
+		|| preg_match( '/<a\s[^>]*href=["\'][^"\']+\.(?:jpe?g|png|gif|webp|avif)["\'][^>]*>\s*<img/i', $content );
+}
+
+/*
+ * Galleries open in the lightbox, so their thumbnails link to the image, not
+ * to an attachment page. "large" rather than the original keeps a camera file
+ * of several megabytes off the reader's phone.
+ */
+function goldor_gallery_link_to_file( $out ) {
+	$out['link'] = 'file';
+	return $out;
+}
+add_filter( 'shortcode_atts_gallery', 'goldor_gallery_link_to_file' );
+
+function goldor_gallery_link_large( $html, $post, $size, $permalink ) {
+	if ( $permalink ) {
+		return $html;
+	}
+
+	$large = wp_get_attachment_image_url( is_object( $post ) ? $post->ID : (int) $post, 'large' );
+	return $large ? preg_replace( '/href=([\'"])[^\'"]*\1/', 'href=$1' . esc_url( $large ) . '$1', $html, 1 ) : $html;
+}
+add_filter( 'wp_get_attachment_link', 'goldor_gallery_link_large', 10, 4 );
+
+/*
+ * YouTube videos play from youtube-nocookie.com: YouTube sets no cookies until
+ * the reader starts the video, so an embed needs no cookie consent up front.
+ * The oEmbed cache keeps the original URL, so this runs on every output.
+ */
+function goldor_youtube_nocookie( $html ) {
+	return str_replace(
+		array( 'https://www.youtube.com/embed/', 'https://youtube.com/embed/' ),
+		'https://www.youtube-nocookie.com/embed/',
+		$html
+	);
+}
+add_filter( 'embed_oembed_html', 'goldor_youtube_nocookie' );
 
 /**
  * The two faces the design is built on, as in print and the newsletter: Arvo
@@ -143,13 +209,16 @@ function goldor_site_logo_fallback( $block_content, $block ) {
 	$classes = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
 	$file    = false !== strpos( $classes, 'site-logo--magenta' ) ? 'Logo-Goldor-Magenta.svg' : 'Logo-Goldor.svg';
 
+	// The height reserves the header's space, and the logo never waits for a
+	// lazy-load script: both logo files are 512×139.
 	return sprintf(
-		'<div class="wp-block-site-logo %5$s"><a href="%1$s" class="custom-logo-link" rel="home"><img class="custom-logo" src="%2$s" alt="%3$s" width="%4$d" style="width:%4$dpx"></a></div>',
+		'<div class="wp-block-site-logo %5$s"><a href="%1$s" class="custom-logo-link" rel="home"><img class="custom-logo" src="%2$s" alt="%3$s" width="%4$d" height="%6$d" style="width:%4$dpx" data-no-lazy="1" data-skip-lazy="1"></a></div>',
 		esc_url( home_url( '/' ) ),
 		esc_url( get_template_directory_uri() . '/img/' . $file ),
 		esc_attr( get_bloginfo( 'name' ) ),
 		$width,
-		esc_attr( $classes )
+		esc_attr( $classes ),
+		round( $width * 139 / 512 )
 	);
 }
 add_filter( 'render_block_core/site-logo', 'goldor_site_logo_fallback', 10, 2 );
@@ -164,6 +233,87 @@ function goldor_strip_nav_descriptions( $block_content ) {
 }
 add_filter( 'render_block_core/navigation-link', 'goldor_strip_nav_descriptions' );
 add_filter( 'render_block_core/navigation-submenu', 'goldor_strip_nav_descriptions' );
+
+/**
+ * On phones the service bar is hidden; its shortcuts open the main menu
+ * instead, as the last items of the overlay. The last </ul> of the navigation
+ * closes its top-level list, so they land after the regular items.
+ */
+function goldor_nav_service_links( $block_content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	$close = strrpos( $block_content, '</ul>' );
+	if ( ! goldor_service_bar_enabled() || false === strpos( $class, 'main-navigation' ) || false === $close ) {
+		return $block_content;
+	}
+
+	$items = '';
+	foreach ( goldor_service_links() as $link ) {
+		$items .= sprintf(
+			'<li class="wp-block-navigation-item service-nav-item"><a class="wp-block-navigation-item__content" href="%1$s"><span class="wp-block-navigation-item__label">%2$s</span></a></li>',
+			esc_url( $link['url'] ),
+			esc_html( $link['label'] )
+		);
+	}
+
+	return substr_replace( $block_content, $items, $close, 0 );
+}
+add_filter( 'render_block_core/navigation', 'goldor_nav_service_links', 10, 2 );
+
+/**
+ * The service bar can be switched off under Settings → Reading; it is on
+ * until someone unticks it.
+ */
+function goldor_service_bar_enabled() {
+	return (bool) get_option( 'goldor_service_bar', true );
+}
+
+function goldor_service_bar_setting() {
+	register_setting(
+		'reading',
+		'goldor_service_bar',
+		array(
+			'type'              => 'boolean',
+			'default'           => true,
+			'sanitize_callback' => 'rest_sanitize_boolean',
+		)
+	);
+
+	add_settings_field(
+		'goldor_service_bar',
+		__( 'Service-Leiste', 'goldor' ),
+		function () {
+			printf(
+				'<input type="hidden" name="goldor_service_bar" value="0"><label><input type="checkbox" name="goldor_service_bar" value="1" %1$s> %2$s</label><p class="description">%3$s</p>',
+				checked( goldor_service_bar_enabled(), true, false ),
+				esc_html__( 'Service-Leiste über dem Header anzeigen', 'goldor' ),
+				esc_html__( 'Die Leiste mit Aktueller Ausgabe, Stelleninseraten und Inserat aufgeben. Auf dem Handy stehen diese Links im Menü.', 'goldor' )
+			);
+		},
+		'reading'
+	);
+}
+add_action( 'admin_init', 'goldor_service_bar_setting' );
+
+/**
+ * Switched off, the bar's group renders nothing, and the header's own
+ * account link (otherwise hidden behind the bar's) comes back.
+ */
+function goldor_hide_service_bar( $block_content, $block ) {
+	$class = isset( $block['attrs']['className'] ) ? $block['attrs']['className'] : '';
+	if ( ! goldor_service_bar_enabled() && preg_match( '/(^|\s)service-bar(\s|$)/', $class ) ) {
+		return '';
+	}
+	return $block_content;
+}
+add_filter( 'render_block_core/group', 'goldor_hide_service_bar', 10, 2 );
+
+function goldor_service_bar_body_class( $classes ) {
+	if ( goldor_service_bar_enabled() ) {
+		$classes[] = 'has-service-bar';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'goldor_service_bar_body_class' );
 
 function goldor_resource_hints( $urls, $relation_type ) {
 	if ( 'preconnect' === $relation_type ) {
@@ -233,6 +383,15 @@ function goldor_register_block_styles() {
 			)
 		);
 	}
+
+	// One image at a time, swiped or paged, instead of the grid.
+	register_block_style(
+		'core/gallery',
+		array(
+			'name'  => 'slider',
+			'label' => __( 'Slider', 'goldor' ),
+		)
+	);
 
 	// The pill is for the one main action per view; everything else is square.
 	register_block_style(

@@ -1,6 +1,7 @@
 <?php
 /**
- * Homepage list of upcoming kalender events.
+ * Homepage list of upcoming kalender events. The date is what a reader scans
+ * for, so it is set largest; an event that is on today says so.
  *
  * @package goldor
  */
@@ -48,16 +49,21 @@ $label        = $link_label ? $link_label : __( 'Alle Einträge', 'goldor' );
 		while ( $query->have_posts() ) :
 			$query->the_post();
 			goldor_track_rendered_post( get_the_ID() );
-			$dateline = goldor_event_dateline( get_the_ID() );
+			$dates   = goldor_event_daterange( get_the_ID() );
+			$ort     = trim( (string) get_post_meta( get_the_ID(), 'ort', true ) );
+			$running = goldor_event_is_running( get_the_ID() );
 			?>
-			<li class="entry-list__item list-item">
-				<a class="entry-list__title cal-item-title" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a>
-				<?php if ( $dateline ) : ?>
-					<p class="entry-list__meta cal-item-meta"><?php echo esc_html( $dateline ); ?></p>
+			<li class="entry-list__item list-item event-item<?php echo $running ? ' is-running' : ''; ?>">
+				<?php if ( $dates ) : ?>
+					<p class="event-item__date"><?php echo esc_html( $dates ); ?></p>
 				<?php endif; ?>
+				<a class="entry-list__title cal-item-title" href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?><?php echo $ort ? esc_html( ', ' . $ort ) : ''; ?></a>
 				<p class="entry-list__excerpt"><?php echo esc_html( wp_html_excerpt( wp_strip_all_tags( get_the_excerpt() ), 90, '&#8230;' ) ); ?></p>
+				<?php if ( $running ) : ?>
+					<p class="event-item__status"><?php esc_html_e( 'Läuft gerade', 'goldor' ); ?></p>
+				<?php endif; ?>
 			</li>
-			<?php
+		<?php
 		endwhile;
 		wp_reset_postdata();
 		?>

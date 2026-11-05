@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/editor-picks",
+	"title": "Von der Redaktion empfohlen",
+	"category": "goldor",
+	"icon": "star-filled",
+	"description": "Three posts the editors pick under Startseite, whatever their age. Shows nothing while none is pinned.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-editor-picks-edit",
+	"render": "file:./render.php",
+	"supports": {
+		"html": false
+	}
+}

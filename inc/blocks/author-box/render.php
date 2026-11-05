@@ -2,9 +2,8 @@
 /**
  * About-the-author panel.
  *
- * The eyebrow is gendered in German. WordPress stores no such field, so it
- * defaults to a neutral phrase and editors can set `goldor_author_label` on a
- * user (e.g. "Über die Autorin") to override it per person.
+ * The eyebrow is gendered in German, so it is chosen on the user profile (see
+ * inc/autoren.php). Until it is, the box goes without one rather than guess.
  *
  * @package goldor
  */
@@ -21,16 +20,15 @@ if ( ! $author_id ) {
 
 $name = get_the_author_meta( 'display_name', $author_id );
 $bio  = get_the_author_meta( 'description', $author_id );
-$label = get_user_meta( $author_id, 'goldor_author_label', true );
-if ( ! $label ) {
-	$label = __( 'Über die Autorschaft', 'goldor' );
-}
+$label = goldor_author_label( $author_id );
 ?>
 <aside <?php echo get_block_wrapper_attributes( array( 'class' => 'author-box' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<div class="author-box__avatar"><?php echo get_avatar( $author_id, 128 ); ?></div>
 
 	<div class="author-box__body">
-		<p class="author-box__label"><?php echo esc_html( $label ); ?></p>
+		<?php if ( $label ) : ?>
+			<p class="author-box__label"><?php echo esc_html( $label ); ?></p>
+		<?php endif; ?>
 		<p class="author-box__name"><?php echo esc_html( $name ); ?></p>
 		<?php if ( $bio ) : ?>
 			<p class="author-box__bio"><?php echo esc_html( $bio ); ?></p>
