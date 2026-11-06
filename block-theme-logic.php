@@ -586,6 +586,7 @@ function goldor_render_story_card( $post_id, $args = array() ) {
 			'heading'    => 'h3',
 			'subline'    => '',
 			'meta_left'  => '',
+			'eyebrow'    => '',
 		)
 	);
 
@@ -600,6 +601,9 @@ function goldor_render_story_card( $post_id, $args = array() ) {
 	<article class="story-card story-card--<?php echo esc_attr( $args['variant'] ); ?> grid-item">
 		<?php echo goldor_render_card_media( $post_id, $args['image_size'], 'hero' === $args['variant'] ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<div class="story-card__body">
+			<?php if ( $args['eyebrow'] ) : ?>
+				<p class="story-card__eyebrow"><?php echo esc_html( $args['eyebrow'] ); ?></p>
+			<?php endif; ?>
 			<<?php echo esc_attr( $tag ); ?> class="story-card__title">
 				<?php echo goldor_language_hint( $post_id ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 				<a href="<?php echo esc_url( $link ); ?>"><?php echo esc_html( get_the_title( $post_id ) ); ?></a>
@@ -628,6 +632,15 @@ function goldor_render_story_card( $post_id, $args = array() ) {
 	</article>
 	<?php
 	return ob_get_clean();
+}
+
+/**
+ * The editorial eyebrow (Dachzeile) of an entry: the ACF field "Obertitel",
+ * which only Magazin entries carry. Empty when the editor left it blank; there
+ * is deliberately no fallback, the category already sits in the card meta.
+ */
+function goldor_post_eyebrow( $post_id ) {
+	return trim( (string) get_post_meta( $post_id, 'obertitel', true ) );
 }
 
 /**
@@ -780,6 +793,86 @@ function goldor_event_daterange( $post_id ) {
 
 	// A bare day number hugs the dash; anything longer gets spaces around it.
 	return ctype_digit( rtrim( $from, '.' ) ) ? $from . '–' . $to : $from . ' – ' . $to;
+}
+
+/**
+ * The event dates split for a large-date row: the days as the big figure
+ * ("22.–25.") and the month and year as the line beneath ("Oktober 2026").
+ * Across months the line names both ("Januar – Februar 2027"), across years
+ * both with their year.
+ *
+ * @return array{days: string, period: string}|null
+ */
+function goldor_event_date_parts( $post_id ) {
+	$utc   = new DateTimeZone( 'UTC' );
+	$start = DateTime::createFromFormat( '!Ymd', (string) get_post_meta( $post_id, 'startdatum', true ), $utc );
+	$end   = DateTime::createFromFormat( '!Ymd', (string) get_post_meta( $post_id, 'enddatum', true ), $utc );
+
+	if ( ! $start ) {
+		return null;
+	}
+	if ( ! $end || $end < $start ) {
+		$end = $start;
+	}
+
+	$day        = _x( 'j.', 'event day', 'goldor' );
+	$month      = _x( 'F', 'event month', 'goldor' );
+	$month_year = _x( 'F Y', 'event month and year', 'goldor' );
+
+	$days = wp_date( $day, $start->getTimestamp(), $utc );
+	if ( $end->format( 'Ymd' ) !== $start->format( 'Ymd' ) ) {
+		$days .= '–' . wp_date( $day, $end->getTimestamp(), $utc );
+	}
+
+	if ( $end->format( 'Ym' ) === $start->format( 'Ym' ) ) {
+		$period = wp_date( $month_year, $start->getTimestamp(), $utc );
+	} elseif ( $end->format( 'Y' ) === $start->format( 'Y' ) ) {
+		$period = wp_date( $month, $start->getTimestamp(), $utc ) . ' – ' . wp_date( $month_year, $end->getTimestamp(), $utc );
+	} else {
+		$period = wp_date( $month_year, $start->getTimestamp(), $utc ) . ' – ' . wp_date( $month_year, $end->getTimestamp(), $utc );
+	}
+
+	return array(
+		'days'   => $days,
+		'period' => $period,
+	);
+}
+
+/**
+ * Terms named by their default-language slug, in the given order, as the
+ * current language's translation. WPML gives translated terms their own slug
+ * ("jewellery-fr"), so a template can only name them in one language.
+ * Missing or empty terms are skipped.
+ *
+ * @return WP_Term[]
+ */
+function goldor_terms_by_default_slugs( $taxonomy, $slugs ) {
+	$default = apply_filters( 'wpml_default_language', null );
+	$current = apply_filters( 'wpml_current_language', null );
+
+	if ( $default && $current && $default !== $current ) {
+		do_action( 'wpml_switch_language', $default );
+	}
+	$ids = array();
+	foreach ( $slugs as $slug ) {
+		$term = get_term_by( 'slug', sanitize_title( $slug ), $taxonomy );
+		if ( $term ) {
+			$ids[] = (int) $term->term_id;
+		}
+	}
+	if ( $default && $current && $default !== $current ) {
+		do_action( 'wpml_switch_language', $current );
+	}
+
+	$terms = array();
+	foreach ( $ids as $id ) {
+		$term = get_term( (int) apply_filters( 'wpml_object_id', $id, $taxonomy, true ), $taxonomy );
+		if ( $term instanceof WP_Term && $term->count > 0 ) {
+			$terms[] = $term;
+		}
+	}
+
+	return $terms;
 }
 
 /**

@@ -21,6 +21,11 @@
 		"allLabel": {
 			"type": "string",
 			"default": ""
+		},
+		"terms": {
+			"type": "array",
+			"items": { "type": "string" },
+			"default": []
 		}
 	},
 	"supports": {

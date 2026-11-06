@@ -9,6 +9,9 @@
 	"textdomain": "goldor",
 	"editorScript": "goldor-block-editor-picks-edit",
 	"render": "file:./render.php",
+	"attributes": {
+		"linkLabel": { "type": "string", "default": "" }
+	},
 	"supports": {
 		"html": false
 	}

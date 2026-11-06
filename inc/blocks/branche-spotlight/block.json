@@ -9,6 +9,9 @@
 	"textdomain": "goldor",
 	"editorScript": "goldor-block-branche-spotlight-edit",
 	"render": "file:./render.php",
+	"attributes": {
+		"personenOnly": { "type": "boolean", "default": false }
+	},
 	"supports": {
 		"html": false
 	}

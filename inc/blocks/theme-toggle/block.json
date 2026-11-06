@@ -1,0 +1,13 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "goldor/theme-toggle",
+	"title": "Theme Toggle",
+	"category": "goldor",
+	"icon": "visibility",
+	"description": "Header switch between the light and the dark design. Follows the device setting until a reader chooses.",
+	"textdomain": "goldor",
+	"editorScript": "goldor-block-theme-toggle-edit",
+	"render": "file:./render.php",
+	"supports": { "html": false }
+}
