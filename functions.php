@@ -62,6 +62,13 @@ require get_template_directory() . '/inc/hintergrund.php';
 require get_template_directory() . '/inc/stil-sperre.php';
 require get_template_directory() . '/inc/startseite.php';
 require get_template_directory() . '/inc/darkmode.php';
+require get_template_directory() . '/inc/i18n.php';
+require get_template_directory() . '/inc/empfohlen.php';
+require get_template_directory() . '/inc/titelbild.php';
+require get_template_directory() . '/inc/werbung-anleitung.php';
+require get_template_directory() . '/inc/handbuch.php';
+require get_template_directory() . '/inc/musterbeitrag.php';
+require get_template_directory() . '/inc/cli.php';
 
 /*
  * Assets
@@ -81,7 +88,7 @@ function goldor_scripts() {
 		);
 	}
 
-	if ( is_singular() && goldor_has_lightbox_images( get_queried_object_id() ) ) {
+	if ( is_singular() && ( goldor_has_lightbox_images( get_queried_object_id() ) || 'hidden' !== goldor_titelbild_mode( get_queried_object_id() ) ) ) {
 		wp_enqueue_script(
 			'goldor-lightbox',
 			get_template_directory_uri() . '/assets/lightbox.js',

@@ -1,0 +1,1499 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Goldor 2026\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: goldor\n"
+
+#. Theme Name of the theme
+#. Author of the theme
+#: style.css
+#: block-theme-logic.php:206
+msgid "Goldor"
+msgstr ""
+
+#. Theme URI of the theme
+#. Author URI of the theme
+#: style.css
+msgid "https://www.goldor.ch/"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Modern block theme for the Goldor magazine site (DE/FR), migrated from the legacy Underscores-based classic theme."
+msgstr ""
+
+#: block-theme-logic.php:12
+msgid "Artikel"
+msgstr "Articles"
+
+#: block-theme-logic.php:22
+#: block-theme-logic.php:720
+msgid "Print"
+msgstr "Print"
+
+#: block-theme-logic.php:32
+#: block-theme-logic.php:722
+#: inc/i18n.php:74
+msgid "Personen"
+msgstr "Personnalités"
+
+#: block-theme-logic.php:42
+#: block-theme-logic.php:719
+msgid "Magazin"
+msgstr "Magazine"
+
+#: block-theme-logic.php:51
+#: block-theme-logic.php:723
+#: inc/i18n.php:69
+msgid "Kalender"
+msgstr "Calendrier"
+
+#: block-theme-logic.php:61
+#: block-theme-logic.php:724
+#: inc/i18n.php:61
+msgid "Jobs"
+msgstr "Emplois"
+
+#: block-theme-logic.php:71
+msgid "Kleinanzeigen"
+msgstr "Petites annonces"
+
+#: block-theme-logic.php:81
+#: block-theme-logic.php:726
+#: inc/i18n.php:77
+msgid "Lieferanten"
+msgstr "Fournisseurs"
+
+#: block-theme-logic.php:91
+msgid "Wiki"
+msgstr "Glossaire"
+
+#: block-theme-logic.php:101
+#: block-theme-logic.php:728
+msgid "Links"
+msgstr "Liens"
+
+#: block-theme-logic.php:112
+#: inc/i18n.php:40
+msgid "Werbung"
+msgstr "Publicité"
+
+#: block-theme-logic.php:510
+#: inc/blocks/magazine-issue/render.php:205
+msgid "Abo"
+msgstr "Abonnement"
+
+#: block-theme-logic.php:718
+msgid "News"
+msgstr "News"
+
+#: block-theme-logic.php:721
+msgid "Alle Ausgaben"
+msgstr "Toutes les éditions"
+
+#: block-theme-logic.php:725
+#: inc/i18n.php:64
+msgid "Marktplatz"
+msgstr "Place de marché"
+
+#: block-theme-logic.php:727
+#: inc/i18n.php:79
+msgid "Branchen-Lexikon"
+msgstr "Glossaire professionnel"
+
+#: block-theme-logic.php:778
+msgctxt "event date"
+msgid "j. F Y"
+msgstr "j F Y"
+
+#: block-theme-logic.php:784
+msgctxt "event date range start, same month"
+msgid "j."
+msgstr "j"
+
+#: block-theme-logic.php:786
+msgctxt "event date range start, same year"
+msgid "j. F"
+msgstr "j F"
+
+#: block-theme-logic.php:818
+msgctxt "event day"
+msgid "j."
+msgstr "j"
+
+#: block-theme-logic.php:819
+msgctxt "event month"
+msgid "F"
+msgstr "F"
+
+#: block-theme-logic.php:820
+msgctxt "event month and year"
+msgid "F Y"
+msgstr "F Y"
+
+#: block-theme-logic.php:986
+msgid "Aktuelle Ausgabe"
+msgstr "Édition actuelle"
+
+#: block-theme-logic.php:987
+msgid "Stelleninserate"
+msgstr "Annonces d’emploi"
+
+#: block-theme-logic.php:988
+#: inc/i18n.php:63
+msgid "Inserat aufgeben"
+msgstr "Passer une annonce"
+
+#: functions.php:34
+msgid "Primary"
+msgstr ""
+
+#: functions.php:35
+msgid "Secondary"
+msgstr ""
+
+#: functions.php:286
+msgid "Service-Leiste"
+msgstr ""
+
+#: functions.php:291
+msgid "Service-Leiste über dem Header anzeigen"
+msgstr ""
+
+#: functions.php:292
+msgid "Die Leiste mit Aktueller Ausgabe, Stelleninseraten und Inserat aufgeben. Auf dem Handy stehen diese Links im Menü."
+msgstr ""
+
+#: functions.php:371
+msgid "mehr"
+msgstr "plus"
+
+#: functions.php:385
+msgid "Infobox"
+msgstr ""
+
+#: functions.php:395
+msgid "Slider"
+msgstr ""
+
+#: functions.php:404
+msgid "Nebenaktion"
+msgstr ""
+
+#: inc/blocks/account-link/render.php:16
+msgid "Mein Konto"
+msgstr "Mon compte"
+
+#: inc/blocks/account-link/render.php:19
+msgid "Abmelden"
+msgstr "Se déconnecter"
+
+#: inc/blocks/account-link/render.php:24
+#: inc/blocks/magazine-issue/render.php:219
+msgid "Anmelden"
+msgstr "Se connecter"
+
+#: inc/blocks/ad-slot/render.php:48
+#: inc/blocks/section-picks/render.php:143
+msgid "Anzeige"
+msgstr "Annonce"
+
+#: inc/blocks/archive-head/render.php:45
+msgid "Autorin / Autor"
+msgstr "Autrice / auteur"
+
+#. translators: %s: the search term.
+#: inc/blocks/archive-head/render.php:61
+#, php-format
+msgid "«%s»"
+msgstr "« %s »"
+
+#: inc/blocks/archive-head/render.php:64
+#: inc/i18n.php:37
+msgid "Suche"
+msgstr "Recherche"
+
+#. translators: %s: author display name.
+#: inc/blocks/author-box/render.php:39
+#, php-format
+msgid "Alle Beiträge von %s"
+msgstr "Tous les articles de %s"
+
+#. translators: %s: number of articles.
+#: inc/blocks/author-index/render.php:62
+#, php-format
+msgid "%s Beitrag"
+msgid_plural "%s Beiträge"
+msgstr[0] "%s article"
+msgstr[1] "%s articles"
+
+#: inc/blocks/back-to-archive/render.php:22
+msgid "Zurück"
+msgstr "Retour"
+
+#: inc/blocks/back-to-archive/render.php:23
+msgid "All entries"
+msgstr "Toutes les entrées"
+
+#: inc/blocks/editor-picks/render.php:23
+#: inc/empfohlen.php:157
+#: inc/i18n.php:91
+#: inc/blocks/editor-picks/edit.js:17
+msgid "Von der Redaktion empfohlen"
+msgstr "Recommandé par la rédaction"
+
+#: inc/blocks/entry-byline/render.php:31
+msgid "Link kopiert"
+msgstr "Lien copié"
+
+#: inc/blocks/entry-byline/render.php:32
+#: inc/blocks/reading-time-share/render.php:34
+msgid "Teilen"
+msgstr "Partager"
+
+#: inc/blocks/entry-byline/render.php:35
+msgid "Drucken"
+msgstr "Imprimer"
+
+#: inc/blocks/entry-link/render.php:20
+#: inc/i18n.php:87
+msgid "Zum Angebot"
+msgstr "Voir l’offre"
+
+#: inc/blocks/event-details/render.php:34
+msgid "Termin"
+msgstr "Date"
+
+#: inc/blocks/event-details/render.php:43
+#: inc/blocks/section-picks/render.php:142
+msgid "Ort"
+msgstr "Lieu"
+
+#: inc/blocks/event-details/render.php:52
+msgid "Termin übernehmen"
+msgstr "Ajouter à l’agenda"
+
+#: inc/blocks/event-details/render.php:54
+msgid "iCal / Outlook"
+msgstr "iCal / Outlook"
+
+#: inc/blocks/event-filter/render.php:63
+msgid "Filter category"
+msgstr "Filtrer par catégorie"
+
+#: inc/blocks/event-filter/render.php:72
+msgid "Filter"
+msgstr "Filtrer"
+
+#: inc/blocks/event-filter/render.php:81
+#: inc/i18n.php:76
+msgid "Alle Termine"
+msgstr "Toutes les dates"
+
+#: inc/blocks/event-filter/render.php:106
+msgid "Zu dieser Auswahl sind keine Termine vorhanden."
+msgstr "Aucune date ne correspond à cette sélection."
+
+#: inc/blocks/event-filter/render.php:107
+msgid "Zurzeit sind keine kommenden Termine erfasst."
+msgstr "Aucune date à venir n’est enregistrée pour le moment."
+
+#: inc/blocks/event-filter/render.php:123
+msgid "Vorherige Seite"
+msgstr "Page précédente"
+
+#: inc/blocks/event-filter/render.php:124
+msgid "Nächste Seite"
+msgstr "Page suivante"
+
+#: inc/blocks/event-filter/render.php:141
+msgid "Seitennummerierung"
+msgstr "Pagination"
+
+#: inc/blocks/hero-column/render.php:56
+#: inc/i18n.php:56
+msgid "Alle News"
+msgstr "Toutes les news"
+
+#: inc/blocks/kalender-preview/render.php:43
+#: inc/blocks/section-picks/render.php:92
+msgid "Alle Einträge"
+msgstr "Toutes les entrées"
+
+#: inc/blocks/kalender-preview/render.php:75
+#: inc/blocks/kalender-preview/render.php:100
+msgid "Läuft gerade"
+msgstr "En cours"
+
+#: inc/blocks/lieferant-contact/render.php:25
+msgid "Website"
+msgstr "Site web"
+
+#: inc/blocks/lieferant-contact/render.php:36
+msgid "E-Mail"
+msgstr "E-mail"
+
+#: inc/blocks/lieferant-contact/render.php:43
+msgid "Telefon"
+msgstr "Téléphone"
+
+#: inc/blocks/magazine-issue/render.php:141
+msgid "Jetzt lesen"
+msgstr "Lire maintenant"
+
+#: inc/blocks/magazine-issue/render.php:148
+msgid "Inhalt dieser Ausgabe"
+msgstr "Sommaire de cette édition"
+
+#: inc/blocks/magazine-issue/render.php:149
+msgid "In dieser Ausgabe"
+msgstr "Dans cette édition"
+
+#. translators: %d: number of articles in the section
+#: inc/blocks/magazine-issue/render.php:157
+#, php-format
+msgid "%d Beitrag"
+msgid_plural "%d Beiträge"
+msgstr[0] "%d article"
+msgstr[1] "%d articles"
+
+#: inc/blocks/magazine-issue/render.php:164
+#: inc/blocks/magazine-issue/render.php:193
+msgid "E-Paper"
+msgstr "E-paper"
+
+#: inc/blocks/magazine-issue/render.php:165
+msgid "Für Abonnenten"
+msgstr "Pour les abonnés"
+
+#: inc/blocks/magazine-issue/render.php:172
+msgid "Die Beiträge dieser Ausgabe werden in Kürze aufgeschaltet."
+msgstr "Les articles de cette édition seront bientôt mis en ligne."
+
+#: inc/blocks/magazine-issue/render.php:212
+msgid "Die vollständige Printausgabe zum Blättern."
+msgstr "L’édition imprimée complète, à feuilleter."
+
+#: inc/blocks/magazine-issue/render.php:214
+msgid "E-Paper öffnen"
+msgstr "Ouvrir l’e-paper"
+
+#: inc/blocks/magazine-issue/render.php:217
+msgid "Das E-Paper ist kostenpflichtig. Bitte loggen Sie sich als Abonnent ein."
+msgstr "L’e-paper est payant. Veuillez vous connecter avec votre compte d’abonné."
+
+#: inc/blocks/paywall-content/render.php:38
+msgid "werden Sie Abonnent, um weiterzulesen."
+msgstr "abonnez-vous pour continuer la lecture."
+
+#: inc/blocks/paywall-content/render.php:44
+msgid "Loggen Sie sich bitte ein"
+msgstr "Veuillez vous connecter"
+
+#: inc/blocks/paywall-content/render.php:61
+msgid "Pages:"
+msgstr "Pages :"
+
+#: inc/blocks/reading-time-share/render.php:28
+msgid "Lesezeit"
+msgstr "Temps de lecture"
+
+#: inc/blocks/reading-time-share/render.php:35
+msgid "Auf Facebook teilen"
+msgstr "Partager sur Facebook"
+
+#: inc/blocks/reading-time-share/render.php:38
+msgid "Auf X teilen"
+msgstr "Partager sur X"
+
+#: inc/blocks/related-posts/render.php:34
+msgid "Weitere Artikel"
+msgstr "Autres articles"
+
+#: inc/blocks/section-picks/render.php:142
+msgid "Stelle"
+msgstr "Poste"
+
+#: inc/blocks/section-picks/render.php:142
+msgid "Pensum"
+msgstr "Taux d’activité"
+
+#: inc/blocks/section-picks/render.php:142
+#: inc/blocks/section-picks/render.php:143
+msgid "Datum"
+msgstr "Date"
+
+#: inc/blocks/section-picks/render.php:143
+msgid "Art"
+msgstr "Type"
+
+#: inc/blocks/service-links/render.php:15
+msgid "Service"
+msgstr "Service"
+
+#: inc/blocks/taxonomy-filter-links/render.php:12
+#: inc/i18n.php:59
+msgid "Alle"
+msgstr "Tous"
+
+#: inc/blocks/theme-toggle/render.php:11
+#: inc/blocks/theme-toggle/render.php:12
+msgid "Dunkles Design"
+msgstr "Mode sombre"
+
+#: inc/blocks/wiki-index/render.php:82
+#: inc/i18n.php:104
+msgid "Zu dieser Auswahl sind zurzeit keine Einträge vorhanden."
+msgstr "Aucune entrée ne correspond à cette sélection pour le moment."
+
+#: inc/hintergrund.php:44
+msgid "Seitenhintergrund"
+msgstr ""
+
+#: inc/hintergrund.php:49
+msgid "Hintergrundbild auf der ganzen Website anzeigen"
+msgstr ""
+
+#: inc/hintergrund.php:59
+msgid "Bild ändern"
+msgstr ""
+
+#: inc/hintergrund.php:60
+msgid "Standardbild verwenden"
+msgstr ""
+
+#: inc/i18n.php:38
+msgid "Abonnieren"
+msgstr "S’abonner"
+
+#: inc/i18n.php:39
+msgid "Über uns"
+msgstr "À propos de nous"
+
+#: inc/i18n.php:41
+msgid "FAQ"
+msgstr "FAQ"
+
+#: inc/i18n.php:42
+msgid "Kontakt"
+msgstr "Contact"
+
+#: inc/i18n.php:43
+msgid "© 2026 Gold’Or – Alle Rechte vorbehalten"
+msgstr "© 2026 Gold’Or – Tous droits réservés"
+
+#: inc/i18n.php:44
+msgid "Datenschutz"
+msgstr "Protection des données"
+
+#: inc/i18n.php:45
+msgid "Impressum"
+msgstr "Impressum"
+
+#: inc/i18n.php:48
+msgid "Das Schweizer Fachmagazin der Schmuck-, Uhren- und Edelsteinbranche im Abo"
+msgstr "La revue professionnelle suisse de la bijouterie, de l’horlogerie et des pierres précieuses sur abonnement"
+
+#: inc/i18n.php:49
+msgid "Jede Ausgabe gedruckt"
+msgstr "Chaque édition imprimée"
+
+#: inc/i18n.php:50
+msgid "Online-Zugang zu allen Artikeln"
+msgstr "Accès en ligne à tous les articles"
+
+#: inc/i18n.php:51
+msgid "Newsletter mit Stellen und Marktplatz"
+msgstr "Newsletter avec emplois et place de marché"
+
+#: inc/i18n.php:52
+msgid "Jetzt abonnieren"
+msgstr "S’abonner maintenant"
+
+#: inc/i18n.php:55
+msgid "News aus der Schmuck- und Uhrenbranche"
+msgstr "News de la bijouterie et de l’horlogerie"
+
+#: inc/i18n.php:57
+msgid "Aus dem Fachmagazin"
+msgstr "Extraits de la revue"
+
+#: inc/i18n.php:58
+msgid "Zum Magazin"
+msgstr "Vers le magazine"
+
+#: inc/i18n.php:60
+msgid "Stellen- und Kleinanzeigen"
+msgstr "Emplois et petites annonces"
+
+#: inc/i18n.php:62
+msgid "Alle offenen Stellen"
+msgstr "Tous les postes ouverts"
+
+#: inc/i18n.php:65
+msgid "Zum Marktplatz"
+msgstr "Vers la place de marché"
+
+#: inc/i18n.php:66
+msgid "Anzeige aufgeben"
+msgstr "Passer une annonce"
+
+#: inc/i18n.php:67
+msgid "Personen & Messen"
+msgstr "Personnalités & salons"
+
+#: inc/i18n.php:68
+msgid "Zur Branchenübersicht"
+msgstr "Vers la branche"
+
+#: inc/i18n.php:70
+msgid "Alle Termine anzeigen"
+msgstr "Afficher toutes les dates"
+
+#: inc/i18n.php:71
+msgid "Alle Empfehlungen"
+msgstr "Toutes les recommandations"
+
+#: inc/i18n.php:75
+msgid "Alle Meldungen"
+msgstr "Toutes les nouvelles"
+
+#: inc/i18n.php:78
+msgid "Zum Verzeichnis"
+msgstr "Vers l’annuaire"
+
+#: inc/i18n.php:80
+msgid "Alle Begriffe"
+msgstr "Tous les termes"
+
+#: inc/i18n.php:81
+msgid "Weitere Stellen"
+msgstr "Autres postes"
+
+#: inc/i18n.php:82
+msgid "Weitere Termine"
+msgstr "Autres dates"
+
+#: inc/i18n.php:83
+msgid "Weitere Anzeigen"
+msgstr "Autres annonces"
+
+#: inc/i18n.php:84
+msgid "Weitere Lieferanten"
+msgstr "Autres fournisseurs"
+
+#: inc/i18n.php:85
+msgid "Weitere Begriffe"
+msgstr "Autres termes"
+
+#: inc/i18n.php:86
+msgid "Zum Branchen-Lexikon"
+msgstr "Vers le glossaire professionnel"
+
+#: inc/i18n.php:88
+msgid "Website öffnen"
+msgstr "Ouvrir le site web"
+
+#: inc/i18n.php:92
+msgid "Beiträge, die unsere Redaktion besonders empfiehlt – die neueste Empfehlung zuerst."
+msgstr "Les articles que notre rédaction recommande tout particulièrement – la recommandation la plus récente en premier."
+
+#: inc/i18n.php:93
+msgid "Hintergründe, Porträts und Marktanalysen aus dem gedruckten Fachmagazin."
+msgstr "Enquêtes, portraits et analyses de marché tirés de la revue imprimée."
+
+#: inc/i18n.php:94
+msgid "Offene Stellen und Stellengesuche aus der Schmuck- und Uhrenbranche."
+msgstr "Offres et demandes d’emploi de la bijouterie et de l’horlogerie."
+
+#: inc/i18n.php:95
+msgid "Messen, Ausstellungen und Branchentermine im In- und Ausland."
+msgstr "Salons, expositions et rendez-vous de la branche, en Suisse et à l’étranger."
+
+#: inc/i18n.php:96
+msgid "Angebote und Gesuche aus der Branche — von Werkzeug und Ladeneinrichtung bis zur Geschäftsübernahme."
+msgstr "Offres et demandes de la branche — de l’outillage à l’agencement de magasin jusqu’à la reprise d’entreprise."
+
+#: inc/i18n.php:97
+msgid "Das Verzeichnis der Lieferanten, Hersteller und Dienstleister der Schweizer Schmuck- und Uhrenbranche."
+msgstr "L’annuaire des fournisseurs, fabricants et prestataires de la bijouterie et de l’horlogerie suisses."
+
+#: inc/i18n.php:98
+msgid "Verbände, Institutionen und Fachadressen der Schmuck- und Uhrenbranche."
+msgstr "Associations, institutions et adresses utiles de la bijouterie et de l’horlogerie."
+
+#: inc/i18n.php:99
+msgid "Alle Ausgaben von Gold’Or — mit Inhaltsverzeichnis und E-Paper für Abonnentinnen und Abonnenten."
+msgstr "Toutes les éditions de Gold’Or — avec sommaire et e-paper pour les abonnées et abonnés."
+
+#: inc/i18n.php:100
+msgid "Wechsel, Ernennungen und Auszeichnungen aus der Schweizer Schmuck- und Uhrenbranche."
+msgstr "Changements, nominations et distinctions dans la bijouterie et l’horlogerie suisses."
+
+#: inc/i18n.php:101
+msgid "Fachbegriffe der Schmuck- und Uhrenbranche, von Aventurin bis Zifferblatt erklärt."
+msgstr "Les termes techniques de la bijouterie et de l’horlogerie expliqués, de l’aventurine au cadran."
+
+#: inc/i18n.php:105
+msgid "Zu diesem Suchbegriff wurde nichts gefunden. Versuchen Sie es mit einem anderen Wort."
+msgstr "Aucun résultat pour cette recherche. Essayez avec un autre mot."
+
+#: inc/i18n.php:106
+msgid "Seite nicht gefunden"
+msgstr "Page introuvable"
+
+#: inc/i18n.php:107
+msgid "Diese Seite gibt es nicht oder nicht mehr. Vielleicht hilft die Suche weiter."
+msgstr "Cette page n’existe pas ou plus. La recherche vous aidera peut-être."
+
+#: inc/stil-sperre.php:33
+msgid "Das Design wird im Theme gepflegt."
+msgstr ""
+
+#: patterns/archive-job-page.php
+msgctxt "Pattern title"
+msgid "Job Archive Page"
+msgstr ""
+
+#: patterns/archive-job-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content for a filterable Jobs listing (used for the legacy /jobs/stelleninserate, /annonces-demploi pages)."
+msgstr ""
+
+#: patterns/archive-kalender-page.php
+msgctxt "Pattern title"
+msgid "Kalender Archive Page"
+msgstr ""
+
+#: patterns/archive-kalender-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content to give it the kalender date/category filter and event grid (used for the legacy /kalender/, /branche/kalender/, /calendrier/ pages)."
+msgstr ""
+
+#: patterns/archive-kleinanzeige-page.php
+msgctxt "Pattern title"
+msgid "Kleinanzeigen Archive Page"
+msgstr ""
+
+#: patterns/archive-kleinanzeige-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content for a filterable Marktplatz listing (used for the legacy /anzeigen, /annonces pages)."
+msgstr ""
+
+#: patterns/archive-lieferant-page.php
+msgctxt "Pattern title"
+msgid "Lieferanten Archive Page"
+msgstr ""
+
+#: patterns/archive-lieferant-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content for a filterable Lieferanten directory (used for the legacy /lieferanten, /fournisseurs pages)."
+msgstr ""
+
+#: patterns/archive-link-page.php
+msgctxt "Pattern title"
+msgid "Links Archive Page"
+msgstr ""
+
+#: patterns/archive-link-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content for the grouped Links index (used for the legacy /links, /liens pages)."
+msgstr ""
+
+#: patterns/archive-magazin-page.php
+msgctxt "Pattern title"
+msgid "Magazin Archive Page"
+msgstr ""
+
+#: patterns/archive-magazin-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content to list Magazin issues (used for the legacy /magazin, /aktuelle-ausgabe, /edition-actuelle pages)."
+msgstr ""
+
+#: patterns/archive-news-page.php
+msgctxt "Pattern title"
+msgid "News Archive Page"
+msgstr ""
+
+#: patterns/archive-news-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content to list News (post) entries (used for the legacy /news page)."
+msgstr ""
+
+#: patterns/archive-wiki-page.php
+msgctxt "Pattern title"
+msgid "Wiki Archive Page"
+msgstr ""
+
+#: patterns/archive-wiki-page.php
+msgctxt "Pattern description"
+msgid "Drop this into any Page's content for the alphabetical Wiki index (used for the legacy /branchenwiki, /glossaire-professionnel pages)."
+msgstr ""
+
+#: inc/blocks/ad-slot/edit.js:27
+msgid "Ad Slot"
+msgstr ""
+
+#: inc/blocks/ad-slot/edit.js:29
+msgid "Placement type"
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:19
+msgid "Archive Head"
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:21
+msgid "Eyebrow"
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:22
+msgid "Empty uses the section name on category views."
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:29
+msgid "Title"
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:30
+msgid "Empty uses the section or category name."
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:37
+msgid "Lead"
+msgstr ""
+
+#: inc/blocks/archive-head/edit.js:38
+msgid "A category description set in the admin wins over this text."
+msgstr ""
+
+#: inc/blocks/branche-spotlight/edit.js:16
+msgid "Branche Spotlight"
+msgstr ""
+
+#: inc/blocks/branche-spotlight/edit.js:18
+msgid "Personen only (one track)"
+msgstr ""
+
+#: inc/blocks/editor-picks/edit.js:18
+msgid "Die drei Beiträge wählt die Redaktion im Backend unter „Startseite“. Ohne Auswahl bleibt der Bereich leer."
+msgstr ""
+
+#: inc/blocks/entry-link/edit.js:19
+msgid "Entry Link"
+msgstr ""
+
+#: inc/blocks/entry-link/edit.js:21
+#: inc/blocks/top-story/edit.js:21
+msgid "Button label"
+msgstr ""
+
+#: inc/blocks/entry-link/edit.js:22
+msgid "Empty falls back to \"Zum Angebot\"."
+msgstr ""
+
+#: inc/blocks/hero-column/edit.js:17
+msgid "Spalte neben Top-Story"
+msgstr ""
+
+#: inc/blocks/hero-column/edit.js:18
+msgid "Beiträge und Werbung wählt die Redaktion im Backend unter „Startseite“."
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:27
+msgid "Kalender Preview"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:29
+#: inc/blocks/section-picks/edit.js:29
+msgid "Heading"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:34
+#: inc/blocks/section-picks/edit.js:122
+msgid "Archive link label"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:35
+msgid "e.g. Alle Termine anzeigen"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:40
+#: inc/blocks/section-picks/edit.js:64
+msgid "Layout"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:43
+msgid "List (one track)"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:44
+msgid "Large dates (two tracks)"
+msgstr ""
+
+#: inc/blocks/kalender-preview/edit.js:49
+msgid "Events shown"
+msgstr ""
+
+#: inc/blocks/magazine-issue/edit.js:19
+msgid "Magazine Issue"
+msgstr ""
+
+#: inc/blocks/magazine-issue/edit.js:21
+msgid "Issue shown"
+msgstr ""
+
+#: inc/blocks/magazine-issue/edit.js:24
+msgid "This entry"
+msgstr ""
+
+#: inc/blocks/magazine-issue/edit.js:25
+msgid "Latest issue"
+msgstr ""
+
+#: inc/blocks/newsletter-form/edit.js:19
+msgid "Newsletter Form"
+msgstr ""
+
+#: inc/blocks/newsletter-form/edit.js:21
+msgid "Ninja Forms ID (DE)"
+msgstr ""
+
+#: inc/blocks/newsletter-form/edit.js:29
+msgid "Ninja Forms ID (FR)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:27
+msgid "Section Picks"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:34
+msgid "Heading style"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:37
+msgid "Section (uppercase)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:38
+msgid "Column (serif)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:43
+#: inc/blocks/taxonomy-filter-links/edit.js:21
+#: inc/blocks/wiki-index/edit.js:21
+msgid "Post type"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:48
+msgid "Posts per page"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:56
+msgid "Skip newest entries (offset)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:67
+msgid "Grid (cards)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:68
+msgid "List (date + title)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:69
+msgid "Lead + list"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:70
+msgid "Table (Jobs, Marktplatz)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:75
+msgid "Repeat posts already on the page"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:80
+msgid "Action label (table)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:85
+msgid "Action link (table)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:90
+msgid "Card variant"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:91
+msgid "Only used by the grid layout."
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:94
+msgid "Standard card"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:95
+msgid "Compact (hero sidebar)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:100
+msgid "Exclude posts flagged \"topstory\""
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:105
+msgid "Taxonomy (optional)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:106
+msgid "e.g. job-kategorie"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:111
+msgid "Term name (optional)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:112
+msgid "e.g. stellenangebot"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:117
+msgid "Archive link (optional override)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:123
+msgid "e.g. Alle News — shown next to the heading."
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:128
+msgid "Ad override type (optional)"
+msgstr ""
+
+#: inc/blocks/section-picks/edit.js:129
+msgid "If this werbung ad is active, it replaces the whole section."
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/edit.js:19
+msgid "Taxonomy Filter Links"
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/edit.js:22
+msgid "Slug, e.g. job, kleinanzeige, lieferant, wiki, link"
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/edit.js:29
+msgid "Max. categories shown"
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/edit.js:30
+msgid "0 shows every category, alphabetically."
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/edit.js:38
+msgid "\"All\" label"
+msgstr ""
+
+#: inc/blocks/top-story/edit.js:19
+msgid "Top Story"
+msgstr ""
+
+#: inc/blocks/wiki-index/edit.js:19
+msgid "Category Index List"
+msgstr ""
+
+#: inc/blocks/wiki-index/edit.js:22
+msgid "e.g. wiki or link"
+msgstr ""
+
+#: inc/blocks/account-link/block.json
+msgctxt "block title"
+msgid "Account Link"
+msgstr ""
+
+#: inc/blocks/account-link/block.json
+msgctxt "block description"
+msgid "Login link for guests, or logout + change-password links for logged-in users."
+msgstr ""
+
+#: inc/blocks/ad-slot/block.json
+msgctxt "block title"
+msgid "Ad Slot"
+msgstr ""
+
+#: inc/blocks/ad-slot/block.json
+msgctxt "block description"
+msgid "Shows one active 'werbung' ad of the given placement type."
+msgstr ""
+
+#: inc/blocks/archive-head/block.json
+msgctxt "block title"
+msgid "Archive Head"
+msgstr ""
+
+#: inc/blocks/archive-head/block.json
+msgctxt "block description"
+msgid "The head of an archive: section eyebrow, title, and a lead paragraph — the term's own description on a taxonomy view, the text set here otherwise."
+msgstr ""
+
+#: inc/blocks/author-box/block.json
+msgctxt "block title"
+msgid "Author Box"
+msgstr ""
+
+#: inc/blocks/author-box/block.json
+msgctxt "block description"
+msgid "The about-the-author panel at the end of an article."
+msgstr ""
+
+#: inc/blocks/author-index/block.json
+msgctxt "block title"
+msgid "Author Index"
+msgstr ""
+
+#: inc/blocks/author-index/block.json
+msgctxt "block description"
+msgid "Everyone who has published articles, with portrait, short bio and a link to their profile."
+msgstr ""
+
+#: inc/blocks/back-to-archive/block.json
+msgctxt "block title"
+msgid "Back to Archive"
+msgstr ""
+
+#: inc/blocks/back-to-archive/block.json
+msgctxt "block description"
+msgid "On single views only: a browser-back link plus a link to the post type's archive."
+msgstr ""
+
+#: inc/blocks/branche-spotlight/block.json
+msgctxt "block title"
+msgid "Branche Spotlight"
+msgstr ""
+
+#: inc/blocks/branche-spotlight/block.json
+msgctxt "block description"
+msgid "Homepage 'Branche' spotlight: the featured Personen (vsgu-news) entry, or two featured Lieferanten/Kalender entries if none is set."
+msgstr ""
+
+#: inc/blocks/editor-picks/block.json
+msgctxt "block title"
+msgid "Von der Redaktion empfohlen"
+msgstr ""
+
+#: inc/blocks/editor-picks/block.json
+msgctxt "block description"
+msgid "Three posts the editors pick under Startseite, whatever their age. Shows nothing while none is pinned."
+msgstr ""
+
+#: inc/blocks/entry-breadcrumb/block.json
+msgctxt "block title"
+msgid "Entry Breadcrumb"
+msgstr ""
+
+#: inc/blocks/entry-breadcrumb/block.json
+msgctxt "block description"
+msgid "Primary category and section label above an article title."
+msgstr ""
+
+#: inc/blocks/entry-byline/block.json
+msgctxt "block title"
+msgid "Entry Byline"
+msgstr ""
+
+#: inc/blocks/entry-byline/block.json
+msgctxt "block description"
+msgid "Author, date and the share/print actions for a single entry."
+msgstr ""
+
+#: inc/blocks/entry-content/block.json
+msgctxt "block title"
+msgid "Entry Content"
+msgstr ""
+
+#: inc/blocks/entry-content/block.json
+msgctxt "block description"
+msgid "Post content with the opening lead paragraph omitted, since goldor/entry-lead sets it above the hero image."
+msgstr ""
+
+#: inc/blocks/entry-eyebrow/block.json
+msgctxt "block title"
+msgid "Entry Eyebrow"
+msgstr ""
+
+#: inc/blocks/entry-eyebrow/block.json
+msgctxt "block description"
+msgid "The entry's Dachzeile (ACF field Obertitel), set above the title. Renders nothing when the field is empty."
+msgstr ""
+
+#: inc/blocks/entry-lead/block.json
+msgctxt "block title"
+msgid "Entry Lead"
+msgstr ""
+
+#: inc/blocks/entry-lead/block.json
+msgctxt "block description"
+msgid "The article's opening emphasised paragraph, set as a dek above the hero image."
+msgstr ""
+
+#: inc/blocks/entry-link/block.json
+msgctxt "block title"
+msgid "Entry Link"
+msgstr ""
+
+#: inc/blocks/entry-link/block.json
+msgctxt "block description"
+msgid "The entry's external `url` meta as a button plus its host — used by Kleinanzeigen and Links."
+msgstr ""
+
+#: inc/blocks/event-details/block.json
+msgctxt "block title"
+msgid "Event Details"
+msgstr ""
+
+#: inc/blocks/event-details/block.json
+msgctxt "block description"
+msgid "Date range, location and an 'add to calendar' link for a kalender event."
+msgstr ""
+
+#: inc/blocks/event-filter/block.json
+msgctxt "block title"
+msgid "Event Filter & Grid"
+msgstr ""
+
+#: inc/blocks/event-filter/block.json
+msgctxt "block description"
+msgid "Date and category filter for the kalender archive, with a paginated grid of matching events."
+msgstr ""
+
+#: inc/blocks/featured-media/block.json
+msgctxt "block title"
+msgid "Featured Media"
+msgstr ""
+
+#: inc/blocks/featured-media/block.json
+msgctxt "block description"
+msgid "Full-bleed featured image with its caption held to the reading measure."
+msgstr ""
+
+#: inc/blocks/hero-column/block.json
+msgctxt "block title"
+msgid "Spalte neben Top-Story"
+msgstr ""
+
+#: inc/blocks/hero-column/block.json
+msgctxt "block description"
+msgid "Three posts or a Halfpage ad, chosen by the editors under Startseite."
+msgstr ""
+
+#: inc/blocks/issue-cover/block.json
+msgctxt "block title"
+msgid "Issue Cover"
+msgstr ""
+
+#: inc/blocks/issue-cover/block.json
+msgctxt "block description"
+msgid "Small tilted cover of the newest magazin issue, linking to it."
+msgstr ""
+
+#: inc/blocks/kalender-preview/block.json
+msgctxt "block title"
+msgid "Kalender Preview"
+msgstr ""
+
+#: inc/blocks/kalender-preview/block.json
+msgctxt "block description"
+msgid "Homepage list of upcoming kalender events, ordered by start date."
+msgstr ""
+
+#: inc/blocks/lieferant-contact/block.json
+msgctxt "block title"
+msgid "Lieferant Contact"
+msgstr ""
+
+#: inc/blocks/lieferant-contact/block.json
+msgctxt "block description"
+msgid "Website, email and phone meta for a Lieferant (supplier) entry."
+msgstr ""
+
+#: inc/blocks/magazine-issue/block.json
+msgctxt "block title"
+msgid "Magazine Issue"
+msgstr ""
+
+#: inc/blocks/magazine-issue/block.json
+msgctxt "block description"
+msgid "Cover story, Focus, per-category sections and gated e-paper for a magazin issue."
+msgstr ""
+
+#: inc/blocks/newsletter-form/block.json
+msgctxt "block title"
+msgid "Newsletter Form"
+msgstr ""
+
+#: inc/blocks/newsletter-form/block.json
+msgctxt "block description"
+msgid "The DE or FR Ninja Forms newsletter signup, chosen by the current language."
+msgstr ""
+
+#: inc/blocks/paywall-content/block.json
+msgctxt "block title"
+msgid "Paywalled Content"
+msgstr ""
+
+#: inc/blocks/paywall-content/block.json
+msgctxt "block description"
+msgid "Full article content for subscribers, or a teaser and login form behind the paywall."
+msgstr ""
+
+#: inc/blocks/post-media/block.json
+msgctxt "block title"
+msgid "Post Media"
+msgstr ""
+
+#: inc/blocks/post-media/block.json
+msgctxt "block description"
+msgid "Featured image (with fallback) plus the category badge and artikel paywall badge, for use inside a Query Loop post template."
+msgstr ""
+
+#: inc/blocks/post-meta-line/block.json
+msgctxt "block title"
+msgid "Post Meta Line"
+msgstr ""
+
+#: inc/blocks/post-meta-line/block.json
+msgctxt "block description"
+msgid "Author, date and primary category for the post currently being rendered by a Query Loop — the card footer used across the site."
+msgstr ""
+
+#: inc/blocks/reading-progress/block.json
+msgctxt "block title"
+msgid "Reading Progress"
+msgstr ""
+
+#: inc/blocks/reading-progress/block.json
+msgctxt "block description"
+msgid "Thin scroll-progress bar pinned to the top of the viewport."
+msgstr ""
+
+#: inc/blocks/reading-time-share/block.json
+msgctxt "block title"
+msgid "Reading Time & Share"
+msgstr ""
+
+#: inc/blocks/reading-time-share/block.json
+msgctxt "block description"
+msgid "Estimated reading time (artikel only) plus Facebook/X share links for the current post."
+msgstr ""
+
+#: inc/blocks/related-posts/block.json
+msgctxt "block title"
+msgid "Related Posts"
+msgstr ""
+
+#: inc/blocks/related-posts/block.json
+msgctxt "block description"
+msgid "Other News/Artikel posts sharing a tag with the current post."
+msgstr ""
+
+#: inc/blocks/section-picks/block.json
+msgctxt "block title"
+msgid "Section Picks"
+msgstr ""
+
+#: inc/blocks/section-picks/block.json
+msgctxt "block description"
+msgid "A homepage section listing posts of one type, as story cards, a date list, a lead with a list, or a table, with an optional taxonomy filter and an ad override."
+msgstr ""
+
+#: inc/blocks/service-links/block.json
+msgctxt "block title"
+msgid "Service Links"
+msgstr ""
+
+#: inc/blocks/service-links/block.json
+msgctxt "block description"
+msgid "The newsletter's three shortcuts: newest issue, job ads, placing an ad."
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/block.json
+msgctxt "block title"
+msgid "Taxonomy Filter Links"
+msgstr ""
+
+#: inc/blocks/taxonomy-filter-links/block.json
+msgctxt "block description"
+msgid "Plain links to a post type's own '{post_type}-kategorie' taxonomy archives, highlighting the current one."
+msgstr ""
+
+#: inc/blocks/theme-toggle/block.json
+msgctxt "block title"
+msgid "Theme Toggle"
+msgstr ""
+
+#: inc/blocks/theme-toggle/block.json
+msgctxt "block description"
+msgid "Header switch between the light and the dark design. Follows the device setting until a reader chooses."
+msgstr ""
+
+#: inc/blocks/top-story/block.json
+msgctxt "block title"
+msgid "Top Story"
+msgstr ""
+
+#: inc/blocks/top-story/block.json
+msgctxt "block description"
+msgid "The homepage hero: the News/Artikel post flagged as top story."
+msgstr ""
+
+#: inc/blocks/wiki-index/block.json
+msgctxt "block title"
+msgid "Category Index List"
+msgstr ""
+
+#: inc/blocks/wiki-index/block.json
+msgctxt "block description"
+msgid "All entries of a post type, grouped alphabetically by taxonomy term (used for Wiki and Links)."
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Text Seite"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Formular Seite"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Primary dark"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Deep"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Sand"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted"
+msgstr ""
+
+#: theme.json
+msgctxt "Color name"
+msgid "Line"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "1"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "3"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "5"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Tiny"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Huge"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "List title"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Card title"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H2"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "H1"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Display"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Arvo (Headings)"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Inter (Text & UI)"
+msgstr ""

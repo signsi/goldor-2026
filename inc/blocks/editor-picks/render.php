@@ -12,14 +12,16 @@ $posts = goldor_home_editor_picks();
 if ( ! $posts ) {
 	return;
 }
+goldor_stamp_unmarked_picks( $posts );
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'section-picks editor-picks' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<?php
-	// The picks are Magazin articles; the head leads on to all of them.
+	// The head leads on to every entry the editors have ever picked
+	// (inc/empfohlen.php), not just the three shown here.
 	$link_label = ! empty( $attributes['linkLabel'] ) ? $attributes['linkLabel'] : '';
 	echo goldor_render_section_head( // phpcs:ignore WordPress.Security.EscapeOutput
 		__( 'Von der Redaktion empfohlen', 'goldor' ),
-		$link_label ? get_post_type_archive_link( 'artikel' ) : '',
+		$link_label ? goldor_empfohlen_url() : '',
 		$link_label
 	);
 	?>

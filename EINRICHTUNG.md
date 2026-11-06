@@ -4,7 +4,7 @@ Diese Anleitung beschreibt, wie das Block-Theme **goldor-2026** auf einer frisch
 korrekt aufgesetzt wird. Live läuft noch das alte Theme `original`. Alles, was das neue Theme in der
 Datenbank erwartet und was nicht mit den Theme-Dateien mitkommt, steht hier.
 
-**Stand:** 5. November 2026, Branch `main` nach dem Merge von `feature/rubriken-service`
+**Stand:** 6. November 2026, Branch `main` mit der Entwicklungsrunde vom 6. November (siehe Abschnitt 16)
 **Lokale Site:** https://goldor.wporbit, WordPress unter `/var/www/html`, alle `wp`-Befehle von dort
 
 Was das Theme kann und was sich gegenüber dem alten Theme geändert hat, steht in `NEUERUNGEN.md`.
@@ -42,6 +42,8 @@ Zur Datenbank-Sicherung:
 1. Live-Inhalte in WPorbit holen.
 2. Theme-Dateien prüfen (`main` ausgecheckt, Ordner `goldor-2026` vorhanden).
 3. Theme aktivieren.
+3a. **`wp goldor nachfuehren`** ausführen (Abschnitt 16). Das legt an, was das Theme selbst anlegen kann,
+    und listet auf, was von Hand nötig ist.
 4. Plugins prüfen.
 5. Permalinks prüfen.
 6. Seiten anlegen, umbenennen, veröffentlichen.
@@ -380,6 +382,12 @@ Alles hier fehlt nach einem Live-Import und wird entweder automatisch neu angele
 | Speicherort | Schlüssel | Woher | Nach dem Import |
 |---|---|---|---|
 | Option | `goldor_rewrite_version` | `inc/werbung.php` | automatisch |
+| Option | `goldor_empfohlen_rewrite` | `inc/empfohlen.php` (Adressen `/empfohlen/`, `/fr/recommandations/`) | automatisch, sofort mit `wp goldor nachfuehren` |
+| Option | `goldor_musterbeitrag_id` | `inc/musterbeitrag.php` | `wp goldor nachfuehren` oder Handbuch → Musterbeitrag anlegen |
+| Beitrag (privat) | Musterbeitrag, Typ Fachartikel, datiert 2001 | `inc/musterbeitrag.php` | wie oben; Bilder kommen aus der Mediathek der jeweiligen Site |
+| Beitrags-Meta | `goldor_empfohlen_am` | `inc/empfohlen.php`, gesetzt beim Speichern der Startseite | `wp goldor nachfuehren`, sonst beim ersten Anzeigen der Startseite |
+| Beitrags-Meta | `titelbild_darstellung`, `titelbild_ausschnitt` | Box „Titelbild“ im Beitrag | leer = Automatisch |
+| Beitrags-Meta | `obertitel` | Feld „Obertitel“ (bestand schon) | Live-Inhalt, nichts zu tun |
 | Option | `goldor_service_bar` | Einstellungen → Lesen | Standard an, siehe 8 |
 | Option | `goldor_page_background`, `goldor_page_background_image` | Einstellungen → Lesen | Standard an, siehe 8 |
 | Option | `goldor_home_settings` | `inc/startseite.php` | automatisch, Auswahl neu setzen (9) |
@@ -442,3 +450,66 @@ in WPorbit, nicht dieses Repository.
 - Weiterleitungen von den alten Rubrik-Adressen einrichten (`/job/` → `/jobs/` usw., siehe `NEUERUNGEN.md`).
 - `/demo-medien/` und die Sicherungsordner `.sicherung-*` und `.cleanup-backup-*` **nicht** übertragen.
 - Alle Punkte unter „Beim Go-live beachten“ in `NEUERUNGEN.md`.
+
+---
+
+## 16. Nach jedem Holen: nachführen
+
+Beim **Holen** in WPorbit ersetzt die Live-Datenbank die lokale. Alles, was nur lokal in der Datenbank stand,
+ist danach weg. Der Code des Themes bleibt. Dieser Abschnitt sagt, was dann fehlt und wie es zurückkommt.
+
+### 16.1 Ein Befehl für das Automatische
+
+```bash
+cd /var/www/html
+wp goldor nachfuehren              # legt an und prüft
+wp goldor nachfuehren --testdaten  # zusätzlich die Testinhalte dieser Runde
+```
+
+Der Befehl (`inc/cli.php`) lässt sich beliebig oft ausführen. Er:
+
+1. legt den **Musterbeitrag** an, falls er fehlt (privat, Bilder aus der Mediathek),
+2. markiert die aktuellen **Empfehlungen** der Startseite, damit `/empfohlen/` sie zeigt,
+3. richtet die Adressen **`/empfohlen/`** und **`/fr/recommandations/`** ein,
+4. mit `--testdaten`: setzt den Test-Obertitel „Victor-Mayer-Preis 2026“ auf die Coverstory #87193,
+5. **meldet**, was eine Person erledigen muss: gespeicherte Vorlagen im Website-Editor, fehlende
+   Startseiten-Einstellungen, Seiten aus Header und Footer, die fehlen oder deren französische Fassung
+   nur ein Entwurf ist.
+
+Ohne Befehl kommt das meiste trotzdem: Die Adressen richten sich beim ersten Seitenaufruf ein, die
+Empfehlungen beim ersten Anzeigen der Startseite, den Musterbeitrag legt das Handbuch im Backend per Klick an.
+
+### 16.2 Was in dieser Runde nur lokal in der Datenbank stand
+
+Stand 6. November 2026. Alles andere aus dieser Runde liegt in den Theme-Dateien und übersteht das Holen.
+
+| Was | Lokal gesetzt | Nach dem Holen |
+|---|---|---|
+| Obertitel „Victor-Mayer-Preis 2026“ auf der Coverstory „Mut zum eigenen Stil als Künstler“ (#87193) | Test der Dachzeile | nur bei Bedarf: `wp goldor nachfuehren --testdaten`. Live gehört der Obertitel der Redaktion. |
+| Musterbeitrag #87714 und Option `goldor_musterbeitrag_id` | für Handbuch und Vorlage | `wp goldor nachfuehren` (die neue ID weicht ab, das ist egal) |
+| Meta `goldor_empfohlen_am` auf den drei Empfehlungen | Übersicht „Alle Empfehlungen“ | `wp goldor nachfuehren` |
+| Optionen `goldor_empfohlen_rewrite`, `rewrite_rules` | Adressen `/empfohlen/` | automatisch |
+
+**Nichts davon muss nach Live gesendet werden.** Live richtet das Theme dasselbe selbst ein, sobald es dort
+aktiv ist; den Musterbeitrag legt die Redaktion im Handbuch an.
+
+### 16.3 Was nicht in der Datenbank steht
+
+Zur Orientierung, damit niemand es nach dem Holen sucht – das alles ist Code und bleibt:
+
+- Handbuch (Menü „Handbuch“) und Werbe-Anleitung (Werbung → Anleitung): `inc/handbuch.php`, `inc/werbung-anleitung.php`
+- Box „Titelbild“ und Box „Laufzeit und Darstellung“: ACF-Felder im Code (`inc/titelbild.php`, `inc/werbung.php`)
+- Französische Übersetzungen der festen Texte: `languages/fr_FR.po/.mo/.l10n.php`, Liste der Template-Texte in `inc/i18n.php`
+- Darkmode, Pagination, Mobile-Header und -Menü, Galerien, Tabellen: `style.css`, `assets/`
+- Startseite, Footer, Abo-Band: `templates/front-page.html`, `parts/`
+
+### 16.4 Nach dem Nachführen prüfen
+
+```bash
+for p in / /empfohlen/ /fr/ /fr/recommandations/ /artikel/ /news/ /jobs/ /kalender/ /lieferanten/; do
+  printf '%-24s %s\n' "$p" "$(curl -sk -o /dev/null -w '%{http_code}' "https://goldor.wporbit$p")"
+done
+```
+
+Alle 200. Dann im Backend das **Handbuch** öffnen: „Heute“ zeigt die aktuelle Top-Story, der Abschnitt
+Musterbeitrag die Buttons „Ansehen“ und „Als Vorlage verwenden“.
