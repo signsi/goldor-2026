@@ -14,7 +14,15 @@ if ( ! $posts ) {
 }
 ?>
 <div <?php echo get_block_wrapper_attributes( array( 'class' => 'section-picks editor-picks' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
-	<?php echo goldor_render_section_head( __( 'Von der Redaktion empfohlen', 'goldor' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
+	<?php
+	// The picks are Magazin articles; the head leads on to all of them.
+	$link_label = ! empty( $attributes['linkLabel'] ) ? $attributes['linkLabel'] : '';
+	echo goldor_render_section_head( // phpcs:ignore WordPress.Security.EscapeOutput
+		__( 'Von der Redaktion empfohlen', 'goldor' ),
+		$link_label ? get_post_type_archive_link( 'artikel' ) : '',
+		$link_label
+	);
+	?>
 	<div class="grid-container">
 		<?php foreach ( $posts as $post_id ) : ?>
 			<?php echo goldor_render_story_card( $post_id ); // phpcs:ignore WordPress.Security.EscapeOutput ?>

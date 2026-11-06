@@ -56,7 +56,7 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:goldor/taxonomy-filter-links {"postType":"artikel","limit":3,"allLabel":"Alle","className":"filter-pills"} /-->
+		<!-- wp:goldor/taxonomy-filter-links {"postType":"artikel","allLabel":"Alle","terms":["jewellery","watches","stones","trade"],"className":"filter-pills"} /-->
 		<!-- wp:goldor/section-picks {"postType":"artikel","postsPerPage":6,"layout":"lead-list"} /-->
 	</div>
 	<!-- /wp:group -->
@@ -91,8 +91,8 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"metadata":{"name":"Band: Leaderboard"},"align":"full","className":"section section--band","layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull section section--band">
+<!-- wp:group {"metadata":{"name":"Band: Leaderboard"},"align":"full","className":"section section--band section--ad","layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull section section--band section--ad">
 	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
 		<!-- wp:goldor/ad-slot {"type":"Leaderboard","showLabel":true} /-->
@@ -119,8 +119,8 @@
 
 		<!-- wp:group {"metadata":{"name":"Spalten: Personen und Kalender"},"className":"column-grid","layout":{"type":"default"}} -->
 		<div class="wp-block-group column-grid">
-			<!-- wp:goldor/branche-spotlight /-->
-			<!-- wp:goldor/kalender-preview {"postsPerPage":3,"heading":"Kalender","linkLabel":"Alle Termine anzeigen"} /-->
+			<!-- wp:goldor/branche-spotlight {"personenOnly":true} /-->
+			<!-- wp:goldor/kalender-preview {"postsPerPage":4,"heading":"Kalender","linkLabel":"Alle Termine anzeigen","layout":"dates"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
@@ -132,7 +132,7 @@
 <div class="wp-block-group alignfull section section--editor-picks">
 	<!-- wp:group {"metadata":{"name":"Inhaltsbreite"},"className":"section__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group section__inner">
-		<!-- wp:goldor/editor-picks /-->
+		<!-- wp:goldor/editor-picks {"linkLabel":"Alle Artikel"} /-->
 	</div>
 	<!-- /wp:group -->
 </div>

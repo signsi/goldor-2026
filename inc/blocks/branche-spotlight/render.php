@@ -33,8 +33,13 @@ $pick = function ( $post_type, $exclude = array() ) {
 	return 0;
 };
 
+// On the homepage the Messen run in the kalender beside it, so the spotlight
+// is the one portrait and takes a single track.
+$personen_only = ! empty( $attributes['personenOnly'] );
+$post_types    = $personen_only ? array( 'vsgu-news' ) : array( 'vsgu-news', 'kalender' );
+
 $post_ids = array();
-foreach ( array( 'vsgu-news', 'kalender' ) as $post_type ) {
+foreach ( $post_types as $post_type ) {
 	$id = $pick( $post_type, $post_ids );
 	if ( $id ) {
 		$post_ids[] = $id;
@@ -45,7 +50,7 @@ if ( ! $post_ids ) {
 	return;
 }
 ?>
-<div <?php echo get_block_wrapper_attributes( array( 'class' => 'branche-spotlight' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
+<div <?php echo get_block_wrapper_attributes( array( 'class' => 'branche-spotlight' . ( 1 === count( $post_ids ) ? ' branche-spotlight--single' : '' ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?>>
 	<?php
 	foreach ( $post_ids as $post_id ) {
 		echo goldor_render_story_card( // phpcs:ignore WordPress.Security.EscapeOutput

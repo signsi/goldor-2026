@@ -74,6 +74,68 @@ This theme, like WordPress, is licensed under the GPL.
 	--gd-radius-pill: 999px;
 }
 
+/*
+ * Dark mode (inc/darkmode.php sets data-theme before first paint). Tuned for
+ * reading rather than for drama: a warm charcoal page instead of black, and
+ * off-white type instead of white, so long text does not glare or halo.
+ * Every colour is a token swap; components need no dark rules of their own.
+ * Checked against WCAG AA: ink 14.7:1, article text 12:1, meta 6.5:1, magenta
+ * text 6.6:1 on the page, 5.3:1 on the petrol band.
+ */
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--gd-base: #15171b;
+	--gd-ink: #ebe8e2;
+	--gd-primary-dark: #ff66b0;
+	--gd-deep: #0f2e37;
+	--gd-sand: #1c1f24;
+	--gd-sand-deep: #23262c;
+	--gd-muted: #a7abb1;
+	--gd-meta: #979ca2;
+	--gd-line: #2e3238;
+	--gd-reading: #d6d3cc;
+
+	/* theme.json styles (body, links, buttons) read the presets. */
+	--wp--preset--color--base: var(--gd-base);
+	--wp--preset--color--contrast: var(--gd-ink);
+	--wp--preset--color--primary-dark: var(--gd-primary-dark);
+	--wp--preset--color--deep: var(--gd-deep);
+	--wp--preset--color--sand: var(--gd-sand);
+	--wp--preset--color--muted: var(--gd-muted);
+	--wp--preset--color--line: var(--gd-line);
+}
+
+/* The magenta pill keeps white type; the page colour would drop it to 4.1:1. */
+:root[data-theme="dark"] :is(.wp-element-button, .wp-block-button__link) {
+	color: #fff;
+}
+
+/* The photo behind the site recedes so the column stays the brightest thing. */
+:root[data-theme="dark"] body.has-page-background::before {
+	filter: brightness(0.32) saturate(0.7);
+}
+
+/* Reading: article text a step softer than headlines and slightly more open,
+   because light type on dark reads heavier and tighter than the reverse. */
+:root[data-theme="dark"] :is(.entry-content-full, .wp-block-post-content, .entry-lead) {
+	color: var(--gd-reading);
+	letter-spacing: 0.006em;
+}
+
+:root[data-theme="dark"] :is(.entry-content-full, .wp-block-post-content) {
+	line-height: 1.72;
+}
+
+:root[data-theme="dark"] :is(.entry-content-full, .wp-block-post-content) :is(h2, h3, h4, strong, b) {
+	color: var(--gd-ink);
+}
+
+/* Photos in an article are dimmed a touch so a white studio shot does not
+   flash in a dark page; the lightbox shows them at full brightness. */
+:root[data-theme="dark"] :is(.entry-media, .entry-content-full, .wp-block-post-content) img {
+	filter: brightness(0.9);
+}
+
 /*--------------------------------------------------------------
 # Reset & base
 --------------------------------------------------------------*/
@@ -209,6 +271,28 @@ body.has-page-background::before {
 	color: #fff;
 }
 
+/*
+ * Same stock after same stock has no seam, so the two paddings would add up
+ * to a double interval (168px of blank paper) where a change of stock reads
+ * as one. The follower drops its top padding; the previous band's bottom
+ * padding is the interval, and the follower's 2px title rule is the seam.
+ */
+.section:not(.section--soft, .section--invert) + .section:not(.section--soft, .section--invert),
+.section--soft + .section--soft {
+	padding-top: 0;
+}
+
+/* An advertisement inside a run of white bands keeps the editorial interval
+   below it too, so it sits centred in the air rather than tucked under. */
+.section:not(.section--soft, .section--invert) + .section--band:not(.section--soft, .section--invert) {
+	padding-bottom: var(--gd-section-y);
+}
+
+/* An empty ad band between two sand bands leaves them touching. */
+.section--soft + .section--ad:not(:has(.ad-slot)) + .section--soft {
+	padding-top: 0;
+}
+
 /* Sections butt up against each other; core's block gap would space them out. */
 .wp-site-blocks > * {
 	margin-block-start: 0;
@@ -304,6 +388,17 @@ ul.wp-block-post-template {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: var(--gd-gap);
+}
+
+/* Personen & Messen: the one portrait in the first track, the kalender with
+   large dates across the other two. */
+.column-grid > .branche-spotlight--single {
+	grid-column: span 1;
+	display: block;
+}
+
+.column-grid > .kalender-preview--dates {
+	grid-column: span 2;
 }
 
 .hero-grid {
@@ -476,7 +571,7 @@ h2.divide {
 .wp-block-button.is-style-secondary .wp-block-button__link:hover {
 	background: var(--gd-ink);
 	border-color: var(--gd-ink);
-	color: #fff;
+	color: var(--gd-base);
 }
 
 /* Category filter (goldor/taxonomy-filter-links): tabs on a hairline, not pills. */
@@ -586,6 +681,43 @@ ul.taxonomy-filter-links li.is-active a {
 
 .site-header.shrink .site-header__nav {
 	padding-bottom: 6px;
+}
+
+/* Dark-mode switch (goldor/theme-toggle): an icon button beside the account
+   link. The moon offers the dark design, the sun takes it back. */
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: var(--gd-radius-pill);
+	background: transparent;
+	color: var(--gd-ink);
+	cursor: pointer;
+	transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+	color: var(--gd-primary-dark);
+	background: var(--gd-sand);
+}
+
+.theme-toggle:focus-visible {
+	outline: 2px solid var(--gd-primary);
+	outline-offset: 2px;
+}
+
+.theme-toggle__sun,
+:root[data-theme="dark"] .theme-toggle__moon {
+	display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle__sun {
+	display: block;
 }
 
 /* Account link (goldor/account-link) */
@@ -894,6 +1026,8 @@ ul.taxonomy-filter-links li.is-active a {
 	gap: 6px;
 	border: 0;
 	padding: 0;
+	/* Core paints this wrapper white; the header's own stock shows through. */
+	background: transparent;
 }
 
 .site-header .site-search .wp-block-search__input {
@@ -1052,6 +1186,17 @@ ul.taxonomy-filter-links li.is-active a {
 	text-decoration: none;
 }
 
+/* Dachzeile: the editor's short topic line above a headline, set like every
+   other label (DESIGN.md: normal case, Inter, magenta deep). */
+.story-card__eyebrow {
+	font-family: var(--gd-ui);
+	font-size: 0.8125rem;
+	font-weight: 500;
+	line-height: 1.3;
+	color: var(--gd-primary-dark);
+	margin: 0 0 8px;
+}
+
 .story-card__subline {
 	font-family: var(--gd-ui);
 	font-size: 0.8125rem;
@@ -1176,6 +1321,11 @@ a.story-card__category {
 
 .story-card--hero .story-card__body {
 	padding-top: clamp(18px, 2.2vw, 26px);
+}
+
+.story-card--hero .story-card__eyebrow {
+	font-size: 0.9375rem;
+	margin-bottom: 12px;
 }
 
 .story-card--hero .story-card__title {
@@ -1500,6 +1650,133 @@ a.story-card__category {
 	background: var(--gd-primary);
 }
 
+/* 3d Kalender, large dates (homepage, two tracks): the days are the figure a
+   reader scans down, the month beneath them, the event beside, its status
+   right. Laid out on the column's own width, not the viewport's. */
+.kalender-preview--dates {
+	container-type: inline-size;
+}
+
+.event-rows {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.event-row {
+	display: grid;
+	grid-template-columns: 10.5rem minmax(0, 1fr) auto;
+	gap: 6px var(--gd-gap);
+	align-items: start;
+	padding: 22px 0;
+}
+
+.event-row:first-child {
+	padding-top: 6px;
+}
+
+.event-row__date {
+	margin: 0;
+	font-family: var(--gd-ui);
+}
+
+.event-row__days {
+	display: block;
+	font-size: clamp(2.125rem, 3.4vw, 2.75rem);
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -0.035em;
+	font-variant-numeric: tabular-nums;
+	color: var(--gd-ink);
+	white-space: nowrap;
+}
+
+.event-row__period {
+	display: block;
+	margin-top: 8px;
+	font-size: 0.9375rem;
+	line-height: 1.3;
+	color: var(--gd-muted);
+}
+
+.event-row__body {
+	min-width: 0;
+	padding-top: 2px;
+}
+
+.event-row__title {
+	margin: 0;
+	font-family: var(--gd-heading);
+	font-size: var(--gd-fs-card);
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.005em;
+	hyphens: manual;
+	text-wrap: balance;
+}
+
+.event-row__title a {
+	color: var(--gd-ink);
+}
+
+.event-row__title a:hover {
+	color: var(--gd-primary-dark);
+	text-decoration: none;
+}
+
+.event-row__excerpt {
+	margin: 6px 0 0;
+	font-size: 0.9375rem;
+	line-height: 1.5;
+	color: var(--gd-muted);
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* The one magenta fill in the band: an event that is on today. */
+.event-row__status {
+	margin: 0;
+	padding: 6px 12px;
+	background: var(--gd-primary);
+	color: #fff;
+	font-family: var(--gd-ui);
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.3;
+	white-space: nowrap;
+}
+
+/* Narrow column (tablet half, phone): date and status share the top line,
+   the event runs full width beneath. */
+@container (max-width: 520px) {
+	.event-row {
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 10px 16px;
+		padding: 18px 0;
+	}
+
+	.event-row__days {
+		font-size: 2rem;
+	}
+
+	.event-row__period {
+		margin-top: 6px;
+	}
+
+	.event-row__body {
+		grid-column: 1 / -1;
+		grid-row: 2;
+		padding-top: 0;
+	}
+
+	.event-row__status {
+		grid-column: 2;
+		grid-row: 1;
+	}
+}
+
 /* 3e Personen: portraits stand upright. */
 .story-card--portrait .story-card__media {
 	aspect-ratio: 3 / 4;
@@ -1576,10 +1853,15 @@ a.story-card__category {
 	grid-column: 1 / -1;
 }
 
+/* The title names the whole offer in one sentence, so it is set a step below
+   a page title and balanced: two even lines across the two tracks on desktop
+   instead of three ragged ones, and no lone "im Abo" on the last line. */
 .promo__title {
-	font-size: var(--gd-fs-h1);
-	line-height: 1.06;
-	letter-spacing: -0.015em;
+	font-size: clamp(1.375rem, 2.6vw, 2rem);
+	line-height: 1.15;
+	letter-spacing: -0.01em;
+	text-wrap: balance;
+	hyphens: manual;
 	color: #fff;
 	margin: 0;
 }
@@ -1860,6 +2142,17 @@ body.has-page-background .reading-progress {
 	margin-inline: 0.5em;
 }
 
+/* Dachzeile: one step up from the breadcrumb above it, so the two labels do
+   not read as one block. Same voice as on the homepage cover story. */
+.entry-eyebrow {
+	margin: 0 0 clamp(8px, 1vw, 12px);
+	font-family: var(--gd-ui);
+	font-size: clamp(1rem, 1.3vw, 1.125rem);
+	font-weight: 500;
+	line-height: 1.3;
+	color: var(--gd-primary-dark);
+}
+
 .entry-head .wp-block-post-title {
 	font-size: var(--gd-fs-h1);
 	letter-spacing: -0.015em;
@@ -1971,6 +2264,13 @@ body.has-page-background .reading-progress {
 .entry-content-full > *:first-child,
 .wp-block-post-content > *:first-child {
 	margin-top: 0;
+}
+
+/* The band's bottom padding is the interval; a trailing paragraph margin
+   would add 17px to it on every entry that ends in body text. */
+.entry-content-full > *:last-child,
+.wp-block-post-content > *:last-child {
+	margin-bottom: 0;
 }
 
 .entry-content-full h2,
@@ -2497,7 +2797,7 @@ a.button-filter:hover,
 button.button-filter:hover {
 	background: var(--gd-ink);
 	border-color: var(--gd-ink);
-	color: #fff;
+	color: var(--gd-base);
 	text-decoration: none;
 }
 
@@ -3547,7 +3847,7 @@ ul.wp-block-post-template.entry-list {
 .nf-form-cont input[type="button"]:hover {
 	background: var(--gd-ink);
 	border-color: var(--gd-ink);
-	color: #fff;
+	color: var(--gd-base);
 }
 
 .nf-form-cont input[type="submit"]:disabled,
@@ -3825,6 +4125,13 @@ a.no-link {
 		order: 1;
 	}
 
+	/* Portrait and kalender stay side by side, one track each. */
+	.column-grid > .branche-spotlight--single,
+	.column-grid > .kalender-preview--dates {
+		grid-column: span 1;
+		order: 0;
+	}
+
 	.grid-container,
 	.grid-container > .wp-block-post-template,
 	ul.wp-block-post-template {
@@ -3917,7 +4224,9 @@ a.no-link {
 		grid-template-columns: minmax(0, 1fr);
 	}
 
-	.column-grid > .branche-spotlight {
+	.column-grid > .branche-spotlight,
+	.column-grid > .branche-spotlight--single,
+	.column-grid > .kalender-preview--dates {
 		grid-column: auto;
 	}
 

@@ -12,7 +12,8 @@
 	"attributes": {
 		"postsPerPage": { "type": "number", "default": 3 },
 		"heading": { "type": "string", "default": "" },
-		"linkLabel": { "type": "string", "default": "" }
+		"linkLabel": { "type": "string", "default": "" },
+		"layout": { "type": "string", "enum": [ "list", "dates" ], "default": "list" }
 	},
 	"supports": {
 		"html": false

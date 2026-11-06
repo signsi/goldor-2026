@@ -23,6 +23,7 @@ if ( ! $post_id ) {
 			'image_size' => 'large',
 			'heading'    => 'h1',
 			'cta'        => $cta,
+			'eyebrow'    => goldor_post_eyebrow( $post_id ),
 		)
 	);
 	?>

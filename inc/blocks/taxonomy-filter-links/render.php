@@ -16,15 +16,23 @@ if ( ! taxonomy_exists( $taxonomy ) ) {
 	return;
 }
 
-$terms = get_terms(
-	array(
-		'taxonomy'   => $taxonomy,
-		'hide_empty' => true,
-		'number'     => $limit > 0 ? $limit : 0,
-		'orderby'    => $limit > 0 ? 'count' : 'name',
-		'order'      => $limit > 0 ? 'DESC' : 'ASC',
-	)
-);
+// Editors can name the terms and their order (default-language slugs, e.g.
+// "jewellery"); otherwise the most used ones, or all of them by name.
+$slugs = ! empty( $attributes['terms'] ) && is_array( $attributes['terms'] ) ? $attributes['terms'] : array();
+
+if ( $slugs ) {
+	$terms = goldor_terms_by_default_slugs( $taxonomy, $slugs );
+} else {
+	$terms = get_terms(
+		array(
+			'taxonomy'   => $taxonomy,
+			'hide_empty' => true,
+			'number'     => $limit > 0 ? $limit : 0,
+			'orderby'    => $limit > 0 ? 'count' : 'name',
+			'order'      => $limit > 0 ? 'DESC' : 'ASC',
+		)
+	);
+}
 if ( empty( $terms ) || is_wp_error( $terms ) ) {
 	return;
 }

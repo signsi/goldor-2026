@@ -36,6 +36,15 @@
 							value: attributes.linkLabel,
 							onChange: set( 'linkLabel' ),
 						} ),
+						el( components.SelectControl, {
+							label: __( 'Layout', 'goldor' ),
+							value: attributes.layout,
+							options: [
+								{ label: __( 'List (one track)', 'goldor' ), value: 'list' },
+								{ label: __( 'Large dates (two tracks)', 'goldor' ), value: 'dates' },
+							],
+							onChange: set( 'layout' ),
+						} ),
 						el( components.TextControl, {
 							label: __( 'Events shown', 'goldor' ),
 							type: 'number',
