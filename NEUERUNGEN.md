@@ -2,11 +2,12 @@
 
 Dieses Dokument zeigt, was sich mit dem neuen Block-Theme **goldor-2026** im Vergleich zum alten klassischen Theme (Basis „_s“, heute im Ordner `legacy/`) geändert hat: für die Redaktion, für den Anzeigenverkauf und für alle, die die Website betreuen.
 
-**Stand:** 5. November 2026
+**Stand:** 6. November 2026
 
 **Legende**
 - ohne Markierung: von Gold'Or bereits gesehen
 - **(neu, in Prüfung)**: seit dem 5. November 2026 auf `main` (aus `feature/rubriken-service`), von Gold'Or noch abzunehmen
+- **(neu, 6. Nov.)**: Runde vom 6. November 2026, zusammengefasst im Abschnitt „Runde vom 6. November 2026“ unten
 
 Wie das Theme nach einem Import der Live-Datenbank eingerichtet wird, steht in **`EINRICHTUNG.md`**.
 
@@ -66,7 +67,7 @@ Wie das Theme nach einem Import der Live-Datenbank eingerichtet wird, steht in *
     - Jobs mit Stelle, Ort, Pensum und Datum; Marktplatz mit Anzeige, Art und Datum.
     - Ort und Pensum stammen aus neuen Feldern oder werden aus Titel und Text gelesen.
     - In schmalen Spalten werden aus den Zeilen Blöcke.
-  - **Abo-Band mit aktuellem Heft:** „Gold'Or im Abo“ mit schräg gestelltem Cover der neuesten Ausgabe, passend zur Sprache.
+  - **Abo-Band mit aktuellem Heft:** schräg gestelltes Cover der neuesten Ausgabe, passend zur Sprache. **(neu, 6. Nov.)** Titel „Das Schweizer Fachmagazin der Schmuck-, Uhren- und Edelsteinbranche im Abo“.
   - **Kalender-Vorschau:** grosses Datum vorne, laufende Messen sind als „Läuft gerade“ markiert.
 
 ## 3. Artikel und Lesen
@@ -140,7 +141,7 @@ Wie das Theme nach einem Import der Live-Datenbank eingerichtet wird, steht in *
   - Petrolfarbene Leiste über dem Header mit „Aktuelle Ausgabe“, „Stelleninserate“, „Inserat aufgeben“ und Anmelden.
   - Auf dem Handy stehen die drei Links am Ende des Menüs.
   - **Ein- und ausschaltbar** unter *Einstellungen → Lesen → Service-Leiste*. Ist sie aus, erscheint das Anmelden wieder im Header.
-- **Footer:** Logo, Social Media (Instagram, Facebook, LinkedIn), Über uns, Werbung, Links, FAQ, Kontakt, Abonnieren, Datenschutz und Impressum.
+- **Footer:** Logo, Social Media (Instagram, Facebook, LinkedIn), Über uns, Werbung, FAQ, Kontakt, Abonnieren, Datenschutz und Impressum. **(neu, 6. Nov.)** „Links“ ist entfernt, LinkedIn zeigt auf die Gold'Or-Seite.
   - **(neu, in Prüfung)** Seite **FAQ** mit aufklappbaren Fragen zu Abo, Online-Zugang, Inseraten und Redaktion. Neue Fragen fügt die Redaktion mit dem Block „Details“ hinzu.
 
 ## 6. Werbung
@@ -222,7 +223,7 @@ Diese Punkte gab es im alten Theme, sie fehlen im neuen noch oder sind unvollst�
    - `/link/` → `/links/`
 
    Links von aussen und aus Google landen sonst auf „nicht gefunden“. Weiterleitungen einrichten.
-2. **Französische Texte fehlen.** Viele feste Texte sind nur auf Deutsch: Abschnittstitel der Startseite, Footer, „Weitere Artikel“, „Teilen“, „Läuft gerade“. Das gilt, solange sie nicht über WPML übersetzt sind.
+2. ~~Französische Texte fehlen.~~ **(neu, 6. Nov.) erledigt:** Die festen Texte sind im Theme übersetzt (siehe unten). Offen bleibt die französische Hauptnavigation, die in WPML ein anderes Menü zeigt (À propos, Publicité …).
 3. **Newsletter-Anmeldung fehlt.** Das alte Footer-Formular (DE/FR) ist nicht mehr eingebaut. Der Block dafür existiert, wird aber nirgends verwendet.
 4. **Suche zeigt zu viel.** Das alte Theme blendete Kalender, Jobs, Marktplatz, Lieferanten und Links aus der Suche aus, das neue nicht (Werbung ist inzwischen ausgeblendet).
 5. **Stellengesuche fehlen auf der Startseite.** Die Jobs-Tabelle zeigt nur Stellenangebote. Auch die Werbeplatzierung „Medium Rectangle Stellengesuche“ ist nirgends eingebaut, obwohl es Anzeigen dafür gibt.
@@ -230,7 +231,7 @@ Diese Punkte gab es im alten Theme, sie fehlen im neuen noch oder sind unvollst�
 7. **„Drucken“ ohne Druckansicht.** Der Button ist da, aber es gibt keine eigene Druckgestaltung.
 8. **Kleinere Punkte:**
    - Schlagwörter unter dem Artikel fehlen.
-   - Die 404-Seite hat noch einen englischen Platzhaltertext.
+   - ~~Die 404-Seite hat noch einen englischen Platzhaltertext.~~ **(neu, 6. Nov.)** erledigt, Deutsch und Französisch.
    - Die Seite „Branchenwiki“ braucht das passende Vorlagen-Muster im Inhalt.
    - Die Footer-Links sind fest im Footer eingetragen statt als Menü.
    - Manche Profil-Adressen enthalten die E-Mail-Adresse ohne Sonderzeichen, zum Beispiel `/profile/mwedergoldor-ch/`.
@@ -240,6 +241,83 @@ Diese Punkte gab es im alten Theme, sie fehlen im neuen noch oder sind unvollst�
     - Ein Eigeninserat als Ersatz, wenn nichts gebucht ist.
     - Ein Klickzähler als Nachweis für Kunden.
     - Keine Einwilligungsabfrage für Google Analytics (gleich wie vorher).
+
+## Runde vom 6. November 2026
+
+Alles hier ist **(neu, 6. Nov.)**, liegt in den Theme-Dateien und ist von Gold'Or noch abzunehmen. Was davon nur
+lokal in der Datenbank stand und nach einem Holen nachgeführt wird, steht in `EINRICHTUNG.md`, Abschnitt 16.
+
+### Startseite
+
+- **Dachzeile über der Coverstory:** Das bestehende Feld **Obertitel** erscheint als Zeile über dem Titel der
+  Top-Story, auch im Beitrag selbst über dem Titel. Leer = keine Zeile. News haben das Feld nicht.
+- **Gleichmässige Abstände:** Zwei weisse Sektionen nacheinander hatten doppelten Abstand (168 px statt 84 px).
+  Jetzt gilt überall derselbe Takt, auch mobil (48 px). Ein leeres Leaderboard hinterlässt keinen weissen Streifen mehr.
+- **Abo-Band:** neuer, längerer Titel, kleiner gesetzt und ausgeglichen umbrochen.
+- **Personen & Messen:** Personen ein Drittel (Porträt), **Kalender zwei Drittel** mit grossen Daten
+  („15.–19.“ / „Januar 2027“), Messe und Ort, Kurzbeschreibung und Badge „Läuft gerade“.
+- **Fachmagazin-Reiter** in fester Reihenfolge: Alle, Jewellery, Watches, Stones, Trade.
+- **Von der Redaktion empfohlen** hat den Link **„Alle Empfehlungen“** auf die neue Übersicht `/empfohlen/`
+  (französisch `/fr/recommandations/`): jeder je empfohlene Beitrag, die neueste Empfehlung zuerst.
+- Auf dem Tablet bleiben Dreier-Reihen dreispaltig.
+
+### Artikel
+
+- **Titelbild wählbar** (Box „Titelbild“ in der Seitenleiste): *Automatisch* zeigt nur grosse Querformat-Bilder
+  ab 1600 px randlos, alles andere ganz und unbeschnitten in Textbreite. Dazu *Volle Breite* mit
+  Bildausschnitt oben/Mitte/unten, *Textbreite* und *Nicht oben zeigen*. Grund: Nur 3 % der 3307 Titelbilder
+  eigneten sich für den bisherigen festen randlosen Zuschnitt; die übrigen wurden hochskaliert oder beschnitten.
+- **Lightbox fürs Titelbild:** Ein Klick öffnet es gross, zusammen mit den verlinkten Bildern im Text zum Durchblättern.
+- **Klassische Galerien** (`[gallery]`, rund 900 Beiträge) als Raster in ihrer Spaltenzahl statt untereinander
+  und hochskaliert. Mobil höchstens zwei Spalten.
+- **Kleingedrucktes:** „Überschrift 5“ (Bildnachweise, „Über den Autor“, Serienhinweise, in über 1100 Beiträgen)
+  erscheint als ruhige Anmerkung statt als fetter Titelblock.
+- **Tabellen** in Beiträgen mit Haarlinien und voller Breite.
+- **Lead** wird auch erkannt, wenn der Beitrag einen Block enthält (z. B. die Slider-Galerie). Bestehende
+  Beiträge sind unverändert (400 geprüft).
+- **Lieferanten-Logos** werden nie mehr beschnitten, auch nicht auf der Detailseite.
+
+### Design und Bedienung
+
+- **Dunkler Modus:** folgt der Geräteeinstellung, Schalter (Mond/Sonne) im Header. Auf das Lesen abgestimmt:
+  Anthrazit statt Schwarz, Off-White statt Weiss, Fliesstext etwas weicher, Fotos im Artikel leicht gedämpft.
+  Alle Farben WCAG AA.
+- **Pagination** neu gestaltet: Haarlinie, Zahlenfelder, aktuelle Seite mit Magenta-Unterstrich, Vorherige links,
+  Nächste rechts.
+- **Mobile:** Header in einer Zeile (Logo, Darkmode, Konto, Menü) mit Suche darunter; Menü als
+  Inhaltsverzeichnis statt zentrierter Liste; alle Tippflächen mindestens 44 px; ganze Listenzeilen antippbar;
+  Filter-Reiter wischbar. Geprüft auf 12 Seitentypen und 9 Breiten (320 bis 1440 px).
+
+### Zweisprachigkeit
+
+- **Feste Texte auf Französisch:** Sektionstitel, Abo-Band, Footer, Buttons, Archiv-Einleitungen,
+  „Läuft gerade“, Pagination usw. (`languages/fr_FR.po`, 131 Texte). Links aus Header und Footer führen auf
+  die französische Seite, sobald sie veröffentlicht ist.
+- Die Texte der Vorlagen bleiben im Website-Editor deutsch und bearbeitbar; geänderte Formulierungen
+  müssen in `inc/i18n.php` und `languages/fr_FR.po` nachgetragen werden.
+
+### Backend
+
+- **Handbuch** (eigener Menüpunkt, Kasten auf dem Dashboard): Startseite, Beiträge, Musterbeitrag, Bilder,
+  Rubriken, Autor:innen, Werbung, Sprachen, Einstellungen – mit „Wo“-Hinweisen und dem aktuellen Stand.
+- **Werbung → Anleitung:** Schema der Werbeplätze der Startseite mit Live-Stand (was läuft wo), Schritt für
+  Schritt und „Gut zu wissen“.
+- **Musterbeitrag:** privater Fachartikel mit allen Bausteinen (Lead, Zwischentitel, Listen, Zitat, Bild mit
+  Legende, Galerie, Slider, Video, Tabelle, Kleingedrucktes), jeder mit Anleitung. „Als Vorlage verwenden“
+  legt einen neuen Entwurf an. Erscheint in keiner Liste der Website.
+- **`wp goldor nachfuehren`:** führt nach dem Holen der Live-Datenbank nach, was das Theme braucht.
+
+### Gefunden, noch offen
+
+- **„auf der Homepage anzeigen“** wirkt bei Kalender und Lieferanten nicht mehr (nur noch bei Personen),
+  seit Personen & Messen umgebaut ist. Entscheiden, ob hervorgehobene Messen wieder sichtbar sein sollen.
+- **Bildlegende, Box, Anmerkungen, Lektoriert** erscheinen nicht auf der Website (auch bisher nicht) – nach
+  ihrem Inhalt Felder der Printproduktion. Im Handbuch so beschrieben.
+- **Alte Jobs- und Marktplatz-Auszüge** wiederholen Datum und Titel („21.10.2026 Schmuckexperte …“). Das Theme
+  könnte solche Auszüge übergehen.
+- **Galerien mit freigestellten Produktbildern** werden auf 4:3 zugeschnitten; ganz zeigen wäre möglich.
+- **Französische Seiten als Entwurf** (Impressum, News, „Inserat aufgeben“ bei Jobs) und **FAQ ohne
+  französische Fassung**: Links bleiben dort auf Deutsch. `wp goldor nachfuehren` listet den Stand auf.
 
 ---
 
@@ -254,11 +332,13 @@ Diese Punkte kommen nicht mit dem Theme mit oder gelten nur für die Live-Site. 
 - **„Alle Ausgaben“:** Menüpunkt, Seite „Archiv“ und Yoast-Titel des Magazin-Archivs wurden nur lokal umbenannt. Live gleich ändern, auch die französische Navigation.
 - **Startseite:** Die Auswahl für die rechte Spalte und „Von der Redaktion empfohlen“ liegt in der Datenbank und wird live neu gesetzt.
 - **FAQ:** Die Seite /faq/ gibt es nur lokal, mit Beispielinhalten. Live anlegen oder übertragen und die Antworten von Gold'Or prüfen lassen.
-- **LinkedIn:** Der Link im Footer zeigt noch auf linkedin.com. Die Adresse der Gold'Or-Seite in `parts/footer.html` eintragen.
+- ~~**LinkedIn:**~~ **(neu, 6. Nov.)** erledigt, der Link zeigt auf linkedin.com/in/gold-or-magazin-418124396/.
 - **Footer-Links:** „Über uns“ und „Werbung“ sind Entwürfe und führen deshalb ins Leere. Vor dem Go-live veröffentlichen.
 - **Demo-Seite:** „Demo: Bilder und Videos“ (/demo-medien/) gibt es nur lokal, für die Abstimmung mit Gold'Or. Nicht übertragen, nach der Entscheidung löschen.
 - **Seitenhintergrund:** Ist standardmässig an. Ein- und ausschalten unter *Einstellungen → Lesen*.
 - **Werbung:** Der Skyscraper läuft nicht mehr auf Detailseiten. Laufende Kampagnen vorher mit dem Verkauf klären.
+- **(neu, 6. Nov.) Musterbeitrag:** Im Handbuch einmal „Musterbeitrag anlegen“ klicken, oder `wp goldor nachfuehren`.
+- **(neu, 6. Nov.) Nach jedem Holen:** `wp goldor nachfuehren` ausführen, siehe `EINRICHTUNG.md`, Abschnitt 16.
 - **Website-Editor:** Gespeicherte Vorlagen liegen in der Datenbank und überschreiben ab dann die Theme-Dateien. Dauerhafte Änderungen gehören in die Datei, die Vorlage danach zurücksetzen.
 
 ---

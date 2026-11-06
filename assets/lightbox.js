@@ -2,8 +2,8 @@
  * Lightbox for images in an entry's text: every link from an image to an image
  * file opens it large in a dialog instead of leaving the page, and so does
  * every image of a gallery block, linked or not. The images of one gallery
- * form a set to page through (buttons, arrow keys, swipe); a single linked
- * image stands alone. Without JavaScript the links still open the file.
+ * form a set to page through (buttons, arrow keys, swipe); the featured image
+ * and the single linked images of the text form another. Without JavaScript the links still open the file.
  *
  * Galleries with the "Slider" style also get previous/next buttons on the
  * page itself; swiping and the scrollbar work without them.
@@ -13,7 +13,7 @@
 
 	var IMAGE_FILE = /\.(jpe?g|png|gif|webp|avif)(\?.*)?$/i;
 
-	var CONTENT = '.entry-content-full, .wp-block-post-content';
+	var CONTENT = '.entry-media, .entry-content-full, .wp-block-post-content';
 	var GALLERY = '.gallery, .wp-block-gallery';
 
 	sliders();
@@ -80,13 +80,13 @@
 	var index = 0;
 	var opener = null;
 
+	// A gallery is its own set; the entry's single pictures — the featured
+	// image and every linked image in the text — page through together.
 	function setOf( item ) {
 		var gallery = item.el.closest( GALLERY );
-		return gallery
-			? links.filter( function ( other ) {
-				return other.el.closest( GALLERY ) === gallery;
-			} )
-			: [ item ];
+		return links.filter( function ( other ) {
+			return other.el.closest( GALLERY ) === gallery;
+		} );
 	}
 
 	function captionOf( item ) {

@@ -464,7 +464,8 @@ function goldor_is_cutout_image( $attachment_id ) {
 function goldor_card_media_classes( $post_id ) {
 	$thumb_id = get_post_thumbnail_id( $post_id );
 	$classes  = 'story-card__media';
-	if ( $thumb_id && goldor_is_cutout_image( $thumb_id ) ) {
+	// A supplier's image is its logo: shown whole, never cropped to the frame.
+	if ( $thumb_id && ( goldor_is_cutout_image( $thumb_id ) || 'lieferant' === get_post_type( $post_id ) ) ) {
 		$classes .= ' is-cutout';
 	}
 	// An issue's image is its cover, so its frame keeps the cover's format.
@@ -692,12 +693,44 @@ function goldor_content_lead_and_body( $post_id = null ) {
 
 	$raw = $post->post_content;
 
-	// Block content carries its own structure; never split on blank lines there.
-	if ( false !== strpos( $raw, '<!-- wp:' ) ) {
-		return array( '', $raw );
+	if ( false === strpos( $raw, '<!-- wp:' ) ) {
+		$split = goldor_split_classic_lead( $raw );
+		return $split ? $split : array( '', $raw );
 	}
 
-	$parts = preg_split( '/\R\s*\R/', trim( $raw ), 2 );
+	// Block content: the lead is the first block — a "Klassisch" block that
+	// opens with the classic convention, or a paragraph block set in italics.
+	// The other blocks (a slider gallery, say) stay as they are.
+	$blocks = parse_blocks( $raw );
+	foreach ( $blocks as $i => $block ) {
+		if ( '' === trim( wp_strip_all_tags( $block['innerHTML'] ) ) && empty( $block['innerBlocks'] ) && null === $block['blockName'] ) {
+			continue;
+		}
+
+		$rest = serialize_blocks( array_slice( $blocks, $i + 1 ) );
+
+		if ( null === $block['blockName'] ) {
+			$split = goldor_split_classic_lead( $block['innerHTML'] );
+			if ( $split ) {
+				return array( $split[0], $split[1] . "\n\n" . $rest );
+			}
+		} elseif ( 'core/paragraph' === $block['blockName'] && goldor_is_italic_lead( $block['innerHTML'] ) ) {
+			return array( trim( $block['innerHTML'] ), $rest );
+		}
+
+		break;
+	}
+
+	return array( '', $raw );
+}
+
+/**
+ * The classic convention: the text up to the first blank line, if it holds
+ * an <em>/<i> and is at most 400 characters long. Returns array( lead, body )
+ * or null.
+ */
+function goldor_split_classic_lead( $html ) {
+	$parts = preg_split( '/\R\s*\R/', trim( $html ), 2 );
 	$lead  = isset( $parts[0] ) ? trim( $parts[0] ) : '';
 	$body  = isset( $parts[1] ) ? $parts[1] : '';
 
@@ -705,7 +738,21 @@ function goldor_content_lead_and_body( $post_id = null ) {
 		&& preg_match( '/<(em|i)[\s>]/i', $lead )
 		&& mb_strlen( wp_strip_all_tags( $lead ) ) <= 400;
 
-	return $is_lead ? array( $lead, $body ) : array( '', $raw );
+	return $is_lead ? array( $lead, $body ) : null;
+}
+
+/**
+ * A paragraph block counts as the lead when it is short and set (almost)
+ * entirely in italics — not merely because one word in it is.
+ */
+function goldor_is_italic_lead( $html ) {
+	$text = trim( wp_strip_all_tags( $html ) );
+	if ( '' === $text || mb_strlen( $text ) > 400 ) {
+		return false;
+	}
+	preg_match_all( '#<(em|i)\b[^>]*>(.*?)</\1>#is', $html, $m );
+	$italic = mb_strlen( trim( wp_strip_all_tags( implode( '', $m[2] ) ) ) );
+	return $italic >= 0.8 * mb_strlen( $text );
 }
 
 /**

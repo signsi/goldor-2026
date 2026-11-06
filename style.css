@@ -3663,6 +3663,7 @@ ul.wp-block-post-template.entry-list {
 
 /* Rate cards and other content tables, still carrying TinyMCE's inline pixel
    widths — those have to lose, or the table ignores the measure. */
+.entry-content-full table,
 .wp-block-post-content table {
 	width: 100% !important;
 	height: auto !important;
@@ -3675,14 +3676,18 @@ ul.wp-block-post-template.entry-list {
 	font-variant-numeric: tabular-nums;
 }
 
+.entry-content-full table.aligncenter,
 .wp-block-post-content table.aligncenter {
 	display: table;
 }
 
+.entry-content-full tr,
 .wp-block-post-content tr {
 	height: auto !important;
 }
 
+.entry-content-full th,
+.entry-content-full td,
 .wp-block-post-content th,
 .wp-block-post-content td {
 	width: auto !important;
@@ -3693,6 +3698,8 @@ ul.wp-block-post-template.entry-list {
 	vertical-align: top;
 }
 
+.entry-content-full th:last-child,
+.entry-content-full td:last-child,
 .wp-block-post-content th:last-child,
 .wp-block-post-content td:last-child {
 	padding-right: 0;
@@ -4394,5 +4401,510 @@ a.no-link {
 
 	.magazine-epaper__body {
 		grid-column: auto;
+	}
+}
+
+/*--------------------------------------------------------------
+# Touch and small screens
+--------------------------------------------------------------*/
+
+/*
+ * Phone header: one row with the logo and every control (dark mode, account,
+ * menu), the search across the full width beneath it. The menu button sits in
+ * the first row instead of alone on a second one.
+ */
+@media (max-width: 599px) {
+	.site-header__bar {
+		grid-template-columns: minmax(0, 1fr) auto;
+		grid-template-areas:
+			"brand end"
+			"search search";
+		gap: 10px 12px;
+		padding-bottom: 12px;
+	}
+
+	.site-header__brand {
+		grid-area: brand;
+	}
+
+	.site-header__end {
+		grid-area: end;
+		gap: 4px;
+		/* Room for the menu button, which lives in the nav group. */
+		margin-right: 48px;
+	}
+
+	.site-header__start {
+		grid-area: search;
+		justify-self: stretch;
+	}
+
+	.site-header .site-search.wp-block-search {
+		width: 100%;
+		max-width: none;
+	}
+
+	.site-header__nav,
+	.site-header.shrink .site-header__nav {
+		position: absolute;
+		top: clamp(14px, 1.6vw, 20px);
+		right: var(--gd-gutter);
+		padding: 0;
+	}
+
+	.site-header.shrink .site-header__nav {
+		top: 8px;
+	}
+
+	.site-header .wp-block-navigation__responsive-container-open {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+		margin-right: -10px;
+		color: var(--gd-ink);
+	}
+
+	.site-header .theme-toggle {
+		width: 44px;
+		height: 44px;
+	}
+
+	.site-header__end .account-link__item {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 44px;
+		height: 44px;
+	}
+}
+
+/*
+ * The opened phone menu: the page's own stock, left-aligned like the rest of
+ * the site, sections set as Arvo headings over hairlines and their pages as a
+ * plain list beneath — the table of contents of the paper, not a centred
+ * stack of words.
+ */
+.site-header .main-navigation .wp-block-navigation__responsive-container.is-menu-open {
+	padding: 0 var(--gd-gutter) 40px;
+	background: var(--gd-base);
+	color: var(--gd-ink);
+	--navigation-layout-justification-setting: flex-start;
+	--navigation-layout-justify: flex-start;
+	--navigation-layout-align: stretch;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__responsive-close {
+	max-width: var(--gd-content);
+	margin-inline: auto;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__responsive-dialog {
+	margin-top: 0;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__responsive-container-close {
+	top: 10px;
+	right: -10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	height: 44px;
+	color: var(--gd-ink);
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__responsive-container-content {
+	align-items: stretch;
+	padding-top: 72px;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__container {
+	flex-direction: column;
+	align-items: stretch;
+	gap: 0;
+	width: 100%;
+	border-top: 2px solid var(--gd-ink);
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__container > .wp-block-navigation-item {
+	align-items: stretch;
+	width: 100%;
+	padding: 0;
+	border-bottom: 1px solid var(--gd-line);
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__container > .wp-block-navigation-item > .wp-block-navigation-item__content {
+	display: block;
+	padding: 18px 0 10px;
+	border-bottom: 0;
+	font-family: var(--gd-heading);
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1.2;
+	color: var(--gd-ink);
+}
+
+/* A section without sub-pages ("Kontakt") is a row of its own. */
+.site-header .main-navigation .is-menu-open .wp-block-navigation__container > .wp-block-navigation-item:not(.has-child) > .wp-block-navigation-item__content {
+	padding-bottom: 18px;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__submenu-container {
+	gap: 0;
+	padding: 0 0 12px !important;
+	border: 0;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	display: block;
+	padding: 11px 0;
+	font-family: var(--gd-ui);
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.3;
+	color: var(--gd-ink);
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation-item__content:hover,
+.site-header .main-navigation .is-menu-open .current-menu-item > .wp-block-navigation-item__content {
+	color: var(--gd-primary-dark);
+	text-decoration: none;
+}
+
+/* The service shortcuts close the menu as a quieter group. */
+.main-navigation .is-menu-open .service-nav-item:first-of-type {
+	margin-top: 0;
+	padding-top: 12px;
+	border-top: 0;
+}
+
+.main-navigation .is-menu-open .service-nav-item > .wp-block-navigation-item__content {
+	font-family: var(--gd-ui) !important;
+	font-size: 1rem !important;
+	font-weight: 500 !important;
+	padding: 12px 0 !important;
+}
+
+/* Category tabs on a phone: one line that scrolls sideways, instead of a
+   last tab wrapping onto a row of its own. */
+@media (max-width: 599px) {
+	ul.taxonomy-filter-links {
+		flex-wrap: nowrap;
+		overflow-x: auto;
+		scrollbar-width: none;
+		-webkit-overflow-scrolling: touch;
+		margin-inline: calc(-1 * var(--gd-gutter));
+		padding-inline: var(--gd-gutter);
+	}
+
+	ul.taxonomy-filter-links::-webkit-scrollbar {
+		display: none;
+	}
+
+	ul.taxonomy-filter-links li {
+		flex: none;
+	}
+
+	ul.taxonomy-filter-links li a {
+		padding-block: 14px;
+	}
+}
+
+/*
+ * A row in a list is one target: the title's link covers the whole row, so a
+ * thumb does not have to hit a 20px line of type. Other links in the row stay
+ * on top of it.
+ */
+.entry-list__item,
+.related-posts__item,
+.event-row,
+.listing-table tbody tr {
+	position: relative;
+}
+
+.entry-list__item .entry-list__title::after,
+.related-posts__heading a::after,
+.event-row__title a::after,
+.listing-table__title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+
+.entry-list__item a:not(.entry-list__title),
+.related-posts__item a:not(.related-posts__media):not(.related-posts__heading a),
+.event-row a:not(.event-row__title a) {
+	position: relative;
+	z-index: 1;
+}
+
+/*
+ * Text links outside running text get a 44px tall hit area on touch screens,
+ * drawn as an invisible pad so the layout does not move.
+ */
+@media (pointer: coarse) {
+	.section-head__link,
+	.list-more,
+	.site-footer__nav .wp-block-navigation-item__content,
+	.site-footer__legal-links a,
+	.entry-byline__author,
+	.entry-action,
+	.wp-block-query-pagination-previous,
+	.wp-block-query-pagination-next,
+	.site-header .main-navigation .wp-block-navigation-submenu__toggle {
+		position: relative;
+	}
+
+	.section-head__link::before,
+	.list-more::before,
+	.site-footer__nav .wp-block-navigation-item__content::before,
+	.site-footer__legal-links a::before,
+	.entry-byline__author::before,
+	.entry-action::before,
+	.site-header .main-navigation .wp-block-navigation-submenu__toggle::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: max(100%, 44px);
+		height: 44px;
+		transform: translate(-50%, -50%);
+	}
+
+	.site-footer__legal-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+	}
+}
+
+/* Forms on a phone: fields and buttons a thumb can hit, and 16px type so
+   iOS does not zoom into the field. */
+@media (max-width: 599px) {
+	.event-filter input,
+	.event-filter select,
+	.event-filter button,
+	.event-filter .goldor-button,
+	.form-filter input,
+	.form-filter select,
+	.form-filter button {
+		min-height: 44px;
+		font-size: 1rem;
+	}
+}
+
+/* A long category name wraps instead of pushing the card past the screen. */
+.story-card__category,
+a.story-card__category {
+	min-width: 0;
+	white-space: normal;
+	overflow-wrap: anywhere;
+	text-align: end;
+}
+
+/* A supplier's featured image is its logo: whole, on the reading measure,
+   never a full-bleed crop. */
+.single-lieferant .entry-media {
+	max-width: calc(var(--gd-measure) + 2 * var(--gd-gutter));
+	margin-inline: auto;
+	padding: clamp(16px, 3vw, 32px) var(--gd-gutter) 0;
+}
+
+.single-lieferant .entry-media__img {
+	aspect-ratio: auto;
+	max-height: 220px;
+	object-fit: contain;
+	object-position: left center;
+}
+
+/* Core centres each menu item in its row; in the opened menu they sit flush
+   left like their section heading. */
+.site-header .main-navigation .is-menu-open .wp-block-navigation-item {
+	align-items: stretch;
+}
+
+/* Opening the menu focuses its first link; that focus shows as a ring for
+   keyboard users, not as an underline on every touch. */
+.site-header .main-navigation .is-menu-open .wp-block-navigation-item__content {
+	text-decoration: none;
+}
+
+.site-header .main-navigation .is-menu-open .wp-block-navigation-item__content:focus-visible {
+	outline: 2px solid var(--gd-primary);
+	outline-offset: 2px;
+}
+
+/* A row of exactly three cards (News, editor picks, "further" bands) stays a
+   row on a tablet instead of breaking into two plus a lone third. */
+@media (min-width: 700px) and (max-width: 980px) {
+	.grid-container:has(> :nth-child(3):last-child) {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: var(--gd-gap);
+	}
+
+	.grid-container:has(> :nth-child(3):last-child) .story-card__title {
+		font-size: 1.1875rem;
+	}
+}
+
+/* The service bar's shortcuts on a touch tablet: same invisible 44px pad. */
+@media (pointer: coarse) {
+	.service-links a,
+	.service-bar .account-link__item {
+		position: relative;
+	}
+
+	.service-links a::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: max(100%, 44px);
+		height: 36px;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/*
+ * h5 and h6 in article text are the old site's small print, not headings:
+ * picture credits ("Titelbild: …"), series notes, "Über den Autor". Set as
+ * a note in the article's own voice — Inter, regular, under a hairline —
+ * never as a paragraph of small bold slab type.
+ */
+.entry-content-full :is(h5, h6),
+.wp-block-post-content :is(h5, h6) {
+	margin: 1.8em 0;
+	padding-top: 14px;
+	border-top: 1px solid var(--gd-line);
+	font-family: var(--gd-ui);
+	font-size: 0.9375rem;
+	font-weight: 400;
+	line-height: 1.6;
+	letter-spacing: 0;
+	color: var(--gd-muted);
+	hyphens: auto;
+	-webkit-hyphens: auto;
+}
+
+.entry-content-full :is(h5, h6) :is(strong, b),
+.wp-block-post-content :is(h5, h6) :is(strong, b) {
+	font-weight: 600;
+	color: var(--gd-ink);
+}
+
+/* Notes in a row share one rule. */
+.entry-content-full :is(h5, h6) + :is(h5, h6),
+.wp-block-post-content :is(h5, h6) + :is(h5, h6) {
+	margin-top: -0.6em;
+	padding-top: 0;
+	border-top: 0;
+}
+
+/*
+ * The detail view's featured image, in the mode inc/titelbild.php resolves.
+ * Full: edge to edge, cropped to 9:4, the editors choosing which third the
+ * crop keeps. Text: the whole picture on the reading measure, never larger
+ * than its file, a tall one capped to the screen.
+ */
+.entry-media--focus-top .entry-media__img {
+	object-position: center top;
+}
+
+.entry-media--focus-bottom .entry-media__img {
+	object-position: center bottom;
+}
+
+.entry-media--text {
+	max-width: calc(var(--gd-measure) + 2 * var(--gd-gutter));
+	margin-inline: auto;
+	padding-inline: var(--gd-gutter);
+}
+
+.entry-media--text .entry-media__link {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	margin-inline: auto;
+}
+
+.entry-media--text .entry-media__img {
+	width: auto;
+	max-width: 100%;
+	max-height: min(78vh, 760px);
+	aspect-ratio: auto;
+	object-fit: contain;
+	margin-inline: auto;
+}
+
+.entry-media--text .entry-media__caption {
+	padding-inline: 0;
+}
+
+/* It opens large: say so on hover. */
+.entry-media__link {
+	display: block;
+	cursor: zoom-in;
+}
+
+/*
+ * Classic galleries ([gallery], in some 900 entries) as a grid in their own
+ * column count, the thumbnails at an even 4:3 — instead of one 300px
+ * thumbnail after the other, blown up to the full measure. Two columns at
+ * most on a phone. A click opens the large image in the lightbox.
+ */
+.entry-content-full .gallery {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 8px;
+}
+
+.entry-content-full .gallery-columns-1 { grid-template-columns: minmax(0, 1fr); }
+.entry-content-full .gallery-columns-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.entry-content-full .gallery-columns-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.entry-content-full .gallery-columns-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.entry-content-full .gallery-columns-6,
+.entry-content-full .gallery-columns-7,
+.entry-content-full .gallery-columns-8,
+.entry-content-full .gallery-columns-9 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+
+.entry-content-full .gallery > br {
+	display: none;
+}
+
+.entry-content-full .gallery-item {
+	margin: 0;
+	min-width: 0;
+}
+
+.entry-content-full .gallery-icon a {
+	display: block;
+	cursor: zoom-in;
+}
+
+.entry-content-full .gallery-icon img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+
+.entry-content-full .gallery-columns-1 .gallery-icon img {
+	aspect-ratio: auto;
+}
+
+.entry-content-full .gallery-caption {
+	margin: 6px 0 0;
+	font-family: var(--gd-ui);
+	font-size: 0.75rem;
+	line-height: 1.45;
+	color: var(--gd-meta);
+}
+
+@media (max-width: 599px) {
+	.entry-content-full .gallery:not(.gallery-columns-1) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }

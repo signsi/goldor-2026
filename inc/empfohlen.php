@@ -110,10 +110,12 @@ function goldor_empfohlen_rewrite() {
 	}
 
 	// New rules take effect once, on the first request after a theme update.
-	$version = 'empfohlen-1';
-	if ( get_option( 'goldor_rewrite_version' ) !== $version ) {
+	// Its own option: goldor_rewrite_version belongs to inc/werbung.php, and
+	// sharing it would rebuild the rules on every request.
+	$version = '1';
+	if ( get_option( 'goldor_empfohlen_rewrite' ) !== $version ) {
 		flush_rewrite_rules( false );
-		update_option( 'goldor_rewrite_version', $version );
+		update_option( 'goldor_empfohlen_rewrite', $version, true );
 	}
 }
 add_action( 'init', 'goldor_empfohlen_rewrite', 20 );
