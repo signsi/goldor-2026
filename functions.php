@@ -62,6 +62,8 @@ require get_template_directory() . '/inc/hintergrund.php';
 require get_template_directory() . '/inc/stil-sperre.php';
 require get_template_directory() . '/inc/startseite.php';
 require get_template_directory() . '/inc/darkmode.php';
+require get_template_directory() . '/inc/i18n.php';
+require get_template_directory() . '/inc/empfohlen.php';
 
 /*
  * Assets

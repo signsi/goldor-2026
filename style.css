@@ -2801,29 +2801,131 @@ button.button-filter:hover {
 	text-decoration: none;
 }
 
-.prev-next-posts,
-.wp-block-query-pagination {
-	display: flex;
+/*
+ * Pagination: a strip under a hairline, like the filter tabs at the top of
+ * the list. Previous on the left, next on the right, the page numbers in the
+ * middle — and they stay in the middle on page 1, where "previous" is
+ * missing. The current page carries the tabs' magenta underline: one active
+ * state across the site.
+ */
+nav.wp-block-query-pagination {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+	align-items: center;
+	gap: 12px 24px;
+	margin-top: clamp(40px, 5vw, 64px);
+	padding-top: 20px;
+	border-top: 1px solid var(--gd-line);
 	font-family: var(--gd-ui);
+	font-size: 0.9375rem;
+	line-height: 1;
+}
+
+nav.wp-block-query-pagination > * {
+	margin: 0;
+}
+
+.wp-block-query-pagination-numbers {
+	grid-column: 2;
+	display: flex;
 	flex-wrap: wrap;
-	gap: 14px;
+	justify-content: center;
+	gap: 4px;
+}
+
+.wp-block-query-pagination .page-numbers {
+	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	margin-top: clamp(32px, 4vw, 48px);
-	font-size: 0.875rem;
-}
-
-.prev-next-posts a,
-.prev-next-posts span,
-.wp-block-query-pagination a,
-.wp-block-query-pagination span {
-	color: var(--gd-muted);
-}
-
-.prev-next-posts .current,
-.wp-block-query-pagination .current {
-	color: var(--gd-primary-dark);
+	min-width: 40px;
+	height: 40px;
+	padding: 2px 6px 0;
+	border-bottom: 2px solid transparent;
+	border-radius: var(--gd-radius-square);
+	color: var(--gd-ink);
 	font-weight: 500;
+	font-variant-numeric: tabular-nums;
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.wp-block-query-pagination a.page-numbers:hover {
+	background: var(--gd-sand);
+	text-decoration: none;
+}
+
+.wp-block-query-pagination .page-numbers.current {
+	border-bottom-color: var(--gd-primary);
+	font-weight: 700;
+}
+
+.wp-block-query-pagination .page-numbers.dots {
+	min-width: 24px;
+	color: var(--gd-meta);
+}
+
+.wp-block-query-pagination-previous,
+.wp-block-query-pagination-next {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 0;
+	color: var(--gd-ink);
+	font-weight: 500;
+	white-space: nowrap;
+	transition: color 0.2s ease;
+}
+
+.wp-block-query-pagination-previous {
+	grid-column: 1;
+	justify-self: start;
+}
+
+.wp-block-query-pagination-next {
+	grid-column: 3;
+	justify-self: end;
+}
+
+.wp-block-query-pagination-previous::before {
+	content: "←" / "";
+}
+
+.wp-block-query-pagination-next::after {
+	content: "→" / "";
+}
+
+.wp-block-query-pagination-previous:hover,
+.wp-block-query-pagination-next:hover {
+	color: var(--gd-primary-dark);
+	text-decoration: none;
+}
+
+/* Core prints its own arrow span when the block is set to show one. */
+.wp-block-query-pagination-previous-arrow,
+.wp-block-query-pagination-next-arrow {
+	display: none;
+}
+
+/* Phone: the numbers get the full row, previous and next share the one
+   beneath. */
+@media (max-width: 599px) {
+	nav.wp-block-query-pagination {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	}
+
+	.wp-block-query-pagination-numbers {
+		grid-column: 1 / -1;
+		grid-row: 1;
+	}
+
+	.wp-block-query-pagination-previous {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	.wp-block-query-pagination-next {
+		grid-column: 2;
+		grid-row: 2;
+	}
 }
 
 /* Questions that open on click (the "Details" block), as on the FAQ page:

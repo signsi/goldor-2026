@@ -109,19 +109,41 @@ $terms = get_terms( array( 'taxonomy' => 'kalender-kategorie', 'hide_empty' => t
 		</p>
 	<?php endif; ?>
 
-	<div class="prev-next-posts">
-		<?php
-		$big = 999999999;
-		echo paginate_links(
-			array(
-				'base'    => str_replace( $big, '%#%', esc_url( add_query_arg( 'paged', $big ) ) ),
-				'format'  => '',
-				'current' => $paged,
-				'total'   => $query->max_num_pages,
-			)
-		);
+	<?php
+	// Laid out like the core Query pagination (previous / numbers / next),
+	// so one set of styles serves both.
+	$big   = 999999999;
+	$pages = paginate_links(
+		array(
+			'base'      => str_replace( $big, '%#%', esc_url( add_query_arg( 'paged', $big ) ) ),
+			'format'    => '',
+			'current'   => $paged,
+			'total'     => $query->max_num_pages,
+			'type'      => 'array',
+			'prev_text' => __( 'Vorherige Seite', 'goldor' ),
+			'next_text' => __( 'Nächste Seite', 'goldor' ),
+		)
+	);
+	if ( $pages ) :
+		$prev    = '';
+		$next    = '';
+		$numbers = array();
+		foreach ( $pages as $item ) {
+			if ( false !== strpos( $item, 'prev page-numbers' ) ) {
+				$prev = str_replace( 'class="prev page-numbers"', 'class="wp-block-query-pagination-previous"', $item );
+			} elseif ( false !== strpos( $item, 'next page-numbers' ) ) {
+				$next = str_replace( 'class="next page-numbers"', 'class="wp-block-query-pagination-next"', $item );
+			} else {
+				$numbers[] = $item;
+			}
+		}
 		?>
-	</div>
+		<nav class="wp-block-query-pagination" aria-label="<?php esc_attr_e( 'Seitennummerierung', 'goldor' ); ?>">
+			<?php echo $prev; // phpcs:ignore WordPress.Security.EscapeOutput -- built by paginate_links(). ?>
+			<div class="wp-block-query-pagination-numbers"><?php echo implode( ' ', $numbers ); // phpcs:ignore WordPress.Security.EscapeOutput ?></div>
+			<?php echo $next; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+		</nav>
+	<?php endif; ?>
 </div>
 <?php
 wp_reset_postdata();
