@@ -212,20 +212,33 @@ Originals (`goldor_translated_page_template_hierarchy()` in `functions.php`).
 
 | Seite | Lokal | Live vermutlich | Zu tun |
 |---|---|---|---|
-| `autorinnen` (ID lokal 87664) | „Autor:innen“, veröffentlicht | fehlt | Anlegen, Slug genau `autorinnen`. Inhalt: `docs/einrichtung/inhalte/seite-autorinnen.html` |
-| `faq` (ID lokal 87711) | „FAQ“, veröffentlicht, im Footer verlinkt | fehlt | Anlegen, Slug `faq`. Inhalt: `docs/einrichtung/inhalte/seite-faq.html`. Die Antworten (z.B. Abo-Preis CHF 96, neun Ausgaben) von Gold'Or prüfen lassen |
-| `archiv` (ID 17) | Titel „Alle Ausgaben“ | Titel „Archiv“ | Titel ändern, Slug `archiv` lassen. Französische Übersetzung ebenso |
-| `ueber-uns` (ID 412) | Entwurf | Entwurf | Veröffentlichen, sonst führt der Footer-Link ins Leere |
-| `werbeformate-und-preise` (ID 686) | Entwurf „Werbung“ | Entwurf | Veröffentlichen, sonst führt der Footer-Link ins Leere |
+| `autorinnen` (ID lokal 88259) | „Autor:innen“, veröffentlicht | fehlt | Anlegen, Slug genau `autorinnen`. Inhalt: `docs/einrichtung/inhalte/seite-autorinnen.html` |
+| `faq` (ID lokal 88258) | „FAQ“, veröffentlicht, im Footer verlinkt | fehlt | Anlegen, Slug `faq`. Inhalt: `docs/einrichtung/inhalte/seite-faq.html`. Die Antworten (z.B. Abo-Preis CHF 96, neun Ausgaben) von Gold'Or prüfen lassen |
+| `fr/faq` (ID lokal 88261) | französische FAQ, WPML-Übersetzung von `faq` | fehlt | Nach der deutschen FAQ anlegen und mit ihr verknüpfen (Befehl unten). Inhalt: `docs/einrichtung/inhalte/seite-faq-fr.html`. Verlinkt auf deutsche Seiten, wo die französische nur Entwurf ist (Archiv, Jobs, Marktplatz-Tarife). Übersetzung von der Rédaction romande prüfen lassen |
+| `fr/impressum` (ID 705) | aktueller Stand der deutschen Fassung, veröffentlicht | Entwurf mit altem Team (Bellandi, Wanzenried, Eschmann), Auflage 2500, halb deutsch | Inhalt ersetzen, veröffentlichen. Inhalt: `docs/einrichtung/inhalte/seite-impressum-fr.html`. Von Gold'Or prüfen lassen |
+| `archiv` (ID 17) | Titel „Alle Ausgaben“ | Titel „Archiv“ | Titel ändern, Slug `archiv` lassen. Französische Übersetzung ebenso. Adresse ist `/magazin/archiv/` |
+| `ueber-uns` (ID 412) | veröffentlicht | veröffentlicht (Stand 10.11.2026) | nichts |
+| `werbeformate-und-preise` (ID 686) | veröffentlicht „Werbung“ | veröffentlicht (Stand 10.11.2026) | nichts |
+
+Fehler in der deutschen Impressum-Seite 414 (Live-Inhalt, von der Redaktion zu korrigieren): Der Link bei
+Carina Andres hat kein `mailto:`, der Link bei Ella Bartulovic zeigt auf `nsieber@goldor.ch`.
+
+Die Seiten 414 und 705 (und rund 30 weitere) tragen noch die Vorlage `template-text.php` des alten Themes.
+Mit `goldor-2026` aktiv lehnt `wp post update` das Speichern deshalb ab („Das Seiten-Template ist ungültig“).
+Auf Live, solange `original` aktiv ist, geht der Befehl unten. Lokal: Inhalt per `$wpdb` schreiben (siehe 16.2).
 | `demo-medien` (ID lokal 87709) | „Demo: Bilder und Videos“ | fehlt | **Nicht** neu anlegen. War nur für die Abstimmung mit Gold'Or |
 
 Per WP-CLI:
 ```bash
 D=wp-content/themes/goldor-2026/docs/einrichtung/inhalte
 wp post create $D/seite-autorinnen.html --post_type=page --post_status=publish --post_title='Autor:innen' --post_name=autorinnen
-wp post create $D/seite-faq.html        --post_type=page --post_status=publish --post_title='FAQ'         --post_name=faq
+FAQ=$(wp post create $D/seite-faq.html --post_type=page --post_status=publish --post_title='FAQ' --post_name=faq --porcelain)
+FR=$(wp post create $D/seite-faq-fr.html --post_type=page --post_status=publish --post_title='FAQ' --post_name=faq --porcelain)
+wp eval "\$t=apply_filters('wpml_element_trid',null,$FAQ,'post_page');
+  do_action('wpml_set_element_language_details',['element_id'=>$FR,'element_type'=>'post_page','trid'=>\$t,'language_code'=>'fr','source_language_code'=>'de']);
+  wp_update_post(['ID'=>$FR,'post_name'=>'faq']);"
+wp post update 705 $D/seite-impressum-fr.html --post_status=publish   # französisches Impressum
 wp post update 17 --post_title='Alle Ausgaben'
-wp post update 412 686 --post_status=publish   # erst nach Freigabe der Inhalte
 ```
 
 ---
@@ -489,6 +502,9 @@ Stand 6. November 2026. Alles andere aus dieser Runde liegt in den Theme-Dateien
 | Musterbeitrag #87714 und Option `goldor_musterbeitrag_id` | für Handbuch und Vorlage | `wp goldor nachfuehren` (die neue ID weicht ab, das ist egal) |
 | Meta `goldor_empfohlen_am` auf den drei Empfehlungen | Übersicht „Alle Empfehlungen“ | `wp goldor nachfuehren` |
 | Optionen `goldor_empfohlen_rewrite`, `rewrite_rules` | Adressen `/empfohlen/` | automatisch |
+| Seiten `faq` (DE + FR, verknüpft), `autorinnen`, Titel „Alle Ausgaben“ auf Seite 17 (10.11.2026) | fehlen live | Befehle in 6.2 |
+| Seite 705 (französisches Impressum) neuer Inhalt, veröffentlicht (10.11.2026) | live Entwurf, veraltet | lokal wegen der alten Vorlage nicht per `wp post update`, sondern: `wp eval '$c=file_get_contents(get_stylesheet_directory()."/docs/einrichtung/inhalte/seite-impressum-fr.html"); global $wpdb; $wpdb->update($wpdb->posts,["post_content"=>$c,"post_status"=>"publish"],["ID"=>705]); clean_post_cache(705);'` |
+| Aktives Theme | live `original` | `wp theme activate goldor-2026` (siehe 3), vor `wp goldor nachfuehren` |
 
 **Nichts davon muss nach Live gesendet werden.** Live richtet das Theme dasselbe selbst ein, sobald es dort
 aktiv ist; den Musterbeitrag legt die Redaktion im Handbuch an.

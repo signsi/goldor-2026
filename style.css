@@ -2778,12 +2778,44 @@ select:focus {
 .form-filter {
 	display: flex;
 	flex-wrap: wrap;
+	align-items: stretch;
 	gap: 12px;
 	margin: 0 0 clamp(24px, 3vw, 34px);
 }
 
+/* Date, select and both buttons share one height. Safari otherwise draws the
+   date and select fields with its own height and rounded corners, and the
+   stretched "Alle Termine" link keeps its label at the top. */
+.form-filter .input-filter,
+.form-filter .select-filter,
+.form-filter .button-filter {
+	box-sizing: border-box;
+	min-height: 2.75rem;
+	margin: 0;
+}
+
+.form-filter .input-filter,
+.form-filter .select-filter {
+	-webkit-appearance: none;
+	appearance: none;
+	line-height: 1.2;
+}
+
+.form-filter .input-filter::-webkit-date-and-time-value {
+	text-align: left;
+}
+
+/* Same thin chevron as the Ninja Forms selects; the mid grey reads on the
+   light and the dark page. */
+.form-filter .select-filter {
+	padding-right: 2.6rem;
+	background: var(--gd-base) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23686e74' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right 0.9rem center;
+}
+
 .button-filter {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	font-family: var(--gd-ui);
 	font-weight: 500;
 	background: transparent;
